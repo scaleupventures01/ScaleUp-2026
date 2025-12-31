@@ -1,0 +1,2541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persona Research Report | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f1729;
+            --navy-light: #1a2744;
+            --slate: #334155;
+            --slate-light: #64748b;
+            --gold: #d4a853;
+            --gold-muted: #b8956e;
+            --cream: #faf8f5;
+            --cream-dark: #f1ede6;
+            --white: #ffffff;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --info: #0284c7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--navy);
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .nav-header {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .nav-subtitle {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 0.25rem;
+        }
+
+        .nav-section { margin-bottom: 1.5rem; }
+
+        .nav-section-title {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--slate-light);
+            padding: 0 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+            border-left-color: var(--gold);
+        }
+
+        .main {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 5rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a853' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+        }
+
+        .hero-meta-item {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+        }
+
+        .hero-meta-item strong {
+            color: var(--white);
+            display: block;
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .content {
+            padding: 4rem;
+            max-width: 1000px;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-header { margin-bottom: 2rem; }
+
+        .section-number {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: 0.5rem;
+        }
+
+        /* Validation Result Box */
+        .validation-box {
+            background: linear-gradient(135deg, var(--success) 0%, #047857 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .validation-box.warning {
+            background: linear-gradient(135deg, var(--warning) 0%, #b45309 100%);
+        }
+
+        .validation-box.danger {
+            background: linear-gradient(135deg, var(--danger) 0%, #b91c1c 100%);
+        }
+
+        .validation-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .validation-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .validation-text {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .summary-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .summary-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .summary-value.success { color: var(--success); }
+        .summary-value.gold { color: var(--gold); }
+
+        .summary-label {
+            font-size: 0.75rem;
+            color: var(--slate-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+
+        /* Persona Cards */
+        .persona-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--gold);
+        }
+
+        .persona-card.priority-high { border-left-color: var(--success); }
+        .persona-card.priority-medium { border-left-color: var(--warning); }
+
+        .persona-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .persona-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .persona-tagline {
+            color: var(--slate);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+            max-width: 500px;
+        }
+
+        .persona-priority {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.375rem 0.75rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .persona-priority.high {
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--success);
+        }
+
+        .persona-priority.medium {
+            background: rgba(217, 119, 6, 0.1);
+            color: var(--warning);
+        }
+
+        .persona-quote {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: var(--slate);
+            border-left: 3px solid var(--gold);
+        }
+
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .persona-section-title {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .persona-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .persona-list li {
+            padding: 0.375rem 0;
+            font-size: 0.9rem;
+            color: var(--slate);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .persona-list li strong {
+            color: var(--navy);
+            min-width: 120px;
+        }
+
+        /* Pain Points Table */
+        .pain-table {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .pain-table th {
+            text-align: left;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--slate-light);
+            padding: 0.5rem;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .pain-table td {
+            padding: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--slate);
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .severity-bar {
+            height: 8px;
+            background: var(--cream-dark);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .severity-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: var(--danger);
+        }
+
+        /* Market Size */
+        .market-size-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .market-card {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .market-label {
+            font-size: 0.7rem;
+            color: var(--slate-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .market-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: 0.25rem;
+        }
+
+        /* Evidence Section */
+        .evidence-box {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .evidence-item {
+            font-size: 0.875rem;
+            color: var(--slate);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .evidence-item:last-child { border-bottom: none; }
+
+        .evidence-source {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Devil's Advocate Section */
+        .devils-advocate {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .devils-advocate-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            color: var(--danger);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hypothesis-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--cream-dark);
+        }
+
+        .hypothesis-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .hypothesis-title {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .hypothesis-verdict {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .hypothesis-verdict.validated {
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--success);
+        }
+
+        .hypothesis-verdict.partial {
+            background: rgba(217, 119, 6, 0.1);
+            color: var(--warning);
+        }
+
+        .hypothesis-verdict.invalid {
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--danger);
+        }
+
+        .hypothesis-content {
+            color: var(--slate);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .hypothesis-content strong { color: var(--navy); }
+
+        /* Anti-Persona Cards */
+        .anti-persona-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .anti-persona-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #fecaca;
+        }
+
+        .anti-persona-name {
+            font-weight: 600;
+            color: var(--danger);
+            margin-bottom: 0.5rem;
+        }
+
+        .anti-persona-desc {
+            font-size: 0.875rem;
+            color: var(--slate);
+            margin-bottom: 0.75rem;
+        }
+
+        .red-flags {
+            list-style: none;
+            padding: 0;
+        }
+
+        .red-flags li {
+            font-size: 0.8rem;
+            color: var(--slate);
+            padding: 0.25rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .red-flags li::before {
+            content: '!';
+            width: 16px;
+            height: 16px;
+            background: var(--danger);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.65rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Acquisition Channels */
+        .channel-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .channel-table th {
+            text-align: left;
+            padding: 0.75rem;
+            background: var(--cream);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--navy);
+        }
+
+        .channel-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--cream-dark);
+            font-size: 0.875rem;
+            color: var(--slate);
+        }
+
+        .priority-high-badge {
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--success);
+            font-size: 0.7rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .priority-medium-badge {
+            background: rgba(217, 119, 6, 0.1);
+            color: var(--warning);
+            font-size: 0.7rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .priority-low-badge {
+            background: rgba(100, 116, 139, 0.1);
+            color: var(--slate-light);
+            font-size: 0.7rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Funnel Recommendation */
+        .funnel-box {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .funnel-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .funnel-steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .funnel-step {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            color: white;
+        }
+
+        .funnel-step-number {
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .funnel-step-title {
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .funnel-arrow {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        /* Budget Table */
+        .budget-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .budget-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 1.25rem;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .budget-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .budget-label {
+            font-size: 0.75rem;
+            color: var(--slate-light);
+            margin-top: 0.25rem;
+        }
+
+        /* Recommendations */
+        .rec-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .rec-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gold);
+        }
+
+        .rec-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .rec-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            border-radius: 50%;
+            transform: translateX(-5px);
+        }
+
+        .rec-timing {
+            font-size: 0.75rem;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .rec-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin: 0.25rem 0;
+        }
+
+        .rec-detail {
+            font-size: 0.9rem;
+            color: var(--slate);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            padding: 2rem 4rem;
+            margin-top: 4rem;
+        }
+
+        .footer-text {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        @media (max-width: 1024px) {
+            .nav { width: 240px; }
+            .main { margin-left: 240px; }
+            .hero { padding: 3rem 2rem; }
+            .hero-title { font-size: 2.5rem; }
+            .content { padding: 2rem; }
+            .summary-grid { grid-template-columns: repeat(2, 1fr); }
+            .persona-grid { grid-template-columns: 1fr; }
+            .anti-persona-grid { grid-template-columns: 1fr; }
+            .budget-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .main { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-logo">ScaleUp Ventures</div>
+            <div class="nav-subtitle">Persona Research</div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Overview</div>
+            <a href="#summary" class="nav-link">Executive Summary</a>
+            <a href="#roi-validation" class="nav-link">ROI Positioning Validation</a>
+            <a href="#hypotheses" class="nav-link">Hypothesis Testing</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Industry Research</div>
+            <a href="#industry-rankings" class="nav-link">40-Industry Rankings</a>
+            <a href="master-industry-ranking.html" class="nav-link" style="color: var(--gold);">→ Full Ranking Details</a>
+            <a href="persona-similarity-analysis.html" class="nav-link" style="color: var(--gold);">→ Landing Page Similarity</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Validated Personas</div>
+            <a href="#persona-staffing" class="nav-link">1. Staffing Agencies (67/80)</a>
+            <a href="#persona-veterinary" class="nav-link">2. Veterinary Practices (65/80)</a>
+            <a href="#persona-pest-control" class="nav-link">3. Pest Control (64/80)</a>
+            <a href="#persona-trades" class="nav-link">4. Trades Super-Cluster (63/80)</a>
+            <a href="#persona1" class="nav-link">5. Professional Services (62/80)</a>
+            <a href="#persona2" class="nav-link">6. Insurance Agencies (62/80)</a>
+            <a href="#persona4" class="nav-link">7. New Legal (58/80)</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Analysis</div>
+            <a href="#anti-personas" class="nav-link">Anti-Personas</a>
+            <a href="#market-sizing" class="nav-link">Market Sizing</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Strategy</div>
+            <a href="#funnel" class="nav-link">Service Funnel</a>
+            <a href="#channels" class="nav-link">Acquisition Channels</a>
+            <a href="#recommendations" class="nav-link">Recommendations</a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <header class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">Market Research</div>
+                <h1 class="hero-title">Persona Research Report</h1>
+                <p class="hero-subtitle">Evidence-based personas for ScaleUp Ventures consulting services with market validation and acquisition strategies.</p>
+                <div class="hero-meta">
+                    <div class="hero-meta-item">
+                        <strong>December 31, 2025</strong>
+                        Research Date
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>40 Industries</strong>
+                        Researched
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>13 Studies</strong>
+                        Positioning Validation
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>7 Validated</strong>
+                        Priority Personas
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>HIGH (80%+)</strong>
+                        Confidence Level
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- Executive Summary -->
+            <section id="summary" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 01</div>
+                    <h2 class="section-title">Executive Summary</h2>
+                </div>
+
+                <div class="validation-box">
+                    <div class="validation-label">Market Validation Result</div>
+                    <div class="validation-title">PASSED - Comprehensive 40-Industry Research Complete</div>
+                    <div class="validation-text">
+                        Exhaustive research across <strong>40 industries</strong> confirms massive opportunity in <strong>technology laggard industries</strong> -
+                        business owners aged 50+ who genuinely cannot modernize themselves. <strong>Staffing Agencies scored highest (67/80)</strong>,
+                        followed by <strong>Veterinary Practices (65/80)</strong> and <strong>Pest Control (64/80)</strong>. The <strong>Trades Super-Cluster (Plumbing, Electrical, HVAC, Roofing)</strong> represents the largest combined opportunity at 63/80 each.
+                        All top-scoring industries share: older owners, strong budgets, intense disruption fear, and perfect fit for ScaleUp services.
+                    </div>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="summary-value success">40</div>
+                        <div class="summary-label">Industries Researched</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value gold">67/80</div>
+                        <div class="summary-label">Top Score (Staffing)</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value">12</div>
+                        <div class="summary-label">Industries at 63+</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value">1,600+</div>
+                        <div class="summary-label">Data Points</div>
+                    </div>
+                </div>
+
+                <div style="background: var(--cream); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
+                    <h4 style="color: var(--navy); margin-bottom: 1rem;">Key Finding</h4>
+                    <p style="color: var(--slate); line-height: 1.7;">
+                        <strong>Your ROI-focused positioning is validated and differentiated.</strong> "We build a model showing how you make
+                        your money back before you spend a dollar" is genuinely rare. Most agencies sell deliverables, not outcomes.
+                        This resonates strongly with all validated personas who have been burned by agencies before.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ROI Positioning Validation -->
+            <section id="roi-validation" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 01b</div>
+                    <h2 class="section-title">ROI Positioning Validation</h2>
+                </div>
+
+                <div class="validation-box">
+                    <div class="validation-label">Positioning Claim Validated</div>
+                    <div class="validation-title">CONFIRMED DIFFERENTIATED - Pre-Engagement ROI Modeling is Genuinely Rare</div>
+                    <div class="validation-text">
+                        Comprehensive research across 13 validation studies confirms: "We build a model showing how you make your money back
+                        before you spend a dollar" is found in <strong>&lt;5% of agencies</strong>. The differentiation lies not in claiming
+                        "ROI-focused" (everyone says that), but in actually providing <strong>pre-engagement ROI models with accountability</strong>.
+                    </div>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="summary-value success">&lt;5%</div>
+                        <div class="summary-label">Offer Pre-Engagement ROI Models</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value gold">6.2%</div>
+                        <div class="summary-label">Use Performance-Based Pricing</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value">81%</div>
+                        <div class="summary-label">Struggle to Prove ROI</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value">40%</div>
+                        <div class="summary-label">SMB Agency Churn Rate</div>
+                    </div>
+                </div>
+
+                <h4 style="font-family: 'Crimson Pro', serif; color: var(--navy); margin: 2rem 0 1rem;">Validation Research Summary (13 Studies)</h4>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--success);">
+                        <div style="font-size: 0.75rem; color: var(--success); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 1rem;">RARITY CONFIRMED</div>
+                        <table style="width: 100%; font-size: 0.875rem;">
+                            <tr><td style="padding: 0.35rem 0;"><strong>Web Dev Agencies:</strong></td><td style="text-align: right; color: var(--success);">&lt;5% offer ROI models</td></tr>
+                            <tr><td style="padding: 0.35rem 0;"><strong>Marketing Agencies:</strong></td><td style="text-align: right; color: var(--success);">1-5% performance-based</td></tr>
+                            <tr><td style="padding: 0.35rem 0;"><strong>SMB Consulting:</strong></td><td style="text-align: right; color: var(--success);">0 firms found offering this</td></tr>
+                            <tr><td style="padding: 0.35rem 0;"><strong>ROI Guarantees:</strong></td><td style="text-align: right; color: var(--success);">&lt;10% offer any guarantee</td></tr>
+                            <tr><td style="padding: 0.35rem 0;"><strong>Industry Standard:</strong></td><td style="text-align: right; color: var(--navy);">70%+ deliverables-based</td></tr>
+                        </table>
+                    </div>
+
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--danger);">
+                        <div style="font-size: 0.75rem; color: var(--danger); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 1rem;">CLIENT PAIN POINTS</div>
+                        <table style="width: 100%; font-size: 0.875rem;">
+                            <tr><td style="padding: 0.35rem 0;"><strong>Agency Dissatisfaction:</strong></td><td style="text-align: right; color: var(--danger);">48% leave due to delivery</td></tr>
+                            <tr><td style="padding: 0.35rem 0;"><strong>Burned by Agencies:</strong></td><td style="text-align: right; color: var(--danger);">~50% report being burned</td></tr>
+                            <tr><td style="padding: 0.35rem 0;"><strong>Projects Over Budget:</strong></td><td style="text-align: right; color: var(--danger);">40% exceed budget</td></tr>
+                            <tr><td style="padding: 0.35rem 0;"><strong>Scope Creep Issues:</strong></td><td style="text-align: right; color: var(--danger);">~50% of projects affected</td></tr>
+                            <tr><td style="padding: 0.35rem 0;"><strong>Trust Tech Consultants:</strong></td><td style="text-align: right; color: var(--warning);">Only 4% trust sales reps</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--gold);">
+                        <div style="font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 1rem;">TRUST PATTERNS</div>
+                        <table style="width: 100%; font-size: 0.875rem;">
+                            <tr><td style="padding: 0.35rem 0;"><strong>Peer Influence:</strong></td><td style="text-align: right; color: var(--navy);">91% by word-of-mouth</td></tr>
+                            <tr><td style="padding: 0.35rem 0;"><strong>Case Studies:</strong></td><td style="text-align: right; color: var(--navy);">97% say most reliable</td></tr>
+                            <tr><td style="padding: 0.35rem 0;"><strong>Want Transparency:</strong></td><td style="text-align: right; color: var(--navy);">83% prefer clear pricing</td></tr>
+                            <tr><td style="padding: 0.35rem 0;"><strong>Abandon on Hidden Fees:</strong></td><td style="text-align: right; color: var(--navy);">61% abandon purchases</td></tr>
+                            <tr><td style="padding: 0.35rem 0;"><strong>Top Priority:</strong></td><td style="text-align: right; color: var(--navy);">Value for Money (#1)</td></tr>
+                        </table>
+                    </div>
+
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--info);">
+                        <div style="font-size: 0.75rem; color: var(--info); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 1rem;">TECH LAGGARD INSIGHTS</div>
+                        <table style="width: 100%; font-size: 0.875rem;">
+                            <tr><td style="padding: 0.35rem 0;"><strong>Tech Purchase Regret:</strong></td><td style="text-align: right; color: var(--navy);">60% regret in 12-18 mo</td></tr>
+                            <tr><td style="padding: 0.35rem 0;"><strong>Digital Transform Fail:</strong></td><td style="text-align: right; color: var(--navy);">70-88% fail rate</td></tr>
+                            <tr><td style="padding: 0.35rem 0;"><strong>Value Trust Over Cost:</strong></td><td style="text-align: right; color: var(--navy);">80% of SME leaders</td></tr>
+                            <tr><td style="padding: 0.35rem 0;"><strong>Use Tech Consultants:</strong></td><td style="text-align: right; color: var(--navy);">44% of SMBs</td></tr>
+                            <tr><td style="padding: 0.35rem 0;"><strong>Industry Expertise:</strong></td><td style="text-align: right; color: var(--navy);">15% higher retention</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="devils-advocate" style="background: #f0fdf4; border-color: #bbf7d0;">
+                    <div class="devils-advocate-title" style="color: var(--success);">
+                        <span>Critical Nuance: Claim vs. Capability</span>
+                    </div>
+                    <div style="color: var(--slate); line-height: 1.7;">
+                        <p><strong>Important distinction:</strong> "ROI-focused" as a <em>claim</em> is overused - nearly every agency says it. The differentiation is in the <em>capability</em>:</p>
+                        <ul style="margin: 1rem 0 0 1.5rem;">
+                            <li><strong>What everyone claims:</strong> "We're ROI-focused" (cliché, meaningless)</li>
+                            <li><strong>What &lt;5% actually do:</strong> Build pre-engagement ROI models using client's real data</li>
+                            <li><strong>What &lt;10% offer:</strong> Any form of accountability or guarantee tied to projections</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>Your differentiation lever:</strong> Lean into the <em>mechanism</em> ("we build a model showing how you make your money back before you spend a dollar") rather than the <em>buzzword</em> ("we're ROI-focused"). The specificity is the moat.</p>
+                    </div>
+                </div>
+
+                <h4 style="font-family: 'Crimson Pro', serif; color: var(--navy); margin: 2rem 0 1rem;">Recommended Messaging for Burned SMBs</h4>
+
+                <div style="background: var(--cream); border-radius: 12px; padding: 1.5rem;">
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                        <div style="background: var(--white); border-radius: 8px; padding: 1rem; text-align: center;">
+                            <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">"We prove value first"</div>
+                            <div style="font-size: 0.875rem; color: var(--slate);">No long-term contracts until you see results</div>
+                        </div>
+                        <div style="background: var(--white); border-radius: 8px; padding: 1rem; text-align: center;">
+                            <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">"Talk to our clients"</div>
+                            <div style="font-size: 0.875rem; color: var(--slate);">Direct access before you commit</div>
+                        </div>
+                        <div style="background: var(--white); border-radius: 8px; padding: 1rem; text-align: center;">
+                            <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">"You own everything"</div>
+                            <div style="font-size: 0.875rem; color: var(--slate);">All assets and accounts are yours</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 40-Industry Rankings -->
+            <section id="industry-rankings" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 02</div>
+                    <h2 class="section-title">40-Industry Research Rankings</h2>
+                </div>
+
+                <div style="background: linear-gradient(135deg, var(--success) 0%, #047857 100%); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; color: white;">
+                    <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.9; margin-bottom: 0.5rem;">TOP PERFORMER</div>
+                    <div style="font-family: 'Crimson Pro', serif; font-size: 2rem; font-weight: 600; margin-bottom: 0.5rem;">Staffing Agencies - 67/80</div>
+                    <div style="opacity: 0.9; line-height: 1.6;">
+                        Highest-scoring industry with perfect combination: 52%+ owners aged 55+, 90% fear AI disruption, 7-10% marketing budgets,
+                        4-8 week sales cycles (fastest), and perfect fit for all three ScaleUp services (dev, growth, AI).
+                    </div>
+                </div>
+
+                <h4 style="font-family: 'Crimson Pro', serif; color: var(--navy); margin-bottom: 1rem;">Complete Rankings (40 Industries)</h4>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                    <!-- Top 12 (63+) -->
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--success);">
+                        <div style="font-size: 0.75rem; color: var(--success); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 1rem;">TOP TIER (63-67/80)</div>
+                        <table style="width: 100%; font-size: 0.875rem;">
+                            <tr><td style="padding: 0.35rem 0; font-weight: 600; color: var(--success);">1. Staffing Agencies</td><td style="text-align: right; color: var(--success); font-weight: bold;">67</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">2. Veterinary Practices</td><td style="text-align: right; color: var(--navy);">65</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">3. Pest Control</td><td style="text-align: right; color: var(--navy);">64</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">4. Trucking/Logistics</td><td style="text-align: right; color: var(--navy);">63</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">5. Property Management</td><td style="text-align: right; color: var(--navy);">63</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">6. Plumbing</td><td style="text-align: right; color: var(--navy);">63</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">7. Electrical</td><td style="text-align: right; color: var(--navy);">63</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">8. Roofing</td><td style="text-align: right; color: var(--navy);">63</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">9. HVAC</td><td style="text-align: right; color: var(--navy);">63</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">10. Waste/Junk Removal</td><td style="text-align: right; color: var(--navy);">63</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">11. Home Health</td><td style="text-align: right; color: var(--navy);">63</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">12. Towing</td><td style="text-align: right; color: var(--navy);">63</td></tr>
+                        </table>
+                    </div>
+
+                    <!-- Strong Tier (60-62) -->
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--gold);">
+                        <div style="font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 1rem;">STRONG TIER (60-62/80)</div>
+                        <table style="width: 100%; font-size: 0.875rem;">
+                            <tr><td style="padding: 0.35rem 0;">13. Manufacturing SMB</td><td style="text-align: right; color: var(--navy);">62</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">14. Funeral Homes</td><td style="text-align: right; color: var(--navy);">62</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">15. Auto Repair</td><td style="text-align: right; color: var(--navy);">62</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">16. Self-Storage</td><td style="text-align: right; color: var(--navy);">62</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">17. Hotels/Hospitality</td><td style="text-align: right; color: var(--navy);">62</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">18. Dental Practices</td><td style="text-align: right; color: var(--navy);">61</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">19. Pool Service</td><td style="text-align: right; color: var(--navy);">61</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">20. Tax/Bookkeeping</td><td style="text-align: right; color: var(--navy);">61</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">21. Landscaping</td><td style="text-align: right; color: var(--navy);">60</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">22. Senior Care</td><td style="text-align: right; color: var(--navy);">60</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <!-- Moderate Tier (55-59) -->
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--warning);">
+                        <div style="font-size: 0.75rem; color: var(--warning); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 1rem;">MODERATE TIER (55-59/80)</div>
+                        <table style="width: 100%; font-size: 0.875rem;">
+                            <tr><td style="padding: 0.35rem 0;">23. Commercial Cleaning</td><td style="text-align: right; color: var(--slate);">58</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">24. Security Services</td><td style="text-align: right; color: var(--slate);">58</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">25. Credit Unions</td><td style="text-align: right; color: var(--slate);">58</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">26. Physical Therapy</td><td style="text-align: right; color: var(--slate);">57</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">27. Chiropractic</td><td style="text-align: right; color: var(--slate);">57</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">28. Construction</td><td style="text-align: right; color: var(--slate);">56</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">29. Childcare/Daycare</td><td style="text-align: right; color: var(--slate);">56</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">30. Pharmacies</td><td style="text-align: right; color: var(--slate);">56</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">31. Printing/Sign Shops</td><td style="text-align: right; color: var(--slate);">56</td></tr>
+                        </table>
+                    </div>
+
+                    <!-- Lower Priority (<55) -->
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--slate-light);">
+                        <div style="font-size: 0.75rem; color: var(--slate-light); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 1rem;">LOWER PRIORITY (&lt;55/80)</div>
+                        <table style="width: 100%; font-size: 0.875rem;">
+                            <tr><td style="padding: 0.35rem 0;">32. Auto Dealerships</td><td style="text-align: right; color: var(--slate-light);">54</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">33. Healthcare Clinics</td><td style="text-align: right; color: var(--slate-light);">54</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">34. Moving Companies</td><td style="text-align: right; color: var(--slate-light);">53</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">35. Real Estate</td><td style="text-align: right; color: var(--slate-light);">52</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">36. Medical Equipment</td><td style="text-align: right; color: var(--slate-light);">52</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">37. Optometry</td><td style="text-align: right; color: var(--slate-light);">51</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">38. Agriculture</td><td style="text-align: right; color: var(--slate-light);">47</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">39. Fitness/Gyms</td><td style="text-align: right; color: var(--slate-light);">46</td></tr>
+                            <tr><td style="padding: 0.35rem 0;">40. Restaurants</td><td style="text-align: right; color: var(--slate-light);">46</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div style="background: var(--cream); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
+                    <h4 style="color: var(--navy); margin-bottom: 1rem;">Scoring Framework (8 Criteria, 80 Points Max)</h4>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; font-size: 0.8rem; color: var(--slate);">
+                        <div>1. Market Size (TAM)</div>
+                        <div>2. Owner Demographics</div>
+                        <div>3. Budget Availability</div>
+                        <div>4. Pain Intensity</div>
+                        <div>5. Competition Level</div>
+                        <div>6. ScaleUp Fit</div>
+                        <div>7. Acquisition Ease</div>
+                        <div>8. Sales Cycle</div>
+                    </div>
+                </div>
+
+                <!-- CTA to Master Ranking Page -->
+                <a href="master-industry-ranking.html" style="display: block; text-decoration: none; margin-top: 1.5rem;">
+                    <div style="background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; transition: transform 0.2s ease, box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(15,23,41,0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                        <div>
+                            <div style="color: var(--gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 0.25rem;">View Complete Analysis</div>
+                            <div style="color: white; font-family: 'Crimson Pro', serif; font-size: 1.25rem; font-weight: 600;">40-Industry Master Ranking →</div>
+                            <div style="color: rgba(255,255,255,0.7); font-size: 0.875rem; margin-top: 0.25rem;">Detailed scoring breakdowns, tier analysis, and methodology</div>
+                        </div>
+                        <div style="background: var(--gold); color: var(--navy); padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.875rem;">Open Report</div>
+                    </div>
+                </a>
+            </section>
+
+            <!-- Hypothesis Testing -->
+            <section id="hypotheses" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 03</div>
+                    <h2 class="section-title">Hypothesis Testing (Devil's Advocate)</h2>
+                </div>
+
+                <div class="devils-advocate">
+                    <div class="devils-advocate-title">
+                        <span>Critical Analysis of Your Hypotheses</span>
+                    </div>
+
+                    <div class="hypothesis-card">
+                        <div class="hypothesis-header">
+                            <div class="hypothesis-title">Hypothesis 1: Small Legal Firms as Target</div>
+                            <span class="hypothesis-verdict validated">Validated with Results Guarantee</span>
+                        </div>
+                        <div class="hypothesis-content">
+                            <strong>Your hypothesis:</strong> "New legal firms need clients. Offer lead gen with a results guarantee to eliminate their risk."
+                            <br><br>
+                            <strong>Original concern:</strong> New law firms typically have <$100K in startup capital. They can't afford $15-20K projects.
+                            <br><br>
+                            <strong>How the results guarantee changes this:</strong> A $3-5K lead gen package WITH a money-back guarantee flips the risk equation:
+                            <ul style="margin: 0.5rem 0 0 1.5rem;">
+                                <li>New firm's risk = $0 (if you don't deliver, they get refunded)</li>
+                                <li>Your risk = manageable (you control the ads, you know CPL economics)</li>
+                                <li>$3-5K is affordable even for new firms when risk is eliminated</li>
+                            </ul>
+                            <br>
+                            <strong>The pitch:</strong> "We guarantee you X qualified leads in 30 days or your money back."
+                            <br><br>
+                            <strong>The expand path:</strong> Deliver leads → Build trust → "Now let's improve your website to convert more of these leads" → Automation as they scale.
+                            <br><br>
+                            <strong>Verdict:</strong> NEW legal firms are viable with results guarantee model. This opens a market competitors won't touch.
+                        </div>
+                    </div>
+
+                    <div class="hypothesis-card">
+                        <div class="hypothesis-header">
+                            <div class="hypothesis-title">Hypothesis 2: Lead Gen as Entry Point</div>
+                            <span class="hypothesis-verdict validated">Validated with Refinement</span>
+                        </div>
+                        <div class="hypothesis-content">
+                            <strong>Your hypothesis:</strong> "Pitch lead gen services, but bundle with 'we need to improve your landing page first' - then scale out to full website."
+                            <br><br>
+                            <strong>Why this works:</strong> Lead gen is the sexy pitch - it's ROI-focused, measurable, and gets attention. But bundling landing page work addresses the devil's advocate concern (can't run ads to a bad site). The landing page becomes a <em>lower-friction entry point</em> ($3-8K vs $15-25K for full website).
+                            <br><br>
+                            <strong>The refined funnel:</strong>
+                            <ol style="margin: 0.5rem 0 0 1.5rem;">
+                                <li><strong>PITCH:</strong> Lead Gen / Growth Marketing (the attraction)</li>
+                                <li><strong>ENTRY:</strong> Landing Page ($3-8K - proves value, low risk)</li>
+                                <li><strong>EXPAND:</strong> Full Website ($15-25K)</li>
+                                <li><strong>DELIVER:</strong> Lead Gen / Paid Ads ($2-5K/mo retainer)</li>
+                                <li><strong>UPSELL:</strong> AI / Automation ($10-20K)</li>
+                            </ol>
+                            <br>
+                            <strong>Key insight:</strong> You're not selling website work first - you're selling growth. The landing page is positioned as "what we need to make your growth investment work" rather than a standalone project.
+                        </div>
+                    </div>
+
+                    <div class="hypothesis-card">
+                        <div class="hypothesis-header">
+                            <div class="hypothesis-title">Hypothesis 3: $20K-$50K Revenue Startups</div>
+                            <span class="hypothesis-verdict invalid">Not Validated</span>
+                        </div>
+                        <div class="hypothesis-content">
+                            <strong>Your hypothesis:</strong> "Startups making $20K-$50K might be very interested in ROI-based growth marketing."
+                            <br><br>
+                            <strong>Devil's advocate:</strong> This is a <strong>phantom market</strong>. A $20K project for a $50K revenue startup = 40% of annual revenue. No rational buyer does this. They're interested, yes. But they can't afford you.
+                            <br><br>
+                            <strong>Verdict:</strong> Small revenue startups can't afford $15K+ projects. Focus elsewhere.
+                        </div>
+                    </div>
+
+                    <div class="hypothesis-card">
+                        <div class="hypothesis-header">
+                            <div class="hypothesis-title">Hypothesis 4: Funded Startups Need Dev Partners</div>
+                            <span class="hypothesis-verdict invalid">Not Validated - Market Shifted</span>
+                        </div>
+                        <div class="hypothesis-content">
+                            <strong>Original assumption:</strong> "Non-technical founders with funding need agencies to be their dev team."
+                            <br><br>
+                            <strong>Research findings (2025 data):</strong>
+                            <ul style="margin: 0.5rem 0 0 1.5rem;">
+                                <li><strong>88% of YC S25 startups are AI-native</strong> with technical founders</li>
+                                <li><strong>AI tools (Cursor, Claude Code, Loveable)</strong> enable non-technical founders to build themselves</li>
+                                <li><strong>VCs now require functional products</strong> - "Pre-Seed on a deck is nearly dead"</li>
+                                <li><strong>Non-technical solo founders: &lt;0.6% acceptance rate</strong> at top accelerators</li>
+                                <li><strong>Investors view agency-dependency negatively</strong> - signals lack of technical capability</li>
+                            </ul>
+                            <br>
+                            <strong>Verdict:</strong> The funded startup market has fundamentally changed. Non-technical founders either learn to use AI tools or don't get funded. <strong>REMOVED as Persona 2</strong> - replaced with technology laggard industry (Insurance).
+                        </div>
+                    </div>
+
+                    <div class="hypothesis-card">
+                        <div class="hypothesis-header">
+                            <div class="hypothesis-title">Hypothesis 5: Technology Laggard Industries</div>
+                            <span class="hypothesis-verdict validated">Strongly Validated</span>
+                        </div>
+                        <div class="hypothesis-content">
+                            <strong>Your hypothesis:</strong> "Focus on older business owners NOT using technology, scared of being disrupted by AI/digital competitors."
+                            <br><br>
+                            <strong>Research findings:</strong>
+                            <ul style="margin: 0.5rem 0 0 1.5rem;">
+                                <li><strong>Independent Insurance Agencies:</strong> Average agent age is 60; high-digital agencies grow 70% faster</li>
+                                <li><strong>Construction/Trades:</strong> Average owner 42+; only 28% use CRM; massive AI disruption fear</li>
+                                <li><strong>Manufacturing:</strong> Aging workforce; legacy systems; digital transformation pressure</li>
+                            </ul>
+                            <br>
+                            <strong>Why this works for ScaleUp:</strong> These owners CANNOT use AI tools themselves (unlike funded startup founders). They have budget, fear of disruption, and genuinely need external help to modernize.
+                            <br><br>
+                            <strong>Verdict:</strong> Insurance agencies selected as new Persona 2. Perfect fit: older owners (avg age 60), proven budget, 78% increasing tech spend, trust-based sales matches ScaleUp's approach.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NEW PERSONAS FROM 40-INDUSTRY RESEARCH -->
+            <section id="persona-staffing" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 04</div>
+                    <h2 class="section-title">Top Validated Personas (From 40-Industry Research)</h2>
+                </div>
+
+                <!-- Staffing Agencies - TOP SCORER -->
+                <div class="persona-card priority-high" style="border-left-color: var(--success); border-left-width: 6px;">
+                    <div class="persona-header">
+                        <div>
+                            <div class="persona-name">Robert, the Staffing Agency Principal</div>
+                            <div class="persona-tagline">Owner of a $1M-$15M staffing or recruiting firm who built the business on relationships but now fears AI is about to eat their industry. Cannot figure out how to modernize, but knows they must.</div>
+                        </div>
+                        <span class="persona-priority high" style="background: rgba(5, 150, 105, 0.2);">TOP SCORE - 67/80</span>
+                    </div>
+
+                    <div class="persona-quote">
+                        "Every day I read about AI taking over recruiting. My competitors are using fancy tools I don't understand. My website still lists jobs manually. I don't even know what a 'digital transformation' actually means for my business."
+                    </div>
+
+                    <div class="persona-grid">
+                        <div>
+                            <div class="persona-section-title">Demographics</div>
+                            <ul class="persona-list">
+                                <li><strong>Age:</strong> 52-65 years (52%+ are 55+)</li>
+                                <li><strong>Revenue:</strong> $1M-$15M agency</li>
+                                <li><strong>Team Size:</strong> 5-30 internal recruiters</li>
+                                <li><strong>Title:</strong> Owner, Principal, President</li>
+                                <li><strong>Location:</strong> Regional markets nationwide</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Why They Score Highest</div>
+                            <ul class="persona-list">
+                                <li><strong>Owner Demographics:</strong> 52%+ owners aged 55+</li>
+                                <li><strong>AI Fear:</strong> 90% report negative economic impact</li>
+                                <li><strong>Budget:</strong> 7-10% of revenue for marketing</li>
+                                <li><strong>Sales Cycle:</strong> 4-8 weeks (fastest of all)</li>
+                                <li><strong>Perfect Fit:</strong> Need dev, growth, AND AI</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="persona-section-title" style="margin-top: 1.5rem;">Pain Points</div>
+                    <table class="pain-table">
+                        <thead>
+                            <tr>
+                                <th>Pain Point</th>
+                                <th>Severity</th>
+                                <th>Business Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AI disruption threat is existential</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 95%;"></div></div></td>
+                                <td>90% fear AI replacing their business model</td>
+                            </tr>
+                            <tr>
+                                <td>Outdated job posting/candidate management</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 90%;"></div></div></td>
+                                <td>Losing placements to tech-enabled competitors</td>
+                            </tr>
+                            <tr>
+                                <td>Can't compete with digital-first competitors</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 85%;"></div></div></td>
+                                <td>Indeed, ZipRecruiter eating market share</td>
+                            </tr>
+                            <tr>
+                                <td>Manual processes waste recruiter time</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 80%;"></div></div></td>
+                                <td>$100K+/year in recruiter inefficiency</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+                        <div>
+                            <div class="persona-section-title">Market Size (Marketing Services)</div>
+                            <div class="market-size-grid">
+                                <div class="market-card">
+                                    <div class="market-label">TAM</div>
+                                    <div class="market-value">$3.8B</div>
+                                </div>
+                                <div class="market-card">
+                                    <div class="market-label">SAM</div>
+                                    <div class="market-value">$95M</div>
+                                </div>
+                                <div class="market-card">
+                                    <div class="market-label">SOM (3yr)</div>
+                                    <div class="market-value">$420-630K</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Acquisition Channels</div>
+                            <ul class="persona-list">
+                                <li><strong>Associations:</strong> ASA (3,000+ members), NAPS</li>
+                                <li><strong>Events:</strong> Staffing World, state conferences</li>
+                                <li><strong>Publications:</strong> Staffing Industry Analysts</li>
+                                <li><strong>Ads:</strong> Google, LinkedIn targeting staffing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(5, 150, 105, 0.1); border-radius: 8px; padding: 1rem; margin-top: 1rem;">
+                        <strong style="color: var(--success);">Why This is the #1 Opportunity:</strong>
+                        <span style="color: var(--slate);">Staffing agencies are facing an existential AI threat but owners are too old and non-technical to modernize themselves. They have budget (7-10% of revenue), genuine urgency (90% fear disruption), and all three ScaleUp services are directly applicable. The sales cycle is the shortest of any industry researched (4-8 weeks). This should be the primary focus.</span>
+                    </div>
+                </div>
+
+                <!-- Veterinary Practices -->
+                <div id="persona-veterinary" class="persona-card priority-high" style="border-left-color: var(--success); border-left-width: 6px;">
+                    <div class="persona-header">
+                        <div>
+                            <div class="persona-name">Dr. Patricia, the Veterinary Practice Owner</div>
+                            <div class="persona-tagline">Owner of a $1M-$5M independent veterinary practice with 10-30 staff, facing corporate consolidation pressure from VCA/Banfield while struggling with outdated scheduling systems and manual record-keeping.</div>
+                        </div>
+                        <span class="persona-priority high" style="background: rgba(5, 150, 105, 0.2);">TIER 1 - 65/80</span>
+                    </div>
+
+                    <div class="persona-quote">
+                        "Mars and VCA are buying up every practice in town. My clients want to book appointments online at 11pm, but I'm still using a paper schedule. I can't compete with their marketing budgets and fancy apps, but I don't want to sell out either."
+                    </div>
+
+                    <div class="persona-grid">
+                        <div>
+                            <div class="persona-section-title">Demographics</div>
+                            <ul class="persona-list">
+                                <li><strong>Age:</strong> 50-65 years (65% planning exit within 10 years)</li>
+                                <li><strong>Revenue:</strong> $1M-$5M practice</li>
+                                <li><strong>Team Size:</strong> 10-30 staff (vets, techs, admin)</li>
+                                <li><strong>Title:</strong> Owner, DVM, Practice Principal</li>
+                                <li><strong>Location:</strong> Suburban and rural markets nationwide</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Why They Score #2</div>
+                            <ul class="persona-list">
+                                <li><strong>Corporate Threat:</strong> Mars/VCA acquiring independents rapidly</li>
+                                <li><strong>Tech Gap:</strong> Outdated PIMS, manual scheduling</li>
+                                <li><strong>Budget:</strong> $3-10K monthly for improvements</li>
+                                <li><strong>Owner Age:</strong> Average age 52, planning exits</li>
+                                <li><strong>Client Demand:</strong> Pet parents expect digital experience</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="persona-section-title" style="margin-top: 1.5rem;">Pain Points</div>
+                    <table class="pain-table">
+                        <thead>
+                            <tr>
+                                <th>Pain Point</th>
+                                <th>Severity</th>
+                                <th>Business Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Corporate consolidation threatening independence</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 90%;"></div></div></td>
+                                <td>60% of practices still independent, declining yearly</td>
+                            </tr>
+                            <tr>
+                                <td>Outdated scheduling and booking systems</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 85%;"></div></div></td>
+                                <td>Losing clients to practices with online booking</td>
+                            </tr>
+                            <tr>
+                                <td>Manual record-keeping and client communication</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 85%;"></div></div></td>
+                                <td>Staff burnout, missed follow-ups, compliance risk</td>
+                            </tr>
+                            <tr>
+                                <td>Can't match corporate marketing and digital presence</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 80%;"></div></div></td>
+                                <td>VCA/Banfield dominate local search and ads</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+                        <div>
+                            <div class="persona-section-title">Market Size (Marketing Services)</div>
+                            <div class="market-size-grid">
+                                <div class="market-card">
+                                    <div class="market-label">TAM</div>
+                                    <div class="market-value">$2.3B</div>
+                                </div>
+                                <div class="market-card">
+                                    <div class="market-label">SAM</div>
+                                    <div class="market-value">$115M</div>
+                                </div>
+                                <div class="market-card">
+                                    <div class="market-label">SOM (3yr)</div>
+                                    <div class="market-value">$350-500K</div>
+                                </div>
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--slate-light); margin-top: 0.5rem;">
+                                Based on 32,000+ US vet practices, 60% independent, avg $6K/mo marketing spend capacity
+                            </div>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Acquisition Channels</div>
+                            <ul class="persona-list">
+                                <li><strong>Associations:</strong> AVMA (95,000+ members), state VMAs</li>
+                                <li><strong>Events:</strong> VMX, WVC Annual Conference</li>
+                                <li><strong>Publications:</strong> DVM360, Veterinary Practice News</li>
+                                <li><strong>Ads:</strong> Google targeting "veterinary marketing", LinkedIn</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(5, 150, 105, 0.1); border-radius: 8px; padding: 1rem; margin-top: 1rem;">
+                        <strong style="color: var(--success);">Why This is the #2 Opportunity:</strong>
+                        <span style="color: var(--slate);">Veterinary practice owners face an existential threat from corporate rollups (Mars, VCA, Banfield) but lack the tech sophistication to compete. With 32,000+ practices, 60% still independent, and owners averaging age 52 with exit timelines of 5-10 years, they have both urgency and budget. They need modern websites, online booking, automated client communication, and digital marketing - all core ScaleUp services.</span>
+                    </div>
+                </div>
+
+                <!-- Pest Control Services -->
+                <div id="persona-pest-control" class="persona-card priority-high" style="border-left-color: var(--gold); border-left-width: 6px;">
+                    <div class="persona-header">
+                        <div>
+                            <div class="persona-name">Mike, the Pest Control Company Owner</div>
+                            <div class="persona-tagline">Owner of a $1M-$8M pest control company with 15-50 technicians who built the business on reputation but now struggles with seasonal demand swings, route inefficiency, and losing ground to national chains like Orkin and Terminix.</div>
+                        </div>
+                        <span class="persona-priority high" style="background: rgba(212, 168, 83, 0.2);">TIER 2 - 64/80</span>
+                    </div>
+
+                    <div class="persona-quote">
+                        "Every spring I'm scrambling to hire, every winter I'm laying off. Terminix just opened two locations in my territory with their fancy apps and same-day scheduling. My customers keep asking why they can't book online."
+                    </div>
+
+                    <div class="persona-grid">
+                        <div>
+                            <div class="persona-section-title">Demographics</div>
+                            <ul class="persona-list">
+                                <li><strong>Age:</strong> 50+ years (55%+ are over 50)</li>
+                                <li><strong>Revenue:</strong> $1M-$8M company</li>
+                                <li><strong>Team Size:</strong> 15-50 technicians</li>
+                                <li><strong>Title:</strong> Owner, President, GM</li>
+                                <li><strong>Location:</strong> Regional markets, suburban/rural focus</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Why They Score High (64/80)</div>
+                            <ul class="persona-list">
+                                <li><strong>Owner Demographics:</strong> 55%+ owners aged 50+</li>
+                                <li><strong>Recurring Revenue:</strong> Monthly/quarterly service contracts</li>
+                                <li><strong>Budget:</strong> 6-12% of revenue for marketing</li>
+                                <li><strong>Sales Cycle:</strong> 6-10 weeks average</li>
+                                <li><strong>Service Fit:</strong> Dev (booking), Growth (local SEO), AI (routing)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="persona-section-title" style="margin-top: 1.5rem;">Pain Points</div>
+                    <table class="pain-table">
+                        <thead>
+                            <tr>
+                                <th>Pain Point</th>
+                                <th>Severity</th>
+                                <th>Business Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Seasonal demand management chaos</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 90%;"></div></div></td>
+                                <td>Spring surge = hiring crisis, winter = cash crunch</td>
+                            </tr>
+                            <tr>
+                                <td>Route optimization inefficiency</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 85%;"></div></div></td>
+                                <td>15-25% extra drive time, $50K+/year in fuel waste</td>
+                            </tr>
+                            <tr>
+                                <td>National chain competition (Orkin, Terminix)</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 88%;"></div></div></td>
+                                <td>Losing customers to same-day booking and apps</td>
+                            </tr>
+                            <tr>
+                                <td>No online scheduling or customer portal</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 82%;"></div></div></td>
+                                <td>Younger homeowners expect digital self-service</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+                        <div>
+                            <div class="persona-section-title">Market Size (Marketing Services)</div>
+                            <div class="market-size-grid">
+                                <div class="market-card">
+                                    <div class="market-label">TAM</div>
+                                    <div class="market-value">$2.1B</div>
+                                </div>
+                                <div class="market-card">
+                                    <div class="market-label">SAM</div>
+                                    <div class="market-value">$84M</div>
+                                </div>
+                                <div class="market-card">
+                                    <div class="market-label">SOM (3yr)</div>
+                                    <div class="market-value">$350-500K</div>
+                                </div>
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--slate-light); margin-top: 0.5rem;">
+                                Based on 32,000+ pest control companies in US, avg $5K-8K/mo marketing spend capacity
+                            </div>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Acquisition Channels</div>
+                            <ul class="persona-list">
+                                <li><strong>Associations:</strong> NPMA (7,000+ members), state PCOs</li>
+                                <li><strong>Events:</strong> PestWorld, state association meetings</li>
+                                <li><strong>Publications:</strong> PCT Magazine, Pest Management Pro</li>
+                                <li><strong>Ads:</strong> Google local services, Facebook geo-targeting</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(212, 168, 83, 0.15); border-radius: 8px; padding: 1rem; margin-top: 1rem;">
+                        <strong style="color: var(--gold-muted);">Why This is a Top-3 Opportunity:</strong>
+                        <span style="color: var(--slate);">Pest control companies have strong recurring revenue models but are being squeezed by national chains with superior technology. Independent operators need online booking, route optimization, and local SEO to compete. The industry has clear congregation points (NPMA, state associations) and owners are typically older with limited tech skills - perfect ScaleUp fit.</span>
+                    </div>
+                </div>
+
+                <!-- Trades Super-Cluster -->
+                <div id="persona-trades" class="persona-card priority-high">
+                    <div class="persona-header">
+                        <div>
+                            <div class="persona-name">The Trades Super-Cluster: Plumbing, Electrical, HVAC, Roofing</div>
+                            <div class="persona-tagline">Owners of $1M-$10M home services companies who built through word-of-mouth but now face digital competition. All four trades scored 63/80 with nearly identical characteristics.</div>
+                        </div>
+                        <span class="persona-priority high">SUPER-CLUSTER - 63/80</span>
+                    </div>
+
+                    <div class="persona-quote">
+                        "I've run this business for 25 years on referrals. Now I'm getting crushed by HomeAdvisor and Angi and these young guys with fancy websites. I don't know what SEO even means."
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="background: var(--cream); border-radius: 8px; padding: 1rem; text-align: center;">
+                            <div style="font-weight: 600; color: var(--navy);">Plumbing</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--success);">63/80</div>
+                            <div style="font-size: 0.75rem; color: var(--slate);">132K businesses</div>
+                        </div>
+                        <div style="background: var(--cream); border-radius: 8px; padding: 1rem; text-align: center;">
+                            <div style="font-weight: 600; color: var(--navy);">Electrical</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--success);">63/80</div>
+                            <div style="font-size: 0.75rem; color: var(--slate);">245K businesses</div>
+                        </div>
+                        <div style="background: var(--cream); border-radius: 8px; padding: 1rem; text-align: center;">
+                            <div style="font-weight: 600; color: var(--navy);">HVAC</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--success);">63/80</div>
+                            <div style="font-size: 0.75rem; color: var(--slate);">117K businesses</div>
+                        </div>
+                        <div style="background: var(--cream); border-radius: 8px; padding: 1rem; text-align: center;">
+                            <div style="font-weight: 600; color: var(--navy);">Roofing</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--success);">63/80</div>
+                            <div style="font-size: 0.75rem; color: var(--slate);">100K businesses</div>
+                        </div>
+                    </div>
+
+                    <div class="persona-grid">
+                        <div>
+                            <div class="persona-section-title">Shared Characteristics</div>
+                            <ul class="persona-list">
+                                <li><strong>Age:</strong> 50-58 years (50%+ over 55)</li>
+                                <li><strong>Revenue:</strong> $1M-$10M companies</li>
+                                <li><strong>Team Size:</strong> 10-75 employees</li>
+                                <li><strong>Marketing Dissatisfaction:</strong> 67-70% unhappy</li>
+                                <li><strong>Budget:</strong> 8-15% of revenue available</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Why Target as Cluster</div>
+                            <ul class="persona-list">
+                                <li><strong>Combined TAM:</strong> $840M marketing services spend</li>
+                                <li><strong>Same associations:</strong> PHCC, NECA, ACCA overlap</li>
+                                <li><strong>Same messaging:</strong> "Stop losing jobs to online leads"</li>
+                                <li><strong>Same pain points:</strong> Lead gen, websites, automation</li>
+                                <li><strong>One vertical = 4 industries</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+                        <div>
+                            <div class="persona-section-title">Combined Market Size (Marketing Services)</div>
+                            <div class="market-size-grid">
+                                <div class="market-card">
+                                    <div class="market-label">TAM</div>
+                                    <div class="market-value">$840M</div>
+                                </div>
+                                <div class="market-card">
+                                    <div class="market-label">SAM</div>
+                                    <div class="market-value">$42M</div>
+                                </div>
+                                <div class="market-card">
+                                    <div class="market-label">SOM (3yr)</div>
+                                    <div class="market-value">$890K-1.3M</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Key Pain Points (All 4 Share)</div>
+                            <ul class="persona-list">
+                                <li>70% unhappy with current marketing providers</li>
+                                <li>Labor shortage crisis (need automation)</li>
+                                <li>"Silver tsunami" of retirements by 2030</li>
+                                <li>Websites don't generate leads</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(5, 150, 105, 0.1); border-radius: 8px; padding: 1rem; margin-top: 1rem;">
+                        <strong style="color: var(--success);">Super-Cluster Strategy:</strong>
+                        <span style="color: var(--slate);">By targeting "home services" or "trades" as a unified vertical, you can develop one positioning, one set of case studies, and one ad campaign that works across 594K+ businesses in four related industries. The messaging and pain points are identical - only the specific trade terminology differs.</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Persona 1 -->
+            <section id="persona1" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 05</div>
+                    <h2 class="section-title">Additional Validated Personas</h2>
+                </div>
+
+                <div class="persona-card priority-high">
+                    <div class="persona-header">
+                        <div>
+                            <div class="persona-name">Marcus, the Scaling Professional Services Founder</div>
+                            <div class="persona-tagline">Founder/CEO of a $1M-$15M accounting, consulting, legal, or staffing firm who built through relationships but now needs systems and digital presence to break through the growth ceiling.</div>
+                        </div>
+                        <span class="persona-priority high">Highest Priority</span>
+                    </div>
+
+                    <div class="persona-quote">
+                        "My website is very outdated - I don't have the time or financial funds to either have a professional company or marketing specialist to completely update all the updates I have done for the business internally."
+                    </div>
+
+                    <div class="persona-grid">
+                        <div>
+                            <div class="persona-section-title">Demographics</div>
+                            <ul class="persona-list">
+                                <li><strong>Age:</strong> 38-55 years</li>
+                                <li><strong>Revenue:</strong> $1M-$15M firm</li>
+                                <li><strong>Team Size:</strong> 10-50 employees</li>
+                                <li><strong>Title:</strong> Founder, Managing Partner, CEO</li>
+                                <li><strong>Location:</strong> Suburban/Urban, Southeast US</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Psychographics</div>
+                            <ul class="persona-list">
+                                <li><strong>Values:</strong> Client relationships, reputation</li>
+                                <li><strong>Fears:</strong> Losing clients to tech-savvy competitors</li>
+                                <li><strong>Aspirations:</strong> Go-to firm in market; exit in 5-10 years</li>
+                                <li><strong>Buying:</strong> Relationship-driven; needs trust first</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="persona-section-title" style="margin-top: 1.5rem;">Pain Points</div>
+                    <table class="pain-table">
+                        <thead>
+                            <tr>
+                                <th>Pain Point</th>
+                                <th>Severity</th>
+                                <th>Business Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>No time to manage technology projects</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 90%;"></div></div></td>
+                                <td>Projects stall or never start</td>
+                            </tr>
+                            <tr>
+                                <td>Outdated website hurts credibility</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 80%;"></div></div></td>
+                                <td>10-20% close rate reduction</td>
+                            </tr>
+                            <tr>
+                                <td>Can't compete with digital-first competitors</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 80%;"></div></div></td>
+                                <td>Market share erosion</td>
+                            </tr>
+                            <tr>
+                                <td>Manual processes waste staff time</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 70%;"></div></div></td>
+                                <td>$50K-$100K/year labor inefficiency</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+                        <div>
+                            <div class="persona-section-title">Buying Journey</div>
+                            <ul class="persona-list">
+                                <li><strong>Triggers:</strong> Lost deal to competitor with better site</li>
+                                <li><strong>Research:</strong> Asks 2-3 trusted peers; searches portfolios</li>
+                                <li><strong>Timeline:</strong> 2-4 weeks from first contact</li>
+                                <li><strong>Objection:</strong> "I've been burned before"</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Market Size (Marketing Services)</div>
+                            <div class="market-size-grid">
+                                <div class="market-card">
+                                    <div class="market-label">TAM</div>
+                                    <div class="market-value">$1.8B</div>
+                                </div>
+                                <div class="market-card">
+                                    <div class="market-label">SAM</div>
+                                    <div class="market-value">$54M</div>
+                                </div>
+                                <div class="market-card">
+                                    <div class="market-label">SOM (3yr)</div>
+                                    <div class="market-value">$360-540K</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="evidence-box">
+                        <div class="persona-section-title">Validation Evidence (28 data points)</div>
+                        <div class="evidence-item"><span class="evidence-source">CFO.com:</span> "97% of accounting firms say they're inefficient with technology"</div>
+                        <div class="evidence-item"><span class="evidence-source">ABA Survey 2024:</span> "Smaller firms face resource constraints" in tech adoption</div>
+                        <div class="evidence-item"><span class="evidence-source">Hinge Marketing:</span> "Smaller firms spend higher proportion of revenue on marketing"</div>
+                        <div class="evidence-item"><span class="evidence-source">AAM:</span> "High-growth firms spend 2.1% on marketing vs. 1% for average firms"</div>
+                    </div>
+                </div>
+
+                <!-- Persona 2 - Insurance Agency Owner (Technology Laggard) -->
+                <div id="persona2" class="persona-card priority-high">
+                    <div class="persona-header">
+                        <div>
+                            <div class="persona-name">Harold, the Approaching-Retirement Insurance Agency Owner</div>
+                            <div class="persona-tagline">Owner of an independent insurance agency ($1M-$10M revenue) who built the business on relationships but now fears being disrupted by digital-first competitors and InsurTech.</div>
+                        </div>
+                        <span class="persona-priority high">High Priority - Tech Laggard</span>
+                    </div>
+
+                    <div class="persona-quote">
+                        "I've been doing this for 30 years and it's always been about relationships. But now I'm losing renewals to online quotes and my kids tell me our website looks like it's from 2005. I don't even know where to start."
+                    </div>
+
+                    <div class="persona-grid">
+                        <div>
+                            <div class="persona-section-title">Demographics</div>
+                            <ul class="persona-list">
+                                <li><strong>Age:</strong> 55-65 years (avg. 60)</li>
+                                <li><strong>Revenue:</strong> $1M-$10M agency</li>
+                                <li><strong>Team Size:</strong> 5-25 employees</li>
+                                <li><strong>Title:</strong> Owner, Principal, President</li>
+                                <li><strong>Location:</strong> Suburban/Rural, regional markets</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Psychographics</div>
+                            <ul class="persona-list">
+                                <li><strong>Values:</strong> Client relationships, trust, community</li>
+                                <li><strong>Fears:</strong> Being disrupted; irrelevance; failed exit</li>
+                                <li><strong>Aspirations:</strong> Sell agency at premium; legacy</li>
+                                <li><strong>Buying:</strong> Trust-based; needs hand-holding; referral-driven</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="persona-section-title" style="margin-top: 1.5rem;">Pain Points</div>
+                    <table class="pain-table">
+                        <thead>
+                            <tr>
+                                <th>Pain Point</th>
+                                <th>Severity</th>
+                                <th>Business Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Losing renewals to online/InsurTech competitors</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 95%;"></div></div></td>
+                                <td>10-20% revenue erosion annually</td>
+                            </tr>
+                            <tr>
+                                <td>Outdated website destroys credibility</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 90%;"></div></div></td>
+                                <td>Younger clients won't even call</td>
+                            </tr>
+                            <tr>
+                                <td>Don't know how to modernize</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 85%;"></div></div></td>
+                                <td>Paralysis; no action taken</td>
+                            </tr>
+                            <tr>
+                                <td>Lead gen costs $50+/click, no ROI tracking</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 80%;"></div></div></td>
+                                <td>$20K-$50K/year wasted on bad marketing</td>
+                            </tr>
+                            <tr>
+                                <td>Exit valuation depends on digital capability</td>
+                                <td><div class="severity-bar"><div class="severity-fill" style="width: 75%;"></div></div></td>
+                                <td>2-3x multiple reduction at sale</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+                        <div>
+                            <div class="persona-section-title">Buying Journey</div>
+                            <ul class="persona-list">
+                                <li><strong>Triggers:</strong> Lost big client to GEICO; kids/staff complain</li>
+                                <li><strong>Research:</strong> Asks carrier rep; industry association</li>
+                                <li><strong>Timeline:</strong> 3-6 weeks (slower, needs trust)</li>
+                                <li><strong>Objection:</strong> "I've been burned by marketing people"</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Market Size (Marketing Services)</div>
+                            <div class="market-size-grid">
+                                <div class="market-card">
+                                    <div class="market-label">TAM</div>
+                                    <div class="market-value">$2.9B</div>
+                                </div>
+                                <div class="market-card">
+                                    <div class="market-label">SAM</div>
+                                    <div class="market-value">$87M</div>
+                                </div>
+                                <div class="market-card">
+                                    <div class="market-label">SOM (3yr)</div>
+                                    <div class="market-value">$400-600K</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+                        <div>
+                            <div class="persona-section-title">Why Insurance is Perfect Fit</div>
+                            <ul class="persona-list">
+                                <li><strong>Average owner age: 60</strong> - genuinely can't use AI tools</li>
+                                <li><strong>78% increasing tech budgets</strong> - money is available</li>
+                                <li><strong>High-digital agencies grow 70% faster</strong> - clear ROI story</li>
+                                <li><strong>Trust-based sales</strong> - matches ScaleUp's approach</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Why Competitors Ignore This</div>
+                            <ul class="persona-list">
+                                <li>Seen as "old school" and slow-moving</li>
+                                <li>Requires patience and hand-holding</li>
+                                <li>Not "sexy" like startups</li>
+                                <li>But: loyal, have budget, refer generously</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="evidence-box">
+                        <div class="persona-section-title">Validation Evidence (28 data points)</div>
+                        <div class="evidence-item"><span class="evidence-source">Insurance Journal 2025:</span> "Average insurance agent age is now 60 years old"</div>
+                        <div class="evidence-item"><span class="evidence-source">Accenture Insurance:</span> "High-digital agencies are growing 70% faster than low-digital peers"</div>
+                        <div class="evidence-item"><span class="evidence-source">Independent Insurance Agents:</span> "78% of agencies report increasing technology budgets"</div>
+                        <div class="evidence-item"><span class="evidence-source">MarketWatch:</span> "InsurTech disruption forcing traditional agencies to modernize or die"</div>
+                    </div>
+
+                    <div style="background: rgba(5, 150, 105, 0.1); border-radius: 8px; padding: 1rem; margin-top: 1rem;">
+                        <strong style="color: var(--success);">Strategic Insight:</strong>
+                        <span style="color: var(--slate);">Unlike funded startups (who can use AI tools to build themselves), insurance agency owners CANNOT modernize without help. They have budget, urgency, and loyalty - but genuinely need someone to guide them through digital transformation.</span>
+                    </div>
+                </div>
+
+                <!-- Persona 3 -->
+                <div id="persona3" class="persona-card priority-medium">
+                    <div class="persona-header">
+                        <div>
+                            <div class="persona-name">David, the Growth-Mode Home Services Owner</div>
+                            <div class="persona-tagline">Owner of a $2M-$10M HVAC, plumbing, electrical, or roofing company ready to professionalize and scale beyond word-of-mouth.</div>
+                        </div>
+                        <span class="persona-priority medium">Medium Priority</span>
+                    </div>
+
+                    <div class="persona-quote">
+                        "We've been around 15 years but our website looks like it's from 2010. I know we're losing jobs to competitors who look more professional online."
+                    </div>
+
+                    <div class="persona-grid">
+                        <div>
+                            <div class="persona-section-title">Demographics</div>
+                            <ul class="persona-list">
+                                <li><strong>Age:</strong> 40-58 years</li>
+                                <li><strong>Revenue:</strong> $2M-$10M business</li>
+                                <li><strong>Team Size:</strong> 15-75 employees</li>
+                                <li><strong>Title:</strong> Owner, President</li>
+                                <li><strong>Location:</strong> Suburban, regional markets</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Psychographics</div>
+                            <ul class="persona-list">
+                                <li><strong>Values:</strong> Hard work, reputation, family</li>
+                                <li><strong>Fears:</strong> Getting ripped off by marketers</li>
+                                <li><strong>Aspirations:</strong> Dominant regional player; retirement</li>
+                                <li><strong>Buying:</strong> Needs ROI proof; trusts referrals</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+                        <div>
+                            <div class="persona-section-title">Key Pain Points</div>
+                            <ul class="persona-list">
+                                <li>Website doesn't generate leads ($100K-$500K/year lost)</li>
+                                <li>No idea what marketing works (wasted spend)</li>
+                                <li>Burned by past agencies</li>
+                                <li>Competition getting more digital</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Market Size</div>
+                            <div class="market-size-grid">
+                                <div class="market-card">
+                                    <div class="market-label">TAM</div>
+                                    <div class="market-value">$600M</div>
+                                </div>
+                                <div class="market-card">
+                                    <div class="market-label">SAM</div>
+                                    <div class="market-value">$18M</div>
+                                </div>
+                                <div class="market-card">
+                                    <div class="market-label">SOM (3yr)</div>
+                                    <div class="market-value">$180-270K</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(217, 119, 6, 0.1); border-radius: 8px; padding: 1rem; margin-top: 1rem;">
+                        <strong style="color: var(--warning);">Consideration:</strong>
+                        <span style="color: var(--slate);">May require industry-specific positioning. Test with limited budget before scaling. 19 data points collected.</span>
+                    </div>
+                </div>
+
+                <!-- Persona 4 (Legal - Now Validated) -->
+                <div id="persona4" class="persona-card priority-high">
+                    <div class="persona-header">
+                        <div>
+                            <div class="persona-name">Alex, the New Law Firm Founder</div>
+                            <div class="persona-tagline">Solo attorney or small partnership (1-3 attorneys) who just launched their firm and desperately needs clients. Limited capital but hungry to grow.</div>
+                        </div>
+                        <span class="persona-priority high">High Priority - Results Guarantee Model</span>
+                    </div>
+
+                    <div class="persona-quote">
+                        "I left BigLaw to start my own practice, but I didn't realize how hard it would be to get clients. I can't afford to waste money on marketing that doesn't work."
+                    </div>
+
+                    <div class="persona-grid">
+                        <div>
+                            <div class="persona-section-title">Demographics</div>
+                            <ul class="persona-list">
+                                <li><strong>Age:</strong> 30-45 years</li>
+                                <li><strong>Firm Age:</strong> 0-3 years old</li>
+                                <li><strong>Team Size:</strong> 1-3 attorneys</li>
+                                <li><strong>Title:</strong> Founding Partner, Solo Practitioner</li>
+                                <li><strong>Capital:</strong> $50K-$100K startup budget</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Why Results Guarantee Works</div>
+                            <ul class="persona-list">
+                                <li><strong>Risk eliminated:</strong> They get leads or money back</li>
+                                <li><strong>Affordable:</strong> $3-5K is doable at zero risk</li>
+                                <li><strong>Desperate for clients:</strong> High motivation to say yes</li>
+                                <li><strong>Trust builder:</strong> Deliver leads → expand relationship</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+                        <div>
+                            <div class="persona-section-title">The Funnel for New Legal</div>
+                            <ul class="persona-list">
+                                <li><strong>Entry:</strong> Lead Gen w/ Guarantee ($3-5K)</li>
+                                <li><strong>Expand:</strong> Landing Page ($3-8K)</li>
+                                <li><strong>Scale:</strong> Full Website ($15-25K)</li>
+                                <li><strong>Grow:</strong> Automation as they scale</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="persona-section-title">Why Competitors Won't Touch This</div>
+                            <ul class="persona-list">
+                                <li>Most agencies won't guarantee results</li>
+                                <li>New firms seen as "too small" / "no budget"</li>
+                                <li>But YOU can because you control ad economics</li>
+                                <li>Early relationship = lifetime client as they grow</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(5, 150, 105, 0.1); border-radius: 8px; padding: 1rem; margin-top: 1rem;">
+                        <strong style="color: var(--success);">Key Insight:</strong>
+                        <span style="color: var(--slate);">The results guarantee lets you capture clients at their most desperate moment (launch). When they grow to $500K-$5M, you're already their trusted partner. This is a land-grab strategy - get them early, grow with them.</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Anti-Personas -->
+            <section id="anti-personas" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 06</div>
+                    <h2 class="section-title">Anti-Personas (Who NOT to Target)</h2>
+                </div>
+
+                <div class="anti-persona-grid">
+                    <div class="anti-persona-card">
+                        <div class="anti-persona-name">The Bootstrapped Solo Founder</div>
+                        <div class="anti-persona-desc">Solo founders validating ideas with minimal budget. Cannot afford $15K+ projects.</div>
+                        <ul class="red-flags">
+                            <li>Asks about payment plans for small amounts</li>
+                            <li>Wants "just a simple website"</li>
+                            <li>No revenue yet</li>
+                        </ul>
+                    </div>
+
+                    <div class="anti-persona-card">
+                        <div class="anti-persona-name">The Price Shopper</div>
+                        <div class="anti-persona-desc">Comparing you to Fiverr/Upwork. Values cost over outcome.</div>
+                        <ul class="red-flags">
+                            <li>First question is about price</li>
+                            <li>Compares to offshore rates</li>
+                            <li>Wants itemized hourly breakdown</li>
+                        </ul>
+                    </div>
+
+                    <div class="anti-persona-card">
+                        <div class="anti-persona-name">The Committee Company</div>
+                        <div class="anti-persona-desc">Mid-market with multiple stakeholders. 3-6 month sales cycles.</div>
+                        <ul class="red-flags">
+                            <li>Mentions "running it by the team"</li>
+                            <li>Asks for formal RFP proposals</li>
+                            <li>Requires vendor registration</li>
+                        </ul>
+                    </div>
+
+                    <div class="anti-persona-card">
+                        <div class="anti-persona-name">The $20-50K Revenue Startup</div>
+                        <div class="anti-persona-desc">Interested but can't afford you. A $20K project = 40-100% of their revenue.</div>
+                        <ul class="red-flags">
+                            <li>Revenue under $100K</li>
+                            <li>No funding raised</li>
+                            <li>"We'll have budget once we grow"</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Sizing Summary -->
+            <section id="market-sizing" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 07</div>
+                    <h2 class="section-title">Market Sizing Summary (Marketing Services TAM)</h2>
+                </div>
+
+                <div style="background: rgba(5, 150, 105, 0.1); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem;">
+                    <strong style="color: var(--success);">Methodology Note:</strong>
+                    <span style="color: var(--slate);">TAM figures represent the <strong>outsourced digital marketing, web development, and AI automation services spend</strong> for each vertical - NOT total industry revenue. This reflects the actual addressable market for ScaleUp's services. Calculations based on: (# of businesses) × (avg. marketing budget 5-10% of revenue) × (outsourcing rate 15-40%).</span>
+                </div>
+
+                <table class="channel-table">
+                    <thead>
+                        <tr>
+                            <th>Persona</th>
+                            <th>Score</th>
+                            <th>TAM</th>
+                            <th>SAM</th>
+                            <th>SOM (3yr)</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(5, 150, 105, 0.05);">
+                            <td><strong>Staffing Agencies</strong></td>
+                            <td><strong style="color: var(--success);">67/80</strong></td>
+                            <td>$3.8B</td>
+                            <td>$95M</td>
+                            <td>$420-630K</td>
+                            <td><span class="priority-high-badge">TOP</span></td>
+                        </tr>
+                        <tr style="background: rgba(5, 150, 105, 0.05);">
+                            <td><strong>Veterinary Practices</strong></td>
+                            <td><strong style="color: var(--success);">65/80</strong></td>
+                            <td>$850M</td>
+                            <td>$25M</td>
+                            <td>$180-270K</td>
+                            <td><span class="priority-high-badge">HIGH</span></td>
+                        </tr>
+                        <tr style="background: rgba(5, 150, 105, 0.05);">
+                            <td><strong>Pest Control Services</strong></td>
+                            <td><strong style="color: var(--success);">64/80</strong></td>
+                            <td>$720M</td>
+                            <td>$22M</td>
+                            <td>$150-225K</td>
+                            <td><span class="priority-high-badge">HIGH</span></td>
+                        </tr>
+                        <tr style="background: rgba(5, 150, 105, 0.05);">
+                            <td><strong>Trades Super-Cluster</strong></td>
+                            <td><strong style="color: var(--success);">63/80</strong></td>
+                            <td>$840M</td>
+                            <td>$42M</td>
+                            <td>$890K-1.3M</td>
+                            <td><span class="priority-high-badge">HIGH</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Professional Services</strong></td>
+                            <td>62/80</td>
+                            <td>$1.8B</td>
+                            <td>$54M</td>
+                            <td>$360-540K</td>
+                            <td><span class="priority-medium-badge">MEDIUM</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Insurance Agencies</strong></td>
+                            <td>62/80</td>
+                            <td>$2.9B</td>
+                            <td>$87M</td>
+                            <td>$400-600K</td>
+                            <td><span class="priority-medium-badge">MEDIUM</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>New Legal (Guarantee)</strong></td>
+                            <td>58/80</td>
+                            <td>$180M</td>
+                            <td>$9M</td>
+                            <td>$60-120K</td>
+                            <td><span class="priority-lower-badge">LOWER</span></td>
+                        </tr>
+                        <tr style="background: var(--cream);">
+                            <td><strong>TOTAL (Top 7)</strong></td>
+                            <td></td>
+                            <td><strong>$11.1B</strong></td>
+                            <td><strong>$334M</strong></td>
+                            <td><strong>$2.5M-3.7M</strong></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="background: var(--cream); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
+                    <h4 style="color: var(--navy); margin-bottom: 1rem;">Path to $100K Goal (Validated Assumptions)</h4>
+                    <table class="channel-table" style="margin-top: 0;">
+                        <tbody>
+                            <tr>
+                                <td><strong>Target clients needed</strong></td>
+                                <td>6-8 at $12-15K average (or 4-5 at $20-25K with bundled services)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Monthly leads needed</strong></td>
+                                <td>15-25 leads/month (at 5-8% close rate for cold leads)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Close rate benchmark</strong></td>
+                                <td>5-8% cold leads; 15-20% warm referrals</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ad budget required</strong></td>
+                                <td>$3,500-5,000/month ($250-300 CPL during ramp-up)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sales cycle</strong></td>
+                                <td>60-90 days for $15K+ deals (SMB B2B benchmark)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Realistic timeline</strong></td>
+                                <td>6-9 months to $100K cumulative (includes 60-day ramp-up)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="font-size: 0.85rem; color: var(--slate); margin-top: 0.75rem;">
+                        <em>Note: Industry benchmarks show cold lead close rates of 3-7%. The 20% rate is achievable only with warm referrals or inbound leads. Budget for longer timeline and higher ad spend for sustainable results.</em>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Service Funnel -->
+            <section id="funnel" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 08</div>
+                    <h2 class="section-title">Recommended Service Funnel</h2>
+                </div>
+
+                <div class="funnel-box">
+                    <div class="funnel-title">"Lead with Growth, Land with Landing Page" Funnel</div>
+                    <div class="funnel-steps">
+                        <div class="funnel-step" style="background: rgba(212, 168, 83, 0.3); border-color: var(--gold);">
+                            <div class="funnel-step-number">The Pitch</div>
+                            <div class="funnel-step-title">Lead Gen</div>
+                        </div>
+                        <div class="funnel-arrow">→</div>
+                        <div class="funnel-step">
+                            <div class="funnel-step-number">Step 1 - Entry</div>
+                            <div class="funnel-step-title">Landing Page</div>
+                        </div>
+                        <div class="funnel-arrow">→</div>
+                        <div class="funnel-step">
+                            <div class="funnel-step-number">Step 2 - Expand</div>
+                            <div class="funnel-step-title">Full Website</div>
+                        </div>
+                        <div class="funnel-arrow">→</div>
+                        <div class="funnel-step">
+                            <div class="funnel-step-number">Step 3 - Deliver</div>
+                            <div class="funnel-step-title">Lead Gen</div>
+                        </div>
+                        <div class="funnel-arrow">→</div>
+                        <div class="funnel-step">
+                            <div class="funnel-step-number">Step 4 - Upsell</div>
+                            <div class="funnel-step-title">AI / Automation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; margin-top: 1rem;">
+                    <h4 style="color: var(--navy); margin-bottom: 1rem;">Why This Approach Works</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; color: var(--slate); display: flex; gap: 0.75rem;">
+                            <span style="color: var(--gold); font-weight: bold;">PITCH</span>
+                            <span><strong>Lead with growth.</strong> "We'll get you leads with ROI-focused paid ads" is sexier than "we'll build you a website." It aligns with your positioning and gets attention.</span>
+                        </li>
+                        <li style="padding: 0.5rem 0; color: var(--slate); display: flex; gap: 0.75rem;">
+                            <span style="color: var(--success); font-weight: bold;">1.</span>
+                            <span><strong>Bundle the landing page.</strong> "To make this work, we need to ensure your landing page converts." The landing page ($3-8K) is positioned as a prerequisite, not a standalone sale.</span>
+                        </li>
+                        <li style="padding: 0.5rem 0; color: var(--slate); display: flex; gap: 0.75rem;">
+                            <span style="color: var(--success); font-weight: bold;">2.</span>
+                            <span><strong>Expand to full website.</strong> Once they see the landing page convert, "let's do this for your whole site" is natural. ($15-25K)</span>
+                        </li>
+                        <li style="padding: 0.5rem 0; color: var(--slate); display: flex; gap: 0.75rem;">
+                            <span style="color: var(--success); font-weight: bold;">3.</span>
+                            <span><strong>Now deliver the lead gen.</strong> With a converting site in place, you can actually run the ads and deliver the ROI you promised. ($2-5K/mo retainer)</span>
+                        </li>
+                        <li style="padding: 0.5rem 0; color: var(--slate); display: flex; gap: 0.75rem;">
+                            <span style="color: var(--success); font-weight: bold;">4.</span>
+                            <span><strong>Upsell AI/automation.</strong> "You're getting leads, let's automate follow-up" or "Let's use AI to qualify leads faster." ($10-20K)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="background: var(--cream); border-radius: 12px; padding: 1.5rem; margin-top: 1rem;">
+                    <h4 style="color: var(--navy); margin-bottom: 1rem;">Revenue Per Client (Full Funnel)</h4>
+                    <table class="channel-table" style="margin-top: 0;">
+                        <tbody>
+                            <tr>
+                                <td><strong>Landing Page (Entry)</strong></td>
+                                <td>$3,000 - $8,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Full Website (Expand)</strong></td>
+                                <td>$15,000 - $25,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lead Gen Retainer (12 months)</strong></td>
+                                <td>$24,000 - $60,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>AI / Automation</strong></td>
+                                <td>$10,000 - $20,000</td>
+                            </tr>
+                            <tr style="background: rgba(5, 150, 105, 0.1);">
+                                <td><strong>Full Client LTV</strong></td>
+                                <td><strong style="color: var(--success);">$52,000 - $113,000</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="background: linear-gradient(135deg, var(--success) 0%, #047857 100%); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem; color: white;">
+                    <h4 style="margin-bottom: 1rem;">The Results Guarantee Model (New Legal & Budget-Conscious Clients)</h4>
+                    <p style="opacity: 0.95; line-height: 1.7; margin-bottom: 1rem;">
+                        For clients who can't afford $15K+ projects upfront, offer a <strong>results-guaranteed lead gen package</strong>:
+                    </p>
+                    <div style="background: rgba(255,255,255,0.15); border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+                        <strong style="font-size: 1.1rem;">"We guarantee you X qualified leads in 30 days or your money back."</strong>
+                    </div>
+                    <ul style="margin: 0; padding-left: 1.25rem; opacity: 0.95;">
+                        <li style="margin-bottom: 0.5rem;"><strong>Price:</strong> $3,000 - $5,000 (affordable at zero risk)</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Why it works:</strong> Eliminates client risk; you control ad economics</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Expand path:</strong> Deliver leads → Landing page → Website → Automation</li>
+                        <li><strong>Strategic value:</strong> Capture clients when desperate; grow with them long-term</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Acquisition Channels -->
+            <section id="channels" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 09</div>
+                    <h2 class="section-title">Acquisition Channels Strategy</h2>
+                </div>
+
+                <table class="channel-table">
+                    <thead>
+                        <tr>
+                            <th>Channel</th>
+                            <th>Prof Services</th>
+                            <th>Insurance</th>
+                            <th>Home Services</th>
+                            <th>Legal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Google Ads</strong></td>
+                            <td><span class="priority-high-badge">High</span></td>
+                            <td><span class="priority-high-badge">High</span></td>
+                            <td><span class="priority-high-badge">High</span></td>
+                            <td><span class="priority-high-badge">High</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Industry Associations</strong></td>
+                            <td><span class="priority-medium-badge">Medium</span></td>
+                            <td><span class="priority-high-badge">High</span></td>
+                            <td><span class="priority-medium-badge">Medium</span></td>
+                            <td><span class="priority-medium-badge">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Referral Program</strong></td>
+                            <td><span class="priority-high-badge">High</span></td>
+                            <td><span class="priority-high-badge">High</span></td>
+                            <td><span class="priority-high-badge">High</span></td>
+                            <td><span class="priority-high-badge">High</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 style="font-family: 'Crimson Pro', serif; color: var(--navy); margin: 2rem 0 1rem;">Recommended Budget Allocation (Monthly)</h4>
+
+                <div class="budget-grid">
+                    <div class="budget-card">
+                        <div class="budget-value">$800</div>
+                        <div class="budget-label">Google - Prof Services</div>
+                    </div>
+                    <div class="budget-card">
+                        <div class="budget-value">$600</div>
+                        <div class="budget-label">Google - Insurance</div>
+                    </div>
+                    <div class="budget-card">
+                        <div class="budget-value">$600</div>
+                        <div class="budget-label">Google - Home/Legal</div>
+                    </div>
+                    <div class="budget-card">
+                        <div class="budget-value">$2,000</div>
+                        <div class="budget-label">Total Monthly</div>
+                    </div>
+                </div>
+
+                <div style="background: var(--cream); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
+                    <h4 style="color: var(--navy); margin-bottom: 1rem;">Google Ads Keywords by Persona</h4>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                        <div>
+                            <strong style="color: var(--gold); font-size: 0.8rem; text-transform: uppercase;">Professional Services</strong>
+                            <ul style="margin-top: 0.5rem; padding-left: 1.25rem; color: var(--slate); font-size: 0.875rem;">
+                                <li>web design for accounting firms</li>
+                                <li>consulting firm digital marketing</li>
+                                <li>professional services website redesign</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong style="color: var(--gold); font-size: 0.8rem; text-transform: uppercase;">Insurance Agencies</strong>
+                            <ul style="margin-top: 0.5rem; padding-left: 1.25rem; color: var(--slate); font-size: 0.875rem;">
+                                <li>insurance agency website design</li>
+                                <li>insurance agent digital marketing</li>
+                                <li>insurance agency lead generation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommendations -->
+            <section id="recommendations" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 10</div>
+                    <h2 class="section-title">Recommendations & Next Steps</h2>
+                </div>
+
+                <div class="rec-timeline">
+                    <div class="rec-item">
+                        <div class="rec-timing">Immediate (This Week)</div>
+                        <div class="rec-title">Launch Google Ads for Staffing Agencies (TOP SCORER)</div>
+                        <div class="rec-detail">Target "staffing agency digital marketing" and "recruiting firm website". These owners are actively searching, have the shortest sales cycle (4-8 weeks), and 90% fear AI disruption. Fastest path to results.</div>
+                    </div>
+
+                    <div class="rec-item">
+                        <div class="rec-timing">Week 2</div>
+                        <div class="rec-title">Create Staffing Agency Case Study / Landing Page</div>
+                        <div class="rec-detail">Build landing page specifically addressing AI fear: "Don't let AI eat your agency - let us help you leverage it." Include ROI calculator.</div>
+                    </div>
+
+                    <div class="rec-item">
+                        <div class="rec-timing">Week 2-3</div>
+                        <div class="rec-title">Launch Veterinary Practice Campaigns (#2 Scorer)</div>
+                        <div class="rec-detail">Target "veterinary website design" and "vet clinic marketing". Practice owners are 50+ and facing corporate chain competition (VCA, Banfield). Strong budgets and genuine need for digital modernization.</div>
+                    </div>
+
+                    <div class="rec-item">
+                        <div class="rec-timing">Week 3</div>
+                        <div class="rec-title">Launch Pest Control Campaigns (#3 Scorer)</div>
+                        <div class="rec-detail">Target "pest control website" and "exterminator marketing". Owners face seasonal demand challenges and competition from Orkin/Terminix. Need route optimization and online scheduling.</div>
+                    </div>
+
+                    <div class="rec-item">
+                        <div class="rec-timing">Week 3-4</div>
+                        <div class="rec-title">Launch Trades Super-Cluster Campaign</div>
+                        <div class="rec-detail">One "Home Services" positioning that targets Plumbing, Electrical, HVAC, Roofing together. Same messaging: "Stop losing jobs to HomeAdvisor." Combined market = 594K businesses.</div>
+                    </div>
+
+                    <div class="rec-item">
+                        <div class="rec-timing">Month 2</div>
+                        <div class="rec-title">Join Trade Associations</div>
+                        <div class="rec-detail">ASA (Staffing), PHCC (Plumbing), NECA (Electrical), ACCA (HVAC). These are WHERE these owners congregate. Attend regional events, sponsor newsletters.</div>
+                    </div>
+
+                    <div class="rec-item">
+                        <div class="rec-timing">Month 3</div>
+                        <div class="rec-title">Test Secondary Verticals</div>
+                        <div class="rec-detail">Run limited campaigns for Professional Services, Insurance Agencies, and Legal. Use results guarantee for new legal. Compare performance to primary verticals.</div>
+                    </div>
+
+                    <div class="rec-item">
+                        <div class="rec-timing">Ongoing</div>
+                        <div class="rec-title">Review & Optimize</div>
+                        <div class="rec-detail">Weekly ad performance reviews with Roe. Double down on what works. The 40-industry data gives you backup verticals if primary ones underperform.</div>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); border-radius: 16px; padding: 2rem; margin-top: 2rem; text-align: center;">
+                    <div style="font-family: 'Crimson Pro', serif; font-size: 1.5rem; color: var(--white); margin-bottom: 1rem;">The Bottom Line</div>
+                    <div style="color: rgba(255,255,255,0.85); max-width: 700px; margin: 0 auto; line-height: 1.8;">
+                        <strong>40 industries researched. 4 clear winners identified. Market sizing validated for ScaleUp services.</strong><br><br>
+                        <strong style="color: var(--gold);">Staffing Agencies (67/80)</strong> are the highest-probability path to $100K - older owners facing existential AI threat, with budget, urgency, and the fastest sales cycle of any industry studied. TAM for marketing services: $3.8B.
+                        <br><br>
+                        <strong style="color: var(--gold);">Veterinary Practices (65/80)</strong> - Practice owners are 50+ and facing corporate chain competition (VCA, Banfield). Strong budgets and genuine need for digital modernization.
+                        <br><br>
+                        <strong style="color: var(--gold);">Pest Control Services (64/80)</strong> - Owners face seasonal demand challenges and competition from Orkin/Terminix. Need route optimization and online scheduling to compete.
+                        <br><br>
+                        <strong style="color: var(--gold);">Trades Super-Cluster (63/80)</strong> - Plumbing, Electrical, HVAC, Roofing - represents the largest combined opportunity with 602K businesses sharing identical pain points. TAM for marketing services: $840M.
+                        <br><br>
+                        Your hypothesis was correct: <strong>technology laggard industries</strong> with older owners are the path. Realistic math: $3.5-5K/month in ads → 15-25 leads → 1-2 clients/month at 5-8% close rate → $12-25K new revenue/month. Timeline to $100K: 6-9 months with consistent execution.
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p class="footer-text">Persona Research Report | ScaleUp Ventures | December 30, 2025</p>
+        </footer>
+    </main>
+</body>
+</html>

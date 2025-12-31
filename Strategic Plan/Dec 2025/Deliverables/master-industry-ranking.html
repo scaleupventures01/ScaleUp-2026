@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>40-Industry Master Ranking | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f1729;
+            --navy-light: #1a2744;
+            --slate: #334155;
+            --slate-light: #64748b;
+            --gold: #d4a853;
+            --gold-muted: #b8956e;
+            --cream: #faf8f5;
+            --cream-dark: #f1ede6;
+            --white: #ffffff;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --info: #0284c7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--navy);
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .nav-header {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .nav-subtitle {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 0.25rem;
+        }
+
+        .nav-section { margin-bottom: 1.5rem; }
+
+        .nav-section-title {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--slate-light);
+            padding: 0 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+            border-left-color: var(--gold);
+        }
+
+        .main {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 5rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a853' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+        }
+
+        .hero-meta-item {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+        }
+
+        .hero-meta-item strong {
+            color: var(--white);
+            display: block;
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .content {
+            padding: 4rem;
+            max-width: 1000px;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-header { margin-bottom: 2rem; }
+
+        .section-number {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: 0.5rem;
+        }
+
+        /* Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .summary-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .summary-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .summary-value.success { color: var(--success); }
+        .summary-value.gold { color: var(--gold); }
+
+        .summary-label {
+            font-size: 0.75rem;
+            color: var(--slate-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+
+        /* Ranking Table */
+        .ranking-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .ranking-table thead {
+            background: var(--navy);
+        }
+
+        .ranking-table th {
+            text-align: left;
+            padding: 1rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .ranking-table th:last-child {
+            text-align: center;
+        }
+
+        .ranking-table tbody tr {
+            border-bottom: 1px solid var(--cream-dark);
+            transition: background 0.2s ease;
+        }
+
+        .ranking-table tbody tr:hover {
+            background: var(--cream);
+        }
+
+        .ranking-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .ranking-table td {
+            padding: 0.875rem 1rem;
+            font-size: 0.9rem;
+            color: var(--slate);
+        }
+
+        .ranking-table td:first-child {
+            font-weight: 600;
+            color: var(--slate-light);
+            width: 50px;
+            text-align: center;
+        }
+
+        .ranking-table td:nth-child(2) {
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .ranking-table td:last-child {
+            text-align: center;
+        }
+
+        .score-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .score-badge.tier-1 {
+            background: rgba(5, 150, 105, 0.15);
+            color: var(--success);
+        }
+
+        .score-badge.tier-2 {
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold-muted);
+        }
+
+        .score-badge.tier-3 {
+            background: rgba(217, 119, 6, 0.15);
+            color: var(--warning);
+        }
+
+        .score-badge.tier-4 {
+            background: rgba(100, 116, 139, 0.15);
+            color: var(--slate-light);
+        }
+
+        .tier-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            margin-left: 0.5rem;
+        }
+
+        .tier-label.tier-1 {
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--success);
+        }
+
+        .tier-label.tier-2 {
+            background: rgba(212, 168, 83, 0.15);
+            color: var(--gold-muted);
+        }
+
+        .tier-label.tier-3 {
+            background: rgba(217, 119, 6, 0.1);
+            color: var(--warning);
+        }
+
+        .tier-label.tier-4 {
+            background: rgba(100, 116, 139, 0.1);
+            color: var(--slate-light);
+        }
+
+        /* Industry Cards */
+        .industry-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--success);
+        }
+
+        .industry-card.tier-2 {
+            border-left-color: var(--gold);
+        }
+
+        .industry-card.tier-3 {
+            border-left-color: var(--warning);
+        }
+
+        .industry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .industry-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .industry-tagline {
+            color: var(--slate);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+            max-width: 500px;
+        }
+
+        .industry-score {
+            text-align: right;
+        }
+
+        .industry-score-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        .industry-score-label {
+            font-size: 0.7rem;
+            color: var(--slate-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .industry-section-title {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .industry-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .industry-list li {
+            padding: 0.375rem 0;
+            font-size: 0.9rem;
+            color: var(--slate);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .industry-list li strong {
+            color: var(--navy);
+            min-width: 140px;
+        }
+
+        /* Scoring Breakdown */
+        .scoring-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .scoring-item {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 0.875rem;
+            text-align: center;
+        }
+
+        .scoring-item-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .scoring-item-label {
+            font-size: 0.65rem;
+            color: var(--slate-light);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-top: 0.25rem;
+        }
+
+        .evidence-box {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .evidence-item {
+            font-size: 0.875rem;
+            color: var(--slate);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .evidence-item:last-child { border-bottom: none; }
+
+        .evidence-source {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Tier Header */
+        .tier-header {
+            background: var(--navy);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .tier-header-content h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .tier-header-content p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 0.25rem;
+        }
+
+        .tier-header-badge {
+            background: rgba(5, 150, 105, 0.2);
+            color: var(--success);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .tier-header-badge.tier-2 {
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            padding: 2rem 4rem;
+            margin-top: 4rem;
+        }
+
+        .footer-text {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        @media (max-width: 1024px) {
+            .nav { width: 240px; }
+            .main { margin-left: 240px; }
+            .hero { padding: 3rem 2rem; }
+            .hero-title { font-size: 2.5rem; }
+            .content { padding: 2rem; }
+            .summary-grid { grid-template-columns: repeat(2, 1fr); }
+            .industry-grid { grid-template-columns: 1fr; }
+            .scoring-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .main { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-logo">ScaleUp Ventures</div>
+            <div class="nav-subtitle">Industry Rankings</div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Overview</div>
+            <a href="#overview" class="nav-link">Overview</a>
+            <a href="#methodology" class="nav-link">Methodology</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Tier Rankings</div>
+            <a href="#tier-1" class="nav-link">Tier 1 (65+/80)</a>
+            <a href="#tier-2" class="nav-link">Tier 2 (60-64/80)</a>
+            <a href="#tier-3" class="nav-link">Tier 3 (55-59/80)</a>
+            <a href="#tier-4" class="nav-link">Tier 4 (Below 55)</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Analysis</div>
+            <a href="#anti-personas" class="nav-link">Anti-Personas</a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <header class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">Complete Industry Analysis</div>
+                <h1 class="hero-title">40-Industry Master Ranking</h1>
+                <p class="hero-subtitle">Complete scoring breakdown of all researched industries</p>
+                <div class="hero-meta">
+                    <div class="hero-meta-item">
+                        <strong>40 Industries</strong>
+                        Analyzed
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>8 Scoring Criteria</strong>
+                        Per Industry
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>80 Point Scale</strong>
+                        Maximum Score
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- Section 01: Overview -->
+            <section id="overview" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 01</div>
+                    <h2 class="section-title">Overview</h2>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="summary-value success">2</div>
+                        <div class="summary-label">Tier 1 (65+)</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value gold">10</div>
+                        <div class="summary-label">Tier 2 (63-64)</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value">10</div>
+                        <div class="summary-label">Tier 3 (60-62)</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value">9</div>
+                        <div class="summary-label">Tier 4 (56-59)</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value" style="color: var(--danger);">9</div>
+                        <div class="summary-label">Anti-Personas (&lt;55)</div>
+                    </div>
+                </div>
+
+                <table class="ranking-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Industry</th>
+                            <th>Tier</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Tier 1: 65+ -->
+                        <tr>
+                            <td>1</td>
+                            <td>Staffing Agencies</td>
+                            <td><span class="tier-label tier-1">Tier 1</span></td>
+                            <td><span class="score-badge tier-1">67/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Veterinary Practices</td>
+                            <td><span class="tier-label tier-1">Tier 1</span></td>
+                            <td><span class="score-badge tier-1">65/80</span></td>
+                        </tr>
+                        <!-- Tier 2: 63-64 -->
+                        <tr>
+                            <td>3</td>
+                            <td>Pest Control Services</td>
+                            <td><span class="tier-label tier-2">Tier 2</span></td>
+                            <td><span class="score-badge tier-2">64/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Trucking / Logistics</td>
+                            <td><span class="tier-label tier-2">Tier 2</span></td>
+                            <td><span class="score-badge tier-2">63/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Property Management</td>
+                            <td><span class="tier-label tier-2">Tier 2</span></td>
+                            <td><span class="score-badge tier-2">63/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Plumbing Contractors</td>
+                            <td><span class="tier-label tier-2">Tier 2</span></td>
+                            <td><span class="score-badge tier-2">63/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Electrical Contractors</td>
+                            <td><span class="tier-label tier-2">Tier 2</span></td>
+                            <td><span class="score-badge tier-2">63/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Roofing Contractors</td>
+                            <td><span class="tier-label tier-2">Tier 2</span></td>
+                            <td><span class="score-badge tier-2">63/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>HVAC Contractors</td>
+                            <td><span class="tier-label tier-2">Tier 2</span></td>
+                            <td><span class="score-badge tier-2">63/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Waste / Junk Removal</td>
+                            <td><span class="tier-label tier-2">Tier 2</span></td>
+                            <td><span class="score-badge tier-2">63/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>Home Health Services</td>
+                            <td><span class="tier-label tier-2">Tier 2</span></td>
+                            <td><span class="score-badge tier-2">63/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>Towing Services</td>
+                            <td><span class="tier-label tier-2">Tier 2</span></td>
+                            <td><span class="score-badge tier-2">63/80</span></td>
+                        </tr>
+                        <!-- Tier 3: 60-62 -->
+                        <tr>
+                            <td>13</td>
+                            <td>Manufacturing SMB</td>
+                            <td><span class="tier-label tier-3">Tier 3</span></td>
+                            <td><span class="score-badge tier-3">62/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>Funeral Homes</td>
+                            <td><span class="tier-label tier-3">Tier 3</span></td>
+                            <td><span class="score-badge tier-3">62/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>Auto Repair Shops</td>
+                            <td><span class="tier-label tier-3">Tier 3</span></td>
+                            <td><span class="score-badge tier-3">62/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>Self-Storage Facilities</td>
+                            <td><span class="tier-label tier-3">Tier 3</span></td>
+                            <td><span class="score-badge tier-3">62/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>Hotels / Hospitality</td>
+                            <td><span class="tier-label tier-3">Tier 3</span></td>
+                            <td><span class="score-badge tier-3">62/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td>Dental Practices</td>
+                            <td><span class="tier-label tier-3">Tier 3</span></td>
+                            <td><span class="score-badge tier-3">61/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td>Pool Service Companies</td>
+                            <td><span class="tier-label tier-3">Tier 3</span></td>
+                            <td><span class="score-badge tier-3">61/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td>Tax / Bookkeeping</td>
+                            <td><span class="tier-label tier-3">Tier 3</span></td>
+                            <td><span class="score-badge tier-3">61/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>21</td>
+                            <td>Landscaping Companies</td>
+                            <td><span class="tier-label tier-3">Tier 3</span></td>
+                            <td><span class="score-badge tier-3">60/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>22</td>
+                            <td>Senior Care Facilities</td>
+                            <td><span class="tier-label tier-3">Tier 3</span></td>
+                            <td><span class="score-badge tier-3">60/80</span></td>
+                        </tr>
+                        <!-- Tier 4: 56-59 -->
+                        <tr>
+                            <td>23</td>
+                            <td>Commercial Cleaning</td>
+                            <td><span class="tier-label tier-4">Tier 4</span></td>
+                            <td><span class="score-badge tier-4">58/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>24</td>
+                            <td>Security Services</td>
+                            <td><span class="tier-label tier-4">Tier 4</span></td>
+                            <td><span class="score-badge tier-4">58/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>25</td>
+                            <td>Credit Unions</td>
+                            <td><span class="tier-label tier-4">Tier 4</span></td>
+                            <td><span class="score-badge tier-4">58/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>26</td>
+                            <td>Physical Therapy Clinics</td>
+                            <td><span class="tier-label tier-4">Tier 4</span></td>
+                            <td><span class="score-badge tier-4">57/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>27</td>
+                            <td>Chiropractic Offices</td>
+                            <td><span class="tier-label tier-4">Tier 4</span></td>
+                            <td><span class="score-badge tier-4">57/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>28</td>
+                            <td>Construction / General Contractors</td>
+                            <td><span class="tier-label tier-4">Tier 4</span></td>
+                            <td><span class="score-badge tier-4">56/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>29</td>
+                            <td>Childcare Centers</td>
+                            <td><span class="tier-label tier-4">Tier 4</span></td>
+                            <td><span class="score-badge tier-4">56/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>30</td>
+                            <td>Pharmacies</td>
+                            <td><span class="tier-label tier-4">Tier 4</span></td>
+                            <td><span class="score-badge tier-4">56/80</span></td>
+                        </tr>
+                        <tr>
+                            <td>31</td>
+                            <td>Commercial Printing</td>
+                            <td><span class="tier-label tier-4">Tier 4</span></td>
+                            <td><span class="score-badge tier-4">56/80</span></td>
+                        </tr>
+                        <!-- Anti-Personas: <55 -->
+                        <tr style="background: rgba(220, 38, 38, 0.05);">
+                            <td>32</td>
+                            <td>Auto Dealerships</td>
+                            <td><span class="tier-label" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">Anti</span></td>
+                            <td><span class="score-badge" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">54/80</span></td>
+                        </tr>
+                        <tr style="background: rgba(220, 38, 38, 0.05);">
+                            <td>33</td>
+                            <td>Healthcare Clinics</td>
+                            <td><span class="tier-label" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">Anti</span></td>
+                            <td><span class="score-badge" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">54/80</span></td>
+                        </tr>
+                        <tr style="background: rgba(220, 38, 38, 0.05);">
+                            <td>34</td>
+                            <td>Moving Companies</td>
+                            <td><span class="tier-label" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">Anti</span></td>
+                            <td><span class="score-badge" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">53/80</span></td>
+                        </tr>
+                        <tr style="background: rgba(220, 38, 38, 0.05);">
+                            <td>35</td>
+                            <td>Real Estate Agencies</td>
+                            <td><span class="tier-label" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">Anti</span></td>
+                            <td><span class="score-badge" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">52/80</span></td>
+                        </tr>
+                        <tr style="background: rgba(220, 38, 38, 0.05);">
+                            <td>36</td>
+                            <td>Medical Equipment Suppliers</td>
+                            <td><span class="tier-label" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">Anti</span></td>
+                            <td><span class="score-badge" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">52/80</span></td>
+                        </tr>
+                        <tr style="background: rgba(220, 38, 38, 0.05);">
+                            <td>37</td>
+                            <td>Optometry Practices</td>
+                            <td><span class="tier-label" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">Anti</span></td>
+                            <td><span class="score-badge" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">51/80</span></td>
+                        </tr>
+                        <tr style="background: rgba(220, 38, 38, 0.05);">
+                            <td>38</td>
+                            <td>Agriculture / Farming</td>
+                            <td><span class="tier-label" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">Anti</span></td>
+                            <td><span class="score-badge" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">47/80</span></td>
+                        </tr>
+                        <tr style="background: rgba(220, 38, 38, 0.05);">
+                            <td>39</td>
+                            <td>Restaurants</td>
+                            <td><span class="tier-label" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">Anti</span></td>
+                            <td><span class="score-badge" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">46/80</span></td>
+                        </tr>
+                        <tr style="background: rgba(220, 38, 38, 0.05);">
+                            <td>40</td>
+                            <td>Fitness Centers / Gyms</td>
+                            <td><span class="tier-label" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">Anti</span></td>
+                            <td><span class="score-badge" style="background: rgba(220, 38, 38, 0.1); color: var(--danger);">46/80</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Section 02: Tier 1 -->
+            <section id="tier-1" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 02</div>
+                    <h2 class="section-title">Tier 1: Prime Targets (65+/80)</h2>
+                </div>
+
+                <div class="tier-header">
+                    <div class="tier-header-content">
+                        <h3>Tier 1 Industries</h3>
+                        <p>Highest scoring industries with optimal fit for ScaleUp services</p>
+                    </div>
+                    <div class="tier-header-badge">2 Industries</div>
+                </div>
+
+                <!-- Staffing Agencies Card -->
+                <div class="industry-card">
+                    <div class="industry-header">
+                        <div>
+                            <div class="industry-name">Staffing Agencies</div>
+                            <div class="industry-tagline">High-volume placement firms struggling with AI-driven recruitment disruption and talent management complexity</div>
+                        </div>
+                        <div class="industry-score">
+                            <div class="industry-score-value">67/80</div>
+                            <div class="industry-score-label">Total Score</div>
+                        </div>
+                    </div>
+
+                    <div class="scoring-grid">
+                        <div class="scoring-item">
+                            <div class="scoring-item-value">9/10</div>
+                            <div class="scoring-item-label">Pain Intensity</div>
+                        </div>
+                        <div class="scoring-item">
+                            <div class="scoring-item-value">9/10</div>
+                            <div class="scoring-item-label">Budget Capacity</div>
+                        </div>
+                        <div class="scoring-item">
+                            <div class="scoring-item-value">8/10</div>
+                            <div class="scoring-item-label">Tech Gap</div>
+                        </div>
+                        <div class="scoring-item">
+                            <div class="scoring-item-value">9/10</div>
+                            <div class="scoring-item-label">Disruption Fear</div>
+                        </div>
+                        <div class="scoring-item">
+                            <div class="scoring-item-value">8/10</div>
+                            <div class="scoring-item-label">Owner Age 50+</div>
+                        </div>
+                        <div class="scoring-item">
+                            <div class="scoring-item-value">8/10</div>
+                            <div class="scoring-item-label">Service Fit</div>
+                        </div>
+                        <div class="scoring-item">
+                            <div class="scoring-item-value">8/10</div>
+                            <div class="scoring-item-label">Market Size</div>
+                        </div>
+                        <div class="scoring-item">
+                            <div class="scoring-item-value">8/10</div>
+                            <div class="scoring-item-label">Reachability</div>
+                        </div>
+                    </div>
+
+                    <div class="industry-grid" style="margin-top: 1.5rem;">
+                        <div>
+                            <div class="industry-section-title">Key Pain Points</div>
+                            <ul class="industry-list">
+                                <li><strong>AI Disruption:</strong> ChatGPT and AI tools threatening core matching services</li>
+                                <li><strong>Margin Compression:</strong> Direct hiring platforms reducing placement fees</li>
+                                <li><strong>Talent Shortage:</strong> Difficulty finding qualified candidates in competitive markets</li>
+                                <li><strong>Tech Debt:</strong> Legacy ATS systems that cannot integrate modern tools</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="industry-section-title">Why They Buy</div>
+                            <ul class="industry-list">
+                                <li><strong>Survival Urgency:</strong> AI is existential threat to business model</li>
+                                <li><strong>Strong Margins:</strong> 15-25% placement fees support consulting investment</li>
+                                <li><strong>Quick ROI:</strong> Process improvements show immediate results</li>
+                                <li><strong>Competitive Edge:</strong> Modern tech = better placements = more clients</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="evidence-box">
+                        <div class="industry-section-title">Market Evidence</div>
+                        <div class="evidence-item"><span class="evidence-source">Market Size:</span> 25,000+ staffing firms in the US with $150B+ annual revenue</div>
+                        <div class="evidence-item"><span class="evidence-source">Owner Demographics:</span> 60% of agency owners are 50+ with limited tech background</div>
+                        <div class="evidence-item"><span class="evidence-source">Spending Capacity:</span> Average firm can allocate $5-15K monthly for strategic improvements</div>
+                    </div>
+                </div>
+
+                <!-- Veterinary Practices Card -->
+                <div class="industry-card">
+                    <div class="industry-header">
+                        <div>
+                            <div class="industry-name">Veterinary Practices</div>
+                            <div class="industry-tagline">Independent vet clinics facing corporate consolidation pressure and operational complexity</div>
+                        </div>
+                        <div class="industry-score">
+                            <div class="industry-score-value">65/80</div>
+                            <div class="industry-score-label">Total Score</div>
+                        </div>
+                    </div>
+
+                    <div class="scoring-grid">
+                        <div class="scoring-item">
+                            <div class="scoring-item-value">8/10</div>
+                            <div class="scoring-item-label">Pain Intensity</div>
+                        </div>
+                        <div class="scoring-item">
+                            <div class="scoring-item-value">8/10</div>
+                            <div class="scoring-item-label">Budget Capacity</div>
+                        </div>
+                        <div class="scoring-item">
+                            <div class="scoring-item-value">8/10</div>
+                            <div class="scoring-item-label">Tech Gap</div>
+                        </div>
+                        <div class="scoring-item">
+                            <div class="scoring-item-value">9/10</div>
+                            <div class="scoring-item-label">Disruption Fear</div>
+                        </div>
+                        <div class="scoring-item">
+                            <div class="scoring-item-value">8/10</div>
+                            <div class="scoring-item-label">Owner Age 50+</div>
+                        </div>
+                        <div class="scoring-item">
+                            <div class="scoring-item-value">8/10</div>
+                            <div class="scoring-item-label">Service Fit</div>
+                        </div>
+                        <div class="scoring-item">
+                            <div class="scoring-item-value">8/10</div>
+                            <div class="scoring-item-label">Market Size</div>
+                        </div>
+                        <div class="scoring-item">
+                            <div class="scoring-item-value">8/10</div>
+                            <div class="scoring-item-label">Reachability</div>
+                        </div>
+                    </div>
+
+                    <div class="industry-grid" style="margin-top: 1.5rem;">
+                        <div>
+                            <div class="industry-section-title">Key Pain Points</div>
+                            <ul class="industry-list">
+                                <li><strong>Corporate Rollup:</strong> Mars, VCA, and PE firms acquiring independents</li>
+                                <li><strong>Staff Burnout:</strong> Chronic vet tech shortage and compassion fatigue</li>
+                                <li><strong>Technology Chaos:</strong> Multiple disconnected systems for records, billing, scheduling</li>
+                                <li><strong>Client Expectations:</strong> Pet parents demand 24/7 communication and online booking</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="industry-section-title">Why They Buy</div>
+                            <ul class="industry-list">
+                                <li><strong>Independence Preservation:</strong> Compete with corporates or get acquired</li>
+                                <li><strong>Strong Revenue:</strong> Average practice $1.5M+ annual revenue</li>
+                                <li><strong>Efficiency Gains:</strong> Reducing admin time = more patient care</li>
+                                <li><strong>Valuation Focus:</strong> Many planning exit in 5-10 years, want to maximize value</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="evidence-box">
+                        <div class="industry-section-title">Market Evidence</div>
+                        <div class="evidence-item"><span class="evidence-source">Market Size:</span> 32,000+ veterinary practices in the US, 60% still independently owned</div>
+                        <div class="evidence-item"><span class="evidence-source">Owner Demographics:</span> Average practice owner age is 52, with 65% planning exit within 10 years</div>
+                        <div class="evidence-item"><span class="evidence-source">Spending Capacity:</span> Practices typically allocate $3-10K monthly for operational improvements</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 03: Tier 2 -->
+            <section id="tier-2" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 03</div>
+                    <h2 class="section-title">Tier 2: High-Potential Targets (63-64/80)</h2>
+                </div>
+
+                <div class="tier-header">
+                    <div class="tier-header-content">
+                        <h3>Tier 2 Industries</h3>
+                        <p>Strong candidates with excellent service fit and market characteristics</p>
+                    </div>
+                    <div class="tier-header-badge tier-2">10 Industries</div>
+                </div>
+
+                <!-- Pest Control Card -->
+                <div class="industry-card tier-2">
+                    <div class="industry-header">
+                        <div>
+                            <div class="industry-name">Pest Control Services</div>
+                            <div class="industry-tagline">Seasonal service businesses with recurring revenue models struggling with route optimization and customer retention</div>
+                        </div>
+                        <div class="industry-score">
+                            <div class="industry-score-value" style="color: var(--gold);">64/80</div>
+                            <div class="industry-score-label">Total Score</div>
+                        </div>
+                    </div>
+                    <div class="scoring-grid">
+                        <div class="scoring-item"><div class="scoring-item-value">8/10</div><div class="scoring-item-label">Market Size</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">8/10</div><div class="scoring-item-label">Owner Demographics</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">7/10</div><div class="scoring-item-label">Budget</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">8/10</div><div class="scoring-item-label">Pain Intensity</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">8/10</div><div class="scoring-item-label">Competition</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">9/10</div><div class="scoring-item-label">Service Fit</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">8/10</div><div class="scoring-item-label">Acquisition Ease</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">8/10</div><div class="scoring-item-label">Sales Cycle</div></div>
+                    </div>
+                </div>
+
+                <!-- Trucking Card -->
+                <div class="industry-card tier-2">
+                    <div class="industry-header">
+                        <div>
+                            <div class="industry-name">Trucking / Logistics / Freight</div>
+                            <div class="industry-tagline">Owner-operators and small fleets with acute digital transformation pressure and technology laggard characteristics</div>
+                        </div>
+                        <div class="industry-score">
+                            <div class="industry-score-value" style="color: var(--gold);">63/80</div>
+                            <div class="industry-score-label">Total Score</div>
+                        </div>
+                    </div>
+                    <div class="scoring-grid">
+                        <div class="scoring-item"><div class="scoring-item-value">9/10</div><div class="scoring-item-label">Market Size</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">8/10</div><div class="scoring-item-label">Owner Demographics</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">7/10</div><div class="scoring-item-label">Budget</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">9/10</div><div class="scoring-item-label">Pain Intensity</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">7/10</div><div class="scoring-item-label">Competition</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">9/10</div><div class="scoring-item-label">Service Fit</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">8/10</div><div class="scoring-item-label">Acquisition Ease</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">6/10</div><div class="scoring-item-label">Sales Cycle</div></div>
+                    </div>
+                </div>
+
+                <!-- Trades Super-Cluster Summary -->
+                <div class="industry-card tier-2" style="border-left-color: var(--gold);">
+                    <div class="industry-header">
+                        <div>
+                            <div class="industry-name">Trades Super-Cluster (6 Industries @ 63/80)</div>
+                            <div class="industry-tagline">Plumbing, Electrical, Roofing, HVAC, Waste/Junk Removal, Towing - owner-operators with similar pain points and buying patterns</div>
+                        </div>
+                        <div class="industry-score">
+                            <div class="industry-score-value" style="color: var(--gold);">63/80</div>
+                            <div class="industry-score-label">Each Industry</div>
+                        </div>
+                    </div>
+                    <div class="industry-grid" style="margin-top: 1rem;">
+                        <div>
+                            <div class="industry-section-title">Common Characteristics</div>
+                            <ul class="industry-list">
+                                <li><strong>Owner Age:</strong> Average 50-55 years, technology hesitant</li>
+                                <li><strong>Structure:</strong> Predominantly owner-operated with 1-10 employees</li>
+                                <li><strong>Pain Points:</strong> Scheduling, dispatching, lead generation, reviews</li>
+                                <li><strong>Budget:</strong> $2-8K/month marketing spend capacity</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="industry-section-title">Why They Buy Together</div>
+                            <ul class="industry-list">
+                                <li><strong>Same Buying Journey:</strong> Local SEO + reputation + automation</li>
+                                <li><strong>Cross-Referrals:</strong> Plumbers refer electricians, etc.</li>
+                                <li><strong>Shared Conferences:</strong> Trade shows target multiple trades</li>
+                                <li><strong>Package Opportunity:</strong> "Home Services Marketing Package"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Management Card -->
+                <div class="industry-card tier-2">
+                    <div class="industry-header">
+                        <div>
+                            <div class="industry-name">Property Management</div>
+                            <div class="industry-tagline">Multi-property managers with complex operational needs and tenant communication challenges</div>
+                        </div>
+                        <div class="industry-score">
+                            <div class="industry-score-value" style="color: var(--gold);">63/80</div>
+                            <div class="industry-score-label">Total Score</div>
+                        </div>
+                    </div>
+                    <div class="scoring-grid">
+                        <div class="scoring-item"><div class="scoring-item-value">8/10</div><div class="scoring-item-label">Market Size</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">7/10</div><div class="scoring-item-label">Owner Demographics</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">8/10</div><div class="scoring-item-label">Budget</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">8/10</div><div class="scoring-item-label">Pain Intensity</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">7/10</div><div class="scoring-item-label">Competition</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">9/10</div><div class="scoring-item-label">Service Fit</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">8/10</div><div class="scoring-item-label">Acquisition Ease</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">8/10</div><div class="scoring-item-label">Sales Cycle</div></div>
+                    </div>
+                </div>
+
+                <!-- Home Health Card -->
+                <div class="industry-card tier-2">
+                    <div class="industry-header">
+                        <div>
+                            <div class="industry-name">Home Health Services</div>
+                            <div class="industry-tagline">In-home care providers facing staffing crises and compliance complexity in a rapidly growing market</div>
+                        </div>
+                        <div class="industry-score">
+                            <div class="industry-score-value" style="color: var(--gold);">63/80</div>
+                            <div class="industry-score-label">Total Score</div>
+                        </div>
+                    </div>
+                    <div class="scoring-grid">
+                        <div class="scoring-item"><div class="scoring-item-value">9/10</div><div class="scoring-item-label">Market Size</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">7/10</div><div class="scoring-item-label">Owner Demographics</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">7/10</div><div class="scoring-item-label">Budget</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">9/10</div><div class="scoring-item-label">Pain Intensity</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">7/10</div><div class="scoring-item-label">Competition</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">9/10</div><div class="scoring-item-label">Service Fit</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">8/10</div><div class="scoring-item-label">Acquisition Ease</div></div>
+                        <div class="scoring-item"><div class="scoring-item-value">7/10</div><div class="scoring-item-label">Sales Cycle</div></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 04: Tier 3 -->
+            <section id="tier-3" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 04</div>
+                    <h2 class="section-title">Tier 3: Solid Opportunities (60-62/80)</h2>
+                </div>
+
+                <div class="tier-header" style="background: linear-gradient(135deg, var(--warning) 0%, #b45309 100%);">
+                    <div class="tier-header-content">
+                        <h3>Tier 3 Industries</h3>
+                        <p>Good market fit with manageable challenges - secondary focus after Tier 1-2</p>
+                    </div>
+                    <div class="tier-header-badge" style="background: rgba(255,255,255,0.2); color: white;">10 Industries</div>
+                </div>
+
+                <table class="ranking-table" style="margin-bottom: 2rem;">
+                    <thead>
+                        <tr>
+                            <th>Industry</th>
+                            <th>Score</th>
+                            <th>Key Strength</th>
+                            <th>Key Challenge</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Manufacturing SMB</td>
+                            <td><span class="score-badge tier-3">62/80</span></td>
+                            <td>High budget capacity, strong service fit</td>
+                            <td>Longer sales cycles (6+ months)</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Funeral Homes</td>
+                            <td><span class="score-badge tier-3">62/80</span></td>
+                            <td>Older owners (avg 58), low competition</td>
+                            <td>Sensitive industry, slower adoption</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Auto Repair Shops</td>
+                            <td><span class="score-badge tier-3">62/80</span></td>
+                            <td>High pain intensity, good acquisition channels</td>
+                            <td>Fragmented market, varied tech comfort</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Self-Storage Facilities</td>
+                            <td><span class="score-badge tier-3">62/80</span></td>
+                            <td>Strong recurring revenue, automation-ready</td>
+                            <td>Consolidation by REITs reducing SMB count</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Hotels / Hospitality</td>
+                            <td><span class="score-badge tier-3">62/80</span></td>
+                            <td>High service fit, multiple automation opportunities</td>
+                            <td>OTA dominance, thin margins</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Dental Practices</td>
+                            <td><span class="score-badge tier-3">61/80</span></td>
+                            <td>Strong budgets, corporate rollup pressure</td>
+                            <td>DSO competition, established vendors</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Pool Service Companies</td>
+                            <td><span class="score-badge tier-3">61/80</span></td>
+                            <td>Recurring revenue, route optimization need</td>
+                            <td>Seasonal in many markets</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Tax / Bookkeeping</td>
+                            <td><span class="score-badge tier-3">61/80</span></td>
+                            <td>AI disruption fear, recurring clients</td>
+                            <td>Seasonal revenue, price sensitivity</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Landscaping Companies</td>
+                            <td><span class="score-badge tier-3">60/80</span></td>
+                            <td>Large market, scheduling pain points</td>
+                            <td>Seasonal, lower margins</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Senior Care Facilities</td>
+                            <td><span class="score-badge tier-3">60/80</span></td>
+                            <td>Growing market, staffing crisis</td>
+                            <td>Regulatory complexity, longer sales</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Section 05: Tier 4 -->
+            <section id="tier-4" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 05</div>
+                    <h2 class="section-title">Tier 4: Opportunistic (56-59/80)</h2>
+                </div>
+
+                <div class="tier-header" style="background: var(--slate);">
+                    <div class="tier-header-content">
+                        <h3>Tier 4 Industries</h3>
+                        <p>Pursue only with specific referrals or when capacity allows - not primary targets</p>
+                    </div>
+                    <div class="tier-header-badge" style="background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);">9 Industries</div>
+                </div>
+
+                <table class="ranking-table" style="margin-bottom: 2rem;">
+                    <thead>
+                        <tr>
+                            <th>Industry</th>
+                            <th>Score</th>
+                            <th>Why Lower Tier</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Commercial Cleaning</td>
+                            <td><span class="score-badge tier-4">58/80</span></td>
+                            <td>Low margins, commoditized market, high competition</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Security Services</td>
+                            <td><span class="score-badge tier-4">58/80</span></td>
+                            <td>Mixed budgets, technology already established</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Credit Unions</td>
+                            <td><span class="score-badge tier-4">58/80</span></td>
+                            <td>Regulatory constraints, slow decision-making</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Physical Therapy Clinics</td>
+                            <td><span class="score-badge tier-4">57/80</span></td>
+                            <td>Insurance complexity, moderate budgets</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Chiropractic Offices</td>
+                            <td><span class="score-badge tier-4">57/80</span></td>
+                            <td>Established vendors, moderate pain intensity</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Construction / General Contractors</td>
+                            <td><span class="score-badge tier-4">56/80</span></td>
+                            <td>Long sales cycles, younger average owners (48)</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Childcare Centers</td>
+                            <td><span class="score-badge tier-4">56/80</span></td>
+                            <td>Tight margins, regulatory focus over marketing</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Pharmacies</td>
+                            <td><span class="score-badge tier-4">56/80</span></td>
+                            <td>Chain dominance, PBM constraints</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500; color: var(--navy);">Commercial Printing</td>
+                            <td><span class="score-badge tier-4">56/80</span></td>
+                            <td>Declining industry, limited growth potential</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Section 06: Anti-Personas -->
+            <section id="anti-personas" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 06</div>
+                    <h2 class="section-title">Anti-Personas: Do Not Pursue (&lt;55/80)</h2>
+                </div>
+
+                <div class="tier-header" style="background: linear-gradient(135deg, var(--danger) 0%, #991b1b 100%);">
+                    <div class="tier-header-content">
+                        <h3>Anti-Persona Industries</h3>
+                        <p>These industries have fundamental mismatches with ScaleUp's services - avoid proactive outreach</p>
+                    </div>
+                    <div class="tier-header-badge" style="background: rgba(255,255,255,0.2); color: white;">9 Industries</div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--danger);">
+                        <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">Auto Dealerships</div>
+                        <div style="font-size: 0.85rem; color: var(--slate); margin-bottom: 0.75rem;">54/80</div>
+                        <div style="font-size: 0.8rem; color: var(--slate-light);">OEM marketing programs dominate; franchise restrictions limit independent marketing; established vendors with deep integrations</div>
+                    </div>
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--danger);">
+                        <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">Healthcare Clinics</div>
+                        <div style="font-size: 0.85rem; color: var(--slate); margin-bottom: 0.75rem;">54/80</div>
+                        <div style="font-size: 0.8rem; color: var(--slate-light);">HIPAA complexity; established EMR vendors; insurance dominates patient acquisition; compliance trumps marketing</div>
+                    </div>
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--danger);">
+                        <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">Moving Companies</div>
+                        <div style="font-size: 0.85rem; color: var(--slate); margin-bottom: 0.75rem;">53/80</div>
+                        <div style="font-size: 0.8rem; color: var(--slate-light);">Aggregator dominance (Move.com, etc.); low margins; seasonal volatility; price-driven buying decisions</div>
+                    </div>
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--danger);">
+                        <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">Real Estate Agencies</div>
+                        <div style="font-size: 0.85rem; color: var(--slate); margin-bottom: 0.75rem;">52/80</div>
+                        <div style="font-size: 0.8rem; color: var(--slate-light);">Zillow/Redfin dominance; agent-centric not brokerage-centric; younger demographics; market volatility</div>
+                    </div>
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--danger);">
+                        <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">Medical Equipment</div>
+                        <div style="font-size: 0.85rem; color: var(--slate); margin-bottom: 0.75rem;">52/80</div>
+                        <div style="font-size: 0.8rem; color: var(--slate-light);">Long B2B sales cycles; hospital procurement complexity; established distributors; regulatory requirements</div>
+                    </div>
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--danger);">
+                        <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">Optometry Practices</div>
+                        <div style="font-size: 0.85rem; color: var(--slate); margin-bottom: 0.75rem;">51/80</div>
+                        <div style="font-size: 0.8rem; color: var(--slate-light);">VSP/insurance dominance; retail optical chain competition; established marketing vendors; limited budget flexibility</div>
+                    </div>
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--danger);">
+                        <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">Agriculture / Farming</div>
+                        <div style="font-size: 0.85rem; color: var(--slate); margin-bottom: 0.75rem;">47/80</div>
+                        <div style="font-size: 0.8rem; color: var(--slate-light);">Commodity business; co-op structures; geographically dispersed; seasonal income; limited digital needs</div>
+                    </div>
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--danger);">
+                        <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">Restaurants</div>
+                        <div style="font-size: 0.85rem; color: var(--slate); margin-bottom: 0.75rem;">46/80</div>
+                        <div style="font-size: 0.8rem; color: var(--slate-light);">3-5% margins; high failure rates (60% in year 1); Yelp/DoorDash dependency; owners focused on operations not growth</div>
+                    </div>
+                    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--danger);">
+                        <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">Fitness Centers / Gyms</div>
+                        <div style="font-size: 0.85rem; color: var(--slate); margin-bottom: 0.75rem;">46/80</div>
+                        <div style="font-size: 0.8rem; color: var(--slate-light);">Peloton/digital disruption; younger owner demographics (42 avg); franchise models; ClassPass/aggregator dependency</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 07: Methodology -->
+            <section id="methodology" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 07</div>
+                    <h2 class="section-title">Scoring Methodology</h2>
+                </div>
+
+                <div style="background: var(--white); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                    <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.25rem; color: var(--navy); margin-bottom: 1.5rem;">8-Criteria Framework (80 Points Maximum)</h3>
+
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+                        <div style="background: var(--cream); border-radius: 8px; padding: 1.25rem;">
+                            <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">1. Market Size (TAM Potential)</div>
+                            <div style="font-size: 0.85rem; color: var(--slate);">Total addressable market size, number of businesses, and revenue potential. Larger, more fragmented markets score higher.</div>
+                        </div>
+                        <div style="background: var(--cream); border-radius: 8px; padding: 1.25rem;">
+                            <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">2. Owner Demographics</div>
+                            <div style="font-size: 0.85rem; color: var(--slate);">Average age of business owners. Older owners (50+) who are less tech-savvy and seeking exit strategies score higher.</div>
+                        </div>
+                        <div style="background: var(--cream); border-radius: 8px; padding: 1.25rem;">
+                            <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">3. Budget Availability</div>
+                            <div style="font-size: 0.85rem; color: var(--slate);">Profit margins, discretionary spending capacity, and historical marketing investment levels.</div>
+                        </div>
+                        <div style="background: var(--cream); border-radius: 8px; padding: 1.25rem;">
+                            <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">4. Pain Intensity</div>
+                            <div style="font-size: 0.85rem; color: var(--slate);">Severity of operational challenges, disruption fears, and urgency to modernize or face extinction.</div>
+                        </div>
+                        <div style="background: var(--cream); border-radius: 8px; padding: 1.25rem;">
+                            <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">5. Competition Level</div>
+                            <div style="font-size: 0.85rem; color: var(--slate);">Saturation of marketing/tech vendors serving this industry. Less competition = higher score.</div>
+                        </div>
+                        <div style="background: var(--cream); border-radius: 8px; padding: 1.25rem;">
+                            <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">6. Service Fit</div>
+                            <div style="font-size: 0.85rem; color: var(--slate);">Alignment with ScaleUp's dev, growth marketing, and AI/automation offerings.</div>
+                        </div>
+                        <div style="background: var(--cream); border-radius: 8px; padding: 1.25rem;">
+                            <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">7. Acquisition Ease</div>
+                            <div style="font-size: 0.85rem; color: var(--slate);">Availability of congregation points (associations, conferences, publications) for efficient outreach.</div>
+                        </div>
+                        <div style="background: var(--cream); border-radius: 8px; padding: 1.25rem;">
+                            <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">8. Sales Cycle</div>
+                            <div style="font-size: 0.85rem; color: var(--slate);">Typical time from first contact to closed deal. Shorter cycles score higher.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: var(--white); border-radius: 16px; padding: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                    <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.25rem; color: var(--navy); margin-bottom: 1.5rem;">Tier Classification</h3>
+
+                    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem;">
+                        <div style="text-align: center; padding: 1rem; background: rgba(5, 150, 105, 0.1); border-radius: 8px;">
+                            <div style="font-weight: 700; color: var(--success); font-size: 1.25rem;">Tier 1</div>
+                            <div style="font-size: 0.85rem; color: var(--slate);">65+/80</div>
+                            <div style="font-size: 0.75rem; color: var(--slate-light); margin-top: 0.5rem;">Prime Targets</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: rgba(212, 168, 83, 0.15); border-radius: 8px;">
+                            <div style="font-weight: 700; color: var(--gold); font-size: 1.25rem;">Tier 2</div>
+                            <div style="font-size: 0.85rem; color: var(--slate);">63-64/80</div>
+                            <div style="font-size: 0.75rem; color: var(--slate-light); margin-top: 0.5rem;">High-Potential</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: rgba(217, 119, 6, 0.1); border-radius: 8px;">
+                            <div style="font-weight: 700; color: var(--warning); font-size: 1.25rem;">Tier 3</div>
+                            <div style="font-size: 0.85rem; color: var(--slate);">60-62/80</div>
+                            <div style="font-size: 0.75rem; color: var(--slate-light); margin-top: 0.5rem;">Solid Opportunities</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: rgba(100, 116, 139, 0.1); border-radius: 8px;">
+                            <div style="font-weight: 700; color: var(--slate-light); font-size: 1.25rem;">Tier 4</div>
+                            <div style="font-size: 0.85rem; color: var(--slate);">56-59/80</div>
+                            <div style="font-size: 0.75rem; color: var(--slate-light); margin-top: 0.5rem;">Opportunistic</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: rgba(220, 38, 38, 0.1); border-radius: 8px;">
+                            <div style="font-weight: 700; color: var(--danger); font-size: 1.25rem;">Anti</div>
+                            <div style="font-size: 0.85rem; color: var(--slate);">&lt;55/80</div>
+                            <div style="font-size: 0.75rem; color: var(--slate-light); margin-top: 0.5rem;">Do Not Pursue</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <footer class="footer">
+            <p class="footer-text">ScaleUp Ventures | 40-Industry Master Ranking | Generated December 2025</p>
+            <p class="footer-text" style="margin-top: 0.5rem;"><a href="persona-research-report.html" style="color: var(--gold); text-decoration: none;">← Back to Persona Research Report</a></p>
+        </footer>
+    </main>
+</body>
+</html>

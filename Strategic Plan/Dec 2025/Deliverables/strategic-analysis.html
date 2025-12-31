@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Analysis | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f1729;
+            --navy-light: #1a2744;
+            --slate: #334155;
+            --slate-light: #64748b;
+            --gold: #d4a853;
+            --gold-muted: #b8956e;
+            --cream: #faf8f5;
+            --cream-dark: #f1ede6;
+            --white: #ffffff;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --info: #0284c7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--navy);
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .nav-header {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-subtitle {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 0.25rem;
+        }
+
+        .nav-section { margin-bottom: 1.5rem; }
+
+        .nav-section-title {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--slate-light);
+            padding: 0 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+            border-left-color: var(--gold);
+        }
+
+        .main { margin-left: 280px; min-height: 100vh; }
+
+        .hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f1729 100%);
+            padding: 5rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a853' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+        }
+
+        .content { padding: 4rem; max-width: 1000px; }
+
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--navy);
+        }
+
+        .section-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--navy);
+            letter-spacing: -0.01em;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .card-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .verdict-box {
+            background: linear-gradient(135deg, var(--success) 0%, #047857 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .verdict-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .verdict-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .verdict-score {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        .table-wrapper { overflow-x: auto; margin: 1.5rem 0; }
+
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+
+        thead { background: var(--navy); }
+
+        th {
+            text-align: left;
+            padding: 1rem 1.25rem;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--cream-dark);
+            color: var(--slate);
+        }
+
+        tr:hover td { background: var(--cream); }
+        td strong { color: var(--navy); }
+
+        .score-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .score-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--slate-light);
+        }
+
+        .score-card.winner { border-top-color: var(--success); }
+        .score-card.second { border-top-color: var(--info); }
+        .score-card.third { border-top-color: var(--warning); }
+        .score-card.last { border-top-color: var(--danger); }
+
+        .score-option {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--slate-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .score-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .score-card.winner .score-value { color: var(--success); }
+
+        .score-label {
+            font-size: 0.875rem;
+            color: var(--slate);
+            margin-top: 0.25rem;
+        }
+
+        .callout {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        .callout-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .callout-text {
+            font-size: 1.25rem;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .risk-indicator {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .risk-low { background: rgba(5, 150, 105, 0.1); color: var(--success); }
+        .risk-medium { background: rgba(217, 119, 6, 0.1); color: var(--warning); }
+        .risk-high { background: rgba(220, 38, 38, 0.1); color: var(--danger); }
+
+        .option-detail {
+            background: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .option-detail-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .option-detail-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .option-detail-body { padding: 1.5rem; }
+
+        .metric-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .metric-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--cream);
+            border-radius: 0.5rem;
+        }
+
+        .metric-item-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--slate-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-item-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gold);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.65rem;
+            top: 0.25rem;
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .timeline-phase {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            color: var(--slate);
+            font-size: 0.9375rem;
+        }
+
+        .styled-list { list-style: none; margin: 1rem 0; }
+
+        .styled-list li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--slate);
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .styled-list li:last-child { border-bottom: none; }
+
+        .styled-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1rem;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .go-nogo {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .go-column, .nogo-column {
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .go-column {
+            background: rgba(5, 150, 105, 0.05);
+            border: 2px solid var(--success);
+        }
+
+        .nogo-column {
+            background: rgba(220, 38, 38, 0.05);
+            border: 2px solid var(--danger);
+        }
+
+        .go-column h4 { color: var(--success); }
+        .nogo-column h4 { color: var(--danger); }
+
+        .footer {
+            background: var(--navy);
+            color: rgba(255,255,255,0.5);
+            padding: 2rem 4rem;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        @media (max-width: 1024px) {
+            .nav { display: none; }
+            .main { margin-left: 0; }
+            .hero { padding: 3rem 2rem; }
+            .hero-title { font-size: 2.5rem; }
+            .content { padding: 2rem; }
+            .score-grid { grid-template-columns: repeat(2, 1fr); }
+            .metric-row { grid-template-columns: 1fr; }
+            .go-nogo { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-logo">ScaleUp Ventures</div>
+            <div class="nav-subtitle">Strategic Analysis</div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Summary</div>
+            <a href="#verdict" class="nav-link">The Verdict</a>
+            <a href="#executive-summary" class="nav-link">Executive Summary</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Analysis</div>
+            <a href="#porter" class="nav-link">Porter's Five Forces</a>
+            <a href="#swot" class="nav-link">SWOT Deep Dive</a>
+            <a href="#decision-matrix" class="nav-link">Decision Matrix</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Options</div>
+            <a href="#option-1" class="nav-link">Option 1: Consulting</a>
+            <a href="#option-2" class="nav-link">Option 2: Prevyu</a>
+            <a href="#option-3" class="nav-link">Option 3: OfferPath</a>
+            <a href="#option-4" class="nav-link">Option 4: Hybrid</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Action</div>
+            <a href="#validation" class="nav-link">Prevyu Validation</a>
+            <a href="#scenarios" class="nav-link">Scenario Analysis</a>
+            <a href="#conclusions" class="nav-link">Conclusions</a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <header class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">Framework Analysis</span>
+                <h1 class="hero-title">Strategic Analysis</h1>
+                <p class="hero-subtitle">Comprehensive evaluation of strategic options using Porter's Five Forces, weighted decision matrices, and financial modeling.</p>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- The Verdict -->
+            <section id="verdict" class="section">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2 class="section-title">The Verdict</h2>
+                </div>
+
+                <div class="verdict-box">
+                    <div class="verdict-label">Recommended Strategy</div>
+                    <div class="verdict-title">Option 4: Hybrid Approach</div>
+                    <div class="verdict-score">Consulting for cash flow + Time-boxed Prevyu validation</div>
+                </div>
+
+                <div class="score-grid">
+                    <div class="score-card winner">
+                        <div class="score-option">Option 4</div>
+                        <div class="score-value">207</div>
+                        <div class="score-label">Hybrid</div>
+                    </div>
+                    <div class="score-card second">
+                        <div class="score-option">Option 1</div>
+                        <div class="score-value">196</div>
+                        <div class="score-label">Consulting</div>
+                    </div>
+                    <div class="score-card third">
+                        <div class="score-option">Option 2</div>
+                        <div class="score-value">173</div>
+                        <div class="score-label">Prevyu</div>
+                    </div>
+                    <div class="score-card last">
+                        <div class="score-option">Option 3</div>
+                        <div class="score-value">99</div>
+                        <div class="score-label">OfferPath</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Executive Summary -->
+            <section id="executive-summary" class="section">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="section-title">Executive Summary</h2>
+                </div>
+
+                <div class="card">
+                    <ul class="styled-list">
+                        <li><strong>Option 4 (Hybrid Approach) emerges as the optimal path</strong> with a weighted score of 207 vs. 196 for pure consulting and 173 for pure Prevyu - it delivers the highest probability of reaching $100K while preserving optionality.</li>
+                        <li><strong>OfferPath should be immediately deprioritized</strong> - the uncertain market fit, lower margins (~40%), and zero traction make it a distraction with high opportunity cost.</li>
+                        <li><strong>Consulting is the proven cash engine</strong> with 40-50% achievable margins, but requires systematic pricing discipline (minimum $15K projects, ROI-framing) and activation of Ray for business development.</li>
+                        <li><strong>Prevyu deserves a time-boxed validation sprint</strong> (60 days maximum) with clear go/no-go criteria: 50+ free users, 40%+ engagement, and 10+ survey responses indicating willingness to pay $79+/month.</li>
+                        <li><strong>The core trade-off</strong>: Certainty vs. Optionality. Pure consulting is the safest path to $100K, but forecloses the 90%+ margin SaaS opportunity. The hybrid approach accepts slightly higher execution risk for significantly higher long-term upside.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Porter's Five Forces -->
+            <section id="porter" class="section">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2 class="section-title">Porter's Five Forces</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Industry Attractiveness: Medium-High (Consulting) / High (SaaS)</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Force</th>
+                                    <th>Intensity</th>
+                                    <th>Key Factors</th>
+                                    <th>Strategic Implication</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>New Entrants</strong></td>
+                                    <td><span class="risk-indicator risk-high">High</span></td>
+                                    <td>Low barriers - anyone can consult; no licensing</td>
+                                    <td>Must differentiate on trust and ROI accountability</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Supplier Power</strong></td>
+                                    <td><span class="risk-indicator risk-low">Low</span></td>
+                                    <td>Subcontractors abundant; skills available</td>
+                                    <td>Can negotiate favorable rates</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Buyer Power</strong></td>
+                                    <td><span class="risk-indicator risk-medium">Medium-High</span></td>
+                                    <td>SMBs have many options; switching costs low</td>
+                                    <td>Win on value demonstration (ROI models)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Substitutes</strong></td>
+                                    <td><span class="risk-indicator risk-high">High</span></td>
+                                    <td>DIY tools, offshore shops, freelancers</td>
+                                    <td>Position as integrated partner, not commodity</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Industry Rivalry</strong></td>
+                                    <td><span class="risk-indicator risk-medium">Medium</span></td>
+                                    <td>Fragmented market; differentiation possible</td>
+                                    <td>ROI-focused positioning is genuinely differentiating</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Decision Matrix -->
+            <section id="decision-matrix" class="section">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2 class="section-title">Weighted Decision Matrix</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Scoring Criteria (Based on Owner's Priorities)</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Criterion</th>
+                                    <th>Weight</th>
+                                    <th>Option 1: Consulting</th>
+                                    <th>Option 2: Prevyu</th>
+                                    <th>Option 3: OfferPath</th>
+                                    <th>Option 4: Hybrid</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Founder time required</strong></td>
+                                    <td>5</td>
+                                    <td>6 (30)</td>
+                                    <td>7 (35)</td>
+                                    <td>4 (20)</td>
+                                    <td>7 (35)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Margin potential</strong></td>
+                                    <td>5</td>
+                                    <td>6 (30)</td>
+                                    <td>9 (45)</td>
+                                    <td>4 (20)</td>
+                                    <td>7 (35)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Probability of success</strong></td>
+                                    <td>4</td>
+                                    <td>9 (36)</td>
+                                    <td>5 (20)</td>
+                                    <td>2 (8)</td>
+                                    <td>8 (32)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Scalability to $1M</strong></td>
+                                    <td>4</td>
+                                    <td>5 (20)</td>
+                                    <td>9 (36)</td>
+                                    <td>5 (20)</td>
+                                    <td>7 (28)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cash requirements</strong></td>
+                                    <td>3</td>
+                                    <td>8 (24)</td>
+                                    <td>5 (15)</td>
+                                    <td>5 (15)</td>
+                                    <td>7 (21)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Time to results</strong></td>
+                                    <td>3</td>
+                                    <td>8 (24)</td>
+                                    <td>4 (12)</td>
+                                    <td>2 (6)</td>
+                                    <td>7 (21)</td>
+                                </tr>
+                                <tr style="background: var(--cream); font-weight: 600;">
+                                    <td><strong>WEIGHTED TOTAL</strong></td>
+                                    <td>24</td>
+                                    <td>196</td>
+                                    <td>173</td>
+                                    <td>99</td>
+                                    <td style="color: var(--success);">207</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="callout">
+                    <div class="callout-title">Matrix Insight</div>
+                    <div class="callout-text">Option 4 (Hybrid) is robust across different weighting scenarios. The only scenario where pure Prevyu wins is if scalability and margin are weighted extremely high AND probability of success is discounted significantly.</div>
+                </div>
+            </section>
+
+            <!-- Option 4 Detail -->
+            <section id="option-4" class="section">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2 class="section-title">Option 4: Hybrid Approach (Recommended)</h2>
+                </div>
+
+                <div class="option-detail">
+                    <div class="option-detail-header">
+                        <div class="option-detail-title">Consulting + Prevyu Validation</div>
+                        <span class="risk-indicator risk-low">Risk Score: 14/50</span>
+                    </div>
+                    <div class="option-detail-body">
+                        <div class="metric-row">
+                            <div class="metric-item">
+                                <div class="metric-item-label">Year 1 Revenue</div>
+                                <div class="metric-item-value">$100K</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-item-label">Gross Margin</div>
+                                <div class="metric-item-value">55%</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-item-label">Strategic Fit</div>
+                                <div class="metric-item-value">8.0/10</div>
+                            </div>
+                        </div>
+
+                        <div class="card-title">Revenue Build-Up (Moderate Scenario)</div>
+                        <ul class="styled-list">
+                            <li><strong>Q1:</strong> $38K contract completes + Prevyu validation (free cohort)</li>
+                            <li><strong>Q2:</strong> 1-2 consulting projects ($30K) + Prevyu early revenue ($3K)</li>
+                            <li><strong>Q3:</strong> 2 consulting projects ($40K) + Prevyu growth ($6K)</li>
+                            <li><strong>Q4:</strong> 2 consulting projects ($45K) + Prevyu ($10K if validated)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Why Hybrid Wins</div>
+                    <ul class="styled-list">
+                        <li><strong>Preserves optionality</strong> - Test the 90%+ margin SaaS opportunity without betting the farm</li>
+                        <li><strong>De-risked execution</strong> - Consulting carries revenue while Prevyu validates</li>
+                        <li><strong>Robust across scenarios</strong> - Even when weights shift, Hybrid consistently outperforms</li>
+                        <li><strong>Creates clear decision points</strong> - 60-day validation sprint provides data for definitive choice</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Prevyu Validation -->
+            <section id="validation" class="section">
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <h2 class="section-title">Prevyu Validation Framework</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">60-Day Validation Sprint</div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-phase">Phase 1: Days 1-30</div>
+                            <div class="timeline-title">Free Cohort</div>
+                            <div class="timeline-desc">Goal: 50+ active free users. $2,000 ad spend via Roe. Success: 30%+ weekly active usage.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-phase">Phase 2: Days 31-45</div>
+                            <div class="timeline-title">Willingness to Pay</div>
+                            <div class="timeline-desc">Survey free users; fake door test for premium. Success: 20%+ willing to pay $79+/month.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-phase">Phase 3: Days 46-60</div>
+                            <div class="timeline-title">Go/No-Go Decision</div>
+                            <div class="timeline-desc">Convert willing users to paid beta. Goal: 5+ paying beta users.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Decision Criteria</div>
+                    <div class="go-nogo">
+                        <div class="go-column">
+                            <h4>GO (4/5 signals)</h4>
+                            <ul class="styled-list">
+                                <li>50+ free user sign-ups</li>
+                                <li>40%+ weekly active usage</li>
+                                <li>20%+ would pay $79/mo</li>
+                                <li>5+ actual paid conversions</li>
+                                <li>"This saved me money" feedback</li>
+                            </ul>
+                        </div>
+                        <div class="nogo-column">
+                            <h4>NO-GO (3/5 or fewer)</h4>
+                            <ul class="styled-list">
+                                <li>&lt;30 free user sign-ups</li>
+                                <li>&lt;25% weekly active usage</li>
+                                <li>&lt;10% would pay $79/mo</li>
+                                <li>&lt;3 actual paid conversions</li>
+                                <li>"Nice to have" feedback</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Scenarios -->
+            <section id="scenarios" class="section">
+                <div class="section-header">
+                    <span class="section-number">07</span>
+                    <h2 class="section-title">Scenario Analysis</h2>
+                </div>
+
+                <div class="card" style="border-left: 4px solid var(--success);">
+                    <div class="card-title" style="color: var(--success);">Best Case Scenario</div>
+                    <p style="color: var(--slate); margin-bottom: 1rem;">Ray generates 3-4 qualified leads/month. Prevyu validation succeeds with 150+ paying users by Q4.</p>
+                    <div class="metric-row">
+                        <div class="metric-item">
+                            <div class="metric-item-label">Revenue</div>
+                            <div class="metric-item-value" style="color: var(--success);">$130K</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-label">Gross Margin</div>
+                            <div class="metric-item-value">55%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-label">Founder Hours</div>
+                            <div class="metric-item-value">15-18/wk</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="border-left: 4px solid var(--info);">
+                    <div class="card-title" style="color: var(--info);">Most Likely Scenario</div>
+                    <p style="color: var(--slate); margin-bottom: 1rem;">Ray generates moderate pipeline (2 leads/month). Prevyu shows promise but not breakout.</p>
+                    <div class="metric-row">
+                        <div class="metric-item">
+                            <div class="metric-item-label">Revenue</div>
+                            <div class="metric-item-value" style="color: var(--info);">$95K</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-label">Gross Margin</div>
+                            <div class="metric-item-value">48%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-label">Founder Hours</div>
+                            <div class="metric-item-value">18-20/wk</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="border-left: 4px solid var(--danger);">
+                    <div class="card-title" style="color: var(--danger);">Worst Case Scenario</div>
+                    <p style="color: var(--slate); margin-bottom: 1rem;">Ray activation fails. Prevyu validation fails. ScaleUp survives on existing contract.</p>
+                    <div class="metric-row">
+                        <div class="metric-item">
+                            <div class="metric-item-label">Revenue</div>
+                            <div class="metric-item-value" style="color: var(--danger);">$60K</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-label">Gross Margin</div>
+                            <div class="metric-item-value">30%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-label">Outcome</div>
+                            <div class="metric-item-value">Survives</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conclusions -->
+            <section id="conclusions" class="section">
+                <div class="section-header">
+                    <span class="section-number">08</span>
+                    <h2 class="section-title">Conclusions</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">The Math on $100K</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Path</th>
+                                    <th>How You Get There</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Consulting</strong></td>
+                                    <td>4-5 projects at $20-25K average = $100K</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Hybrid</strong></td>
+                                    <td>3-4 consulting projects ($75K) + Prevyu ($25K if validated) = $100K</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Prevyu alone</strong></td>
+                                    <td>Would require 200+ paying users at $40/month - too aggressive for year 1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="callout">
+                    <div class="callout-title">Final Recommendation</div>
+                    <div class="callout-text">The hybrid approach maximizes learning while minimizing downside risk. The 60-day Prevyu validation sprint will provide the data needed to make a definitive bet in Q2 2026. Until then, consulting carries the revenue load.</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Immediate Actions</div>
+                    <ul class="styled-list">
+                        <li><strong>This Week:</strong> Sunset OfferPath entirely - it scores 3.0/10 on strategic fit</li>
+                        <li><strong>This Week:</strong> Define Prevyu validation criteria (50+ users, 40%+ engagement, 20%+ WTP)</li>
+                        <li><strong>Q1 2026:</strong> Activate Ray for business development (target: 2-3 qualified leads/month)</li>
+                        <li><strong>Q1 2026:</strong> Launch 60-day Prevyu validation sprint</li>
+                        <li><strong>Q1 2026:</strong> Implement consulting pricing floor ($15K minimum)</li>
+                        <li><strong>Q2 2026:</strong> Make definitive Prevyu decision based on validation data</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>Strategic analysis complete. This document should be reviewed alongside business-context.md.</p>
+            <p style="margin-top: 0.5rem;">Use as input for strategic decision-making and implementation planning.</p>
+        </footer>
+    </main>
+
+    <script>
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.style.color = 'rgba(255,255,255,0.7)';
+                        link.style.borderLeftColor = 'transparent';
+                        if (link.getAttribute('href') === '#' + entry.target.id) {
+                            link.style.color = '#ffffff';
+                            link.style.borderLeftColor = '#d4a853';
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>

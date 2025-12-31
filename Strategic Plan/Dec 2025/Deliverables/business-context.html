@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Context | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f1729;
+            --navy-light: #1a2744;
+            --slate: #334155;
+            --slate-light: #64748b;
+            --gold: #d4a853;
+            --gold-muted: #b8956e;
+            --cream: #faf8f5;
+            --cream-dark: #f1ede6;
+            --white: #ffffff;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --info: #0284c7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--navy);
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .nav-header {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-subtitle {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 0.25rem;
+        }
+
+        .nav-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-section-title {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--slate-light);
+            padding: 0 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+            border-left-color: var(--gold);
+        }
+
+        /* Main Content */
+        .main {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 5rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a853' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-meta-item {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+        }
+
+        .hero-meta-item strong {
+            color: var(--white);
+            display: block;
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Content Area */
+        .content {
+            padding: 4rem;
+            max-width: 1000px;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--navy);
+        }
+
+        .section-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--navy);
+            letter-spacing: -0.01em;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .card-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        /* Executive Summary Card */
+        .exec-summary {
+            background: var(--white);
+            border-left: 4px solid var(--gold);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+            color: var(--slate);
+            line-height: 1.8;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9375rem;
+        }
+
+        thead {
+            background: var(--navy);
+        }
+
+        th {
+            text-align: left;
+            padding: 1rem 1.25rem;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--cream-dark);
+            color: var(--slate);
+        }
+
+        tr:hover td {
+            background: var(--cream);
+        }
+
+        td strong {
+            color: var(--navy);
+        }
+
+        /* Key Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--slate-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .metric-value.highlight {
+            color: var(--gold);
+        }
+
+        .metric-target {
+            font-size: 0.8125rem;
+            color: var(--slate-light);
+            margin-top: 0.25rem;
+        }
+
+        /* SWOT Grid */
+        .swot-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .swot-card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .swot-card.strengths { border-top: 4px solid var(--success); }
+        .swot-card.weaknesses { border-top: 4px solid var(--danger); }
+        .swot-card.opportunities { border-top: 4px solid var(--info); }
+        .swot-card.threats { border-top: 4px solid var(--warning); }
+
+        .swot-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .swot-card.strengths .swot-title { color: var(--success); }
+        .swot-card.weaknesses .swot-title { color: var(--danger); }
+        .swot-card.opportunities .swot-title { color: var(--info); }
+        .swot-card.threats .swot-title { color: var(--warning); }
+
+        .swot-list {
+            list-style: none;
+        }
+
+        .swot-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+            font-size: 0.9375rem;
+            color: var(--slate);
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .swot-list li:last-child {
+            border-bottom: none;
+        }
+
+        .swot-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.875rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .swot-card.strengths .swot-list li::before { background: var(--success); }
+        .swot-card.weaknesses .swot-list li::before { background: var(--danger); }
+        .swot-card.opportunities .swot-list li::before { background: var(--info); }
+        .swot-card.threats .swot-list li::before { background: var(--warning); }
+
+        /* Options Grid */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .option-card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .option-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 1.25rem 1.5rem;
+        }
+
+        .option-number {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .option-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .option-body {
+            padding: 1.5rem;
+        }
+
+        .option-row {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--cream-dark);
+            font-size: 0.9375rem;
+        }
+
+        .option-row:last-child {
+            border-bottom: none;
+        }
+
+        .option-label {
+            font-weight: 600;
+            color: var(--navy);
+            min-width: 100px;
+        }
+
+        .option-value {
+            color: var(--slate);
+        }
+
+        /* Callout */
+        .callout {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        .callout-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .callout-text {
+            font-size: 1.25rem;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* Recommendations */
+        .recommendation {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .recommendation-number {
+            flex-shrink: 0;
+            width: 3rem;
+            height: 3rem;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .recommendation-content {
+            flex: 1;
+        }
+
+        .recommendation-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .recommendation-text {
+            color: var(--slate);
+            font-size: 0.9375rem;
+        }
+
+        /* Lists */
+        .styled-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .styled-list li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--slate);
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .styled-list li:last-child {
+            border-bottom: none;
+        }
+
+        .styled-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1rem;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        /* Product Cards */
+        .product-card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .product-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .product-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .product-url {
+            color: var(--gold);
+            font-size: 0.875rem;
+            text-decoration: none;
+        }
+
+        .product-status {
+            background: rgba(255,255,255,0.1);
+            color: var(--gold);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .product-body {
+            padding: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: rgba(255,255,255,0.5);
+            padding: 2rem 4rem;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav {
+                display: none;
+            }
+            .main {
+                margin-left: 0;
+            }
+            .hero {
+                padding: 3rem 2rem;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .content {
+                padding: 2rem;
+            }
+            .swot-grid,
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav {
+                display: none;
+            }
+            .main {
+                margin-left: 0;
+            }
+            .hero {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-logo">ScaleUp Ventures</div>
+            <div class="nav-subtitle">Business Context</div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Overview</div>
+            <a href="#executive-summary" class="nav-link">Executive Summary</a>
+            <a href="#business-profile" class="nav-link">Business Profile</a>
+            <a href="#value-proposition" class="nav-link">Value Proposition</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Services & Products</div>
+            <a href="#service-lines" class="nav-link">Service Lines</a>
+            <a href="#product-portfolio" class="nav-link">Product Portfolio</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Analysis</div>
+            <a href="#market-analysis" class="nav-link">Market Analysis</a>
+            <a href="#swot" class="nav-link">SWOT Assessment</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Strategy</div>
+            <a href="#strategic-goals" class="nav-link">Strategic Goals</a>
+            <a href="#decision-context" class="nav-link">Decision Context</a>
+            <a href="#resources" class="nav-link">Resources & Constraints</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Action</div>
+            <a href="#recommendations" class="nav-link">Recommendations</a>
+            <a href="#next-steps" class="nav-link">Next Steps</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">Strategic Document</span>
+                <h1 class="hero-title">Business Context</h1>
+                <p class="hero-subtitle">A comprehensive analysis of ScaleUp Ventures' current position, strategic options, and path to $100K in 2026.</p>
+                <div class="hero-meta">
+                    <div class="hero-meta-item">
+                        <strong>December 30, 2025</strong>
+                        Generated
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>scaleupventures.co</strong>
+                        Website
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>1.5 Years</strong>
+                        Operating
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- Executive Summary -->
+            <section id="executive-summary" class="section">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2 class="section-title">Executive Summary</h2>
+                </div>
+                <div class="exec-summary">
+                    ScaleUp Ventures is a 1.5-year-old business consulting firm with development capabilities, operating a "studio model" that combines client services with proprietary product development. The company has generated ~$50K in revenue from 4-5 clients but faces margin challenges (23% gross, 3% net) due to early-stage pricing pressure and inconsistent cost management. The founder seeks to reach <strong>$100K in 2026</strong> with high margins and minimal personal time involvement, as a stepping stone toward financial independence and a portfolio of scalable assets.
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">2024 Revenue</div>
+                        <div class="metric-value">$50K</div>
+                        <div class="metric-target">Target: $100K</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Gross Margin</div>
+                        <div class="metric-value">23%</div>
+                        <div class="metric-target">Target: 50%+</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Net Margin</div>
+                        <div class="metric-value">3%</div>
+                        <div class="metric-target">Target: 15-25%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Pipeline</div>
+                        <div class="metric-value highlight">$38K</div>
+                        <div class="metric-target">~$19K profit</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Business Profile -->
+            <section id="business-profile" class="section">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="section-title">Business Profile</h2>
+                </div>
+                <div class="card">
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Name</strong></td><td>ScaleUp Ventures</td></tr>
+                                <tr><td><strong>Website</strong></td><td>https://scaleupventures.co/</td></tr>
+                                <tr><td><strong>Industry</strong></td><td>Business Consulting / Development / SaaS</td></tr>
+                                <tr><td><strong>Years Operating</strong></td><td>1.5 years</td></tr>
+                                <tr><td><strong>Business Model</strong></td><td>Service fees (consulting) + SaaS products (studio model)</td></tr>
+                                <tr><td><strong>Team Size</strong></td><td>Solo founder + 4 subcontractors</td></tr>
+                                <tr><td><strong>Current Cash</strong></td><td>$1,400</td></tr>
+                                <tr><td><strong>Monthly Expenses</strong></td><td>~$500</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Value Proposition -->
+            <section id="value-proposition" class="section">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2 class="section-title">Value Proposition</h2>
+                </div>
+                <div class="card">
+                    <p style="color: var(--slate); margin-bottom: 1.5rem;">ScaleUp Ventures helps small-to-mid-sized businesses ($20K+/year investment capacity) achieve measurable growth through an integrated offering of development, growth marketing, and process improvement (AI/automation).</p>
+
+                    <div class="callout" style="margin: 0;">
+                        <div class="callout-title">Key Differentiator</div>
+                        <div class="callout-text">"We build a model showing how you make your money back before you spend a dollar."</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Service Delivery Model</div>
+                    <p style="color: var(--slate);">Land with <strong>development</strong>, expand into <strong>growth</strong> and <strong>process improvement</strong> as natural cross-sells.</p>
+                </div>
+            </section>
+
+            <!-- Service Lines -->
+            <section id="service-lines" class="section">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2 class="section-title">Service Lines</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Active / Priority</div>
+                    <ul class="styled-list">
+                        <li><strong>Development</strong> - Websites and web applications (core strength, entry point for clients)</li>
+                        <li><strong>Growth Services</strong> - Marketing and branding (natural cross-sell from development)</li>
+                        <li><strong>Process Improvement</strong> - AI, automation, AI agents to increase scalability and profitability</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Deprioritized</div>
+                    <ul class="styled-list">
+                        <li><strong>Startup Fundraising</strong> - Too dependent on external factors; not a current focus</li>
+                        <li><strong>Acquisition/Roll-up</strong> - Still interested but needs right approach and capital structure</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Product Portfolio -->
+            <section id="product-portfolio" class="section">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2 class="section-title">Product Portfolio (Studio Model)</h2>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div>
+                            <div class="product-name">Prevyu</div>
+                            <a href="https://prevyu.co/" class="product-url">prevyu.co</a>
+                        </div>
+                        <span class="product-status">Ready to Launch</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="table-wrapper">
+                            <table>
+                                <tbody>
+                                    <tr><td><strong>Description</strong></td><td>Pre-trade discipline platform for day traders</td></tr>
+                                    <tr><td><strong>Value Prop</strong></td><td>Analyzes trades against user's rules BEFORE execution; GO/WAIT/NO-GO signals</td></tr>
+                                    <tr><td><strong>Target Market</strong></td><td>Day traders who struggle with discipline (90% fail by breaking their own rules)</td></tr>
+                                    <tr><td><strong>Revenue</strong></td><td>$0</td></tr>
+                                    <tr><td><strong>Projected Margin</strong></td><td>90%+ (AI-driven, minimal human involvement)</td></tr>
+                                    <tr><td><strong>Pricing</strong></td><td>Essential $79/mo, Pro $199/mo, Premium $500/mo</td></tr>
+                                    <tr><td><strong>Validation Status</strong></td><td>Unproven</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div>
+                            <div class="product-name">OfferPath</div>
+                            <a href="https://www.offerpath.co/" class="product-url">offerpath.co</a>
+                        </div>
+                        <span class="product-status">Testing Ads</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="table-wrapper">
+                            <table>
+                                <tbody>
+                                    <tr><td><strong>Description</strong></td><td>Career Readiness Assessment tool for job seekers</td></tr>
+                                    <tr><td><strong>Value Prop</strong></td><td>Helps job seekers find their path to interviews</td></tr>
+                                    <tr><td><strong>Target Market</strong></td><td>Job seekers</td></tr>
+                                    <tr><td><strong>Revenue</strong></td><td>$0, no customers</td></tr>
+                                    <tr><td><strong>Projected Margin</strong></td><td>~40% (uncertain)</td></tr>
+                                    <tr><td><strong>Validation Status</strong></td><td>Questionable market fit; team unsure if viable price point exists</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Analysis -->
+            <section id="market-analysis" class="section">
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <h2 class="section-title">Market Analysis</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Target Customers (Consulting)</div>
+                    <ul class="styled-list">
+                        <li>Small-to-mid-sized businesses</li>
+                        <li>Investment capacity of $20,000+/year</li>
+                        <li>Serious about growth, not looking for cheap solutions</li>
+                        <li>Decisive decision-makers who value ROI</li>
+                        <li>Often enter through development needs, then expand scope</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Competitive Landscape</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Aspect</th>
+                                    <th>Current State</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Known Competitors</strong></td><td>Not specifically identified (research needed)</td></tr>
+                                <tr><td><strong>Win Factors</strong></td><td>Competence, experience, trust, demonstrated value</td></tr>
+                                <tr><td><strong>Positioning</strong></td><td>Trust-based differentiation, not price or niche</td></tr>
+                                <tr><td><strong>Key Differentiator</strong></td><td>ROI-focused selling with accountability metrics</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Market Trends</div>
+                    <ul class="styled-list">
+                        <li>Increasing demand for AI/automation in business processes</li>
+                        <li>SMBs seeking integrated service providers vs. point solutions</li>
+                        <li>Growing acceptance of remote/distributed consulting delivery</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SWOT -->
+            <section id="swot" class="section">
+                <div class="section-header">
+                    <span class="section-number">07</span>
+                    <h2 class="section-title">SWOT Assessment</h2>
+                </div>
+
+                <div class="swot-grid">
+                    <div class="swot-card strengths">
+                        <div class="swot-title">Strengths</div>
+                        <ul class="swot-list">
+                            <li>Proven ability to win and deliver client work</li>
+                            <li>Strong technical capabilities (web dev, app dev)</li>
+                            <li>Compelling differentiator (ROI-focused, accountability metrics)</li>
+                            <li>Natural cross-sell flywheel (dev - growth - process improvement)</li>
+                            <li>Capable team available (ads, dev, marketing/sales)</li>
+                            <li>Low fixed costs and overhead</li>
+                            <li>Founder has W-2 stability (not desperate)</li>
+                            <li>AI-driven delivery increases margins when applied</li>
+                        </ul>
+                    </div>
+
+                    <div class="swot-card weaknesses">
+                        <div class="swot-title">Weaknesses</div>
+                        <ul class="swot-list">
+                            <li>Inconsistent margins (3% net vs. 50% on best projects)</li>
+                            <li>No proactive business development</li>
+                            <li>No strategic planning discipline</li>
+                            <li>Cash-poor currently ($1,400)</li>
+                            <li>No existing audience or email list</li>
+                            <li>Time trapped in delivery (20-30 hrs/week)</li>
+                            <li>Too dependent on one client for revenue</li>
+                            <li>Products consuming time without revenue</li>
+                        </ul>
+                    </div>
+
+                    <div class="swot-card opportunities">
+                        <div class="swot-title">Opportunities</div>
+                        <ul class="swot-list">
+                            <li>Prevyu: High-margin SaaS if market validates (90%+ margins)</li>
+                            <li>Systematize consulting for consistent 50% margins</li>
+                            <li>Activate Ray for sales/biz dev to reduce referral dependency</li>
+                            <li>Leverage Roe for paid acquisition (cost = ads only)</li>
+                            <li>AI/automation positioning aligns with market trends</li>
+                            <li>$19K profit pipeline provides runway for strategic moves</li>
+                        </ul>
+                    </div>
+
+                    <div class="swot-card threats">
+                        <div class="swot-title">Threats</div>
+                        <ul class="swot-list">
+                            <li>Cash constraints limit experimentation</li>
+                            <li>Products may not validate, consuming scarce time</li>
+                            <li>Continued margin erosion if pricing discipline not implemented</li>
+                            <li>Single client dependency creates revenue risk</li>
+                            <li>Founder burnout from delivery + products + strategy</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Strategic Goals -->
+            <section id="strategic-goals" class="section">
+                <div class="section-header">
+                    <span class="section-number">08</span>
+                    <h2 class="section-title">Strategic Goals</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">12-Month Goal (2026)</div>
+                    <ul class="styled-list">
+                        <li><strong>Revenue:</strong> $100,000 (2x growth)</li>
+                        <li><strong>Margins:</strong> High (target 50%+ gross)</li>
+                        <li><strong>Time:</strong> Minimal founder involvement in day-to-day operations</li>
+                        <li><strong>Validation:</strong> Prove ability to execute at scale</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">3-Year Vision</div>
+                    <ul class="styled-list">
+                        <li>Scale to $1M revenue</li>
+                        <li>Portfolio of products and revenue streams</li>
+                        <li>Acquire businesses (roll-up strategy)</li>
+                        <li>Reduced client dependency</li>
+                        <li>Founder working ON business, not IN it</li>
+                    </ul>
+                </div>
+
+                <div class="callout">
+                    <div class="callout-title">Ultimate Vision</div>
+                    <div class="callout-text">Financial independence. Quit W-2 job. Retire wife. Be present for kids.</div>
+                </div>
+            </section>
+
+            <!-- Decision Context -->
+            <section id="decision-context" class="section">
+                <div class="section-header">
+                    <span class="section-number">09</span>
+                    <h2 class="section-title">Decision Context</h2>
+                </div>
+
+                <div class="callout" style="margin-bottom: 2rem;">
+                    <div class="callout-title">The Core Question</div>
+                    <div class="callout-text">What is the highest probability path to $100K in 2026 with the least founder time and highest margins?</div>
+                </div>
+
+                <div class="options-grid">
+                    <div class="option-card">
+                        <div class="option-header">
+                            <div class="option-number">Option 1</div>
+                            <div class="option-title">Double Down on Consulting</div>
+                        </div>
+                        <div class="option-body">
+                            <div class="option-row"><span class="option-label">Upside</span><span class="option-value">Proven demand, 40-50% margins achievable, predictable</span></div>
+                            <div class="option-row"><span class="option-label">Risks</span><span class="option-value">Requires ongoing biz dev, founder time, not passive</span></div>
+                            <div class="option-row"><span class="option-label">Experience</span><span class="option-value">Has worked - $50K generated, clients satisfied</span></div>
+                        </div>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="option-header">
+                            <div class="option-number">Option 2</div>
+                            <div class="option-title">Bet on Prevyu (SaaS)</div>
+                        </div>
+                        <div class="option-body">
+                            <div class="option-row"><span class="option-label">Upside</span><span class="option-value">90%+ margins, minimal human involvement, scalable</span></div>
+                            <div class="option-row"><span class="option-label">Risks</span><span class="option-value">Unproven market, may not validate, opportunity cost</span></div>
+                            <div class="option-row"><span class="option-label">Experience</span><span class="option-value">Product built, not yet launched to paying users</span></div>
+                        </div>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="option-header">
+                            <div class="option-number">Option 3</div>
+                            <div class="option-title">Continue OfferPath</div>
+                        </div>
+                        <div class="option-body">
+                            <div class="option-row"><span class="option-label">Upside</span><span class="option-value">Large job seeker market if product-market fit exists</span></div>
+                            <div class="option-row"><span class="option-label">Risks</span><span class="option-value">Market and margin model both uncertain, team has doubts</span></div>
+                            <div class="option-row"><span class="option-label">Experience</span><span class="option-value">Launched, running ads, no customers yet</span></div>
+                        </div>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="option-header">
+                            <div class="option-number">Option 4</div>
+                            <div class="option-title">Hybrid Approach</div>
+                        </div>
+                        <div class="option-body">
+                            <div class="option-row"><span class="option-label">Upside</span><span class="option-value">De-risked approach, multiple shots on goal</span></div>
+                            <div class="option-row"><span class="option-label">Risks</span><span class="option-value">Divided attention, slower progress on each path</span></div>
+                            <div class="option-row"><span class="option-label">Experience</span><span class="option-value">Current approach (but without strategic discipline)</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resources & Constraints -->
+            <section id="resources" class="section">
+                <div class="section-header">
+                    <span class="section-number">10</span>
+                    <h2 class="section-title">Resources & Constraints</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Team (Subcontractors)</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Capability</th>
+                                    <th>Strategic Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Roe</strong></td><td>Paid ads</td><td>Can run ads at cost (no markup)</td></tr>
+                                <tr><td><strong>Patrick</strong></td><td>Developer</td><td>Execution capacity for dev work</td></tr>
+                                <tr><td><strong>Aaron</strong></td><td>Developer</td><td>Execution capacity for dev work</td></tr>
+                                <tr><td><strong>Ray</strong></td><td>Marketing strategy, operations, sales</td><td>Great salesperson - can drive biz dev</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Financial Resources</div>
+                    <ul class="styled-list">
+                        <li>Current cash: $1,400</li>
+                        <li>Monthly retainer: $800/month ongoing</li>
+                        <li>Fixed-bid contract: $38,000 over 6 months (~$19K profit)</li>
+                        <li>Monthly expenses: ~$500</li>
+                        <li>Founder W-2 job provides personal stability</li>
+                        <li>Willing to invest in ScaleUp once things are proven</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Key Constraints</div>
+                    <ul class="styled-list">
+                        <li>Cash-poor currently (limits experimentation)</li>
+                        <li>No existing audience or email list</li>
+                        <li>Founder time: 20-30 hours/week (wants to reduce)</li>
+                        <li>No minimum income required from ScaleUp (covers expenses, don't lose money)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Recommendations -->
+            <section id="recommendations" class="section">
+                <div class="section-header">
+                    <span class="section-number">11</span>
+                    <h2 class="section-title">Strategic Recommendations</h2>
+                </div>
+
+                <div class="recommendation">
+                    <div class="recommendation-number">1</div>
+                    <div class="recommendation-content">
+                        <div class="recommendation-title">Deprioritize OfferPath</div>
+                        <div class="recommendation-text">Market and margin model both uncertain. Park until clarity exists on other paths.</div>
+                    </div>
+                </div>
+
+                <div class="recommendation">
+                    <div class="recommendation-number">2</div>
+                    <div class="recommendation-content">
+                        <div class="recommendation-title">Time-Boxed Prevyu Validation</div>
+                        <div class="recommendation-text">Run a focused 30-60 day validation. Use Roe for targeted ads to day trader communities. Launch free cohort as planned. Define success criteria upfront (X users, Y engagement, Z willingness to pay). Go/no-go decision at end of validation period.</div>
+                    </div>
+                </div>
+
+                <div class="recommendation">
+                    <div class="recommendation-number">3</div>
+                    <div class="recommendation-content">
+                        <div class="recommendation-title">Systematize Consulting for Margin Improvement</div>
+                        <div class="recommendation-text">Establish minimum project size ($15K+?). Create pricing floor and stick to it. Define ideal client criteria (decisive, $20K+ capacity, values ROI). Leverage AI in delivery to hit 50% margins consistently. Document and templatize the ROI-modeling approach.</div>
+                    </div>
+                </div>
+
+                <div class="recommendation">
+                    <div class="recommendation-number">4</div>
+                    <div class="recommendation-content">
+                        <div class="recommendation-title">Activate Ray for Business Development</div>
+                        <div class="recommendation-text">Reduce referral dependency. Proactive pipeline generation. Use the ROI-focused differentiator in outreach.</div>
+                    </div>
+                </div>
+
+                <div class="recommendation">
+                    <div class="recommendation-number">5</div>
+                    <div class="recommendation-content">
+                        <div class="recommendation-title">Institute Strategic Planning Rhythm</div>
+                        <div class="recommendation-text">Even 2 hours/week would transform decision-making. Monthly margin review. Quarterly goal assessment.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Next Steps -->
+            <section id="next-steps" class="section">
+                <div class="section-header">
+                    <span class="section-number">12</span>
+                    <h2 class="section-title">Next Steps</h2>
+                </div>
+
+                <div class="card">
+                    <ol style="list-style: none; counter-reset: step-counter;">
+                        <li style="counter-increment: step-counter; padding: 1rem 0; border-bottom: 1px solid var(--cream-dark); display: flex; gap: 1rem;">
+                            <span style="font-family: 'Crimson Pro', serif; font-size: 1.5rem; font-weight: 700; color: var(--gold);">1</span>
+                            <span style="color: var(--slate); padding-top: 0.25rem;">Review and validate this business context document</span>
+                        </li>
+                        <li style="counter-increment: step-counter; padding: 1rem 0; border-bottom: 1px solid var(--cream-dark); display: flex; gap: 1rem;">
+                            <span style="font-family: 'Crimson Pro', serif; font-size: 1.5rem; font-weight: 700; color: var(--gold);">2</span>
+                            <span style="color: var(--slate); padding-top: 0.25rem;">Decide on strategic approach for 2026 (consulting focus, Prevyu bet, or hybrid)</span>
+                        </li>
+                        <li style="counter-increment: step-counter; padding: 1rem 0; border-bottom: 1px solid var(--cream-dark); display: flex; gap: 1rem;">
+                            <span style="font-family: 'Crimson Pro', serif; font-size: 1.5rem; font-weight: 700; color: var(--gold);">3</span>
+                            <span style="color: var(--slate); padding-top: 0.25rem;">Define success criteria for Prevyu validation</span>
+                        </li>
+                        <li style="counter-increment: step-counter; padding: 1rem 0; border-bottom: 1px solid var(--cream-dark); display: flex; gap: 1rem;">
+                            <span style="font-family: 'Crimson Pro', serif; font-size: 1.5rem; font-weight: 700; color: var(--gold);">4</span>
+                            <span style="color: var(--slate); padding-top: 0.25rem;">Create consulting pricing and qualification framework</span>
+                        </li>
+                        <li style="counter-increment: step-counter; padding: 1rem 0; border-bottom: 1px solid var(--cream-dark); display: flex; gap: 1rem;">
+                            <span style="font-family: 'Crimson Pro', serif; font-size: 1.5rem; font-weight: 700; color: var(--gold);">5</span>
+                            <span style="color: var(--slate); padding-top: 0.25rem;">Brief Ray on biz dev activation</span>
+                        </li>
+                        <li style="counter-increment: step-counter; padding: 1rem 0; display: flex; gap: 1rem;">
+                            <span style="font-family: 'Crimson Pro', serif; font-size: 1.5rem; font-weight: 700; color: var(--gold);">6</span>
+                            <span style="color: var(--slate); padding-top: 0.25rem;">Establish weekly/monthly strategic review cadence</span>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>Document generated through structured business discovery interview.</p>
+            <p style="margin-top: 0.5rem;">For strategic analysis and recommendations, use this document as the foundation.</p>
+        </footer>
+    </main>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Highlight active section in navigation
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.style.color = 'rgba(255,255,255,0.7)';
+                        link.style.borderLeftColor = 'transparent';
+                        if (link.getAttribute('href') === '#' + entry.target.id) {
+                            link.style.color = '#ffffff';
+                            link.style.borderLeftColor = '#d4a853';
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>

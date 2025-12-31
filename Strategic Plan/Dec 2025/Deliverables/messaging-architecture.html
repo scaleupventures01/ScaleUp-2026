@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messaging Architecture | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f1729;
+            --navy-light: #1a2744;
+            --slate: #334155;
+            --slate-light: #64748b;
+            --gold: #d4a853;
+            --gold-muted: #b8956e;
+            --cream: #faf8f5;
+            --cream-dark: #f1ede6;
+            --white: #ffffff;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --info: #0284c7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--navy);
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .nav-header {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .nav-subtitle {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 0.25rem;
+        }
+
+        .nav-section { margin-bottom: 1.5rem; }
+
+        .nav-section-title {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--slate-light);
+            padding: 0 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+            border-left-color: var(--gold);
+        }
+
+        .main {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 5rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a853' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+        }
+
+        .hero-meta-item {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+        }
+
+        .hero-meta-item strong {
+            color: var(--white);
+            display: block;
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .content {
+            padding: 4rem;
+            max-width: 1100px;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-header { margin-bottom: 2rem; }
+
+        .section-number {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: 0.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .card-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .narrative-box {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .narrative-label {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .narrative-text {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--white);
+        }
+
+        .value-prop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .value-prop-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .value-prop-number {
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-prop-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .value-prop-text {
+            font-size: 0.9rem;
+            color: var(--slate);
+            line-height: 1.6;
+        }
+
+        .proof-points {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .proof-points-title {
+            font-size: 0.7rem;
+            color: var(--slate-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .proof-points ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .proof-points li {
+            font-size: 0.8rem;
+            color: var(--slate);
+            padding: 0.25rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .proof-points li::before {
+            content: ">";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .persona-message-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .persona-message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .persona-message-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .persona-message-score {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--success);
+        }
+
+        .message-box {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+            border-left: 3px solid var(--gold);
+        }
+
+        .message-label {
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .message-text {
+            color: var(--navy);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .emphasis-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .emphasis-item {
+            font-size: 0.85rem;
+            color: var(--slate);
+            padding: 0.5rem;
+            background: var(--cream);
+            border-radius: 4px;
+        }
+
+        .hierarchy-box {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .hierarchy-level {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .hierarchy-level:last-child {
+            border-bottom: none;
+        }
+
+        .hierarchy-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .hierarchy-label.primary { color: var(--success); }
+        .hierarchy-label.secondary { color: var(--gold); }
+        .hierarchy-label.tertiary { color: var(--slate-light); }
+
+        .hierarchy-message {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--navy);
+            font-weight: 500;
+        }
+
+        .hierarchy-context {
+            font-size: 0.85rem;
+            color: var(--slate);
+            margin-top: 0.5rem;
+        }
+
+        .language-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .language-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .language-card.use {
+            border-top: 4px solid var(--success);
+        }
+
+        .language-card.avoid {
+            border-top: 4px solid var(--danger);
+        }
+
+        .language-card-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .language-card.use .language-card-title { color: var(--success); }
+        .language-card.avoid .language-card-title { color: var(--danger); }
+
+        .language-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .language-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--cream-dark);
+            font-size: 0.9rem;
+        }
+
+        .language-list li:last-child {
+            border-bottom: none;
+        }
+
+        .language-phrase {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .language-context {
+            font-size: 0.8rem;
+            color: var(--slate-light);
+            margin-top: 0.25rem;
+        }
+
+        .copy-sample {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .copy-sample-label {
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .copy-headline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+
+        .copy-subhead {
+            font-size: 1.1rem;
+            color: var(--slate);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .copy-body {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        .copy-cta {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .variation-box {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .variation-label {
+            font-size: 0.7rem;
+            color: var(--slate-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .variation-text {
+            font-size: 0.9rem;
+            color: var(--navy);
+            font-weight: 500;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        th {
+            background: var(--cream);
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--gold);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold);
+            border-radius: 6px;
+            margin-top: 2rem;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        @media (max-width: 1024px) {
+            .nav { width: 240px; }
+            .main { margin-left: 240px; }
+            .content { padding: 2rem; }
+            .hero { padding: 3rem 2rem; }
+            .hero-title { font-size: 2rem; }
+            .language-grid { grid-template-columns: 1fr; }
+            .emphasis-list { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .main { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-logo">ScaleUp Ventures</div>
+            <div class="nav-subtitle">Messaging Architecture</div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Foundation</div>
+            <a href="#narrative" class="nav-link">Core Brand Narrative</a>
+            <a href="#value-props" class="nav-link">Value Propositions</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Audience Messaging</div>
+            <a href="#staffing" class="nav-link">Staffing Agencies</a>
+            <a href="#veterinary" class="nav-link">Veterinary Practices</a>
+            <a href="#pest-control" class="nav-link">Pest Control</a>
+            <a href="#trades" class="nav-link">Trades Super-Cluster</a>
+            <a href="#professional" class="nav-link">Professional Services</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Message Framework</div>
+            <a href="#hierarchy" class="nav-link">Message Hierarchy</a>
+            <a href="#phrases-use" class="nav-link">Key Phrases to Use</a>
+            <a href="#phrases-avoid" class="nav-link">Language to Avoid</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Sample Copy</div>
+            <a href="#hero" class="nav-link">Website Hero</a>
+            <a href="#about" class="nav-link">About Page</a>
+            <a href="#services" class="nav-link">Services Page</a>
+            <a href="#social" class="nav-link">Social Media</a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <header class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">Brand Strategy</span>
+                <h1 class="hero-title">Messaging Architecture</h1>
+                <p class="hero-subtitle">The complete messaging framework for ScaleUp Ventures - from core narrative to audience-specific copy.</p>
+                <div class="hero-meta">
+                    <div class="hero-meta-item">
+                        <strong>December 31, 2025</strong>
+                        Created
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>5 Value Props</strong>
+                        Primary Messages
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>5 Personas</strong>
+                        Tailored Messaging
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>ROI-First</strong>
+                        Positioning
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- Section 1: Core Brand Narrative -->
+            <section id="narrative" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 01</div>
+                    <h2 class="section-title">Core Brand Narrative</h2>
+                </div>
+
+                <div class="narrative-box">
+                    <div class="narrative-label">The ScaleUp Story</div>
+                    <div class="narrative-text">
+                        You built your business the right way - through relationships, hard work, and doing right by customers. But now the digital world is catching up. Larger competitors have fancy apps. AI is everywhere. And you know you need to modernize, but every agency you have talked to sells deliverables without accountability.
+                        <br><br>
+                        We are different. We build a model showing how you make your money back before you spend a dollar. Then we deliver websites, growth marketing, and AI automation that actually moves your numbers - not just looks good in a report.
+                        <br><br>
+                        <strong style="color: var(--gold);">Modernize your business. Protect what you have built. Compete with anyone.</strong>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Why This Narrative Works</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Element</th>
+                                <th>Purpose</th>
+                                <th>Evidence</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>"Built the right way"</strong></td>
+                                <td>Validates their journey, establishes respect</td>
+                                <td>50-65 year old owners value their legacy</td>
+                            </tr>
+                            <tr>
+                                <td><strong>"Digital world catching up"</strong></td>
+                                <td>Names the threat without creating shame</td>
+                                <td>90% of staffing owners fear AI disruption</td>
+                            </tr>
+                            <tr>
+                                <td><strong>"Every agency sells deliverables"</strong></td>
+                                <td>Positions against competitors, validates frustration</td>
+                                <td>48% leave agencies due to delivery issues</td>
+                            </tr>
+                            <tr>
+                                <td><strong>"Make your money back before you spend"</strong></td>
+                                <td>Core differentiator - risk reversal</td>
+                                <td>Less than 5% of agencies offer pre-engagement ROI</td>
+                            </tr>
+                            <tr>
+                                <td><strong>"Protect what you built"</strong></td>
+                                <td>Emotional driver - legacy and security</td>
+                                <td>65% of vet owners planning exit within 10 years</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Narrative Variations by Context</div>
+
+                    <div class="message-box">
+                        <div class="message-label">30-Second Version (Elevator Pitch)</div>
+                        <div class="message-text">
+                            We help established business owners modernize without the risk. Before you spend a dollar, we build a model showing exactly how you make your money back. Then we deliver the website, marketing, and automation to make it happen.
+                        </div>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">10-Second Version (Tagline)</div>
+                        <div class="message-text">
+                            Prove ROI before you invest. Get the growth after.
+                        </div>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">One-Sentence Version</div>
+                        <div class="message-text">
+                            ScaleUp Ventures helps technology laggard businesses modernize with websites, marketing, and AI - using pre-engagement ROI models that eliminate your risk.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Primary Value Propositions -->
+            <section id="value-props" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 02</div>
+                    <h2 class="section-title">Primary Value Propositions</h2>
+                </div>
+
+                <div class="value-prop-grid">
+                    <div class="value-prop-card">
+                        <div class="value-prop-number">Value Prop #1</div>
+                        <div class="value-prop-title">Pre-Engagement ROI Modeling</div>
+                        <div class="value-prop-text">
+                            We build a financial model showing how you make your money back before you spend a dollar. Know exactly what return to expect and hold us accountable to it.
+                        </div>
+                        <div class="proof-points">
+                            <div class="proof-points-title">Proof Points</div>
+                            <ul>
+                                <li>Less than 5% of agencies offer pre-engagement ROI models</li>
+                                <li>81% of marketing buyers struggle to prove ROI</li>
+                                <li>40% of projects go over budget - ours do not</li>
+                                <li>Client access to the model before signing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="value-prop-card">
+                        <div class="value-prop-number">Value Prop #2</div>
+                        <div class="value-prop-title">Complete Digital Transformation Partner</div>
+                        <div class="value-prop-text">
+                            One partner for websites, growth marketing, and AI automation. Stop juggling five vendors who do not talk to each other or understand your business.
+                        </div>
+                        <div class="proof-points">
+                            <div class="proof-points-title">Proof Points</div>
+                            <ul>
+                                <li>Development + Growth + AI under one roof</li>
+                                <li>Cross-sell from dev to growth is natural path</li>
+                                <li>Industry expertise (15% higher retention)</li>
+                                <li>Single point of accountability</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="value-prop-card">
+                        <div class="value-prop-number">Value Prop #3</div>
+                        <div class="value-prop-title">Built for Technology Laggards</div>
+                        <div class="value-prop-text">
+                            We specialize in business owners who built their success before the digital era. You do not need to understand technology - you need results. We handle everything.
+                        </div>
+                        <div class="proof-points">
+                            <div class="proof-points-title">Proof Points</div>
+                            <ul>
+                                <li>Target industries: 50-65 year old owners</li>
+                                <li>70-88% of digital transformation projects fail</li>
+                                <li>60% regret tech purchases within 18 months</li>
+                                <li>We translate tech to business outcomes</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="value-prop-card">
+                        <div class="value-prop-number">Value Prop #4</div>
+                        <div class="value-prop-title">Compete with the Giants</div>
+                        <div class="value-prop-text">
+                            The big players have apps, AI, and massive marketing budgets. We give you the same digital capabilities without losing the personal touch that built your business.
+                        </div>
+                        <div class="proof-points">
+                            <div class="proof-points-title">Proof Points</div>
+                            <ul>
+                                <li>30% efficiency gains with AI (ServiceTitan data)</li>
+                                <li>97% of customers search online first</li>
+                                <li>88% want online scheduling - only 20% offer it</li>
+                                <li>Level the playing field, keep your personality</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="value-prop-card">
+                        <div class="value-prop-number">Value Prop #5</div>
+                        <div class="value-prop-title">Increase Your Exit Value</div>
+                        <div class="value-prop-text">
+                            Planning to sell in 5-10 years? Modernized businesses command higher multiples. We help you build a tech stack that increases your valuation when it is time to exit.
+                        </div>
+                        <div class="proof-points">
+                            <div class="proof-points-title">Proof Points</div>
+                            <ul>
+                                <li>High-digital agencies grow 70% faster</li>
+                                <li>PE firms acquiring modernized businesses</li>
+                                <li>65% of vet owners planning exit within 10 years</li>
+                                <li>Technology = transferable systems = higher multiple</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Audience-Specific Messaging -->
+            <section id="staffing" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 03</div>
+                    <h2 class="section-title">Audience-Specific Messaging</h2>
+                </div>
+
+                <!-- Staffing Agencies -->
+                <div class="persona-message-card">
+                    <div class="persona-message-header">
+                        <div>
+                            <div class="persona-message-name">Staffing Agency Owners</div>
+                            <p style="color: var(--slate); font-size: 0.9rem; margin-top: 0.25rem;">52%+ owners aged 55+, $1M-$15M agencies, 90% fear AI disruption</p>
+                        </div>
+                        <span class="persona-message-score">TOP PRIORITY - 67/80</span>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">Primary Message</div>
+                        <div class="message-text">
+                            AI is transforming your industry faster than anyone predicted. The agencies surviving the next five years will have modern candidate portals, automated outreach, and AI-powered matching. We help you build all of it - with a clear ROI model before you invest a dollar.
+                        </div>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">Fear Trigger</div>
+                        <div class="message-text">
+                            "Every day you wait, Indeed and ZipRecruiter get smarter. They are using AI to place candidates faster than your recruiters can make phone calls."
+                        </div>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">Aspiration Hook</div>
+                        <div class="message-text">
+                            "Imagine your recruiters spending 70% less time on admin and 70% more time building relationships - the thing that actually wins placements."
+                        </div>
+                    </div>
+
+                    <div class="emphasis-list">
+                        <div class="emphasis-item"><strong>Emphasize:</strong> AI disruption urgency</div>
+                        <div class="emphasis-item"><strong>Emphasize:</strong> Speed (4-8 week results)</div>
+                        <div class="emphasis-item"><strong>Emphasize:</strong> Recruiter efficiency gains</div>
+                        <div class="emphasis-item"><strong>Emphasize:</strong> Compete with digital platforms</div>
+                        <div class="emphasis-item"><strong>De-emphasize:</strong> Technical complexity</div>
+                        <div class="emphasis-item"><strong>De-emphasize:</strong> Long-term roadmaps</div>
+                    </div>
+                </div>
+
+                <!-- Veterinary Practices -->
+                <div id="veterinary" class="persona-message-card">
+                    <div class="persona-message-header">
+                        <div>
+                            <div class="persona-message-name">Veterinary Practice Owners</div>
+                            <p style="color: var(--slate); font-size: 0.9rem; margin-top: 0.25rem;">Average age 52, 65% planning exit within 10 years, facing corporate consolidation</p>
+                        </div>
+                        <span class="persona-message-score">TIER 1 - 65/80</span>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">Primary Message</div>
+                        <div class="message-text">
+                            Mars and VCA are buying every practice they can find. The independents who survive will be the ones who modernize - online booking, automated reminders, digital records. We help you build the digital experience corporate practices have, while keeping the personal care that made your practice special.
+                        </div>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">Fear Trigger</div>
+                        <div class="message-text">
+                            "Pet parents under 40 expect to book appointments at 11pm on their phone. If they cannot, they are going to the Banfield down the street."
+                        </div>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">Aspiration Hook</div>
+                        <div class="message-text">
+                            "Stay independent. Keep the practice culture you have built. And when you are ready to exit, sell on your terms for a higher multiple."
+                        </div>
+                    </div>
+
+                    <div class="emphasis-list">
+                        <div class="emphasis-item"><strong>Emphasize:</strong> Independence preservation</div>
+                        <div class="emphasis-item"><strong>Emphasize:</strong> Exit value increase</div>
+                        <div class="emphasis-item"><strong>Emphasize:</strong> Patient (pet) experience</div>
+                        <div class="emphasis-item"><strong>Emphasize:</strong> Staff efficiency</div>
+                        <div class="emphasis-item"><strong>De-emphasize:</strong> Corporate language</div>
+                        <div class="emphasis-item"><strong>De-emphasize:</strong> Aggressive growth talk</div>
+                    </div>
+                </div>
+
+                <!-- Pest Control -->
+                <div id="pest-control" class="persona-message-card">
+                    <div class="persona-message-header">
+                        <div>
+                            <div class="persona-message-name">Pest Control Company Owners</div>
+                            <p style="color: var(--slate); font-size: 0.9rem; margin-top: 0.25rem;">55%+ owners aged 50+, $1M-$8M companies, recurring revenue model</p>
+                        </div>
+                        <span class="persona-message-score">TIER 2 - 64/80</span>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">Primary Message</div>
+                        <div class="message-text">
+                            Orkin and Terminix have same-day scheduling apps and AI-optimized routes. You have decades of customer relationships and local expertise. We help you combine both - modern booking and route optimization with the personal service that keeps customers loyal for 20 years.
+                        </div>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">Fear Trigger</div>
+                        <div class="message-text">
+                            "The national chains just opened two new locations in your territory. They are booking customers while your phone goes to voicemail."
+                        </div>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">Aspiration Hook</div>
+                        <div class="message-text">
+                            "What if your technicians drove 25% fewer miles, you never missed a call, and customers could book online at 2am? That is an extra $50K in your pocket every year."
+                        </div>
+                    </div>
+
+                    <div class="emphasis-list">
+                        <div class="emphasis-item"><strong>Emphasize:</strong> Route efficiency savings</div>
+                        <div class="emphasis-item"><strong>Emphasize:</strong> Online booking demand</div>
+                        <div class="emphasis-item"><strong>Emphasize:</strong> Compete with nationals</div>
+                        <div class="emphasis-item"><strong>Emphasize:</strong> Seasonal demand smoothing</div>
+                        <div class="emphasis-item"><strong>De-emphasize:</strong> Complex tech talk</div>
+                        <div class="emphasis-item"><strong>De-emphasize:</strong> Brand overhaul</div>
+                    </div>
+                </div>
+
+                <!-- Trades Super-Cluster -->
+                <div id="trades" class="persona-message-card">
+                    <div class="persona-message-header">
+                        <div>
+                            <div class="persona-message-name">Trades Super-Cluster (HVAC, Plumbing, Electrical, Roofing)</div>
+                            <p style="color: var(--slate); font-size: 0.9rem; margin-top: 0.25rem;">50%+ owners aged 50+, 70% unhappy with current marketing, $596B combined TAM</p>
+                        </div>
+                        <span class="persona-message-score">TIER 1 - 63/80</span>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">Universal Trades Message</div>
+                        <div class="message-text">
+                            70% of trade business owners are unhappy with their marketing provider. You have been sold SEO reports you do not understand and websites that do not convert. We show you exactly how many leads your investment will generate - and we are accountable when it does not happen.
+                        </div>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">Fear Trigger</div>
+                        <div class="message-text">
+                            "97% of your customers search online before they call anyone. If you are not on page one, you are invisible."
+                        </div>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">Aspiration Hook</div>
+                        <div class="message-text">
+                            "Imagine getting 3-5 qualified leads every day without paying for them - just from people finding you online. That is what a real digital presence delivers."
+                        </div>
+                    </div>
+
+                    <div style="background: var(--cream); border-radius: 8px; padding: 1rem; margin-top: 1rem;">
+                        <div style="font-size: 0.75rem; color: var(--slate-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Terminology by Trade</div>
+                        <table style="font-size: 0.85rem;">
+                            <tr><td><strong>HVAC:</strong></td><td>"Seasonal demand smoothing" / "Service call booking"</td></tr>
+                            <tr><td><strong>Plumbing:</strong></td><td>"Emergency dispatch" / "24/7 availability"</td></tr>
+                            <tr><td><strong>Electrical:</strong></td><td>"Permit-ready quotes" / "Safety compliance"</td></tr>
+                            <tr><td><strong>Roofing:</strong></td><td>"Storm damage response" / "Inspection scheduling"</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Professional Services -->
+                <div id="professional" class="persona-message-card">
+                    <div class="persona-message-header">
+                        <div>
+                            <div class="persona-message-name">Professional Services (Insurance, Tax, Bookkeeping)</div>
+                            <p style="color: var(--slate); font-size: 0.9rem; margin-top: 0.25rem;">Average agent age 60, high-digital agencies grow 70% faster</p>
+                        </div>
+                        <span class="persona-message-score">STRONG - 61-62/80</span>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">Primary Message</div>
+                        <div class="message-text">
+                            Your competitors are using AI to generate quotes, automate follow-ups, and nurture leads while they sleep. You are still relying on referrals and hoping the phone rings. We help you build a digital client acquisition engine - with ROI you can see before you commit.
+                        </div>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">Fear Trigger</div>
+                        <div class="message-text">
+                            "High-digital agencies grow 70% faster. Every year you wait, the gap gets wider."
+                        </div>
+                    </div>
+
+                    <div class="message-box">
+                        <div class="message-label">Aspiration Hook</div>
+                        <div class="message-text">
+                            "What if every lead got an instant quote, automatic follow-up, and personalized nurturing - without you lifting a finger? That is what AI automation delivers."
+                        </div>
+                    </div>
+
+                    <div class="emphasis-list">
+                        <div class="emphasis-item"><strong>Emphasize:</strong> Client acquisition automation</div>
+                        <div class="emphasis-item"><strong>Emphasize:</strong> Quote/proposal speed</div>
+                        <div class="emphasis-item"><strong>Emphasize:</strong> Trust and relationships</div>
+                        <div class="emphasis-item"><strong>Emphasize:</strong> Compliance/accuracy</div>
+                        <div class="emphasis-item"><strong>De-emphasize:</strong> Replacing human touch</div>
+                        <div class="emphasis-item"><strong>De-emphasize:</strong> Aggressive sales language</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Message Hierarchy -->
+            <section id="hierarchy" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 04</div>
+                    <h2 class="section-title">Message Hierarchy</h2>
+                </div>
+
+                <div class="hierarchy-box">
+                    <div class="hierarchy-level">
+                        <div class="hierarchy-label primary">Primary Message (Lead with This)</div>
+                        <div class="hierarchy-message">"We build a model showing how you make your money back before you spend a dollar."</div>
+                        <div class="hierarchy-context">This is the core differentiator. Less than 5% of agencies do this. It eliminates risk and builds trust immediately. Use in: headlines, opening statements, sales conversations.</div>
+                    </div>
+
+                    <div class="hierarchy-level">
+                        <div class="hierarchy-label secondary">Secondary Messages (Support and Expand)</div>
+                        <div class="hierarchy-message">"One partner for websites, marketing, and AI - not five vendors who do not talk to each other."</div>
+                        <div class="hierarchy-context">Addresses vendor fatigue and integration pain. Use when discussing scope or competing against specialists.</div>
+                        <br>
+                        <div class="hierarchy-message">"Built for business owners who succeeded before the digital era."</div>
+                        <div class="hierarchy-context">Validates the audience without condescension. Shows you understand who they are and why they need help.</div>
+                        <br>
+                        <div class="hierarchy-message">"Compete with the giants without losing your personal touch."</div>
+                        <div class="hierarchy-context">Addresses competitive anxiety while honoring what made them successful. Works especially well for family businesses.</div>
+                    </div>
+
+                    <div class="hierarchy-level">
+                        <div class="hierarchy-label tertiary">Tertiary Messages (Use When Relevant)</div>
+                        <div class="hierarchy-message">"Increase your exit value with modern, transferable systems."</div>
+                        <div class="hierarchy-context">For owners explicitly planning to sell. Do not lead with this unless exit planning is mentioned.</div>
+                        <br>
+                        <div class="hierarchy-message">"You own everything we build - no lock-in, no hostage situations."</div>
+                        <div class="hierarchy-context">For prospects who have been burned by agencies before. Trust-building message.</div>
+                        <br>
+                        <div class="hierarchy-message">"Results-based pricing available for qualified businesses."</div>
+                        <div class="hierarchy-context">For high-value prospects where performance-based arrangements make sense. Do not lead with this.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Key Phrases to Use -->
+            <section id="phrases-use" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 05</div>
+                    <h2 class="section-title">Key Phrases and Language to Use</h2>
+                </div>
+
+                <div class="language-grid">
+                    <div class="language-card use">
+                        <div class="language-card-title">Phrases to Use</div>
+                        <ul class="language-list">
+                            <li>
+                                <div class="language-phrase">"Make your money back before you spend a dollar"</div>
+                                <div class="language-context">Core differentiator - use in headlines and opening statements</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"Modernize your business"</div>
+                                <div class="language-context">Neutral, respectful way to say "you are behind"</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"Protect what you have built"</div>
+                                <div class="language-context">Emotional driver for legacy-minded owners</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"Compete with anyone"</div>
+                                <div class="language-context">Aspirational without being unrealistic</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"One partner, not five vendors"</div>
+                                <div class="language-context">Addresses coordination pain</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"Hold us accountable"</div>
+                                <div class="language-context">Shows confidence and builds trust</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"You own everything"</div>
+                                <div class="language-context">Trust signal for burned buyers</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"Results you can measure"</div>
+                                <div class="language-context">ROI-focused language without jargon</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"Talk to our clients before you commit"</div>
+                                <div class="language-context">Confidence builder, trust signal</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"We prove value first"</div>
+                                <div class="language-context">Risk reversal language</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="phrases-avoid" class="language-card avoid">
+                        <div class="language-card-title">Language to Avoid</div>
+                        <ul class="language-list">
+                            <li>
+                                <div class="language-phrase">"Digital transformation"</div>
+                                <div class="language-context">Buzzword. 70-88% of these projects fail. Negative association.</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"ROI-focused" (as a claim)</div>
+                                <div class="language-context">Everyone says this. Meaningless. Show the mechanism instead.</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"Disrupt" or "disruption"</div>
+                                <div class="language-context">Threatening to legacy business owners. They are the ones being disrupted.</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"Cutting-edge" or "innovative"</div>
+                                <div class="language-context">Generic and unsubstantiated. Sounds like every other agency.</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"Synergy" or "leverage"</div>
+                                <div class="language-context">Corporate speak that alienates SMB owners</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"Tech stack" or "MarTech"</div>
+                                <div class="language-context">Jargon that confuses non-technical buyers</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"Thought leader" or "industry expert"</div>
+                                <div class="language-context">Self-congratulatory and unverifiable</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"Full-service agency"</div>
+                                <div class="language-context">Sounds like a commodity. No differentiation.</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"Scale" (as a verb)</div>
+                                <div class="language-context">Startup language. Use "grow" instead.</div>
+                            </li>
+                            <li>
+                                <div class="language-phrase">"Unlock" or "unleash potential"</div>
+                                <div class="language-context">Vague and overused in agency marketing</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Sample Copy - Website Hero -->
+            <section id="hero" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 06</div>
+                    <h2 class="section-title">Sample Headlines and Copy</h2>
+                </div>
+
+                <div class="copy-sample">
+                    <div class="copy-sample-label">Website Hero Section</div>
+                    <div class="copy-headline">Know Your ROI Before You Invest a Dollar</div>
+                    <div class="copy-subhead">
+                        We build websites, drive growth, and automate operations for established businesses - with pre-engagement ROI models that eliminate your risk.
+                    </div>
+                    <div class="copy-body">
+                        You built your business the right way. Now it is time to modernize - without gambling on agencies who cannot prove their value. Get a custom ROI model showing exactly what results to expect, then hold us accountable.
+                    </div>
+                    <div class="copy-cta">Get Your Free ROI Assessment</div>
+
+                    <div class="variation-box">
+                        <div class="variation-label">Headline Variations</div>
+                        <div class="variation-text">
+                            A: "Modernize Your Business. Protect What You Built."<br>
+                            B: "Stop Gambling on Agencies. Start Investing in Results."<br>
+                            C: "The Digital Capabilities of the Giants. The ROI Accountability They Never Offer."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Page -->
+                <div id="about" class="copy-sample">
+                    <div class="copy-sample-label">About Page</div>
+                    <div class="copy-headline">We Help Technology Laggards Catch Up - Without the Risk</div>
+                    <div class="copy-subhead">
+                        ScaleUp Ventures partners with established business owners who built their success before the digital era and need help competing in a world that has moved online.
+                    </div>
+                    <div class="copy-body">
+                        We get it. You have been running your business for 20 years, and suddenly everything is about AI and apps and automation. Your competitors have fancy digital tools. Your customers want to book online. And every agency you talk to sells you deliverables without showing you how they actually help your bottom line.
+                        <br><br>
+                        We do things differently. Before you spend a dollar, we build a financial model showing exactly how you make your money back. Then we deliver the website, marketing, and automation to make it happen - and you can hold us accountable to the numbers we promised.
+                        <br><br>
+                        One partner. Clear ROI. No gambling.
+                    </div>
+
+                    <div class="variation-box">
+                        <div class="variation-label">Tone Note</div>
+                        <div class="variation-text">
+                            The About page should feel like a conversation with someone who understands. Avoid corporate language. Write like you are explaining it to a smart business owner over coffee.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Page -->
+                <div id="services" class="copy-sample">
+                    <div class="copy-sample-label">Services/Offerings Page</div>
+                    <div class="copy-headline">Three Services. One Partner. Complete Digital Transformation.</div>
+                    <div class="copy-subhead">
+                        Stop juggling vendors who do not talk to each other. Get everything you need under one roof - with ROI you can see before you commit.
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0;">
+                        <div style="background: var(--cream); border-radius: 8px; padding: 1.25rem;">
+                            <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">Development</div>
+                            <div style="font-size: 0.9rem; color: var(--slate);">
+                                Websites that convert. Apps that work. Built for your business, owned by you forever.
+                            </div>
+                        </div>
+                        <div style="background: var(--cream); border-radius: 8px; padding: 1.25rem;">
+                            <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">Growth Marketing</div>
+                            <div style="font-size: 0.9rem; color: var(--slate);">
+                                Leads, not likes. Customers, not clicks. Marketing that moves your numbers.
+                            </div>
+                        </div>
+                        <div style="background: var(--cream); border-radius: 8px; padding: 1.25rem;">
+                            <div style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem;">AI and Automation</div>
+                            <div style="font-size: 0.9rem; color: var(--slate);">
+                                Work smarter, not harder. Automate the repetitive so you can focus on what matters.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="copy-body">
+                        <strong>How It Works</strong><br>
+                        1. We analyze your business and build a custom ROI model<br>
+                        2. You see exactly what results to expect before you invest<br>
+                        3. We deliver the work and report against the model<br>
+                        4. You hold us accountable to the numbers we promised
+                    </div>
+                    <div class="copy-cta">See What ROI Looks Like For Your Business</div>
+                </div>
+
+                <!-- Social Media -->
+                <div id="social" class="copy-sample">
+                    <div class="copy-sample-label">Social Media Bio</div>
+                    <div class="copy-body" style="font-size: 1.1rem; font-weight: 500; color: var(--navy);">
+                        <strong>LinkedIn:</strong><br>
+                        We help established business owners modernize - with ROI you can see before you invest. Websites. Marketing. AI. One partner, clear accountability.
+                    </div>
+                    <br>
+                    <div class="copy-body" style="font-size: 1.1rem; font-weight: 500; color: var(--navy);">
+                        <strong>Twitter/X:</strong><br>
+                        Know your ROI before you spend a dollar. Websites, marketing, and AI for business owners who built their success before the digital era.
+                    </div>
+                    <br>
+                    <div class="copy-body" style="font-size: 1.1rem; font-weight: 500; color: var(--navy);">
+                        <strong>Instagram:</strong><br>
+                        Modernize your business. Protect what you built. Compete with anyone. (Link in bio for free ROI assessment)
+                    </div>
+
+                    <div class="variation-box">
+                        <div class="variation-label">Industry-Specific Social Posts</div>
+                        <div class="variation-text">
+                            <strong>Staffing:</strong> "90% of staffing agency owners fear AI is coming for their business. The ones who survive will have modern candidate portals and automated outreach. Is your agency ready?"
+                            <br><br>
+                            <strong>Veterinary:</strong> "Pet parents under 40 expect to book appointments on their phone at 11pm. If they cannot, they are going to the corporate practice down the street. How is your online booking?"
+                            <br><br>
+                            <strong>Trades:</strong> "70% of trade business owners are unhappy with their marketing provider. If that is you, let us show you what accountable marketing looks like."
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Reference -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 07</div>
+                    <h2 class="section-title">Quick Reference Summary</h2>
+                </div>
+
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Element</th>
+                                <th>Content</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Core Differentiator</strong></td>
+                                <td>Pre-engagement ROI modeling (less than 5% of agencies offer this)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Primary Tagline</strong></td>
+                                <td>Know your ROI before you invest a dollar</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Secondary Tagline</strong></td>
+                                <td>Modernize your business. Protect what you built.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Target Audience</strong></td>
+                                <td>50-65 year old business owners in technology laggard industries</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Primary Emotional Driver</strong></td>
+                                <td>Fear of being left behind + desire to protect legacy</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Key Trust Signal</strong></td>
+                                <td>"Talk to our clients before you commit"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CTA Language</strong></td>
+                                <td>"Get Your Free ROI Assessment"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tone</strong></td>
+                                <td>Confident but not arrogant. Direct but not aggressive. Educational without condescension.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <a href="strategic-recommendations.html" class="back-link">Back to Strategic Recommendations</a>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

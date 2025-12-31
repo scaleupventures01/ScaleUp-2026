@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Implementation Prompts | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f1729;
+            --navy-light: #1a2744;
+            --slate: #334155;
+            --slate-light: #64748b;
+            --gold: #d4a853;
+            --gold-muted: #b8956e;
+            --cream: #faf8f5;
+            --cream-dark: #f1ede6;
+            --white: #ffffff;
+            --success: #059669;
+            --brand-deep-navy: #0a1628;
+            --brand-trust-blue: #1e3a5f;
+            --brand-gold-light: #e8c547;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--navy);
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .nav-header {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .nav-subtitle {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 0.25rem;
+        }
+
+        .nav-section { margin-bottom: 1.5rem; }
+
+        .nav-section-title {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--slate-light);
+            padding: 0 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+            border-left-color: var(--gold);
+        }
+
+        .main {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--brand-deep-navy) 0%, var(--brand-trust-blue) 100%);
+            padding: 5rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a227' fill-opacity='0.06'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zm0-40c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zM10 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zm0-40c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201, 162, 39, 0.2);
+            color: var(--brand-gold-light);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+        }
+
+        .hero-meta-item {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+        }
+
+        .hero-meta-item strong {
+            color: var(--white);
+            display: block;
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .content {
+            padding: 4rem;
+            max-width: 1100px;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-header { margin-bottom: 2rem; }
+
+        .section-number {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: 0.5rem;
+        }
+
+        .prompt-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .prompt-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .prompt-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+            flex-shrink: 0;
+        }
+
+        .prompt-title-group {
+            flex: 1;
+        }
+
+        .prompt-label {
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.25rem;
+        }
+
+        .prompt-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .prompt-layout {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 0.25rem;
+        }
+
+        .prompt-body {
+            padding: 2rem;
+        }
+
+        .prompt-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .prompt-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .prompt-section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--cream-dark);
+        }
+
+        .prompt-text {
+            color: var(--slate);
+            line-height: 1.8;
+        }
+
+        .prompt-text p {
+            margin-bottom: 1rem;
+        }
+
+        .prompt-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .spec-table th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .spec-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--cream-dark);
+            color: var(--slate);
+        }
+
+        .spec-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .spec-table code {
+            background: var(--cream);
+            padding: 0.125rem 0.375rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.85em;
+            color: var(--navy);
+        }
+
+        .color-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .color-chip-swatch {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .highlight-note {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+            border-left: 4px solid var(--gold);
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-note strong {
+            color: var(--navy);
+        }
+
+        .avoid-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .avoid-tag {
+            background: #fef2f2;
+            color: #dc2626;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, var(--brand-deep-navy) 0%, var(--brand-trust-blue) 100%);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            color: white;
+        }
+
+        .summary-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--brand-gold-light);
+            margin-bottom: 1rem;
+        }
+
+        .summary-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .concept-preview {
+            background: var(--navy);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .concept-preview svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .concept-name {
+            color: var(--white);
+            font-family: 'Crimson Pro', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .footer {
+            background: var(--navy);
+            padding: 2rem 4rem;
+            margin-top: 4rem;
+        }
+
+        .footer-text {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        @media (max-width: 1024px) {
+            .nav { width: 240px; }
+            .main { margin-left: 240px; }
+            .hero { padding: 3rem 2rem; }
+            .hero-title { font-size: 2.5rem; }
+            .content { padding: 2rem; }
+            .concept-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .main { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-logo">ScaleUp Ventures</div>
+            <div class="nav-subtitle">Logo Implementation</div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Overview</div>
+            <a href="#overview" class="nav-link">Introduction</a>
+            <a href="#audience" class="nav-link">Audience Context</a>
+            <a href="#avoid" class="nav-link">Cliché Avoidance</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Creative Concepts</div>
+            <a href="#fulcrum" class="nav-link">1. The Fulcrum Mark</a>
+            <a href="#seal" class="nav-link">2. The Proof Seal</a>
+            <a href="#watershed" class="nav-link">3. The Watershed Mark</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Classic Concepts</div>
+            <a href="#bars-horizontal" class="nav-link">4. Ascending Bars (H)</a>
+            <a href="#bars-stacked" class="nav-link">5. Ascending Bars (S)</a>
+            <a href="#chevrons-primary" class="nav-link">6. Nested Chevrons (P)</a>
+            <a href="#chevrons-contained" class="nav-link">7. Nested Chevrons (C)</a>
+            <a href="#blocks-diagonal" class="nav-link">8. Building Blocks (D)</a>
+            <a href="#blocks-staircase" class="nav-link">9. Building Blocks (S)</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Reference</div>
+            <a href="#evaluation" class="nav-link">Evaluation Criteria</a>
+            <a href="#summary" class="nav-link">Summary</a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <header class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">Complete Logo Library</div>
+                <h1 class="hero-title">Logo Implementation Prompts</h1>
+                <p class="hero-subtitle">Nine comprehensive logo concepts for ScaleUp Ventures — three highly creative metaphor-based designs plus six classic geometric approaches. Complete specifications for designer execution.</p>
+                <div class="hero-meta">
+                    <div class="hero-meta-item">
+                        <strong>9 Concepts</strong>
+                        Complete Range
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>3 Creative + 6 Classic</strong>
+                        Dual Approach
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>Multiple Variations</strong>
+                        Per Concept
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>December 31, 2025</strong>
+                        Created
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- Overview Section -->
+            <section id="overview" class="section">
+                <div class="section-header">
+                    <div class="section-number">Introduction</div>
+                    <h2 class="section-title">Creative Direction v2.0</h2>
+                </div>
+
+                <div class="summary-box">
+                    <div class="summary-title">Two Design Approaches</div>
+                    <div class="summary-text">
+                        <strong>Creative Concepts (1-3):</strong> Distinctive metaphor-based designs — The Fulcrum, The Proof Seal, and The Watershed — that abandon generic business clichés in favor of meaningful visual stories about PROOF, LEVERAGE, and TRANSFORMATION.
+                        <br><br>
+                        <strong>Classic Concepts (4-9):</strong> Refined geometric approaches — Ascending Bars, Nested Chevrons, and Building Blocks — executed with precision and strategic gold accents. These represent tried-and-true visual patterns elevated through intentional design.
+                        <br><br>
+                        <strong>The Filter:</strong> "Would a 58-year-old staffing agency owner who's been burned by agencies before find this credible and substantive?"
+                    </div>
+                </div>
+            </section>
+
+            <!-- Audience Context -->
+            <section id="audience" class="section">
+                <div class="section-header">
+                    <div class="section-number">Audience Context</div>
+                    <h2 class="section-title">Who This Must Resonate With</h2>
+                </div>
+
+                <div class="prompt-text" style="margin-bottom: 2rem;">
+                    <p><strong>Age:</strong> 50-65+, technology-hesitant business owners who built successful companies through decades of hard work</p>
+                    <p><strong>Experience:</strong> 50% have been BURNED by agencies before - they're skeptical of slick marketing and empty promises</p>
+                    <p><strong>Industries:</strong> Staffing agencies, veterinary practices, pest control, trades (HVAC/plumbing/electrical)</p>
+                    <p><strong>Fears:</strong> AI disruption, wasting money on "marketing fluff," being looked down on by "tech people"</p>
+                    <p><strong>Values:</strong> PROOF before commitment, relationships, craftsmanship, substance over flash</p>
+                </div>
+
+                <div class="highlight-note">
+                    <strong>Brand Promise:</strong> "We Prove It Before You Buy" - ScaleUp builds an ROI model showing how clients make their money back before they spend a dollar. This is found in less than 5% of competing agencies.
+                </div>
+            </section>
+
+            <!-- Cliché Avoidance -->
+            <section id="avoid" class="section">
+                <div class="section-header">
+                    <div class="section-number">Critical Exclusions</div>
+                    <h2 class="section-title">What These Logos Must NEVER Include</h2>
+                </div>
+
+                <div class="avoid-list" style="margin-bottom: 1.5rem;">
+                    <span class="avoid-tag">Upward arrows</span>
+                    <span class="avoid-tag">Bar charts</span>
+                    <span class="avoid-tag">Rocket ships</span>
+                    <span class="avoid-tag">Handshakes</span>
+                    <span class="avoid-tag">Lightbulbs</span>
+                    <span class="avoid-tag">Gears/cogs</span>
+                    <span class="avoid-tag">Circuit boards</span>
+                    <span class="avoid-tag">Globe imagery</span>
+                    <span class="avoid-tag">Swooshes</span>
+                    <span class="avoid-tag">Gradients</span>
+                    <span class="avoid-tag">Stacked blocks</span>
+                    <span class="avoid-tag">Mountain peaks</span>
+                    <span class="avoid-tag">Shields/crests</span>
+                    <span class="avoid-tag">Laurel wreaths</span>
+                    <span class="avoid-tag">Basic checkmarks</span>
+                    <span class="avoid-tag">Puzzle pieces</span>
+                    <span class="avoid-tag">Infinity symbols</span>
+                </div>
+
+                <div class="prompt-text">
+                    <p>A 60-year-old business owner who built a $5M company should look at this logo and think <em>"these people are serious"</em> - not <em>"these people are trying to impress me."</em></p>
+                </div>
+            </section>
+
+            <!-- Concept Preview -->
+            <section id="concepts" class="section">
+                <div class="section-header">
+                    <div class="section-number">Visual Preview</div>
+                    <h2 class="section-title">Nine Logo Directions</h2>
+                </div>
+
+                <p style="color: var(--slate); margin-bottom: 1.5rem;"><strong>Creative Concepts (1-3):</strong> Metaphor-based designs with unique visual stories</p>
+                <div class="concept-grid">
+                    <div class="concept-preview">
+                        <svg viewBox="0 0 120 80" width="120" height="80">
+                            <polygon points="60,15 90,65 30,65" fill="none" stroke="#0F1729" stroke-width="4"/>
+                            <circle cx="60" cy="50" r="6" fill="#D4A853"/>
+                        </svg>
+                        <div class="concept-name">1. The Fulcrum</div>
+                    </div>
+                    <div class="concept-preview">
+                        <svg viewBox="0 0 120 80" width="120" height="80">
+                            <circle cx="60" cy="40" r="28" fill="none" stroke="#0F1729" stroke-width="4"/>
+                            <circle cx="52" cy="35" r="4" fill="#D4A853"/>
+                            <circle cx="68" cy="35" r="4" fill="#D4A853"/>
+                            <circle cx="60" cy="50" r="4" fill="#D4A853"/>
+                        </svg>
+                        <div class="concept-name">2. The Proof Seal</div>
+                    </div>
+                    <div class="concept-preview">
+                        <svg viewBox="0 0 120 80" width="120" height="80">
+                            <line x1="35" y1="15" x2="60" y2="55" stroke="#0F1729" stroke-width="4"/>
+                            <line x1="85" y1="15" x2="60" y2="55" stroke="#0F1729" stroke-width="4"/>
+                            <line x1="60" y1="55" x2="60" y2="75" stroke="#D4A853" stroke-width="5"/>
+                        </svg>
+                        <div class="concept-name">3. The Watershed</div>
+                    </div>
+                </div>
+
+                <p style="color: var(--slate); margin: 2rem 0 1.5rem;"><strong>Classic Concepts (4-9):</strong> Refined geometric approaches with precision execution</p>
+                <div class="concept-grid">
+                    <div class="concept-preview">
+                        <svg viewBox="0 0 120 80" width="120" height="80">
+                            <rect x="15" y="50" width="16" height="20" fill="#B8956E"/>
+                            <rect x="37" y="35" width="16" height="35" fill="#B8956E"/>
+                            <rect x="59" y="20" width="16" height="50" fill="#0F1729"/>
+                            <rect x="81" y="10" width="16" height="60" fill="#D4A853"/>
+                        </svg>
+                        <div class="concept-name">4-5. Ascending Bars</div>
+                    </div>
+                    <div class="concept-preview">
+                        <svg viewBox="0 0 120 80" width="120" height="80">
+                            <path d="M60 15L85 40L60 32L35 40L60 15Z" fill="#D4A853"/>
+                            <path d="M60 32L80 52L60 46L40 52L60 32Z" fill="#B8956E"/>
+                            <path d="M60 48L72 60L60 56L48 60L60 48Z" fill="#0F1729"/>
+                        </svg>
+                        <div class="concept-name">6-7. Nested Chevrons</div>
+                    </div>
+                    <div class="concept-preview">
+                        <svg viewBox="0 0 120 80" width="120" height="80">
+                            <rect x="15" y="55" width="14" height="14" fill="#8B7355"/>
+                            <rect x="33" y="41" width="14" height="14" fill="#B8956E"/>
+                            <rect x="51" y="27" width="14" height="14" fill="#0F1729"/>
+                            <rect x="69" y="13" width="14" height="14" fill="#D4A853"/>
+                        </svg>
+                        <div class="concept-name">8-9. Building Blocks</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Concept 1: The Fulcrum Mark -->
+            <section id="fulcrum" class="section">
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <div class="prompt-number">1</div>
+                        <div class="prompt-title-group">
+                            <div class="prompt-label">Leverage & Transformation</div>
+                            <div class="prompt-title">The Fulcrum Mark</div>
+                            <div class="prompt-layout">The precise pivot point where small input becomes significant output</div>
+                        </div>
+                    </div>
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Conceptual Foundation</div>
+                            <div class="prompt-text">
+                                <p>A <strong>fulcrum</strong> is the pivot point of a lever - the exact coordinate where mechanical advantage is created. Small, strategic force applied at the right point transforms into significant movement. This is precisely what ScaleUp delivers: strategic positioning that multiplies results.</p>
+                                <p>The mark should feel like something a successful accountant or engineer would respect - precision, intentionality, earned results.</p>
+                            </div>
+                        </div>
+
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Primary Design Prompt</div>
+                            <div class="prompt-text">
+                                <p>Design an abstract geometric mark representing a fulcrum - a single elegant form that suggests the moment where small force transforms into significant movement.</p>
+                                <p><strong>Geometric Approach:</strong> A chevron or angular form balanced on its apex point, creating visual tension between stability and potential energy. The shape should appear poised - not falling, but perfectly positioned at the point of maximum leverage.</p>
+                                <p><strong>Alternative:</strong> Two angular planes meeting at a sharp, precise intersection point - like two forces converging at the exact coordinate where transformation occurs.</p>
+                            </div>
+                        </div>
+
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Technical Specifications</div>
+                            <div class="prompt-text">
+                                <table class="spec-table">
+                                    <tr>
+                                        <th>Element</th>
+                                        <th>Specification</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Primary geometric forms</td>
+                                        <td><span class="color-chip"><span class="color-chip-swatch" style="background:#0F1729"></span>Navy #0F1729</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fulcrum point (apex/intersection)</td>
+                                        <td><span class="color-chip"><span class="color-chip-swatch" style="background:#D4A853"></span>Gold #D4A853 - subtle accent</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Icon boundary</td>
+                                        <td>Contained within implied square</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wordmark</td>
+                                        <td>Crimson Pro Medium, tracking +20-30</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lockup ratio</td>
+                                        <td>4:1 horizontal (width to height)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minimum size</td>
+                                        <td>24px height (icon only for favicon)</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="highlight-note">
+                            <strong>Mood:</strong> This should feel like it belongs on the door of a respected consulting firm that's been in business for 30 years. Confident without being aggressive. Substantial without being heavy. The precision of the fulcrum concept should come through - every angle intentional, every proportion considered.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fulcrum Variations -->
+            <section id="fulcrum-vars" class="section">
+                <div class="section-header">
+                    <div class="section-number">Concept 1 Variations</div>
+                    <h2 class="section-title">Fulcrum Mark Alternatives</h2>
+                </div>
+
+                <div class="prompt-card" style="margin-bottom: 1.5rem;">
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Variation A: The Wedge</div>
+                            <div class="prompt-text">
+                                <p>A single triangular wedge shape - the most fundamental tool for creating mechanical advantage. An elongated isosceles triangle lying on its longest side, apex pointing right. The sharp apex accented in gold. Proportions approximately 5:1 length to height. This is not a play button - it's a tool, rendered with the proportions of an actual lever's fulcrum.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prompt-card" style="margin-bottom: 1.5rem;">
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Variation B: Intersection Point</div>
+                            <div class="prompt-text">
+                                <p>Two rectangular planes of different sizes intersecting at a precise point. The smaller plane (strategic input) intersects the larger plane (amplified results) at their corners. The intersection point marked with a small gold diamond or square - highlighting the "golden" leverage point where transformation occurs. Feels like an architectural diagram.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Variation C: Cantilever Form</div>
+                            <div class="prompt-text">
+                                <p>A single L-shaped or angular bracket form suggesting a cantilever - a beam anchored at one end, extending outward with increasing mechanical advantage. Bold and architectural, like a structural element from a well-engineered building. Gold accent marks where the leverage originates. Should feel substantial and load-bearing, not decorative.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Concept 2: The Proof Seal -->
+            <section id="seal" class="section">
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <div class="prompt-number">2</div>
+                        <div class="prompt-title-group">
+                            <div class="prompt-label">Verification & Credibility</div>
+                            <div class="prompt-title">The Proof Seal</div>
+                            <div class="prompt-layout">A mark of verified results, like a notary's embossed seal</div>
+                        </div>
+                    </div>
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Conceptual Foundation</div>
+                            <div class="prompt-text">
+                                <p>This audience responds to marks of quality assurance - think notary seals, engineering stamps, professional certifications. The logo should communicate <strong>PROVEN, VALIDATED, VERIFIED</strong> - the weight and authority of an institution that has been validating business outcomes for decades.</p>
+                                <p>This is NOT a generic "trust badge" from an e-commerce checkout page. It's the mark of a firm that lets its track record speak.</p>
+                            </div>
+                        </div>
+
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Primary Design Prompt</div>
+                            <div class="prompt-text">
+                                <p>Design a geometric verification mark based on <strong>THREE CONCENTRIC CIRCLES</strong> with deliberate, measured spacing between them. The outer circle is a solid, substantial ring (not thin hairline). The middle circle is an open negative space ring.</p>
+                                <p>The innermost element is NOT a checkmark - instead, create an abstract "proof point" formed by <strong>THREE SMALL CIRCLES</strong> arranged in a precise triangular formation (representing data points that converge to prove a thesis). These three dots should feel like measurement markers on a precision instrument or the vertices of verified coordinates.</p>
+                                <p>The overall icon should feel like something you'd find embossed on bond certificates or stamped on engineering blueprints.</p>
+                            </div>
+                        </div>
+
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Technical Specifications</div>
+                            <div class="prompt-text">
+                                <table class="spec-table">
+                                    <tr>
+                                        <th>Element</th>
+                                        <th>Specification</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Outer ring / structure</td>
+                                        <td><span class="color-chip"><span class="color-chip-swatch" style="background:#0F1729"></span>Navy #0F1729</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Three proof points (inner)</td>
+                                        <td><span class="color-chip"><span class="color-chip-swatch" style="background:#D4A853"></span>Gold #D4A853</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ring stroke weight</td>
+                                        <td>Substantial, authoritative (not thin hairline)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wordmark</td>
+                                        <td>Crimson Pro Medium, measured letter-spacing</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lockup ratio</td>
+                                        <td>3:1 horizontal (width to height)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Icon alone</td>
+                                        <td>1:1 square for emblem/seal applications</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="highlight-note">
+                            <strong>Mood:</strong> Authority without coldness. The seriousness of an accounting firm's letterhead, the precision of an engineering stamp, the earned weight of a professional certification. Should NOT feel governmental, bureaucratic, or like a cheap website's "trust badge."
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Proof Seal Variations -->
+            <section id="seal-vars" class="section">
+                <div class="section-header">
+                    <div class="section-number">Concept 2 Variations</div>
+                    <h2 class="section-title">Proof Seal Alternatives</h2>
+                </div>
+
+                <div class="prompt-card" style="margin-bottom: 1.5rem;">
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Variation A: Triangle of Proofs</div>
+                            <div class="prompt-text">
+                                <p>A geometric mark where an equilateral triangle is IMPLIED by three substantial circular points (like survey markers) positioned at each vertex. These three points are connected by thin, precise lines forming the triangle's edges. Surround with a single substantial circular ring - like a seal border. The overall impression: precision instrument, surveyor's mark, certified measurement.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prompt-card" style="margin-bottom: 1.5rem;">
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Variation B: Emblem Style</div>
+                            <div class="prompt-text">
+                                <p>A substantial circular border contains the brand name: "SCALEUP" arcs along the TOP interior of the circle, "VENTURES" arcs along the BOTTOM interior. In the center, place three small circles in triangular formation. Typography follows the curve naturally, like text on a wax seal or embossed stamp. Should look like it could be pressed into sealing wax or stamped on certified blueprints.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Variation C: Overlapping Rings</div>
+                            <div class="prompt-text">
+                                <p>Two circles that intersect at a precise point, with a small circular "proof point" marker at their intersection. This suggests: where independent measurements converge, truth is verified. The overlapping creates a subtle vesica piscis shape with the proof point marking the exact center of validation. Substantial line weight, feels engineered and measured.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Concept 3: The Watershed Mark -->
+            <section id="watershed" class="section">
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <div class="prompt-number">3</div>
+                        <div class="prompt-title-group">
+                            <div class="prompt-label">Convergence & Transformation</div>
+                            <div class="prompt-title">The Watershed Mark</div>
+                            <div class="prompt-layout">The critical turning point where scattered efforts become unified strength</div>
+                        </div>
+                    </div>
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Conceptual Foundation</div>
+                            <div class="prompt-text">
+                                <p>A <strong>watershed</strong> is the critical turning point where separate streams converge into a single, powerful direction. This represents the transformation ScaleUp creates: bringing together strategy, execution, and measurement into unified growth.</p>
+                                <p>This is NOT about connection or collaboration - it's about <strong>CONSOLIDATION</strong> and the resulting power of unified direction. Think of it as architectural - like structural lines where load-bearing elements meet and transfer force into a single support.</p>
+                            </div>
+                        </div>
+
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Primary Design Prompt</div>
+                            <div class="prompt-text">
+                                <p>Create exactly <strong>two or three straight, angular line elements</strong> approaching from different trajectories (suggest angles between 15-45 degrees from vertical). These lines meet at a single convergence point positioned in the lower-center of the composition.</p>
+                                <p>From this intersection, a <strong>single unified element continues</strong> - this continuation should feel more substantial than the individual approaching lines (slightly bolder weight or expanded form). The overall silhouette should suggest upward momentum without using literal arrows.</p>
+                                <p>Consider using negative space at the convergence point to create visual interest or a subtle secondary shape.</p>
+                            </div>
+                        </div>
+
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Technical Specifications</div>
+                            <div class="prompt-text">
+                                <table class="spec-table">
+                                    <tr>
+                                        <th>Element</th>
+                                        <th>Specification</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Approaching lines</td>
+                                        <td><span class="color-chip"><span class="color-chip-swatch" style="background:#0F1729"></span>Navy #0F1729</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Convergence point / unified path</td>
+                                        <td><span class="color-chip"><span class="color-chip-swatch" style="background:#D4A853"></span>Gold #D4A853 - marks transformation</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Unified element weight</td>
+                                        <td>1.5x the weight of approaching lines</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Angle relationships</td>
+                                        <td>Prefer 30, 45, or 60 degrees - structural, not dynamic</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wordmark</td>
+                                        <td>Crimson Pro Semibold + Regular, Navy #0F1729</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lockup ratio</td>
+                                        <td>3:1 horizontal (width to height)</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="highlight-note">
+                            <strong>Mood:</strong> Precision, proof, consolidation, structural integrity, quiet confidence. The mark should feel like it could be etched in steel or cast in bronze - permanent, not trendy. A 60-year-old business owner should think "these people are serious" not "these people are trying to impress me."
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Watershed Variations -->
+            <section id="watershed-vars" class="section">
+                <div class="section-header">
+                    <div class="section-number">Concept 3 Variations</div>
+                    <h2 class="section-title">Watershed Mark Alternatives</h2>
+                </div>
+
+                <div class="prompt-card" style="margin-bottom: 1.5rem;">
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Variation A: Negative Space Convergence</div>
+                            <div class="prompt-text">
+                                <p>A solid geometric shape in navy - perhaps a modified rectangle or angular bracket. Within this solid shape, negative space (white) carves out the convergence pattern: two or three angular paths meeting at a point. The white space tells the story; the navy provides the frame. A minimal gold accent marks the convergence point like a surveyor's mark on a blueprint.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prompt-card" style="margin-bottom: 1.5rem;">
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Variation B: The Keystone</div>
+                            <div class="prompt-text">
+                                <p>In architecture, a keystone is the wedge-shaped piece at the apex of an arch that locks all other stones in place. Multiple linear elements converge upon and are supported by a central keystone form. The keystone element is gold, representing the transformative methodology ScaleUp provides. Supporting angular elements in navy. Abstract the concept into clean geometric lines - two angled lines pressing inward toward a central angular shape that holds them in tension.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Variation C: Minimal Intersection</div>
+                            <div class="prompt-text">
+                                <p>Extreme reduction: Two straight lines only. Line one approaches from upper-left at ~30 degrees from vertical. Line two mirrors from upper-right. They meet at a single point and the intersection is emphasized with a small gold circle or diamond. Lines rendered in navy. Total mark footprint nearly square. This is reduction to essence: two paths, one convergence, strengthened result.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Classic Concepts Divider -->
+            <section class="section" style="margin-bottom: 2rem;">
+                <div class="summary-box">
+                    <div class="summary-title">Classic Concepts (4-9)</div>
+                    <div class="summary-text">
+                        The following six concepts represent refined geometric approaches using proven visual patterns. While more conventional than the creative concepts above, these are executed with intentional precision and strategic gold accents that elevate them above generic business logos.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Concept 4: Ascending Bars Horizontal -->
+            <section id="bars-horizontal" class="section">
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <div class="prompt-number">4</div>
+                        <div class="prompt-title-group">
+                            <div class="prompt-label">Classic Geometric</div>
+                            <div class="prompt-title">Ascending Bars — Horizontal Layout</div>
+                            <div class="prompt-layout">Icon left of wordmark, growing left to right</div>
+                        </div>
+                    </div>
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Conceptual Foundation</div>
+                            <div class="prompt-text">
+                                <p>Three to four rectangular bars arranged horizontally, increasing in height from left to right. Represents <strong>methodical, measurable growth</strong> — the kind of progress that can be tracked on a spreadsheet. Appeals to data-driven business owners who value accountability.</p>
+                            </div>
+                        </div>
+
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Design Prompt</div>
+                            <div class="prompt-text">
+                                <p>Create a logo mark featuring <strong>four vertical rectangular bars</strong> arranged side by side, increasing in height from left to right like a growth chart. Bars should have:</p>
+                                <p>• Uniform width with consistent spacing (spacing = 40-60% of bar width)</p>
+                                <p>• Heights progressing in meaningful ratios (not arbitrary): consider 40%, 60%, 80%, 100% of maximum</p>
+                                <p>• The tallest (rightmost) bar rendered in Gold #D4A853, others in Navy #0F1729 or Gold Muted #B8956E</p>
+                                <p>• Clean, squared corners — no rounded edges</p>
+                                <p>• Wordmark positioned to the right with generous clear space</p>
+                            </div>
+                        </div>
+
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Technical Specifications</div>
+                            <table class="spec-table">
+                                <tr><th>Element</th><th>Specification</th></tr>
+                                <tr><td>Bar colors (L to R)</td><td><span class="color-chip"><span class="color-chip-swatch" style="background:#B8956E"></span>Muted</span> → <span class="color-chip"><span class="color-chip-swatch" style="background:#B8956E"></span>Muted</span> → <span class="color-chip"><span class="color-chip-swatch" style="background:#0F1729"></span>Navy</span> → <span class="color-chip"><span class="color-chip-swatch" style="background:#D4A853"></span>Gold</span></td></tr>
+                                <tr><td>Wordmark</td><td>Crimson Pro SemiBold, Navy #0F1729</td></tr>
+                                <tr><td>"Ventures" treatment</td><td>Crimson Pro Regular, same size, tighter tracking</td></tr>
+                                <tr><td>Icon-to-wordmark ratio</td><td>1:3 (icon takes 25% of total width)</td></tr>
+                                <tr><td>Lockup ratio</td><td>4:1 horizontal (width to height)</td></tr>
+                                <tr><td>Minimum size</td><td>120px width for full lockup, 24px for icon only</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="highlight-note">
+                            <strong>Key Differentiator:</strong> The progression must feel earned, not automatic. Consider making the jump between bar 3 and bar 4 slightly larger — representing the "breakthrough" moment ScaleUp delivers.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Concept 5: Ascending Bars Stacked -->
+            <section id="bars-stacked" class="section">
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <div class="prompt-number">5</div>
+                        <div class="prompt-title-group">
+                            <div class="prompt-label">Classic Geometric</div>
+                            <div class="prompt-title">Ascending Bars — Stacked Layout</div>
+                            <div class="prompt-layout">Icon above wordmark, centered composition</div>
+                        </div>
+                    </div>
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Design Prompt</div>
+                            <div class="prompt-text">
+                                <p>Same four-bar ascending concept as Concept 4, but arranged in a <strong>stacked/vertical lockup</strong>:</p>
+                                <p>• Icon centered above the wordmark</p>
+                                <p>• Wordmark split: "ScaleUp" on line one, "Ventures" on line two</p>
+                                <p>• OR single-line wordmark centered below icon</p>
+                                <p>• Clear space between icon and text = height of smallest bar</p>
+                                <p>• Total composition should fit comfortably in a square for social profiles</p>
+                            </div>
+                        </div>
+
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Technical Specifications</div>
+                            <table class="spec-table">
+                                <tr><th>Element</th><th>Specification</th></tr>
+                                <tr><td>Layout</td><td>Icon above, wordmark below (centered)</td></tr>
+                                <tr><td>Icon proportions</td><td>Same as Concept 4</td></tr>
+                                <tr><td>Wordmark</td><td>Crimson Pro SemiBold + Regular</td></tr>
+                                <tr><td>Overall ratio</td><td>1:1.2 (height slightly greater than width)</td></tr>
+                                <tr><td>Use cases</td><td>Social profiles, app icons, signage</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Concept 6: Nested Chevrons Primary -->
+            <section id="chevrons-primary" class="section">
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <div class="prompt-number">6</div>
+                        <div class="prompt-title-group">
+                            <div class="prompt-label">Classic Geometric</div>
+                            <div class="prompt-title">Nested Chevrons — Primary</div>
+                            <div class="prompt-layout">Three to four V-shapes conveying upward momentum</div>
+                        </div>
+                    </div>
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Conceptual Foundation</div>
+                            <div class="prompt-text">
+                                <p>Multiple chevron (V-shaped) forms stacked vertically, suggesting <strong>upward momentum and expansion</strong>. Avoids the cliché of literal arrows while still communicating growth direction. The nested quality suggests layers of strategy building upon each other.</p>
+                            </div>
+                        </div>
+
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Design Prompt</div>
+                            <div class="prompt-text">
+                                <p>Create a mark with <strong>three or four chevron shapes</strong> (wide V-forms, pointing upward) stacked vertically:</p>
+                                <p>• Largest/bottommost chevron at base, decreasing in size toward top</p>
+                                <p>• Chevrons should NOT touch — maintain consistent spacing</p>
+                                <p>• Apex angle between 60-90 degrees (not too sharp, not too flat)</p>
+                                <p>• Top chevron in Gold #D4A853, others graduating from Navy to Muted Gold</p>
+                                <p>• Stroke weight consistent across all chevrons, OR filled solid shapes</p>
+                            </div>
+                        </div>
+
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Technical Specifications</div>
+                            <table class="spec-table">
+                                <tr><th>Element</th><th>Specification</th></tr>
+                                <tr><td>Chevron colors (bottom to top)</td><td><span class="color-chip"><span class="color-chip-swatch" style="background:#8B7355"></span>Dark Muted</span> → <span class="color-chip"><span class="color-chip-swatch" style="background:#B8956E"></span>Muted</span> → <span class="color-chip"><span class="color-chip-swatch" style="background:#0F1729"></span>Navy</span> → <span class="color-chip"><span class="color-chip-swatch" style="background:#D4A853"></span>Gold</span></td></tr>
+                                <tr><td>Chevron style</td><td>Solid filled shapes (preferred) or thick strokes</td></tr>
+                                <tr><td>Apex angle</td><td>70-80 degrees recommended</td></tr>
+                                <tr><td>Wordmark</td><td>Crimson Pro SemiBold, positioned right of icon</td></tr>
+                                <tr><td>Lockup ratio</td><td>3.5:1 horizontal</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="highlight-note">
+                            <strong>Avoid:</strong> Making chevrons look like arrows, checkmarks, or play buttons. The form should feel architectural and structural, not directional or actionable.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Concept 7: Nested Chevrons Contained -->
+            <section id="chevrons-contained" class="section">
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <div class="prompt-number">7</div>
+                        <div class="prompt-title-group">
+                            <div class="prompt-label">Classic Geometric</div>
+                            <div class="prompt-title">Nested Chevrons — Contained</div>
+                            <div class="prompt-layout">Chevrons within a geometric container shape</div>
+                        </div>
+                    </div>
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Design Prompt</div>
+                            <div class="prompt-text">
+                                <p>Same chevron concept as Concept 6, but <strong>contained within a geometric boundary</strong>:</p>
+                                <p>• Options: rounded rectangle, circle, hexagon, or rounded square</p>
+                                <p>• Container in Navy #0F1729, chevrons in cream/gold tones</p>
+                                <p>• OR transparent container with navy stroke, chevrons in brand colors</p>
+                                <p>• Creates a more "badge-like" or "seal" quality</p>
+                                <p>• Works well for favicon, app icon, and embroidery applications</p>
+                            </div>
+                        </div>
+
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Technical Specifications</div>
+                            <table class="spec-table">
+                                <tr><th>Element</th><th>Specification</th></tr>
+                                <tr><td>Container shape</td><td>Rounded square (12-16px radius at 100px) or circle</td></tr>
+                                <tr><td>Container color</td><td>Navy #0F1729 (solid) or Navy stroke on transparent</td></tr>
+                                <tr><td>Chevron colors</td><td>Cream #FAF8F5 base, Gold #D4A853 accent on top chevron</td></tr>
+                                <tr><td>Padding</td><td>12-15% of container width on all sides</td></tr>
+                                <tr><td>Use cases</td><td>Favicon, app icon, profile pictures, embroidery</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Concept 8: Building Blocks Diagonal -->
+            <section id="blocks-diagonal" class="section">
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <div class="prompt-number">8</div>
+                        <div class="prompt-title-group">
+                            <div class="prompt-label">Classic Geometric</div>
+                            <div class="prompt-title">Building Blocks — Diagonal</div>
+                            <div class="prompt-layout">Ascending squares in diagonal arrangement</div>
+                        </div>
+                    </div>
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Conceptual Foundation</div>
+                            <div class="prompt-text">
+                                <p>Four to five square blocks arranged in an ascending diagonal pattern. Represents <strong>calculated, proven growth through systematic building</strong> — one block at a time. Appeals to methodical business owners who value process and foundation.</p>
+                            </div>
+                        </div>
+
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Design Prompt</div>
+                            <div class="prompt-text">
+                                <p>Create a mark with <strong>four square blocks</strong> arranged diagonally from lower-left to upper-right:</p>
+                                <p>• All squares identical in size</p>
+                                <p>• Positioned on a 45-degree diagonal axis</p>
+                                <p>• Squares should nearly touch (1-2px gap) or slightly overlap</p>
+                                <p>• Color progression from muted (lower-left) to gold (upper-right)</p>
+                                <p>• Creates impression of stepping stones or building blocks</p>
+                            </div>
+                        </div>
+
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Technical Specifications</div>
+                            <table class="spec-table">
+                                <tr><th>Element</th><th>Specification</th></tr>
+                                <tr><td>Block colors (1→4)</td><td><span class="color-chip"><span class="color-chip-swatch" style="background:#8B7355"></span>Dark</span> → <span class="color-chip"><span class="color-chip-swatch" style="background:#B8956E"></span>Muted</span> → <span class="color-chip"><span class="color-chip-swatch" style="background:#0F1729"></span>Navy</span> → <span class="color-chip"><span class="color-chip-swatch" style="background:#D4A853"></span>Gold</span></td></tr>
+                                <tr><td>Block size</td><td>Uniform (all same dimensions)</td></tr>
+                                <tr><td>Arrangement angle</td><td>45 degrees from horizontal</td></tr>
+                                <tr><td>Wordmark</td><td>Crimson Pro SemiBold, aligned to icon baseline</td></tr>
+                                <tr><td>Lockup ratio</td><td>3.5:1 horizontal</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="highlight-note">
+                            <strong>Key Detail:</strong> The diagonal arrangement should suggest forward momentum without using arrows. The blocks represent milestones achieved — each one built on the foundation of those before.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Concept 9: Building Blocks Staircase -->
+            <section id="blocks-staircase" class="section">
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <div class="prompt-number">9</div>
+                        <div class="prompt-title-group">
+                            <div class="prompt-label">Classic Geometric</div>
+                            <div class="prompt-title">Building Blocks — Staircase</div>
+                            <div class="prompt-layout">Blocks forming stair-step pattern</div>
+                        </div>
+                    </div>
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Design Prompt</div>
+                            <div class="prompt-text">
+                                <p>Same block concept as Concept 8, but arranged in a <strong>stair-step formation</strong>:</p>
+                                <p>• Blocks stack vertically AND horizontally like stairs</p>
+                                <p>• Each subsequent block positioned one step up and one step right</p>
+                                <p>• Creates a more compact, contained silhouette</p>
+                                <p>• Suggests climbing, achievement, and systematic progress</p>
+                                <p>• Works especially well in contained/badge format</p>
+                            </div>
+                        </div>
+
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">Technical Specifications</div>
+                            <table class="spec-table">
+                                <tr><th>Element</th><th>Specification</th></tr>
+                                <tr><td>Block arrangement</td><td>Stair-step: each block offset up and right by 50% of block size</td></tr>
+                                <tr><td>Total blocks</td><td>4 blocks (3 steps up)</td></tr>
+                                <tr><td>Color treatment</td><td>Same gradient as Concept 8</td></tr>
+                                <tr><td>Overall shape</td><td>Roughly square silhouette (good for icons)</td></tr>
+                                <tr><td>Wordmark position</td><td>Right of icon (horizontal) or below (stacked)</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="highlight-note">
+                            <strong>Badge Variation:</strong> Consider placing this stair-step formation inside a circular or rounded-square container for a more "seal" or "certification mark" feeling that reinforces the "proof" brand positioning.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Evaluation Criteria -->
+            <section id="evaluation" class="section">
+                <div class="section-header">
+                    <div class="section-number">Quality Assurance</div>
+                    <h2 class="section-title">Evaluation Criteria</h2>
+                </div>
+
+                <div class="prompt-text" style="margin-bottom: 2rem;">
+                    <p>Before accepting any generated logo, verify against these brand-aligned standards:</p>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-body">
+                        <div class="prompt-section">
+                            <div class="prompt-section-title">The 8-Point Quality Test</div>
+                            <div class="prompt-text">
+                                <p><strong>1. Substance Test:</strong> Would a 58-year-old HVAC company owner take this seriously, or dismiss it as "marketing fluff"?</p>
+                                <p><strong>2. Precision Test:</strong> Does the mark communicate intentionality and engineering, or does it look decorative/arbitrary?</p>
+                                <p><strong>3. Concept Test:</strong> Can you explain the visual metaphor (fulcrum/seal/watershed) from the visual alone?</p>
+                                <p><strong>4. Cliché Test:</strong> Does this avoid ALL items on the exclusion list? Would it blend in with generic "growth" logos?</p>
+                                <p><strong>5. Trust Test:</strong> Does this feel like a firm that proves results, or one that sells promises?</p>
+                                <p><strong>6. Scale Test:</strong> Is the icon recognizable and distinctive at 24px height?</p>
+                                <p><strong>7. Industry Test:</strong> Would this look right for staffing agencies, veterinary practices, and trade businesses?</p>
+                                <p><strong>8. Longevity Test:</strong> Will this still look appropriate in 10 years, or does it follow trends that will date quickly?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="section">
+                <div class="summary-box">
+                    <div class="summary-title">Ready for Designer Execution</div>
+                    <div class="summary-text">
+                        <strong>Creative Concepts (1-3):</strong> The Fulcrum, The Proof Seal, and The Watershed — distinctive metaphor-based designs that avoid generic business clichés and speak directly to ScaleUp Ventures' target audience.
+                        <br><br>
+                        <strong>Classic Concepts (4-9):</strong> Ascending Bars (Horizontal & Stacked), Nested Chevrons (Primary & Contained), and Building Blocks (Diagonal & Staircase) — refined geometric approaches with precision execution.
+                        <br><br>
+                        <strong>Recommended Approach:</strong> Generate visual renderings of all nine concepts. Evaluate against the 8-point quality test. Select 2-3 finalists from across both categories for refinement.
+                        <br><br>
+                        <strong>Success Criteria:</strong> The finished mark should make a 58-year-old staffing agency owner think "these people are serious" — not "these people are trying to impress me."
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-text">
+                ScaleUp Ventures Logo Implementation Prompts | December 31, 2025<br>
+                Nine comprehensive logo concepts: 3 creative + 6 classic approaches.
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

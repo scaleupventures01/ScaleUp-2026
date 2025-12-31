@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitive Landscape Analysis | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f1729;
+            --navy-light: #1a2744;
+            --slate: #334155;
+            --slate-light: #64748b;
+            --gold: #d4a853;
+            --gold-muted: #b8956e;
+            --cream: #faf8f5;
+            --cream-dark: #f1ede6;
+            --white: #ffffff;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --info: #0284c7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--navy);
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .nav-header {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-subtitle {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 0.25rem;
+        }
+
+        .nav-section { margin-bottom: 1.5rem; }
+
+        .nav-section-title {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--slate-light);
+            padding: 0 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+            border-left-color: var(--gold);
+        }
+
+        .main { margin-left: 280px; min-height: 100vh; }
+
+        .hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f1729 100%);
+            padding: 5rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a853' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+        }
+
+        .content { padding: 4rem; max-width: 1200px; }
+
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--navy);
+        }
+
+        .section-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--navy);
+            letter-spacing: -0.01em;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .card-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .card-subtitle {
+            font-size: 0.875rem;
+            color: var(--slate-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .verdict-box {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .verdict-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .verdict-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .verdict-score {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        .table-wrapper { overflow-x: auto; margin: 1.5rem 0; }
+
+        table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+
+        thead { background: var(--navy); }
+
+        th {
+            text-align: left;
+            padding: 0.875rem 1rem;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 0.875rem 1rem;
+            border-bottom: 1px solid var(--cream-dark);
+            color: var(--slate);
+            vertical-align: top;
+        }
+
+        tr:hover td { background: var(--cream); }
+        td strong { color: var(--navy); }
+
+        .threat-indicator {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .threat-low { background: rgba(5, 150, 105, 0.1); color: var(--success); }
+        .threat-medium { background: rgba(217, 119, 6, 0.1); color: var(--warning); }
+        .threat-high { background: rgba(220, 38, 38, 0.1); color: var(--danger); }
+        .threat-none { background: rgba(100, 116, 139, 0.1); color: var(--slate-light); }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--gold);
+        }
+
+        .stat-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--slate-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+
+        .callout {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        .callout-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .callout-text {
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+
+        .styled-list { list-style: none; margin: 1rem 0; }
+
+        .styled-list li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--slate);
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .styled-list li:last-child { border-bottom: none; }
+
+        .styled-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1rem;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .competitor-card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .competitor-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .competitor-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .competitor-body { padding: 1.5rem; }
+
+        .competitor-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .competitor-meta-item {
+            font-size: 0.875rem;
+        }
+
+        .competitor-meta-label {
+            color: var(--slate-light);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .subsection {
+            margin-bottom: 2rem;
+        }
+
+        .subsection-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .matrix-cell {
+            text-align: center;
+        }
+
+        .matrix-yes { color: var(--success); font-weight: 600; }
+        .matrix-no { color: var(--slate-light); }
+        .matrix-partial { color: var(--warning); }
+
+        .sources-section {
+            background: var(--cream-dark);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .sources-section h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .sources-list {
+            font-size: 0.8125rem;
+            color: var(--slate);
+            columns: 2;
+            column-gap: 2rem;
+        }
+
+        .sources-list a {
+            color: var(--info);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .sources-list a:hover {
+            text-decoration: underline;
+        }
+
+        .sources-list li {
+            margin-bottom: 0.5rem;
+            break-inside: avoid;
+        }
+
+        .pricing-range {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .footer {
+            background: var(--navy);
+            color: rgba(255,255,255,0.5);
+            padding: 2rem 4rem;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        .prevyu-section {
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.1) 0%, rgba(212, 168, 83, 0.05) 100%);
+            border: 2px solid var(--gold);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .prevyu-section .card-title {
+            color: var(--gold-muted);
+        }
+
+        @media (max-width: 1024px) {
+            .nav { display: none; }
+            .main { margin-left: 0; }
+            .hero { padding: 3rem 2rem; }
+            .hero-title { font-size: 2.5rem; }
+            .content { padding: 2rem; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .two-column { grid-template-columns: 1fr; }
+            .sources-list { columns: 1; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-logo">ScaleUp Ventures</div>
+            <div class="nav-subtitle">Competitive Intelligence</div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Overview</div>
+            <a href="#executive-summary" class="nav-link">Executive Summary</a>
+            <a href="#key-findings" class="nav-link">Key Findings</a>
+            <a href="#threat-matrix" class="nav-link">Threat Assessment</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Consulting Services</div>
+            <a href="#boutique-consulting" class="nav-link">Boutique Consulting Firms</a>
+            <a href="#offshore-development" class="nav-link">Offshore Development</a>
+            <a href="#freelancers" class="nav-link">Freelancers & Independents</a>
+            <a href="#large-firms" class="nav-link">Large Consulting Firms</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Growth & AI Services</div>
+            <a href="#marketing-agencies" class="nav-link">Growth Marketing Agencies</a>
+            <a href="#ai-automation" class="nav-link">AI & Automation Consulting</a>
+            <a href="#integrated-providers" class="nav-link">Integrated Service Providers</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">DIY Threats</div>
+            <a href="#diy-platforms" class="nav-link">DIY Tools & Platforms</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Prevyu Product</div>
+            <a href="#prevyu-discipline" class="nav-link">Trading Discipline Tools</a>
+            <a href="#trading-journals" class="nav-link">Trading Journals</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Strategy</div>
+            <a href="#positioning" class="nav-link">Competitive Positioning</a>
+            <a href="#pricing-benchmarks" class="nav-link">Pricing Benchmarks</a>
+            <a href="#differentiation" class="nav-link">Differentiation Strategy</a>
+            <a href="#sources" class="nav-link">Sources</a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <header class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">Market Intelligence</span>
+                <h1 class="hero-title">Competitive Landscape Analysis</h1>
+                <p class="hero-subtitle">Comprehensive research across 10 competitive categories with 100+ named competitors, pricing benchmarks, and strategic positioning recommendations for ScaleUp Ventures and Prevyu.</p>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- Executive Summary -->
+            <section id="executive-summary" class="section">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2 class="section-title">Executive Summary</h2>
+                </div>
+
+                <div class="verdict-box">
+                    <div class="verdict-label">Strategic Verdict</div>
+                    <div class="verdict-title">ScaleUp Occupies a Protected Market Niche</div>
+                    <div class="verdict-score">True integration of Development + Growth Marketing + AI Automation at SMB-accessible pricing is rare. Most competitors specialize in 1-2 areas only.</div>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">100+</div>
+                        <div class="stat-label">Named Competitors</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">10</div>
+                        <div class="stat-label">Competitive Categories</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$15K-25K</div>
+                        <div class="stat-label">Sweet Spot Project Size</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">40-50%</div>
+                        <div class="stat-label">Target Margins</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Key Strategic Insights</div>
+                    <ul class="styled-list">
+                        <li><strong>Large consulting firms (McKinsey, Deloitte, Accenture) present minimal direct threat</strong> - Their $500K+ minimums and Fortune 500 focus leave the SMB market underserved.</li>
+                        <li><strong>Boutique consultants are the primary competition</strong> - Cultivate Advisors, PSM Partners, and fractional CMO firms compete for similar clients but rarely offer truly integrated services.</li>
+                        <li><strong>DIY tools represent the largest substitute threat</strong> - Platforms like Webflow, HubSpot, and Zapier enable SMBs to handle work in-house at a fraction of consulting costs.</li>
+                        <li><strong>Offshore development competes on price alone</strong> - ScaleUp wins on integration, accountability, and reduced management burden vs. $15-50/hr offshore rates.</li>
+                        <li><strong>40% of AI consulting deals under $5M now go to boutiques</strong> - Up from 15% in 2023, creating significant opportunity in the growing SMB AI market.</li>
+                        <li><strong>Prevyu has no direct competitor</strong> - No tool offers real-time pre-trade discipline validation with GO/WAIT/NO-GO signals against personal rules.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Key Findings -->
+            <section id="key-findings" class="section">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="section-title">Key Findings by Category</h2>
+                </div>
+
+                <div class="two-column">
+                    <div class="card">
+                        <div class="card-title">ScaleUp Consulting Services</div>
+                        <ul class="styled-list">
+                            <li><strong>Few True Full-Stack Competitors:</strong> Most boutique firms specialize in either marketing OR technology OR operations. Very few offer integrated Development + Marketing + Process Improvement.</li>
+                            <li><strong>ROI Accountability is Rare:</strong> While many claim "results-focused," few have explicit accountability metrics or ROI guarantees in their positioning.</li>
+                            <li><strong>$20K+ SMB Sweet Spot:</strong> Many firms target enterprise (too expensive) or very small businesses (less sophisticated). The $20K+ investment capacity SMB is underserved.</li>
+                            <li><strong>AI-First Process Improvement:</strong> Most traditional consultancies are just beginning to add AI services. Early movers have competitive advantage.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Prevyu Product</div>
+                        <ul class="styled-list">
+                            <li><strong>Market Gap Identified:</strong> No direct competitor offers real-time pre-trade analysis against personal rules with GO/WAIT/NO-GO signals.</li>
+                            <li><strong>Trading Journals Focus POST-Trade:</strong> Tradervue, TradeZella, Edgewonk all analyze after the trade. Prevyu intervenes before.</li>
+                            <li><strong>Premium Positioning Justified:</strong> At $79-500/mo, positioned above journals ($15-50/mo) because one prevented bad trade can pay for a year of service.</li>
+                            <li><strong>Category Creator Opportunity:</strong> "Pre-trade discipline technology" is an ownable category position.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Threat Assessment Matrix -->
+            <section id="threat-matrix" class="section">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2 class="section-title">Threat Assessment Matrix</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Competitive Threat by Category</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Threat Level</th>
+                                    <th>Key Competitors</th>
+                                    <th>ScaleUp Differentiation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Boutique Consulting</strong></td>
+                                    <td><span class="threat-indicator threat-high">High</span></td>
+                                    <td>Cultivate Advisors, GrowthCX, Chief Outsiders</td>
+                                    <td>Integrated dev + marketing + AI under one roof</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>DIY Tools & Platforms</strong></td>
+                                    <td><span class="threat-indicator threat-high">High</span></td>
+                                    <td>Webflow, Shopify, HubSpot, Zapier</td>
+                                    <td>Target clients who've outgrown templates</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Freelancers & Independents</strong></td>
+                                    <td><span class="threat-indicator threat-medium">Medium</span></td>
+                                    <td>Upwork, Toptal, Fractional CMOs</td>
+                                    <td>Managed outcomes vs. billable hours</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Offshore Development</strong></td>
+                                    <td><span class="threat-indicator threat-medium">Medium</span></td>
+                                    <td>PixelCrayons, Simform, BairesDev</td>
+                                    <td>True cost transparency, no management burden</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Growth Marketing Agencies</strong></td>
+                                    <td><span class="threat-indicator threat-medium">Medium</span></td>
+                                    <td>WebFX, SmartSites, KlientBoost</td>
+                                    <td>Development-first with marketing cross-sell</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>AI/Automation Consulting</strong></td>
+                                    <td><span class="threat-indicator threat-medium">Medium</span></td>
+                                    <td>Vstorm, SynergyBoat, Kanerika</td>
+                                    <td>Process improvement methodology + AI</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Integrated Providers</strong></td>
+                                    <td><span class="threat-indicator threat-medium">Medium</span></td>
+                                    <td>SmartBug Media, O8 Agency, WEBITMD</td>
+                                    <td>SMB-accessible pricing vs. $15K+/mo</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Large Consulting Firms</strong></td>
+                                    <td><span class="threat-indicator threat-none">None</span></td>
+                                    <td>McKinsey, Deloitte, Accenture</td>
+                                    <td>$20K projects vs. $500K+ minimums</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Trading Journals (Prevyu)</strong></td>
+                                    <td><span class="threat-indicator threat-low">Low</span></td>
+                                    <td>Tradervue, TradeZella, Edgewonk</td>
+                                    <td>PRE-trade intervention vs. POST-trade review</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Discipline Tools (Prevyu)</strong></td>
+                                    <td><span class="threat-indicator threat-low">Low</span></td>
+                                    <td>TradeStop, Tradesyncer</td>
+                                    <td>Intelligent GO/NO-GO vs. binary lockouts</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Boutique Consulting -->
+            <section id="boutique-consulting" class="section">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2 class="section-title">Boutique Consulting Firms</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Category Overview</div>
+                    <p style="color: var(--slate); margin-bottom: 1rem;">16 named boutique competitors identified across growth consulting, fractional CMO services, technology consulting, and RevOps specialties. Most specialize in 1-2 service areas rather than offering truly integrated services.</p>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">Top Direct Competitors</div>
+
+                    <div class="competitor-card">
+                        <div class="competitor-header">
+                            <span class="competitor-name">Cultivate Advisors</span>
+                            <span class="threat-indicator threat-high">High Threat</span>
+                        </div>
+                        <div class="competitor-body">
+                            <div class="competitor-meta">
+                                <div class="competitor-meta-item">
+                                    <div class="competitor-meta-label">Employees</div>
+                                    ~71
+                                </div>
+                                <div class="competitor-meta-item">
+                                    <div class="competitor-meta-label">Results</div>
+                                    65% profit growth, 43% revenue growth (12 mo)
+                                </div>
+                                <div class="competitor-meta-item">
+                                    <div class="competitor-meta-label">Differentiator</div>
+                                    Proprietary "Propeller Methodology"
+                                </div>
+                            </div>
+                            <p style="color: var(--slate); font-size: 0.9375rem;"><strong>Services:</strong> Financial management, marketing engine, leadership systems, recruitment, operations. <strong>ScaleUp Advantage:</strong> Cultivate appears less tech-focused with no explicit AI/automation emphasis.</p>
+                        </div>
+                    </div>
+
+                    <div class="competitor-card">
+                        <div class="competitor-header">
+                            <span class="competitor-name">Chief Outsiders</span>
+                            <span class="threat-indicator threat-medium">Medium Threat</span>
+                        </div>
+                        <div class="competitor-body">
+                            <div class="competitor-meta">
+                                <div class="competitor-meta-item">
+                                    <div class="competitor-meta-label">Bench</div>
+                                    120+ Fractional CMOs/CSOs
+                                </div>
+                                <div class="competitor-meta-item">
+                                    <div class="competitor-meta-label">Pricing</div>
+                                    $15K-30K/month estimated
+                                </div>
+                                <div class="competitor-meta-item">
+                                    <div class="competitor-meta-label">Clients</div>
+                                    1,550+ companies served
+                                </div>
+                            </div>
+                            <p style="color: var(--slate); font-size: 0.9375rem;"><strong>Services:</strong> Fractional CMO/CSO, marketing strategy, demand generation, sales alignment. <strong>ScaleUp Advantage:</strong> Marketing/sales focused only - no development or AI/automation services.</p>
+                        </div>
+                    </div>
+
+                    <div class="competitor-card">
+                        <div class="competitor-header">
+                            <span class="competitor-name">PSM Partners</span>
+                            <span class="threat-indicator threat-medium">Medium Threat</span>
+                        </div>
+                        <div class="competitor-body">
+                            <div class="competitor-meta">
+                                <div class="competitor-meta-item">
+                                    <div class="competitor-meta-label">Founded</div>
+                                    2015, Chicago
+                                </div>
+                                <div class="competitor-meta-item">
+                                    <div class="competitor-meta-label">Focus</div>
+                                    Technology + Talent + Growth
+                                </div>
+                                <div class="competitor-meta-item">
+                                    <div class="competitor-meta-label">Partner</div>
+                                    Microsoft Partner
+                                </div>
+                            </div>
+                            <p style="color: var(--slate); font-size: 0.9375rem;"><strong>Services:</strong> SMB growth consulting, IT consulting, cloud services, cybersecurity, digital transformation. <strong>ScaleUp Advantage:</strong> Geographic Chicago focus, less explicit marketing/growth hacking expertise.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Competitive Positioning Matrix</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Competitor</th>
+                                    <th>Dev</th>
+                                    <th>Marketing</th>
+                                    <th>AI/Ops</th>
+                                    <th>SMB Focus</th>
+                                    <th>ROI Metrics</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>ScaleUp Ventures</strong></td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>Cultivate Advisors</td>
+                                    <td class="matrix-cell matrix-no">No</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>Chief Outsiders</td>
+                                    <td class="matrix-cell matrix-no">No</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                    <td class="matrix-cell matrix-no">No</td>
+                                    <td class="matrix-cell matrix-partial">Partial</td>
+                                    <td class="matrix-cell matrix-no">No</td>
+                                </tr>
+                                <tr>
+                                    <td>PSM Partners</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                    <td class="matrix-cell matrix-partial">Partial</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                    <td class="matrix-cell matrix-no">No</td>
+                                </tr>
+                                <tr>
+                                    <td>GrowthCX</td>
+                                    <td class="matrix-cell matrix-partial">Partial</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                    <td class="matrix-cell matrix-no">No</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>Ironpaper</td>
+                                    <td class="matrix-cell matrix-no">No</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                    <td class="matrix-cell matrix-partial">Partial</td>
+                                    <td class="matrix-cell matrix-partial">Partial</td>
+                                    <td class="matrix-cell matrix-yes">Yes</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Offshore Development -->
+            <section id="offshore-development" class="section">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2 class="section-title">Offshore Development Shops</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Regional Rate Comparison</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Region</th>
+                                    <th>Hourly Rate</th>
+                                    <th>Key Countries</th>
+                                    <th>Quality/Communication</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>North America</strong></td>
+                                    <td class="pricing-range">$80-200/hr</td>
+                                    <td>USA, Canada</td>
+                                    <td>Excellent</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Eastern Europe</strong></td>
+                                    <td class="pricing-range">$30-75/hr</td>
+                                    <td>Poland, Ukraine, Romania</td>
+                                    <td>Best quality-to-price ratio</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Latin America</strong></td>
+                                    <td class="pricing-range">$25-60/hr</td>
+                                    <td>Argentina, Mexico, Colombia</td>
+                                    <td>Good, US timezone alignment</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>India</strong></td>
+                                    <td class="pricing-range">$15-49/hr</td>
+                                    <td>Delhi, Pune, Ahmedabad</td>
+                                    <td>Variable, largest talent pool</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Philippines</strong></td>
+                                    <td class="pricing-range">$25-45/hr</td>
+                                    <td>Manila, Cebu</td>
+                                    <td>Good English proficiency</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="callout">
+                    <div class="callout-title">ScaleUp's True Cost Advantage</div>
+                    <div class="callout-text">While offshore rates appear 60-80% lower, hidden costs often eliminate savings: 20-30% rework, 10-15% productivity loss from timezones, significant management overhead, and 63% of data breaches involve offshore vendors. ScaleUp's all-inclusive pricing with integrated delivery often costs less than offshore + management + rework.</div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">Key Offshore Competitors</div>
+                    <div class="two-column">
+                        <div class="competitor-card">
+                            <div class="competitor-header">
+                                <span class="competitor-name">PixelCrayons (India)</span>
+                                <span class="threat-indicator threat-medium">Medium</span>
+                            </div>
+                            <div class="competitor-body">
+                                <p style="color: var(--slate); font-size: 0.875rem;"><strong>Rate:</strong> &lt;$25/hr | <strong>Min Project:</strong> $5,000+ | <strong>Clutch:</strong> 4.9/5<br><strong>Weakness:</strong> Pure execution, no strategic partnership, timezone challenges</p>
+                            </div>
+                        </div>
+                        <div class="competitor-card">
+                            <div class="competitor-header">
+                                <span class="competitor-name">Simform (India)</span>
+                                <span class="threat-indicator threat-medium">Medium</span>
+                            </div>
+                            <div class="competitor-body">
+                                <p style="color: var(--slate); font-size: 0.875rem;"><strong>Rate:</strong> $25-49/hr | <strong>Min Project:</strong> $25,000+ | <strong>Clutch:</strong> 4.8/5 (#2 globally)<br><strong>Weakness:</strong> Communication issues, development-only focus</p>
+                            </div>
+                        </div>
+                        <div class="competitor-card">
+                            <div class="competitor-header">
+                                <span class="competitor-name">BairesDev (LATAM)</span>
+                                <span class="threat-indicator threat-medium">Medium</span>
+                            </div>
+                            <div class="competitor-body">
+                                <p style="color: var(--slate); font-size: 0.875rem;"><strong>Rate:</strong> $50-99/hr | <strong>Min Project:</strong> $50,000+ | <strong>Clutch:</strong> 4.9/5<br><strong>Weakness:</strong> Premium pricing, staff augmentation focus, hidden ramp-up costs</p>
+                            </div>
+                        </div>
+                        <div class="competitor-card">
+                            <div class="competitor-header">
+                                <span class="competitor-name">Netguru (Poland)</span>
+                                <span class="threat-indicator threat-low">Low</span>
+                            </div>
+                            <div class="competitor-body">
+                                <p style="color: var(--slate); font-size: 0.875rem;"><strong>Rate:</strong> $70-150/hr | <strong>Clients:</strong> Volkswagen, IKEA<br><strong>Weakness:</strong> Higher rates, European focus, recent layoffs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Freelancers -->
+            <section id="freelancers" class="section">
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <h2 class="section-title">Freelancers & Independents</h2>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">76.4M</div>
+                        <div class="stat-label">US Freelancers (2025)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$191B</div>
+                        <div class="stat-label">US Gig Economy</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">61%</div>
+                        <div class="stat-label">Upwork Market Share</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$60-200/hr</div>
+                        <div class="stat-label">Toptal Developer Rate</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Freelancer Pricing by Service</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Service Type</th>
+                                    <th>Entry-Level</th>
+                                    <th>Mid-Level</th>
+                                    <th>Expert</th>
+                                    <th>Premium (Toptal)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Software Development</strong></td>
+                                    <td>$15-40/hr</td>
+                                    <td>$40-70/hr</td>
+                                    <td>$100-150/hr</td>
+                                    <td>$60-200+/hr</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Digital Marketing</strong></td>
+                                    <td>$15-45/hr</td>
+                                    <td>$50-120/hr</td>
+                                    <td>$120-175/hr</td>
+                                    <td>N/A</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Fractional CMO</strong></td>
+                                    <td colspan="4" style="text-align: center;">$150-500/hr | $4,000-20,000/month retainer</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Fractional CTO</strong></td>
+                                    <td colspan="4" style="text-align: center;">$3,000-10,000/month</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">ScaleUp vs. Freelancer Decision Framework</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Factor</th>
+                                    <th>Freelancer</th>
+                                    <th>ScaleUp Ventures</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Cost Model</strong></td>
+                                    <td>Lower hourly, hidden management costs</td>
+                                    <td>All-inclusive project pricing</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Project Complexity</strong></td>
+                                    <td>Simple, defined scope</td>
+                                    <td>Complex, multi-disciplinary</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Management Time</strong></td>
+                                    <td>High (client manages)</td>
+                                    <td>Low (agency manages)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Risk</strong></td>
+                                    <td>High variance, ghosting risk</td>
+                                    <td>Team redundancy, consistent</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Strategic Input</strong></td>
+                                    <td>Execution only</td>
+                                    <td>Strategy + execution</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Multi-disciplinary</strong></td>
+                                    <td>Hire multiple freelancers</td>
+                                    <td>Single accountable partner</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Large Firms -->
+            <section id="large-firms" class="section">
+                <div class="section-header">
+                    <span class="section-number">07</span>
+                    <h2 class="section-title">Large Consulting Firms</h2>
+                </div>
+
+                <div class="callout">
+                    <div class="callout-title">Strategic Assessment</div>
+                    <div class="callout-text">Large consulting firms present <strong>minimal direct competitive threat</strong> to ScaleUp Ventures. Their $500K+ minimum engagement sizes, enterprise frameworks, and Fortune 500 focus leave the SMB market structurally underserved.</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Why Large Firms Don't Compete with ScaleUp</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Firm</th>
+                                    <th>Min Project</th>
+                                    <th>Hourly Rate</th>
+                                    <th>Target Client</th>
+                                    <th>Threat Level</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>McKinsey</strong></td>
+                                    <td>$500K-$1.25M</td>
+                                    <td>$327-$1,194/hr</td>
+                                    <td>Fortune 500, $1B+ revenue</td>
+                                    <td><span class="threat-indicator threat-none">None</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>BCG</strong></td>
+                                    <td>$500K+</td>
+                                    <td>$404-$1,116/hr</td>
+                                    <td>Fortune 500, enterprise</td>
+                                    <td><span class="threat-indicator threat-none">None</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bain</strong></td>
+                                    <td>$500K+</td>
+                                    <td>Similar to MBB</td>
+                                    <td>Fortune 1000</td>
+                                    <td><span class="threat-indicator threat-none">None</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Deloitte</strong></td>
+                                    <td>$250K+</td>
+                                    <td>$350-$1,000/hr</td>
+                                    <td>Mid-market to enterprise</td>
+                                    <td><span class="threat-indicator threat-low">Low</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Accenture</strong></td>
+                                    <td>$50K+</td>
+                                    <td>$250-$500/hr</td>
+                                    <td>100+ employee minimum</td>
+                                    <td><span class="threat-indicator threat-low">Low-Med</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Key Quote</div>
+                    <p style="color: var(--slate); font-style: italic; font-size: 1.125rem; line-height: 1.6;">"When McKinsey or Deloitte consulting teams arrive at a mid-size company, they bring frameworks designed for organizations with 10,000+ employees and billion-dollar IT budgets."</p>
+                </div>
+            </section>
+
+            <!-- Marketing Agencies -->
+            <section id="marketing-agencies" class="section">
+                <div class="section-header">
+                    <span class="section-number">08</span>
+                    <h2 class="section-title">Growth Marketing Agencies</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">15 Named Competitors Analyzed</div>
+                    <p style="color: var(--slate); margin-bottom: 1rem;">Most agencies specialize in EITHER development OR marketing; few do both well. Pricing ranges from $750/month (entry-level social media) to $50,000+/month (full-service enterprise).</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Agency Pricing Comparison</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Agency</th>
+                                    <th>Min Project</th>
+                                    <th>Hourly Rate</th>
+                                    <th>Clutch Rating</th>
+                                    <th>Key Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>WebFX</strong></td>
+                                    <td>$1,000</td>
+                                    <td>$100-149/hr</td>
+                                    <td>4.9/5 (441+ reviews)</td>
+                                    <td>Full-service, 500+ staff</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SmartSites</strong></td>
+                                    <td>$1,000</td>
+                                    <td>$100-149/hr</td>
+                                    <td>4.9/5 (341+ reviews)</td>
+                                    <td>Local SEO expertise</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>KlientBoost</strong></td>
+                                    <td>$1,000</td>
+                                    <td>Custom</td>
+                                    <td>4.9/5 (1,464+ reviews)</td>
+                                    <td>PPC/CRO specialist</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Single Grain</strong></td>
+                                    <td>$10,000</td>
+                                    <td>Undisclosed</td>
+                                    <td>4.8/5</td>
+                                    <td>SaaS/tech expertise</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Growthcurve</strong></td>
+                                    <td>$5,000</td>
+                                    <td>$150-199/hr</td>
+                                    <td>4.9/5</td>
+                                    <td>Uber/Airbnb alumni</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Deviate Labs</strong></td>
+                                    <td>$25,000</td>
+                                    <td>$150-199/hr</td>
+                                    <td>4.9/5</td>
+                                    <td>Growth hacking methodology</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">ScaleUp's Competitive Advantage vs. Marketing Agencies</div>
+                    <ul class="styled-list">
+                        <li><strong>Development-First Approach:</strong> Most marketing agencies bolt on development; ScaleUp builds marketing on top of strong development foundations.</li>
+                        <li><strong>Integrated Value Proposition:</strong> Cross-sell from development creates stickier relationships than marketing-only engagements.</li>
+                        <li><strong>Pricing Sweet Spot:</strong> Position between budget agencies ($750-2,000/month) and premium agencies ($10,000+/month).</li>
+                        <li><strong>Technical Marketing:</strong> Understanding of tracking, attribution, and technical implementation that pure marketing agencies lack.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- AI Automation -->
+            <section id="ai-automation" class="section">
+                <div class="section-header">
+                    <span class="section-number">09</span>
+                    <h2 class="section-title">AI & Automation Consulting</h2>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">$23.9B</div>
+                        <div class="stat-label">BPA Market by 2029</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">40%</div>
+                        <div class="stat-label">AI Deals to Boutiques</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$3,500</div>
+                        <div class="stat-label">Lowest Entry Point</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">25.7%</div>
+                        <div class="stat-label">SMB AI Adoption CAGR</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">AI Consulting Competitive Landscape</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Competitor</th>
+                                    <th>Min Project</th>
+                                    <th>Hourly Rate</th>
+                                    <th>Focus Area</th>
+                                    <th>Target Market</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Vstorm</strong></td>
+                                    <td>$3,500</td>
+                                    <td>Not disclosed</td>
+                                    <td>Agentic AI, RAG</td>
+                                    <td>SMB to mid-market</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SynergyBoat</strong></td>
+                                    <td>$5,000-10,000</td>
+                                    <td>$25-49/hr</td>
+                                    <td>ML, NLP, GenAI</td>
+                                    <td>SMBs, startups</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>AI SMB Solutions</strong></td>
+                                    <td>Not disclosed</td>
+                                    <td>Not disclosed</td>
+                                    <td>GPT implementations</td>
+                                    <td>SMBs exclusively</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Algoscale</strong></td>
+                                    <td>$10,000</td>
+                                    <td>$25-50/hr</td>
+                                    <td>AI/ML, Data Science</td>
+                                    <td>Startups to Fortune 100</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Kanerika</strong></td>
+                                    <td>Custom</td>
+                                    <td>Not disclosed</td>
+                                    <td>AI + RPA + Analytics</td>
+                                    <td>SMB to enterprise</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Centric Consulting</strong></td>
+                                    <td>Not disclosed</td>
+                                    <td>Not disclosed</td>
+                                    <td>AI agents, RPA, BPM</td>
+                                    <td>Mid-market to enterprise</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="callout">
+                    <div class="callout-title">ScaleUp's AI Consulting Differentiation</div>
+                    <div class="callout-text">Most AI consultants lead with technology. ScaleUp can differentiate by leading with process improvement - understanding the business problem first, then applying AI/automation as a solution. This "process-first, AI-powered" positioning is underserved in the market.</div>
+                </div>
+            </section>
+
+            <!-- Integrated Providers -->
+            <section id="integrated-providers" class="section">
+                <div class="section-header">
+                    <span class="section-number">10</span>
+                    <h2 class="section-title">Integrated Service Providers</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Full-Stack Dev + Marketing + Automation Competitors</div>
+                    <p style="color: var(--slate); margin-bottom: 1rem;">The "land with dev, expand into growth and process improvement" model is increasingly common, with several established players. Most are HubSpot-centric and target mid-market to enterprise.</p>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Competitor</th>
+                                    <th>Dev Depth</th>
+                                    <th>Marketing</th>
+                                    <th>Automation</th>
+                                    <th>SMB Fit</th>
+                                    <th>Pricing</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>SmartBug Media</strong></td>
+                                    <td>Medium</td>
+                                    <td>High</td>
+                                    <td>High</td>
+                                    <td><span class="threat-indicator threat-low">Low</span></td>
+                                    <td>$15,000+/mo</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>O8 Agency</strong></td>
+                                    <td>Medium</td>
+                                    <td>High</td>
+                                    <td>High</td>
+                                    <td><span class="threat-indicator threat-medium">Medium</span></td>
+                                    <td>$5,000-15,000/mo</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>WEBITMD</strong></td>
+                                    <td>Medium</td>
+                                    <td>High</td>
+                                    <td>Medium</td>
+                                    <td><span class="threat-indicator threat-medium">Medium</span></td>
+                                    <td>Custom</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>NinjaPromo</strong></td>
+                                    <td>Medium</td>
+                                    <td>High</td>
+                                    <td>Low</td>
+                                    <td><span class="threat-indicator threat-high">High</span></td>
+                                    <td>$3,200-9,600/mo</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Digital Silk</strong></td>
+                                    <td>High</td>
+                                    <td>High</td>
+                                    <td>Medium</td>
+                                    <td><span class="threat-indicator threat-low">Low</span></td>
+                                    <td>$25,000+ projects</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Market Gaps ScaleUp Can Exploit</div>
+                    <ul class="styled-list">
+                        <li><strong>SMB Underserved:</strong> Most integrated providers target mid-market to enterprise. True SMB-focused integrated providers are rare.</li>
+                        <li><strong>AI/Automation Innovation Gap:</strong> Many agencies treat automation as an add-on rather than core competency.</li>
+                        <li><strong>HubSpot Dependency:</strong> Most competitors are HubSpot-centric. Platform-agnostic providers can differentiate.</li>
+                        <li><strong>Land and Expand Validated:</strong> Research confirms this model drives 50%+ of revenue at mature agencies.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- DIY Platforms -->
+            <section id="diy-platforms" class="section">
+                <div class="section-header">
+                    <span class="section-number">11</span>
+                    <h2 class="section-title">DIY Tools & Platforms</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Substitute Threat Assessment</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Key Platforms</th>
+                                    <th>Annual Cost</th>
+                                    <th>Threat Level</th>
+                                    <th>When SMBs Outgrow</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Website Builders</strong></td>
+                                    <td>Wix, Squarespace, Webflow</td>
+                                    <td>$200-$1,900</td>
+                                    <td><span class="threat-indicator threat-high">High</span></td>
+                                    <td>50K+ monthly visitors, custom needs</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>E-commerce</strong></td>
+                                    <td>Shopify</td>
+                                    <td>$350-$2,400</td>
+                                    <td><span class="threat-indicator threat-high">High</span></td>
+                                    <td>Complex SKUs, B2B, subscriptions</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Marketing Automation</strong></td>
+                                    <td>HubSpot, Mailchimp, ActiveCampaign</td>
+                                    <td>$240-$10,000</td>
+                                    <td><span class="threat-indicator threat-medium">Medium-High</span></td>
+                                    <td>Complex workflows, enterprise integration</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Workflow Automation</strong></td>
+                                    <td>Zapier, Make, n8n</td>
+                                    <td>$240-$6,000</td>
+                                    <td><span class="threat-indicator threat-medium">Medium</span></td>
+                                    <td>Complex branching, high volume</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>All-in-One</strong></td>
+                                    <td>GoHighLevel, Zoho One</td>
+                                    <td>$1,200-$6,000</td>
+                                    <td><span class="threat-indicator threat-medium">Medium</span></td>
+                                    <td>Custom integrations, enterprise needs</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">ScaleUp Positioning Against DIY</div>
+                    <ul class="styled-list">
+                        <li><strong>"When templates aren't enough"</strong> - Target clients who've graduated from DIY tools.</li>
+                        <li><strong>"From DIY to done-right"</strong> - Focus on complexity, scale, and integration gaps.</li>
+                        <li><strong>Hybrid offerings</strong> - Offer setup, training, and optimization services for existing DIY platforms.</li>
+                        <li><strong>Target trigger points:</strong> Website traffic exceeding 50K/month, marketing teams hitting ROI walls, automation needs beyond Zapier's linear model.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Prevyu Discipline Tools -->
+            <section id="prevyu-discipline" class="section">
+                <div class="section-header">
+                    <span class="section-number">12</span>
+                    <h2 class="section-title">Trading Discipline Tools (Prevyu)</h2>
+                </div>
+
+                <div class="prevyu-section">
+                    <div class="card-title">Prevyu's Unique Market Position</div>
+                    <p style="color: var(--slate); margin-bottom: 1rem; font-size: 1.125rem;"><strong>No direct competitor offers Prevyu's exact value proposition</strong> - real-time pre-trade analysis against personal rules with GO/WAIT/NO-GO signals. Most competitors either focus on post-trade journaling, provide fully automated trading, or offer manual checklists without intelligent rule analysis.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Competitive Categories</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Competitors</th>
+                                    <th>Prevyu Differentiation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Trading Journals</strong></td>
+                                    <td>Tradervue, TradeZella, Edgewonk, TraderSync</td>
+                                    <td>PRE-trade vs. POST-trade analysis</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Discipline Enforcement</strong></td>
+                                    <td>TradeStop ($4.99/mo), Tradesyncer ($49-149/mo)</td>
+                                    <td>Intelligent GO/NO-GO vs. binary lockouts</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Rule-Based Trading</strong></td>
+                                    <td>Trade Ideas, VectorVest, TrendSpider</td>
+                                    <td>Validates YOUR rules vs. THEIR signals</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Pre-Trade Checklists</strong></td>
+                                    <td>Chrome extensions, manual checklists</td>
+                                    <td>Automated analysis vs. manual checkboxes</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">Key Competitors</div>
+                    <div class="two-column">
+                        <div class="competitor-card">
+                            <div class="competitor-header">
+                                <span class="competitor-name">TradeStop</span>
+                                <span class="threat-indicator threat-low">Low Threat</span>
+                            </div>
+                            <div class="competitor-body">
+                                <p style="color: var(--slate); font-size: 0.875rem;"><strong>Pricing:</strong> $4.99/mo | <strong>Focus:</strong> Session-based lockouts<br><strong>Weakness:</strong> Binary blocked/unblocked - no intelligent analysis. Windows only. Doesn't evaluate trade quality, only timing.</p>
+                            </div>
+                        </div>
+                        <div class="competitor-card">
+                            <div class="competitor-header">
+                                <span class="competitor-name">Edgewonk</span>
+                                <span class="threat-indicator threat-low">Low Threat</span>
+                            </div>
+                            <div class="competitor-body">
+                                <p style="color: var(--slate); font-size: 0.875rem;"><strong>Pricing:</strong> $169/year | <strong>Focus:</strong> Psychology tracking, Tiltmeter<br><strong>Weakness:</strong> Setup checklists are manual, not automated. POST-trade focus. Measures rule-breaking after the fact.</p>
+                            </div>
+                        </div>
+                        <div class="competitor-card">
+                            <div class="competitor-header">
+                                <span class="competitor-name">Trade Ideas (Holly AI)</span>
+                                <span class="threat-indicator threat-low">Low Threat</span>
+                            </div>
+                            <div class="competitor-body">
+                                <p style="color: var(--slate); font-size: 0.875rem;"><strong>Pricing:</strong> $89-254/mo | <strong>Focus:</strong> AI-driven trade signals<br><strong>Weakness:</strong> Uses THEIR signals, not YOUR rules. Tells you WHAT to trade, not WHETHER you should trade based on your discipline.</p>
+                            </div>
+                        </div>
+                        <div class="competitor-card">
+                            <div class="competitor-header">
+                                <span class="competitor-name">Tradesyncer</span>
+                                <span class="threat-indicator threat-low">Low Threat</span>
+                            </div>
+                            <div class="competitor-body">
+                                <p style="color: var(--slate); font-size: 0.875rem;"><strong>Pricing:</strong> $49-149/mo | <strong>Focus:</strong> Trade copying + risk management<br><strong>Weakness:</strong> Primarily for trade copying. Binary lock/unlock based on limits, not per-trade analysis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trading Journals -->
+            <section id="trading-journals" class="section">
+                <div class="section-header">
+                    <span class="section-number">13</span>
+                    <h2 class="section-title">Trading Journals & Analytics (Prevyu)</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Trading Journal Market Overview</div>
+                    <p style="color: var(--slate); margin-bottom: 1rem;">The trading journal market is a $11-12 billion industry growing at 7-20% CAGR. <strong>Virtually all competitors focus on POST-trade analysis</strong> - journaling completed trades, reviewing past performance, and identifying patterns after the fact.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Trading Journal Pricing Comparison</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Platform</th>
+                                    <th>Entry Price</th>
+                                    <th>Full Features</th>
+                                    <th>Key Feature</th>
+                                    <th>Pre-Trade?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background: rgba(212, 168, 83, 0.1);">
+                                    <td><strong>Prevyu</strong></td>
+                                    <td>$79/mo</td>
+                                    <td>$500/mo</td>
+                                    <td>GO/WAIT/NO-GO signals</td>
+                                    <td class="matrix-yes"><strong>YES</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>TraderSync</strong></td>
+                                    <td>$29.95/mo</td>
+                                    <td>$79.95/mo</td>
+                                    <td>Cypher AI assistant</td>
+                                    <td class="matrix-no">No</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tradervue</strong></td>
+                                    <td>Free (30 trades)</td>
+                                    <td>$49/mo</td>
+                                    <td>Community features</td>
+                                    <td class="matrix-no">No</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>TradeZella</strong></td>
+                                    <td>$29/mo</td>
+                                    <td>$49/mo</td>
+                                    <td>Trade replay</td>
+                                    <td class="matrix-no">No</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Edgewonk</strong></td>
+                                    <td>$169/year</td>
+                                    <td>$169/year</td>
+                                    <td>Tiltmeter psychology</td>
+                                    <td class="matrix-partial">Manual checklists</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>TradesViz</strong></td>
+                                    <td>Free</td>
+                                    <td>$20/mo</td>
+                                    <td>600+ stats, Greeks</td>
+                                    <td class="matrix-no">No</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Journalytix</strong></td>
+                                    <td>$47/mo</td>
+                                    <td>$99/mo</td>
+                                    <td>Real-time news</td>
+                                    <td class="matrix-partial">Execution assist only</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="callout">
+                    <div class="callout-title">Prevyu Category Creation Opportunity</div>
+                    <div class="callout-text">"Pre-trade discipline technology" is an ownable category position. Prevyu bridges the gap between manual checklists (no intelligence) and AI signals (not your rules). Position: "The trading journal that works BEFORE the trade."</div>
+                </div>
+            </section>
+
+            <!-- Competitive Positioning -->
+            <section id="positioning" class="section">
+                <div class="section-header">
+                    <span class="section-number">14</span>
+                    <h2 class="section-title">Competitive Positioning Strategy</h2>
+                </div>
+
+                <div class="two-column">
+                    <div class="card">
+                        <div class="card-title">ScaleUp Consulting Positioning</div>
+                        <ul class="styled-list">
+                            <li><strong>Position 1: True Integration</strong> - "The only firm offering Development + Growth Marketing + AI/Automation under one roof with unified accountability."</li>
+                            <li><strong>Position 2: ROI Guarantee Framework</strong> - Develop and market a clear ROI accountability structure that competitors lack.</li>
+                            <li><strong>Position 3: $20K+ Sweet Spot</strong> - Own the SMB segment with meaningful investment capacity but not enterprise complexity.</li>
+                            <li><strong>Position 4: AI-First Process Improvement</strong> - Lead with AI/automation expertise as key differentiator vs. traditional consultants.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Prevyu Product Positioning</div>
+                        <ul class="styled-list">
+                            <li><strong>Position 1: "Before the Trade"</strong> - Clearly differentiate from POST-trade journals.</li>
+                            <li><strong>Position 2: Personal Rules</strong> - "Your rules. Analyzed. Before you click." - distinct from AI signal platforms.</li>
+                            <li><strong>Position 3: Prevention ROI</strong> - "One prevented bad trade can pay for a year of Prevyu."</li>
+                            <li><strong>Position 4: Category Creator</strong> - Own "pre-trade discipline technology" before competitors respond.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Messaging Against Each Competitor Type</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Competitor Type</th>
+                                    <th>Their Weakness</th>
+                                    <th>ScaleUp's Message</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Boutique Consultants</strong></td>
+                                    <td>Specialize in 1-2 areas only</td>
+                                    <td>"One partner for dev, growth, and operations"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Offshore Development</strong></td>
+                                    <td>Hidden costs, management burden</td>
+                                    <td>"True cost calculator - include your time"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Freelancers</strong></td>
+                                    <td>Quality variance, ghosting risk</td>
+                                    <td>"Stop managing freelancers. Get outcomes."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>DIY Tools</strong></td>
+                                    <td>Limited to templates</td>
+                                    <td>"When templates aren't enough"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Large Firms</strong></td>
+                                    <td>$500K+ minimums</td>
+                                    <td>"Enterprise quality at SMB prices"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Trading Journals (Prevyu)</strong></td>
+                                    <td>POST-trade only</td>
+                                    <td>"Prevent the mistake, don't just review it"</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pricing Benchmarks -->
+            <section id="pricing-benchmarks" class="section">
+                <div class="section-header">
+                    <span class="section-number">15</span>
+                    <h2 class="section-title">Pricing Benchmarks</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">ScaleUp Consulting Pricing Context</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Service Level</th>
+                                    <th>Monthly Retainer</th>
+                                    <th>Project Minimum</th>
+                                    <th>Example Competitors</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>SMB Entry</strong></td>
+                                    <td>$3,200-5,000</td>
+                                    <td>$5,000-10,000</td>
+                                    <td>NinjaPromo, LYFE Marketing</td>
+                                </tr>
+                                <tr style="background: rgba(212, 168, 83, 0.1);">
+                                    <td><strong>SMB Growth (ScaleUp)</strong></td>
+                                    <td>$5,000-12,000</td>
+                                    <td>$15,000-25,000</td>
+                                    <td>O8 Agency, Weidert Group</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Mid-Market</strong></td>
+                                    <td>$12,000-25,000</td>
+                                    <td>$25,000-80,000</td>
+                                    <td>SmartBug, WEBITMD</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Enterprise</strong></td>
+                                    <td>$25,000-50,000+</td>
+                                    <td>$50,000-500,000+</td>
+                                    <td>Huble Digital, The Keenfolks</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Prevyu Pricing Context</div>
+                    <p style="color: var(--slate); margin-bottom: 1rem;">Prevyu's pricing ($79-500/mo) is positioned above trading journals ($15-50/mo) and comparable to AI signal platforms ($89-250/mo), justified by the intervention capability vs. retrospective analysis.</p>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Price Range</th>
+                                    <th>Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Basic Journals</strong></td>
+                                    <td>Free-$30/mo</td>
+                                    <td>Stonk Journal, TradesViz Basic</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Premium Journals</strong></td>
+                                    <td>$30-80/mo</td>
+                                    <td>TraderSync Elite, TradeZella Pro</td>
+                                </tr>
+                                <tr style="background: rgba(212, 168, 83, 0.1);">
+                                    <td><strong>Prevyu Essential</strong></td>
+                                    <td>$79/mo</td>
+                                    <td>Pre-trade discipline platform</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>AI Signal Platforms</strong></td>
+                                    <td>$89-254/mo</td>
+                                    <td>Trade Ideas, TrendSpider</td>
+                                </tr>
+                                <tr style="background: rgba(212, 168, 83, 0.1);">
+                                    <td><strong>Prevyu Pro/Premium</strong></td>
+                                    <td>$199-500/mo</td>
+                                    <td>Professional traders, prop firms</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Differentiation -->
+            <section id="differentiation" class="section">
+                <div class="section-header">
+                    <span class="section-number">16</span>
+                    <h2 class="section-title">Differentiation Strategy</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">ScaleUp Ventures Key Differentiators</div>
+                    <ol class="styled-list">
+                        <li><strong>Integrated Multi-Disciplinary Delivery:</strong> Single point of accountability across development, marketing, and AI/automation. Competitors require multiple vendors.</li>
+                        <li><strong>Business Outcomes, Not Billable Hours:</strong> Project-based pricing tied to results. Most competitors sell time.</li>
+                        <li><strong>Strategic Partnership vs. Task Execution:</strong> Consultative approach that includes strategy, prioritization, and business context. Freelancers and offshore shops execute tasks.</li>
+                        <li><strong>True Cost Transparency:</strong> All-inclusive project pricing with no hidden management burden. Offshore "savings" often disappear after rework and management costs.</li>
+                        <li><strong>AI-First Process Improvement:</strong> Lead with process improvement methodology, apply AI as solution. Most AI consultants lead with technology.</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Prevyu Key Differentiators</div>
+                    <ol class="styled-list">
+                        <li><strong>Pre-Trade Intervention:</strong> All competitors analyze AFTER the trade. Prevyu intervenes BEFORE entry.</li>
+                        <li><strong>Personal Rule Validation:</strong> Trade Ideas uses THEIR signals. Prevyu validates YOUR rules against YOUR criteria.</li>
+                        <li><strong>Intelligent GO/WAIT/NO-GO:</strong> TradeStop provides binary lockouts. Prevyu provides nuanced, intelligent decision support.</li>
+                        <li><strong>Discipline Through Intelligence:</strong> Manual checklists can be bypassed by mindlessly clicking. Prevyu can't be gamed.</li>
+                        <li><strong>Category Creator:</strong> "Pre-trade discipline technology" is an ownable market position with no direct competitor.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Sources -->
+            <section id="sources" class="section">
+                <div class="section-header">
+                    <span class="section-number">17</span>
+                    <h2 class="section-title">Sources</h2>
+                </div>
+
+                <div class="sources-section">
+                    <h4>Boutique Consulting Research</h4>
+                    <ul class="sources-list">
+                        <li><a href="https://cultivateadvisors.com/" target="_blank">Cultivate Advisors</a></li>
+                        <li><a href="https://www.psmpartners.com/" target="_blank">PSM Partners</a></li>
+                        <li><a href="https://www.chiefoutsiders.com/" target="_blank">Chief Outsiders</a></li>
+                        <li><a href="https://growth.cx/" target="_blank">GrowthCX</a></li>
+                        <li><a href="https://www.ironpaper.com/" target="_blank">Ironpaper</a></li>
+                        <li><a href="https://clutch.co/consulting/small-business" target="_blank">Clutch - Small Business Consulting</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-section">
+                    <h4>Offshore Development Research</h4>
+                    <ul class="sources-list">
+                        <li><a href="https://www.softlabsgroup.com/blogs/offshore-software-development-companies-in-india-2025/" target="_blank">Softlabs - Top Offshore Companies India 2025</a></li>
+                        <li><a href="https://clutch.co/profile/pixelcrayons" target="_blank">Clutch - PixelCrayons</a></li>
+                        <li><a href="https://clutch.co/profile/simform" target="_blank">Clutch - Simform</a></li>
+                        <li><a href="https://clutch.co/profile/bairesdev" target="_blank">Clutch - BairesDev</a></li>
+                        <li><a href="https://qubit-labs.com/average-hourly-rates-offshore-development-services-software-development-costs-guide/" target="_blank">Qubit Labs - Offshore Rates Guide</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-section">
+                    <h4>Freelancer Market Research</h4>
+                    <ul class="sources-list">
+                        <li><a href="https://www.mordorintelligence.com/industry-reports/freelance-platforms-market" target="_blank">Mordor Intelligence - Freelance Market</a></li>
+                        <li><a href="https://www.demandsage.com/upwork-statistics/" target="_blank">DemandSage - Upwork Statistics 2026</a></li>
+                        <li><a href="https://fatcatremote.com/blog/toptal-upwork-fiverr-pros-cons-cost" target="_blank">FatCat Remote - Platform Comparison</a></li>
+                        <li><a href="https://ryanholck.com/fractional-cmo-rates-2025/" target="_blank">Ryan Holck - Fractional CMO Rates 2025</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-section">
+                    <h4>Large Consulting Firms</h4>
+                    <ul class="sources-list">
+                        <li><a href="https://www.rocketblocks.me/guide/business-model.php" target="_blank">RocketBlocks - MBB Consulting Fees</a></li>
+                        <li><a href="https://www.preplounge.com/consulting-forum/do-mbb-firms-cater-consulting-services-to-medium-and-small-scale-enterprises-4007" target="_blank">PrepLounge - MBB SME Services</a></li>
+                        <li><a href="https://www.consultancy.org/consulting-industry/fees-rates" target="_blank">Consultancy.org - Fees & Rates</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-section">
+                    <h4>Growth Marketing Agencies</h4>
+                    <ul class="sources-list">
+                        <li><a href="https://clutch.co/profile/webfx" target="_blank">Clutch - WebFX</a></li>
+                        <li><a href="https://clutch.co/profile/smartsites" target="_blank">Clutch - SmartSites</a></li>
+                        <li><a href="https://clutch.co/profile/klientboost" target="_blank">Clutch - KlientBoost</a></li>
+                        <li><a href="https://www.singlegrain.com/" target="_blank">Single Grain</a></li>
+                        <li><a href="https://growthcurve.co/" target="_blank">Growthcurve</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-section">
+                    <h4>AI & Automation Consulting</h4>
+                    <ul class="sources-list">
+                        <li><a href="https://vstorm.co/agentic-ai/top-10-applied-ai-consulting-firms-for-smbs-2025/" target="_blank">Vstorm - Top AI Consulting Firms for SMBs</a></li>
+                        <li><a href="https://clutch.co/profile/synergyboat-solutions" target="_blank">Clutch - SynergyBoat</a></li>
+                        <li><a href="https://www.aismbsolutions.com/" target="_blank">AI SMB Solutions</a></li>
+                        <li><a href="https://kanerika.com/services/ai-ml/" target="_blank">Kanerika - AI/ML Services</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-section">
+                    <h4>Integrated Service Providers</h4>
+                    <ul class="sources-list">
+                        <li><a href="https://www.smartbugmedia.com/" target="_blank">SmartBug Media</a></li>
+                        <li><a href="https://www.o8.agency/" target="_blank">O8 Agency</a></li>
+                        <li><a href="https://webitmd.com/" target="_blank">WEBITMD</a></li>
+                        <li><a href="https://ninjapromo.io/" target="_blank">NinjaPromo</a></li>
+                        <li><a href="https://huble.com/" target="_blank">Huble Digital</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-section">
+                    <h4>DIY Tools & Platforms</h4>
+                    <ul class="sources-list">
+                        <li><a href="https://onenine.com/best-no-code-website-builders/" target="_blank">OneNine - No Code Website Builders 2025</a></li>
+                        <li><a href="https://www.make.com/en/blog/make-vs-zapier" target="_blank">Make vs Zapier Comparison</a></li>
+                        <li><a href="https://encharge.io/hubspot-pricing/" target="_blank">Encharge - HubSpot Pricing Explained</a></li>
+                        <li><a href="https://www.gohighlevel.com/pricing" target="_blank">GoHighLevel Pricing</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-section">
+                    <h4>Trading Tools & Journals (Prevyu)</h4>
+                    <ul class="sources-list">
+                        <li><a href="https://letstradestop.com/" target="_blank">TradeStop</a></li>
+                        <li><a href="https://disciplined.trading/" target="_blank">Disciplined Trading</a></li>
+                        <li><a href="https://www.tradervue.com/" target="_blank">Tradervue</a></li>
+                        <li><a href="https://www.tradezella.com/" target="_blank">TradeZella</a></li>
+                        <li><a href="https://edgewonk.com/" target="_blank">Edgewonk</a></li>
+                        <li><a href="https://tradersync.com/" target="_blank">TraderSync</a></li>
+                        <li><a href="https://www.trade-ideas.com/" target="_blank">Trade Ideas</a></li>
+                        <li><a href="https://trendspider.com/" target="_blank">TrendSpider</a></li>
+                        <li><a href="https://www.stockbrokers.com/guides/best-trading-journals" target="_blank">StockBrokers - Best Trading Journals 2025</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-section">
+                    <h4>Market Research Reports</h4>
+                    <ul class="sources-list">
+                        <li><a href="https://www.cognitivemarketresearch.com/trading-software-market-report" target="_blank">Cognitive Market Research - Trading Software Market</a></li>
+                        <li><a href="https://aijourn.com/ai-consulting-and-support-services-analysis-report-2025-2032-with-market-positioning-of-key-companies-accenture-ibm-deloitte-touche-tohmatsu-pwc-ey-mckinsey-co-bcg-tata-consultancy-resear/" target="_blank">AI Journal - AI Consulting Market Report 2025-2032</a></li>
+                        <li><a href="https://www.dnagrowth.com/business-process-automation-consulting-a-complete-guide-for-2025/" target="_blank">DNA Growth - BPA Consulting Guide 2025</a></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>Competitive Landscape Analysis | ScaleUp Ventures & Prevyu</p>
+            <p style="margin-top: 0.5rem;">Research compiled December 31, 2025 | 10 competitive categories | 100+ named competitors</p>
+        </footer>
+    </main>
+
+    <script>
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.style.color = 'rgba(255,255,255,0.7)';
+                        link.style.borderLeftColor = 'transparent';
+                        if (link.getAttribute('href') === '#' + entry.target.id) {
+                            link.style.color = '#ffffff';
+                            link.style.borderLeftColor = '#d4a853';
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>

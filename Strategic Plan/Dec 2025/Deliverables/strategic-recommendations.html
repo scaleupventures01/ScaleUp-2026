@@ -1,0 +1,2422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Recommendations | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f1729;
+            --navy-light: #1a2744;
+            --slate: #334155;
+            --slate-light: #64748b;
+            --gold: #d4a853;
+            --gold-muted: #b8956e;
+            --cream: #faf8f5;
+            --cream-dark: #f1ede6;
+            --white: #ffffff;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --info: #0284c7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--navy);
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .nav-header {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-subtitle {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 0.25rem;
+        }
+
+        .nav-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-section-title {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--slate-light);
+            padding: 0 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+            border-left-color: var(--gold);
+        }
+
+        /* Main Content */
+        .main {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 5rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a853' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-meta-item {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+        }
+
+        .hero-meta-item strong {
+            color: var(--white);
+            display: block;
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Content Area */
+        .content {
+            padding: 4rem;
+            max-width: 1000px;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-number {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        /* Bottom Line Box */
+        .bottom-line {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .bottom-line-label {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .bottom-line-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .bottom-line-text {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .confidence-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(5, 150, 105, 0.2);
+            color: #34d399;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        /* Insight Cards */
+        .insight-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .insight-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--gold);
+        }
+
+        .insight-number {
+            font-size: 0.75rem;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .insight-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .insight-text {
+            color: var(--slate);
+            line-height: 1.8;
+        }
+
+        /* Recommendation Box */
+        .recommendation-box {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 2px solid var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .recommendation-label {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .recommendation-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            color: var(--navy);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .tracks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .track-card {
+            background: var(--cream);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .track-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .track-focus {
+            font-size: 0.75rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .track-text {
+            font-size: 0.9rem;
+            color: var(--slate);
+            line-height: 1.6;
+        }
+
+        .why-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .why-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--cream-dark);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .why-list li:last-child {
+            border-bottom: none;
+        }
+
+        .why-number {
+            width: 28px;
+            height: 28px;
+            background: var(--gold);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .why-content strong {
+            display: block;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .why-content p {
+            color: var(--slate);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Expected Outcome */
+        .outcome-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .outcome-card {
+            background: var(--cream);
+            border-radius: 10px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .outcome-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .outcome-label {
+            font-size: 0.75rem;
+            color: var(--slate-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+
+        /* Alternative Box */
+        .alternative-box {
+            background: var(--cream);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .alternative-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .alternative-text {
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        /* Against Box */
+        .against-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .against-label {
+            font-size: 0.75rem;
+            color: var(--danger);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .against-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .against-reasons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .against-reason {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--slate);
+        }
+
+        .against-reason::before {
+            content: '✕';
+            color: var(--danger);
+            font-weight: bold;
+        }
+
+        /* Phase Cards */
+        .phase-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .phase-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .phase-number {
+            background: var(--navy);
+            color: var(--gold);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.375rem 0.75rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .phase-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            color: var(--navy);
+            font-weight: 600;
+            margin-top: 0.75rem;
+        }
+
+        .phase-date {
+            font-size: 0.875rem;
+            color: var(--slate-light);
+        }
+
+        .phase-investment {
+            text-align: right;
+        }
+
+        .phase-investment-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .phase-investment-label {
+            font-size: 0.75rem;
+            color: var(--slate-light);
+        }
+
+        .phase-objective {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--slate);
+        }
+
+        .phase-objective strong {
+            color: var(--navy);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--cream-dark);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1.25rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.25rem;
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            transform: translateX(-4px);
+        }
+
+        .timeline-week {
+            font-size: 0.75rem;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .timeline-action {
+            color: var(--navy);
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+
+        .timeline-detail {
+            font-size: 0.875rem;
+            color: var(--slate-light);
+            margin-top: 0.25rem;
+        }
+
+        /* Success Criteria */
+        .success-criteria {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .success-criteria-title {
+            font-weight: 600;
+            color: var(--success);
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .success-criteria-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .success-criteria-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.375rem 0;
+            font-size: 0.9rem;
+            color: var(--slate);
+        }
+
+        .success-criteria-list li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Decision Checkpoint */
+        .decision-checkpoint {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-muted) 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .decision-checkpoint-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .decision-checkpoint-date {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.875rem;
+        }
+
+        /* Metrics Dashboard */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .metrics-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .metrics-card-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        /* Table Styling */
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 0.75rem;
+            background: var(--cream);
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--cream-dark);
+            color: var(--slate);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .target-value {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .red-flag {
+            color: var(--danger);
+            font-weight: 600;
+        }
+
+        /* Risk Cards */
+        .risk-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .risk-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .risk-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .risk-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .risk-badges {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .risk-badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .risk-badge.probability {
+            background: #fef3c7;
+            color: var(--warning);
+        }
+
+        .risk-badge.impact {
+            background: #fee2e2;
+            color: var(--danger);
+        }
+
+        .risk-section {
+            margin-bottom: 1.25rem;
+        }
+
+        .risk-section-title {
+            font-size: 0.75rem;
+            color: var(--slate-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .risk-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .risk-section li {
+            padding: 0.375rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+            font-size: 0.9rem;
+            color: var(--slate);
+        }
+
+        .risk-section li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
+        /* Scenario Cards */
+        .scenario-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .scenario-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .scenario-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .scenario-signs {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .scenario-signs-title {
+            font-size: 0.75rem;
+            color: var(--warning);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .scenario-signs ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .scenario-signs li {
+            font-size: 0.875rem;
+            color: var(--slate);
+            padding: 0.25rem 0;
+        }
+
+        .response-steps {
+            counter-reset: step;
+        }
+
+        .response-step {
+            display: flex;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .response-step:last-child {
+            border-bottom: none;
+        }
+
+        .response-step::before {
+            counter-increment: step;
+            content: counter(step);
+            width: 24px;
+            height: 24px;
+            background: var(--cream);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .response-step-text {
+            color: var(--slate);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Getting Started */
+        .getting-started {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .getting-started-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .getting-started-subtitle {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+        }
+
+        .step-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .step-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .step-number-large {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-timing {
+            font-size: 0.75rem;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .step-title {
+            color: var(--white);
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+
+        .step-detail {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* Playbook Section */
+        .playbook {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .playbook-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .playbook-subsection {
+            margin-bottom: 2rem;
+        }
+
+        .playbook-subsection:last-child {
+            margin-bottom: 0;
+        }
+
+        .playbook-subsection-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .icp-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .icp-item {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .icp-label {
+            font-size: 0.75rem;
+            color: var(--slate-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .icp-value {
+            color: var(--navy);
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+
+        .icp-why {
+            font-size: 0.8rem;
+            color: var(--slate-light);
+            margin-top: 0.25rem;
+        }
+
+        .message-box {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 3px solid var(--gold);
+        }
+
+        .message-label {
+            font-size: 0.75rem;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .message-text {
+            color: var(--slate);
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        /* Final Thoughts */
+        .final-thoughts {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            border-top: 4px solid var(--gold);
+        }
+
+        .final-thoughts-text {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            color: var(--navy);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .final-cta {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-answer {
+            color: var(--slate);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Resource Summary */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .resource-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .resource-card-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            padding: 2rem 4rem;
+            margin-top: 4rem;
+        }
+
+        .footer-text {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav {
+                width: 240px;
+            }
+            .main {
+                margin-left: 240px;
+            }
+            .hero {
+                padding: 3rem 2rem;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .content {
+                padding: 2rem;
+            }
+            .tracks-grid,
+            .outcome-grid,
+            .metrics-grid,
+            .icp-grid,
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+            .against-reasons {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            .main {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-logo">ScaleUp Ventures</div>
+            <div class="nav-subtitle">Strategic Recommendations</div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Executive Summary</div>
+            <a href="#bottom-line" class="nav-link">The Bottom Line</a>
+            <a href="#insights" class="nav-link">Key Insights</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Recommendations</div>
+            <a href="#recommendation" class="nav-link">Primary Recommendation</a>
+            <a href="#alternative" class="nav-link">Alternative Path</a>
+            <a href="#avoid" class="nav-link">What to Avoid</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Implementation</div>
+            <a href="#roadmap" class="nav-link">Implementation Roadmap</a>
+            <a href="#metrics" class="nav-link">Success Metrics</a>
+            <a href="#risks" class="nav-link">Risk Management</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Playbooks</div>
+            <a href="#ads-playbook" class="nav-link">Paid Ads Playbook</a>
+            <a href="#prevyu-playbook" class="nav-link">Prevyu Validation</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Resources</div>
+            <a href="#getting-started" class="nav-link">Getting Started</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+            <a href="#resources" class="nav-link">Resource Summary</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero -->
+        <header class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">Strategic Advisory</div>
+                <h1 class="hero-title">Strategic Recommendations</h1>
+                <p class="hero-subtitle">Actionable guidance for achieving $100K in 2026 with high margins and minimal founder time involvement.</p>
+                <div class="hero-meta">
+                    <div class="hero-meta-item">
+                        <strong>December 30, 2025</strong>
+                        Generated Date
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>Hybrid Strategy</strong>
+                        Recommended Approach
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>HIGH</strong>
+                        Confidence Level
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- Bottom Line -->
+            <section id="bottom-line" class="section">
+                <div class="bottom-line">
+                    <div class="bottom-line-label">The Bottom Line</div>
+                    <div class="bottom-line-title">Execute a disciplined Hybrid approach - use consulting as your cash engine while running a time-boxed 60-day Prevyu validation sprint, with immediate sunset of OfferPath.</div>
+                    <div class="bottom-line-text">
+                        Your W-2 job gives you the rare luxury of taking a calculated swing at building a 90%+ margin SaaS business without risking your family's financial security. Consulting is your proven path to $100K, but Prevyu could be your path to financial independence. The smart play is to pursue both simultaneously with clear rules about when to double down or walk away. Meanwhile, OfferPath is consuming resources with no signal of success - kill it today.
+                    </div>
+                    <div class="confidence-badge">
+                        <span>HIGH CONFIDENCE</span> - Analysis strongly supports this recommendation
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Insights -->
+            <section id="insights" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 01</div>
+                    <h2 class="section-title">Key Strategic Insights</h2>
+                </div>
+
+                <div class="insight-cards">
+                    <div class="insight-card">
+                        <div class="insight-number">Insight #1</div>
+                        <div class="insight-title">Your Margin Problem is a Pricing Problem, Not a Market Problem</div>
+                        <div class="insight-text">
+                            Your 3% net margin in 2024 wasn't because the market won't pay - it's because you didn't enforce pricing discipline. Projects where you used AI-augmented delivery and held firm on pricing achieved 50% margins. The fix is operational discipline, not a new business model. This means $100K at 40-50% margins is absolutely achievable with your existing capabilities.
+                        </div>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-number">Insight #2</div>
+                        <div class="insight-title">Paid Ads Give You Control Over Consulting Growth</div>
+                        <div class="insight-text">
+                            You have zero proactive business development today - 100% referrals. The solution: leverage Roe to run paid ads for ScaleUp's consulting business. Unlike relying on a salesperson, paid ads give you direct control over lead flow - you can scale up or down based on capacity, test messaging yourself, and see immediate ROI data. With your ROI-focused positioning as the hook, paid ads can generate 2-3 qualified opportunities per month.
+                        </div>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-number">Insight #3</div>
+                        <div class="insight-title">Prevyu Has a Viability Question That Can Be Answered in 60 Days</div>
+                        <div class="insight-text">
+                            The day trading market is massive (10M+ active traders in the US), and your "pre-trade discipline" positioning is genuinely novel. But you've never tested willingness to pay. The good news: you can definitively answer whether Prevyu is viable with a focused 60-day sprint and $2-3K in ad spend. Define success criteria upfront, then make a clear go/no-go decision.
+                        </div>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-number">Insight #4</div>
+                        <div class="insight-title">OfferPath Gets One Final Test</div>
+                        <div class="insight-text">
+                            Zero customers despite being launched and running ads. The analysis scored it 99 vs. 207 for the hybrid approach. <strong>However</strong>, you're running one final $200 LinkedIn ad test (7-day experiment). If LinkedIn ads fail like previous attempts, OfferPath is dead. Decision deadline: January 6, 2026.
+                        </div>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-number">Insight #5</div>
+                        <div class="insight-title">Your W-2 is a Strategic Asset, Not a Limitation</div>
+                        <div class="insight-text">
+                            Most founders making your decision are desperate - they need the business to work or they can't pay rent. You have W-2 stability covering personal expenses. This means you can afford to take calculated risks (Prevyu validation) that a desperate founder couldn't. It also means you can walk away from bad-fit clients and hold firm on pricing.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Primary Recommendation -->
+            <section id="recommendation" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 02</div>
+                    <h2 class="section-title">My Recommendation</h2>
+                </div>
+
+                <div class="recommendation-box">
+                    <div class="recommendation-label">Primary Recommendation</div>
+                    <div class="recommendation-title">Hybrid Approach (Option 4)</div>
+
+                    <div class="tracks-grid">
+                        <div class="track-card">
+                            <div class="track-label">Track 1</div>
+                            <div class="track-focus">80% of Focus</div>
+                            <div class="track-text">Systematize consulting with pricing discipline, use paid ads (Roe) for lead generation, and extract full margin potential from your proven service business.</div>
+                        </div>
+                        <div class="track-card">
+                            <div class="track-label">Track 2</div>
+                            <div class="track-focus">20% of Focus</div>
+                            <div class="track-text">Run a time-boxed 60-day Prevyu validation sprint with clear go/no-go criteria.</div>
+                        </div>
+                    </div>
+
+                    <h4 style="color: var(--navy); margin-bottom: 1rem;">Why This Option</h4>
+                    <ul class="why-list">
+                        <li>
+                            <span class="why-number">1</span>
+                            <div class="why-content">
+                                <strong>Highest probability path to $100K</strong>
+                                <p>The analysis scored Hybrid at 207 points vs. 196 for pure consulting. It creates multiple paths to your goal with diversification reducing single-point-of-failure risk.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="why-number">2</span>
+                            <div class="why-content">
+                                <strong>Preserves highest-upside opportunity</strong>
+                                <p>Prevyu's 90%+ margins and SaaS scale potential could be your path to financial independence. Pure consulting scales linearly with bodies - you'll never build passive income that way.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="why-number">3</span>
+                            <div class="why-content">
+                                <strong>Matches your stated priorities</strong>
+                                <p>You ranked "founder time required" and "margin potential" as your top two criteria. The hybrid approach scores 7/10 on both (vs. 6/10 for pure consulting).</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="why-number">4</span>
+                            <div class="why-content">
+                                <strong>Downside is contained</strong>
+                                <p>Even in the worst-case scenario, you still end up with ~$60K revenue and 30% margins. Your W-2 covers personal expenses, so ScaleUp survives to fight another year.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h4 style="color: var(--navy); margin: 2rem 0 1rem;">Expected Outcome (Moderate Scenario)</h4>
+                    <div class="outcome-grid">
+                        <div class="outcome-card">
+                            <div class="outcome-value">$95-100K</div>
+                            <div class="outcome-label">2026 Revenue</div>
+                        </div>
+                        <div class="outcome-card">
+                            <div class="outcome-value">48-52%</div>
+                            <div class="outcome-label">Gross Margin</div>
+                        </div>
+                        <div class="outcome-card">
+                            <div class="outcome-value">$40-50K</div>
+                            <div class="outcome-label">Net Profit</div>
+                        </div>
+                        <div class="outcome-card">
+                            <div class="outcome-value">18-22 hrs</div>
+                            <div class="outcome-label">Founder Time/Week</div>
+                        </div>
+                        <div class="outcome-card">
+                            <div class="outcome-value">&lt;40%</div>
+                            <div class="outcome-label">Client Concentration</div>
+                        </div>
+                        <div class="outcome-card">
+                            <div class="outcome-value">$8,000</div>
+                            <div class="outcome-label">Investment Required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="alternative" class="alternative-box">
+                    <div class="alternative-title">Alternative: Pure Consulting Focus (Option 1)</div>
+                    <div class="alternative-text">
+                        <strong>When to Choose This Instead:</strong> If the Prevyu validation sprint fails (you'll have clear data by end of February), if your personal circumstances change and you need maximum certainty over maximum upside, if paid ads for consulting exceed expectations and you're swimming in opportunities, or if you simply don't have the mental bandwidth to pursue two tracks.
+                        <br><br>
+                        Pure consulting scored 196 on the weighted matrix - a close second to Hybrid's 207. It's the lower-risk, lower-upside path. You already know you can win and deliver consulting projects.
+                    </div>
+                </div>
+
+                <div id="avoid" class="against-box">
+                    <div class="against-label">What I Recommend Against</div>
+                    <div class="against-title">Continuing Any Investment in OfferPath</div>
+                    <p style="color: var(--slate); margin-bottom: 1rem;">The analysis is unambiguous. OfferPath scored 99 vs. 207 for Hybrid - less than half. The risk score is 39/50 (Very High), and the strategic fit score is 3.0/10.</p>
+                    <div class="against-reasons">
+                        <div class="against-reason">Zero customers despite being launched</div>
+                        <div class="against-reason">Zero revenue</div>
+                        <div class="against-reason">Team doubts about market viability</div>
+                        <div class="against-reason">Lower margins (40% vs. 90% for Prevyu)</div>
+                        <div class="against-reason">Crowded market with giant incumbents</div>
+                        <div class="against-reason">High opportunity cost</div>
+                    </div>
+                    <p style="color: var(--slate); margin-top: 1.5rem; font-weight: 500;">
+                        <strong>Final Test:</strong> $200 LinkedIn ad experiment through January 6. If it fails, sunset OfferPath completely.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Implementation Roadmap -->
+            <section id="roadmap" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 03</div>
+                    <h2 class="section-title">Implementation Roadmap</h2>
+                </div>
+
+                <div class="phase-cards">
+                    <!-- Phase 1 -->
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div>
+                                <span class="phase-number">Phase 1</span>
+                                <div class="phase-title">Foundation</div>
+                                <div class="phase-date">January 2026</div>
+                            </div>
+                            <div class="phase-investment">
+                                <div class="phase-investment-value">$2,500</div>
+                                <div class="phase-investment-label">Investment</div>
+                            </div>
+                        </div>
+
+                        <div class="phase-objective">
+                            <strong>Objective:</strong> Set the foundation for disciplined execution - launch consulting ads, establish pricing discipline, launch Prevyu validation sprint, and sunset OfferPath.
+                        </div>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-week">Week 1 (Jan 1-7)</div>
+                                <div class="timeline-action">Kill OfferPath: Stop ads, communicate decision</div>
+                                <div class="timeline-detail">Ads paused, team notified | 1 hour</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-week">Week 1</div>
+                                <div class="timeline-action">Document consulting pricing framework</div>
+                                <div class="timeline-detail">$15K minimum, $20-25K ideal, ROI model required | 2 hours</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-week">Week 2 (Jan 8-14)</div>
+                                <div class="timeline-action">Build consulting ad creative and landing page</div>
+                                <div class="timeline-detail">Work with Roe on campaign setup | 4 hours</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-week">Week 2</div>
+                                <div class="timeline-action">Define Prevyu validation criteria and sprint plan</div>
+                                <div class="timeline-detail">Clear go/no-go thresholds | 2 hours</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-week">Week 3 (Jan 15-21)</div>
+                                <div class="timeline-action">Launch consulting paid ads</div>
+                                <div class="timeline-detail">$100-150/week budget via Roe</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-week">Week 3</div>
+                                <div class="timeline-action">Launch Prevyu free cohort ads</div>
+                                <div class="timeline-detail">$500/week budget via Roe</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-week">Week 4 (Jan 22-31)</div>
+                                <div class="timeline-action">First ad performance review</div>
+                                <div class="timeline-detail">Metrics, leads generated, adjustments</div>
+                            </div>
+                        </div>
+
+                        <div class="success-criteria">
+                            <div class="success-criteria-title">Phase 1 Success Criteria</div>
+                            <ul class="success-criteria-list">
+                                <li>OfferPath ads stopped, no further investment</li>
+                                <li>Consulting ads live with 50+ leads generated</li>
+                                <li>Prevyu ads live with 15+ free sign-ups</li>
+                                <li>Pricing framework documented and agreed</li>
+                                <li>Weekly strategic review rhythm established</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Phase 2 -->
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div>
+                                <span class="phase-number">Phase 2</span>
+                                <div class="phase-title">Build</div>
+                                <div class="phase-date">February - March 2026</div>
+                            </div>
+                            <div class="phase-investment">
+                                <div class="phase-investment-value">$3,500</div>
+                                <div class="phase-investment-label">Investment</div>
+                            </div>
+                        </div>
+
+                        <div class="phase-objective">
+                            <strong>Objective:</strong> Execute the core strategy - paid ads generate pipeline, Prevyu completes validation, consulting projects close and deliver at target margins.
+                        </div>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-week">February Week 1-2</div>
+                                <div class="timeline-action">Prevyu validation: reach 50 free users target</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-week">February Week 2</div>
+                                <div class="timeline-action">Ad pipeline check: 2-4 qualified opportunities</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-week">February Week 3-4</div>
+                                <div class="timeline-action">Prevyu engagement tracking: 40%+ WAU target</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-week">March 1-15</div>
+                                <div class="timeline-action">Prevyu willingness-to-pay survey: 20%+ WTP target</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-week">March 1-15</div>
+                                <div class="timeline-action">Close first ad-sourced deal ($15K+)</div>
+                            </div>
+                        </div>
+
+                        <div class="decision-checkpoint">
+                            <div class="decision-checkpoint-title">PREVYU GO/NO-GO DECISION</div>
+                            <div class="decision-checkpoint-date">March 15, 2026 - This is the most important decision of Q1</div>
+                        </div>
+
+                        <div class="table-wrapper" style="margin-top: 1.5rem;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Signal</th>
+                                        <th>GO Threshold</th>
+                                        <th>NO-GO Threshold</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Free user sign-ups</td>
+                                        <td class="target-value">50+</td>
+                                        <td class="red-flag">&lt;30</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Weekly active usage</td>
+                                        <td class="target-value">40%+</td>
+                                        <td class="red-flag">&lt;25%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Would pay $79/mo</td>
+                                        <td class="target-value">20%+ respondents</td>
+                                        <td class="red-flag">&lt;10%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Qualitative feedback</td>
+                                        <td class="target-value">"This saved me money"</td>
+                                        <td class="red-flag">"Nice to have"</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="success-criteria">
+                            <div class="success-criteria-title">Phase 2 Success Criteria</div>
+                            <ul class="success-criteria-list">
+                                <li>Prevyu validation complete with clear GO or NO-GO decision</li>
+                                <li>2+ consulting opportunities in pipeline from ads</li>
+                                <li>1+ new consulting project closed ($15K+)</li>
+                                <li>$38K contract on track or completed</li>
+                                <li>Margins tracked and 45%+ on new work</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Phase 3 -->
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div>
+                                <span class="phase-number">Phase 3</span>
+                                <div class="phase-title">Scale</div>
+                                <div class="phase-date">April - June 2026</div>
+                            </div>
+                            <div class="phase-investment">
+                                <div class="phase-investment-value">$2,000</div>
+                                <div class="phase-investment-label">Investment</div>
+                            </div>
+                        </div>
+
+                        <div class="phase-objective">
+                            <strong>Objective:</strong> Accelerate the winning path - whether that's consulting + Prevyu or consulting-only - and position for H2 acceleration.
+                        </div>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-week">April</div>
+                                <div class="timeline-action">Ad pipeline maturation: 3-4 qualified opportunities/month</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-week">April</div>
+                                <div class="timeline-action">If Prevyu GO: Optimize acquisition, CAC &lt; $50</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-week">May</div>
+                                <div class="timeline-action">Consulting delivery: founder &lt;12 hrs/week on delivery</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-week">May</div>
+                                <div class="timeline-action">If Prevyu GO: reach 30 paying users ($1,170+ MRR)</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-week">June</div>
+                                <div class="timeline-action">If Prevyu GO: 50+ paying users, $2K+ MRR</div>
+                            </div>
+                        </div>
+
+                        <div class="decision-checkpoint">
+                            <div class="decision-checkpoint-title">STRATEGIC REVIEW: H2 Planning</div>
+                            <div class="decision-checkpoint-date">June 30, 2026 - Path to $100K, H2 plan finalized</div>
+                        </div>
+
+                        <div class="success-criteria">
+                            <div class="success-criteria-title">Phase 3 Success Criteria</div>
+                            <ul class="success-criteria-list">
+                                <li>Consulting revenue run rate: $80K+ annually</li>
+                                <li>Paid ads generating 3+ opportunities/month</li>
+                                <li>Prevyu (if GO): 40+ paying users, path to $15K+ 2026 revenue</li>
+                                <li>Founder time: &lt;20 hrs/week total</li>
+                                <li>Gross margins: 50%+ on all new projects</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Success Metrics -->
+            <section id="metrics" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 04</div>
+                    <h2 class="section-title">Success Metrics Dashboard</h2>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metrics-card">
+                        <div class="metrics-card-title">Leading Indicators (Check Weekly)</div>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Target</th>
+                                        <th>Red Flag</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Paid ads impressions</td>
+                                        <td class="target-value">5,000+/week</td>
+                                        <td class="red-flag">&lt;2,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ad clicks (CTR)</td>
+                                        <td class="target-value">100+/week (2%+)</td>
+                                        <td class="red-flag">&lt;1%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Consultations booked</td>
+                                        <td class="target-value">3-5/week</td>
+                                        <td class="red-flag">&lt;1/week</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prevyu sign-ups</td>
+                                        <td class="target-value">10/week</td>
+                                        <td class="red-flag">&lt;5/week</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prevyu WAU</td>
+                                        <td class="target-value">40%+</td>
+                                        <td class="red-flag">&lt;25%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Founder delivery hours</td>
+                                        <td class="target-value">&lt;15/week</td>
+                                        <td class="red-flag">&gt;20/week</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="metrics-card">
+                        <div class="metrics-card-title">Lagging Indicators (Check Monthly)</div>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>3-Month</th>
+                                        <th>6-Month</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Consulting revenue</td>
+                                        <td class="target-value">$55K</td>
+                                        <td class="target-value">$85K</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prevyu revenue</td>
+                                        <td class="target-value">$1K</td>
+                                        <td class="target-value">$10K (if GO)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gross margin</td>
+                                        <td class="target-value">45%</td>
+                                        <td class="target-value">50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Active clients</td>
+                                        <td class="target-value">2-3</td>
+                                        <td class="target-value">3-4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prevyu paying users</td>
+                                        <td class="target-value">10 (if GO)</td>
+                                        <td class="target-value">50 (if GO)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Founder hours/week</td>
+                                        <td class="target-value">22</td>
+                                        <td class="target-value">18</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metrics-card" style="margin-top: 1.5rem;">
+                    <div class="metrics-card-title">Decision Checkpoints</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Checkpoint</th>
+                                    <th>Date</th>
+                                    <th>Question</th>
+                                    <th>Criteria</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>30-Day Review</strong></td>
+                                    <td>Jan 31, 2026</td>
+                                    <td>Are ads working? Prevyu traction?</td>
+                                    <td>50+ leads, 5+ convos, 15+ Prevyu sign-ups</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Prevyu Go/No-Go</strong></td>
+                                    <td>March 15, 2026</td>
+                                    <td>Continue investing in Prevyu?</td>
+                                    <td>3/4 GO signals met</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>90-Day Review</strong></td>
+                                    <td>March 31, 2026</td>
+                                    <td>On track for $100K?</td>
+                                    <td>$50K+ YTD or clear path</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>6-Month Review</strong></td>
+                                    <td>June 30, 2026</td>
+                                    <td>Achieving goals?</td>
+                                    <td>On track for $100K, &lt;20 hrs/week</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Risk Management -->
+            <section id="risks" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 05</div>
+                    <h2 class="section-title">Risk Management Plan</h2>
+                </div>
+
+                <div class="risk-cards">
+                    <div class="risk-card">
+                        <div class="risk-header">
+                            <div class="risk-title">Risk 1: Paid Ads Fail to Generate Pipeline</div>
+                            <div class="risk-badges">
+                                <span class="risk-badge probability">40% Probability</span>
+                                <span class="risk-badge impact">High Impact</span>
+                            </div>
+                        </div>
+
+                        <div class="risk-section">
+                            <div class="risk-section-title">Prevention</div>
+                            <ul>
+                                <li>Clear KPIs from Day 1 (100 clicks/week, 3-5 consultations/week, 2 qualified opps/month)</li>
+                                <li>Weekly ad performance reviews with accountability</li>
+                                <li>Strong messaging with ROI-focused positioning</li>
+                                <li>A/B test multiple ad creatives and audiences</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-section">
+                            <div class="risk-section-title">Early Warning Signs</div>
+                            <ul>
+                                <li>&lt;1% CTR in first two weeks</li>
+                                <li>Zero consultations booked after 30 days</li>
+                                <li>High cost per click (&gt;$5) without conversions</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-section">
+                            <div class="risk-section-title">Response If It Happens</div>
+                            <ul>
+                                <li>Week 4: Diagnose root cause (creative? targeting? landing page?)</li>
+                                <li>Week 6: Test different platforms (LinkedIn vs Facebook vs Google)</li>
+                                <li>Week 8: If still failing, pivot to founder-led LinkedIn outreach</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="risk-card">
+                        <div class="risk-header">
+                            <div class="risk-title">Risk 2: Pricing Discipline Breaks Down</div>
+                            <div class="risk-badges">
+                                <span class="risk-badge probability">50% Probability</span>
+                                <span class="risk-badge impact">High Impact</span>
+                            </div>
+                        </div>
+
+                        <div class="risk-section">
+                            <div class="risk-section-title">Prevention</div>
+                            <ul>
+                                <li>Document pricing framework now (before pressure hits)</li>
+                                <li>Require founder approval for ANY project below $15K</li>
+                                <li>Build ROI model into every proposal (justifies premium)</li>
+                                <li>Practice saying "This isn't a fit for us" to low-budget prospects</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-section">
+                            <div class="risk-section-title">Early Warning Signs</div>
+                            <ul>
+                                <li>First proposal is under $15K "just this once"</li>
+                                <li>Client pushback leads to 20%+ discount</li>
+                                <li>Scope creep without price adjustment</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-section">
+                            <div class="risk-section-title">Response If It Happens</div>
+                            <ul>
+                                <li>Immediate: Document what happened and why</li>
+                                <li>Require 48-hour cooling off before accepting sub-$15K deals</li>
+                                <li>Review ROI model before any pricing negotiation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="risk-card">
+                        <div class="risk-header">
+                            <div class="risk-title">Risk 3: Prevyu Validation is Inconclusive</div>
+                            <div class="risk-badges">
+                                <span class="risk-badge probability">35% Probability</span>
+                                <span class="risk-badge impact">Medium Impact</span>
+                            </div>
+                        </div>
+
+                        <div class="risk-section">
+                            <div class="risk-section-title">Prevention</div>
+                            <ul>
+                                <li>Define GO/NO-GO criteria clearly upfront</li>
+                                <li>Commit to the March 15 decision date publicly</li>
+                                <li>Require hard data, not "gut feel" for decision</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-section">
+                            <div class="risk-section-title">Early Warning Signs</div>
+                            <ul>
+                                <li>Numbers close to thresholds (e.g., 45 users instead of 50)</li>
+                                <li>Engagement inconsistent week-to-week</li>
+                                <li>Survey results are ambiguous</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-section">
+                            <div class="risk-section-title">Response If It Happens</div>
+                            <ul>
+                                <li>If genuinely ambiguous: Extend validation 30 days with $500 max budget</li>
+                                <li>Set HARD deadline of April 15 for final decision</li>
+                                <li>Default to NO-GO if still ambiguous - bias toward action</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- What If Scenarios -->
+                <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.5rem; color: var(--navy); margin: 3rem 0 1.5rem;">What If Scenarios</h3>
+
+                <div class="scenario-cards">
+                    <div class="scenario-card">
+                        <div class="scenario-title">Scenario: It's Not Working After 90 Days</div>
+                        <div class="scenario-signs">
+                            <div class="scenario-signs-title">Signs This Is Happening</div>
+                            <ul>
+                                <li>Revenue &lt;$45K at end of Q1</li>
+                                <li>Zero new consulting clients from ad pipeline</li>
+                                <li>Prevyu failed validation and was sunset</li>
+                                <li>Margins still below 40%</li>
+                            </ul>
+                        </div>
+                        <div class="response-steps">
+                            <div class="response-step">
+                                <div class="response-step-text">Don't panic - your W-2 keeps you stable</div>
+                            </div>
+                            <div class="response-step">
+                                <div class="response-step-text">Diagnose honestly: Is this an ad problem, market problem, or effort problem?</div>
+                            </div>
+                            <div class="response-step">
+                                <div class="response-step-text">If ad problem: Test founder-led outreach or different platforms for 60 days</div>
+                            </div>
+                            <div class="response-step">
+                                <div class="response-step-text">If market problem: Consider niche specialization (AI/automation only)</div>
+                            </div>
+                            <div class="response-step">
+                                <div class="response-step-text">If effort problem: Recommit or decide if ScaleUp is really a priority</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scenario-card">
+                        <div class="scenario-title">Scenario: Market Conditions Change</div>
+                        <div class="scenario-signs">
+                            <div class="scenario-signs-title">Signs This Is Happening</div>
+                            <ul>
+                                <li>Consulting: SMB spending freezes; longer sales cycles</li>
+                                <li>Prevyu: Trading volume drops; fewer active day traders</li>
+                            </ul>
+                        </div>
+                        <div class="response-steps">
+                            <div class="response-step">
+                                <div class="response-step-text"><strong>Consulting:</strong> Lead with ROI even harder - in downturns, ROI-guaranteed services win</div>
+                            </div>
+                            <div class="response-step">
+                                <div class="response-step-text"><strong>Consulting:</strong> Shorten project scopes to reduce commitment anxiety (maintain $15K floor)</div>
+                            </div>
+                            <div class="response-step">
+                                <div class="response-step-text"><strong>Prevyu:</strong> If pre-validation, pause ads and wait for market recovery</div>
+                            </div>
+                            <div class="response-step">
+                                <div class="response-step-text"><strong>Prevyu:</strong> If post-validation, focus on retention - bear markets eventually end</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Getting Started -->
+            <section id="getting-started" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 06</div>
+                    <h2 class="section-title">Getting Started</h2>
+                </div>
+
+                <div class="getting-started">
+                    <div class="getting-started-title">Your Next 5 Steps</div>
+                    <div class="getting-started-subtitle">The most important thing is to START. Here are your immediate next steps:</div>
+
+                    <div class="step-cards">
+                        <div class="step-card">
+                            <div class="step-number-large">1</div>
+                            <div class="step-content">
+                                <div class="step-timing">Today (December 30)</div>
+                                <div class="step-title">Stop OfferPath Ads</div>
+                                <div class="step-detail">Log into ad platform, pause all campaigns. Send message to team: "We're sunsetting OfferPath." This single action eliminates your biggest resource drain.</div>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number-large">2</div>
+                            <div class="step-content">
+                                <div class="step-timing">This Week (by January 3)</div>
+                                <div class="step-title">Document Pricing Framework</div>
+                                <div class="step-detail">$15K minimum, $20-25K ideal, ROI model required. Write it down. Put it somewhere you'll see before every proposal.</div>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number-large">3</div>
+                            <div class="step-content">
+                                <div class="step-timing">Next Week (January 6-10)</div>
+                                <div class="step-title">Brief Roe on Paid Ad Campaigns</div>
+                                <div class="step-detail">Share the ICP, messaging framework, and target expectations. Have a 60-minute call to align on approach for both consulting and Prevyu ads.</div>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number-large">4</div>
+                            <div class="step-content">
+                                <div class="step-timing">End of January</div>
+                                <div class="step-title">Both Tracks in Motion</div>
+                                <div class="step-detail">Consulting ads live with leads coming in. Prevyu validation sprint launched with tracking in place. Weekly strategic review rhythm established.</div>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number-large">5</div>
+                            <div class="step-content">
+                                <div class="step-timing">January 31</div>
+                                <div class="step-title">First Major Check-in</div>
+                                <div class="step-detail">Review ad performance: 50+ leads, 5+ conversations. Review Prevyu: 15+ sign-ups. Make necessary adjustments. Document learnings.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Paid Ads Playbook -->
+            <section id="ads-playbook" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 07</div>
+                    <h2 class="section-title">Consulting Paid Ads: Campaign Playbook</h2>
+                </div>
+
+                <div class="playbook">
+                    <div class="playbook-title">Ideal Client Profile (ICP) for Ad Targeting</div>
+
+                    <div class="icp-grid">
+                        <div class="icp-item">
+                            <div class="icp-label">Company Size</div>
+                            <div class="icp-value">10-100 employees</div>
+                            <div class="icp-why">Large enough to have budget, small enough to decide fast</div>
+                        </div>
+                        <div class="icp-item">
+                            <div class="icp-label">Revenue</div>
+                            <div class="icp-value">$1M-$20M annually</div>
+                            <div class="icp-why">Investment capacity for $20K+ projects</div>
+                        </div>
+                        <div class="icp-item">
+                            <div class="icp-label">Industry</div>
+                            <div class="icp-value">Service businesses, agencies</div>
+                            <div class="icp-why">Understand ROI; value growth</div>
+                        </div>
+                        <div class="icp-item">
+                            <div class="icp-label">Decision Maker</div>
+                            <div class="icp-value">Founder/CEO or VP-level</div>
+                            <div class="icp-why">Can approve without committee</div>
+                        </div>
+                        <div class="icp-item">
+                            <div class="icp-label">Current State</div>
+                            <div class="icp-value">Growing but hitting friction</div>
+                            <div class="icp-why">They feel the pain; ready to invest</div>
+                        </div>
+                        <div class="icp-item">
+                            <div class="icp-label">Tech Stack</div>
+                            <div class="icp-value">Outdated website or no web app</div>
+                            <div class="icp-why">Obvious entry point for ScaleUp</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="playbook">
+                    <div class="playbook-title">Messaging Framework</div>
+
+                    <div class="message-box">
+                        <div class="message-label">Core Message</div>
+                        <div class="message-text">"We help growing businesses turn technology investments into measurable revenue growth. Unlike agencies that just build things, we model the ROI before you spend a dollar - so you know exactly what you're getting."</div>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <h4 style="color: var(--navy); margin-bottom: 1rem;">Ad Copy Template</h4>
+                        <div style="background: var(--cream); border-radius: 8px; padding: 1.5rem; font-family: monospace; font-size: 0.9rem; color: var(--slate);">
+                            <strong style="color: var(--navy);">Headline:</strong> "Know Your ROI Before You Spend a Dollar"<br><br>
+                            <strong style="color: var(--navy);">Body:</strong> Most agencies promise results. We guarantee accountability.<br><br>
+                            ScaleUp Ventures builds web platforms and growth systems with one difference: we model your exact return BEFORE you invest.<br><br>
+                            Recent client result: 3x return within 6 months.<br><br>
+                            Book a free ROI consultation: [Link]
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <h4 style="color: var(--navy); margin-bottom: 1rem;">Weekly KPIs</h4>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Target</th>
+                                        <th>Tracking</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Ad spend</td>
+                                        <td class="target-value">$100-150/week</td>
+                                        <td>Ad platform</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Impressions</td>
+                                        <td class="target-value">5,000+/week</td>
+                                        <td>Ad platform</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Clicks</td>
+                                        <td class="target-value">100+/week (2%+ CTR)</td>
+                                        <td>Ad platform</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Landing page visits</td>
+                                        <td class="target-value">80+/week</td>
+                                        <td>Analytics</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Consultations booked</td>
+                                        <td class="target-value">3-5/week</td>
+                                        <td>CRM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Qualified opportunities</td>
+                                        <td class="target-value">2/month</td>
+                                        <td>Pipeline tracker</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cost per qualified opp</td>
+                                        <td class="target-value">&lt;$200</td>
+                                        <td>Calculated</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prevyu Playbook -->
+            <section id="prevyu-playbook" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 08</div>
+                    <h2 class="section-title">Prevyu Validation: Sprint Plan</h2>
+                </div>
+
+                <div class="phase-cards">
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div>
+                                <span class="phase-number">Week 1-2</span>
+                                <div class="phase-title">Launch and Learn</div>
+                            </div>
+                        </div>
+                        <div class="phase-objective">
+                            <strong>Goal:</strong> Get first 20+ free users, understand acquisition cost
+                        </div>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; color: var(--slate);">Launch landing page: "Know if your trade breaks your rules BEFORE you execute"</li>
+                            <li style="padding: 0.5rem 0; color: var(--slate);">Run ads via Roe targeting day trading communities</li>
+                            <li style="padding: 0.5rem 0; color: var(--slate);">Budget: $500/week</li>
+                            <li style="padding: 0.5rem 0; color: var(--slate);"><strong>Success signal:</strong> Cost per sign-up &lt;$10, conversion rate &gt;5%</li>
+                        </ul>
+                    </div>
+
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div>
+                                <span class="phase-number">Week 3-4</span>
+                                <div class="phase-title">Engagement Focus</div>
+                            </div>
+                        </div>
+                        <div class="phase-objective">
+                            <strong>Goal:</strong> Reach 50 users, measure engagement
+                        </div>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; color: var(--slate);">Onboard users with clear "first trade analysis" experience</li>
+                            <li style="padding: 0.5rem 0; color: var(--slate);">Track daily/weekly active users</li>
+                            <li style="padding: 0.5rem 0; color: var(--slate);">Send check-in emails: "How's Prevyu working for you?"</li>
+                            <li style="padding: 0.5rem 0; color: var(--slate);"><strong>Success signal:</strong> 40%+ weekly active users, positive feedback</li>
+                        </ul>
+                    </div>
+
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div>
+                                <span class="phase-number">Week 5-6</span>
+                                <div class="phase-title">Willingness to Pay</div>
+                            </div>
+                        </div>
+                        <div class="phase-objective">
+                            <strong>Goal:</strong> Validate price point
+                        </div>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; color: var(--slate);">Survey engaged users: "Would you pay $79/month for Prevyu?"</li>
+                            <li style="padding: 0.5rem 0; color: var(--slate);">Run fake door test: Show "Upgrade to Premium" with pricing</li>
+                            <li style="padding: 0.5rem 0; color: var(--slate);">Have 1-on-1 conversations with 5+ most engaged users</li>
+                            <li style="padding: 0.5rem 0; color: var(--slate);"><strong>Success signal:</strong> 20%+ express willingness to pay $79+/month</li>
+                        </ul>
+                    </div>
+
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div>
+                                <span class="phase-number">Week 7-8</span>
+                                <div class="phase-title">Conversion Test</div>
+                            </div>
+                        </div>
+                        <div class="phase-objective">
+                            <strong>Goal:</strong> Get actual paid users (or clear NO-GO signal)
+                        </div>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; color: var(--slate);">Offer early-bird pricing to willing users: $79/month</li>
+                            <li style="padding: 0.5rem 0; color: var(--slate);">Create simple Stripe checkout</li>
+                            <li style="padding: 0.5rem 0; color: var(--slate);">Track conversions</li>
+                            <li style="padding: 0.5rem 0; color: var(--slate);"><strong>Success signal:</strong> 5+ paying users</li>
+                        </ul>
+
+                        <div class="decision-checkpoint" style="margin-top: 1.5rem;">
+                            <div class="decision-checkpoint-title">March 15: Decision Day</div>
+                            <div class="decision-checkpoint-date">Apply the criteria. Make the call. Document the decision. Move forward without second-guessing.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 09</div>
+                    <h2 class="section-title">Questions You May Have</h2>
+                </div>
+
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">"What if I can't afford the full $8K investment right now?"</div>
+                        <div class="faq-answer">
+                            The investment is staged, not upfront. Phase 1 is only $2,500, funded by profit from your $38K contract. If truly cash-constrained: reduce Prevyu ad budget to $300/week (extends timeline but still works), skip consulting materials initially. Minimum viable investment: ~$4K over 6 months.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">"How do I know if I should pivot vs. persist at the 90-day checkpoint?"</div>
+                        <div class="faq-answer">
+                            The criteria are quantitative, not qualitative. <strong>Persist if:</strong> Ads generating 2+ qualified opportunities/month, at least one new deal closed or imminent, revenue tracking toward $75K+, margins 45%+ on new work. <strong>Pivot if:</strong> Zero qualified opportunities from ads, no new deals, revenue tracking &lt;$60K, margins below 40%. The numbers are the scoreboard.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">"Should I really kill OfferPath completely?"</div>
+                        <div class="faq-answer">
+                            Yes. But if you can't: <strong>Minimum:</strong> Stop all ads TODAY. Zero ad spend. Zero founder hours. <strong>Acceptable:</strong> Leave it live for organic discovery. If 10+ people sign up organically in 2026, revisit. The analysis is clear. Make the decision and move on.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resources -->
+            <section id="resources" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 10</div>
+                    <h2 class="section-title">Resource Summary</h2>
+                </div>
+
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-card-title">Financial Investment</div>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Phase</th>
+                                        <th>Investment</th>
+                                        <th>Cumulative</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Phase 1 (Jan)</td>
+                                        <td>$2,500</td>
+                                        <td>$2,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phase 2 (Feb-Mar)</td>
+                                        <td>$3,500</td>
+                                        <td>$6,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phase 3 (Apr-Jun)</td>
+                                        <td>$2,000</td>
+                                        <td>$8,000</td>
+                                    </tr>
+                                    <tr style="background: var(--cream);">
+                                        <td><strong>Total H1 2026</strong></td>
+                                        <td></td>
+                                        <td><strong>$8,000</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--slate-light);">
+                            <strong>Funding:</strong> $1,400 current + ~$6,600 from $38K contract profit
+                        </p>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-card-title">Founder Weekly Hours by Phase</div>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Activity</th>
+                                        <th>P1</th>
+                                        <th>P2</th>
+                                        <th>P3</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Consulting delivery</td>
+                                        <td>12-15</td>
+                                        <td>12-15</td>
+                                        <td>10-12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Biz dev (ads mgmt)</td>
+                                        <td>2-3</td>
+                                        <td>2</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prevyu</td>
+                                        <td>5</td>
+                                        <td>5-8</td>
+                                        <td>5/0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Strategic planning</td>
+                                        <td>2</td>
+                                        <td>2</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr style="background: var(--cream);">
+                                        <td><strong>Total</strong></td>
+                                        <td><strong>21-25</strong></td>
+                                        <td><strong>21-27</strong></td>
+                                        <td><strong>19-21</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Thoughts -->
+            <section class="section">
+                <div class="final-thoughts">
+                    <div class="final-thoughts-text">
+                        The gap between where you are and where you want to be isn't about working harder or having better ideas. It's about discipline. Pricing discipline. Strategic discipline. The discipline to kill OfferPath instead of letting it linger. The discipline to force a go/no-go decision on Prevyu at Day 60. The discipline to actually launch paid ads instead of hoping referrals will be enough.
+                        <br><br>
+                        $100K in 2026 is absolutely achievable. The math works. The only question is whether you'll maintain the discipline to execute.
+                    </div>
+                    <div class="final-cta">Now go.</div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text">Strategic Recommendations generated December 30, 2025 | ScaleUp Ventures</p>
+        </footer>
+    </main>
+</body>
+</html>

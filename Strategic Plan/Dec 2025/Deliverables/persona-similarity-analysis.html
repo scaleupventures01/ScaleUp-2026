@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persona Similarity Analysis | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f1729;
+            --navy-light: #1a2744;
+            --slate: #334155;
+            --slate-light: #64748b;
+            --gold: #d4a853;
+            --gold-muted: #b8956e;
+            --cream: #faf8f5;
+            --cream-dark: #f1ede6;
+            --white: #ffffff;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --info: #0284c7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--navy);
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .nav-header {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .nav-subtitle {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 0.25rem;
+        }
+
+        .nav-section { margin-bottom: 1.5rem; }
+
+        .nav-section-title {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--slate-light);
+            padding: 0 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+            border-left-color: var(--gold);
+        }
+
+        .main {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 5rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a853' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+        }
+
+        .hero-meta-item {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+        }
+
+        .hero-meta-item strong {
+            color: var(--white);
+            display: block;
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .content {
+            padding: 4rem;
+            max-width: 1200px;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-header { margin-bottom: 2rem; }
+
+        .section-number {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: 0.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .card-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .insight-box {
+            background: rgba(5, 150, 105, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--success);
+        }
+
+        .insight-box.warning {
+            background: rgba(217, 119, 6, 0.1);
+            border-left-color: var(--warning);
+        }
+
+        .insight-box.danger {
+            background: rgba(220, 38, 38, 0.1);
+            border-left-color: var(--danger);
+        }
+
+        .insight-title {
+            font-weight: 600;
+            color: var(--success);
+            margin-bottom: 0.5rem;
+        }
+
+        .insight-box.warning .insight-title { color: var(--warning); }
+        .insight-box.danger .insight-title { color: var(--danger); }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        th {
+            background: var(--cream);
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .score-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        .score-top { background: rgba(5, 150, 105, 0.15); color: var(--success); }
+        .score-strong { background: rgba(2, 132, 199, 0.15); color: var(--info); }
+        .score-moderate { background: rgba(217, 119, 6, 0.15); color: var(--warning); }
+        .score-low { background: rgba(220, 38, 38, 0.15); color: var(--danger); }
+
+        .cluster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .cluster-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 2px solid var(--cream-dark);
+            transition: all 0.2s ease;
+        }
+
+        .cluster-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .cluster-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .cluster-score {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .cluster-industries {
+            font-size: 0.875rem;
+            color: var(--slate);
+        }
+
+        .template-stat {
+            display: flex;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--slate);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--cream-dark);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--success) 100%);
+            border-radius: 4px;
+        }
+
+        .recommendation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .rec-card {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .rec-priority {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .rec-industry {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        ul.feature-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        ul.feature-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        ul.feature-list li::before {
+            content: ">";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--gold);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold);
+            border-radius: 6px;
+            margin-top: 2rem;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .main { margin-left: 0; }
+            .content { padding: 2rem; }
+            .hero { padding: 3rem 2rem; }
+            .hero-title { font-size: 2rem; }
+            .recommendation-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-logo">ScaleUp Ventures</div>
+            <div class="nav-subtitle">Similarity Analysis</div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Executive Summary</div>
+            <a href="#summary" class="nav-link">Key Findings</a>
+            <a href="#answer" class="nav-link">Can You Share Landing Pages?</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Tier Analysis</div>
+            <a href="#tier-ranking" class="nav-link">Complete Tier Ranking</a>
+            <a href="#tier-comparison" class="nav-link">Top vs Lower Tier</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Super-Clusters</div>
+            <a href="#trades" class="nav-link">Trades Cluster (4)</a>
+            <a href="#service" class="nav-link">Service Businesses (6)</a>
+            <a href="#healthcare" class="nav-link">Healthcare Cluster (5)</a>
+            <a href="#strong" class="nav-link">Strong Tier (4)</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Recommendations</div>
+            <a href="#templates" class="nav-link">Template Strategy</a>
+            <a href="#priority" class="nav-link">Priority Order</a>
+        </div>
+
+        <div class="nav-section">
+            <a href="persona-research-report.html" class="nav-link">< Back to Main Report</a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <header class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">Strategic Analysis</span>
+                <h1 class="hero-title">Persona Similarity Analysis</h1>
+                <p class="hero-subtitle">How different are the 40 target personas from each other? Can you use similar landing pages with targeted messaging?</p>
+                <div class="hero-meta">
+                    <div class="hero-meta-item">
+                        <strong>40</strong>
+                        Industries Analyzed
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>5</strong>
+                        Super-Clusters Identified
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>70-80%</strong>
+                        Content Shareable
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>December 31, 2025</strong>
+                        Analysis Date
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- Executive Summary -->
+            <section id="summary" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 01</div>
+                    <h2 class="section-title">Executive Summary</h2>
+                </div>
+
+                <div class="card">
+                    <div class="insight-box">
+                        <div class="insight-title">Key Finding: YES - You Can Share Landing Pages</div>
+                        <p>The top tier industries (63+ score) share <strong>80-90% identical characteristics</strong>. You can create a master landing page template with modular industry-specific content blocks. The core value proposition, pain points, and service offerings are essentially identical across the top 20 industries.</p>
+                    </div>
+
+                    <div class="template-stat">
+                        <div class="stat-item">
+                            <div class="stat-value">5-6</div>
+                            <div class="stat-label">Base Templates Needed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">70-80%</div>
+                            <div class="stat-label">Shared Content</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">20-30%</div>
+                            <div class="stat-label">Per-Industry Custom</div>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 2rem; margin-bottom: 1rem;">What's Shared Across All Top Tier Industries:</h3>
+                    <ul class="feature-list">
+                        <li><strong>Owner Profile:</strong> 50-60 year old, non-technical, family business owner</li>
+                        <li><strong>Core Pain:</strong> Technology overwhelm, competition from larger players, succession pressure</li>
+                        <li><strong>Budget:</strong> 5-15% of revenue available for marketing/technology</li>
+                        <li><strong>Service Need:</strong> Website + SEO + AI/Automation bundle</li>
+                        <li><strong>Urgency Driver:</strong> "Modernize or be left behind" + "Increase exit value"</li>
+                    </ul>
+
+                    <h3 style="margin-top: 2rem; margin-bottom: 1rem;">What Needs Per-Industry Customization:</h3>
+                    <ul class="feature-list">
+                        <li><strong>Statistics:</strong> Market size, owner age, satisfaction rates</li>
+                        <li><strong>Terminology:</strong> "Dispatch" vs "Scheduling" vs "Booking"</li>
+                        <li><strong>Association Logos:</strong> PHCC, NPMA, ASA, etc.</li>
+                        <li><strong>Hero Image:</strong> Plumber vs Electrician vs Staffing recruiter</li>
+                        <li><strong>Case Studies:</strong> Industry-specific testimonials</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Answer Section -->
+            <section id="answer" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 02</div>
+                    <h2 class="section-title">Direct Answer: Landing Page Strategy</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Can You Have Landing Pages with Similar Messaging?</div>
+
+                    <div class="insight-box">
+                        <div class="insight-title">YES - Here's How</div>
+                        <p>Create <strong>one master template</strong> with conditional content blocks. The messaging structure is identical - only swap industry-specific terms, stats, and images.</p>
+                    </div>
+
+                    <h3 style="margin: 1.5rem 0 1rem;">Universal Headline Formula:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Template</th>
+                                <th>Plumbing</th>
+                                <th>Staffing</th>
+                                <th>Pest Control</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>"[X]% of [Industry] Owners Are Unhappy With Their Marketing"</td>
+                                <td>70% of Plumbers</td>
+                                <td>70% of Staffing Agencies</td>
+                                <td>67% of Pest Control</td>
+                            </tr>
+                            <tr>
+                                <td>"Your Competitors Have Already Modernized"</td>
+                                <td>Same</td>
+                                <td>61% already use AI</td>
+                                <td>Same</td>
+                            </tr>
+                            <tr>
+                                <td>"Modernize Now, Sell For More Later"</td>
+                                <td>Same</td>
+                                <td>Same</td>
+                                <td>Same</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="margin: 2rem 0 1rem;">Template Architecture Recommendation:</h3>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                    <p style="font-size: 0.875rem; color: var(--slate);">80% of content is shared across all industry landing pages</p>
+
+                    <table style="margin-top: 1.5rem;">
+                        <thead>
+                            <tr>
+                                <th>Page Section</th>
+                                <th>Shared %</th>
+                                <th>Custom Elements</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hero Section</td>
+                                <td>60%</td>
+                                <td>Industry name, key stat, hero image</td>
+                            </tr>
+                            <tr>
+                                <td>Pain Points</td>
+                                <td>85%</td>
+                                <td>Industry-specific 4th pain point</td>
+                            </tr>
+                            <tr>
+                                <td>Service Offering</td>
+                                <td>95%</td>
+                                <td>Industry-specific AI use cases</td>
+                            </tr>
+                            <tr>
+                                <td>Social Proof</td>
+                                <td>20%</td>
+                                <td>Case study, testimonials, association logos</td>
+                            </tr>
+                            <tr>
+                                <td>Pricing/Packages</td>
+                                <td>100%</td>
+                                <td>None - structure is universal</td>
+                            </tr>
+                            <tr>
+                                <td>CTA/Footer</td>
+                                <td>90%</td>
+                                <td>"Free [Industry] Assessment"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Tier Ranking -->
+            <section id="tier-ranking" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 03</div>
+                    <h2 class="section-title">Complete Tier Ranking (40 Industries)</h2>
+                </div>
+
+                <div class="card">
+                    <h3 style="margin-bottom: 1rem;">Top Tier (63-67 points) - 12 Industries</h3>
+                    <p style="color: var(--slate); margin-bottom: 1rem;">These industries can share 85%+ of landing page content</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Industry</th>
+                                <th>Score</th>
+                                <th>Key Differentiator</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Staffing Agencies</td>
+                                <td><span class="score-badge score-top">67/80</span></td>
+                                <td>Fastest sales cycle (4-8 weeks), highest AI urgency</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Veterinary Practices</td>
+                                <td><span class="score-badge score-top">65/80</span></td>
+                                <td>30%+ corporate consolidation, clear IVPA community</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Pest Control</td>
+                                <td><span class="score-badge score-top">64/80</span></td>
+                                <td>15+ PE firms acquiring, 32K+ companies</td>
+                            </tr>
+                            <tr>
+                                <td>4-12</td>
+                                <td>Trucking, Property Mgmt, Plumbing, Electrical, Roofing, HVAC, Waste/Junk, Home Health, Towing</td>
+                                <td><span class="score-badge score-top">63/80</span></td>
+                                <td>All share identical owner profile (50-60, tech-laggard)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="margin: 2rem 0 1rem;">Strong Tier (60-62 points) - 10 Industries</h3>
+                    <p style="color: var(--slate); margin-bottom: 1rem;">Can share template with Top Tier with minor adjustments</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Industry</th>
+                                <th>Score</th>
+                                <th>What Holds Them Back</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Manufacturing SMB, Funeral Homes, Auto Repair, Self-Storage, Hotels</td>
+                                <td><span class="score-badge score-strong">62/80</span></td>
+                                <td>Slightly lower in one category (sales cycle, budget, or competition)</td>
+                            </tr>
+                            <tr>
+                                <td>Dental, Pool Service, Tax/Bookkeeping</td>
+                                <td><span class="score-badge score-strong">61/80</span></td>
+                                <td>Moderate competition from specialized agencies</td>
+                            </tr>
+                            <tr>
+                                <td>Landscaping, Senior Care</td>
+                                <td><span class="score-badge score-strong">60/80</span></td>
+                                <td>High competition, seasonal budget variations</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="margin: 2rem 0 1rem;">Lower Tier (&lt;55 points) - Industries to Deprioritize</h3>
+                    <div class="insight-box warning">
+                        <div class="insight-title">Caution: Different Landing Page Strategy Needed</div>
+                        <p>These industries have structural barriers (saturated competition, long sales cycles, wrong demographics) that make the standard template less effective.</p>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Industry</th>
+                                <th>Score</th>
+                                <th>Key Barrier</th>
+                                <th>Recommendation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Auto Dealerships</td>
+                                <td><span class="score-badge score-moderate">54/80</span></td>
+                                <td>CDK/Reynolds lock-in, 20+ specialized agencies</td>
+                                <td>Conditional - only with AI differentiation</td>
+                            </tr>
+                            <tr>
+                                <td>Healthcare Clinics</td>
+                                <td><span class="score-badge score-moderate">54/80</span></td>
+                                <td>8-18 month sales cycles, 35+ agencies</td>
+                                <td>Deprioritize - too long sales cycles</td>
+                            </tr>
+                            <tr>
+                                <td>Real Estate</td>
+                                <td><span class="score-badge score-moderate">52/80</span></td>
+                                <td>Commission volatility, kvCORE dominance</td>
+                                <td>Secondary target only</td>
+                            </tr>
+                            <tr>
+                                <td>Restaurants</td>
+                                <td><span class="score-badge score-low">46/80</span></td>
+                                <td>Avg owner age 39, Toast dominates, 5% margins</td>
+                                <td>DO NOT PURSUE</td>
+                            </tr>
+                            <tr>
+                                <td>Fitness/Gyms</td>
+                                <td><span class="score-badge score-low">46/80</span></td>
+                                <td>Avg owner age 37, 67% spend &lt;$500/mo</td>
+                                <td>DO NOT PURSUE</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Top vs Lower Tier -->
+            <section id="tier-comparison" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 04</div>
+                    <h2 class="section-title">What Differentiates Top Tier from Lower Tier?</h2>
+                </div>
+
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Factor</th>
+                                <th>Top Tier (63+)</th>
+                                <th>Lower Tier (&lt;55)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Owner Age</strong></td>
+                                <td>50-65 years (true tech laggards)</td>
+                                <td>37-49 years (tech-comfortable)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Competition</strong></td>
+                                <td>6-8/10 (gaps exist for bundled services)</td>
+                                <td>3-4/10 (saturated with specialists)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sales Cycle</strong></td>
+                                <td>4-8 weeks typical</td>
+                                <td>3-18 months</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Budget</strong></td>
+                                <td>5-15% of revenue, $2.5K-$10K/month</td>
+                                <td>67% spend &lt;$500/month OR volatile</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pain Intensity</strong></td>
+                                <td>9/10 (existential threat present)</td>
+                                <td>5-7/10 (gradual pressure)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Service Fit</strong></td>
+                                <td>8-10/10 (need all three services)</td>
+                                <td>6-7/10 (often have partial solutions)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="insight-box">
+                        <div class="insight-title">The "High Scorer DNA"</div>
+                        <p>Top tier industries share a common profile:</p>
+                        <ul class="feature-list">
+                            <li>Older owners (50-65+) who built businesses before the digital era</li>
+                            <li>Existential threat (AI disruption, PE consolidation)</li>
+                            <li>Available budgets (3-10% of revenue) but don't know how to spend wisely</li>
+                            <li>Owner-operators who can make fast decisions without committees</li>
+                            <li>Clear congregation points (trade associations, conferences)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Super-Clusters -->
+            <section id="trades" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 05</div>
+                    <h2 class="section-title">Super-Cluster 1: Home Services Trades</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Plumbing, Electrical, HVAC, Roofing (All 63/80)</div>
+
+                    <div class="insight-box">
+                        <div class="insight-title">ONE Template Serves All Four</div>
+                        <p>These industries scored identically (63/80) because they share virtually identical characteristics. Build ONE "Home Services" landing page and swap industry-specific elements.</p>
+                    </div>
+
+                    <div class="template-stat">
+                        <div class="stat-item">
+                            <div class="stat-value">$596B</div>
+                            <div class="stat-label">Combined TAM</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">594K+</div>
+                            <div class="stat-label">Total Businesses</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">80%</div>
+                            <div class="stat-label">Template Sharing</div>
+                        </div>
+                    </div>
+
+                    <h3 style="margin: 1.5rem 0 1rem;">Universal Stats (Use on ANY Trades Landing Page):</h3>
+                    <ul class="feature-list">
+                        <li><strong>70% unhappy with current marketing provider</strong> - exact stat across all trades</li>
+                        <li><strong>30% efficiency gains with AI</strong> - ServiceTitan/Podium data</li>
+                        <li><strong>97% of customers search online first</strong> - HubSpot</li>
+                        <li><strong>50%+ of owners are 50+ years old</strong> - Census data</li>
+                    </ul>
+
+                    <h3 style="margin: 1.5rem 0 1rem;">Only Customization Needed:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Element</th>
+                                <th>Plumbing</th>
+                                <th>Electrical</th>
+                                <th>HVAC</th>
+                                <th>Roofing</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hero Image</td>
+                                <td>Plumber at work</td>
+                                <td>Electrician</td>
+                                <td>HVAC tech</td>
+                                <td>Roofer</td>
+                            </tr>
+                            <tr>
+                                <td>Association Logo</td>
+                                <td>PHCC</td>
+                                <td>NECA</td>
+                                <td>ACCA</td>
+                                <td>NRCA</td>
+                            </tr>
+                            <tr>
+                                <td>Market Size Stat</td>
+                                <td>$169.8B</td>
+                                <td>$237-312B</td>
+                                <td>$156.2B</td>
+                                <td>$76.4B</td>
+                            </tr>
+                            <tr>
+                                <td>Unique Pain</td>
+                                <td>60% churn</td>
+                                <td>EV complexity</td>
+                                <td>Seasonal demand</td>
+                                <td>Storm chasers</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Service Businesses -->
+            <section id="service" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 06</div>
+                    <h2 class="section-title">Super-Cluster 2: Service Businesses</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Pest Control (64), Property Mgmt (63), Waste (63), Towing (63), Pool (61), Landscaping (60)</div>
+
+                    <div class="insight-box">
+                        <div class="insight-title">75% Shared, 25% Custom</div>
+                        <p>These six industries share operational pain points (scheduling, dispatch, field service) but have slightly more industry-specific terminology than the trades cluster.</p>
+                    </div>
+
+                    <h3 style="margin: 1.5rem 0 1rem;">Shared Pain Points (Use on All):</h3>
+                    <ul class="feature-list">
+                        <li><strong>Missed calls = lost revenue</strong> - universal across all service businesses</li>
+                        <li><strong>Manual scheduling chaos</strong> - paper-based operations common</li>
+                        <li><strong>PE consolidation pressure</strong> - all face larger competitors rolling up market</li>
+                        <li><strong>No online booking</strong> - major gap causing lost leads</li>
+                    </ul>
+
+                    <h3 style="margin: 1.5rem 0 1rem;">Industry-Specific Hooks:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Industry</th>
+                                <th>Unique Messaging Angle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pest Control</td>
+                                <td>"Modernize before the big players swallow you up"</td>
+                            </tr>
+                            <tr>
+                                <td>Property Management</td>
+                                <td>"Compete with PropTech while keeping personal touch"</td>
+                            </tr>
+                            <tr>
+                                <td>Waste/Junk</td>
+                                <td>"Stop losing $3,000+ dumpsters to poor tracking"</td>
+                            </tr>
+                            <tr>
+                                <td>Towing</td>
+                                <td>"Get $250 cash calls instead of $40 motor club"</td>
+                            </tr>
+                            <tr>
+                                <td>Pool Service</td>
+                                <td>"Automate admin so you focus on pools, not paperwork"</td>
+                            </tr>
+                            <tr>
+                                <td>Landscaping</td>
+                                <td>"Join the 30% who survive - run smarter, not harder"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Healthcare -->
+            <section id="healthcare" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 07</div>
+                    <h2 class="section-title">Super-Cluster 3: Healthcare Providers</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Veterinary (65), Home Health (63), Dental (61), Senior Care (60), Healthcare Clinics (54)</div>
+
+                    <div class="insight-box warning">
+                        <div class="insight-title">Caution: 11-Point Score Gap Within Cluster</div>
+                        <p>Healthcare Clinics (54) should NOT share the same template as Veterinary (65). The sales cycles and competitive landscapes are dramatically different.</p>
+                    </div>
+
+                    <h3 style="margin: 1.5rem 0 1rem;">Why Veterinary Scores 11 Points Higher Than Healthcare Clinics:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Factor</th>
+                                <th>Veterinary (65)</th>
+                                <th>Healthcare Clinics (54)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Competition Level</td>
+                                <td>6/10 - gaps exist for bundled services</td>
+                                <td>4/10 - 35+ specialized agencies</td>
+                            </tr>
+                            <tr>
+                                <td>Sales Cycle</td>
+                                <td>6/10 - 4-8 weeks typical</td>
+                                <td>4/10 - 8-18 months, 70% exceed 13 months</td>
+                            </tr>
+                            <tr>
+                                <td>Decision Maker</td>
+                                <td>Single owner-vet</td>
+                                <td>Committee (IT, clinical, financial, legal)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="margin: 1.5rem 0 1rem;">Shared Healthcare Messaging (Top 4 Only):</h3>
+                    <ul class="feature-list">
+                        <li><strong>"Stay independent. Compete with corporate."</strong></li>
+                        <li><strong>"Reduce admin burden so staff can focus on patients"</strong></li>
+                        <li><strong>"88% of patients want online scheduling - only 10-20% offer it"</strong></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Strong Tier -->
+            <section id="strong" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 08</div>
+                    <h2 class="section-title">Super-Cluster 4: Strong Tier (62/80)</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Manufacturing SMB, Funeral Homes, Auto Repair, Self-Storage</div>
+
+                    <div class="insight-box">
+                        <div class="insight-title">Just 1 Point Below Top Tier</div>
+                        <p>These four industries narrowly miss top tier (63+) due to one weak category each, but share 70-90% template compatibility with top tier industries.</p>
+                    </div>
+
+                    <h3 style="margin: 1.5rem 0 1rem;">What Holds Each Back by 1 Point:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Industry</th>
+                                <th>Weak Category</th>
+                                <th>Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Manufacturing SMB</td>
+                                <td>Sales Cycle (4/10)</td>
+                                <td>130+ day average, multiple stakeholders</td>
+                            </tr>
+                            <tr>
+                                <td>Funeral Homes</td>
+                                <td>Budget (6/10)</td>
+                                <td>44% spend less than $15K/year</td>
+                            </tr>
+                            <tr>
+                                <td>Auto Repair</td>
+                                <td>Competition (6/10)</td>
+                                <td>10+ specialized marketing agencies</td>
+                            </tr>
+                            <tr>
+                                <td>Self-Storage</td>
+                                <td>Demographics (7/10)</td>
+                                <td>Younger median age (~50), REIT consolidation</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="margin: 1.5rem 0 1rem;">Shared "Legacy Business" Messaging:</h3>
+                    <ul class="feature-list">
+                        <li><strong>"Protect your family's legacy in the digital age"</strong></li>
+                        <li><strong>"Modernize to compete OR sell for a higher multiple"</strong></li>
+                        <li><strong>"One partner for website, marketing, and automation"</strong></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Template Strategy -->
+            <section id="templates" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 09</div>
+                    <h2 class="section-title">Recommended Template Strategy</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">5 Base Templates Cover All 40 Industries</div>
+
+                    <div class="cluster-grid">
+                        <div class="cluster-card">
+                            <div class="cluster-name">Template 1: Home Services Trades</div>
+                            <div class="cluster-score">4 Industries | 80% Shared</div>
+                            <div class="cluster-industries">Plumbing, Electrical, HVAC, Roofing</div>
+                        </div>
+                        <div class="cluster-card">
+                            <div class="cluster-name">Template 2: Service Businesses</div>
+                            <div class="cluster-score">6 Industries | 75% Shared</div>
+                            <div class="cluster-industries">Pest, Property, Waste, Towing, Pool, Landscaping</div>
+                        </div>
+                        <div class="cluster-card">
+                            <div class="cluster-name">Template 3: Healthcare Independents</div>
+                            <div class="cluster-score">4 Industries | 70% Shared</div>
+                            <div class="cluster-industries">Veterinary, Home Health, Dental, Senior Care</div>
+                        </div>
+                        <div class="cluster-card">
+                            <div class="cluster-name">Template 4: Legacy SMB</div>
+                            <div class="cluster-score">4+ Industries | 70% Shared</div>
+                            <div class="cluster-industries">Manufacturing, Funeral, Auto Repair, Self-Storage</div>
+                        </div>
+                        <div class="cluster-card">
+                            <div class="cluster-name">Template 5: Professional Services</div>
+                            <div class="cluster-score">3+ Industries | 65% Shared</div>
+                            <div class="cluster-industries">Staffing, Tax/Bookkeeping, Insurance</div>
+                        </div>
+                    </div>
+
+                    <div class="insight-box" style="margin-top: 2rem;">
+                        <div class="insight-title">Implementation Efficiency</div>
+                        <p><strong>Build 5 templates, deploy 40 landing pages.</strong> The effort to customize each template for industry-specific content is approximately 25% vs building from scratch. Total effort: ~2.5x the work of one template instead of 40x.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Priority Order -->
+            <section id="priority" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 10</div>
+                    <h2 class="section-title">Landing Page Priority Order</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Deploy in Order of Score + Sales Cycle Speed</div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Priority</th>
+                                <th>Industry</th>
+                                <th>Score</th>
+                                <th>Why This Order</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="score-badge score-top">1st</span></td>
+                                <td>Staffing Agencies</td>
+                                <td>67/80</td>
+                                <td>Highest score, fastest close (4-8 weeks), biggest budgets</td>
+                            </tr>
+                            <tr>
+                                <td><span class="score-badge score-top">2nd</span></td>
+                                <td>Veterinary Practices</td>
+                                <td>65/80</td>
+                                <td>Clear community (IVPA), PE fear messaging resonates</td>
+                            </tr>
+                            <tr>
+                                <td><span class="score-badge score-top">3rd</span></td>
+                                <td>Pest Control</td>
+                                <td>64/80</td>
+                                <td>Large market, succession planning hook</td>
+                            </tr>
+                            <tr>
+                                <td><span class="score-badge score-top">4th-12th</span></td>
+                                <td>Trades Super-Cluster (4) + Service Cluster (5)</td>
+                                <td>63/80</td>
+                                <td>Build 2 templates, deploy 9 pages rapidly</td>
+                            </tr>
+                            <tr>
+                                <td><span class="score-badge score-strong">13th-22nd</span></td>
+                                <td>Strong Tier (10)</td>
+                                <td>60-62/80</td>
+                                <td>Leverage existing templates with minor customization</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="insight-box danger" style="margin-top: 2rem;">
+                        <div class="insight-title">Do NOT Prioritize These</div>
+                        <p><strong>Restaurants (46), Fitness/Gyms (46):</strong> Wrong demographics (avg age 37-39), insufficient budgets (67% spend &lt;$500/mo), and saturated competition (Toast, Mindbody). These industries do not fit the ScaleUp thesis.</p>
+                    </div>
+                </div>
+
+                <a href="persona-research-report.html" class="back-link">< Back to Main Persona Research Report</a>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
