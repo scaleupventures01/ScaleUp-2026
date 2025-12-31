@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Generation Brief | ScaleUp Ventures CEO Review</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f1729;
+            --navy-light: #1a2744;
+            --slate: #334155;
+            --slate-light: #64748b;
+            --gold: #d4a853;
+            --gold-muted: #b8956e;
+            --cream: #faf8f5;
+            --cream-dark: #f1ede6;
+            --white: #ffffff;
+            --success: #059669;
+            --warning: #d97706;
+            --brand-deep-navy: #0a1628;
+            --brand-trust-blue: #1e3a5f;
+            --brand-gold-light: #e8c547;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background: var(--navy);
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .nav-header {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .nav-subtitle {
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 0.25rem;
+        }
+
+        .nav-section { margin-bottom: 1.5rem; }
+
+        .nav-section-title {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--slate-light);
+            padding: 0 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.4rem 1.5rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+            border-left-color: var(--gold);
+        }
+
+        .main {
+            margin-left: 260px;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--brand-deep-navy) 0%, var(--brand-trust-blue) 100%);
+            padding: 4rem 3rem 3rem;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201, 162, 39, 0.2);
+            color: var(--brand-gold-light);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+        }
+
+        .hero-meta-item {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.8rem;
+        }
+
+        .hero-meta-item strong {
+            color: var(--white);
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .content {
+            padding: 3rem;
+            max-width: 1000px;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-header { margin-bottom: 1.5rem; }
+
+        .section-number {
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: 0.4rem;
+        }
+
+        .concept-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .concept-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .concept-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            flex-shrink: 0;
+        }
+
+        .concept-title-group { flex: 1; }
+
+        .concept-category {
+            font-size: 0.65rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.2rem;
+        }
+
+        .concept-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .concept-body {
+            padding: 2rem;
+        }
+
+        .preview-section {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .preview-visual {
+            background: var(--navy);
+            border-radius: 12px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .preview-visual svg {
+            max-width: 120px;
+            max-height: 120px;
+        }
+
+        .preview-label {
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .preview-details h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .preview-details p {
+            color: var(--slate);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+
+        .expected-result {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+            border-left: 4px solid var(--gold);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin-top: 1rem;
+        }
+
+        .expected-result-title {
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .expected-result-text {
+            color: var(--slate);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .color-specs {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .color-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            border: 1px solid var(--cream-dark);
+            padding: 0.4rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+        }
+
+        .color-swatch {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .signoff-box {
+            background: var(--white);
+            border: 2px dashed var(--cream-dark);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .signoff-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .signoff-options {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .signoff-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--slate);
+        }
+
+        .signoff-option input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--gold);
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, var(--brand-deep-navy) 0%, var(--brand-trust-blue) 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: white;
+        }
+
+        .summary-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--brand-gold-light);
+            margin-bottom: 1rem;
+        }
+
+        .summary-text {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .approval-section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .approval-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--cream-dark);
+        }
+
+        .approval-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .approval-item {
+            background: var(--cream);
+            border-radius: 10px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .approval-item-name {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .approval-item-status {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 0.75rem;
+        }
+
+        .status-btn {
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .status-approve {
+            background: #dcfce7;
+            color: var(--success);
+        }
+
+        .status-approve:hover {
+            background: var(--success);
+            color: white;
+        }
+
+        .status-revise {
+            background: #fef3c7;
+            color: var(--warning);
+        }
+
+        .status-revise:hover {
+            background: var(--warning);
+            color: white;
+        }
+
+        .signature-area {
+            border-top: 2px solid var(--cream-dark);
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .signature-line {
+            display: flex;
+            gap: 3rem;
+            margin-top: 1rem;
+        }
+
+        .signature-field {
+            flex: 1;
+        }
+
+        .signature-field label {
+            font-size: 0.75rem;
+            color: var(--slate-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .signature-field .line {
+            border-bottom: 1px solid var(--navy);
+            height: 40px;
+            margin-top: 0.5rem;
+        }
+
+        .quality-criteria {
+            background: var(--cream);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .quality-criteria h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .quality-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        .quality-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--slate);
+        }
+
+        .quality-item::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .footer {
+            background: var(--navy);
+            padding: 2rem 3rem;
+            margin-top: 3rem;
+        }
+
+        .footer-text {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        @media print {
+            .nav { display: none; }
+            .main { margin-left: 0; }
+            .concept-card { break-inside: avoid; }
+        }
+
+        @media (max-width: 900px) {
+            .nav { display: none; }
+            .main { margin-left: 0; }
+            .preview-section { grid-template-columns: 1fr; }
+            .approval-grid { grid-template-columns: 1fr; }
+            .quality-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-logo">ScaleUp Ventures</div>
+            <div class="nav-subtitle">CEO Logo Review</div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Overview</div>
+            <a href="#overview" class="nav-link">Executive Summary</a>
+            <a href="#criteria" class="nav-link">Quality Criteria</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Creative (1-3)</div>
+            <a href="#fulcrum" class="nav-link">1. The Fulcrum</a>
+            <a href="#seal" class="nav-link">2. The Proof Seal</a>
+            <a href="#watershed" class="nav-link">3. The Watershed</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Classic (4-9)</div>
+            <a href="#bars" class="nav-link">4-5. Ascending Bars</a>
+            <a href="#chevrons" class="nav-link">6-7. Nested Chevrons</a>
+            <a href="#blocks" class="nav-link">8-9. Building Blocks</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Approval</div>
+            <a href="#approval" class="nav-link">Final Sign-Off</a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <header class="hero">
+            <div class="hero-badge">CEO Review Document</div>
+            <h1 class="hero-title">Logo Generation Brief</h1>
+            <p class="hero-subtitle">Nine logo concepts ready for AI generation. Review expected results below and approve concepts for production.</p>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <strong>9 Concepts</strong>
+                    For Generation
+                </div>
+                <div class="hero-meta-item">
+                    <strong>3 Creative + 6 Classic</strong>
+                    Two Approaches
+                </div>
+                <div class="hero-meta-item">
+                    <strong>Gemini API</strong>
+                    Generation Engine
+                </div>
+                <div class="hero-meta-item">
+                    <strong>December 2025</strong>
+                    Target Date
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- Executive Summary -->
+            <section id="overview" class="section">
+                <div class="section-header">
+                    <div class="section-number">Executive Summary</div>
+                    <h2 class="section-title">What You're Approving</h2>
+                </div>
+
+                <div class="summary-box">
+                    <div class="summary-title">Two Strategic Directions</div>
+                    <div class="summary-text">
+                        <strong>Creative Concepts (1-3):</strong> Distinctive metaphor-based designs that tell a story. The Fulcrum (leverage), The Proof Seal (verification), and The Watershed (transformation). These avoid ALL generic business clichés.
+                        <br><br>
+                        <strong>Classic Concepts (4-9):</strong> Refined geometric patterns executed with intentional precision. Ascending Bars, Nested Chevrons, and Building Blocks — elevated above generic through careful color strategy and proportional design.
+                        <br><br>
+                        <strong>Target Audience Filter:</strong> Every concept is designed to make a 58-year-old staffing agency owner think "these people are serious" — not "these people are trying to impress me."
+                    </div>
+                </div>
+
+                <div class="quality-criteria" id="criteria">
+                    <h4>Quality Criteria — Each Logo Will Be Evaluated Against:</h4>
+                    <div class="quality-list">
+                        <div class="quality-item">Substance: Would a 58-year-old HVAC owner take this seriously?</div>
+                        <div class="quality-item">Precision: Does every angle feel intentional, not arbitrary?</div>
+                        <div class="quality-item">Cliché-Free: Avoids arrows, handshakes, rockets, globes</div>
+                        <div class="quality-item">Scalability: Recognizable at 24px favicon size</div>
+                        <div class="quality-item">Trust: Feels like proof, not promises</div>
+                        <div class="quality-item">Timeless: Will still work in 10 years</div>
+                        <div class="quality-item">Professional: $50K brand aesthetic, not $50 Fiverr</div>
+                        <div class="quality-item">Industry Fit: Works for staffing, vet, pest control, trades</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONCEPT 1: THE FULCRUM -->
+            <section id="fulcrum" class="section">
+                <div class="concept-card">
+                    <div class="concept-header">
+                        <div class="concept-number">1</div>
+                        <div class="concept-title-group">
+                            <div class="concept-category">Creative Concept</div>
+                            <div class="concept-name">The Fulcrum Mark</div>
+                        </div>
+                    </div>
+                    <div class="concept-body">
+                        <div class="preview-section">
+                            <div class="preview-visual">
+                                <svg viewBox="0 0 100 100" fill="none">
+                                    <polygon points="50,15 85,75 15,75" fill="none" stroke="#FAF8F5" stroke-width="4"/>
+                                    <circle cx="50" cy="75" r="6" fill="#D4A853"/>
+                                </svg>
+                                <div class="preview-label">Conceptual Preview</div>
+                            </div>
+                            <div class="preview-details">
+                                <h4>The Metaphor</h4>
+                                <p>A <strong>fulcrum</strong> is the pivot point of a lever — the exact coordinate where small, strategic force transforms into significant movement. This is precisely what ScaleUp delivers: strategic positioning that multiplies results.</p>
+                                <p>The mark represents the moment of maximum leverage — perfectly balanced, charged with potential energy.</p>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <div class="expected-result-title">Expected Visual Result</div>
+                            <div class="expected-result-text">
+                                <strong>Primary Version:</strong> An inverted triangle (or chevron) balanced on its apex point. The shape appears poised at the exact tipping point — stable yet ready to transform. The apex point features a small gold accent marking the "golden" fulcrum coordinate. Clean navy geometry, no decorative elements.<br><br>
+                                <strong>Variation A (The Wedge):</strong> An elongated 5:1 horizontal wedge shape with gold tip — like a machinist's precision tool.<br><br>
+                                <strong>Variation B (Intersection):</strong> Two rectangular planes of different sizes meeting at a gold-marked corner point — architectural and diagrammatic.<br><br>
+                                <strong>Overall Feel:</strong> Something you'd see etched into the glass door of a respected consulting firm. Confident without being aggressive. The precision of engineering.
+                            </div>
+                        </div>
+
+                        <div class="color-specs">
+                            <div class="color-chip"><div class="color-swatch" style="background:#0F1729"></div>Navy #0F1729</div>
+                            <div class="color-chip"><div class="color-swatch" style="background:#D4A853"></div>Gold Accent #D4A853</div>
+                            <div class="color-chip"><div class="color-swatch" style="background:#FFFFFF; border-color:#ddd"></div>White Background</div>
+                        </div>
+
+                        <div class="signoff-box">
+                            <div class="signoff-title">Concept Approval</div>
+                            <div class="signoff-options">
+                                <label class="signoff-option"><input type="checkbox"> Approve for generation</label>
+                                <label class="signoff-option"><input type="checkbox"> Generate with modifications (note below)</label>
+                                <label class="signoff-option"><input type="checkbox"> Do not generate</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONCEPT 2: THE PROOF SEAL -->
+            <section id="seal" class="section">
+                <div class="concept-card">
+                    <div class="concept-header">
+                        <div class="concept-number">2</div>
+                        <div class="concept-title-group">
+                            <div class="concept-category">Creative Concept</div>
+                            <div class="concept-name">The Proof Seal</div>
+                        </div>
+                    </div>
+                    <div class="concept-body">
+                        <div class="preview-section">
+                            <div class="preview-visual">
+                                <svg viewBox="0 0 100 100" fill="none">
+                                    <circle cx="50" cy="50" r="38" fill="none" stroke="#FAF8F5" stroke-width="5"/>
+                                    <circle cx="50" cy="50" r="28" fill="none" stroke="#FAF8F5" stroke-width="2"/>
+                                    <circle cx="42" cy="45" r="5" fill="#D4A853"/>
+                                    <circle cx="58" cy="45" r="5" fill="#D4A853"/>
+                                    <circle cx="50" cy="60" r="5" fill="#D4A853"/>
+                                </svg>
+                                <div class="preview-label">Conceptual Preview</div>
+                            </div>
+                            <div class="preview-details">
+                                <h4>The Metaphor</h4>
+                                <p>This audience responds to marks of quality assurance — notary seals, engineering stamps, professional certifications. The logo communicates <strong>PROVEN, VALIDATED, VERIFIED</strong>.</p>
+                                <p>Three "proof points" represent data points that converge to verify a thesis — like coordinates on a precision instrument.</p>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <div class="expected-result-title">Expected Visual Result</div>
+                            <div class="expected-result-text">
+                                <strong>Primary Version:</strong> Three concentric circular elements — a substantial outer ring (not thin hairline), a middle negative-space ring, and three small gold circles arranged in triangular formation at center. Feels like measurement markers on a precision instrument.<br><br>
+                                <strong>Variation A (Triangle of Proofs):</strong> Three gold circles at triangle vertices connected by thin navy lines, surrounded by substantial circular border. Survey marker aesthetic.<br><br>
+                                <strong>Variation B (Emblem):</strong> Circular seal with "SCALEUP" arcing top, "VENTURES" arcing bottom, three gold proof points in center. Wax seal aesthetic.<br><br>
+                                <strong>Overall Feel:</strong> The seriousness of an accounting firm's seal. Something you'd find embossed on bond certificates. Authority without coldness.
+                            </div>
+                        </div>
+
+                        <div class="color-specs">
+                            <div class="color-chip"><div class="color-swatch" style="background:#0F1729"></div>Navy Rings #0F1729</div>
+                            <div class="color-chip"><div class="color-swatch" style="background:#D4A853"></div>Gold Points #D4A853</div>
+                            <div class="color-chip"><div class="color-swatch" style="background:#FFFFFF; border-color:#ddd"></div>White Background</div>
+                        </div>
+
+                        <div class="signoff-box">
+                            <div class="signoff-title">Concept Approval</div>
+                            <div class="signoff-options">
+                                <label class="signoff-option"><input type="checkbox"> Approve for generation</label>
+                                <label class="signoff-option"><input type="checkbox"> Generate with modifications (note below)</label>
+                                <label class="signoff-option"><input type="checkbox"> Do not generate</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONCEPT 3: THE WATERSHED -->
+            <section id="watershed" class="section">
+                <div class="concept-card">
+                    <div class="concept-header">
+                        <div class="concept-number">3</div>
+                        <div class="concept-title-group">
+                            <div class="concept-category">Creative Concept</div>
+                            <div class="concept-name">The Watershed Mark</div>
+                        </div>
+                    </div>
+                    <div class="concept-body">
+                        <div class="preview-section">
+                            <div class="preview-visual">
+                                <svg viewBox="0 0 100 100" fill="none">
+                                    <line x1="30" y1="20" x2="50" y2="60" stroke="#FAF8F5" stroke-width="4"/>
+                                    <line x1="70" y1="20" x2="50" y2="60" stroke="#FAF8F5" stroke-width="4"/>
+                                    <line x1="50" y1="60" x2="50" y2="85" stroke="#D4A853" stroke-width="6"/>
+                                </svg>
+                                <div class="preview-label">Conceptual Preview</div>
+                            </div>
+                            <div class="preview-details">
+                                <h4>The Metaphor</h4>
+                                <p>A <strong>watershed</strong> is the critical turning point where separate streams converge into a single, powerful direction. This represents the transformation ScaleUp creates: scattered efforts becoming unified strength.</p>
+                                <p>This is about CONSOLIDATION and resulting power — not soft "connection."</p>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <div class="expected-result-title">Expected Visual Result</div>
+                            <div class="expected-result-text">
+                                <strong>Primary Version:</strong> Two or three angular lines approaching from different trajectories (15-45° from vertical), meeting at a convergence point in lower-center. Below the intersection, a single unified element continues — bolder/stronger than the approaching lines. Gold marks the transformation point.<br><br>
+                                <strong>Variation A (Negative Space):</strong> Solid navy shape with white negative space carving out the convergence pattern. The white tells the story; navy provides the frame.<br><br>
+                                <strong>Variation B (Keystone):</strong> Two angled lines pressing inward toward a central gold keystone shape — the critical piece that holds an arch together.<br><br>
+                                <strong>Overall Feel:</strong> Architectural and structural. Like it could be etched in steel or cast in bronze. Permanent, not trendy.
+                            </div>
+                        </div>
+
+                        <div class="color-specs">
+                            <div class="color-chip"><div class="color-swatch" style="background:#0F1729"></div>Navy Lines #0F1729</div>
+                            <div class="color-chip"><div class="color-swatch" style="background:#D4A853"></div>Gold Convergence #D4A853</div>
+                            <div class="color-chip"><div class="color-swatch" style="background:#FFFFFF; border-color:#ddd"></div>White Background</div>
+                        </div>
+
+                        <div class="signoff-box">
+                            <div class="signoff-title">Concept Approval</div>
+                            <div class="signoff-options">
+                                <label class="signoff-option"><input type="checkbox"> Approve for generation</label>
+                                <label class="signoff-option"><input type="checkbox"> Generate with modifications (note below)</label>
+                                <label class="signoff-option"><input type="checkbox"> Do not generate</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONCEPTS 4-5: ASCENDING BARS -->
+            <section id="bars" class="section">
+                <div class="concept-card">
+                    <div class="concept-header">
+                        <div class="concept-number">4-5</div>
+                        <div class="concept-title-group">
+                            <div class="concept-category">Classic Concept</div>
+                            <div class="concept-name">Ascending Bars</div>
+                        </div>
+                    </div>
+                    <div class="concept-body">
+                        <div class="preview-section">
+                            <div class="preview-visual">
+                                <svg viewBox="0 0 100 80" fill="none">
+                                    <rect x="10" y="55" width="14" height="20" fill="#B8956E"/>
+                                    <rect x="28" y="40" width="14" height="35" fill="#B8956E"/>
+                                    <rect x="46" y="25" width="14" height="50" fill="#FAF8F5"/>
+                                    <rect x="64" y="10" width="14" height="65" fill="#D4A853"/>
+                                </svg>
+                                <div class="preview-label">Conceptual Preview</div>
+                            </div>
+                            <div class="preview-details">
+                                <h4>The Concept</h4>
+                                <p>Four rectangular bars increasing in height from left to right — representing <strong>methodical, measurable growth</strong>. The kind of progress that can be tracked on a spreadsheet.</p>
+                                <p>Heights progress in intentional ratios (40%, 60%, 80%, 100%). The tallest bar in gold marks achievement and ROI.</p>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <div class="expected-result-title">Expected Visual Result</div>
+                            <div class="expected-result-text">
+                                <strong>Version 4 (Horizontal):</strong> Four bars with icon positioned LEFT of "ScaleUp Ventures" wordmark. Classic horizontal lockup for headers and business cards. 4:1 width-to-height ratio.<br><br>
+                                <strong>Version 5 (Stacked):</strong> Same four bars with icon ABOVE wordmark, centered. Square-friendly format for social profiles and app icons. 1:1.2 ratio.<br><br>
+                                <strong>Color Progression:</strong> Muted Gold → Muted Gold → Navy → Bright Gold (left to right). The jump to gold on the final bar represents breakthrough.<br><br>
+                                <strong>Overall Feel:</strong> The precision of a financial chart. Data-driven. Something an accountant would respect.
+                            </div>
+                        </div>
+
+                        <div class="color-specs">
+                            <div class="color-chip"><div class="color-swatch" style="background:#B8956E"></div>Muted #B8956E</div>
+                            <div class="color-chip"><div class="color-swatch" style="background:#0F1729"></div>Navy #0F1729</div>
+                            <div class="color-chip"><div class="color-swatch" style="background:#D4A853"></div>Gold #D4A853</div>
+                        </div>
+
+                        <div class="signoff-box">
+                            <div class="signoff-title">Concept Approval</div>
+                            <div class="signoff-options">
+                                <label class="signoff-option"><input type="checkbox"> Approve for generation</label>
+                                <label class="signoff-option"><input type="checkbox"> Generate with modifications (note below)</label>
+                                <label class="signoff-option"><input type="checkbox"> Do not generate</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONCEPTS 6-7: NESTED CHEVRONS -->
+            <section id="chevrons" class="section">
+                <div class="concept-card">
+                    <div class="concept-header">
+                        <div class="concept-number">6-7</div>
+                        <div class="concept-title-group">
+                            <div class="concept-category">Classic Concept</div>
+                            <div class="concept-name">Nested Chevrons</div>
+                        </div>
+                    </div>
+                    <div class="concept-body">
+                        <div class="preview-section">
+                            <div class="preview-visual">
+                                <svg viewBox="0 0 100 100" fill="none">
+                                    <path d="M50 20L75 45L50 38L25 45L50 20Z" fill="#D4A853"/>
+                                    <path d="M50 38L70 58L50 52L30 58L50 38Z" fill="#B8956E"/>
+                                    <path d="M50 54L62 66L50 62L38 66L50 54Z" fill="#FAF8F5"/>
+                                </svg>
+                                <div class="preview-label">Conceptual Preview</div>
+                            </div>
+                            <div class="preview-details">
+                                <h4>The Concept</h4>
+                                <p>Three or four chevron shapes (wide V-forms pointing upward) stacked vertically — conveying <strong>upward momentum and expansion</strong>.</p>
+                                <p>NOT arrows. These are architectural V-shapes suggesting layers of strategy building upon each other.</p>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <div class="expected-result-title">Expected Visual Result</div>
+                            <div class="expected-result-text">
+                                <strong>Version 6 (Primary):</strong> 3-4 chevrons nested vertically, largest at bottom, smallest at top. Top chevron in gold. Solid filled shapes. Horizontal lockup with wordmark.<br><br>
+                                <strong>Version 7 (Badge):</strong> Same chevrons contained within a circular or rounded-square navy container. Chevrons rendered in cream/gold. Creates "certification badge" quality for favicons and app icons.<br><br>
+                                <strong>Key Details:</strong> Apex angle 70-80°. Consistent spacing between chevrons — they never touch. Feels architectural and structural, not like arrows or checkmarks.<br><br>
+                                <strong>Overall Feel:</strong> Layers of foundation building upward. Load-bearing visual elements.
+                            </div>
+                        </div>
+
+                        <div class="color-specs">
+                            <div class="color-chip"><div class="color-swatch" style="background:#8B7355"></div>Dark Muted</div>
+                            <div class="color-chip"><div class="color-swatch" style="background:#B8956E"></div>Muted #B8956E</div>
+                            <div class="color-chip"><div class="color-swatch" style="background:#D4A853"></div>Gold Top #D4A853</div>
+                        </div>
+
+                        <div class="signoff-box">
+                            <div class="signoff-title">Concept Approval</div>
+                            <div class="signoff-options">
+                                <label class="signoff-option"><input type="checkbox"> Approve for generation</label>
+                                <label class="signoff-option"><input type="checkbox"> Generate with modifications (note below)</label>
+                                <label class="signoff-option"><input type="checkbox"> Do not generate</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONCEPTS 8-9: BUILDING BLOCKS -->
+            <section id="blocks" class="section">
+                <div class="concept-card">
+                    <div class="concept-header">
+                        <div class="concept-number">8-9</div>
+                        <div class="concept-title-group">
+                            <div class="concept-category">Classic Concept</div>
+                            <div class="concept-name">Building Blocks</div>
+                        </div>
+                    </div>
+                    <div class="concept-body">
+                        <div class="preview-section">
+                            <div class="preview-visual">
+                                <svg viewBox="0 0 100 100" fill="none">
+                                    <rect x="15" y="65" width="16" height="16" fill="#8B7355"/>
+                                    <rect x="33" y="49" width="16" height="16" fill="#B8956E"/>
+                                    <rect x="51" y="33" width="16" height="16" fill="#FAF8F5"/>
+                                    <rect x="69" y="17" width="16" height="16" fill="#D4A853"/>
+                                </svg>
+                                <div class="preview-label">Conceptual Preview</div>
+                            </div>
+                            <div class="preview-details">
+                                <h4>The Concept</h4>
+                                <p>Four identical square blocks arranged in an ascending pattern — representing <strong>calculated, proven growth through systematic building</strong>.</p>
+                                <p>Each block is a milestone achieved, built on the foundation of those before. Progress through methodical effort.</p>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <div class="expected-result-title">Expected Visual Result</div>
+                            <div class="expected-result-text">
+                                <strong>Version 8 (Diagonal):</strong> Four squares positioned on 45° diagonal axis from lower-left to upper-right. Like stepping stones. Nearly touching with minimal gap. Color progresses from dark muted to bright gold.<br><br>
+                                <strong>Version 9 (Staircase):</strong> Four squares arranged as stairs — each block offset up AND right by 50% of block size. More compact silhouette. Can be placed inside circular container for badge treatment.<br><br>
+                                <strong>Key Details:</strong> All squares identical size. Creates impression of systematic progress. Forward momentum without using arrows.<br><br>
+                                <strong>Overall Feel:</strong> Methodical progress. The patience of building something that lasts. One block at a time.
+                            </div>
+                        </div>
+
+                        <div class="color-specs">
+                            <div class="color-chip"><div class="color-swatch" style="background:#8B7355"></div>Block 1 (Dark)</div>
+                            <div class="color-chip"><div class="color-swatch" style="background:#B8956E"></div>Block 2 (Muted)</div>
+                            <div class="color-chip"><div class="color-swatch" style="background:#0F1729"></div>Block 3 (Navy)</div>
+                            <div class="color-chip"><div class="color-swatch" style="background:#D4A853"></div>Block 4 (Gold)</div>
+                        </div>
+
+                        <div class="signoff-box">
+                            <div class="signoff-title">Concept Approval</div>
+                            <div class="signoff-options">
+                                <label class="signoff-option"><input type="checkbox"> Approve for generation</label>
+                                <label class="signoff-option"><input type="checkbox"> Generate with modifications (note below)</label>
+                                <label class="signoff-option"><input type="checkbox"> Do not generate</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FINAL APPROVAL SECTION -->
+            <section id="approval" class="section">
+                <div class="approval-section">
+                    <h2 class="approval-title">Final Approval — CEO Sign-Off</h2>
+
+                    <div class="summary-box" style="margin-bottom: 2rem;">
+                        <div class="summary-title">What Happens Next</div>
+                        <div class="summary-text">
+                            Upon approval, these prompts will be submitted to Gemini's image generation API. Multiple variations of each approved concept will be generated, then evaluated against the 8-point quality criteria. The top 2-3 candidates will be presented for final selection and refinement.
+                        </div>
+                    </div>
+
+                    <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.1rem; margin-bottom: 1rem;">Quick Approval Grid</h3>
+                    <div class="approval-grid">
+                        <div class="approval-item">
+                            <div class="approval-item-name">1. The Fulcrum</div>
+                            <div class="approval-item-status">
+                                <button class="status-btn status-approve">Approve</button>
+                                <button class="status-btn status-revise">Revise</button>
+                            </div>
+                        </div>
+                        <div class="approval-item">
+                            <div class="approval-item-name">2. The Proof Seal</div>
+                            <div class="approval-item-status">
+                                <button class="status-btn status-approve">Approve</button>
+                                <button class="status-btn status-revise">Revise</button>
+                            </div>
+                        </div>
+                        <div class="approval-item">
+                            <div class="approval-item-name">3. The Watershed</div>
+                            <div class="approval-item-status">
+                                <button class="status-btn status-approve">Approve</button>
+                                <button class="status-btn status-revise">Revise</button>
+                            </div>
+                        </div>
+                        <div class="approval-item">
+                            <div class="approval-item-name">4-5. Ascending Bars</div>
+                            <div class="approval-item-status">
+                                <button class="status-btn status-approve">Approve</button>
+                                <button class="status-btn status-revise">Revise</button>
+                            </div>
+                        </div>
+                        <div class="approval-item">
+                            <div class="approval-item-name">6-7. Nested Chevrons</div>
+                            <div class="approval-item-status">
+                                <button class="status-btn status-approve">Approve</button>
+                                <button class="status-btn status-revise">Revise</button>
+                            </div>
+                        </div>
+                        <div class="approval-item">
+                            <div class="approval-item-name">8-9. Building Blocks</div>
+                            <div class="approval-item-status">
+                                <button class="status-btn status-approve">Approve</button>
+                                <button class="status-btn status-revise">Revise</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="signature-area">
+                        <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.1rem; margin-bottom: 0.5rem;">Executive Approval</h3>
+                        <p style="font-size: 0.85rem; color: var(--slate); margin-bottom: 1rem;">By signing below, I approve the generation of the selected logo concepts as described in this document.</p>
+                        <div class="signature-line">
+                            <div class="signature-field">
+                                <label>Signature</label>
+                                <div class="line"></div>
+                            </div>
+                            <div class="signature-field">
+                                <label>Date</label>
+                                <div class="line"></div>
+                            </div>
+                        </div>
+                        <div class="signature-line" style="margin-top: 1.5rem;">
+                            <div class="signature-field">
+                                <label>Print Name</label>
+                                <div class="line"></div>
+                            </div>
+                            <div class="signature-field">
+                                <label>Title</label>
+                                <div class="line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-text">
+                ScaleUp Ventures Logo Generation Brief | CEO Review Document | December 2025<br>
+                Nine concepts pending approval for AI generation via Gemini API
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Simple interactivity for approval buttons
+        document.querySelectorAll('.status-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const parent = this.parentElement;
+                parent.querySelectorAll('.status-btn').forEach(b => {
+                    b.style.opacity = '0.4';
+                });
+                this.style.opacity = '1';
+                if (this.classList.contains('status-approve')) {
+                    this.style.background = '#059669';
+                    this.style.color = 'white';
+                } else {
+                    this.style.background = '#d97706';
+                    this.style.color = 'white';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
