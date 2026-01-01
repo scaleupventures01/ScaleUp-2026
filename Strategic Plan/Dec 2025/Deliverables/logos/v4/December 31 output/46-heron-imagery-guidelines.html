@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heron Imagery Language Guidelines | ScaleUp Ventures</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --gold-light: #E8C878;
+            --navy-light: #1a2540;
+            --cream: #FAF8F5;
+            --warm-gray: #6B7280;
+            --light-gray: #F3F4F6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 10 Q60 30, 50 50 Q40 70, 50 90' stroke='%23D4A853' stroke-width='0.5' fill='none' opacity='0.1'/%3E%3C/svg%3E") repeat;
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .brand-mark {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .tagline {
+            font-size: 20px;
+            color: var(--gold-light);
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Heron Icon */
+        .heron-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+        }
+
+        /* Navigation */
+        .nav {
+            background: white;
+            border-bottom: 1px solid #E5E7EB;
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .nav a {
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 14px;
+            white-space: nowrap;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .nav a:hover {
+            background: var(--navy);
+            color: white;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 80px;
+            scroll-margin-top: 100px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .section-number {
+            background: var(--navy);
+            color: var(--gold);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .section-intro {
+            font-size: 18px;
+            color: var(--warm-gray);
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        /* Content Cards */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid #E5E7EB;
+        }
+
+        .content-card.highlight {
+            border-left: 4px solid var(--gold);
+        }
+
+        .content-card h3 {
+            font-size: 20px;
+            color: var(--navy);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-card h3 .icon {
+            color: var(--gold);
+        }
+
+        .content-card p {
+            color: var(--warm-gray);
+            margin-bottom: 15px;
+        }
+
+        .content-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-card li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: var(--navy);
+        }
+
+        .content-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 18px;
+            width: 8px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        /* Symbolism Section */
+        .symbolism-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .symbolism-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .symbol-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid #E5E7EB;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .symbol-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .symbol-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--navy);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .symbol-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--gold);
+        }
+
+        .symbol-card h3 {
+            font-size: 24px;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .symbol-card .attribute {
+            color: var(--gold);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .symbol-card p {
+            color: var(--warm-gray);
+            font-size: 15px;
+        }
+
+        /* Behavior Cards */
+        .behavior-section {
+            background: var(--navy);
+            border-radius: 24px;
+            padding: 60px;
+            margin: 40px 0;
+        }
+
+        .behavior-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .behavior-grid {
+                grid-template-columns: 1fr;
+            }
+            .behavior-section {
+                padding: 40px 25px;
+            }
+        }
+
+        .behavior-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            border-radius: 16px;
+            padding: 35px;
+            text-align: center;
+        }
+
+        .behavior-card .phase {
+            color: var(--gold);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .behavior-card h4 {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .behavior-card p {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .behavior-card .brand-connection {
+            background: rgba(212, 168, 83, 0.15);
+            border-radius: 8px;
+            padding: 15px;
+            color: var(--gold-light);
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        /* Language Tables */
+        .language-table {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .language-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .language-table th {
+            background: var(--navy);
+            color: white;
+            padding: 20px 25px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .language-table td {
+            padding: 20px 25px;
+            border-bottom: 1px solid #E5E7EB;
+            vertical-align: top;
+        }
+
+        .language-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .language-table .category {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .language-table .example {
+            color: var(--warm-gray);
+            font-style: italic;
+        }
+
+        .language-table .good {
+            color: #059669;
+        }
+
+        .language-table .avoid {
+            color: #DC2626;
+        }
+
+        /* Do/Don't Comparison */
+        .do-dont-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .do-dont-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .do-card, .dont-card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .do-card {
+            border-top: 4px solid #059669;
+        }
+
+        .dont-card {
+            border-top: 4px solid #DC2626;
+        }
+
+        .do-card h4, .dont-card h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .do-card h4 {
+            color: #059669;
+        }
+
+        .dont-card h4 {
+            color: #DC2626;
+        }
+
+        .do-card ul, .dont-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .do-card li, .dont-card li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid #F3F4F6;
+        }
+
+        .do-card li:last-child, .dont-card li:last-child {
+            border-bottom: none;
+        }
+
+        .do-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+        }
+
+        .dont-card li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #DC2626;
+            font-weight: bold;
+        }
+
+        /* Copy Examples */
+        .copy-examples {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .copy-example {
+            padding: 35px;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .copy-example:last-child {
+            border-bottom: none;
+        }
+
+        .copy-example .context {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .copy-example .copy-text {
+            font-size: 20px;
+            color: var(--navy);
+            line-height: 1.5;
+            font-style: italic;
+            padding-left: 20px;
+            border-left: 3px solid var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .copy-example .analysis {
+            font-size: 14px;
+            color: var(--warm-gray);
+            background: var(--light-gray);
+            padding: 15px 20px;
+            border-radius: 8px;
+        }
+
+        .copy-example .analysis strong {
+            color: var(--navy);
+        }
+
+        /* Visual Guidelines */
+        .visual-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .visual-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .visual-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .visual-card .preview {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .visual-card .preview.navy-bg {
+            background: var(--navy);
+        }
+
+        .visual-card .preview.gold-bg {
+            background: var(--gold);
+        }
+
+        .visual-card .preview.cream-bg {
+            background: var(--cream);
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .visual-card .preview.photo-bg {
+            background: linear-gradient(135deg, #1a2540 0%, #2d3748 100%);
+        }
+
+        .visual-card .content {
+            padding: 25px;
+        }
+
+        .visual-card h4 {
+            font-size: 18px;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .visual-card p {
+            font-size: 14px;
+            color: var(--warm-gray);
+        }
+
+        /* Usage Matrix */
+        .usage-matrix {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .usage-row {
+            display: grid;
+            grid-template-columns: 200px 1fr 1fr;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .usage-row:last-child {
+            border-bottom: none;
+        }
+
+        .usage-row.header {
+            background: var(--navy);
+            color: white;
+        }
+
+        .usage-row > div {
+            padding: 20px 25px;
+        }
+
+        .usage-row .context {
+            font-weight: 600;
+            color: var(--navy);
+            background: var(--light-gray);
+        }
+
+        .usage-row.header .context {
+            color: white;
+            background: transparent;
+        }
+
+        .usage-row .use, .usage-row .avoid {
+            font-size: 14px;
+        }
+
+        .usage-row .use {
+            border-right: 1px solid #E5E7EB;
+        }
+
+        @media (max-width: 768px) {
+            .usage-row {
+                grid-template-columns: 1fr;
+            }
+            .usage-row .use {
+                border-right: none;
+                border-bottom: 1px solid #E5E7EB;
+            }
+        }
+
+        /* Training Steps */
+        .training-steps {
+            counter-reset: training-step;
+        }
+
+        .training-step {
+            background: white;
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .training-step {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        .training-step .step-number {
+            counter-increment: training-step;
+            background: var(--navy);
+            color: var(--gold);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .training-step .step-number::before {
+            content: counter(training-step);
+        }
+
+        .training-step h4 {
+            font-size: 20px;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .training-step p {
+            color: var(--warm-gray);
+            margin-bottom: 15px;
+        }
+
+        .training-step .exercise {
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .training-step .exercise h5 {
+            font-size: 14px;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        /* Presentation Flow */
+        .presentation-flow {
+            background: var(--navy);
+            border-radius: 24px;
+            padding: 60px;
+        }
+
+        .slide-sequence {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .slide-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .slide-card .slide-num {
+            color: var(--gold);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .slide-card h5 {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .slide-card p {
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+        }
+
+        /* Quote Block */
+        .quote-block {
+            background: var(--navy);
+            border-radius: 16px;
+            padding: 50px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .quote-block blockquote {
+            font-size: 28px;
+            color: white;
+            font-style: italic;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto 20px;
+            line-height: 1.5;
+        }
+
+        .quote-block cite {
+            color: var(--gold);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Integration Section */
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .integration-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .integration-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--gold);
+        }
+
+        .integration-card h4 {
+            font-size: 16px;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .integration-card p {
+            font-size: 14px;
+            color: var(--warm-gray);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand span {
+            color: var(--gold);
+        }
+
+        .footer-tagline {
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Heron SVG Animation */
+        .heron-silhouette {
+            width: 60px;
+            height: 60px;
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav {
+                display: none;
+            }
+            section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="brand-mark">ScaleUp Ventures</div>
+            <svg class="heron-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" stroke="#D4A853" stroke-width="1" fill="none" opacity="0.3"/>
+                <path d="M50 15 L50 35 M45 35 Q50 25, 55 35 L55 45 Q55 50, 50 55 Q45 50, 45 45 L45 35" stroke="#D4A853" stroke-width="2" fill="none"/>
+                <path d="M50 55 L50 75 M45 75 L50 85 L55 75" stroke="#D4A853" stroke-width="2" fill="none"/>
+                <path d="M35 30 L50 35 L65 30" stroke="#D4A853" stroke-width="1.5" fill="none" opacity="0.5"/>
+            </svg>
+            <h1>Heron <span>Imagery</span> Language Guidelines</h1>
+            <p class="tagline">"Patience Before Precision"</p>
+            <p class="subtitle">A comprehensive guide to using the Great Blue Heron as a storytelling device across all ScaleUp Ventures communications</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#symbolism">Symbolic Meaning</a>
+            <a href="#behaviors">Key Behaviors</a>
+            <a href="#language">Language That Works</a>
+            <a href="#avoid">Language to Avoid</a>
+            <a href="#visual">Visual Guidelines</a>
+            <a href="#when-use">When to Use</a>
+            <a href="#when-not">When Not to Use</a>
+            <a href="#voice">Brand Voice</a>
+            <a href="#examples">Copy Examples</a>
+            <a href="#photography">Photography</a>
+            <a href="#presentations">Presentations</a>
+            <a href="#training">Training</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- Section 1: Symbolic Meaning -->
+        <section id="symbolism">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2 class="section-title">The Heron's Symbolic Meaning</h2>
+            </div>
+            <p class="section-intro">The Great Blue Heron embodies ScaleUp Ventures' investment philosophy: the art of patient observation followed by decisive, precise action. This is not passive waiting - it is active preparation.</p>
+
+            <div class="symbolism-grid">
+                <div class="symbol-card">
+                    <div class="symbol-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 5V3M12 21v-2M5 12H3M21 12h-2M7.05 7.05L5.636 5.636M18.364 18.364l-1.414-1.414M7.05 16.95l-1.414 1.414M18.364 5.636l-1.414 1.414"/></svg>
+                    </div>
+                    <div class="attribute">Core Symbol</div>
+                    <h3>Patient Observation</h3>
+                    <p>The heron stands motionless for hours, watching the water. This represents our deep due diligence - we study founders, markets, and opportunities with unhurried thoroughness.</p>
+                </div>
+
+                <div class="symbol-card">
+                    <div class="symbol-icon">
+                        <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <div class="attribute">Action Symbol</div>
+                    <h3>Decisive Strike</h3>
+                    <p>When the moment arrives, the heron strikes with lightning speed and surgical precision. This represents our commitment to move decisively when conviction is established.</p>
+                </div>
+
+                <div class="symbol-card">
+                    <div class="symbol-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div class="attribute">Unity Symbol</div>
+                    <h3>Patience Before Precision</h3>
+                    <p>The complete cycle - from stillness to action - represents our philosophy that certainty must precede commitment. This is our competitive advantage.</p>
+                </div>
+            </div>
+
+            <div class="quote-block">
+                <blockquote>"The heron never rushes, never doubts. It watches until it knows, then acts without hesitation. That is the ScaleUp way."</blockquote>
+                <cite>Brand Philosophy</cite>
+            </div>
+        </section>
+
+        <!-- Section 2: Key Behaviors -->
+        <section id="behaviors">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2 class="section-title">Key Heron Behaviors to Reference</h2>
+            </div>
+            <p class="section-intro">When incorporating heron imagery into communications, reference these three core behaviors. Each connects directly to ScaleUp Ventures' investment process and values.</p>
+
+            <div class="behavior-section">
+                <div class="behavior-grid">
+                    <div class="behavior-card">
+                        <div class="phase">Phase One</div>
+                        <h4>Watching</h4>
+                        <p>The heron positions itself at the water's edge, eyes fixed on the surface. It reads ripples, shadows, movement patterns. Nothing escapes its attention.</p>
+                        <div class="brand-connection">
+                            <strong>Brand Connection:</strong> Our discovery and research phase. We study founders, technology, markets, and competitive landscapes with complete focus.
+                        </div>
+                    </div>
+
+                    <div class="behavior-card">
+                        <div class="phase">Phase Two</div>
+                        <h4>Waiting</h4>
+                        <p>Unlike predators who chase, the heron waits. It trusts that the right moment will come. This patience is not passive - it is purposeful restraint.</p>
+                        <div class="brand-connection">
+                            <strong>Brand Connection:</strong> Our diligence and conviction-building phase. We don't rush to deploy capital. We build certainty through thorough analysis.
+                        </div>
+                    </div>
+
+                    <div class="behavior-card">
+                        <div class="phase">Phase Three</div>
+                        <h4>Striking</h4>
+                        <p>When the moment arrives, the strike is instantaneous and accurate. The heron's beak finds its target with remarkable precision - no wasted motion.</p>
+                        <div class="brand-connection">
+                            <strong>Brand Connection:</strong> Our investment commitment phase. Once certainty is established, we move decisively with clear terms and rapid execution.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card highlight">
+                    <h3><span class="icon">&#9679;</span> Secondary Behaviors</h3>
+                    <ul>
+                        <li><strong>Standing on one leg:</strong> Balance and efficiency - doing more with less</li>
+                        <li><strong>Solitary nature:</strong> Independence and conviction in our own analysis</li>
+                        <li><strong>Dawn and dusk hunting:</strong> Working when others rest, seeing what others miss</li>
+                        <li><strong>Returning to the same waters:</strong> Deep expertise in specific sectors</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3><span class="icon">&#9679;</span> Physical Attributes</h3>
+                    <ul>
+                        <li><strong>Long neck:</strong> Extended reach - connecting founders to networks</li>
+                        <li><strong>Sharp eyes:</strong> Pattern recognition across industries</li>
+                        <li><strong>Large wingspan:</strong> Broad perspective on market trends</li>
+                        <li><strong>Quiet presence:</strong> Working without fanfare</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Language That Works -->
+        <section id="language">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2 class="section-title">Heron Language That Works in Copy</h2>
+            </div>
+            <p class="section-intro">These phrases, metaphors, and references work effectively across ScaleUp communications. They evoke the heron's qualities without being heavy-handed or overly literal.</p>
+
+            <div class="language-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Phrases That Work</th>
+                            <th>Usage Context</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="category">Patience Metaphors</td>
+                            <td>
+                                <span class="example">"We stand at the water's edge"</span><br>
+                                <span class="example">"The stillness before certainty"</span><br>
+                                <span class="example">"Reading the surface, understanding the depths"</span>
+                            </td>
+                            <td>About pages, philosophy statements, investor communications</td>
+                        </tr>
+                        <tr>
+                            <td class="category">Action Metaphors</td>
+                            <td>
+                                <span class="example">"When conviction comes, so does commitment"</span><br>
+                                <span class="example">"Precision, not hesitation"</span><br>
+                                <span class="example">"The moment arrives; we're ready"</span>
+                            </td>
+                            <td>Deal announcements, partnership communications</td>
+                        </tr>
+                        <tr>
+                            <td class="category">Process References</td>
+                            <td>
+                                <span class="example">"Our process mirrors nature's patience"</span><br>
+                                <span class="example">"Certainty first, then action"</span><br>
+                                <span class="example">"We observe before we commit"</span>
+                            </td>
+                            <td>Pitch decks, founder communications, process explanations</td>
+                        </tr>
+                        <tr>
+                            <td class="category">Subtle Allusions</td>
+                            <td>
+                                <span class="example">"Patient capital for precise outcomes"</span><br>
+                                <span class="example">"Watching, waiting, winning"</span><br>
+                                <span class="example">"Stillness is our edge"</span>
+                            </td>
+                            <td>Taglines, headers, social media, email signatures</td>
+                        </tr>
+                        <tr>
+                            <td class="category">Abstract Qualities</td>
+                            <td>
+                                <span class="example">"The discipline of observation"</span><br>
+                                <span class="example">"Earned conviction"</span><br>
+                                <span class="example">"Measured moves, meaningful outcomes"</span>
+                            </td>
+                            <td>Thought leadership, long-form content</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="content-card highlight">
+                <h3><span class="icon">&#9679;</span> Tone Guidance</h3>
+                <p>Heron language should feel:</p>
+                <ul>
+                    <li><strong>Natural, not forced:</strong> The reference should emerge organically from context</li>
+                    <li><strong>Evocative, not explicit:</strong> Suggest the heron's qualities without naming the bird directly in most cases</li>
+                    <li><strong>Confident, not aggressive:</strong> The heron embodies quiet confidence, not predatory intensity</li>
+                    <li><strong>Timeless, not trendy:</strong> Language should feel as enduring as the behavior it references</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 4: Language to Avoid -->
+        <section id="avoid">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2 class="section-title">Heron Language to Avoid</h2>
+            </div>
+            <p class="section-intro">Certain uses of heron imagery undermine the brand's sophistication. Avoid language that is too literal, too aggressive, or too cutesy.</p>
+
+            <div class="do-dont-grid">
+                <div class="dont-card">
+                    <h4><span>&#10007;</span> Too Literal</h4>
+                    <ul>
+                        <li>"Like a heron hunting fish, we hunt deals"</li>
+                        <li>"Our team members are herons in the investment ecosystem"</li>
+                        <li>"We fish for the best startups"</li>
+                        <li>"Standing in the startup waters"</li>
+                        <li>"Our beak is always sharp"</li>
+                        <li>Any copy that requires explaining the heron metaphor</li>
+                    </ul>
+                </div>
+
+                <div class="dont-card">
+                    <h4><span>&#10007;</span> Too Aggressive</h4>
+                    <ul>
+                        <li>"We strike when prey is vulnerable"</li>
+                        <li>"Hunting the best founders"</li>
+                        <li>"Our predatory patience"</li>
+                        <li>"Catching startups before competitors"</li>
+                        <li>"Swooping in for the kill"</li>
+                        <li>Any language that positions founders as prey</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="do-dont-grid" style="margin-top: 30px;">
+                <div class="dont-card">
+                    <h4><span>&#10007;</span> Too Cute or Casual</h4>
+                    <ul>
+                        <li>"We're a bunch of herons around here!"</li>
+                        <li>"Wading into new investments"</li>
+                        <li>"Our nest of portfolio companies"</li>
+                        <li>"Flying high with our founders"</li>
+                        <li>"Spreading our wings"</li>
+                        <li>Bird puns or wordplay</li>
+                    </ul>
+                </div>
+
+                <div class="dont-card">
+                    <h4><span>&#10007;</span> Overused or Cliche</h4>
+                    <ul>
+                        <li>"The early bird catches the worm" (wrong bird, wrong metaphor)</li>
+                        <li>"Taking flight"</li>
+                        <li>"Soaring to new heights"</li>
+                        <li>"A bird's eye view"</li>
+                        <li>Generic bird imagery not specific to heron behavior</li>
+                        <li>Any phrase you've heard from other investment firms</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-card" style="margin-top: 30px;">
+                <h3><span class="icon">&#9679;</span> The Test for Good Heron Language</h3>
+                <p>Before using heron-inspired language, ask:</p>
+                <ul>
+                    <li>Does this feel natural in context, or does it call attention to itself?</li>
+                    <li>Would a reader unfamiliar with our brand symbol still understand and appreciate this?</li>
+                    <li>Does this elevate our message, or does it feel gimmicky?</li>
+                    <li>Is this specific to the heron's actual behavior, or just generic bird language?</li>
+                    <li>Does this respect founders as partners, not prey?</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 5: Visual Usage Guidelines -->
+        <section id="visual">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2 class="section-title">Visual Usage Guidelines for the Heron Symbol</h2>
+            </div>
+            <p class="section-intro">The heron mark appears in multiple contexts. These guidelines ensure consistent, impactful visual representation across all applications.</p>
+
+            <div class="visual-grid">
+                <div class="visual-card">
+                    <div class="preview navy-bg">
+                        <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+                            <path d="M50 15 L50 35 M45 35 Q50 25, 55 35 L55 45 Q55 50, 50 55 Q45 50, 45 45 L45 35" stroke="#D4A853" stroke-width="3" fill="none"/>
+                            <path d="M50 55 L50 75 M45 75 L50 85 L55 75" stroke="#D4A853" stroke-width="3" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="content">
+                        <h4>Primary: Gold on Navy</h4>
+                        <p>The default configuration. Gold (#D4A853) heron on Navy (#0F1729) background. Use for hero sections, primary brand moments, and formal applications.</p>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <div class="preview cream-bg">
+                        <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+                            <path d="M50 15 L50 35 M45 35 Q50 25, 55 35 L55 45 Q55 50, 50 55 Q45 50, 45 45 L45 35" stroke="#0F1729" stroke-width="3" fill="none"/>
+                            <path d="M50 55 L50 75 M45 75 L50 85 L55 75" stroke="#0F1729" stroke-width="3" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="content">
+                        <h4>Secondary: Navy on Light</h4>
+                        <p>Navy (#0F1729) heron on cream or white backgrounds. Use for documents, lighter digital interfaces, and supporting applications.</p>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <div class="preview photo-bg">
+                        <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+                            <path d="M50 15 L50 35 M45 35 Q50 25, 55 35 L55 45 Q55 50, 50 55 Q45 50, 45 45 L45 35" stroke="white" stroke-width="3" fill="none"/>
+                            <path d="M50 55 L50 75 M45 75 L50 85 L55 75" stroke="white" stroke-width="3" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="content">
+                        <h4>White on Photography</h4>
+                        <p>White heron on approved photography or dark gradients. Ensure adequate contrast and clear space around the mark.</p>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <div class="preview gold-bg">
+                        <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+                            <path d="M50 15 L50 35 M45 35 Q50 25, 55 35 L55 45 Q55 50, 50 55 Q45 50, 45 45 L45 35" stroke="#0F1729" stroke-width="3" fill="none"/>
+                            <path d="M50 55 L50 75 M45 75 L50 85 L55 75" stroke="#0F1729" stroke-width="3" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="content">
+                        <h4>Accent: Navy on Gold</h4>
+                        <p>Use sparingly for high-impact moments. Navy heron on gold field creates strong emphasis. Reserve for special occasions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-grid" style="margin-top: 40px;">
+                <div class="content-card highlight">
+                    <h3><span class="icon">&#9679;</span> Clear Space Requirements</h3>
+                    <ul>
+                        <li>Minimum clear space equals the height of the heron's head on all sides</li>
+                        <li>Never crowd the heron with text, images, or other elements</li>
+                        <li>When in doubt, add more space rather than less</li>
+                        <li>The heron's presence should feel contemplative, not cramped</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3><span class="icon">&#9679;</span> Scale and Proportion</h3>
+                    <ul>
+                        <li>Minimum size: 20px height for digital, 0.25" for print</li>
+                        <li>Maintain original proportions - never stretch or compress</li>
+                        <li>The heron can stand alone or pair with wordmark</li>
+                        <li>Scale appropriately for the viewing distance of each application</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: When to Evoke Heron Imagery -->
+        <section id="when-use">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2 class="section-title">When to Evoke Heron Imagery</h2>
+            </div>
+            <p class="section-intro">Heron imagery is most powerful when used strategically at key brand moments. These guidelines help identify the right opportunities.</p>
+
+            <div class="usage-matrix">
+                <div class="usage-row header">
+                    <div class="context">Context</div>
+                    <div class="use">How to Use</div>
+                    <div class="avoid">Intensity Level</div>
+                </div>
+                <div class="usage-row">
+                    <div class="context">Website Homepage</div>
+                    <div class="use">Feature the heron mark prominently. Use philosophy language ("Patience before precision") in hero section.</div>
+                    <div class="avoid"><strong>High</strong> - This is a key brand moment</div>
+                </div>
+                <div class="usage-row">
+                    <div class="context">About Page</div>
+                    <div class="use">Tell the full heron story. Explain the symbolism. Use the three-phase metaphor (watching, waiting, striking).</div>
+                    <div class="avoid"><strong>High</strong> - Full narrative appropriate</div>
+                </div>
+                <div class="usage-row">
+                    <div class="context">Investment Announcements</div>
+                    <div class="use">Subtle language only: "After careful observation..." or "We've built conviction..." Let the deal speak for itself.</div>
+                    <div class="avoid"><strong>Low</strong> - Focus on the founder</div>
+                </div>
+                <div class="usage-row">
+                    <div class="context">Pitch Decks</div>
+                    <div class="use">One slide explaining philosophy. Heron mark on title/closing slides. Subtle language throughout.</div>
+                    <div class="avoid"><strong>Medium</strong> - Balance brand with content</div>
+                </div>
+                <div class="usage-row">
+                    <div class="context">Investor Updates</div>
+                    <div class="use">Heron mark in header. Occasional references to "our patient approach" or "building conviction." Data-forward.</div>
+                    <div class="avoid"><strong>Low</strong> - Focus on performance</div>
+                </div>
+                <div class="usage-row">
+                    <div class="context">Thought Leadership</div>
+                    <div class="use">Use patience/precision framing for contrarian positions. The heron philosophy can anchor investment thesis pieces.</div>
+                    <div class="avoid"><strong>Medium-High</strong> - Philosophy-appropriate</div>
+                </div>
+                <div class="usage-row">
+                    <div class="context">Social Media</div>
+                    <div class="use">Occasional references that feel earned. Heron mark in profile. Wisdom-oriented quotes and observations.</div>
+                    <div class="avoid"><strong>Low-Medium</strong> - Don't overuse</div>
+                </div>
+                <div class="usage-row">
+                    <div class="context">Email Signatures</div>
+                    <div class="use">Small heron mark or tagline. Keep it subtle - this is ambient branding, not a pitch.</div>
+                    <div class="avoid"><strong>Low</strong> - Simple, subtle</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: When NOT to Use -->
+        <section id="when-not">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2 class="section-title">When NOT to Use Heron References</h2>
+            </div>
+            <p class="section-intro">Some contexts require the heron to step back. Using the symbol or language inappropriately can dilute its impact or create tone-deaf moments.</p>
+
+            <div class="content-grid">
+                <div class="content-card" style="border-left: 4px solid #DC2626;">
+                    <h3>Never Use During:</h3>
+                    <ul>
+                        <li><strong>Portfolio company failures:</strong> The heron symbolizes successful patience - don't invoke it when discussing losses</li>
+                        <li><strong>Rushed decisions:</strong> If you're moving fast, don't pretend it's heron-like patience</li>
+                        <li><strong>Competitive attacks:</strong> The heron is not a weapon against other firms</li>
+                        <li><strong>Crisis communications:</strong> Clear, direct language without metaphor</li>
+                        <li><strong>Legal/compliance documents:</strong> Plain language only</li>
+                    </ul>
+                </div>
+
+                <div class="content-card" style="border-left: 4px solid #DC2626;">
+                    <h3>Avoid Overuse In:</h3>
+                    <ul>
+                        <li><strong>Every communication:</strong> If everything is heron-themed, nothing stands out</li>
+                        <li><strong>Founder-facing materials:</strong> Lead with value to them, not our symbolism</li>
+                        <li><strong>Quick updates:</strong> Don't dress up routine communications</li>
+                        <li><strong>Internal Slack/chat:</strong> Keep it natural with the team</li>
+                        <li><strong>External partnerships:</strong> Let the partner's brand shine</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="quote-block" style="margin-top: 40px;">
+                <blockquote>"The power of the heron imagery comes from restraint. If we invoke it constantly, we become the firm that talks about herons rather than the firm that embodies heron-like precision."</blockquote>
+                <cite>Brand Principle</cite>
+            </div>
+        </section>
+
+        <!-- Section 8: Integration with Brand Voice -->
+        <section id="voice">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <h2 class="section-title">Integration with Brand Voice</h2>
+            </div>
+            <p class="section-intro">Heron imagery should amplify, not replace, our core voice attributes. Here's how they work together.</p>
+
+            <div class="integration-grid">
+                <div class="integration-card">
+                    <h4>Confident + Heron</h4>
+                    <p>The heron reinforces confidence - it knows its abilities and doesn't need to prove them through noise. Confidence becomes quiet certainty.</p>
+                </div>
+                <div class="integration-card">
+                    <h4>Clear + Heron</h4>
+                    <p>Like the heron's focused gaze, our communications cut through noise. Heron imagery should clarify, not complicate.</p>
+                </div>
+                <div class="integration-card">
+                    <h4>Strategic + Heron</h4>
+                    <p>The heron doesn't hunt randomly - it chooses its position with care. Our strategic voice gains texture from this intentionality.</p>
+                </div>
+                <div class="integration-card">
+                    <h4>Thoughtful + Heron</h4>
+                    <p>The patience before the strike. Heron imagery deepens our thoughtful tone, adding texture to careful analysis.</p>
+                </div>
+                <div class="integration-card">
+                    <h4>Direct + Heron</h4>
+                    <p>The strike itself - no wasted motion. When we're direct, we channel the heron's decisive action.</p>
+                </div>
+                <div class="integration-card">
+                    <h4>Partnership-Oriented + Heron</h4>
+                    <p>The heron respects its environment. We observe and understand founders before acting - patience enables partnership.</p>
+                </div>
+            </div>
+
+            <div class="content-card highlight" style="margin-top: 40px;">
+                <h3><span class="icon">&#9679;</span> Voice-Heron Balance by Channel</h3>
+                <ul>
+                    <li><strong>High-stakes communications (LP updates, major announcements):</strong> Lead with voice, add subtle heron undertones</li>
+                    <li><strong>Brand storytelling (about pages, philosophy content):</strong> Heron imagery takes center stage</li>
+                    <li><strong>Operational communications (term sheets, processes):</strong> Voice only, no heron references</li>
+                    <li><strong>Relationship building (founder emails, intros):</strong> Warm voice first, heron philosophy implicit</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 9: Copy Examples -->
+        <section id="examples">
+            <div class="section-header">
+                <div class="section-number">9</div>
+                <h2 class="section-title">Examples of Heron-Infused Copy</h2>
+            </div>
+            <p class="section-intro">These examples demonstrate how to weave heron imagery naturally into various communications. Note the range from explicit to subtle.</p>
+
+            <div class="copy-examples">
+                <div class="copy-example">
+                    <div class="context">Website Hero - Philosophy Statement</div>
+                    <div class="copy-text">"Most investors chase. We observe. Most move on momentum. We move on conviction. This is the discipline of patience before precision - and it's why the founders we back succeed."</div>
+                    <div class="analysis"><strong>Analysis:</strong> No direct heron mention, but the watching/waiting/striking cycle is clearly present. The contrast with "most investors" positions patience as differentiator. Strong use of parallelism.</div>
+                </div>
+
+                <div class="copy-example">
+                    <div class="context">Investment Announcement</div>
+                    <div class="copy-text">"After months of understanding the healthcare analytics space and building deep conviction in the team, we're honored to lead Vitality AI's Series A."</div>
+                    <div class="analysis"><strong>Analysis:</strong> Very subtle - "months of understanding" and "building conviction" echo heron behavior without naming it. The focus remains on the founder and company.</div>
+                </div>
+
+                <div class="copy-example">
+                    <div class="context">LP Update - Quarterly Letter</div>
+                    <div class="copy-text">"This quarter, we maintained our disciplined pace - adding two companies to the portfolio after extensive diligence while continuing to track several opportunities that haven't yet reached our conviction threshold."</div>
+                    <div class="analysis"><strong>Analysis:</strong> The heron philosophy is embedded in "disciplined pace" and "conviction threshold." Professional tone appropriate for LP communications.</div>
+                </div>
+
+                <div class="copy-example">
+                    <div class="context">About Page - Full Story</div>
+                    <div class="copy-text">"The Great Blue Heron hunts differently than other birds. It stands motionless at the water's edge, watching. Reading patterns. Building understanding. And when certainty arrives, it strikes with remarkable precision. We invest the same way. Our patience isn't passivity - it's preparation. Our conviction isn't guesswork - it's earned. Certainty First."</div>
+                    <div class="analysis"><strong>Analysis:</strong> This is appropriate for brand storytelling pages where the full metaphor can unfold. The connection to investment process is explicit but not forced.</div>
+                </div>
+
+                <div class="copy-example">
+                    <div class="context">Social Media - Thought Leadership</div>
+                    <div class="copy-text">"The best investment decisions we've made weren't the fastest - they were the most certain. Speed is overrated. Conviction isn't."</div>
+                    <div class="analysis"><strong>Analysis:</strong> Pure philosophy, no heron mention, but the patience-before-precision principle is clear. Appropriate for platforms where brevity matters.</div>
+                </div>
+
+                <div class="copy-example">
+                    <div class="context">Email to Prospective Founder</div>
+                    <div class="copy-text">"We've been watching the supply chain automation space closely for the past year, and your approach to [specific thing] caught our attention. We'd love to learn more about where you're headed."</div>
+                    <div class="analysis"><strong>Analysis:</strong> "Watching closely" is a natural phrase that also nods to heron behavior. The focus is on the founder's work, not our philosophy.</div>
+                </div>
+
+                <div class="copy-example">
+                    <div class="context">Presentation Closing Slide</div>
+                    <div class="copy-text">"Patience before precision. Certainty first."</div>
+                    <div class="analysis"><strong>Analysis:</strong> The full tagline for high-impact brand moments. Works on closing slides, presentations, and key communications.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Photography & Illustration Direction -->
+        <section id="photography">
+            <div class="section-header">
+                <div class="section-number">10</div>
+                <h2 class="section-title">Photography & Illustration Direction</h2>
+            </div>
+            <p class="section-intro">When using actual heron imagery (beyond the brand mark), follow these guidelines to maintain brand consistency and quality.</p>
+
+            <div class="content-grid">
+                <div class="content-card highlight">
+                    <h3><span class="icon">&#9679;</span> Photography - Do</h3>
+                    <ul>
+                        <li>Great Blue Herons specifically (not other heron species)</li>
+                        <li>Herons in still, observant poses - standing, watching water</li>
+                        <li>Early morning or late afternoon light (golden hour preferred)</li>
+                        <li>Clean, uncluttered backgrounds - water, sky, simple landscapes</li>
+                        <li>Natural settings - marshes, lakes, coastal waters</li>
+                        <li>Color grading that emphasizes our navy and gold palette</li>
+                        <li>Dignified, majestic poses that convey patience and focus</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3><span class="icon">&#9679;</span> Photography - Avoid</h3>
+                    <ul>
+                        <li>Herons with prey in their beaks (too aggressive)</li>
+                        <li>Action shots of striking (too violent for brand tone)</li>
+                        <li>Cartoon-style or overly processed images</li>
+                        <li>Crowded scenes with multiple birds</li>
+                        <li>Herons in flight (our symbol is about stillness)</li>
+                        <li>Stock photography that looks generic or overused</li>
+                        <li>Extreme close-ups that lose the elegance of the full form</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-card" style="margin-top: 30px;">
+                <h3><span class="icon">&#9679;</span> Illustration Guidelines</h3>
+                <p>When creating custom heron illustrations:</p>
+                <ul>
+                    <li><strong>Style:</strong> Minimalist, geometric, or refined line art - never cartoonish</li>
+                    <li><strong>Pose:</strong> Standing pose with neck extended or elegant S-curve</li>
+                    <li><strong>Color:</strong> Single color (navy, gold, or white) rather than realistic coloring</li>
+                    <li><strong>Detail level:</strong> Suggest the form rather than rendering every feather</li>
+                    <li><strong>Mood:</strong> Contemplative, dignified, patient - not aggressive or playful</li>
+                    <li><strong>Integration:</strong> Can be used as watermarks, background elements, or featured graphics</li>
+                </ul>
+            </div>
+
+            <div class="visual-grid" style="margin-top: 40px;">
+                <div class="visual-card">
+                    <div class="preview navy-bg" style="flex-direction: column; gap: 10px;">
+                        <span style="color: var(--gold); font-size: 14px; letter-spacing: 2px;">APPROVED STYLES</span>
+                        <span style="color: white; font-size: 13px;">Geometric | Minimalist | Line Art | Silhouette</span>
+                    </div>
+                    <div class="content">
+                        <h4>Illustration Styles That Work</h4>
+                        <p>Clean, sophisticated approaches that convey the heron's elegance without unnecessary detail or whimsy.</p>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <div class="preview cream-bg" style="flex-direction: column; gap: 10px;">
+                        <span style="color: #DC2626; font-size: 14px; letter-spacing: 2px;">AVOID</span>
+                        <span style="color: var(--navy); font-size: 13px;">Cartoon | Realistic | Aggressive | Playful</span>
+                    </div>
+                    <div class="content">
+                        <h4>Illustration Styles to Avoid</h4>
+                        <p>Overly detailed, casual, or aggressive styles that undermine the heron's dignified, patient nature.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 11: Presentation Narrative -->
+        <section id="presentations">
+            <div class="section-header">
+                <div class="section-number">11</div>
+                <h2 class="section-title">Heron Narrative for Presentations</h2>
+            </div>
+            <p class="section-intro">When presenting the ScaleUp story, the heron narrative provides a memorable through-line. Here's how to structure it.</p>
+
+            <div class="presentation-flow">
+                <div class="slide-sequence">
+                    <div class="slide-card">
+                        <div class="slide-num">Opening</div>
+                        <h5>The Symbol</h5>
+                        <p>Introduce the heron as our symbol with a striking image or mark.</p>
+                    </div>
+                    <div class="slide-card">
+                        <div class="slide-num">Context</div>
+                        <h5>The Problem</h5>
+                        <p>Most investors chase deals. Speed creates mistakes.</p>
+                    </div>
+                    <div class="slide-card">
+                        <div class="slide-num">Insight</div>
+                        <h5>The Behavior</h5>
+                        <p>Watching, waiting, striking. The heron's three phases.</p>
+                    </div>
+                    <div class="slide-card">
+                        <div class="slide-num">Connection</div>
+                        <h5>Our Process</h5>
+                        <p>How we mirror this: research, conviction, commitment.</p>
+                    </div>
+                    <div class="slide-card">
+                        <div class="slide-num">Proof</div>
+                        <h5>The Results</h5>
+                        <p>Portfolio outcomes that prove the approach.</p>
+                    </div>
+                    <div class="slide-card">
+                        <div class="slide-num">Close</div>
+                        <h5>The Promise</h5>
+                        <p>"Certainty First" - our commitment to founders.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-grid" style="margin-top: 40px;">
+                <div class="content-card highlight">
+                    <h3><span class="icon">&#9679;</span> Speaking Points</h3>
+                    <p>When presenting the heron narrative verbally:</p>
+                    <ul>
+                        <li><strong>Start with contrast:</strong> "Most investors... but we..."</li>
+                        <li><strong>Make it vivid:</strong> Describe the heron's actual behavior</li>
+                        <li><strong>Connect personally:</strong> Share a specific investment where patience paid off</li>
+                        <li><strong>Land on principle:</strong> "That's why we believe certainty comes first"</li>
+                        <li><strong>Don't over-explain:</strong> The metaphor should click quickly</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3><span class="icon">&#9679;</span> Audience Adaptation</h3>
+                    <ul>
+                        <li><strong>For LPs:</strong> Emphasize discipline, risk management, thesis-driven approach</li>
+                        <li><strong>For Founders:</strong> Emphasize deep support, conviction, patient partnership</li>
+                        <li><strong>For Press:</strong> Emphasize differentiation from "spray and pray" investors</li>
+                        <li><strong>For Team:</strong> Emphasize culture and values alignment</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 12: Training Guide -->
+        <section id="training">
+            <div class="section-header">
+                <div class="section-number">12</div>
+                <h2 class="section-title">Training Guide for New Team Members</h2>
+            </div>
+            <p class="section-intro">When onboarding new team members, use this structured approach to instill the heron philosophy and ensure consistent usage.</p>
+
+            <div class="training-steps">
+                <div class="training-step">
+                    <div class="step-number"></div>
+                    <div>
+                        <h4>Understand the Origin</h4>
+                        <p>Learn why the Great Blue Heron was chosen as ScaleUp's symbol. Study the connection between heron hunting behavior and investment philosophy.</p>
+                        <div class="exercise">
+                            <h5>Exercise</h5>
+                            <p>Watch 10 minutes of heron hunting footage. Write down three observations about the heron's behavior that connect to patient investing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="training-step">
+                    <div class="step-number"></div>
+                    <div>
+                        <h4>Study These Guidelines</h4>
+                        <p>Read through this entire document. Pay particular attention to the "Language That Works" and "Language to Avoid" sections.</p>
+                        <div class="exercise">
+                            <h5>Exercise</h5>
+                            <p>Find three examples of heron-inspired language from our website or public communications. Explain why each works.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="training-step">
+                    <div class="step-number"></div>
+                    <div>
+                        <h4>Practice Writing</h4>
+                        <p>Write sample copy for different contexts: an email to a founder, a LinkedIn post, an LP update paragraph. Get feedback from a senior team member.</p>
+                        <div class="exercise">
+                            <h5>Exercise</h5>
+                            <p>Write both versions of a company announcement - one with too much heron language, one with the right balance. Compare them.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="training-step">
+                    <div class="step-number"></div>
+                    <div>
+                        <h4>Internalize, Don't Imitate</h4>
+                        <p>The goal isn't to use heron phrases mechanically - it's to think with the heron philosophy. The language should emerge naturally from genuine patience and conviction.</p>
+                        <div class="exercise">
+                            <h5>Exercise</h5>
+                            <p>For one week, document every investment decision you observe. Note where patience led to better outcomes. Bring examples to your manager.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="training-step">
+                    <div class="step-number"></div>
+                    <div>
+                        <h4>Embody the Philosophy</h4>
+                        <p>The heron isn't just a symbol - it's how we work. Slow down. Build conviction before acting. Be decisive when certainty arrives. The best heron language comes from living the values.</p>
+                        <div class="exercise">
+                            <h5>Exercise</h5>
+                            <p>Ask a founder how our investment process felt to them. Listen for words like "thorough," "patient," "decisive." That's the heron philosophy in action.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card highlight" style="margin-top: 40px;">
+                <h3><span class="icon">&#9679;</span> Quick Reference Checklist</h3>
+                <p>Before publishing any content, ask yourself:</p>
+                <ul>
+                    <li>Is any heron reference natural and earned, or forced?</li>
+                    <li>Am I using patience/precision language without being literal?</li>
+                    <li>Would someone unfamiliar with our brand still find this compelling?</li>
+                    <li>Am I treating founders as partners, not prey?</li>
+                    <li>Does this content embody our philosophy, not just mention it?</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">Scale<span>Up</span> Ventures</div>
+        <p class="footer-tagline">"Certainty First."</p>
+        <p class="footer-note">Heron Imagery Language Guidelines v1.0<br>For internal use and approved partners only.<br>Last updated: December 2025</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures - Web-Ready Content Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --white: #FFFFFF;
+            --light-bg: #F8F9FA;
+            --danger: #dc3545;
+            --warning: #ffc107;
+            --info: #17a2b8;
+            --success: #28a745;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--light-bg);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        header .tagline {
+            color: var(--gold);
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        header .stats {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Phase Section Styling */
+        .phase-section {
+            margin-bottom: 2.5rem;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(15, 23, 41, 0.08);
+        }
+
+        .phase-header {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .phase-header h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .phase-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .phase-1 .phase-header { background: linear-gradient(135deg, #ffe5e5 0%, #fff 100%); }
+        .phase-1 .phase-badge { background: var(--danger); color: white; }
+
+        .phase-2 .phase-header { background: linear-gradient(135deg, #fff3cd 0%, #fff 100%); }
+        .phase-2 .phase-badge { background: var(--warning); color: var(--navy); }
+
+        .phase-3 .phase-header { background: linear-gradient(135deg, #cce5ff 0%, #fff 100%); }
+        .phase-3 .phase-badge { background: var(--info); color: white; }
+
+        .phase-4 .phase-header { background: linear-gradient(135deg, #d4edda 0%, #fff 100%); }
+        .phase-4 .phase-badge { background: var(--success); color: white; }
+
+        .phase-5 .phase-header { background: linear-gradient(135deg, #e8e8f0 0%, #fff 100%); }
+        .phase-5 .phase-badge { background: var(--navy); color: var(--gold); }
+
+        .phase-meta {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .phase-content {
+            padding: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .milestone {
+            background: linear-gradient(135deg, #fffef5 0%, #fff 100%);
+            border-left: 4px solid var(--gold);
+            padding: 12px 16px;
+            margin-bottom: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .milestone strong {
+            color: var(--navy);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .card {
+            background: var(--light-bg);
+            border-radius: 8px;
+            padding: 1.25rem;
+            transition: all 0.2s ease;
+            border-left: 4px solid var(--gold);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(15, 23, 41, 0.12);
+            background: white;
+        }
+
+        .card a {
+            text-decoration: none;
+            color: var(--navy);
+        }
+
+        .card-number {
+            font-size: 0.75rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-description {
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .card-task {
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        footer .gold {
+            color: var(--gold);
+        }
+
+        .sticky-nav {
+            background: var(--navy);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap;
+        }
+
+        .sticky-nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 13px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .sticky-nav a:hover {
+            background: rgba(212, 168, 83, 0.2);
+        }
+
+        .sticky-nav a.highlight {
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .sticky-nav a.phase-link {
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .progress-summary {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(15, 23, 41, 0.08);
+        }
+
+        .progress-summary h3 {
+            font-family: 'Crimson Pro', serif;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar-container {
+            display: flex;
+            height: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .progress-segment.p1 { background: var(--danger); }
+        .progress-segment.p2 { background: var(--warning); color: var(--navy); }
+        .progress-segment.p3 { background: var(--info); }
+        .progress-segment.p4 { background: var(--success); }
+        .progress-segment.p5 { background: var(--navy); }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.85rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .week-badge {
+            background: var(--light-bg);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            color: #666;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="sticky-nav">
+        <a href="project-plan.html" class="highlight" style="background:#28a745;">Project Plan</a>
+        <a href="#phase1" class="phase-link">Phase 1</a>
+        <a href="#phase2" class="phase-link">Phase 2</a>
+        <a href="#phase3" class="phase-link">Phase 3</a>
+        <a href="#phase4" class="phase-link">Phase 4</a>
+        <a href="#phase5" class="phase-link">Phase 5</a>
+        <a href="#supporting">Supporting</a>
+        <a href="web-ready-63-brand-bible.html" class="highlight">Brand Bible</a>
+    </nav>
+    <header>
+        <h1>ScaleUp Ventures</h1>
+        <div class="tagline">Certainty First.</div>
+        <div class="stats">63 Web-Ready Content Pieces | Organized by Project Phase & Due Date</div>
+    </header>
+
+    <div class="container">
+        <!-- Progress Summary -->
+        <div class="progress-summary">
+            <h3>8-Week Project Timeline</h3>
+            <div class="progress-bar-container">
+                <div class="progress-segment p1" style="width: 25%;">Phase 1<br>Week 1-2</div>
+                <div class="progress-segment p2" style="width: 25%;">Phase 2<br>Week 3-4</div>
+                <div class="progress-segment p3" style="width: 25%;">Phase 3<br>Week 5-6</div>
+                <div class="progress-segment p4" style="width: 12.5%;">Phase 4<br>Week 7</div>
+                <div class="progress-segment p5" style="width: 12.5%;">Phase 5<br>Week 8+</div>
+            </div>
+            <div class="legend">
+                <div class="legend-item"><div class="legend-dot" style="background: var(--danger);"></div> Critical Brand Tasks</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--warning);"></div> High Priority Assets</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--info);"></div> Website Build</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--success);"></div> Launch Prep</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--navy);"></div> Ads Live</div>
+            </div>
+        </div>
+
+        <!-- PHASE 1: CRITICAL -->
+        <div class="phase-section phase-1" id="phase1">
+            <div class="phase-header">
+                <h2>
+                    <span class="phase-badge">PHASE 1</span>
+                    Critical Brand Tasks (Launch Blockers)
+                </h2>
+                <div class="phase-meta">
+                    <span>Week 1-2</span>
+                    <span>Jan 1-14, 2026</span>
+                </div>
+            </div>
+            <div class="phase-content">
+                <div class="milestone">
+                    <strong>Milestone:</strong> Tagline selected, testimonials requested, 1 case study drafted, founder bio complete
+                </div>
+                <div class="grid">
+                    <div class="card" style="border-left: 4px solid #28a745; background: linear-gradient(135deg, #d4edda 0%, #fff 100%);">
+                        <a href="web-ready-44-tagline-guide.html">
+                            <div class="card-number">#44 <span class="week-badge" style="background:#28a745;color:#fff;">✓ APPROVED</span></div>
+                            <div class="card-title">Tagline Usage Guide</div>
+                            <div class="card-description">"Certainty First" + "Know Before You Spend" - SIGNED OFF</div>
+                            <div class="card-task" style="color:#28a745;font-weight:600;">✓ Completed Jan 1, 2026</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-01-testimonials.html">
+                            <div class="card-number">#01 <span class="week-badge">Week 1</span></div>
+                            <div class="card-title">Client Testimonials</div>
+                            <div class="card-description">10 detailed testimonials with metrics and attributions</div>
+                            <div class="card-task">Task: Draft testimonial request emails, send to 5 clients</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-02-case-studies.html">
+                            <div class="card-number">#02 <span class="week-badge">Week 1-2</span></div>
+                            <div class="card-title">Case Studies</div>
+                            <div class="card-description">5 complete case studies (one per industry)</div>
+                            <div class="card-task">Task: Select best client, draft Challenge/Approach/Results</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-21-founder-story.html">
+                            <div class="card-number">#21 <span class="week-badge">Week 1</span></div>
+                            <div class="card-title">Founder Origin Story</div>
+                            <div class="card-description">Calvin Williams Jr.'s journey and vision</div>
+                            <div class="card-task">Task: Draft bio paragraphs 1 & 2, origin story</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-24-roi-model-sample.html">
+                            <div class="card-number">#24 <span class="week-badge">Week 2</span></div>
+                            <div class="card-title">ROI Model Sample</div>
+                            <div class="card-description">Return on investment calculator</div>
+                            <div class="card-task">Task: Define format, create anonymized sample</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-23-proof-test-framework.html">
+                            <div class="card-number">#23 <span class="week-badge">Week 2</span></div>
+                            <div class="card-title">Proof Test Framework</div>
+                            <div class="card-description">Evidence validation methodology</div>
+                            <div class="card-task">Task: Document "The Proof Test" methodology</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 2: HIGH PRIORITY -->
+        <div class="phase-section phase-2" id="phase2">
+            <div class="phase-header">
+                <h2>
+                    <span class="phase-badge">PHASE 2</span>
+                    High Priority Brand Assets
+                </h2>
+                <div class="phase-meta">
+                    <span>Week 3-4</span>
+                    <span>Jan 15-28, 2026</span>
+                </div>
+            </div>
+            <div class="phase-content">
+                <div class="milestone">
+                    <strong>Milestone:</strong> Voice guidelines complete, CTAs defined, Case Study #2 done, messaging hierarchy finalized
+                </div>
+                <div class="grid">
+                    <div class="card">
+                        <a href="web-ready-22-voice-guidelines.html">
+                            <div class="card-number">#22 <span class="week-badge">Week 3</span></div>
+                            <div class="card-title">Brand Voice Guidelines</div>
+                            <div class="card-description">Tone, style, and communication standards</div>
+                            <div class="card-task">Task: Define 3 voice attributes, Do/Don't examples</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-53-cta-sequence.html">
+                            <div class="card-number">#53 <span class="week-badge">Week 3</span></div>
+                            <div class="card-title">Graduated CTA Sequence</div>
+                            <div class="card-description">Progressive commitment CTAs</div>
+                            <div class="card-task">Task: Define graduated CTA sequence (awareness → decision)</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-55-landing-ctas.html">
+                            <div class="card-number">#55 <span class="week-badge">Week 3</span></div>
+                            <div class="card-title">Landing Page CTAs</div>
+                            <div class="card-description">Industry-specific CTAs</div>
+                            <div class="card-task">Task: Write homepage hero CTA</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-56-service-ctas.html">
+                            <div class="card-number">#56 <span class="week-badge">Week 3</span></div>
+                            <div class="card-title">Service Page CTAs</div>
+                            <div class="card-description">Service-specific CTAs with ROI preview</div>
+                            <div class="card-task">Task: Write service page CTAs</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-57-case-study-ctas.html">
+                            <div class="card-number">#57 <span class="week-badge">Week 3</span></div>
+                            <div class="card-title">Case Study CTAs</div>
+                            <div class="card-description">Proof-driven CTAs</div>
+                            <div class="card-task">Task: Write case study CTAs connecting to prospect's business</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-28-messaging-matrix.html">
+                            <div class="card-number">#28 <span class="week-badge">Week 3</span></div>
+                            <div class="card-title">Messaging Matrix</div>
+                            <div class="card-description">Audience-specific messaging framework</div>
+                            <div class="card-task">Task: Build channel-specific messaging matrix</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-46-objection-handling.html">
+                            <div class="card-number">#46 <span class="week-badge">Week 3</span></div>
+                            <div class="card-title">Objection Handling Guide</div>
+                            <div class="card-description">Common objections and responses</div>
+                            <div class="card-task">Task: Create objection-to-message mapping</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-50-not-typical.html">
+                            <div class="card-number">#50 <span class="week-badge">Week 3</span></div>
+                            <div class="card-title">Not-Typical-Agency Messaging</div>
+                            <div class="card-description">Anti-agency differentiation</div>
+                            <div class="card-task">Task: Create "Why We're Not a Typical Agency" one-pager</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-25-risk-sharing-policy.html">
+                            <div class="card-number">#25 <span class="week-badge">Week 3</span></div>
+                            <div class="card-title">Risk-Sharing Policy</div>
+                            <div class="card-description">Performance-based pricing terms</div>
+                            <div class="card-task">Task: Write risk-sharing/guarantee policy</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-60-retention-messaging.html">
+                            <div class="card-number">#60 <span class="week-badge">Week 3</span></div>
+                            <div class="card-title">Client Retention Messaging</div>
+                            <div class="card-description">Renewal and upsell communications</div>
+                            <div class="card-task">Task: Document client retention/expansion metrics</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-36-transformation-stories.html">
+                            <div class="card-number">#36 <span class="week-badge">Week 4</span></div>
+                            <div class="card-title">Transformation Stories</div>
+                            <div class="card-description">Narrative client success stories</div>
+                            <div class="card-task">Task: Create "Skeptic Who Believed" template</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-20-manifesto.html">
+                            <div class="card-number">#20 <span class="week-badge">Week 4</span></div>
+                            <div class="card-title">End of Doubt Manifesto</div>
+                            <div class="card-description">Brand manifesto and philosophy statement</div>
+                            <div class="card-task">Task: Write 1-page emotional manifesto</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-37-heron-guidelines.html">
+                            <div class="card-number">#37 <span class="week-badge">Week 4</span></div>
+                            <div class="card-title">Heron Imagery Guidelines</div>
+                            <div class="card-description">Symbol usage and meaning</div>
+                            <div class="card-task">Task: Create Heron narrative bridge statement</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-26-reference-program.html">
+                            <div class="card-number">#26 <span class="week-badge">Week 4</span></div>
+                            <div class="card-title">Client Reference Program</div>
+                            <div class="card-description">Reference check process and guidelines</div>
+                            <div class="card-task">Task: Formalize "Talk to Our Clients" program (5+ contacts)</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 3: WEBSITE BUILD -->
+        <div class="phase-section phase-3" id="phase3">
+            <div class="phase-header">
+                <h2>
+                    <span class="phase-badge">PHASE 3</span>
+                    Website Build
+                </h2>
+                <div class="phase-meta">
+                    <span>Week 5-6</span>
+                    <span>Jan 29 - Feb 11, 2026</span>
+                </div>
+            </div>
+            <div class="phase-content">
+                <div class="milestone">
+                    <strong>Milestone:</strong> Website live with homepage, services, about, case studies, and contact pages
+                </div>
+                <div class="grid">
+                    <div class="card">
+                        <a href="web-ready-03-homepage.html">
+                            <div class="card-number">#03 <span class="week-badge">Week 5</span></div>
+                            <div class="card-title">Homepage</div>
+                            <div class="card-description">Complete homepage copy with hero, services, proof points, and CTAs</div>
+                            <div class="card-task">Task: Write hero, How It Works, services overview, testimonials</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-05-services.html">
+                            <div class="card-number">#05 <span class="week-badge">Week 5</span></div>
+                            <div class="card-title">Services Pages</div>
+                            <div class="card-description">Business Development, Growth Marketing, AI Automation</div>
+                            <div class="card-task">Task: Write Growth, Development, Process Improvement pages</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-04-about-page.html">
+                            <div class="card-number">#04 <span class="week-badge">Week 5</span></div>
+                            <div class="card-title">About Page</div>
+                            <div class="card-description">Company story, team profiles, values, and mission</div>
+                            <div class="card-task">Task: Write intro, add founder bio, Our Approach section</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-19-contact-page.html">
+                            <div class="card-number">#19 <span class="week-badge">Week 6</span></div>
+                            <div class="card-title">Contact Page</div>
+                            <div class="card-description">Contact form, office info, and consultation booking</div>
+                            <div class="card-task">Task: Write proof-forward CTA, set up contact form</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-18-faq-page.html">
+                            <div class="card-number">#18 <span class="week-badge">Week 6</span></div>
+                            <div class="card-title">FAQ Page</div>
+                            <div class="card-description">Comprehensive answers to common client questions</div>
+                            <div class="card-task">Task: Website build supporting content</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-54-client-logos.html">
+                            <div class="card-number">#54 <span class="week-badge">Week 6</span></div>
+                            <div class="card-title">Client Logos Collection</div>
+                            <div class="card-description">Logo grid and usage guidelines</div>
+                            <div class="card-task">Task: Add client logos to Case Studies page</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 4: LAUNCH PREP -->
+        <div class="phase-section phase-4" id="phase4">
+            <div class="phase-header">
+                <h2>
+                    <span class="phase-badge">PHASE 4</span>
+                    Launch Prep & Handoff
+                </h2>
+                <div class="phase-meta">
+                    <span>Week 7</span>
+                    <span>Feb 12-18, 2026</span>
+                </div>
+            </div>
+            <div class="phase-content">
+                <div class="milestone">
+                    <strong>Milestone:</strong> Website live, Roe briefed, ads ready to launch
+                </div>
+                <div class="grid">
+                    <div class="card">
+                        <a href="web-ready-12-linkedin-posts.html">
+                            <div class="card-number">#12 <span class="week-badge">Week 7</span></div>
+                            <div class="card-title">LinkedIn Posts</div>
+                            <div class="card-description">20 ready-to-post LinkedIn updates</div>
+                            <div class="card-task">Task: Update LinkedIn profile with new messaging, announce rebrand</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-61-social-templates.html">
+                            <div class="card-number">#61 <span class="week-badge">Week 7</span></div>
+                            <div class="card-title">Social Media Templates</div>
+                            <div class="card-description">Multi-platform social content templates</div>
+                            <div class="card-task">Task: Update LinkedIn company page</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-13-email-sequences.html">
+                            <div class="card-number">#13 <span class="week-badge">Week 7</span></div>
+                            <div class="card-title">Email Sequences</div>
+                            <div class="card-description">4 complete sequences (17 total emails)</div>
+                            <div class="card-task">Task: Email existing clients about rebrand</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-06-staffing-landing.html">
+                            <div class="card-number">#06 <span class="week-badge">Week 7</span></div>
+                            <div class="card-title">Staffing Industry Landing</div>
+                            <div class="card-description">Targeted landing page for staffing agencies</div>
+                            <div class="card-task">Task: Create ICP document for Roe (ad targeting)</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-07-veterinary-landing.html">
+                            <div class="card-number">#07 <span class="week-badge">Week 7</span></div>
+                            <div class="card-title">Veterinary Industry Landing</div>
+                            <div class="card-description">Targeted landing page for vet practices</div>
+                            <div class="card-task">Task: Industry ad landing pages for Roe</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-08-trades-landing.html">
+                            <div class="card-number">#08 <span class="week-badge">Week 7</span></div>
+                            <div class="card-title">Trades & HVAC Landing</div>
+                            <div class="card-description">Targeted landing page for trade contractors</div>
+                            <div class="card-task">Task: Industry ad landing pages for Roe</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-09-insurance-landing.html">
+                            <div class="card-number">#09 <span class="week-badge">Week 7</span></div>
+                            <div class="card-title">Insurance Industry Landing</div>
+                            <div class="card-description">Targeted landing page for insurance agencies</div>
+                            <div class="card-task">Task: Industry ad landing pages for Roe</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-10-pestcontrol-landing.html">
+                            <div class="card-number">#10 <span class="week-badge">Week 7</span></div>
+                            <div class="card-title">Pest Control Landing</div>
+                            <div class="card-description">Targeted landing page for pest control companies</div>
+                            <div class="card-task">Task: Industry ad landing pages for Roe</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 5: ADS LIVE -->
+        <div class="phase-section phase-5" id="phase5">
+            <div class="phase-header">
+                <h2>
+                    <span class="phase-badge">PHASE 5</span>
+                    Roe Runs Ads (Week 8+)
+                </h2>
+                <div class="phase-meta">
+                    <span>Week 8+</span>
+                    <span>Feb 19+, 2026</span>
+                </div>
+            </div>
+            <div class="phase-content">
+                <div class="milestone">
+                    <strong>Milestone:</strong> Ads live, leads coming in, you're closing deals at $15K+
+                </div>
+                <div class="grid">
+                    <div class="card">
+                        <a href="web-ready-14-proposal-copy.html">
+                            <div class="card-number">#14 <span class="week-badge">Week 8+</span></div>
+                            <div class="card-title">Proposal Copy</div>
+                            <div class="card-description">Complete sales proposal template</div>
+                            <div class="card-task">Task: Send proposals to leads at $15K+ minimum</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-15-sales-deck.html">
+                            <div class="card-number">#15 <span class="week-badge">Week 8+</span></div>
+                            <div class="card-title">Sales Deck</div>
+                            <div class="card-description">Slide-by-slide presentation content</div>
+                            <div class="card-task">Task: Discovery calls and lead presentations</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-16-service-onepagers.html">
+                            <div class="card-number">#16 <span class="week-badge">Week 8+</span></div>
+                            <div class="card-title">Service One-Pagers</div>
+                            <div class="card-description">3 service-specific leave-behinds</div>
+                            <div class="card-task">Task: Sales support materials</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-17-company-onepager.html">
+                            <div class="card-number">#17 <span class="week-badge">Week 8+</span></div>
+                            <div class="card-title">Company One-Pager</div>
+                            <div class="card-description">Company overview leave-behind</div>
+                            <div class="card-task">Task: Sales support materials</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-58-proposal-ctas.html">
+                            <div class="card-number">#58 <span class="week-badge">Week 8+</span></div>
+                            <div class="card-title">Proposal & Email CTAs</div>
+                            <div class="card-description">Sales communication CTAs</div>
+                            <div class="card-task">Task: Close first ad-sourced deal</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUPPORTING MATERIALS (Always Available) -->
+        <div class="phase-section" id="supporting" style="border-left: 4px solid var(--gold);">
+            <div class="phase-header" style="background: linear-gradient(135deg, #fdf8e9 0%, #fff 100%);">
+                <h2>
+                    <span class="phase-badge" style="background: var(--gold); color: var(--navy);">REFERENCE</span>
+                    Supporting Materials & Brand Assets
+                </h2>
+                <div class="phase-meta">
+                    <span>Available Throughout</span>
+                </div>
+            </div>
+            <div class="phase-content">
+                <h3 style="font-family: 'Crimson Pro', serif; margin-bottom: 1rem; color: var(--navy);">Brand Bible & Core Identity</h3>
+                <div class="grid" style="margin-bottom: 2rem;">
+                    <div class="card">
+                        <a href="web-ready-63-brand-bible.html">
+                            <div class="card-number">#63</div>
+                            <div class="card-title">Complete Brand Bible</div>
+                            <div class="card-description">Comprehensive brand reference document - START HERE</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-40-exec-summary.html">
+                            <div class="card-number">#40</div>
+                            <div class="card-title">Executive Brand Summary</div>
+                            <div class="card-description">Leadership-level brand overview</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-38-positive-vocabulary.html">
+                            <div class="card-number">#38</div>
+                            <div class="card-title">Positive Vocabulary Guide</div>
+                            <div class="card-description">Approved word choices</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-32-jargon-glossary.html">
+                            <div class="card-number">#32</div>
+                            <div class="card-title">Jargon Glossary</div>
+                            <div class="card-description">Industry terminology definitions</div>
+                        </a>
+                    </div>
+                </div>
+
+                <h3 style="font-family: 'Crimson Pro', serif; margin-bottom: 1rem; color: var(--navy);">Content & Marketing</h3>
+                <div class="grid" style="margin-bottom: 2rem;">
+                    <div class="card">
+                        <a href="web-ready-11-blog-posts.html">
+                            <div class="card-number">#11</div>
+                            <div class="card-title">Blog Posts</div>
+                            <div class="card-description">10 complete 500-800 word articles</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-30-print-ads.html">
+                            <div class="card-number">#30</div>
+                            <div class="card-title">Print Ads Copy</div>
+                            <div class="card-description">Trade publication advertisement copy</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-62-event-copy.html">
+                            <div class="card-number">#62</div>
+                            <div class="card-title">Webinar & Event Copy</div>
+                            <div class="card-description">Event promotion and registration content</div>
+                        </a>
+                    </div>
+                </div>
+
+                <h3 style="font-family: 'Crimson Pro', serif; margin-bottom: 1rem; color: var(--navy);">Proof & Trust Elements</h3>
+                <div class="grid" style="margin-bottom: 2rem;">
+                    <div class="card">
+                        <a href="web-ready-27-before-after.html">
+                            <div class="card-number">#27</div>
+                            <div class="card-title">Before/After Examples</div>
+                            <div class="card-description">Visual transformation stories from client engagements</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-31-proof-library.html">
+                            <div class="card-number">#31</div>
+                            <div class="card-title">Proof Points Library</div>
+                            <div class="card-description">Comprehensive statistics and facts</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-47-industry-proof.html">
+                            <div class="card-number">#47</div>
+                            <div class="card-title">Industry Proof Points</div>
+                            <div class="card-description">Sector-specific validation data</div>
+                        </a>
+                    </div>
+                </div>
+
+                <h3 style="font-family: 'Crimson Pro', serif; margin-bottom: 1rem; color: var(--navy);">Messaging & Positioning</h3>
+                <div class="grid" style="margin-bottom: 2rem;">
+                    <div class="card">
+                        <a href="web-ready-29-competitor-comparison.html">
+                            <div class="card-number">#29</div>
+                            <div class="card-title">Competitor Comparison</div>
+                            <div class="card-description">Differentiation positioning chart</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-33-exit-planning.html">
+                            <div class="card-number">#33</div>
+                            <div class="card-title">Exit Planning Messaging</div>
+                            <div class="card-description">Business transition positioning</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-34-why-now.html">
+                            <div class="card-number">#34</div>
+                            <div class="card-title">Why Now Messaging</div>
+                            <div class="card-description">Urgency and timing positioning</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-35-value-prop-canvas.html">
+                            <div class="card-number">#35</div>
+                            <div class="card-title">Value Proposition Canvas</div>
+                            <div class="card-description">Customer-value alignment framework</div>
+                        </a>
+                    </div>
+                </div>
+
+                <h3 style="font-family: 'Crimson Pro', serif; margin-bottom: 1rem; color: var(--navy);">Frameworks & Methods</h3>
+                <div class="grid" style="margin-bottom: 2rem;">
+                    <div class="card">
+                        <a href="web-ready-39-scaleup-method.html">
+                            <div class="card-number">#39</div>
+                            <div class="card-title">The ScaleUp Method</div>
+                            <div class="card-description">Proprietary methodology documentation</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-48-onboarding.html">
+                            <div class="card-number">#48</div>
+                            <div class="card-title">Client Onboarding Guide</div>
+                            <div class="card-description">New client welcome process</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-49-time-to-value.html">
+                            <div class="card-number">#49</div>
+                            <div class="card-title">Time-to-Value Benchmarks</div>
+                            <div class="card-description">Implementation timeline expectations</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-45-integrated-services.html">
+                            <div class="card-number">#45</div>
+                            <div class="card-title">Integrated Services Benefit</div>
+                            <div class="card-description">Full-service value proposition</div>
+                        </a>
+                    </div>
+                </div>
+
+                <h3 style="font-family: 'Crimson Pro', serif; margin-bottom: 1rem; color: var(--navy);">Sales Enablement</h3>
+                <div class="grid" style="margin-bottom: 2rem;">
+                    <div class="card">
+                        <a href="web-ready-51-hiring-checklist.html">
+                            <div class="card-number">#51</div>
+                            <div class="card-title">Hiring Consultant Checklist</div>
+                            <div class="card-description">Consultant evaluation criteria</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-52-burned-before.html">
+                            <div class="card-number">#52</div>
+                            <div class="card-title">Burned-Before Messaging</div>
+                            <div class="card-description">Addressing past negative experiences</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-59-internal-ctas.html">
+                            <div class="card-number">#59</div>
+                            <div class="card-title">Internal Materials CTAs</div>
+                            <div class="card-description">Team-facing CTAs</div>
+                        </a>
+                    </div>
+                </div>
+
+                <h3 style="font-family: 'Crimson Pro', serif; margin-bottom: 1rem; color: var(--navy);">Testing & Guidelines</h3>
+                <div class="grid">
+                    <div class="card">
+                        <a href="web-ready-42-cta-testing.html">
+                            <div class="card-number">#42</div>
+                            <div class="card-title">CTA Testing Framework</div>
+                            <div class="card-description">A/B testing methodology</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-41-accessibility.html">
+                            <div class="card-number">#41</div>
+                            <div class="card-title">Accessibility Guide</div>
+                            <div class="card-description">Inclusive design standards</div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="web-ready-43-video-strategy.html">
+                            <div class="card-number">#43</div>
+                            <div class="card-title">Video Testimonial Strategy</div>
+                            <div class="card-description">Video content guidelines</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>ScaleUp Ventures</strong> | <span class="gold">Certainty First.</span></p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">63 Web-Ready Content Pieces | Organized by 8-Week Project Timeline</p>
+        <p style="margin-top: 0.5rem; opacity: 0.6;">Target: Roe Runs Ads by Feb 24, 2026</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk-Sharing & Guarantee Policy | ScaleUp Ventures</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --navy-lighter: #253559;
+            --gold: #D4A853;
+            --gold-light: #e8c97a;
+            --gold-dark: #b8923f;
+            --cream: #faf8f5;
+            --white: #ffffff;
+            --gray-100: #f7f7f7;
+            --gray-200: #e5e5e5;
+            --gray-600: #666666;
+            --red-muted: #c45c5c;
+            --green-muted: #4a8f6e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 8px 24px;
+            font-family: 'Arial', sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: normal;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .header .tagline {
+            font-size: 24px;
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .header .subtitle {
+            font-size: 18px;
+            color: var(--gray-200);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: var(--navy);
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--navy-lighter);
+        }
+
+        .nav-container h3 {
+            color: var(--gold);
+            font-family: 'Arial', sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            color: var(--gray-200);
+            text-decoration: none;
+            font-family: 'Arial', sans-serif;
+            font-size: 13px;
+            padding: 6px 12px;
+            background: var(--navy-light);
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* Section Styling */
+        .section {
+            background: var(--white);
+            margin-bottom: 40px;
+            border: 1px solid var(--gray-200);
+            border-left: 4px solid var(--gold);
+        }
+
+        .section-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 24px 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .section-number {
+            background: var(--gold);
+            color: var(--navy);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: normal;
+        }
+
+        .section-content {
+            padding: 32px;
+        }
+
+        /* Typography */
+        h3 {
+            color: var(--navy);
+            font-size: 20px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+        }
+
+        h4 {
+            color: var(--navy);
+            font-size: 17px;
+            margin: 24px 0 12px 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        p {
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .lead {
+            font-size: 18px;
+            color: var(--navy);
+            font-style: italic;
+            border-left: 3px solid var(--gold);
+            padding-left: 20px;
+            margin-bottom: 24px;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li strong {
+            color: var(--navy);
+        }
+
+        /* Guarantee Cards */
+        .guarantee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .guarantee-card {
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            padding: 24px;
+            position: relative;
+        }
+
+        .guarantee-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold);
+        }
+
+        .guarantee-card.recommended::before {
+            background: var(--green-muted);
+        }
+
+        .guarantee-card.caution::before {
+            background: var(--red-muted);
+        }
+
+        .guarantee-card h4 {
+            margin-top: 0;
+            color: var(--navy);
+        }
+
+        .guarantee-badge {
+            display: inline-block;
+            font-family: 'Arial', sans-serif;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            margin-bottom: 12px;
+        }
+
+        .badge-recommended {
+            background: var(--green-muted);
+            color: var(--white);
+        }
+
+        .badge-caution {
+            background: var(--red-muted);
+            color: var(--white);
+        }
+
+        .badge-standard {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        /* Comparison Tables */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 15px;
+        }
+
+        .comparison-table th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 16px;
+            text-align: left;
+            font-family: 'Arial', sans-serif;
+            font-weight: normal;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .comparison-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--gray-200);
+            vertical-align: top;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--gray-100);
+        }
+
+        .yes-cell {
+            color: var(--green-muted);
+            font-weight: bold;
+        }
+
+        .no-cell {
+            color: var(--red-muted);
+            font-weight: bold;
+        }
+
+        /* Legal Boxes */
+        .legal-box {
+            background: var(--navy);
+            color: var(--white);
+            padding: 24px;
+            margin: 24px 0;
+            border-left: 4px solid var(--gold);
+        }
+
+        .legal-box h4 {
+            color: var(--gold);
+            margin-top: 0;
+        }
+
+        .legal-box p {
+            color: var(--gray-200);
+            margin-bottom: 0;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: #fff5f5;
+            border: 1px solid var(--red-muted);
+            border-left: 4px solid var(--red-muted);
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .warning-box h4 {
+            color: var(--red-muted);
+            margin-top: 0;
+        }
+
+        /* Success Box */
+        .success-box {
+            background: #f5faf7;
+            border: 1px solid var(--green-muted);
+            border-left: 4px solid var(--green-muted);
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .success-box h4 {
+            color: var(--green-muted);
+            margin-top: 0;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-left: 4px solid var(--gold);
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .info-box h4 {
+            color: var(--navy);
+            margin-top: 0;
+        }
+
+        /* ROI Model */
+        .roi-framework {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 32px;
+            margin: 24px 0;
+        }
+
+        .roi-framework h3 {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
+        .roi-formula {
+            background: var(--navy-lighter);
+            padding: 24px;
+            margin: 20px 0;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+        }
+
+        .roi-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .roi-step {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .roi-step-number {
+            background: var(--gold);
+            color: var(--navy);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-weight: bold;
+        }
+
+        /* Payment Timeline */
+        .payment-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin: 24px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            position: relative;
+        }
+
+        .timeline-marker {
+            width: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: var(--gold);
+            border: 4px solid var(--navy);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-line {
+            width: 2px;
+            flex-grow: 1;
+            background: var(--navy);
+            min-height: 40px;
+        }
+
+        .timeline-content {
+            flex-grow: 1;
+            background: var(--gray-100);
+            padding: 20px;
+            margin-bottom: 12px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .timeline-content h4 {
+            margin-top: 0;
+            color: var(--navy);
+        }
+
+        .timeline-percent {
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--gold);
+        }
+
+        /* Script Boxes */
+        .script-box {
+            background: var(--cream);
+            border: 2px solid var(--gold);
+            padding: 24px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .script-box::before {
+            content: 'SCRIPT:';
+            display: block;
+            font-family: 'Arial', sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: var(--gold);
+            font-style: normal;
+            margin-bottom: 12px;
+        }
+
+        /* Contract Templates */
+        .contract-template {
+            background: var(--white);
+            border: 2px solid var(--navy);
+            margin: 24px 0;
+        }
+
+        .contract-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 16px 24px;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .contract-body {
+            padding: 24px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            white-space: pre-wrap;
+        }
+
+        .contract-variable {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 2px 6px;
+            font-weight: bold;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--gray-200);
+            padding: 24px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            color: var(--navy);
+            font-weight: bold;
+            font-size: 17px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .faq-q {
+            background: var(--gold);
+            color: var(--navy);
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .faq-answer {
+            padding-left: 40px;
+            color: var(--gray-600);
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .checklist li {
+            padding: 12px 0 12px 40px;
+            position: relative;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .checklist li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--navy);
+        }
+
+        .checklist li.checked::before {
+            background: var(--gold);
+        }
+
+        .checklist li.checked::after {
+            content: '\2713';
+            position: absolute;
+            left: 4px;
+            top: 12px;
+            color: var(--navy);
+            font-weight: bold;
+        }
+
+        /* Marketing Language */
+        .marketing-example {
+            background: var(--navy);
+            color: var(--white);
+            padding: 32px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .marketing-example .headline {
+            font-size: 28px;
+            color: var(--gold);
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .marketing-example .subline {
+            font-size: 18px;
+            color: var(--gray-200);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .footer p {
+            color: var(--gray-200);
+            font-size: 14px;
+        }
+
+        .version-info {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--navy-lighter);
+            font-family: 'Arial', sans-serif;
+            font-size: 12px;
+            color: var(--gray-600);
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav-container { display: none; }
+            .section { break-inside: avoid; }
+            body { font-size: 12px; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 32px; }
+            .container { padding: 20px; }
+            .section-content { padding: 20px; }
+            .guarantee-grid { grid-template-columns: 1fr; }
+            .roi-steps { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-badge">Internal Policy Document</div>
+        <h1>Risk-Sharing & Guarantee Policy</h1>
+        <div class="tagline">"Certainty First."</div>
+        <p class="subtitle">A comprehensive framework for structuring guarantees that build trust, reduce client risk, and protect ScaleUp Ventures from uncontrolled liability.</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <h3>Quick Navigation</h3>
+        <div class="nav-links">
+            <a href="#philosophy">Philosophy</a>
+            <a href="#guarantee-types">Guarantee Types</a>
+            <a href="#can-cannot">Can & Cannot</a>
+            <a href="#roi-model">ROI Model</a>
+            <a href="#payment-structure">Payment Structure</a>
+            <a href="#projections">If Projections Fail</a>
+            <a href="#responsibilities">Client Responsibilities</a>
+            <a href="#exclusions">Exclusions</a>
+            <a href="#sales">Sales Presentation</a>
+            <a href="#marketing">Marketing Language</a>
+            <a href="#contracts">Contract Clauses</a>
+            <a href="#faq">FAQ</a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- Section 1: Philosophy -->
+        <section id="philosophy" class="section">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2>Philosophy Behind Risk-Sharing</h2>
+            </div>
+            <div class="section-content">
+                <p class="lead">Our target clients are 50-65 year old business owners who have been burned before. They have money but they are skeptical. A bold guarantee is often the difference between them saying "yes" and "let me think about it."</p>
+
+                <h3>The Trust Deficit</h3>
+                <p>Experienced business owners have a deeply ingrained skepticism toward agencies and consultants. They have heard promises before. They have paid retainers that delivered nothing. They have watched contractors disappear after the check cleared.</p>
+
+                <p><strong>Our guarantee philosophy addresses this reality head-on:</strong></p>
+
+                <ul>
+                    <li><strong>Alignment over promises:</strong> We structure deals so our success depends on their success. This is not just marketing speak; it is structural.</li>
+                    <li><strong>Skin in the game:</strong> We put our fees at risk. When we stand to lose money if we fail, clients believe we will work harder not to fail.</li>
+                    <li><strong>Transparency over optimism:</strong> We show exactly how we calculated projections. No black boxes. No "trust us."</li>
+                    <li><strong>Reasonable scope:</strong> We guarantee what we control and are honest about what we do not control.</li>
+                </ul>
+
+                <div class="info-box">
+                    <h4>The Core Principle</h4>
+                    <p>A guarantee should create certainty for the client while creating clarity for us. If we cannot define when a guarantee applies and when it does not, we have not thought hard enough.</p>
+                </div>
+
+                <h3>Why Risk-Sharing Works for Our Market</h3>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Traditional Agency Model</th>
+                            <th>ScaleUp Risk-Sharing Model</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Flat retainer paid upfront</td>
+                            <td>Milestone-based payments tied to deliverables</td>
+                        </tr>
+                        <tr>
+                            <td>Success measured by activity (hours worked)</td>
+                            <td>Success measured by outcomes (revenue generated)</td>
+                        </tr>
+                        <tr>
+                            <td>Client bears all risk of failure</td>
+                            <td>Risk distributed based on control</td>
+                        </tr>
+                        <tr>
+                            <td>No consequences for underperformance</td>
+                            <td>Clear recourse if projections not met</td>
+                        </tr>
+                        <tr>
+                            <td>"Trust us" mentality</td>
+                            <td>"Verify everything" transparency</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="legal-box">
+                    <h4>Strategic Intent</h4>
+                    <p>Our guarantee is a competitive weapon. In a market where skeptics compare three or four options, the consultant willing to share risk often wins. But we must be careful: an unlimited guarantee can bankrupt us. A toothless guarantee convinces no one. The sections that follow define the precise balance.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Guarantee Types -->
+        <section id="guarantee-types" class="section">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2>Types of Guarantees to Consider</h2>
+            </div>
+            <div class="section-content">
+                <p class="lead">Not all guarantees are created equal. Each type carries different risk profiles, legal implications, and psychological impact on skeptical buyers.</p>
+
+                <div class="guarantee-grid">
+                    <div class="guarantee-card recommended">
+                        <span class="guarantee-badge badge-recommended">Recommended</span>
+                        <h4>Satisfaction Guarantee</h4>
+                        <p><strong>What it means:</strong> If the client is not satisfied with deliverables, they receive a refund (full or partial).</p>
+                        <p><strong>Risk level:</strong> Moderate - subjective but controllable</p>
+                        <p><strong>Best for:</strong> Discovery phases, strategic plans, initial engagements</p>
+                        <p><strong>Legal clarity:</strong> High - easy to define and enforce</p>
+                    </div>
+
+                    <div class="guarantee-card recommended">
+                        <span class="guarantee-badge badge-recommended">Recommended</span>
+                        <h4>Milestone Guarantee</h4>
+                        <p><strong>What it means:</strong> Payment released only when specific, measurable milestones are achieved.</p>
+                        <p><strong>Risk level:</strong> Low - based on deliverables we control</p>
+                        <p><strong>Best for:</strong> Implementation phases, system builds, training programs</p>
+                        <p><strong>Legal clarity:</strong> Very high - objective and verifiable</p>
+                    </div>
+
+                    <div class="guarantee-card">
+                        <span class="guarantee-badge badge-standard">Conditional</span>
+                        <h4>Performance Guarantee</h4>
+                        <p><strong>What it means:</strong> If specific performance metrics are not achieved, client receives compensation.</p>
+                        <p><strong>Risk level:</strong> High - depends on external factors</p>
+                        <p><strong>Best for:</strong> Established clients with proven implementation</p>
+                        <p><strong>Legal clarity:</strong> Moderate - requires precise definitions</p>
+                    </div>
+
+                    <div class="guarantee-card caution">
+                        <span class="guarantee-badge badge-caution">Use Cautiously</span>
+                        <h4>ROI Guarantee</h4>
+                        <p><strong>What it means:</strong> We guarantee a specific return on the client's investment.</p>
+                        <p><strong>Risk level:</strong> Very high - many variables outside our control</p>
+                        <p><strong>Best for:</strong> Only when we have extensive control and data</p>
+                        <p><strong>Legal clarity:</strong> Low - complex to define and enforce</p>
+                    </div>
+                </div>
+
+                <h3>Recommended Guarantee Stack</h3>
+                <p>For most engagements, we recommend a tiered approach that combines guarantee types:</p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Phase</th>
+                            <th>Guarantee Type</th>
+                            <th>Specific Terms</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Discovery & Strategy</td>
+                            <td>100% Satisfaction Guarantee</td>
+                            <td>Full refund if strategic plan does not meet stated objectives within 14 days of delivery</td>
+                        </tr>
+                        <tr>
+                            <td>Implementation</td>
+                            <td>Milestone Guarantee</td>
+                            <td>Payment released only upon completion of defined deliverables with acceptance criteria</td>
+                        </tr>
+                        <tr>
+                            <td>Optimization</td>
+                            <td>Conditional Performance Guarantee</td>
+                            <td>If KPIs not improved by X% within 90 days, additional optimization at no charge</td>
+                        </tr>
+                        <tr>
+                            <td>Ongoing</td>
+                            <td>ROI Alignment</td>
+                            <td>Portion of fee tied to measurable results (not a pure guarantee, but aligned incentives)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="warning-box">
+                    <h4>Guarantee We Never Offer</h4>
+                    <p>We never offer an unconditional money-back guarantee with no time limit or criteria. This invites abuse and creates unlimited liability. Every guarantee must have: (1) specific criteria, (2) a time window, (3) client responsibilities, and (4) defined exclusions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: What We Can and Cannot Guarantee -->
+        <section id="can-cannot" class="section">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2>What ScaleUp Can and Cannot Guarantee</h2>
+            </div>
+            <div class="section-content">
+                <p class="lead">Legal clarity requires honest delineation. We guarantee what we control. We do not guarantee what we do not control. This protects us and builds credibility with skeptical clients.</p>
+
+                <h3>What We CAN Guarantee</h3>
+                <div class="success-box">
+                    <h4>Deliverable-Based Guarantees</h4>
+                    <ul>
+                        <li><strong>Completion of defined deliverables:</strong> Strategic plans, process documentation, system implementations, training materials</li>
+                        <li><strong>Quality standards:</strong> Deliverables will meet specified criteria (e.g., "comprehensive," "actionable," "customized to your business")</li>
+                        <li><strong>Timeline adherence:</strong> Deliverables completed within agreed timeframes, or specified compensation</li>
+                        <li><strong>Revision cycles:</strong> Specified number of revision rounds included</li>
+                        <li><strong>Methodology application:</strong> We will apply our proven frameworks as described</li>
+                    </ul>
+                </div>
+
+                <div class="success-box">
+                    <h4>Effort-Based Guarantees</h4>
+                    <ul>
+                        <li><strong>Access and responsiveness:</strong> Guaranteed response times for communication</li>
+                        <li><strong>Meeting commitments:</strong> Specified number of strategy sessions or check-ins</li>
+                        <li><strong>Resource allocation:</strong> Named team members dedicated to the engagement</li>
+                        <li><strong>Expertise application:</strong> Senior-level attention, not delegated to juniors</li>
+                    </ul>
+                </div>
+
+                <h3>What We CANNOT Guarantee</h3>
+                <div class="warning-box">
+                    <h4>Outcome-Based Limitations</h4>
+                    <ul>
+                        <li><strong>Specific revenue numbers:</strong> "You will make $1M" (too many external variables)</li>
+                        <li><strong>Market response:</strong> How customers will react to changes</li>
+                        <li><strong>Competitor behavior:</strong> Actions of competitors that affect results</li>
+                        <li><strong>Economic conditions:</strong> Recessions, industry disruptions, global events</li>
+                        <li><strong>Client execution:</strong> Implementation of recommendations after handoff</li>
+                        <li><strong>Third-party performance:</strong> Vendors, employees, partners the client selects</li>
+                    </ul>
+                </div>
+
+                <h3>Legal Framework for Guarantees</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Statement Type</th>
+                            <th>Legally Binding?</th>
+                            <th>Recommended Approach</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>"We guarantee delivery by [date]"</td>
+                            <td class="yes-cell">Yes</td>
+                            <td>Include with defined remedy if missed</td>
+                        </tr>
+                        <tr>
+                            <td>"We guarantee you'll be satisfied"</td>
+                            <td class="yes-cell">Yes (subjective)</td>
+                            <td>Define satisfaction criteria in writing</td>
+                        </tr>
+                        <tr>
+                            <td>"We guarantee [X]% revenue increase"</td>
+                            <td class="yes-cell">Yes (risky)</td>
+                            <td>Avoid or heavily condition</td>
+                        </tr>
+                        <tr>
+                            <td>"We project [X]% improvement"</td>
+                            <td class="no-cell">No (if properly disclaimed)</td>
+                            <td>Use projections with clear disclaimers</td>
+                        </tr>
+                        <tr>
+                            <td>"Our clients typically see..."</td>
+                            <td class="no-cell">No (testimonial)</td>
+                            <td>Safe if accurate and documented</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="legal-box">
+                    <h4>Required Legal Disclaimer</h4>
+                    <p>All projections, estimates, and performance expectations are based on analysis of available data and historical patterns from similar engagements. Actual results may vary based on market conditions, implementation quality, competitive factors, and other variables outside the control of ScaleUp Ventures. Projections do not constitute guarantees of specific outcomes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: ROI Model -->
+        <section id="roi-model" class="section">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2>ROI Model as Primary Risk-Reduction</h2>
+            </div>
+            <div class="section-content">
+                <p class="lead">Rather than guaranteeing specific outcomes, we demonstrate value through rigorous ROI modeling. This gives clients confidence without exposing us to uncontrollable risk.</p>
+
+                <div class="roi-framework">
+                    <h3>The ScaleUp ROI Framework</h3>
+
+                    <div class="roi-formula">
+                        Projected ROI = (Expected Value Created - Investment) / Investment x 100
+                    </div>
+
+                    <div class="roi-steps">
+                        <div class="roi-step">
+                            <div class="roi-step-number">1</div>
+                            <strong>Baseline</strong>
+                            <p>Document current revenue, margins, costs, and key metrics</p>
+                        </div>
+                        <div class="roi-step">
+                            <div class="roi-step-number">2</div>
+                            <strong>Identify Levers</strong>
+                            <p>Map improvement opportunities with estimated impact ranges</p>
+                        </div>
+                        <div class="roi-step">
+                            <div class="roi-step-number">3</div>
+                            <strong>Model Scenarios</strong>
+                            <p>Conservative, moderate, and optimistic projections</p>
+                        </div>
+                        <div class="roi-step">
+                            <div class="roi-step-number">4</div>
+                            <strong>Calculate Payback</strong>
+                            <p>Determine months to recover investment at each scenario</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>How We Present ROI to Clients</h3>
+
+                <p>We always present three scenarios with clear assumptions:</p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Assumptions</th>
+                            <th>Typical Range</th>
+                            <th>How We Use It</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Conservative</strong></td>
+                            <td>Minimum expected improvement; partial implementation; market headwinds</td>
+                            <td>1.5x - 2x ROI</td>
+                            <td>This is what we reference in guarantees</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Moderate</strong></td>
+                            <td>Expected improvement; full implementation; stable market</td>
+                            <td>3x - 5x ROI</td>
+                            <td>This is our realistic expectation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Optimistic</strong></td>
+                            <td>Maximum improvement; excellent execution; favorable conditions</td>
+                            <td>7x - 10x+ ROI</td>
+                            <td>This is aspirational, not promised</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <h4>The "Worst Case Acceptable" Standard</h4>
+                    <p>When presenting ROI to skeptical buyers, we ask: "Even if we hit only the conservative scenario, would the investment be worthwhile?" If the answer is yes, the engagement makes sense regardless of which scenario materializes. This removes the pressure of guaranteeing specific outcomes.</p>
+                </div>
+
+                <h3>ROI Documentation Requirements</h3>
+                <ul class="checklist">
+                    <li class="checked">Baseline metrics documented before engagement begins</li>
+                    <li class="checked">Improvement assumptions stated explicitly with sources</li>
+                    <li class="checked">Three-scenario model presented in writing</li>
+                    <li class="checked">Client signs acknowledgment of projections (not guarantees)</li>
+                    <li class="checked">Quarterly measurement against projections during engagement</li>
+                    <li class="checked">Post-engagement ROI calculation shared with client</li>
+                </ul>
+
+                <div class="script-box">
+                    "I want to show you three scenarios. The conservative scenario assumes things don't go perfectly - and even in that case, you're looking at recovering your investment within [X] months. That's the floor. The moderate scenario, which is what we typically see, puts you at [Y]x return. And if everything breaks right, we've seen clients hit [Z]x. I'm not going to promise you the optimistic number - but I am going to show you exactly how we calculated each of these."
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Payment Structure -->
+        <section id="payment-structure" class="section">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2>Payment Structure Options Tied to Milestones</h2>
+            </div>
+            <div class="section-content">
+                <p class="lead">Payment structure is our primary risk-sharing mechanism. By tying payments to milestones rather than time, we demonstrate confidence in delivery and give clients natural checkpoints.</p>
+
+                <h3>Recommended Payment Models</h3>
+
+                <h4>Model A: Discovery & Strategy Engagements</h4>
+                <div class="payment-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-percent">50%</span>
+                            <h4>Upon Signing</h4>
+                            <p>Covers initial research, data gathering, stakeholder interviews, and market analysis. This payment secures the engagement and our time commitment.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-percent">50%</span>
+                            <h4>Upon Delivery & Acceptance</h4>
+                            <p>Released when strategic plan is delivered and client confirms satisfaction (or within 14-day review period). Subject to satisfaction guarantee.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>Model B: Implementation Engagements</h4>
+                <div class="payment-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-percent">25%</span>
+                            <h4>Upon Signing</h4>
+                            <p>Project mobilization, team assignment, and planning phase.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-percent">25%</span>
+                            <h4>Milestone 1: Foundation Complete</h4>
+                            <p>Core systems built, initial training delivered, first phase operational.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-percent">25%</span>
+                            <h4>Milestone 2: Integration Complete</h4>
+                            <p>Full integration with existing systems, team trained, documentation complete.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-percent">25%</span>
+                            <h4>Milestone 3: Optimization & Handoff</h4>
+                            <p>Performance optimization complete, final training, handoff documentation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>Model C: Performance-Aligned Engagements</h4>
+                <div class="payment-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-percent">40%</span>
+                            <h4>Base Fee (Upon Signing)</h4>
+                            <p>Covers our costs and baseline work. Non-refundable.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-percent">30%</span>
+                            <h4>Upon Milestone Completion</h4>
+                            <p>Released when defined deliverables are accepted.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-percent">30%</span>
+                            <h4>Performance Bonus (At 90 Days)</h4>
+                            <p>Released if KPI targets met. If not met, reduced or waived per agreement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="success-box">
+                    <h4>Why Milestone Payments Work</h4>
+                    <ul>
+                        <li><strong>For clients:</strong> They never pay for work not delivered. Natural checkpoints to evaluate progress. Can exit if milestones missed.</li>
+                        <li><strong>For us:</strong> Creates urgency to deliver. Demonstrates confidence. Differentiates from retainer models. Protects cash flow with upfront portions.</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h4>Non-Negotiable Minimums</h4>
+                    <p>We require at least 25% upon signing for any engagement. This covers our opportunity cost, initial mobilization, and protects against clients who sign and then stall indefinitely. This portion is non-refundable after the first scheduled work session.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: What Happens if Projections Not Met -->
+        <section id="projections" class="section">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2>What Happens if Projections Are Not Met</h2>
+            </div>
+            <div class="section-content">
+                <p class="lead">This is where most consultants hide. We address it head-on because skeptical clients have been burned by vague accountability. Clear recourse builds trust.</p>
+
+                <h3>Tiered Response Framework</h3>
+
+                <div class="guarantee-grid">
+                    <div class="guarantee-card">
+                        <span class="guarantee-badge badge-standard">Tier 1</span>
+                        <h4>Results Below Conservative Projection</h4>
+                        <p><strong>Trigger:</strong> Results between 50-99% of conservative projection</p>
+                        <p><strong>Response:</strong></p>
+                        <ul>
+                            <li>Extended engagement time at no additional cost</li>
+                            <li>Additional optimization sprint included</li>
+                            <li>Revised strategy with root cause analysis</li>
+                        </ul>
+                    </div>
+
+                    <div class="guarantee-card">
+                        <span class="guarantee-badge badge-caution">Tier 2</span>
+                        <h4>Significant Underperformance</h4>
+                        <p><strong>Trigger:</strong> Results below 50% of conservative projection</p>
+                        <p><strong>Response:</strong></p>
+                        <ul>
+                            <li>Performance fee portion waived entirely</li>
+                            <li>Credit toward future engagement (50% of base fee)</li>
+                            <li>Joint post-mortem and documented learnings</li>
+                        </ul>
+                    </div>
+
+                    <div class="guarantee-card caution">
+                        <span class="guarantee-badge badge-caution">Tier 3</span>
+                        <h4>Delivery Failure</h4>
+                        <p><strong>Trigger:</strong> Core deliverables not completed as specified</p>
+                        <p><strong>Response:</strong></p>
+                        <ul>
+                            <li>Full refund of milestone payment for missed deliverable</li>
+                            <li>No further obligation from client</li>
+                            <li>Option to continue with revised scope</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Measurement and Attribution Process</h3>
+                <p>Before any recourse triggers, we must establish fair measurement:</p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Step</th>
+                            <th>Timing</th>
+                            <th>What Happens</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Baseline Documentation</td>
+                            <td>Before engagement</td>
+                            <td>Both parties sign off on current metrics and data sources</td>
+                        </tr>
+                        <tr>
+                            <td>Projection Agreement</td>
+                            <td>Before engagement</td>
+                            <td>Both parties sign off on projections and assumptions</td>
+                        </tr>
+                        <tr>
+                            <td>Monthly Check-ins</td>
+                            <td>Throughout engagement</td>
+                            <td>Track progress, identify issues early, adjust if needed</td>
+                        </tr>
+                        <tr>
+                            <td>90-Day Measurement</td>
+                            <td>90 days post-implementation</td>
+                            <td>Formal comparison against projections with same data sources</td>
+                        </tr>
+                        <tr>
+                            <td>Attribution Analysis</td>
+                            <td>If underperformance occurs</td>
+                            <td>Joint review to determine cause (us, client, external)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <h4>The Attribution Conversation</h4>
+                    <p>When results fall short, we ask: "What happened?" Possible causes include:</p>
+                    <ul>
+                        <li><strong>Our failure:</strong> Bad strategy, poor execution, missed deadlines</li>
+                        <li><strong>Client factors:</strong> Delayed implementation, resource constraints, scope changes</li>
+                        <li><strong>External factors:</strong> Market shifts, competitive moves, economic changes</li>
+                    </ul>
+                    <p>Recourse terms apply differently based on attribution. We own our failures. We do not own factors outside our control.</p>
+                </div>
+
+                <div class="script-box">
+                    "If we don't hit the conservative projection, here's what happens. First, we figure out why together - was it something we did wrong, something that changed on your end, or something in the market neither of us could control? If it's on us, we make it right. If the conservative number isn't there at 90 days and it's our execution, the performance portion of our fee goes away and you get credit toward additional work. I can put that in writing."
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Client Responsibilities -->
+        <section id="responsibilities" class="section">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2>Client Responsibilities for Guarantee to Apply</h2>
+            </div>
+            <div class="section-content">
+                <p class="lead">A guarantee is a two-way commitment. We cannot guarantee results if the client does not hold up their end. This section defines what clients must do for guarantees to remain in effect.</p>
+
+                <h3>Core Client Responsibilities</h3>
+
+                <ul class="checklist">
+                    <li class="checked"><strong>Timely Information:</strong> Provide requested data, documents, and access within 5 business days of request</li>
+                    <li class="checked"><strong>Decision Authority:</strong> Designate a decision-maker with authority to approve recommendations</li>
+                    <li class="checked"><strong>Meeting Attendance:</strong> Attend all scheduled sessions or provide 48-hour notice for rescheduling</li>
+                    <li class="checked"><strong>Implementation Commitment:</strong> Implement agreed recommendations within specified timeframes</li>
+                    <li class="checked"><strong>Resource Allocation:</strong> Assign internal resources as specified in engagement plan</li>
+                    <li class="checked"><strong>Feedback Timeliness:</strong> Provide feedback on deliverables within agreed review periods</li>
+                    <li class="checked"><strong>Honest Communication:</strong> Share relevant business challenges, constraints, and context</li>
+                    <li class="checked"><strong>Payment Timeliness:</strong> Process payments within agreed terms</li>
+                </ul>
+
+                <h3>Specific Responsibility Requirements by Phase</h3>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Phase</th>
+                            <th>Client Must</th>
+                            <th>Within</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Discovery</td>
+                            <td>Complete intake questionnaire and provide historical data</td>
+                            <td>7 days of signing</td>
+                        </tr>
+                        <tr>
+                            <td>Discovery</td>
+                            <td>Make key stakeholders available for interviews</td>
+                            <td>First 2 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Strategy</td>
+                            <td>Review and provide feedback on draft strategy</td>
+                            <td>7 days of delivery</td>
+                        </tr>
+                        <tr>
+                            <td>Strategy</td>
+                            <td>Approve final strategy to proceed with implementation</td>
+                            <td>14 days of revision</td>
+                        </tr>
+                        <tr>
+                            <td>Implementation</td>
+                            <td>Provide system access and credentials as specified</td>
+                            <td>Before work begins</td>
+                        </tr>
+                        <tr>
+                            <td>Implementation</td>
+                            <td>Assign internal implementation lead</td>
+                            <td>Before work begins</td>
+                        </tr>
+                        <tr>
+                            <td>Optimization</td>
+                            <td>Maintain tracking and measurement systems</td>
+                            <td>Ongoing</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="warning-box">
+                    <h4>Guarantee Void Conditions</h4>
+                    <p>Guarantees become void if the client:</p>
+                    <ul>
+                        <li>Fails to implement recommendations without documented business reason</li>
+                        <li>Delays approval or feedback beyond specified windows without extension agreement</li>
+                        <li>Makes material changes to scope, strategy, or implementation without consultation</li>
+                        <li>Withholds material information that would have changed our recommendations</li>
+                        <li>Terminates internal resources critical to implementation without replacement</li>
+                        <li>Breaches payment terms (more than 30 days past due)</li>
+                    </ul>
+                </div>
+
+                <div class="success-box">
+                    <h4>How We Present This to Clients</h4>
+                    <p>We frame responsibilities as partnership, not adversarial terms:</p>
+                    <p><em>"For our guarantee to work, we need to be partners in this. Here's what that means on your side. These aren't gotchas - they're the things that, in our experience, determine whether an engagement succeeds or fails. When clients do these things, we hit projections. When they don't, we don't. It's that simple."</em></p>
+                </div>
+
+                <h3>Responsibility Tracking</h3>
+                <p>Throughout the engagement, we document:</p>
+                <ul>
+                    <li>Requested information and date received</li>
+                    <li>Scheduled meetings and attendance</li>
+                    <li>Deliverables sent and feedback received</li>
+                    <li>Implementation milestones and client completion</li>
+                    <li>Any delays or issues and how resolved</li>
+                </ul>
+                <p>This documentation protects both parties and creates clear accountability if questions arise about guarantee applicability.</p>
+            </div>
+        </section>
+
+        <!-- Section 8: Exclusions and Limitations -->
+        <section id="exclusions" class="section">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <h2>Exclusions and Limitations</h2>
+            </div>
+            <div class="section-content">
+                <p class="lead">Clear exclusions prevent disputes and protect against unreasonable claims. Skeptical clients actually respect precise boundaries - it shows we have thought this through.</p>
+
+                <h3>Standard Exclusions</h3>
+
+                <div class="guarantee-grid">
+                    <div class="guarantee-card">
+                        <h4>Force Majeure</h4>
+                        <p>Guarantees do not apply during or after:</p>
+                        <ul>
+                            <li>Natural disasters affecting operations</li>
+                            <li>Pandemic-related business disruptions</li>
+                            <li>Government actions (new regulations, shutdowns)</li>
+                            <li>War, civil unrest, or terrorism</li>
+                            <li>Major infrastructure failures (power, internet)</li>
+                        </ul>
+                    </div>
+
+                    <div class="guarantee-card">
+                        <h4>Material Business Changes</h4>
+                        <p>Guarantees do not apply if client:</p>
+                        <ul>
+                            <li>Sells or merges the business during engagement</li>
+                            <li>Changes ownership or control structure</li>
+                            <li>Pivots to a different business model</li>
+                            <li>Reduces workforce by more than 25%</li>
+                            <li>Files for bankruptcy or reorganization</li>
+                        </ul>
+                    </div>
+
+                    <div class="guarantee-card">
+                        <h4>Third-Party Dependencies</h4>
+                        <p>Guarantees exclude failures caused by:</p>
+                        <ul>
+                            <li>Technology vendors client selects</li>
+                            <li>Contractors or agencies client hires</li>
+                            <li>Employees client manages</li>
+                            <li>Partners or suppliers client works with</li>
+                            <li>Platforms (Google, Facebook, etc.) changing rules</li>
+                        </ul>
+                    </div>
+
+                    <div class="guarantee-card">
+                        <h4>Market Conditions</h4>
+                        <p>Guarantees do not cover:</p>
+                        <ul>
+                            <li>Industry-wide downturns</li>
+                            <li>Significant competitor actions</li>
+                            <li>Changes in customer behavior/preferences</li>
+                            <li>New market entrants or disruptors</li>
+                            <li>Economic recession or inflation spikes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Liability Limitations</h3>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Limitation Type</th>
+                            <th>Our Position</th>
+                            <th>Rationale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maximum Liability Cap</td>
+                            <td>Limited to fees paid in the engagement</td>
+                            <td>Standard professional services limitation; prevents catastrophic exposure</td>
+                        </tr>
+                        <tr>
+                            <td>Consequential Damages</td>
+                            <td>Excluded (lost profits, lost opportunities, reputational harm)</td>
+                            <td>Impossible to quantify; would make consulting uninsurable</td>
+                        </tr>
+                        <tr>
+                            <td>Indirect Damages</td>
+                            <td>Excluded (downstream effects, third-party claims)</td>
+                            <td>Cannot control ripple effects of business decisions</td>
+                        </tr>
+                        <tr>
+                            <td>Punitive Damages</td>
+                            <td>Excluded</td>
+                            <td>Professional services are not subject to punitive awards in most jurisdictions</td>
+                        </tr>
+                        <tr>
+                            <td>Time Limitation</td>
+                            <td>Claims must be raised within 90 days of engagement completion</td>
+                            <td>Allows closure; prevents indefinite liability</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="legal-box">
+                    <h4>Essential Legal Language</h4>
+                    <p>IN NO EVENT SHALL ScaleUp Ventures' AGGREGATE LIABILITY EXCEED THE TOTAL FEES ACTUALLY PAID BY CLIENT UNDER THIS AGREEMENT. ScaleUp Ventures SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, REGARDLESS OF WHETHER SUCH DAMAGES WERE FORESEEABLE OR WHETHER ScaleUp Ventures WAS ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+                </div>
+
+                <h3>Specific Exclusions by Engagement Type</h3>
+
+                <h4>Strategy Engagements</h4>
+                <ul>
+                    <li>We do not guarantee adoption of recommendations by client's team</li>
+                    <li>We do not guarantee board or investor approval of strategies</li>
+                    <li>We do not guarantee accuracy of third-party data used in analysis</li>
+                </ul>
+
+                <h4>Implementation Engagements</h4>
+                <ul>
+                    <li>We do not guarantee performance of systems we do not build</li>
+                    <li>We do not guarantee results in environments we cannot access</li>
+                    <li>We do not guarantee timelines if dependent on client approvals that are delayed</li>
+                </ul>
+
+                <h4>Ongoing Advisory</h4>
+                <ul>
+                    <li>We do not guarantee client will follow advice given</li>
+                    <li>We do not guarantee outcomes of decisions client makes independently</li>
+                    <li>We do not guarantee results if client terminates before recommended duration</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 9: Sales Presentation -->
+        <section id="sales" class="section">
+            <div class="section-header">
+                <div class="section-number">9</div>
+                <h2>How to Present the Guarantee in Sales</h2>
+            </div>
+            <div class="section-content">
+                <p class="lead">The guarantee is a sales tool - but only if presented correctly. Done wrong, it sounds like desperation. Done right, it builds immediate trust with skeptical buyers.</p>
+
+                <h3>When to Introduce the Guarantee</h3>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Timing</th>
+                            <th>Approach</th>
+                            <th>Why It Works</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Early in conversation</td>
+                            <td>Mention it briefly as a differentiator, then move on</td>
+                            <td>Plants the seed without making it seem desperate</td>
+                        </tr>
+                        <tr>
+                            <td>When discussing price</td>
+                            <td>Frame it as "here's how we de-risk your investment"</td>
+                            <td>Justifies premium pricing with reduced risk</td>
+                        </tr>
+                        <tr>
+                            <td>When they express skepticism</td>
+                            <td>Bring it up directly as evidence of confidence</td>
+                            <td>Addresses objection with action, not words</td>
+                        </tr>
+                        <tr>
+                            <td>When comparing to competitors</td>
+                            <td>Ask "What guarantees are they offering?"</td>
+                            <td>Highlights differentiation without being salesy</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Scripts for Common Scenarios</h3>
+
+                <div class="script-box">
+                    <strong>Opening Hook (first mention)</strong><br><br>
+                    "One thing you should know upfront: we structure our engagements so that we share the risk with you. If we don't deliver what we promised, we don't get paid for it. That's not something you'll hear from most consultants. I'll explain exactly how that works when we get to the proposal stage."
+                </div>
+
+                <div class="script-box">
+                    <strong>Addressing Skepticism</strong><br><br>
+                    "I understand you've been burned before. That's exactly why we built our guarantee the way we did. We don't ask you to trust us - we ask you to hold us accountable. Payment is tied to milestones. If we miss them, you don't pay. If results don't materialize, we have skin in the game too. I can show you exactly how that works in writing."
+                </div>
+
+                <div class="script-box">
+                    <strong>Justifying Premium Price</strong><br><br>
+                    "Yes, we're more expensive than [competitor]. Here's the difference: if they don't deliver, you've lost your money. If we don't deliver, we lose ours. Our guarantee means your downside is capped, but your upside isn't. For someone who's been in business as long as you have, that math should make sense."
+                </div>
+
+                <div class="script-box">
+                    <strong>During Proposal Review</strong><br><br>
+                    "Let me walk you through the guarantee section specifically. We've broken this into tiers. Tier 1: if we don't hit the conservative projection, we keep working at no additional cost. Tier 2: if we significantly underperform and it's on us, the performance portion of our fee goes away. Tier 3: if we flat-out don't deliver the core work, you get a refund. Those are real dollars at stake for us. Any questions about how that works?"
+                </div>
+
+                <h3>Objection Handling</h3>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Objection</th>
+                            <th>Response</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>"Sounds too good to be true"</td>
+                            <td>"Fair concern. Let me show you the specific conditions. There's nothing hidden - but there are responsibilities on both sides. That's what makes it real."</td>
+                        </tr>
+                        <tr>
+                            <td>"What's the catch?"</td>
+                            <td>"The catch is that you have to hold up your end too. If you don't implement what we build, or you delay us past the timeline, the guarantee adjusts. It's a partnership, not a magic wand."</td>
+                        </tr>
+                        <tr>
+                            <td>"I've heard guarantees before"</td>
+                            <td>"I'm sure you have. Ask me for the specifics. What exactly triggers it? What are the exclusions? If I can't answer those clearly, don't work with me."</td>
+                        </tr>
+                        <tr>
+                            <td>"Can you just guarantee [X] revenue?"</td>
+                            <td>"I can't guarantee a number I don't fully control. But I can guarantee our work, tie my fee to milestones, and put real money at risk if projections aren't met. That's meaningful accountability."</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="warning-box">
+                    <h4>What NOT to Say</h4>
+                    <ul>
+                        <li>Never promise specific revenue/profit numbers as a guarantee</li>
+                        <li>Never say "money-back guarantee" without specifying conditions</li>
+                        <li>Never compare to competitors' guarantees unless you know them exactly</li>
+                        <li>Never position it as "we're so confident" without backing it up</li>
+                        <li>Never make the guarantee the entire value proposition</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Marketing Language -->
+        <section id="marketing" class="section">
+            <div class="section-header">
+                <div class="section-number">10</div>
+                <h2>Marketing Language for the Guarantee</h2>
+            </div>
+            <div class="section-content">
+                <p class="lead">Guarantee language must be compelling enough to attract attention while remaining legally defensible. These are tested phrases that resonate with skeptical buyers.</p>
+
+                <h3>Headline Options</h3>
+
+                <div class="marketing-example">
+                    <div class="headline">"We Share the Risk"</div>
+                    <div class="subline">Our fees are tied to your results. If we don't deliver, we don't get paid.</div>
+                </div>
+
+                <div class="marketing-example">
+                    <div class="headline">"Certainty First"</div>
+                    <div class="subline">Milestone-based payments. Performance-aligned fees. Real accountability.</div>
+                </div>
+
+                <div class="marketing-example">
+                    <div class="headline">"We've Got Skin in the Game"</div>
+                    <div class="subline">30% of our fee is at risk. If projections aren't met, we eat the loss.</div>
+                </div>
+
+                <h3>Approved Marketing Claims</h3>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Claim</th>
+                            <th>Legal Status</th>
+                            <th>Where to Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>"Milestone-based payment structure"</td>
+                            <td class="yes-cell">Safe</td>
+                            <td>Website, proposals, all materials</td>
+                        </tr>
+                        <tr>
+                            <td>"Performance-aligned fees"</td>
+                            <td class="yes-cell">Safe</td>
+                            <td>Website, proposals, all materials</td>
+                        </tr>
+                        <tr>
+                            <td>"Risk-sharing engagement model"</td>
+                            <td class="yes-cell">Safe</td>
+                            <td>Website, proposals, all materials</td>
+                        </tr>
+                        <tr>
+                            <td>"We don't get paid unless we deliver"</td>
+                            <td class="yes-cell">Safe (if true)</td>
+                            <td>Website, conversations, with asterisk</td>
+                        </tr>
+                        <tr>
+                            <td>"100% satisfaction guarantee on strategy work"</td>
+                            <td class="yes-cell">Safe</td>
+                            <td>With terms clearly defined</td>
+                        </tr>
+                        <tr>
+                            <td>"Guaranteed ROI"</td>
+                            <td class="no-cell">Avoid</td>
+                            <td>Too vague, creates liability</td>
+                        </tr>
+                        <tr>
+                            <td>"We guarantee results"</td>
+                            <td class="no-cell">Avoid</td>
+                            <td>Too broad, legally problematic</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Website Copy Blocks</h3>
+
+                <div class="info-box">
+                    <h4>For Services Page</h4>
+                    <p><strong>Risk-Sharing Engagement Model</strong></p>
+                    <p>We structure engagements so our success depends on yours. Payments are tied to milestone completion, not time spent. A portion of our fee is performance-based, earned only when projections are met. And if our strategy work doesn't meet your standards, we refund it. No fine print, no exceptions.</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>For Proposal Documents</h4>
+                    <p><strong>Our Commitment to Your Success</strong></p>
+                    <p>This engagement includes our standard risk-sharing protections:</p>
+                    <ul>
+                        <li>Milestone-based payments: You pay for deliverables, not hours</li>
+                        <li>Satisfaction guarantee: If strategy work doesn't meet your needs, we refund it within 14 days</li>
+                        <li>Performance alignment: [X]% of our fee is tied to achieving the conservative projection</li>
+                        <li>Clear accountability: If we miss timelines or deliverables, compensation is reduced accordingly</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h4>For Email Outreach</h4>
+                    <p>"I know you've probably worked with consultants before who promised results and didn't deliver. Here's how we're different: we put our fees at risk. If we don't hit the conservative projection we show you upfront, we lose money. That's real skin in the game. Worth a 15-minute call to see if there's a fit?"</p>
+                </div>
+
+                <h3>Disclaimer Text (Required)</h3>
+
+                <div class="legal-box">
+                    <h4>Standard Disclaimer (Use on All Marketing)</h4>
+                    <p>Risk-sharing terms, payment structures, and guarantee provisions are engagement-specific and detailed in individual agreements. Projections are based on analysis and historical data; actual results may vary based on implementation, market conditions, and other factors. Full terms and conditions provided at proposal stage.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 11: Contract Clauses -->
+        <section id="contracts" class="section">
+            <div class="section-header">
+                <div class="section-number">11</div>
+                <h2>Contract Clause Templates</h2>
+            </div>
+            <div class="section-content">
+                <p class="lead">These template clauses should be reviewed by legal counsel before use. They provide a starting framework for guarantee-related contract language.</p>
+
+                <div class="contract-template">
+                    <div class="contract-header">Satisfaction Guarantee Clause</div>
+                    <div class="contract-body">
+<span class="contract-variable">[X]</span>. SATISFACTION GUARANTEE
+
+<span class="contract-variable">[X.1]</span> Scope. This satisfaction guarantee applies to the following deliverables: <span class="contract-variable">[LIST SPECIFIC DELIVERABLES]</span> (collectively, "Guaranteed Deliverables").
+
+<span class="contract-variable">[X.2]</span> Guarantee Terms. If Client, in good faith, determines that Guaranteed Deliverables do not substantially meet the specifications set forth in Exhibit A, Client may request a full refund of fees paid for such deliverables by providing written notice to Provider within fourteen (14) calendar days of delivery.
+
+<span class="contract-variable">[X.3]</span> Refund Process. Upon receipt of valid refund request, Provider shall refund applicable fees within thirty (30) days. Client shall return or destroy all copies of Guaranteed Deliverables upon refund.
+
+<span class="contract-variable">[X.4]</span> Limitations. This guarantee shall not apply if Client has (a) failed to provide timely feedback as specified in Section <span class="contract-variable">[Y]</span>, (b) requested changes outside original scope, or (c) approved deliverables in writing prior to refund request.</div>
+                </div>
+
+                <div class="contract-template">
+                    <div class="contract-header">Milestone-Based Payment Clause</div>
+                    <div class="contract-body">
+<span class="contract-variable">[X]</span>. PAYMENT TERMS
+
+<span class="contract-variable">[X.1]</span> Milestone Payments. Fees shall be paid according to the following milestone schedule:
+
+   (a) <span class="contract-variable">[PERCENTAGE]</span>% upon execution of this Agreement
+   (b) <span class="contract-variable">[PERCENTAGE]</span>% upon completion and acceptance of <span class="contract-variable">[MILESTONE 1]</span>
+   (c) <span class="contract-variable">[PERCENTAGE]</span>% upon completion and acceptance of <span class="contract-variable">[MILESTONE 2]</span>
+   (d) <span class="contract-variable">[PERCENTAGE]</span>% upon completion and acceptance of <span class="contract-variable">[MILESTONE 3]</span>
+
+<span class="contract-variable">[X.2]</span> Milestone Acceptance. Each milestone shall be deemed accepted upon the earlier of (a) Client's written acceptance, or (b) seven (7) business days following delivery without written objection specifying non-conformance.
+
+<span class="contract-variable">[X.3]</span> Delayed Milestones. If Provider fails to complete a milestone within <span class="contract-variable">[NUMBER]</span> days of scheduled completion date, and such delay is not attributable to Client, Client may (a) extend the timeline by written agreement, or (b) terminate the engagement and receive refund of fees paid for incomplete milestones.</div>
+                </div>
+
+                <div class="contract-template">
+                    <div class="contract-header">Performance Fee Clause</div>
+                    <div class="contract-body">
+<span class="contract-variable">[X]</span>. PERFORMANCE-BASED COMPENSATION
+
+<span class="contract-variable">[X.1]</span> Fee Structure. Total engagement fees shall consist of:
+   (a) Base Fee: <span class="contract-variable">[$AMOUNT]</span>, payable per milestone schedule in Section <span class="contract-variable">[Y]</span>
+   (b) Performance Fee: <span class="contract-variable">[$AMOUNT]</span>, payable upon satisfaction of Performance Criteria
+
+<span class="contract-variable">[X.2]</span> Performance Criteria. Performance Fee shall be earned if, within ninety (90) days following completion of implementation, <span class="contract-variable">[SPECIFIC MEASURABLE CRITERIA]</span> equals or exceeds <span class="contract-variable">[TARGET NUMBER/PERCENTAGE]</span> (the "Performance Target").
+
+<span class="contract-variable">[X.3]</span> Measurement. Performance shall be measured using <span class="contract-variable">[SPECIFIC DATA SOURCE AND METHODOLOGY]</span>. Both parties shall have access to measurement data.
+
+<span class="contract-variable">[X.4]</span> Partial Performance. If Performance Target is not met:
+   (a) Performance between 75-99% of target: Performance Fee reduced by 50%
+   (b) Performance between 50-74% of target: Performance Fee waived; Provider delivers <span class="contract-variable">[ADDITIONAL SERVICES]</span> at no cost
+   (c) Performance below 50% of target: Performance Fee waived; Client receives credit equal to <span class="contract-variable">[PERCENTAGE]</span>% of Base Fee toward future engagement
+
+<span class="contract-variable">[X.5]</span> Exclusions. Performance Fee provisions shall not apply if <span class="contract-variable">[LIST EXCLUSIONS PER SECTION 8]</span>.</div>
+                </div>
+
+                <div class="contract-template">
+                    <div class="contract-header">Client Responsibilities Clause</div>
+                    <div class="contract-body">
+<span class="contract-variable">[X]</span>. CLIENT RESPONSIBILITIES
+
+<span class="contract-variable">[X.1]</span> Cooperation. Client shall cooperate with Provider and provide timely access to personnel, information, systems, and resources reasonably necessary for Provider to perform the Services.
+
+<span class="contract-variable">[X.2]</span> Specific Obligations. Client shall:
+   (a) Designate a primary contact with decision-making authority
+   (b) Provide requested information within five (5) business days
+   (c) Review and provide feedback on deliverables within <span class="contract-variable">[NUMBER]</span> business days
+   (d) Attend scheduled meetings or provide 48 hours notice for rescheduling
+   (e) Implement recommendations within agreed timeframes
+
+<span class="contract-variable">[X.3]</span> Effect of Non-Compliance. Provider's obligations, including without limitation any guarantees, performance commitments, or timeline obligations, shall be excused or extended to the extent Client fails to comply with obligations under this Section.</div>
+                </div>
+
+                <div class="contract-template">
+                    <div class="contract-header">Limitation of Liability Clause</div>
+                    <div class="contract-body">
+<span class="contract-variable">[X]</span>. LIMITATION OF LIABILITY
+
+<span class="contract-variable">[X.1]</span> Cap on Damages. IN NO EVENT SHALL EITHER PARTY'S AGGREGATE LIABILITY ARISING OUT OF OR RELATED TO THIS AGREEMENT EXCEED THE TOTAL FEES PAID OR PAYABLE BY CLIENT UNDER THIS AGREEMENT.
+
+<span class="contract-variable">[X.2]</span> Exclusion of Consequential Damages. IN NO EVENT SHALL EITHER PARTY BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR DAMAGES FOR LOSS OF PROFITS, REVENUE, GOODWILL, USE, DATA, OR OTHER INTANGIBLE LOSSES, EVEN IF SUCH PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+<span class="contract-variable">[X.3]</span> Time Limitation. Any claim arising under this Agreement must be brought within ninety (90) days after completion or termination of the engagement.
+
+<span class="contract-variable">[X.4]</span> Exceptions. The limitations in this Section shall not apply to breaches of confidentiality obligations or intentional misconduct.</div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>Legal Review Required</h4>
+                    <p>These templates are provided as starting points only. All contract language must be reviewed by qualified legal counsel before use in client agreements. Specific terms should be adjusted based on engagement scope, jurisdiction, and individual circumstances.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 12: FAQ -->
+        <section id="faq" class="section">
+            <div class="section-header">
+                <div class="section-number">12</div>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="section-content">
+                <p class="lead">Common questions from both internal team members and clients, with clear answers that maintain consistency in how we present and apply our guarantee policy.</p>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span>What exactly does "risk-sharing" mean in practice?</span>
+                    </div>
+                    <div class="faq-answer">
+                        It means we structure deals so our payment depends on our performance. Specifically: (1) Payments are tied to milestones, not just time, (2) A portion of our fee can be withheld if projections are not met, and (3) We provide refund options for work that does not meet standards. We do not guarantee specific revenue outcomes, but we do guarantee our deliverables and put real money at risk.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span>If I am unhappy with the work, can I get a full refund?</span>
+                    </div>
+                    <div class="faq-answer">
+                        For strategy and discovery work, yes - within 14 days of delivery, if the work does not meet the specifications we agreed to upfront. For implementation work, refunds apply to specific milestones that were not completed as specified. We do not offer unconditional refunds with no criteria - there must be a legitimate reason tied to our failure to deliver what was promised.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span>What happens if the conservative projection is not met?</span>
+                    </div>
+                    <div class="faq-answer">
+                        First, we determine why together. If it is our failure (bad strategy, poor execution), we take responsibility: the performance portion of our fee is waived, and we provide additional work at no cost. If external factors caused it (market changes, economic conditions) or if the client did not implement recommendations, different terms apply. The goal is fair accountability, not blame-shifting.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span>Do I have responsibilities for the guarantee to apply?</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes. This is a partnership. For guarantees to remain in effect, you need to: provide information when requested, make decisions in a timely manner, implement recommendations we agree on, and attend scheduled meetings. If you delay us significantly or choose not to implement recommendations, the guarantee adjusts accordingly. All responsibilities are documented in your agreement.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span>Why do you not just guarantee specific revenue results?</span>
+                    </div>
+                    <div class="faq-answer">
+                        Because we do not control all the variables that determine revenue. We control our strategy, our deliverables, our expertise, and our execution. We do not control your market, your competitors, your team's execution after handoff, or economic conditions. A consultant who guarantees specific revenue numbers is either naive or misleading you. We guarantee what we control and put real money at risk on outcomes.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span>How do you measure whether projections were met?</span>
+                    </div>
+                    <div class="faq-answer">
+                        We establish baseline metrics before the engagement begins - both parties sign off on current numbers and data sources. We use the same sources and methodology to measure results at the 90-day mark. This prevents disputes about measurement. If we cannot agree on baseline metrics upfront, we do not include performance-based elements in the engagement.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span>What are the main exclusions from the guarantee?</span>
+                    </div>
+                    <div class="faq-answer">
+                        The main exclusions are: (1) Force majeure events like natural disasters or pandemics, (2) Major business changes like selling the company or changing business models, (3) Client failure to implement recommendations or meet their responsibilities, (4) Third-party failures (vendors, employees, platforms), and (5) Market-wide conditions affecting your industry. Full exclusions are listed in your agreement.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span>Is the guarantee different for different types of work?</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes. Strategy work has a satisfaction guarantee (refund if you are not satisfied within 14 days). Implementation work has milestone guarantees (payment tied to deliverable completion). Optimization work may have performance-based elements (portion of fee tied to measurable improvement). Each type is designed for what makes sense in that context.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span>How long do I have to make a guarantee claim?</span>
+                    </div>
+                    <div class="faq-answer">
+                        For satisfaction guarantees on deliverables: 14 days from delivery. For performance-based elements: within 30 days of the 90-day measurement date. For general claims: within 90 days of engagement completion. These time limits are important for closure and are standard in professional services.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span>What makes your guarantee different from other consultants?</span>
+                    </div>
+                    <div class="faq-answer">
+                        Three things: (1) We define it precisely - you know exactly what triggers it, what the exclusions are, and what recourse you have, (2) We have real money at stake - our fee structure means we lose income if we underperform, and (3) We document everything - baselines, projections, responsibilities, and measurements are all in writing before we start. Most consultants either have no guarantee or have one so vague it is meaningless.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span>[Internal] Can we modify the standard guarantee terms for a specific client?</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, within limits. The satisfaction guarantee on strategy work is non-negotiable - it is core to our brand. Milestone structures can be adjusted based on engagement complexity. Performance-based elements can be modified or removed based on how much control we have over outcomes. Any modification to liability caps requires principal approval. Document all modifications clearly in the agreement.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span>[Internal] What if a client tries to abuse the guarantee?</span>
+                    </div>
+                    <div class="faq-answer">
+                        Our protections include: (1) Specific criteria that must be met before refunds apply, (2) Documented client responsibilities that must be fulfilled, (3) Time limits on claims, (4) Signed acknowledgment of projections versus guarantees, and (5) Documentation of all deliverables and communications. If a client makes a bad-faith claim, we have evidence to dispute it. If they have a legitimate complaint, we honor our commitment.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">ScaleUp Ventures</div>
+        <p>"Certainty First."</p>
+        <div class="version-info">
+            <p>Risk-Sharing & Guarantee Policy</p>
+            <p>Version 1.0 | December 2025</p>
+            <p>Internal Document - For ScaleUp Ventures Use</p>
+            <p>Legal review recommended before implementation</p>
+        </div>
+    </footer>
+
+</body>
+</html>

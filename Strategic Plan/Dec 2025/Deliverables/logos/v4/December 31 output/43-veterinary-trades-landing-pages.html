@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinary & Trades Industry Landing Pages | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f1729;
+            --navy-light: #1a2744;
+            --slate: #334155;
+            --slate-light: #64748b;
+            --gold: #d4a853;
+            --gold-muted: #b8956e;
+            --cream: #faf8f5;
+            --cream-dark: #f1ede6;
+            --white: #ffffff;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --info: #0284c7;
+            --vet-accent: #2d6a4f;
+            --trades-accent: #c2410c;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--navy);
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .nav-header {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .nav-subtitle {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 0.25rem;
+        }
+
+        .nav-section { margin-bottom: 1.5rem; }
+
+        .nav-section-title {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--slate-light);
+            padding: 0 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+            border-left-color: var(--gold);
+        }
+
+        .nav-link.vet { border-left-color: var(--vet-accent); }
+        .nav-link.trades { border-left-color: var(--trades-accent); }
+
+        .main {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 5rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a853' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+        }
+
+        .hero-meta-item {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+        }
+
+        .hero-meta-item strong {
+            color: var(--white);
+            display: block;
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .content {
+            padding: 4rem;
+            max-width: 1200px;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-header { margin-bottom: 2rem; }
+
+        .section-number {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: 0.5rem;
+        }
+
+        /* Landing Page Preview Container */
+        .landing-preview {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .preview-header {
+            background: var(--navy);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .browser-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .browser-dot.red { background: #ff5f57; }
+        .browser-dot.yellow { background: #febc2e; }
+        .browser-dot.green { background: #28c840; }
+
+        .preview-url {
+            margin-left: 1rem;
+            background: rgba(255,255,255,0.1);
+            padding: 0.375rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            flex: 1;
+        }
+
+        /* Veterinary Landing Page Styles */
+        .vet-hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a3a2f 100%);
+            padding: 4rem 3rem;
+            position: relative;
+        }
+
+        .vet-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(45, 106, 79, 0.2));
+        }
+
+        .vet-badge {
+            display: inline-block;
+            background: rgba(45, 106, 79, 0.3);
+            color: #6ee7b7;
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .vet-hero h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .vet-hero h1 span {
+            color: var(--gold);
+        }
+
+        .vet-hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 550px;
+            margin-bottom: 2rem;
+        }
+
+        /* Trades Landing Page Styles */
+        .trades-hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #3d1c0a 100%);
+            padding: 4rem 3rem;
+            position: relative;
+        }
+
+        .trades-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(194, 65, 12, 0.2));
+        }
+
+        .trades-badge {
+            display: inline-block;
+            background: rgba(194, 65, 12, 0.3);
+            color: #fdba74;
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .trades-hero h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .trades-hero h1 span {
+            color: var(--gold);
+        }
+
+        .trades-hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 550px;
+            margin-bottom: 2rem;
+        }
+
+        /* CTA Buttons */
+        .cta-primary {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.875rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            margin-right: 1rem;
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--white);
+            padding: 0.875rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.2s ease;
+        }
+
+        /* Pain Points Section */
+        .pain-section {
+            padding: 3rem;
+            background: var(--cream);
+        }
+
+        .pain-section h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .pain-section .subtitle {
+            text-align: center;
+            color: var(--slate);
+            margin-bottom: 2rem;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .pain-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--danger);
+        }
+
+        .pain-card.vet { border-left-color: var(--vet-accent); }
+        .pain-card.trades { border-left-color: var(--trades-accent); }
+
+        .pain-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: rgba(220, 38, 38, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pain-card.vet .pain-icon {
+            background: rgba(45, 106, 79, 0.1);
+        }
+
+        .pain-card.trades .pain-icon {
+            background: rgba(194, 65, 12, 0.1);
+        }
+
+        .pain-card h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .pain-card p {
+            font-size: 0.9rem;
+            color: var(--slate);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 3rem;
+            background: var(--white);
+        }
+
+        .services-section h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .services-section .subtitle {
+            text-align: center;
+            color: var(--slate);
+            margin-bottom: 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--cream);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .service-card h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            font-size: 0.85rem;
+            color: var(--slate);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        /* ROI Section */
+        .roi-section {
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+        }
+
+        .roi-section h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .roi-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+        }
+
+        .roi-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .roi-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Case Study Section */
+        .case-section {
+            padding: 3rem;
+            background: var(--cream);
+        }
+
+        .case-section h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .case-study {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+            border-left: 4px solid var(--gold);
+        }
+
+        .case-meta {
+            padding-right: 2rem;
+            border-right: 1px solid var(--cream-dark);
+        }
+
+        .case-meta h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .case-detail {
+            font-size: 0.9rem;
+            color: var(--slate);
+            margin-bottom: 0.75rem;
+        }
+
+        .case-detail strong {
+            color: var(--navy);
+        }
+
+        .case-content h4 {
+            font-size: 0.8rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .case-content p {
+            color: var(--slate);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .case-result {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .case-result-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        .case-result-label {
+            font-size: 0.75rem;
+            color: var(--slate);
+            margin-top: 0.25rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 3rem;
+            background: var(--navy);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-section h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: var(--navy);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            color: rgba(255,255,255,0.9);
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .code-block .tag { color: #f472b6; }
+        .code-block .attr { color: #67e8f9; }
+        .code-block .value { color: #fde047; }
+        .code-block .comment { color: #6b7280; }
+
+        /* Implementation Notes */
+        .impl-notes {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-left: 4px solid var(--info);
+        }
+
+        .impl-notes h4 {
+            font-size: 0.8rem;
+            color: var(--info);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .impl-notes ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .impl-notes li {
+            font-size: 0.9rem;
+            color: var(--slate);
+            padding: 0.375rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .impl-notes li::before {
+            content: ">";
+            color: var(--info);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Divider */
+        .page-divider {
+            height: 4px;
+            background: linear-gradient(90deg, var(--vet-accent), var(--trades-accent));
+            margin: 4rem 0;
+            border-radius: 2px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            padding: 2rem 4rem;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 1024px) {
+            .nav { width: 240px; }
+            .main { margin-left: 240px; }
+            .content { padding: 2rem; }
+            .hero { padding: 3rem 2rem; }
+            .hero-title { font-size: 2rem; }
+            .pain-grid, .services-grid { grid-template-columns: 1fr; }
+            .roi-grid { grid-template-columns: repeat(2, 1fr); }
+            .case-study { grid-template-columns: 1fr; }
+            .case-meta { border-right: none; border-bottom: 1px solid var(--cream-dark); padding-bottom: 1.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .main { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-logo">ScaleUp Ventures</div>
+            <div class="nav-subtitle">Industry Landing Pages</div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Veterinary (65/80)</div>
+            <a href="#vet-hero" class="nav-link vet">Hero Section</a>
+            <a href="#vet-pain" class="nav-link vet">Pain Points</a>
+            <a href="#vet-services" class="nav-link vet">Services</a>
+            <a href="#vet-roi" class="nav-link vet">ROI Examples</a>
+            <a href="#vet-case" class="nav-link vet">Case Study</a>
+            <a href="#vet-cta" class="nav-link vet">CTAs</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Trades (63/80)</div>
+            <a href="#trades-hero" class="nav-link trades">Hero Section</a>
+            <a href="#trades-pain" class="nav-link trades">Pain Points</a>
+            <a href="#trades-services" class="nav-link trades">Services</a>
+            <a href="#trades-roi" class="nav-link trades">ROI Examples</a>
+            <a href="#trades-case" class="nav-link trades">Case Study</a>
+            <a href="#trades-cta" class="nav-link trades">CTAs</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Resources</div>
+            <a href="#implementation" class="nav-link">Implementation Notes</a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <header class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">Industry Marketing</span>
+                <h1 class="hero-title">Veterinary & Trades Industry Landing Pages</h1>
+                <p class="hero-subtitle">Complete, styled landing pages targeting ScaleUp Ventures' two high-priority industry verticals with industry-specific messaging, pain points, and ROI examples.</p>
+                <div class="hero-meta">
+                    <div class="hero-meta-item">
+                        <strong>Certainty First.</strong>
+                        Brand Tagline
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>Veterinary: 65/80</strong>
+                        Tier 1 Priority
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>Trades: 63/80</strong>
+                        Tier 2 Priority
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>December 31, 2025</strong>
+                        Created
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- ============================================ -->
+            <!-- VETERINARY LANDING PAGE                       -->
+            <!-- ============================================ -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">Landing Page 01</div>
+                    <h2 class="section-title">Veterinary Practice Landing Page</h2>
+                </div>
+
+                <div class="landing-preview" id="vet-hero">
+                    <div class="preview-header">
+                        <div class="browser-dot red"></div>
+                        <div class="browser-dot yellow"></div>
+                        <div class="browser-dot green"></div>
+                        <div class="preview-url">scaleupventures.com/veterinary</div>
+                    </div>
+
+                    <!-- HERO SECTION -->
+                    <div class="vet-hero">
+                        <div class="vet-badge">For Independent Veterinary Practices</div>
+                        <h1>Stay Independent. <span>Stay Competitive.</span><br>Exit on Your Terms.</h1>
+                        <p>Mars and VCA are buying every practice they can find. The independents who thrive will have modern digital systems that match corporate capabilities while keeping the personal care that built their reputation. We help you build that future - with clear ROI before you invest.</p>
+                        <div>
+                            <a href="#" class="cta-primary">Get Your Free Practice Assessment</a>
+                            <a href="#" class="cta-secondary">See How It Works</a>
+                        </div>
+                    </div>
+
+                    <!-- PAIN POINTS SECTION -->
+                    <div class="pain-section" id="vet-pain">
+                        <h2>Challenges Facing Independent Veterinary Practices</h2>
+                        <p class="subtitle">You know these problems. We know how to solve them.</p>
+                        <div class="pain-grid">
+                            <div class="pain-card vet">
+                                <div class="pain-icon">!</div>
+                                <h3>Corporate Rollup Pressure</h3>
+                                <p>Mars, VCA, and private equity firms are acquiring independent practices at record pace. Without modern systems, you become an acquisition target rather than a competitor.</p>
+                            </div>
+                            <div class="pain-card vet">
+                                <div class="pain-icon">!</div>
+                                <h3>Staff Burnout & Vet Tech Shortage</h3>
+                                <p>Your team is drowning in administrative tasks that technology could handle. Chronic understaffing leads to compassion fatigue and turnover that costs you $30K+ per position.</p>
+                            </div>
+                            <div class="pain-card vet">
+                                <div class="pain-icon">!</div>
+                                <h3>Technology Chaos</h3>
+                                <p>Multiple disconnected systems for records, billing, scheduling, and communication. Your staff wastes hours daily on manual data entry and system switching.</p>
+                            </div>
+                            <div class="pain-card vet">
+                                <div class="pain-icon">!</div>
+                                <h3>Evolving Client Expectations</h3>
+                                <p>Pet parents under 40 expect online booking, text reminders, and digital records. 88% want online scheduling - but only 20% of practices offer it.</p>
+                            </div>
+                            <div class="pain-card vet">
+                                <div class="pain-icon">!</div>
+                                <h3>Exit Valuation Concerns</h3>
+                                <p>65% of practice owners plan to exit within 10 years. Without modern, transferable systems, your practice valuation suffers significantly.</p>
+                            </div>
+                            <div class="pain-card vet">
+                                <div class="pain-icon">!</div>
+                                <h3>Marketing Confusion</h3>
+                                <p>You have tried agencies before. They delivered reports you did not understand and websites that did not convert. No clear ROI, just more invoices.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SERVICES SECTION -->
+                    <div class="services-section" id="vet-services">
+                        <h2>How We Help Veterinary Practices Modernize</h2>
+                        <p class="subtitle">One partner for your entire digital transformation - with ROI you can see before you commit.</p>
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <div class="service-icon">W</div>
+                                <h3>Practice Website & Online Booking</h3>
+                                <p>Modern, mobile-first websites with integrated online appointment scheduling, new patient forms, and pet portals that keep clients coming back.</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">G</div>
+                                <h3>Local SEO & Reputation Management</h3>
+                                <p>Dominate local search results when pet owners look for "vet near me." Automated review collection and management to build trust online.</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">A</div>
+                                <h3>AI-Powered Client Communication</h3>
+                                <p>Automated appointment reminders, vaccination due notices, and follow-up care messages. Reduce no-shows by 35% while saving staff hours daily.</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">I</div>
+                                <h3>Practice Management Integration</h3>
+                                <p>Connect your existing systems - PIMS, payment processing, scheduling - into a unified workflow that eliminates duplicate data entry.</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">R</div>
+                                <h3>Recall & Retention Programs</h3>
+                                <p>Automated wellness campaigns that bring patients back for annual exams, vaccinations, and preventive care. Increase visit frequency by 25%.</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">V</div>
+                                <h3>Exit Valuation Enhancement</h3>
+                                <p>Build modern, transferable systems that increase your practice's multiple when it is time to sell. Documentation and training included.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ROI SECTION -->
+                    <div class="roi-section" id="vet-roi">
+                        <h2>Real ROI for Veterinary Practices</h2>
+                        <div class="roi-grid">
+                            <div class="roi-card">
+                                <div class="roi-value">35%</div>
+                                <div class="roi-label">Reduction in No-Shows with Automated Reminders</div>
+                            </div>
+                            <div class="roi-card">
+                                <div class="roi-value">$48K</div>
+                                <div class="roi-label">Average Annual Savings from Staff Efficiency</div>
+                            </div>
+                            <div class="roi-card">
+                                <div class="roi-value">25%</div>
+                                <div class="roi-label">Increase in Visit Frequency from Recall Campaigns</div>
+                            </div>
+                            <div class="roi-card">
+                                <div class="roi-value">2.5x</div>
+                                <div class="roi-label">Higher Exit Multiple with Modern Systems</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CASE STUDY SECTION -->
+                    <div class="case-section" id="vet-case">
+                        <h2>Veterinary Practice Success Story</h2>
+                        <div class="case-study">
+                            <div class="case-meta">
+                                <h3>[Practice Name] Animal Hospital</h3>
+                                <div class="case-detail"><strong>Location:</strong> [City, State]</div>
+                                <div class="case-detail"><strong>Practice Size:</strong> 3 veterinarians, 12 staff</div>
+                                <div class="case-detail"><strong>Annual Revenue:</strong> $2.1M</div>
+                                <div class="case-detail"><strong>Challenge:</strong> Losing clients to new corporate practice; outdated website; no online booking</div>
+                            </div>
+                            <div class="case-content">
+                                <h4>The Challenge</h4>
+                                <p>Dr. [Name] had built a thriving practice over 22 years, but a Banfield opened nearby with online booking, a modern website, and aggressive marketing. New client acquisitions dropped 40% in six months. Staff was overwhelmed with phone calls, and longtime clients were defecting for convenience.</p>
+
+                                <h4>The Solution</h4>
+                                <p>We built a modern practice website with integrated online booking, implemented AI-powered appointment reminders and recall campaigns, and established local SEO dominance. All with a pre-engagement ROI model showing the exact return expected.</p>
+
+                                <h4>The Results (12 Months)</h4>
+                                <div class="case-results">
+                                    <div class="case-result">
+                                        <div class="case-result-value">+47%</div>
+                                        <div class="case-result-label">New Client Acquisition</div>
+                                    </div>
+                                    <div class="case-result">
+                                        <div class="case-result-value">-38%</div>
+                                        <div class="case-result-label">No-Show Rate</div>
+                                    </div>
+                                    <div class="case-result">
+                                        <div class="case-result-value">$312K</div>
+                                        <div class="case-result-label">Additional Annual Revenue</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA SECTION -->
+                    <div class="cta-section" id="vet-cta">
+                        <h2>Ready to Modernize Your Practice?</h2>
+                        <p>Get a custom ROI assessment showing exactly what results to expect - before you invest a dollar.</p>
+                        <a href="#" class="cta-primary">Schedule Your Free Practice Assessment</a>
+                        <a href="#" class="cta-secondary">Talk to a Vet Practice Specialist</a>
+                    </div>
+                </div>
+
+                <!-- Implementation Notes -->
+                <div class="impl-notes">
+                    <h4>Veterinary Page Implementation Notes</h4>
+                    <ul>
+                        <li><strong>Hero Image:</strong> Feature a warm, professional image of a veterinarian with a pet - avoid stock photos, aim for authentic local imagery</li>
+                        <li><strong>Form Placement:</strong> Consider adding a "Get Your Free Assessment" form in the hero section for higher conversion</li>
+                        <li><strong>Trust Signals:</strong> Add AVMA logo, Fear Free certification badge, and local veterinary association affiliations</li>
+                        <li><strong>Case Study:</strong> Replace placeholder with actual client story once available - anonymize if necessary</li>
+                        <li><strong>Local Customization:</strong> Create variations targeting specific markets (e.g., "Veterinary Practices in [City]")</li>
+                        <li><strong>Exit Intent:</strong> Add popup offering "5 Ways Independent Practices Can Compete with Corporate Chains" lead magnet</li>
+                        <li><strong>Chat Integration:</strong> Consider adding live chat specifically for practice owners evaluating services</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="page-divider"></div>
+
+            <!-- ============================================ -->
+            <!-- TRADES LANDING PAGE                          -->
+            <!-- ============================================ -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">Landing Page 02</div>
+                    <h2 class="section-title">Trades Business Landing Page (HVAC, Plumbing, Electrical)</h2>
+                </div>
+
+                <div class="landing-preview" id="trades-hero">
+                    <div class="preview-header">
+                        <div class="browser-dot red"></div>
+                        <div class="browser-dot yellow"></div>
+                        <div class="browser-dot green"></div>
+                        <div class="preview-url">scaleupventures.com/trades</div>
+                    </div>
+
+                    <!-- HERO SECTION -->
+                    <div class="trades-hero">
+                        <div class="trades-badge">For HVAC, Plumbing & Electrical Contractors</div>
+                        <h1>Stop Losing Calls. <span>Start Booking Jobs.</span><br>Compete with the Big Guys.</h1>
+                        <p>The national chains have scheduling apps, AI-optimized routes, and massive ad budgets. You have 25 years of expertise and customers who trust you. We help you get the digital tools to compete - with clear ROI before you spend a dime.</p>
+                        <div>
+                            <a href="#" class="cta-primary">Get Your Free ROI Assessment</a>
+                            <a href="#" class="cta-secondary">See What It Costs</a>
+                        </div>
+                    </div>
+
+                    <!-- PAIN POINTS SECTION -->
+                    <div class="pain-section" id="trades-pain">
+                        <h2>Challenges Facing Trade Business Owners</h2>
+                        <p class="subtitle">We understand what keeps you up at night.</p>
+                        <div class="pain-grid">
+                            <div class="pain-card trades">
+                                <div class="pain-icon">!</div>
+                                <h3>Missing Calls = Missing Money</h3>
+                                <p>Every call that goes to voicemail is a job going to your competitor. 85% of customers will not leave a voicemail - they just call the next guy on Google.</p>
+                            </div>
+                            <div class="pain-card trades">
+                                <div class="pain-icon">!</div>
+                                <h3>National Chains Are Eating Your Lunch</h3>
+                                <p>ServiceMaster, Roto-Rooter, and Mr. Electric have online booking, instant quotes, and 24/7 availability. They are booking customers while you sleep.</p>
+                            </div>
+                            <div class="pain-card trades">
+                                <div class="pain-icon">!</div>
+                                <h3>Lead Gen Confusion</h3>
+                                <p>You have tried HomeAdvisor, Thumbtack, and Google Ads. Some months are good, some are terrible. No predictability, no accountability, just more invoices.</p>
+                            </div>
+                            <div class="pain-card trades">
+                                <div class="pain-icon">!</div>
+                                <h3>Route Inefficiency</h3>
+                                <p>Your techs are driving 30% more miles than necessary. That is $12,000+ per truck per year in wasted fuel, time, and wear.</p>
+                            </div>
+                            <div class="pain-card trades">
+                                <div class="pain-icon">!</div>
+                                <h3>Reputation Management Nightmare</h3>
+                                <p>One bad review tanks your rating. You do not have time to chase happy customers for reviews, but your competitors do.</p>
+                            </div>
+                            <div class="pain-card trades">
+                                <div class="pain-icon">!</div>
+                                <h3>Seasonal Revenue Swings</h3>
+                                <p>Feast or famine. Summer crushes you (HVAC), then winter is dead. No consistent pipeline, no predictable cash flow.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SERVICES SECTION -->
+                    <div class="services-section" id="trades-services">
+                        <h2>How We Help Trade Businesses Grow</h2>
+                        <p class="subtitle">One partner for leads, booking, and efficiency - with ROI you can measure.</p>
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <div class="service-icon">W</div>
+                                <h3>Contractor Website & Online Booking</h3>
+                                <p>Professional websites that convert visitors to leads. Online scheduling that books appointments while you are on the job.</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">L</div>
+                                <h3>Local SEO & Google Dominance</h3>
+                                <p>Rank #1 for "[service] near me" searches. 97% of customers search online first - be the one they find.</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">A</div>
+                                <h3>AI-Powered Lead Response</h3>
+                                <p>Instant call answering, quote requests, and appointment booking 24/7. Never miss a lead, even at 2am on a weekend.</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">R</div>
+                                <h3>Route Optimization</h3>
+                                <p>AI-powered dispatch that cuts drive time 25-30%. More jobs per day, less fuel cost, happier techs.</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">S</div>
+                                <h3>Automated Review Collection</h3>
+                                <p>Automatically request reviews from happy customers. Build a 4.8+ star reputation that wins more jobs.</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">M</div>
+                                <h3>Maintenance Agreement Automation</h3>
+                                <p>Convert one-time customers to recurring revenue with automated service agreement campaigns and reminders.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ROI SECTION -->
+                    <div class="roi-section" id="trades-roi">
+                        <h2>Real ROI for Trade Businesses</h2>
+                        <div class="roi-grid">
+                            <div class="roi-card">
+                                <div class="roi-value">3-5</div>
+                                <div class="roi-label">New Qualified Leads Per Day from SEO</div>
+                            </div>
+                            <div class="roi-card">
+                                <div class="roi-value">$52K</div>
+                                <div class="roi-label">Annual Savings from Route Optimization</div>
+                            </div>
+                            <div class="roi-card">
+                                <div class="roi-value">40%</div>
+                                <div class="roi-label">More Calls Answered with AI Response</div>
+                            </div>
+                            <div class="roi-card">
+                                <div class="roi-value">+1.2</div>
+                                <div class="roi-label">Average Star Rating Increase</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CASE STUDY SECTION -->
+                    <div class="case-section" id="trades-case">
+                        <h2>Trade Business Success Story</h2>
+                        <div class="case-study">
+                            <div class="case-meta">
+                                <h3>[Company Name] Plumbing & HVAC</h3>
+                                <div class="case-detail"><strong>Location:</strong> [City, State]</div>
+                                <div class="case-detail"><strong>Company Size:</strong> 8 technicians, 3 office staff</div>
+                                <div class="case-detail"><strong>Annual Revenue:</strong> $2.8M</div>
+                                <div class="case-detail"><strong>Challenge:</strong> Losing market share to national chains; inconsistent lead flow; high marketing spend with unclear ROI</div>
+                            </div>
+                            <div class="case-content">
+                                <h4>The Challenge</h4>
+                                <p>[Owner name] had been in business for 28 years when a Roto-Rooter and Mr. Rooter both opened locations within 5 miles. Overnight, his Google rankings dropped, calls slowed, and he was spending $8K/month on marketing with no clear return. His office staff was overwhelmed, and voicemails were piling up unanswered.</p>
+
+                                <h4>The Solution</h4>
+                                <p>We rebuilt his digital presence with a high-converting website, dominated local search rankings, implemented AI call answering for after-hours leads, and optimized routes to fit more jobs per day. All with a pre-engagement ROI model he could hold us accountable to.</p>
+
+                                <h4>The Results (12 Months)</h4>
+                                <div class="case-results">
+                                    <div class="case-result">
+                                        <div class="case-result-value">+127%</div>
+                                        <div class="case-result-label">Increase in Online Leads</div>
+                                    </div>
+                                    <div class="case-result">
+                                        <div class="case-result-value">$72K</div>
+                                        <div class="case-result-label">Saved on Route Optimization</div>
+                                    </div>
+                                    <div class="case-result">
+                                        <div class="case-result-value">$485K</div>
+                                        <div class="case-result-label">Additional Annual Revenue</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA SECTION -->
+                    <div class="cta-section" id="trades-cta">
+                        <h2>Ready to Stop Losing Jobs to the Big Chains?</h2>
+                        <p>Get a custom ROI assessment showing exactly what results to expect - before you invest a dollar.</p>
+                        <a href="#" class="cta-primary">Get Your Free ROI Assessment</a>
+                        <a href="#" class="cta-secondary">Talk to a Trade Business Specialist</a>
+                    </div>
+                </div>
+
+                <!-- Implementation Notes -->
+                <div class="impl-notes">
+                    <h4>Trades Page Implementation Notes</h4>
+                    <ul>
+                        <li><strong>Trade-Specific Variations:</strong> Create sub-pages for HVAC, Plumbing, Electrical, and Roofing with specialized language</li>
+                        <li><strong>Hero Image:</strong> Professional technician in branded uniform - authentic, not stock. Consider local imagery.</li>
+                        <li><strong>Trust Signals:</strong> Add BBB, Angi (formerly Angie's List), HomeAdvisor Elite badges, and license numbers</li>
+                        <li><strong>Case Study:</strong> Replace placeholder with actual client story - anonymize if necessary</li>
+                        <li><strong>Emergency CTA:</strong> For HVAC/Plumbing, add prominent "Emergency Service Available 24/7" messaging</li>
+                        <li><strong>Seasonal Messaging:</strong> Update hero messaging seasonally (AC season, heating season, etc.)</li>
+                        <li><strong>Local Targeting:</strong> Create city-specific landing pages for top 10 target markets</li>
+                        <li><strong>Calculator Tool:</strong> Consider adding an interactive "ROI Calculator" widget</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="page-divider"></div>
+
+            <!-- ============================================ -->
+            <!-- IMPLEMENTATION GUIDE                         -->
+            <!-- ============================================ -->
+            <section id="implementation" class="section">
+                <div class="section-header">
+                    <div class="section-number">Section 03</div>
+                    <h2 class="section-title">Implementation Guide</h2>
+                </div>
+
+                <div style="background: var(--white); border-radius: 16px; padding: 2rem; margin-bottom: 2rem;">
+                    <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 1.5rem;">Industry-Specific CTA Library</h3>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <h4 style="font-size: 0.8rem; color: var(--vet-accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Veterinary CTAs</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cream-dark); font-size: 0.9rem;">
+                                    <strong>Primary:</strong> "Get Your Free Practice Assessment"
+                                </li>
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cream-dark); font-size: 0.9rem;">
+                                    <strong>Secondary:</strong> "Talk to a Vet Practice Specialist"
+                                </li>
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cream-dark); font-size: 0.9rem;">
+                                    <strong>Value Add:</strong> "Download: 5 Ways to Compete with Corporate Chains"
+                                </li>
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cream-dark); font-size: 0.9rem;">
+                                    <strong>Urgency:</strong> "See What Your Practice Could Be Worth"
+                                </li>
+                                <li style="padding: 0.5rem 0; font-size: 0.9rem;">
+                                    <strong>Exit Intent:</strong> "Before You Go: Free Independence Toolkit"
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 0.8rem; color: var(--trades-accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Trades CTAs</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cream-dark); font-size: 0.9rem;">
+                                    <strong>Primary:</strong> "Get Your Free ROI Assessment"
+                                </li>
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cream-dark); font-size: 0.9rem;">
+                                    <strong>Secondary:</strong> "See What Leads Cost in Your Market"
+                                </li>
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cream-dark); font-size: 0.9rem;">
+                                    <strong>Value Add:</strong> "Download: Contractor Marketing Playbook"
+                                </li>
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cream-dark); font-size: 0.9rem;">
+                                    <strong>Urgency:</strong> "Calculate Your Lost Revenue from Missed Calls"
+                                </li>
+                                <li style="padding: 0.5rem 0; font-size: 0.9rem;">
+                                    <strong>Exit Intent:</strong> "Before You Go: Free Route Savings Calculator"
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: var(--white); border-radius: 16px; padding: 2rem; margin-bottom: 2rem;">
+                    <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 1.5rem;">Messaging Quick Reference</h3>
+
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="background: var(--cream);">
+                                <th style="text-align: left; padding: 0.75rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Element</th>
+                                <th style="text-align: left; padding: 0.75rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Veterinary</th>
+                                <th style="text-align: left; padding: 0.75rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Trades</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--cream-dark);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Core Fear</td>
+                                <td style="padding: 0.75rem;">Corporate acquisition / loss of independence</td>
+                                <td style="padding: 0.75rem;">National chains stealing customers</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--cream-dark);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Core Aspiration</td>
+                                <td style="padding: 0.75rem;">Stay independent, exit on own terms</td>
+                                <td style="padding: 0.75rem;">Compete with big guys, grow sustainably</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--cream-dark);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Primary Pain</td>
+                                <td style="padding: 0.75rem;">Client expectations outpacing capabilities</td>
+                                <td style="padding: 0.75rem;">Missing calls / inconsistent lead flow</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--cream-dark);">
+                                <td style="padding: 0.75rem; font-weight: 600;">ROI Focus</td>
+                                <td style="padding: 0.75rem;">Staff efficiency + exit valuation</td>
+                                <td style="padding: 0.75rem;">Lead generation + route savings</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--cream-dark);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Trust Signal</td>
+                                <td style="padding: 0.75rem;">AVMA, veterinary associations</td>
+                                <td style="padding: 0.75rem;">BBB, Angi, HomeAdvisor Elite</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; font-weight: 600;">Emotional Tone</td>
+                                <td style="padding: 0.75rem;">Warm, legacy-focused, protective</td>
+                                <td style="padding: 0.75rem;">Direct, competitive, practical</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="background: var(--white); border-radius: 16px; padding: 2rem; margin-bottom: 2rem;">
+                    <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 1.5rem;">Form Fields by Industry</h3>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div style="background: var(--cream); border-radius: 12px; padding: 1.5rem;">
+                            <h4 style="font-size: 0.8rem; color: var(--vet-accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Veterinary Assessment Form</h4>
+                            <ol style="padding-left: 1.25rem; font-size: 0.9rem; color: var(--slate);">
+                                <li style="margin-bottom: 0.5rem;">Practice Name*</li>
+                                <li style="margin-bottom: 0.5rem;">Your Name & Role*</li>
+                                <li style="margin-bottom: 0.5rem;">Email*</li>
+                                <li style="margin-bottom: 0.5rem;">Phone*</li>
+                                <li style="margin-bottom: 0.5rem;">Number of Veterinarians*</li>
+                                <li style="margin-bottom: 0.5rem;">Current Website URL</li>
+                                <li style="margin-bottom: 0.5rem;">Do you offer online booking? (Y/N)</li>
+                                <li style="margin-bottom: 0.5rem;">Planning to sell within 10 years? (Y/N)</li>
+                                <li style="margin-bottom: 0.5rem;">Biggest challenge right now (dropdown)</li>
+                            </ol>
+                        </div>
+                        <div style="background: var(--cream); border-radius: 12px; padding: 1.5rem;">
+                            <h4 style="font-size: 0.8rem; color: var(--trades-accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Trades Assessment Form</h4>
+                            <ol style="padding-left: 1.25rem; font-size: 0.9rem; color: var(--slate);">
+                                <li style="margin-bottom: 0.5rem;">Company Name*</li>
+                                <li style="margin-bottom: 0.5rem;">Your Name*</li>
+                                <li style="margin-bottom: 0.5rem;">Email*</li>
+                                <li style="margin-bottom: 0.5rem;">Phone*</li>
+                                <li style="margin-bottom: 0.5rem;">Trade Type* (HVAC/Plumbing/Electrical/Other)</li>
+                                <li style="margin-bottom: 0.5rem;">Number of Technicians*</li>
+                                <li style="margin-bottom: 0.5rem;">Current Monthly Marketing Spend (range)</li>
+                                <li style="margin-bottom: 0.5rem;">How many leads per week currently?</li>
+                                <li style="margin-bottom: 0.5rem;">Biggest challenge right now (dropdown)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: var(--white); border-radius: 16px; padding: 2rem;">
+                    <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 1.5rem;">Technical Implementation Checklist</h3>
+
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+                        <div>
+                            <h4 style="font-size: 0.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Page Setup</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Create /veterinary and /trades URL paths</li>
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Set up industry-specific meta titles and descriptions</li>
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Configure Open Graph images for social sharing</li>
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Add structured data (LocalBusiness schema)</li>
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Implement mobile-responsive layout</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 0.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Conversion Tracking</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Set up form submission tracking</li>
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Configure CTA click tracking</li>
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Add scroll depth tracking</li>
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Set up industry-specific conversion goals</li>
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Configure lead source attribution</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 0.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Lead Capture</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Build industry-specific assessment forms</li>
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Set up CRM integration with industry tagging</li>
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Configure email notification workflows</li>
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Create industry-specific thank you pages</li>
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Set up lead magnet delivery automation</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 0.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Optimization</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] A/B test headlines (3 variants each)</li>
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] A/B test CTA button copy</li>
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Test form length variations</li>
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Add exit-intent popups with lead magnets</li>
+                                <li style="padding: 0.375rem 0; font-size: 0.9rem; color: var(--slate);">[ ] Set up retargeting pixel for industry segments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Summary Section -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">Summary</div>
+                    <h2 class="section-title">Key Takeaways</h2>
+                </div>
+
+                <div style="background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); border-radius: 16px; padding: 2.5rem; color: var(--white);">
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                        <div style="text-align: center;">
+                            <div style="font-family: 'Crimson Pro', serif; font-size: 2.5rem; font-weight: 700; color: var(--gold);">65/80</div>
+                            <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-top: 0.5rem;">Veterinary Fit Score</div>
+                            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 0.25rem;">Tier 1 Priority</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-family: 'Crimson Pro', serif; font-size: 2.5rem; font-weight: 700; color: var(--gold);">63/80</div>
+                            <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-top: 0.5rem;">Trades Fit Score</div>
+                            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 0.25rem;">Tier 2 Priority</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-family: 'Crimson Pro', serif; font-size: 2.5rem; font-weight: 700; color: var(--gold);">2</div>
+                            <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-top: 0.5rem;">Complete Landing Pages</div>
+                            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 0.25rem;">Ready for Development</div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                        <p style="font-size: 1.1rem; color: rgba(255,255,255,0.8);">Both landing pages incorporate the ScaleUp Ventures brand positioning of <strong style="color: var(--gold);">"Certainty First"</strong> with pre-engagement ROI modeling, industry-specific pain points, and tailored service positioning.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p class="footer-text">ScaleUp Ventures | Veterinary & Trades Industry Landing Pages | December 31, 2025</p>
+            <p class="footer-text" style="margin-top: 0.5rem;">Brand Colors: Navy #0F1729 | Gold #D4A853 | Tagline: "Certainty First."</p>
+        </footer>
+    </main>
+</body>
+</html>

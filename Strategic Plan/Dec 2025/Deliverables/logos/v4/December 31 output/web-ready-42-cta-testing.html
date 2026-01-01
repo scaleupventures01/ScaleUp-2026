@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTA A/B Testing Framework | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2540;
+            --navy-lighter: #243156;
+            --gold: #D4A853;
+            --gold-light: #e5c17a;
+            --gold-dark: #b8923f;
+            --white: #ffffff;
+            --gray-100: #f7f8fa;
+            --gray-200: #e8eaef;
+            --gray-300: #d1d5de;
+            --gray-600: #6b7280;
+            --green: #22c55e;
+            --green-bg: #dcfce7;
+            --red: #ef4444;
+            --red-bg: #fee2e2;
+            --blue: #3b82f6;
+            --blue-bg: #dbeafe;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-100);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+
+        /* Header */
+        .header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 48px 24px;
+            text-align: center;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 0 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-link {
+            padding: 16px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-600);
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--navy);
+        }
+
+        .nav-link.active {
+            color: var(--navy);
+            border-bottom-color: var(--gold);
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 64px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .section-number {
+            width: 48px;
+            height: 48px;
+            background: var(--navy);
+            color: var(--gold);
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .section-intro {
+            font-size: 16px;
+            color: var(--gray-600);
+            max-width: 800px;
+            margin-bottom: 32px;
+        }
+
+        /* CTA Library */
+        .cta-category {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .category-title {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .cta-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .cta-card {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.5fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .cta-card {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        .cta-text {
+            background: var(--navy);
+            color: var(--white);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .cta-text.variant-gold {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .cta-text.variant-outline {
+            background: transparent;
+            border: 2px solid var(--navy);
+            color: var(--navy);
+        }
+
+        .cta-use {
+            font-size: 13px;
+            color: var(--gray-600);
+        }
+
+        .cta-use strong {
+            color: var(--navy);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .cta-rationale {
+            font-size: 13px;
+            color: var(--navy);
+            background: var(--white);
+            padding: 12px 16px;
+            border-radius: 8px;
+            border-left: 3px solid var(--gold);
+        }
+
+        /* A/B Test Framework */
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .framework-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .framework-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .framework-card h3 span {
+            width: 32px;
+            height: 32px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .framework-list {
+            list-style: none;
+        }
+
+        .framework-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .framework-list li:last-child {
+            border-bottom: none;
+        }
+
+        .framework-label {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .framework-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .priority-high {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .priority-medium {
+            background: var(--gray-200);
+            color: var(--navy);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        /* Test Results */
+        .test-result {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .test-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .test-meta {
+            font-size: 12px;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .test-title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .test-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge-winner {
+            background: var(--green-bg);
+            color: var(--green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .badge-lift {
+            background: var(--navy);
+            color: var(--gold);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .test-variants {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 600px) {
+            .test-variants {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .variant {
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .variant-a {
+            background: var(--gray-100);
+            border: 2px solid var(--gray-200);
+        }
+
+        .variant-b {
+            background: var(--green-bg);
+            border: 2px solid var(--green);
+        }
+
+        .variant-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            color: var(--gray-600);
+        }
+
+        .variant-b .variant-label {
+            color: var(--green);
+        }
+
+        .variant-cta {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .variant-stats {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            font-size: 13px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .stat-label {
+            color: var(--gray-600);
+            font-size: 11px;
+        }
+
+        .test-insight {
+            background: var(--blue-bg);
+            border-radius: 10px;
+            padding: 16px 20px;
+            font-size: 14px;
+            color: var(--navy);
+        }
+
+        .test-insight strong {
+            color: var(--blue);
+        }
+
+        /* Best Practices */
+        .practice-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 600px) {
+            .practice-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .practice-number {
+            width: 56px;
+            height: 56px;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+        }
+
+        .practice-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .practice-content p {
+            color: var(--gray-600);
+            margin-bottom: 20px;
+        }
+
+        .practice-examples {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 500px) {
+            .practice-examples {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .example-do, .example-dont {
+            padding: 16px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        .example-do {
+            background: var(--green-bg);
+            border: 1px solid var(--green);
+        }
+
+        .example-dont {
+            background: var(--red-bg);
+            border: 1px solid var(--red);
+        }
+
+        .example-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .example-do .example-label {
+            color: var(--green);
+        }
+
+        .example-dont .example-label {
+            color: var(--red);
+        }
+
+        .example-text {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Calendar */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .calendar-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .calendar-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quarter-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .quarter-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .quarter-label {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
+
+        .quarter-name {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .quarter-focus {
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        .quarter-tests {
+            padding: 20px;
+        }
+
+        .test-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 14px;
+        }
+
+        .test-item:last-child {
+            border-bottom: none;
+        }
+
+        .test-item strong {
+            display: block;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .test-item span {
+            color: var(--gray-600);
+            font-size: 12px;
+        }
+
+        /* Quick Reference */
+        .quick-ref {
+            background: var(--navy);
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 48px;
+            color: var(--white);
+        }
+
+        .quick-ref h2 {
+            font-size: 24px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .quick-ref h2::before {
+            content: "⚡";
+        }
+
+        .ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .ref-item {
+            background: var(--navy-light);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .ref-item h4 {
+            color: var(--gold);
+            font-size: 14px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ref-item p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        .footer strong {
+            color: var(--navy);
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Index</a>
+  <span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span>
+  <div style="display:flex;gap:12px;">
+    <a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a>
+    <a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a>
+    <a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a>
+    <a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a>
+    <a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a>
+  </div>
+</nav>
+    <header class="header">
+        <div class="header-badge">Marketing Playbook</div>
+        <h1>CTA A/B Testing Framework</h1>
+        <p>Call-to-action testing framework for ScaleUp Ventures. CTAs designed for early-stage consultancy positioning.</p>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#library" class="nav-link active">CTA Library</a>
+            <a href="#framework" class="nav-link">Test Framework</a>
+            <a href="#results" class="nav-link">Test Templates</a>
+            <a href="#practices" class="nav-link">Best Practices</a>
+            <a href="#calendar" class="nav-link">Testing Calendar</a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <!-- Section 1: CTA Library -->
+        <section id="library" class="section">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2 class="section-title">CTA Library</h2>
+            </div>
+            <p class="section-intro">CTA options organized by context for an early-stage consultancy. Each CTA reflects honest positioning and conversion psychology. Use the rationale to guide testing.</p>
+
+            <!-- Homepage CTAs -->
+            <div class="cta-category">
+                <div class="category-header">
+                    <div class="category-icon">🏠</div>
+                    <h3 class="category-title">Homepage CTAs</h3>
+                </div>
+                <div class="cta-grid">
+                    <div class="cta-card">
+                        <div class="cta-text">Discuss Your Challenge</div>
+                        <div class="cta-use">
+                            <strong>Primary hero CTA</strong>
+                            Above the fold, main conversion point
+                        </div>
+                        <div class="cta-rationale">Opens dialogue rather than selling. "Your Challenge" acknowledges their problem. Honest, consultative positioning.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text variant-gold">Book a Strategy Call</div>
+                        <div class="cta-use">
+                            <strong>Secondary hero CTA</strong>
+                            For visitors ready for direct contact
+                        </div>
+                        <div class="cta-rationale">"Strategy" elevates beyond sales call. Implies advisor relationship, not pitch.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text">See How We Work</div>
+                        <div class="cta-use">
+                            <strong>Low-commitment option</strong>
+                            For curious but cautious visitors
+                        </div>
+                        <div class="cta-rationale">Transparent about process. Lets founders understand the engagement before committing.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text variant-outline">View Case Studies</div>
+                        <div class="cta-use">
+                            <strong>Social proof driver</strong>
+                            Links to case studies section
+                        </div>
+                        <div class="cta-rationale">Proof-forward. Visitors who click want to validate your track record.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Page CTAs -->
+            <div class="cta-category">
+                <div class="category-header">
+                    <div class="category-icon">📋</div>
+                    <h3 class="category-title">Service Page CTAs</h3>
+                </div>
+                <div class="cta-grid">
+                    <div class="cta-card">
+                        <div class="cta-text">Get an Honest Assessment</div>
+                        <div class="cta-use">
+                            <strong>Strategy services</strong>
+                            After explaining the methodology
+                        </div>
+                        <div class="cta-rationale">"Honest" signals transparency. Sets expectation that we may advise against building (like our $5K no-build decision that saved $150K+).</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text variant-gold">Explore Your Options</div>
+                        <div class="cta-use">
+                            <strong>Early-stage founder pages</strong>
+                            For those still evaluating paths
+                        </div>
+                        <div class="cta-rationale">Non-committal. Acknowledges founders are exploring. Matches early-stage consultancy positioning.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text">See a Real Example</div>
+                        <div class="cta-use">
+                            <strong>After benefit claims</strong>
+                            Links to relevant case study
+                        </div>
+                        <div class="cta-rationale">"Real" signals authenticity. Connects claims to actual client work like OfferPath or trading app POC.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text variant-outline">Download the Framework</div>
+                        <div class="cta-use">
+                            <strong>Lead magnet offer</strong>
+                            Gated PDF or resource
+                        </div>
+                        <div class="cta-rationale">"Framework" implies structured thinking. Attracts serious operators.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text">Talk to Calvin</div>
+                        <div class="cta-use">
+                            <strong>High-intent conversion</strong>
+                            Direct founder-to-founder connection
+                        </div>
+                        <div class="cta-rationale">Personal, not corporate. Early-stage consultancies benefit from founder visibility. Creates peer relationship.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Landing Page CTAs -->
+            <div class="cta-category">
+                <div class="category-header">
+                    <div class="category-icon">🎯</div>
+                    <h3 class="category-title">Landing Page CTAs</h3>
+                </div>
+                <div class="cta-grid">
+                    <div class="cta-card">
+                        <div class="cta-text">Start Your Assessment</div>
+                        <div class="cta-use">
+                            <strong>Diagnostic landing page</strong>
+                            First step in funnel
+                        </div>
+                        <div class="cta-rationale">"Assessment" implies value received, not given. Sets up two-way exchange.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text variant-gold">Reserve Time</div>
+                        <div class="cta-use">
+                            <strong>Consultation offers</strong>
+                            Direct scheduling
+                        </div>
+                        <div class="cta-rationale">Simple and direct. Respects that early-stage consultancy has limited capacity.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text">Get the Checklist Free</div>
+                        <div class="cta-use">
+                            <strong>Resource landing pages</strong>
+                            Lead magnet campaigns
+                        </div>
+                        <div class="cta-rationale">"Checklist" = practical and actionable. "Free" at end. Clear value exchange.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text variant-outline">See the Process</div>
+                        <div class="cta-use">
+                            <strong>Methodology pages</strong>
+                            Lower-commitment option
+                        </div>
+                        <div class="cta-rationale">Transparency-first. Shows how we work before asking for commitment.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text">Check If We're a Fit</div>
+                        <div class="cta-use">
+                            <strong>Qualification positioning</strong>
+                            Mutual fit assessment
+                        </div>
+                        <div class="cta-rationale">Two-way qualification. Honest about the fact that not every project is right for us (or vice versa).</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email CTAs -->
+            <div class="cta-category">
+                <div class="category-header">
+                    <div class="category-icon">📧</div>
+                    <h3 class="category-title">Email CTAs</h3>
+                </div>
+                <div class="cta-grid">
+                    <div class="cta-card">
+                        <div class="cta-text">Read the Full Analysis</div>
+                        <div class="cta-use">
+                            <strong>Newsletter emails</strong>
+                            Drive to blog/content
+                        </div>
+                        <div class="cta-rationale">"Full" promises complete picture. "Analysis" = thought leadership.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text variant-gold">Grab Your Seat</div>
+                        <div class="cta-use">
+                            <strong>Event invitations</strong>
+                            Webinars, workshops
+                        </div>
+                        <div class="cta-rationale">"Grab" = action verb. Casual tone works in email. Creates urgency.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text">Reply with Your Thoughts</div>
+                        <div class="cta-use">
+                            <strong>Engagement emails</strong>
+                            Nurture sequences
+                        </div>
+                        <div class="cta-rationale">Two-way conversation. Increases deliverability. Surfaces engaged leads.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text variant-outline">Pick a Time That Works</div>
+                        <div class="cta-use">
+                            <strong>Meeting requests</strong>
+                            Sales follow-ups
+                        </div>
+                        <div class="cta-rationale">Gives control to recipient. "That Works" respects their time.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text">See What Changed</div>
+                        <div class="cta-use">
+                            <strong>Update announcements</strong>
+                            Product/service updates
+                        </div>
+                        <div class="cta-rationale">Curiosity gap. Works for existing relationships. Implies improvement.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proposal CTAs -->
+            <div class="cta-category">
+                <div class="category-header">
+                    <div class="category-icon">📄</div>
+                    <h3 class="category-title">Proposal CTAs</h3>
+                </div>
+                <div class="cta-grid">
+                    <div class="cta-card">
+                        <div class="cta-text">Accept & Begin</div>
+                        <div class="cta-use">
+                            <strong>Proposal signature</strong>
+                            Primary acceptance CTA
+                        </div>
+                        <div class="cta-rationale">Two actions combined. "Begin" = forward momentum. Reduces friction.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text variant-gold">Schedule Kickoff</div>
+                        <div class="cta-use">
+                            <strong>Post-signature</strong>
+                            Next step after acceptance
+                        </div>
+                        <div class="cta-rationale">"Kickoff" implies project start. Makes next step concrete and exciting.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text variant-outline">Discuss Adjustments</div>
+                        <div class="cta-use">
+                            <strong>Negotiation path</strong>
+                            Alternative to full accept
+                        </div>
+                        <div class="cta-rationale">Shows flexibility. "Adjustments" not "problems." Keeps momentum positive.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text">Review the Investment</div>
+                        <div class="cta-use">
+                            <strong>Pricing section link</strong>
+                            Within proposal body
+                        </div>
+                        <div class="cta-rationale">"Investment" not "cost" or "price." Frames as value, not expense.</div>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-text variant-gold">Let's Build This</div>
+                        <div class="cta-use">
+                            <strong>Closing statement</strong>
+                            Emotional appeal close
+                        </div>
+                        <div class="cta-rationale">"Let's" = partnership. "Build" = creation, not purchase. Relationship-forward.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: A/B Test Framework -->
+        <section id="framework" class="section">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2 class="section-title">A/B Test Framework</h2>
+            </div>
+            <p class="section-intro">A systematic approach to testing CTAs. Start with high-traffic, high-impact elements. Use statistical rigor to validate results.</p>
+
+            <div class="framework-grid">
+                <div class="framework-card">
+                    <h3><span>1</span> What to Test First</h3>
+                    <ul class="framework-list">
+                        <li>
+                            <span class="framework-label">Homepage hero CTA</span>
+                            <span class="priority-high">Highest Priority</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Pricing page CTA</span>
+                            <span class="priority-high">High Priority</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Email subject lines</span>
+                            <span class="priority-high">High Priority</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Landing page headlines</span>
+                            <span class="priority-medium">Medium</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Form submit buttons</span>
+                            <span class="priority-medium">Medium</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Blog CTAs</span>
+                            <span class="priority-medium">Medium</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="framework-card">
+                    <h3><span>2</span> Sample Sizes Needed</h3>
+                    <ul class="framework-list">
+                        <li>
+                            <span class="framework-label">Detect 20% lift</span>
+                            <span class="framework-value">~400 conversions/variant</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Detect 30% lift</span>
+                            <span class="framework-value">~200 conversions/variant</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Detect 50% lift</span>
+                            <span class="framework-value">~80 conversions/variant</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Min traffic/variant</span>
+                            <span class="framework-value">1,000 visitors</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Email min sends</span>
+                            <span class="framework-value">500 per variant</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="framework-card">
+                    <h3><span>3</span> Test Duration Rules</h3>
+                    <ul class="framework-list">
+                        <li>
+                            <span class="framework-label">Minimum runtime</span>
+                            <span class="framework-value">7 days (full week)</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Ideal runtime</span>
+                            <span class="framework-value">14-21 days</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Max runtime</span>
+                            <span class="framework-value">30 days</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Don't stop early if</span>
+                            <span class="framework-value">Winner looks clear</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Account for</span>
+                            <span class="framework-value">Day-of-week variance</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="framework-card">
+                    <h3><span>4</span> Statistical Significance</h3>
+                    <ul class="framework-list">
+                        <li>
+                            <span class="framework-label">Target confidence</span>
+                            <span class="framework-value">95% minimum</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Enterprise decisions</span>
+                            <span class="framework-value">99% preferred</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Accept inconclusive</span>
+                            <span class="framework-value">If <10% difference</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Retest threshold</span>
+                            <span class="framework-value">85-94% confidence</span>
+                        </li>
+                        <li>
+                            <span class="framework-label">Tool recommendation</span>
+                            <span class="framework-value">VWO or Optimizely</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Test Templates -->
+        <section id="results" class="section">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2 class="section-title">Test Templates & Tracking</h2>
+            </div>
+            <p class="section-intro">Ready-to-use templates for tracking your A/B tests. Document hypotheses, results, and learnings. Build your own data over time.</p>
+
+            <div class="test-result">
+                <div class="test-header">
+                    <div>
+                        <div class="test-meta">Template 1 • Homepage Hero</div>
+                        <div class="test-title">Value-Specific vs Generic CTA</div>
+                    </div>
+                    <div class="test-badge">
+                        <span class="badge-winner" style="background:#dbeafe;color:#3b82f6;">Pending Test</span>
+                    </div>
+                </div>
+                <div class="test-variants">
+                    <div class="variant variant-a">
+                        <div class="variant-label">Control (A)</div>
+                        <div class="variant-cta">"Get Started"</div>
+                        <div class="variant-stats">
+                            <div class="stat">
+                                <div class="stat-value">--</div>
+                                <div class="stat-label">CTR</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">--</div>
+                                <div class="stat-label">Clicks</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="variant variant-a">
+                        <div class="variant-label">Variant (B)</div>
+                        <div class="variant-cta">"Discuss Your Challenge"</div>
+                        <div class="variant-stats">
+                            <div class="stat">
+                                <div class="stat-value">--</div>
+                                <div class="stat-label">CTR</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">--</div>
+                                <div class="stat-label">Clicks</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-insight">
+                    <strong>Hypothesis:</strong> Consultative, problem-focused language will resonate better with early-stage founders than generic action language.
+                </div>
+            </div>
+
+            <div class="test-result">
+                <div class="test-header">
+                    <div>
+                        <div class="test-meta">Template 2 • Service Page</div>
+                        <div class="test-title">Process-Focused vs Honesty-Focused</div>
+                    </div>
+                    <div class="test-badge">
+                        <span class="badge-winner" style="background:#dbeafe;color:#3b82f6;">Pending Test</span>
+                    </div>
+                </div>
+                <div class="test-variants">
+                    <div class="variant variant-a">
+                        <div class="variant-label">Control (A)</div>
+                        <div class="variant-cta">"Schedule a Consultation"</div>
+                        <div class="variant-stats">
+                            <div class="stat">
+                                <div class="stat-value">--</div>
+                                <div class="stat-label">CTR</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">--</div>
+                                <div class="stat-label">Clicks</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="variant variant-a">
+                        <div class="variant-label">Variant (B)</div>
+                        <div class="variant-cta">"Get an Honest Assessment"</div>
+                        <div class="variant-stats">
+                            <div class="stat">
+                                <div class="stat-value">--</div>
+                                <div class="stat-label">CTR</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">--</div>
+                                <div class="stat-label">Clicks</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-insight">
+                    <strong>Hypothesis:</strong> "Honest Assessment" signals our willingness to advise against building (like our $5K no-build decision) and builds trust with founders who are skeptical of sales-y consultants.
+                </div>
+            </div>
+
+            <div class="test-result">
+                <div class="test-header">
+                    <div>
+                        <div class="test-meta">Template 3 • Email Campaign</div>
+                        <div class="test-title">Personal vs Professional Tone</div>
+                    </div>
+                    <div class="test-badge">
+                        <span class="badge-winner" style="background:#dbeafe;color:#3b82f6;">Pending Test</span>
+                    </div>
+                </div>
+                <div class="test-variants">
+                    <div class="variant variant-a">
+                        <div class="variant-label">Control (A)</div>
+                        <div class="variant-cta">"Schedule a Call"</div>
+                        <div class="variant-stats">
+                            <div class="stat">
+                                <div class="stat-value">--</div>
+                                <div class="stat-label">CTR</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">--</div>
+                                <div class="stat-label">Clicks</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="variant variant-a">
+                        <div class="variant-label">Variant (B)</div>
+                        <div class="variant-cta">"Talk to Calvin"</div>
+                        <div class="variant-stats">
+                            <div class="stat">
+                                <div class="stat-value">--</div>
+                                <div class="stat-label">CTR</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">--</div>
+                                <div class="stat-label">Clicks</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-insight">
+                    <strong>Hypothesis:</strong> Personal, founder-forward CTAs will outperform generic corporate language. Early-stage consultancies benefit from personality.
+                </div>
+            </div>
+
+            <div class="test-result">
+                <div class="test-header">
+                    <div>
+                        <div class="test-meta">Template 4 • Case Study Page</div>
+                        <div class="test-title">Proof-Forward vs Action-Forward</div>
+                    </div>
+                    <div class="test-badge">
+                        <span class="badge-winner" style="background:#dbeafe;color:#3b82f6;">Pending Test</span>
+                    </div>
+                </div>
+                <div class="test-variants">
+                    <div class="variant variant-a">
+                        <div class="variant-label">Control (A)</div>
+                        <div class="variant-cta">"Contact Us"</div>
+                        <div class="variant-stats">
+                            <div class="stat">
+                                <div class="stat-value">--</div>
+                                <div class="stat-label">CTR</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">--</div>
+                                <div class="stat-label">Clicks</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="variant variant-a">
+                        <div class="variant-label">Variant (B)</div>
+                        <div class="variant-cta">"See If We're a Fit"</div>
+                        <div class="variant-stats">
+                            <div class="stat">
+                                <div class="stat-value">--</div>
+                                <div class="stat-label">CTR</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">--</div>
+                                <div class="stat-label">Clicks</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-insight">
+                    <strong>Hypothesis:</strong> Mutual qualification language ("fit") will attract higher-quality leads who understand that consulting is a two-way relationship.
+                </div>
+            </div>
+
+            <!-- How to Document Results -->
+            <div class="cta-category" style="margin-top:32px;">
+                <div class="category-header">
+                    <div class="category-icon">📊</div>
+                    <h3 class="category-title">Documenting Your Results</h3>
+                </div>
+                <div style="padding:20px;background:var(--gray-100);border-radius:12px;">
+                    <p style="margin-bottom:16px;color:var(--gray-600);">When you complete a test, update the template with:</p>
+                    <ul style="margin-left:24px;color:var(--navy);">
+                        <li style="margin-bottom:8px;"><strong>Duration:</strong> How many days the test ran</li>
+                        <li style="margin-bottom:8px;"><strong>Sample Size:</strong> Total visitors/recipients per variant</li>
+                        <li style="margin-bottom:8px;"><strong>CTR/Conversion Rate:</strong> Actual measured performance</li>
+                        <li style="margin-bottom:8px;"><strong>Statistical Confidence:</strong> Use a calculator to verify significance</li>
+                        <li style="margin-bottom:8px;"><strong>Key Insight:</strong> What you learned that applies to future tests</li>
+                    </ul>
+                    <p style="margin-top:16px;font-style:italic;color:var(--gray-600);">Build your own data library over time. Real results from your audience are more valuable than industry benchmarks.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Best Practices -->
+        <section id="practices" class="section">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2 class="section-title">Best Practices</h2>
+            </div>
+            <p class="section-intro">Principles for effective CTA design in consultancy contexts. Apply these when creating and testing new CTAs for ScaleUp Ventures.</p>
+
+            <div class="practice-card">
+                <div class="practice-number">1</div>
+                <div class="practice-content">
+                    <h3>Honesty Builds Trust</h3>
+                    <p>As an early-stage consultancy, transparency is your differentiator. CTAs that signal honest assessment outperform pushy sales language with founders who are wary of vendors.</p>
+                    <div class="practice-examples">
+                        <div class="example-do">
+                            <div class="example-label">Do This</div>
+                            <div class="example-text">"Get an Honest Assessment"</div>
+                            <div class="example-text">"Check If We're a Fit"</div>
+                            <div class="example-text">"See a Real Example"</div>
+                        </div>
+                        <div class="example-dont">
+                            <div class="example-label">Avoid This</div>
+                            <div class="example-text">"Unlock Your Potential"</div>
+                            <div class="example-text">"Transform Your Business"</div>
+                            <div class="example-text">"Get Instant Results"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-number">2</div>
+                <div class="practice-content">
+                    <h3>Specific Beats Generic</h3>
+                    <p>Tell them exactly what they'll receive. Vague CTAs force visitors to imagine outcomes, adding cognitive load that reduces clicks. Reference real deliverables from actual client work.</p>
+                    <div class="practice-examples">
+                        <div class="example-do">
+                            <div class="example-label">Do This</div>
+                            <div class="example-text">"See the Architecture Review"</div>
+                            <div class="example-text">"Download the Build-vs-Buy Framework"</div>
+                            <div class="example-text">"View the Trading App POC"</div>
+                        </div>
+                        <div class="example-dont">
+                            <div class="example-label">Avoid This</div>
+                            <div class="example-text">"Get Information"</div>
+                            <div class="example-text">"Download Resources"</div>
+                            <div class="example-text">"See What We Offer"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-number">3</div>
+                <div class="practice-content">
+                    <h3>Low-Risk First Actions Convert</h3>
+                    <p>Early-funnel CTAs should feel safe. Founders are busy and skeptical. Save high-commitment asks for warm leads who have already seen your case studies or received a referral.</p>
+                    <div class="practice-examples">
+                        <div class="example-do">
+                            <div class="example-label">Do This (Cold Traffic)</div>
+                            <div class="example-text">"See How We Work"</div>
+                            <div class="example-text">"View Case Studies"</div>
+                            <div class="example-text">"Read the Approach"</div>
+                        </div>
+                        <div class="example-dont">
+                            <div class="example-label">Avoid This (Cold Traffic)</div>
+                            <div class="example-text">"Book a 60-Min Call"</div>
+                            <div class="example-text">"Request a Quote"</div>
+                            <div class="example-text">"Start Your Engagement"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-number">4</div>
+                <div class="practice-content">
+                    <h3>Personal Beats Corporate</h3>
+                    <p>Early-stage consultancies succeed through founder relationships. "Talk to Calvin" is more authentic than "Contact Our Team." Personal visibility builds trust.</p>
+                    <div class="practice-examples">
+                        <div class="example-do">
+                            <div class="example-label">Do This</div>
+                            <div class="example-text">"Talk to Calvin"</div>
+                            <div class="example-text">"Discuss Your Challenge"</div>
+                            <div class="example-text">"Book Time with Me"</div>
+                        </div>
+                        <div class="example-dont">
+                            <div class="example-label">Less Effective</div>
+                            <div class="example-text">"Contact Our Team"</div>
+                            <div class="example-text">"Submit an Inquiry"</div>
+                            <div class="example-text">"Request a Callback"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-number">5</div>
+                <div class="practice-content">
+                    <h3>Match CTA to Buyer Stage</h3>
+                    <p>Founders at different stages need different CTAs. Explorers need education. Evaluators need proof. Decision-makers need direct paths to conversation.</p>
+                    <div class="practice-examples">
+                        <div class="example-do">
+                            <div class="example-label">Exploring (Cold)</div>
+                            <div class="example-text">"See How We Work"</div>
+                            <div class="example-text">"Read the Case Study"</div>
+                            <div class="example-text">"Explore Our Approach"</div>
+                        </div>
+                        <div class="example-do">
+                            <div class="example-label">Deciding (Warm)</div>
+                            <div class="example-text">"Book a Strategy Call"</div>
+                            <div class="example-text">"Check If We're a Fit"</div>
+                            <div class="example-text">"Discuss Your Project"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Testing Calendar -->
+        <section id="calendar" class="section">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2 class="section-title">Testing Calendar</h2>
+            </div>
+            <p class="section-intro">Quarterly testing roadmap. Prioritized by traffic volume and conversion impact. Each quarter builds on learnings from the previous.</p>
+
+            <div class="calendar-grid">
+                <div class="quarter-card">
+                    <div class="quarter-header">
+                        <div class="quarter-label">Q1 2025</div>
+                        <div class="quarter-name">Foundation</div>
+                        <div class="quarter-focus">High-Traffic Pages</div>
+                    </div>
+                    <div class="quarter-tests">
+                        <div class="test-item">
+                            <strong>Homepage Hero CTA</strong>
+                            <span>Generic vs Value-Specific</span>
+                        </div>
+                        <div class="test-item">
+                            <strong>Nav Bar CTA</strong>
+                            <span>"Contact" vs "Book a Call"</span>
+                        </div>
+                        <div class="test-item">
+                            <strong>Email Subject Lines</strong>
+                            <span>Question vs Statement format</span>
+                        </div>
+                        <div class="test-item">
+                            <strong>Footer CTA</strong>
+                            <span>Newsletter vs Resource offer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quarter-card">
+                    <div class="quarter-header">
+                        <div class="quarter-label">Q2 2025</div>
+                        <div class="quarter-name">Conversion</div>
+                        <div class="quarter-focus">Decision Pages</div>
+                    </div>
+                    <div class="quarter-tests">
+                        <div class="test-item">
+                            <strong>Pricing Page CTA</strong>
+                            <span>"Contact Sales" vs Qualifier</span>
+                        </div>
+                        <div class="test-item">
+                            <strong>Service Page CTAs</strong>
+                            <span>Process vs Outcome focus</span>
+                        </div>
+                        <div class="test-item">
+                            <strong>Case Study CTAs</strong>
+                            <span>Method vs Results language</span>
+                        </div>
+                        <div class="test-item">
+                            <strong>Proposal Accept Button</strong>
+                            <span>Formal vs Partnership tone</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quarter-card">
+                    <div class="quarter-header">
+                        <div class="quarter-label">Q3 2025</div>
+                        <div class="quarter-name">Acquisition</div>
+                        <div class="quarter-focus">Lead Generation</div>
+                    </div>
+                    <div class="quarter-tests">
+                        <div class="test-item">
+                            <strong>Landing Page Headlines</strong>
+                            <span>Benefit vs Curiosity hooks</span>
+                        </div>
+                        <div class="test-item">
+                            <strong>Lead Magnet CTAs</strong>
+                            <span>Free offer vs Exclusive access</span>
+                        </div>
+                        <div class="test-item">
+                            <strong>Webinar Registration</strong>
+                            <span>Urgency vs Value messaging</span>
+                        </div>
+                        <div class="test-item">
+                            <strong>Exit Intent Popups</strong>
+                            <span>Discount vs Resource offer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quarter-card">
+                    <div class="quarter-header">
+                        <div class="quarter-label">Q4 2025</div>
+                        <div class="quarter-name">Refinement</div>
+                        <div class="quarter-focus">Micro-Optimizations</div>
+                    </div>
+                    <div class="quarter-tests">
+                        <div class="test-item">
+                            <strong>Button Colors</strong>
+                            <span>Navy vs Gold primary buttons</span>
+                        </div>
+                        <div class="test-item">
+                            <strong>CTA Button Size</strong>
+                            <span>Standard vs Larger touch targets</span>
+                        </div>
+                        <div class="test-item">
+                            <strong>Secondary CTAs</strong>
+                            <span>Link style vs Button style</span>
+                        </div>
+                        <div class="test-item">
+                            <strong>Mobile CTAs</strong>
+                            <span>Sticky footer vs In-content</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Reference -->
+        <div class="quick-ref">
+            <h2>Quick Reference Checklist</h2>
+            <div class="ref-grid">
+                <div class="ref-item">
+                    <h4>Before Launching a Test</h4>
+                    <p>Define success metric. Calculate required sample size. Set end date in advance. Document hypothesis.</p>
+                </div>
+                <div class="ref-item">
+                    <h4>During the Test</h4>
+                    <p>Don't peek at results early. Don't end test before minimum duration. Don't change other page elements.</p>
+                </div>
+                <div class="ref-item">
+                    <h4>After the Test</h4>
+                    <p>Verify statistical significance. Document learnings. Implement winner. Plan next test based on insights.</p>
+                </div>
+                <div class="ref-item">
+                    <h4>Red Flags</h4>
+                    <p>Less than 95% confidence. Fewer than 100 conversions. Test ran less than 7 days. Major external events during test.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p><strong>ScaleUp Ventures</strong> CTA A/B Testing Framework</p>
+        <p>Version 1.0 | Updated January 2025</p>
+    </footer>
+
+    <script>
+        // Navigation scroll highlighting
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function updateActiveNav() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+
+        // Smooth scroll for nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Content Index</a>
+  <p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p>
+</footer>
+</body>
+</html>

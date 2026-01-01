@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Before/After Copy Examples Library | ScaleUp Ventures</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --gold-light: #E8C97A;
+            --gold-pale: #F5E6C4;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-400: #94A3B8;
+            --gray-500: #64748B;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1E293B;
+            --red-50: #FEF2F2;
+            --red-100: #FEE2E2;
+            --red-500: #EF4444;
+            --red-600: #DC2626;
+            --green-50: #F0FDF4;
+            --green-100: #DCFCE7;
+            --green-500: #22C55E;
+            --green-600: #16A34A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--gray-50);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: var(--navy);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+        }
+
+        .header .tagline {
+            font-size: 1.25rem;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: var(--gray-300);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Voice attributes banner */
+        .voice-banner {
+            background: var(--gray-800);
+            padding: 1.5rem 2rem;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .voice-banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .voice-attribute {
+            text-align: center;
+        }
+
+        .voice-attribute .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-400);
+            margin-bottom: 0.25rem;
+        }
+
+        .voice-attribute .value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        /* Navigation */
+        .nav {
+            background: white;
+            border-bottom: 1px solid var(--gray-200);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-link {
+            padding: 0.5rem 1rem;
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: 6px;
+            color: var(--gray-700);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background: var(--navy);
+            color: white;
+            border-color: var(--navy);
+        }
+
+        /* Main content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Section styles */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .section-number {
+            display: inline-block;
+            background: var(--navy);
+            color: var(--gold);
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 2rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-right: 0.75rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+            display: inline;
+        }
+
+        .section-description {
+            margin-top: 0.75rem;
+            color: var(--gray-600);
+            font-size: 1rem;
+        }
+
+        /* Example card */
+        .example-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .example-header {
+            background: var(--gray-100);
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .example-title {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .example-type {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: var(--navy);
+            color: var(--gold);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+        }
+
+        .example-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        @media (max-width: 768px) {
+            .example-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .before, .after {
+            padding: 1.5rem;
+        }
+
+        .before {
+            background: var(--red-50);
+            border-right: 1px solid var(--gray-200);
+        }
+
+        .after {
+            background: var(--green-50);
+        }
+
+        @media (max-width: 768px) {
+            .before {
+                border-right: none;
+                border-bottom: 1px solid var(--gray-200);
+            }
+        }
+
+        .copy-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .before .copy-label {
+            color: var(--red-600);
+        }
+
+        .after .copy-label {
+            color: var(--green-600);
+        }
+
+        .copy-label-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        .before .copy-label-icon {
+            background: var(--red-100);
+            color: var(--red-600);
+        }
+
+        .after .copy-label-icon {
+            background: var(--green-100);
+            color: var(--green-600);
+        }
+
+        .copy-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--gray-800);
+        }
+
+        .copy-text .highlight {
+            background: rgba(212, 168, 83, 0.3);
+            padding: 0 0.25rem;
+            border-radius: 2px;
+        }
+
+        .explanation {
+            background: var(--gray-50);
+            padding: 1.25rem 1.5rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .explanation-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .explanation-text {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
+        /* Content type sections */
+        .content-type-header {
+            background: var(--navy);
+            color: white;
+            padding: 2rem;
+            margin: 3rem 0 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .content-type-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-type-header p {
+            color: var(--gray-300);
+        }
+
+        /* Stats summary */
+        .stats-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-top: 3px solid var(--gold);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            margin-top: 0.25rem;
+        }
+
+        /* Quick reference */
+        .quick-reference {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .quick-reference h3 {
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quick-reference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .principle-card {
+            background: var(--gray-50);
+            padding: 1.25rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .principle-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .principle-text {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--gray-400);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-brand {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>Before/After <span>Copy Examples Library</span></h1>
+            <div class="tagline">Certainty First.</div>
+            <p>A comprehensive reference guide for transforming off-brand copy into on-brand ScaleUp Ventures communications. Each example demonstrates the voice attributes in action.</p>
+        </div>
+    </header>
+
+    <div class="voice-banner">
+        <div class="voice-banner-content">
+            <div class="voice-attribute">
+                <div class="label">Voice Attribute</div>
+                <div class="value">Watchful</div>
+            </div>
+            <div class="voice-attribute">
+                <div class="label">Voice Attribute</div>
+                <div class="value">Measured</div>
+            </div>
+            <div class="voice-attribute">
+                <div class="label">Voice Attribute</div>
+                <div class="value">Decisive</div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#headlines" class="nav-link">Headlines</a>
+            <a href="#generic-specific" class="nav-link">Generic to Specific</a>
+            <a href="#passive-active" class="nav-link">Passive to Active</a>
+            <a href="#jargon" class="nav-link">Jargon to Plain</a>
+            <a href="#aggressive-measured" class="nav-link">Aggressive to Measured</a>
+            <a href="#vague-proof" class="nav-link">Vague to Proof</a>
+            <a href="#feature-benefit" class="nav-link">Feature to Benefit</a>
+            <a href="#pronouns" class="nav-link">Pronoun Fixes</a>
+            <a href="#rushed-patient" class="nav-link">Rushed to Patient</a>
+            <a href="#emotional" class="nav-link">Emotional Temperature</a>
+            <a href="#website" class="nav-link">Website</a>
+            <a href="#email" class="nav-link">Email</a>
+            <a href="#proposals" class="nav-link">Proposals</a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <!-- Stats Summary -->
+        <div class="stats-summary">
+            <div class="stat-card">
+                <div class="stat-number">25</div>
+                <div class="stat-label">Copy Transformations</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Transformation Types</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Content Categories</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Voice Attributes Applied</div>
+            </div>
+        </div>
+
+        <!-- Quick Reference -->
+        <div class="quick-reference">
+            <h3>Quick Reference: ScaleUp Ventures Voice Principles</h3>
+            <div class="quick-reference-grid">
+                <div class="principle-card">
+                    <div class="principle-title">Watchful</div>
+                    <div class="principle-text">We observe before we act. Copy shows pattern recognition, deep understanding, and the patience to see what others miss.</div>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-title">Measured</div>
+                    <div class="principle-text">Every word is intentional. We avoid hyperbole, urgency tactics, and empty claims. Calm confidence over aggressive selling.</div>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-title">Decisive</div>
+                    <div class="principle-text">When we speak, we speak with conviction. Clear positions, direct language, no hedging or vague generalities.</div>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-title">Certainty First</div>
+                    <div class="principle-text">Our tagline embodies everything. We build confidence through evidence, patience, and expertise - never through pressure.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Headlines -->
+        <section id="headlines" class="section">
+            <div class="section-header">
+                <span class="section-number">1</span>
+                <h2 class="section-title">Off-Brand to On-Brand Headlines</h2>
+                <p class="section-description">Headlines set the tone. ScaleUp headlines are confident without being aggressive, specific without being limiting.</p>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Homepage Hero</span>
+                    <span class="example-type">Website</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"We're the BEST Venture Capital Firm for YOUR Startup!"</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"Patient capital. <span class="highlight">Measured decisions.</span> Exceptional outcomes."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">The original uses aggressive superlatives and addresses the founder directly in a pushy way. The revision embodies the Measured voice - stating values as facts rather than making comparative claims. The rhythm of three creates confidence without desperation.</div>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Investment Philosophy</span>
+                    <span class="example-type">Website</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"We Move Fast and Break Things to Find Unicorns!"</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"We watch. We wait. <span class="highlight">We move when the moment is right.</span>"</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">The Watchful attribute means we don't rush. The original copies Silicon Valley cliches that contradict our patient approach. The revision shows deliberate restraint culminating in decisive action - the full arc of our investment philosophy.</div>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Value Proposition</span>
+                    <span class="example-type">Website</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"Disrupting the VC Industry with Revolutionary Approaches"</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">Certainty in an uncertain market.</span>"</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">"Disrupting" and "Revolutionary" are empty buzzwords that sound like every other VC. The revision is Decisive - it makes a clear, specific promise tied directly to our tagline. It's differentiated by being understated.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Generic to Specific -->
+        <section id="generic-specific" class="section">
+            <div class="section-header">
+                <span class="section-number">2</span>
+                <h2 class="section-title">Generic to Specific Copy</h2>
+                <p class="section-description">Vague claims feel like marketing. Specific details feel like expertise.</p>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Track Record</span>
+                    <span class="example-type">About Page</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"We have a proven track record of success with many successful investments."</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">23 investments. 7 exits. 4.2x average return.</span> Every number tells a story of patience rewarded."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">The Watchful voice pays attention to detail - and shares those details. "Proven track record" says nothing; specific numbers demonstrate the pattern recognition and analytical rigor that defines our approach.</div>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Support Description</span>
+                    <span class="example-type">Services Page</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"We provide hands-on support and resources to help founders succeed."</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"Monthly strategy sessions. <span class="highlight">On-call CFO access.</span> Board preparation. Hiring introductions within 48 hours."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">Generic promises are forgettable; specific commitments are memorable. The revision shows exactly what "support" means in practice. This is Decisive communication - no ambiguity about what founders receive.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Passive to Active -->
+        <section id="passive-active" class="section">
+            <div class="section-header">
+                <span class="section-number">3</span>
+                <h2 class="section-title">Passive to Active Voice</h2>
+                <p class="section-description">The Decisive attribute requires direct language. Passive voice hedges; active voice commits.</p>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Investment Decision</span>
+                    <span class="example-type">Process Page</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"Investment decisions are made by our partnership committee after careful review."</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">Our partnership reviews every opportunity. We decide within 30 days.</span> No founder waits in limbo."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">Passive voice ("are made") distances us from accountability. Active voice ("We decide") takes ownership. The final sentence shows empathy and commitment - we understand what matters to founders.</div>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Due Diligence</span>
+                    <span class="example-type">Process Page</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"Thorough due diligence is conducted on all potential portfolio companies."</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">We study every angle.</span> Market dynamics. Competitive positioning. Unit economics. Team capability. Nothing escapes our review."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">The Watchful voice shows what we actually observe. The active "We study" combined with specific areas of focus demonstrates the thoroughness rather than just claiming it. "Nothing escapes" is confidently Decisive.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Jargon to Plain -->
+        <section id="jargon" class="section">
+            <div class="section-header">
+                <span class="section-number">4</span>
+                <h2 class="section-title">Jargon-Heavy to Plain English</h2>
+                <p class="section-description">Clarity is confidence. Jargon often masks uncertain thinking.</p>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Investment Thesis</span>
+                    <span class="example-type">Thesis Page</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"We leverage synergistic value-add capabilities to optimize portfolio company runway extension and accelerate path-to-profitability metrics."</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">We help companies spend less and earn more.</span> It starts with knowing where to look."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">The jargon version sounds like it's trying to impress. The plain version sounds like expertise. A Measured voice doesn't need buzzwords - clear thinking leads to clear language. The second sentence hints at our Watchful methodology.</div>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Market Analysis</span>
+                    <span class="example-type">Blog Post</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"The current macroeconomic headwinds necessitate a recalibration of deployment velocity vis-a-vis valuation multiple compression."</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">Markets are uncertain. Valuations are down. This is when patience pays off most.</span>"</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">Complex ideas can be expressed simply without losing meaning. The revision is just as sophisticated in its insight but accessible to any reader. The Measured approach doesn't hide behind complexity.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Aggressive to Measured -->
+        <section id="aggressive-measured" class="section">
+            <div class="section-header">
+                <span class="section-number">5</span>
+                <h2 class="section-title">Aggressive to Measured Tone</h2>
+                <p class="section-description">Urgency tactics undermine trust. Calm confidence attracts better partners.</p>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Call to Action</span>
+                    <span class="example-type">Website</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"ACT NOW! Limited spots available! Don't miss your chance to work with the best!"</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">When you're ready, we're here.</span> Let's start a conversation."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">Urgency creates the wrong relationship from the start. The Measured voice respects the founder's timing. "When you're ready" shows we understand that building a company is a process - rushing benefits no one.</div>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Competitive Positioning</span>
+                    <span class="example-type">About Page</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"Unlike other VCs who abandon founders after writing a check, WE actually deliver!"</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">Our involvement doesn't end at investment. It's where it begins.</span>"</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">Attacking competitors is desperate. The Measured voice focuses on what we do, not what others don't. The revision makes the same point with dignity - showing rather than shouting our difference.</div>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Market Position</span>
+                    <span class="example-type">Website</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"We're CRUSHING the competition and dominating the early-stage market!"</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">Focused on early-stage. Built for long-term relationships.</span>"</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">Violence metaphors ("crushing," "dominating") conflict with our Watchful, patient brand. The revision is Decisive about our focus without aggression. It implies success through strategic clarity.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Vague to Proof -->
+        <section id="vague-proof" class="section">
+            <div class="section-header">
+                <span class="section-number">6</span>
+                <h2 class="section-title">Vague Claims to Proof-Based Claims</h2>
+                <p class="section-description">"Certainty First" means every claim should have evidence behind it.</p>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Portfolio Impact</span>
+                    <span class="example-type">About Page</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"We've helped countless founders achieve their dreams and build amazing companies."</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">42 founders. $380M in follow-on funding raised. 3 IPOs.</span> Behind every number, a partnership built on trust."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">"Countless" and "amazing" are meaningless. The Watchful voice observes patterns and shares data. Specific metrics create certainty for readers. The human element in the second sentence balances the numbers.</div>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Expertise Claim</span>
+                    <span class="example-type">Team Page</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"Our team brings extensive experience and deep industry knowledge."</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">3 former founders. 2 Fortune 500 executives. 47 years combined investing experience.</span> We've been where you're going."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">Generic experience claims are unverifiable. The revision provides specific, checkable proof points. The final sentence connects credentials to founder relevance - Decisive empathy.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Feature to Benefit -->
+        <section id="feature-benefit" class="section">
+            <div class="section-header">
+                <span class="section-number">7</span>
+                <h2 class="section-title">Feature-Focused to Benefit-Focused</h2>
+                <p class="section-description">Features describe us. Benefits describe what founders gain. Lead with outcomes.</p>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Network Access</span>
+                    <span class="example-type">Services Page</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"We have an extensive network of 500+ industry contacts and advisors."</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">Need an intro to a Fortune 500 buyer? A technical co-founder? A specialized lawyer?</span> One call. We'll connect you within 48 hours."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">500+ contacts is a feature. Solving a founder's specific problem within 48 hours is a benefit. The revision shows scenarios founders actually face, demonstrating Watchful understanding of their needs.</div>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Capital Structure</span>
+                    <span class="example-type">Investment Page</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"We have a $150M fund and can write checks from $500K to $5M."</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">Start with what you need. Grow with consistent follow-on.</span> Our capital is patient - we're built for your timeline, not ours."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">Fund size is our feature. Flexible, patient capital aligned with founder timelines is the benefit. The revision emphasizes Measured partnership over transactional numbers.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Pronouns -->
+        <section id="pronouns" class="section">
+            <div class="section-header">
+                <span class="section-number">8</span>
+                <h2 class="section-title">"I/They" to "We/You" Pronoun Fixes</h2>
+                <p class="section-description">Pronouns signal relationship. "We" creates partnership; "You" centers the founder.</p>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Partnership Description</span>
+                    <span class="example-type">About Page</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"I believe that startups succeed when they get the right support from their investors."</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">You build the company. We provide the support.</span> Together, we create certainty."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">"I" centers the investor; "they" distances from founders. The revision uses "You" and "We" to create a direct, collaborative relationship. "Together" reinforces the partnership model.</div>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Investment Philosophy</span>
+                    <span class="example-type">Thesis Page</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"ScaleUp Ventures looks for companies that have strong fundamentals and clear paths to profitability."</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">We look for strong fundamentals and clear paths to profitability.</span> If that's how you build, we should talk."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">Third-person references to our own company feel corporate and distant. "We" creates presence; "you" invites the reader in. The final sentence is Decisively direct about next steps.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: Rushed to Patient -->
+        <section id="rushed-patient" class="section">
+            <div class="section-header">
+                <span class="section-number">9</span>
+                <h2 class="section-title">Rushed to Patient Tone</h2>
+                <p class="section-description">The Watchful voice takes its time. Rushed copy signals anxiety; patient copy signals confidence.</p>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Application Process</span>
+                    <span class="example-type">Apply Page</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"Apply today! Hurry - we're reviewing applications NOW and filling our portfolio FAST!"</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">Great companies are built on great timing.</span> When you're ready to explore partnership, we'll take the time to understand your vision fully."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">Urgency language ("Hurry," "NOW," "FAST") contradicts our Measured brand. The revision honors timing and signals thorough evaluation. "Take the time" explicitly values patience.</div>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Decision Timeline</span>
+                    <span class="example-type">Process Page</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"We can turn around term sheets in just 72 hours! Lightning fast decisions!"</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">We take 30 days to decide - enough time to be thorough, not so long you're left waiting.</span> Good decisions shouldn't be rushed."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">Speed can signal carelessness. The revision frames our timeline as a feature - showing Watchful diligence while respecting founder time. The final sentence states our philosophy Decisively.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Emotional Temperature -->
+        <section id="emotional" class="section">
+            <div class="section-header">
+                <span class="section-number">10</span>
+                <h2 class="section-title">Emotional Temperature Adjustments</h2>
+                <p class="section-description">ScaleUp's emotional register is warm but controlled - confident without being cold, engaged without being effusive.</p>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Welcome Message</span>
+                    <span class="example-type">Email</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"OMG we are SO EXCITED to meet you!!! This is going to be AMAZING!!! We literally can't wait!!!"</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">We're looking forward to our conversation.</span> Your approach to [specific element] caught our attention - we'd like to understand it better."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">Excessive enthusiasm feels performative and unprofessional. The Measured voice shows genuine interest through specificity, not exclamation points. Notice the temperature is warm ("looking forward") but controlled.</div>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="example-header">
+                    <span class="example-title">Pass Communication</span>
+                    <span class="example-type">Email</span>
+                </div>
+                <div class="example-content">
+                    <div class="before">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">X</span>
+                            Before
+                        </div>
+                        <div class="copy-text">"Unfortunately we have decided not to proceed with your company at this time. Best of luck."</div>
+                    </div>
+                    <div class="after">
+                        <div class="copy-label">
+                            <span class="copy-label-icon">&#10003;</span>
+                            After
+                        </div>
+                        <div class="copy-text">"<span class="highlight">After careful consideration, we've decided this isn't the right fit for our current portfolio focus.</span> Specifically, [reason]. We respect what you're building and remain open to reconnecting as your company evolves."</div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <div class="explanation-label">Why This Works</div>
+                    <div class="explanation-text">Cold rejections damage relationships. The Watchful revision shows we actually evaluated thoughtfully. Providing a specific reason demonstrates respect. The door stays open - Measured, not final.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Type: Website -->
+        <div id="website" class="content-type-header">
+            <h2>Website Copy Examples</h2>
+            <p>Public-facing content requires the highest brand fidelity</p>
+        </div>
+
+        <div class="example-card">
+            <div class="example-header">
+                <span class="example-title">About Section Opening</span>
+                <span class="example-type">Website</span>
+            </div>
+            <div class="example-content">
+                <div class="before">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">X</span>
+                        Before
+                    </div>
+                    <div class="copy-text">"ScaleUp Ventures is a leading early-stage venture capital firm dedicated to backing the next generation of world-changing companies and visionary entrepreneurs."</div>
+                </div>
+                <div class="after">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">&#10003;</span>
+                        After
+                    </div>
+                    <div class="copy-text">"<span class="highlight">We invest early. We stay patient. We help companies become what they're meant to be.</span> Since 2018, we've partnered with 42 founders who share our belief that sustainable growth beats fast exits."</div>
+                </div>
+            </div>
+            <div class="explanation">
+                <div class="explanation-label">Why This Works</div>
+                <div class="explanation-text">Every phrase in the original could describe any VC. The revision opens with three Decisive statements that embody our voice, then provides specific proof. "What they're meant to be" subtly signals our Watchful, observational approach.</div>
+            </div>
+        </div>
+
+        <div class="example-card">
+            <div class="example-header">
+                <span class="example-title">Footer CTA</span>
+                <span class="example-type">Website</span>
+            </div>
+            <div class="example-content">
+                <div class="before">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">X</span>
+                        Before
+                    </div>
+                    <div class="copy-text">"Ready to take your startup to the next level? Get in touch with our team today!"</div>
+                </div>
+                <div class="after">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">&#10003;</span>
+                        After
+                    </div>
+                    <div class="copy-text">"<span class="highlight">Building something worth waiting for? So are we.</span>"</div>
+                </div>
+            </div>
+            <div class="explanation">
+                <div class="explanation-label">Why This Works</div>
+                <div class="explanation-text">"Next level" is cliche; "today" adds unnecessary urgency. The revision filters for founders who share our patience. It's Measured (no pressure), Watchful (we recognize quality), and Decisive (clear value alignment stated).</div>
+            </div>
+        </div>
+
+        <!-- Content Type: Email -->
+        <div id="email" class="content-type-header">
+            <h2>Email Copy Examples</h2>
+            <p>Direct communication where voice builds or breaks relationships</p>
+        </div>
+
+        <div class="example-card">
+            <div class="example-header">
+                <span class="example-title">Initial Outreach</span>
+                <span class="example-type">Email</span>
+            </div>
+            <div class="example-content">
+                <div class="before">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">X</span>
+                        Before
+                    </div>
+                    <div class="copy-text">"Hi there! I came across your company and was super impressed! Would love to grab coffee and chat about how ScaleUp Ventures could potentially maybe be a fit for your funding needs!"</div>
+                </div>
+                <div class="after">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">&#10003;</span>
+                        After
+                    </div>
+                    <div class="copy-text">"<span class="highlight">I've been following [Company] since your [specific milestone]. Your approach to [specific element] aligns with patterns we've seen in successful portfolio companies.</span> Would you be open to a 30-minute conversation about your growth plans?"</div>
+                </div>
+            </div>
+            <div class="explanation">
+                <div class="explanation-label">Why This Works</div>
+                <div class="explanation-text">The Watchful voice shows we've done our homework. Specific observations prove genuine interest. No hedging ("potentially maybe") - Decisive directness about the ask. Professional warmth replaces performative enthusiasm.</div>
+            </div>
+        </div>
+
+        <div class="example-card">
+            <div class="example-header">
+                <span class="example-title">Follow-up After Meeting</span>
+                <span class="example-type">Email</span>
+            </div>
+            <div class="example-content">
+                <div class="before">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">X</span>
+                        Before
+                    </div>
+                    <div class="copy-text">"Great meeting you! You guys are doing awesome stuff! Let's definitely keep in touch and see if there might be something there!"</div>
+                </div>
+                <div class="after">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">&#10003;</span>
+                        After
+                    </div>
+                    <div class="copy-text">"<span class="highlight">Thank you for walking us through your unit economics. Your path to profitability is clearer than most companies at your stage.</span> We'll discuss internally and share next steps by Friday."</div>
+                </div>
+            </div>
+            <div class="explanation">
+                <div class="explanation-label">Why This Works</div>
+                <div class="explanation-text">Generic praise is forgettable. The Watchful revision references specific discussion points, demonstrating attention. The Decisive commitment to a timeline ("by Friday") shows professionalism and respect for their time.</div>
+            </div>
+        </div>
+
+        <div class="example-card">
+            <div class="example-header">
+                <span class="example-title">Portfolio Update Request</span>
+                <span class="example-type">Email</span>
+            </div>
+            <div class="example-content">
+                <div class="before">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">X</span>
+                        Before
+                    </div>
+                    <div class="copy-text">"Hey! It's been a while! Just checking in to see how things are going! Would love an update when you get a chance! No rush!"</div>
+                </div>
+                <div class="after">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">&#10003;</span>
+                        After
+                    </div>
+                    <div class="copy-text">"<span class="highlight">Checking in on Q3 progress. Specifically interested in: (1) How the enterprise sales motion is developing, (2) Any changes to your hiring timeline.</span> A brief update by month-end would be helpful for our portfolio review."</div>
+                </div>
+            </div>
+            <div class="explanation">
+                <div class="explanation-label">Why This Works</div>
+                <div class="explanation-text">"No rush" contradicts the request for an update. The revision is Decisively specific about what we need and why, respecting the founder's time. The Watchful voice references their actual business context.</div>
+            </div>
+        </div>
+
+        <!-- Content Type: Proposals -->
+        <div id="proposals" class="content-type-header">
+            <h2>Proposal Copy Examples</h2>
+            <p>High-stakes documents where precision and confidence close deals</p>
+        </div>
+
+        <div class="example-card">
+            <div class="example-header">
+                <span class="example-title">Term Sheet Introduction</span>
+                <span class="example-type">Proposal</span>
+            </div>
+            <div class="example-content">
+                <div class="before">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">X</span>
+                        Before
+                    </div>
+                    <div class="copy-text">"We are thrilled and honored to present this incredible opportunity to potentially partner with your amazing team on this exciting journey!"</div>
+                </div>
+                <div class="after">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">&#10003;</span>
+                        After
+                    </div>
+                    <div class="copy-text">"<span class="highlight">We've completed our evaluation. The following terms reflect our conviction in your company and our commitment to supporting your growth.</span>"</div>
+                </div>
+            </div>
+            <div class="explanation">
+                <div class="explanation-label">Why This Works</div>
+                <div class="explanation-text">Excessive adjectives ("thrilled," "incredible," "amazing," "exciting") dilute the message. The Measured revision is businesslike and confident. "Conviction" and "commitment" are the only two charged words - chosen deliberately.</div>
+            </div>
+        </div>
+
+        <div class="example-card">
+            <div class="example-header">
+                <span class="example-title">Investment Rationale</span>
+                <span class="example-type">Proposal</span>
+            </div>
+            <div class="example-content">
+                <div class="before">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">X</span>
+                        Before
+                    </div>
+                    <div class="copy-text">"We think you guys are onto something big here and believe this could be a massive opportunity in a huge market with tons of potential upside."</div>
+                </div>
+                <div class="after">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">&#10003;</span>
+                        After
+                    </div>
+                    <div class="copy-text">"<span class="highlight">Three factors drive our investment thesis: (1) Your customer retention exceeds category benchmarks by 40%, (2) Your unit economics are already profitable, (3) The competitive moat you've built through [specific factor] is defensible.</span>"</div>
+                </div>
+            </div>
+            <div class="explanation">
+                <div class="explanation-label">Why This Works</div>
+                <div class="explanation-text">Vague excitement ("big," "massive," "huge," "tons") says nothing. The Watchful revision shows we've analyzed specifically why we believe. Numbered points demonstrate structured thinking. Every claim is specific and provable.</div>
+            </div>
+        </div>
+
+        <div class="example-card">
+            <div class="example-header">
+                <span class="example-title">Value-Add Section</span>
+                <span class="example-type">Proposal</span>
+            </div>
+            <div class="example-content">
+                <div class="before">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">X</span>
+                        Before
+                    </div>
+                    <div class="copy-text">"As your partner, ScaleUp Ventures will leverage our extensive platform capabilities and robust ecosystem to unlock synergistic value creation opportunities and accelerate your growth trajectory."</div>
+                </div>
+                <div class="after">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">&#10003;</span>
+                        After
+                    </div>
+                    <div class="copy-text">"<span class="highlight">What we bring: Direct introductions to 12 enterprise customers in your target market. CFO office hours every month. Recruiting support - we've helped portfolio companies fill 200+ roles.</span> Specifics matter more than promises."</div>
+                </div>
+            </div>
+            <div class="explanation">
+                <div class="explanation-label">Why This Works</div>
+                <div class="explanation-text">Jargon ("synergistic value creation opportunities") is empty. The revision lists exactly what support looks like, with numbers. The final sentence is Decisively meta - acknowledging that our specificity is itself a proof point.</div>
+            </div>
+        </div>
+
+        <div class="example-card">
+            <div class="example-header">
+                <span class="example-title">Closing Statement</span>
+                <span class="example-type">Proposal</span>
+            </div>
+            <div class="example-content">
+                <div class="before">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">X</span>
+                        Before
+                    </div>
+                    <div class="copy-text">"We really hope you'll give us the opportunity to partner with you on this incredible journey! Let us know ASAP as we're super excited to move forward!"</div>
+                </div>
+                <div class="after">
+                    <div class="copy-label">
+                        <span class="copy-label-icon">&#10003;</span>
+                        After
+                    </div>
+                    <div class="copy-text">"<span class="highlight">This term sheet is valid for 14 days. We're prepared to close within 30 days of signature.</span> If you have questions, we're available to discuss. The decision is yours - we'll respect whatever you choose."</div>
+                </div>
+            </div>
+            <div class="explanation">
+                <div class="explanation-label">Why This Works</div>
+                <div class="explanation-text">Desperation ("really hope," "ASAP," "super excited") undermines negotiating position. The Measured revision is clear about timelines without pressure. The final sentence shows confidence - we want the deal but don't need it.</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-brand">ScaleUp Ventures</div>
+        <p>Certainty First.</p>
+        <p style="margin-top: 1rem; font-size: 0.875rem;">Before/After Copy Examples Library | Brand Voice Reference</p>
+    </footer>
+</body>
+</html>

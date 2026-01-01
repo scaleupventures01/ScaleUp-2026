@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Your Options | ScaleUp Ventures</title>
+    <meta name="description" content="Honest comparison of marketing options: agencies, freelancers, in-house, consultants, and DIY. Find the right fit for your business.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --navy-lighter: #243352;
+            --gold: #D4A853;
+            --gold-light: #e5c078;
+            --gold-dark: #b8923f;
+            --white: #ffffff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #6c757d;
+            --gray-600: #495057;
+            --green: #22c55e;
+            --red: #ef4444;
+            --amber: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+
+        /* Header */
+        .header {
+            background: var(--navy);
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--navy);
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.5px;
+        }
+
+        .header-cta {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .header-cta:hover {
+            background: var(--gold-light);
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--gray-400);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-trust {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            color: var(--gray-500);
+            font-size: 14px;
+        }
+
+        .hero-trust span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-trust svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--gold);
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            background: var(--gray-100);
+            padding: 24px;
+            position: sticky;
+            top: 72px;
+            z-index: 90;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .nav-tabs-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+
+        .nav-tab {
+            padding: 12px 20px;
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-600);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .nav-tab:hover {
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+
+        .nav-tab.active {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: var(--white);
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 80px;
+            scroll-margin-top: 160px;
+        }
+
+        .section-header {
+            margin-bottom: 32px;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-intro {
+            font-size: 18px;
+            color: var(--gray-600);
+            max-width: 700px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gray-100);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--gray-600);
+        }
+
+        .card-icon.gold {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+        }
+
+        .card-icon.gold svg {
+            fill: var(--navy);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .col-card {
+            background: var(--gray-100);
+            border-radius: 10px;
+            padding: 24px;
+        }
+
+        .col-card.them {
+            border-left: 4px solid var(--gray-400);
+        }
+
+        .col-card.us {
+            border-left: 4px solid var(--gold);
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.1) 0%, rgba(212, 168, 83, 0.05) 100%);
+        }
+
+        .col-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        /* Lists */
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 8px 0;
+            color: var(--gray-600);
+        }
+
+        .feature-list li svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .feature-list li.pro svg {
+            fill: var(--green);
+        }
+
+        .feature-list li.con svg {
+            fill: var(--red);
+        }
+
+        .feature-list li.neutral svg {
+            fill: var(--amber);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 14px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .comparison-table th {
+            background: var(--gray-100);
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .comparison-table th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+
+        .comparison-table th:last-child {
+            border-radius: 0 8px 0 0;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+        }
+
+        .comparison-table td:last-child {
+            background: rgba(212, 168, 83, 0.08);
+        }
+
+        .comparison-table tr:last-child td:first-child {
+            border-radius: 0 0 0 8px;
+        }
+
+        .comparison-table tr:last-child td:last-child {
+            border-radius: 0 0 8px 0;
+        }
+
+        .check-icon {
+            color: var(--green);
+        }
+
+        .x-icon {
+            color: var(--red);
+        }
+
+        /* Verdict Box */
+        .verdict {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 12px;
+            padding: 32px;
+            margin-top: 32px;
+        }
+
+        .verdict h4 {
+            color: var(--gold);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .verdict p {
+            color: var(--white);
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+
+        .verdict-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .verdict-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .verdict-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .verdict-item h5 {
+            color: var(--gray-400);
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .verdict-item p {
+            color: var(--white);
+            font-size: 15px;
+        }
+
+        /* Checklist Section */
+        .checklist-section {
+            background: var(--gray-100);
+            border-radius: 16px;
+            padding: 48px;
+            margin-top: 80px;
+        }
+
+        .checklist-section h2 {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .checklist-section .section-intro {
+            text-align: center;
+            margin: 0 auto 40px;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .checklist-item {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .checklist-number {
+            width: 28px;
+            height: 28px;
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .checklist-content h4 {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .checklist-content p {
+            font-size: 13px;
+            color: var(--gray-500);
+            margin: 0;
+        }
+
+        .checklist-tip {
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.15) 0%, rgba(212, 168, 83, 0.05) 100%);
+            border: 1px solid var(--gold);
+        }
+
+        .checklist-tip .checklist-number {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 80px 24px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: var(--gray-400);
+            font-size: 18px;
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 1px solid var(--gray-600);
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            padding: 48px 24px;
+            border-top: 1px solid var(--navy-lighter);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-tagline {
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.15) 0%, rgba(212, 168, 83, 0.05) 100%);
+            border: 1px solid var(--gold);
+            border-radius: 10px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--gold-dark);
+            margin-bottom: 8px;
+        }
+
+        /* Price Comparison */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .price-card {
+            background: var(--gray-100);
+            border-radius: 10px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .price-card.featured {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border: 2px solid var(--gold);
+        }
+
+        .price-card h5 {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+        }
+
+        .price-card.featured h5 {
+            color: var(--gold);
+        }
+
+        .price-card .price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .price-card.featured .price {
+            color: var(--white);
+        }
+
+        .price-card .period {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        .price-card.featured .period {
+            color: var(--gray-400);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--gray-100);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gray-400);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gray-500);
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;"><a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Index</a><span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span><div style="display:flex;gap:12px;"><a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a><a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a><a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a><a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a><a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a></div></nav>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg>
+                </div>
+                <span class="logo-text">ScaleUp Ventures</span>
+            </a>
+            <a href="#contact" class="header-cta">Get Your Assessment</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Compare Your <span>Growth Options</span></h1>
+        <p>An honest look at agencies, freelancers, in-house hires, consultants, and DIY. We'll tell you when we're not the right fit.</p>
+        <div class="hero-trust">
+            <span>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                Validation-first approach
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                Will say no when appropriate
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                Direct principal access
+            </span>
+        </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+        <div class="nav-tabs-inner">
+            <a href="#agencies" class="nav-tab active">Traditional Agencies</a>
+            <a href="#freelancers" class="nav-tab">Freelancers</a>
+            <a href="#inhouse" class="nav-tab">In-House Hires</a>
+            <a href="#consulting" class="nav-tab">Big Consulting</a>
+            <a href="#diy" class="nav-tab">DIY / No Agency</a>
+            <a href="#checklist" class="nav-tab">Hiring Checklist</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- Section 1: Traditional Marketing Agencies -->
+        <section id="agencies" class="section">
+            <div class="section-header">
+                <span class="section-label">Option 1</span>
+                <h2>Traditional Marketing Agencies</h2>
+                <p class="section-intro">Full-service shops handling everything from creative to media buying. The classic choice for growing companies.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+                    </div>
+                    <h3>What Traditional Agencies Do</h3>
+                </div>
+
+                <ul class="feature-list">
+                    <li class="neutral">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                        Multi-channel campaign management (digital, print, broadcast)
+                    </li>
+                    <li class="neutral">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                        Creative production (video, graphics, copy)
+                    </li>
+                    <li class="neutral">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                        Media planning and buying
+                    </li>
+                    <li class="neutral">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                        Brand development and positioning
+                    </li>
+                    <li class="neutral">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                        Social media management
+                    </li>
+                </ul>
+            </div>
+
+            <div class="two-col">
+                <div class="col-card them">
+                    <h4>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#6c757d"><path d="M12 7V3H2v18h20V7H12z"/></svg>
+                        Traditional Agency Approach
+                    </h4>
+                    <ul class="feature-list">
+                        <li class="con">
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                            12-month retainers required upfront
+                        </li>
+                        <li class="con">
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                            Junior staff does the work, seniors sell
+                        </li>
+                        <li class="con">
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                            Vanity metrics (impressions, reach)
+                        </li>
+                        <li class="con">
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                            Black-box reporting and processes
+                        </li>
+                        <li class="con">
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                            Same playbook for every client
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-card us">
+                    <h4>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#D4A853"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        ScaleUp Ventures Approach
+                    </h4>
+                    <ul class="feature-list">
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Validation-first: we'll tell you if now isn't the time
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Direct access to principals (no account managers)
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Focus on business outcomes, not vanity metrics
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Full transparency: you see everything
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Early-stage ourselves - we understand your constraints
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4>Approach Comparison</h4>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Consideration</th>
+                        <th>Traditional Agency</th>
+                        <th>ScaleUp Ventures</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Track record</td>
+                        <td>Often years of clients</td>
+                        <td>Early-stage consultancy (fewer clients, deeper relationships)</td>
+                    </tr>
+                    <tr>
+                        <td>Who does the work</td>
+                        <td>Often junior coordinators</td>
+                        <td>Principals directly (boutique advantage)</td>
+                    </tr>
+                    <tr>
+                        <td>Will they say no?</td>
+                        <td>Rarely (incentivized to sell)</td>
+                        <td>Yes - we've recommended clients NOT build ($150K+ saved)</td>
+                    </tr>
+                    <tr>
+                        <td>Communication</td>
+                        <td>Through account managers</td>
+                        <td>Direct to decision-makers</td>
+                    </tr>
+                    <tr>
+                        <td>Strategy ownership</td>
+                        <td>Agency owns it</td>
+                        <td>You own everything</td>
+                    </tr>
+                    <tr>
+                        <td>Flexibility</td>
+                        <td>Rigid retainer structures</td>
+                        <td>Project-based or ongoing, your choice</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="verdict">
+                <h4>The Honest Verdict</h4>
+                <p>Traditional agencies have longer track records and more case studies. But for early-stage ventures who need a partner that will be honest about what's worth building, agencies are often incentivized to say yes when the answer should be no.</p>
+                <div class="verdict-grid">
+                    <div class="verdict-item">
+                        <h5>Choose a traditional agency if:</h5>
+                        <p>You need proven processes, extensive case studies, large team capacity, or brand names for stakeholder credibility.</p>
+                    </div>
+                    <div class="verdict-item">
+                        <h5>Consider ScaleUp if:</h5>
+                        <p>You want direct principal access, validation before building, or a partner who will tell you when NOT to proceed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Freelancers -->
+        <section id="freelancers" class="section">
+            <div class="section-header">
+                <span class="section-label">Option 2</span>
+                <h2>Freelancers & Solopreneurs</h2>
+                <p class="section-intro">Independent specialists who can move fast and cost less. Great for specific tasks, challenging for full strategies.</p>
+            </div>
+
+            <div class="two-col">
+                <div class="col-card them">
+                    <h4>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#22c55e"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                        Freelancer Advantages
+                    </h4>
+                    <ul class="feature-list">
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Lower hourly/project rates
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Direct communication (no middlemen)
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Flexible engagement terms
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Deep expertise in one area
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Fast turnaround on tasks
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-card them">
+                    <h4>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#ef4444"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                        Freelancer Challenges
+                    </h4>
+                    <ul class="feature-list">
+                        <li class="con">
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                            You become the project manager
+                        </li>
+                        <li class="con">
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                            No strategic oversight or integration
+                        </li>
+                        <li class="con">
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                            Availability gaps (vacations, other clients)
+                        </li>
+                        <li class="con">
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                            Single point of failure
+                        </li>
+                        <li class="con">
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                            Quality varies wildly
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>The Real Cost of Managing Freelancers</h4>
+                <p>When you hire 3-4 freelancers for different functions (copy, design, ads, SEO), you spend 8-12 hours/week coordinating. At a CEO's time value of $200-500/hour, that's $1,600-6,000/week in hidden management costs - often more than a full-service partner would charge.</p>
+            </div>
+
+            <div class="verdict">
+                <h4>The Honest Verdict</h4>
+                <p>Freelancers excel at defined, discrete tasks when you have the bandwidth to manage them. They struggle with integrated strategy, and the coordination burden falls on you.</p>
+                <div class="verdict-grid">
+                    <div class="verdict-item">
+                        <h5>Choose freelancers if:</h5>
+                        <p>You have clear project specs, time to manage, one-off needs (logo, website, single campaign), or internal strategy already set.</p>
+                    </div>
+                    <div class="verdict-item">
+                        <h5>Consider ScaleUp if:</h5>
+                        <p>You need someone who can validate whether a project is worth doing before you spend on execution.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: In-House Hires -->
+        <section id="inhouse" class="section">
+            <div class="section-header">
+                <span class="section-label">Option 3</span>
+                <h2>In-House Marketing Hires</h2>
+                <p class="section-intro">Full-time employees dedicated to your brand. Maximum alignment, but significant investment and risk.</p>
+            </div>
+
+            <div class="card">
+                <h4>True Cost of an In-House Marketing Team</h4>
+                <p>Most businesses underestimate the real investment. Here's what a capable in-house function actually costs:</p>
+
+                <div class="price-grid">
+                    <div class="price-card">
+                        <h5>Marketing Manager</h5>
+                        <div class="price">$85K</div>
+                        <div class="period">base salary/year</div>
+                    </div>
+                    <div class="price-card">
+                        <h5>Content/Social Person</h5>
+                        <div class="price">$55K</div>
+                        <div class="period">base salary/year</div>
+                    </div>
+                    <div class="price-card">
+                        <h5>Benefits & Overhead</h5>
+                        <div class="price">+30%</div>
+                        <div class="period">of base salaries</div>
+                    </div>
+                    <div class="price-card">
+                        <h5>Tools & Software</h5>
+                        <div class="price">$2K</div>
+                        <div class="period">per month</div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 24px;"><strong>Total: $180K-220K/year minimum</strong> for a lean 2-person team. And that assumes you hire right the first time (industry average: 3 in 4 marketing hires don't work out within 18 months).</p>
+            </div>
+
+            <div class="two-col">
+                <div class="col-card them">
+                    <h4>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#22c55e"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                        When In-House Makes Sense
+                    </h4>
+                    <ul class="feature-list">
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Revenue exceeds $10M/year
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Marketing is core to your product
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Need instant pivots daily
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Building long-term brand IP
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Deep regulatory/compliance needs
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-card us">
+                    <h4>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#D4A853"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        When External Help Makes Sense
+                    </h4>
+                    <ul class="feature-list">
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Early stage - need validation before hiring
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Exploring whether to build at all
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Need architecture/POC before committing
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Regulated industry expertise needed
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Want honest assessment before big investment
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="verdict">
+                <h4>The Honest Verdict</h4>
+                <p>In-house teams provide maximum alignment and deep institutional knowledge. External consultants (including us) are better for specific engagements: validation, architecture, POCs, or when you need someone who can tell you NOT to hire.</p>
+                <div class="verdict-grid">
+                    <div class="verdict-item">
+                        <h5>Go in-house if:</h5>
+                        <p>You have proven product-market fit, ongoing needs, and want to build institutional capability over time.</p>
+                    </div>
+                    <div class="verdict-item">
+                        <h5>Consider ScaleUp if:</h5>
+                        <p>You're validating whether to build something, need a POC in a regulated space, or want honest advice on where to invest.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Big Consulting Firms -->
+        <section id="consulting" class="section">
+            <div class="section-header">
+                <span class="section-label">Option 4</span>
+                <h2>Big Consulting Firms</h2>
+                <p class="section-intro">McKinsey, Bain, BCG, Accenture, Deloitte. Prestigious names, enterprise clients, and enterprise prices.</p>
+            </div>
+
+            <div class="card">
+                <h4>Price Reality Check</h4>
+                <div class="price-grid">
+                    <div class="price-card">
+                        <h5>Big 4 Consulting</h5>
+                        <div class="price">$50K+</div>
+                        <div class="period">per month minimum</div>
+                    </div>
+                    <div class="price-card">
+                        <h5>MBB Firms</h5>
+                        <div class="price">$150K+</div>
+                        <div class="period">per engagement</div>
+                    </div>
+                    <div class="price-card">
+                        <h5>Typical project</h5>
+                        <div class="price">6-12 mo</div>
+                        <div class="period">timeline</div>
+                    </div>
+                    <div class="price-card featured">
+                        <h5>Boutique Consultancy</h5>
+                        <div class="price">$5-25K</div>
+                        <div class="period">per engagement</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="two-col">
+                <div class="col-card them">
+                    <h4>Big Consulting Approach</h4>
+                    <ul class="feature-list">
+                        <li class="neutral">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                            Heavy on analysis and frameworks
+                        </li>
+                        <li class="neutral">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                            200-page strategy decks
+                        </li>
+                        <li class="con">
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                            Rarely do the execution
+                        </li>
+                        <li class="con">
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                            Junior analysts do the work
+                        </li>
+                        <li class="con">
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                            Designed for Fortune 500 problems
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-card us">
+                    <h4>Boutique Consultancy Approach</h4>
+                    <ul class="feature-list">
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Validation before big investment
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Direct access to principals
+                        </li>
+                        <li class="pro">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            Honest about what's achievable
+                        </li>
+                        <li class="neutral">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                            Smaller team, narrower bandwidth
+                        </li>
+                        <li class="neutral">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                            Less brand-name credibility for stakeholders
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>The Strategy-Execution Gap</h4>
+                <p>70% of strategies fail at execution. Big consulting delivers beautifully bound recommendations - then leaves. Boutique consultancies like us can help with validation and prototypes, but be honest about scope: we're early-stage ourselves, so massive enterprise transformations aren't our strength.</p>
+            </div>
+
+            <div class="verdict">
+                <h4>The Honest Verdict</h4>
+                <p>Big consulting firms have the brand credibility, massive teams, and case studies that enterprise buyers need. Boutique consultancies offer direct access and honest assessments, but can't match their scale or reputation.</p>
+                <div class="verdict-grid">
+                    <div class="verdict-item">
+                        <h5>Choose big consulting if:</h5>
+                        <p>You need board-level credibility, massive transformation capacity, or stakeholders require brand-name validation.</p>
+                    </div>
+                    <div class="verdict-item">
+                        <h5>Consider ScaleUp if:</h5>
+                        <p>You're early-stage, need validation before committing, want honest "don't build this" advice, or value direct principal access.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: DIY / No Agency -->
+        <section id="diy" class="section">
+            <div class="section-header">
+                <span class="section-label">Option 5</span>
+                <h2>DIY / No External Help</h2>
+                <p class="section-intro">Handle everything internally. Bootstrap approach that works for some - but carries hidden costs most don't calculate.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    </div>
+                    <h3>The Hidden Costs of DIY Marketing</h3>
+                </div>
+
+                <ul class="feature-list">
+                    <li class="con">
+                        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                        <div>
+                            <strong>Founder time cost:</strong> 15-20 hours/week on marketing = $3,000-10,000/week in opportunity cost (deals not closed, product not improved, team not led)
+                        </div>
+                    </li>
+                    <li class="con">
+                        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                        <div>
+                            <strong>Learning curve tax:</strong> 3-6 months to learn what specialists already know. Every mistake costs you money and time.
+                        </div>
+                    </li>
+                    <li class="con">
+                        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                        <div>
+                            <strong>Tool sprawl:</strong> HubSpot, Mailchimp, Canva Pro, SEMrush, etc. = $500-2,000/month for tools you use at 20% capacity.
+                        </div>
+                    </li>
+                    <li class="con">
+                        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                        <div>
+                            <strong>Wasted ad spend:</strong> Poorly optimized campaigns waste 40-60% of budget. $5,000/month in ads = $2,000-3,000 lost.
+                        </div>
+                    </li>
+                    <li class="con">
+                        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                        <div>
+                            <strong>Competitor speed:</strong> While you're learning, funded competitors with agencies are taking market share.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>What You Miss Without Expert Guidance</h4>
+                <div class="two-col">
+                    <div>
+                        <ul class="feature-list">
+                            <li class="con">
+                                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                                Cross-industry pattern recognition
+                            </li>
+                            <li class="con">
+                                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                                Benchmark data from similar companies
+                            </li>
+                            <li class="con">
+                                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                                Vendor relationships and rates
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="feature-list">
+                            <li class="con">
+                                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                                Early warning on platform changes
+                            </li>
+                            <li class="con">
+                                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                                Objective outside perspective
+                            </li>
+                            <li class="con">
+                                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                                Accountability to real numbers
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="verdict">
+                <h4>The Honest Verdict</h4>
+                <p>DIY often makes sense for bootstrapped founders, especially in early stages. The question is whether you're spending time on validation vs. execution. Sometimes a small engagement to validate an idea saves months of building the wrong thing.</p>
+                <div class="verdict-grid">
+                    <div class="verdict-item">
+                        <h5>Stay DIY if:</h5>
+                        <p>You're pre-revenue bootstrapping, have genuine expertise yourself, or are learning by doing as part of your founder journey.</p>
+                    </div>
+                    <div class="verdict-item">
+                        <h5>Consider ScaleUp if:</h5>
+                        <p>You want validation before building (we've told clients NOT to build and saved them $150K+), or need a regulated-industry POC.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Actually Do Section -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-label">About ScaleUp</span>
+                <h2>What We Actually Do</h2>
+                <p class="section-intro">We're an early-stage consultancy. Here's an honest look at our real work:</p>
+            </div>
+
+            <div class="card">
+                <h4>Real Engagements (Not Marketing Claims)</h4>
+                <ul class="feature-list">
+                    <li class="pro">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                        <div><strong>No-Build Decision ($5K engagement)</strong> - Client wanted to build a product. We analyzed the market and recommended they don't. Saved them $150K+ in development costs.</div>
+                    </li>
+                    <li class="pro">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                        <div><strong>Startup Support</strong> - Architecture, prototype development, business model refinement, investor introductions.</div>
+                    </li>
+                    <li class="pro">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                        <div><strong>Financial Trading App POC</strong> - Proof of concept in a regulated industry with compliance considerations.</div>
+                    </li>
+                    <li class="pro">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                        <div><strong>AI-Enabled PM Infrastructure</strong> - Consulting on project management processes enhanced with AI.</div>
+                    </li>
+                    <li class="neutral">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                        <div><strong>OfferPath</strong> - Our own product, demonstrating we build too, not just advise.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Our Honest Differentiator</h4>
+                <p>We're not trying to be everything to everyone. We're early-stage ourselves, which means: direct access to principals, willingness to tell you NOT to build something, and no incentive to recommend more work than you need. Established consultancies may have longer track records - but we have aligned incentives.</p>
+            </div>
+        </section>
+
+        <!-- Checklist Section -->
+        <section id="checklist" class="checklist-section">
+            <h2>12 Questions to Ask Any Agency Before Hiring</h2>
+            <p class="section-intro">Use this checklist to vet any marketing partner. A good agency will have clear, confident answers. Evasiveness is a red flag.</p>
+
+            <div class="checklist-grid">
+                <div class="checklist-item">
+                    <div class="checklist-number">1</div>
+                    <div class="checklist-content">
+                        <h4>Who will actually do the work?</h4>
+                        <p>Get names and bios. If they can't tell you, it's probably junior staff or outsourced.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checklist-number">2</div>
+                    <div class="checklist-content">
+                        <h4>What metrics will you be accountable to?</h4>
+                        <p>Accept only business outcomes (revenue, leads, conversion). Reject vanity metrics (impressions, reach).</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checklist-number">3</div>
+                    <div class="checklist-content">
+                        <h4>Can I see 3 case studies with measurable results?</h4>
+                        <p>Not logos or testimonials. Actual numbers: "We increased revenue by X% in Y months."</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checklist-number">4</div>
+                    <div class="checklist-content">
+                        <h4>What's your minimum commitment?</h4>
+                        <p>12-month minimums protect the agency, not you. Look for 90-day pilots or month-to-month.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checklist-number">5</div>
+                    <div class="checklist-content">
+                        <h4>What's the exit clause if it's not working?</h4>
+                        <p>Get this in writing. 30-day notice with no penalty is fair. Big termination fees are red flags.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item checklist-tip">
+                    <div class="checklist-number">6</div>
+                    <div class="checklist-content">
+                        <h4>Who owns the work product and data?</h4>
+                        <p>You should own everything: creative assets, ad accounts, data, copy. If not, you're building their asset.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checklist-number">7</div>
+                    <div class="checklist-content">
+                        <h4>How do you handle strategy vs. execution?</h4>
+                        <p>Many agencies do one or the other. You need both integrated - or clear handoff plans.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checklist-number">8</div>
+                    <div class="checklist-content">
+                        <h4>What's your communication cadence?</h4>
+                        <p>Weekly calls minimum. Real-time access to dashboards. Named contact for urgent issues.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checklist-number">9</div>
+                    <div class="checklist-content">
+                        <h4>Have you worked in my industry before?</h4>
+                        <p>Industry experience matters less than you think - but they should understand your sales cycle and buyer.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checklist-number">10</div>
+                    <div class="checklist-content">
+                        <h4>What will you need from me?</h4>
+                        <p>Good agencies know what access, content, and time they need. Vague answers = scope creep later.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item checklist-tip">
+                    <div class="checklist-number">11</div>
+                    <div class="checklist-content">
+                        <h4>What happens when something fails?</h4>
+                        <p>Everything fails sometimes. You want a partner who diagnoses quickly and pivots, not one who makes excuses.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checklist-number">12</div>
+                    <div class="checklist-content">
+                        <h4>Can I talk to a current client?</h4>
+                        <p>Not a hand-picked testimonial. A current client you can ask hard questions. Refusal is a dealbreaker.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+        <h2>Want an Honest Conversation?</h2>
+        <p>We'll tell you if we're the right fit - and if not, we'll point you toward what makes more sense for your stage. No pressure, no sales pitch.</p>
+        <div class="cta-buttons">
+            <a href="#" class="btn-primary">
+                Start a Conversation
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg>
+            </a>
+            <a href="#" class="btn-secondary">Download This Guide as PDF</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg>
+                </div>
+                <span class="footer-tagline">Certainty First.</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Active tab highlighting
+        const sections = document.querySelectorAll('.section');
+        const navTabs = document.querySelectorAll('.nav-tab');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navTabs.forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.getAttribute('href') === '#' + current) {
+                    tab.classList.add('active');
+                }
+            });
+        });
+    </script>
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;"><a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Content Index</a><p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p></footer>
+</body>
+</html>

@@ -1,0 +1,2047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures - Complete Landing Page CTA Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --navy-lighter: #243352;
+            --gold: #D4A853;
+            --gold-light: #e0bc6e;
+            --gold-dark: #b8923f;
+            --white: #ffffff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-500: #6c757d;
+            --gray-700: #495057;
+            --success: #28a745;
+            --info: #17a2b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+            background: var(--gray-100);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .header h1, .section-title, .preview-headline, .toc h2, .subsection-title {
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 48px 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .header .gold-accent {
+            color: var(--gold);
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .stats-bar {
+            background: var(--navy-lighter);
+            padding: 20px 24px;
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        .toc {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .toc h2 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--gray-100);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--navy);
+            transition: all 0.2s;
+        }
+
+        .toc-item:hover {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .toc-number {
+            background: var(--gold);
+            color: var(--navy);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .page-section {
+            background: var(--white);
+            border-radius: 12px;
+            margin-bottom: 32px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 24px 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .section-number {
+            background: var(--gold);
+            color: var(--navy);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .section-content {
+            padding: 32px;
+        }
+
+        .cta-card {
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .cta-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta-header {
+            background: var(--gray-100);
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .cta-name {
+            font-weight: 600;
+            font-size: 1.125rem;
+            color: var(--navy);
+        }
+
+        .cta-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .badge-secondary {
+            background: var(--navy-lighter);
+            color: var(--white);
+        }
+
+        .badge-placement {
+            background: var(--info);
+            color: var(--white);
+        }
+
+        .cta-body {
+            padding: 24px;
+        }
+
+        .cta-preview {
+            background: var(--navy);
+            border-radius: 8px;
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .cta-preview.light-bg {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+        }
+
+        .preview-context {
+            color: var(--gray-500);
+            font-size: 0.875rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-preview.light-bg .preview-context {
+            color: var(--gray-500);
+        }
+
+        .preview-headline {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .cta-preview.light-bg .preview-headline {
+            color: var(--navy);
+        }
+
+        .preview-subtext {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-preview.light-bg .preview-subtext {
+            color: var(--gray-500);
+        }
+
+        .btn-preview {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-light);
+        }
+
+        .btn-navy {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .btn-navy:hover {
+            background: var(--navy-light);
+        }
+
+        .btn-outline-gold {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-outline-gold:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-outline-navy {
+            background: transparent;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+        }
+
+        .btn-outline-navy:hover {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--navy);
+        }
+
+        .btn-white:hover {
+            background: var(--gray-100);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .spec-item {
+            background: var(--gray-100);
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .spec-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--gray-500);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .spec-value {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .spec-value.code {
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.875rem;
+            background: var(--white);
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .color-swatch {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .swatch {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            border: 1px solid var(--gray-300);
+        }
+
+        .swatch-gold { background: var(--gold); }
+        .swatch-navy { background: var(--navy); }
+        .swatch-white { background: var(--white); }
+
+        .notes {
+            background: #fff9e6;
+            border-left: 4px solid var(--gold);
+            padding: 16px;
+            margin-top: 16px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .notes-title {
+            font-weight: 600;
+            color: var(--gold-dark);
+            margin-bottom: 8px;
+        }
+
+        .notes p {
+            font-size: 0.9rem;
+            color: var(--gray-700);
+        }
+
+        .subsection-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin: 32px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .subsection-title:first-child {
+            margin-top: 0;
+        }
+
+        .subsection-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gold);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .industry-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 24px;
+        }
+
+        .summary-table th,
+        .summary-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .summary-table th {
+            background: var(--navy);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .summary-table tr:hover {
+            background: var(--gray-100);
+        }
+
+        .summary-table td:first-child {
+            font-weight: 600;
+        }
+
+        .implementation-note {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            margin-top: 32px;
+        }
+
+        .implementation-note h3 {
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .implementation-note ul {
+            margin-left: 20px;
+        }
+
+        .implementation-note li {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .stats-bar {
+                gap: 24px;
+            }
+
+            .section-content {
+                padding: 20px;
+            }
+
+            .cta-preview {
+                padding: 20px;
+            }
+
+            .preview-headline {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;"><a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Index</a><span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span><div style="display:flex;gap:12px;"><a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a><a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a><a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a><a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a><a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a></div></nav>
+
+<header class="header">
+    <h1>ScaleUp Ventures <span class="gold-accent">CTA Library</span></h1>
+    <p>Complete call-to-action documentation for every page type. Exact text, button styles, placement specifications, and destination links.</p>
+</header>
+
+<div class="stats-bar">
+    <div class="stat">
+        <div class="stat-number">35</div>
+        <div class="stat-label">Total CTAs</div>
+    </div>
+    <div class="stat">
+        <div class="stat-number">9</div>
+        <div class="stat-label">Page Types</div>
+    </div>
+    <div class="stat">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Real Services</div>
+    </div>
+    <div class="stat">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Button Styles</div>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- TABLE OF CONTENTS -->
+    <nav class="toc">
+        <h2>Quick Navigation</h2>
+        <div class="toc-grid">
+            <a href="#homepage" class="toc-item">
+                <span class="toc-number">1</span>
+                <span>Homepage CTAs (4)</span>
+            </a>
+            <a href="#services" class="toc-item">
+                <span class="toc-number">2</span>
+                <span>Service Page CTAs (8)</span>
+            </a>
+            <a href="#staffing" class="toc-item">
+                <span class="toc-number">3</span>
+                <span>Real Work Examples (5)</span>
+            </a>
+            <a href="#veterinary" class="toc-item">
+                <span class="toc-number">4</span>
+                <span>Honest Positioning (5)</span>
+            </a>
+            <a href="#casestudy" class="toc-item">
+                <span class="toc-number">5</span>
+                <span>Work Examples Page (3)</span>
+            </a>
+            <a href="#blog" class="toc-item">
+                <span class="toc-number">6</span>
+                <span>Blog Post CTAs (5)</span>
+            </a>
+            <a href="#about" class="toc-item">
+                <span class="toc-number">7</span>
+                <span>About Page CTAs (3)</span>
+            </a>
+            <a href="#contact" class="toc-item">
+                <span class="toc-number">8</span>
+                <span>Contact Page CTAs (2)</span>
+            </a>
+            <a href="#summary" class="toc-item">
+                <span class="toc-number">9</span>
+                <span>Master Summary Table</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HOMEPAGE -->
+    <section id="homepage" class="page-section">
+        <div class="section-header">
+            <span class="section-number">1</span>
+            <h2 class="section-title">Homepage CTAs</h2>
+        </div>
+        <div class="section-content">
+
+            <!-- CTA 1.1: Hero Primary -->
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Hero CTA - Primary</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                        <span class="badge badge-placement">Above Fold</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-context">[ Hero Section - Dark Background ]</div>
+                        <div class="preview-headline">Build the Right Thing, the Right Way</div>
+                        <div class="preview-subtext">Early-stage consulting for founders who want honest guidance</div>
+                        <button class="btn-preview btn-gold">Start a Conversation</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Start a Conversation"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Button Color</div>
+                            <div class="spec-value">
+                                <span class="color-swatch">
+                                    <span class="swatch swatch-gold"></span>
+                                    Gold #D4A853
+                                </span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Text Color</div>
+                            <div class="spec-value">
+                                <span class="color-swatch">
+                                    <span class="swatch swatch-navy"></span>
+                                    Navy #0F1729
+                                </span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?source=hero</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Placement</div>
+                            <div class="spec-value">Center of hero, below headline</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Button Size</div>
+                            <div class="spec-value">Large (padding: 16px 40px)</div>
+                        </div>
+                    </div>
+                    <div class="notes">
+                        <div class="notes-title">Implementation Notes</div>
+                        <p>This is the highest-priority CTA on the entire site. Must be visible without scrolling on all device sizes. Use tracking parameter to measure hero conversion separately.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA 1.2: Hero Secondary -->
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Hero CTA - Secondary</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-secondary">Secondary</span>
+                        <span class="badge badge-placement">Above Fold</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-context">[ Hero Section - Below Primary CTA ]</div>
+                        <button class="btn-preview btn-outline-gold">See Our Work</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"See Our Work"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Button Style</div>
+                            <div class="spec-value">Outline Gold, 2px border</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Text Color</div>
+                            <div class="spec-value">
+                                <span class="color-swatch">
+                                    <span class="swatch swatch-gold"></span>
+                                    Gold #D4A853
+                                </span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/work</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Placement</div>
+                            <div class="spec-value">Right of primary, or below on mobile</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Button Size</div>
+                            <div class="spec-value">Large (padding: 16px 40px)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA 1.3: Mid-Page -->
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Mid-Page CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                        <span class="badge badge-placement">After Services</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview light-bg">
+                        <div class="preview-context">[ After Services Section - Light Background ]</div>
+                        <div class="preview-headline">Ready to Talk Through Your Challenge?</div>
+                        <div class="preview-subtext">30 minutes. No sales pitch. Real perspective on what you're building.</div>
+                        <button class="btn-preview btn-navy">Schedule a Call</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Schedule a Call"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Button Color</div>
+                            <div class="spec-value">
+                                <span class="color-swatch">
+                                    <span class="swatch swatch-navy"></span>
+                                    Navy #0F1729
+                                </span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Text Color</div>
+                            <div class="spec-value">
+                                <span class="color-swatch">
+                                    <span class="swatch swatch-white"></span>
+                                    White #FFFFFF
+                                </span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?source=midpage</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Placement</div>
+                            <div class="spec-value">Centered in CTA banner section</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Section Background</div>
+                            <div class="spec-value">White or light gray</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA 1.4: Footer -->
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Footer CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                        <span class="badge badge-placement">Pre-Footer</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-context">[ Pre-Footer Section - Navy Background ]</div>
+                        <div class="preview-headline">Let's Talk About What You're Building</div>
+                        <div class="preview-subtext">30-minute conversation. No obligation. Honest perspective.</div>
+                        <button class="btn-preview btn-gold">Start a Conversation</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Start a Conversation"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Button Color</div>
+                            <div class="spec-value">
+                                <span class="color-swatch">
+                                    <span class="swatch swatch-gold"></span>
+                                    Gold #D4A853
+                                </span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?source=footer</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Placement</div>
+                            <div class="spec-value">Full-width banner above footer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 2: SERVICE PAGES -->
+    <section id="services" class="page-section">
+        <div class="section-header">
+            <span class="section-number">2</span>
+            <h2 class="section-title">Service Page CTAs</h2>
+        </div>
+        <div class="section-content">
+
+            <!-- BUILD VS. BUY CONSULTING -->
+            <h3 class="subsection-title">
+                <span class="subsection-icon">B</span>
+                Build vs. Buy Consulting
+            </h3>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Primary CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-headline">Should You Build It or Not Build It?</div>
+                        <div class="preview-subtext">Honest assessment before you commit resources</div>
+                        <button class="btn-preview btn-gold">Get an Honest Assessment</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Get an Honest Assessment"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?service=build-assessment</div>
+                        </div>
+                    </div>
+                    <div class="notes">
+                        <div class="notes-title">Real Example</div>
+                        <p>We helped one client realize they shouldn't build their planned $150K+ project. The $5K assessment saved them from a costly mistake.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Secondary CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-secondary">Secondary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview light-bg">
+                        <button class="btn-preview btn-outline-navy">Learn About Our Approach</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Learn About Our Approach"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/approach</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">FAQ Section CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                        <span class="badge badge-placement">After FAQ</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-headline">Still Have Questions?</div>
+                        <div class="preview-subtext">Let's discuss your specific situation - no commitment required</div>
+                        <button class="btn-preview btn-gold">Book a Call</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Book a Call"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?source=faq</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STARTUP SUPPORT -->
+            <h3 class="subsection-title">
+                <span class="subsection-icon">S</span>
+                Startup Support
+            </h3>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Primary CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-headline">From Idea to Architecture to Investor Intros</div>
+                        <div class="preview-subtext">Early-stage support from someone who's been there</div>
+                        <button class="btn-preview btn-gold">Discuss Your Startup</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Discuss Your Startup"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?service=startup-support</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Secondary CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-secondary">Secondary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview light-bg">
+                        <button class="btn-preview btn-outline-navy">See How We Work</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"See How We Work"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/approach</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TECHNICAL POC -->
+            <h3 class="subsection-title">
+                <span class="subsection-icon">T</span>
+                Technical Proof of Concept
+            </h3>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Primary CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-headline">Test Your Concept Before Full Build</div>
+                        <div class="preview-subtext">Validate feasibility in regulated and complex domains</div>
+                        <button class="btn-preview btn-gold">Discuss Your POC</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Discuss Your POC"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?service=technical-poc</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI-ENABLED PM CONSULTING -->
+            <h3 class="subsection-title">
+                <span class="subsection-icon">P</span>
+                AI-Enabled PM Consulting
+            </h3>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Primary CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-headline">Project Management That Actually Works</div>
+                        <div class="preview-subtext">AI-augmented infrastructure for early-stage teams</div>
+                        <button class="btn-preview btn-gold">Explore PM Support</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Explore PM Support"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?service=pm-consulting</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3: REAL WORK EXAMPLES -->
+    <section id="staffing" class="page-section">
+        <div class="section-header">
+            <span class="section-number">3</span>
+            <h2 class="section-title">Real Work Examples</h2>
+        </div>
+        <div class="section-content">
+            <div class="industry-tag">Actual Client Engagements</div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">No-Build Decision</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Case Study</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-headline">Sometimes the Right Answer is "Don't Build"</div>
+                        <div class="preview-subtext">$5K assessment that saved a client $150K+ in avoided costs</div>
+                        <button class="btn-preview btn-gold">Learn About Our Approach</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Learn About Our Approach"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/approach</div>
+                        </div>
+                    </div>
+                    <div class="notes">
+                        <div class="notes-title">Real Outcome</div>
+                        <p>Client came to us ready to build. Our honest assessment revealed existing solutions that met their needs. They appreciated the candor.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Startup Support CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-headline">Architecture, Prototype, Business Model, Investor Intros</div>
+                        <div class="preview-subtext">Full-stack early-stage support for founders</div>
+                        <button class="btn-preview btn-gold">Discuss Your Startup</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Discuss Your Startup"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?service=startup</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Regulated Industry POC</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-secondary">Technical</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview light-bg">
+                        <div class="preview-headline">Financial Trading App Proof of Concept</div>
+                        <div class="preview-subtext">Complex compliance requirements, validated before full build</div>
+                        <button class="btn-preview btn-navy">Discuss Your POC Needs</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Discuss Your POC Needs"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?service=poc</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Own Product</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-secondary">OfferPath</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview light-bg">
+                        <div class="preview-headline">OfferPath - Our Own Product</div>
+                        <div class="preview-subtext">We build what we advise on. Ask us about it.</div>
+                        <button class="btn-preview btn-outline-navy">Learn About OfferPath</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Learn About OfferPath"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/offerpath</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">PM Infrastructure</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-headline">AI-Enabled Project Management Consulting</div>
+                        <div class="preview-subtext">Infrastructure and processes for early-stage teams</div>
+                        <button class="btn-preview btn-gold">Explore PM Support</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Explore PM Support"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?service=pm</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 4: HONEST POSITIONING -->
+    <section id="veterinary" class="page-section">
+        <div class="section-header">
+            <span class="section-number">4</span>
+            <h2 class="section-title">Honest Positioning CTAs</h2>
+        </div>
+        <div class="section-content">
+            <div class="industry-tag">What We Actually Say</div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">About Our Approach</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-headline">We're an Early-Stage Consultancy</div>
+                        <div class="preview-subtext">Honest guidance for founders building something new</div>
+                        <button class="btn-preview btn-gold">Learn How We Work</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Learn How We Work"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/approach</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">No Fake Stats</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-secondary">Secondary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview light-bg">
+                        <div class="preview-headline">We Don't Promise X% Growth</div>
+                        <div class="preview-subtext">We promise honest assessment and solid execution</div>
+                        <button class="btn-preview btn-outline-navy">See Our Real Work</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"See Our Real Work"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/work</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Low Pressure</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-headline">Let's Just Talk</div>
+                        <div class="preview-subtext">30 minutes, no pitch, real perspective</div>
+                        <button class="btn-preview btn-gold">Schedule a Call</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Schedule a Call"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Our Philosophy</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-secondary">Secondary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview light-bg">
+                        <div class="preview-headline">Sometimes We Say "Don't Build"</div>
+                        <div class="preview-subtext">That's the honest thing to do</div>
+                        <button class="btn-preview btn-navy">Read Our Philosophy</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Read Our Philosophy"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/philosophy</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Footer CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                        <span class="badge badge-placement">Pre-Footer</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-headline">Ready to Have an Honest Conversation?</div>
+                        <div class="preview-subtext">We'll tell you what we really think</div>
+                        <button class="btn-preview btn-gold">Start a Conversation</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Start a Conversation"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?source=footer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTIONS 5-7 REMOVED - Industry-specific pages with fake stats not appropriate for early-stage consultancy -->
+
+    <!-- SECTION 5: WORK EXAMPLES PAGE CTAs -->
+    <section id="casestudy" class="page-section">
+        <div class="section-header">
+            <span class="section-number">5</span>
+            <h2 class="section-title">Work Examples Page CTAs</h2>
+        </div>
+        <div class="section-content">
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">End-of-Story CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                        <span class="badge badge-placement">After Story</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-headline">Facing a Similar Challenge?</div>
+                        <div class="preview-subtext">Let's discuss what makes sense for your situation</div>
+                        <button class="btn-preview btn-gold">Start a Conversation</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Start a Conversation"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?source=work-example</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Sidebar CTA (Sticky)</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                        <span class="badge badge-placement">Sidebar</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-headline">Have Questions?</div>
+                        <button class="btn-preview btn-gold">Let's Talk</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Let's Talk"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Behavior</div>
+                            <div class="spec-value">Sticky on scroll (desktop only)</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?source=sidebar</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Related Work CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-secondary">Secondary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview light-bg">
+                        <div class="preview-headline">See More of Our Work</div>
+                        <button class="btn-preview btn-outline-navy">View All Examples</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"View All Examples"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/work</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 6: BLOG POSTS -->
+    <section id="blog" class="page-section">
+        <div class="section-header">
+            <span class="section-number">6</span>
+            <h2 class="section-title">Blog Post CTAs</h2>
+        </div>
+        <div class="section-content">
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">In-Content CTA (After First Section)</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-secondary">Secondary</span>
+                        <span class="badge badge-placement">Mid-Article</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview light-bg">
+                        <div class="preview-context">[ Inserted after 2-3 paragraphs ]</div>
+                        <div class="preview-headline">Want help implementing this?</div>
+                        <div class="preview-subtext">Our team can help you put these strategies into action</div>
+                        <button class="btn-preview btn-outline-navy">Talk to an Expert</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Talk to an Expert"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Style</div>
+                            <div class="spec-value">Subtle callout box, not disruptive</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?source=blog-inline&post=[slug]</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">End-of-Post CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                        <span class="badge badge-placement">After Content</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-headline">Ready to Discuss Your Situation?</div>
+                        <div class="preview-subtext">30 minutes, no pitch, honest perspective</div>
+                        <button class="btn-preview btn-gold">Schedule a Call</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Schedule a Call"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?source=blog-end&post=[slug]</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Newsletter Signup CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-secondary">Lead Capture</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview light-bg">
+                        <div class="preview-headline">Get Insights Delivered</div>
+                        <div class="preview-subtext">Occasional thoughts on building, not building, and making good decisions</div>
+                        <button class="btn-preview btn-navy">Subscribe</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Subscribe"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Type</div>
+                            <div class="spec-value">Email capture form</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">Newsletter signup (inline form)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Content Upgrade CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-secondary">Lead Capture</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview light-bg">
+                        <div class="preview-context">[ Topic-specific downloadable ]</div>
+                        <div class="preview-headline">Get the Complete [Topic] Checklist</div>
+                        <button class="btn-preview btn-gold">Download Free Checklist</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Download Free Checklist"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Type</div>
+                            <div class="spec-value">Gated content with email capture</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/resources/[topic-slug]</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Related Posts CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-secondary">Navigation</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview light-bg">
+                        <button class="btn-preview btn-outline-navy">Read More Articles</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Read More Articles"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/blog</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 7: ABOUT PAGE -->
+    <section id="about" class="page-section">
+        <div class="section-header">
+            <span class="section-number">7</span>
+            <h2 class="section-title">About Page CTAs</h2>
+        </div>
+        <div class="section-content">
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Story Section CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-secondary">Secondary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview light-bg">
+                        <div class="preview-context">[ After founder story section ]</div>
+                        <button class="btn-preview btn-outline-navy">Learn About Our Approach</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Learn About Our Approach"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/approach</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">About Calvin CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-headline">Let's Talk About What You're Building</div>
+                        <div class="preview-subtext">Early-stage consulting from someone who's been there</div>
+                        <button class="btn-preview btn-gold">Schedule a Call</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Schedule a Call"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?source=about</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Bottom CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                        <span class="badge badge-placement">Pre-Footer</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <div class="preview-headline">Let's See If We're a Good Fit</div>
+                        <div class="preview-subtext">No pressure conversation about what you're building</div>
+                        <button class="btn-preview btn-gold">Start a Conversation</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Start a Conversation"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">/contact?source=about-footer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 8: CONTACT PAGE -->
+    <section id="contact" class="page-section">
+        <div class="section-header">
+            <span class="section-number">8</span>
+            <h2 class="section-title">Contact Page CTAs</h2>
+        </div>
+        <div class="section-content">
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Form Submit Button</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-primary">Primary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview">
+                        <button class="btn-preview btn-gold">Send My Request</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Send My Request"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Type</div>
+                            <div class="spec-value">Form submit button</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Size</div>
+                            <div class="spec-value">Large, full-width on mobile</div>
+                        </div>
+                    </div>
+                    <div class="notes">
+                        <div class="notes-title">Trust Element</div>
+                        <p>Add small text below: "We typically respond within 4 business hours"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-header">
+                    <span class="cta-name">Calendar Booking CTA</span>
+                    <div class="cta-badges">
+                        <span class="badge badge-secondary">Secondary</span>
+                    </div>
+                </div>
+                <div class="cta-body">
+                    <div class="cta-preview light-bg">
+                        <div class="preview-headline">Prefer to Schedule Directly?</div>
+                        <button class="btn-preview btn-navy">Book a Time on Our Calendar</button>
+                    </div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Button Text</div>
+                            <div class="spec-value">"Book a Time on Our Calendar"</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Destination</div>
+                            <div class="spec-value code">Calendly/HubSpot booking link</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 9: MASTER SUMMARY -->
+    <section id="summary" class="page-section">
+        <div class="section-header">
+            <span class="section-number">9</span>
+            <h2 class="section-title">Master CTA Summary</h2>
+        </div>
+        <div class="section-content">
+
+            <h3 class="subsection-title">Complete CTA Reference Table</h3>
+
+            <div style="overflow-x: auto;">
+                <table class="summary-table">
+                    <thead>
+                        <tr>
+                            <th>Page</th>
+                            <th>CTA Name</th>
+                            <th>Button Text</th>
+                            <th>Type</th>
+                            <th>Destination</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Homepage -->
+                        <tr>
+                            <td>Homepage</td>
+                            <td>Hero Primary</td>
+                            <td>Start a Conversation</td>
+                            <td>Primary</td>
+                            <td>/contact?source=hero</td>
+                        </tr>
+                        <tr>
+                            <td>Homepage</td>
+                            <td>Hero Secondary</td>
+                            <td>See Our Work</td>
+                            <td>Secondary</td>
+                            <td>/work</td>
+                        </tr>
+                        <tr>
+                            <td>Homepage</td>
+                            <td>Mid-Page</td>
+                            <td>Schedule a Call</td>
+                            <td>Primary</td>
+                            <td>/contact?source=midpage</td>
+                        </tr>
+                        <tr>
+                            <td>Homepage</td>
+                            <td>Footer</td>
+                            <td>Start a Conversation</td>
+                            <td>Primary</td>
+                            <td>/contact?source=footer</td>
+                        </tr>
+                        <!-- Service Pages -->
+                        <tr>
+                            <td>Build Assessment</td>
+                            <td>Primary</td>
+                            <td>Get an Honest Assessment</td>
+                            <td>Primary</td>
+                            <td>/contact?service=build-assessment</td>
+                        </tr>
+                        <tr>
+                            <td>Build Assessment</td>
+                            <td>Secondary</td>
+                            <td>Learn About Our Approach</td>
+                            <td>Secondary</td>
+                            <td>/approach</td>
+                        </tr>
+                        <tr>
+                            <td>Build Assessment</td>
+                            <td>FAQ</td>
+                            <td>Book a Call</td>
+                            <td>Primary</td>
+                            <td>/contact?source=faq</td>
+                        </tr>
+                        <tr>
+                            <td>Startup Support</td>
+                            <td>Primary</td>
+                            <td>Discuss Your Startup</td>
+                            <td>Primary</td>
+                            <td>/contact?service=startup-support</td>
+                        </tr>
+                        <tr>
+                            <td>Startup Support</td>
+                            <td>Secondary</td>
+                            <td>See How We Work</td>
+                            <td>Secondary</td>
+                            <td>/approach</td>
+                        </tr>
+                        <tr>
+                            <td>Technical POC</td>
+                            <td>Primary</td>
+                            <td>Discuss Your POC</td>
+                            <td>Primary</td>
+                            <td>/contact?service=technical-poc</td>
+                        </tr>
+                        <tr>
+                            <td>PM Consulting</td>
+                            <td>Primary</td>
+                            <td>Explore PM Support</td>
+                            <td>Primary</td>
+                            <td>/contact?service=pm-consulting</td>
+                        </tr>
+                        <!-- Real Work Examples -->
+                        <tr>
+                            <td>Real Work</td>
+                            <td>No-Build Decision</td>
+                            <td>Learn About Our Approach</td>
+                            <td>Primary</td>
+                            <td>/approach</td>
+                        </tr>
+                        <tr>
+                            <td>Real Work</td>
+                            <td>Startup Support</td>
+                            <td>Discuss Your Startup</td>
+                            <td>Primary</td>
+                            <td>/contact?service=startup</td>
+                        </tr>
+                        <tr>
+                            <td>Real Work</td>
+                            <td>Regulated POC</td>
+                            <td>Discuss Your POC Needs</td>
+                            <td>Secondary</td>
+                            <td>/contact?service=poc</td>
+                        </tr>
+                        <tr>
+                            <td>Real Work</td>
+                            <td>OfferPath</td>
+                            <td>Learn About OfferPath</td>
+                            <td>Secondary</td>
+                            <td>/offerpath</td>
+                        </tr>
+                        <tr>
+                            <td>Real Work</td>
+                            <td>PM Infrastructure</td>
+                            <td>Explore PM Support</td>
+                            <td>Primary</td>
+                            <td>/contact?service=pm</td>
+                        </tr>
+                        <!-- Honest Positioning -->
+                        <tr>
+                            <td>Positioning</td>
+                            <td>About Approach</td>
+                            <td>Learn How We Work</td>
+                            <td>Primary</td>
+                            <td>/approach</td>
+                        </tr>
+                        <tr>
+                            <td>Positioning</td>
+                            <td>No Fake Stats</td>
+                            <td>See Our Real Work</td>
+                            <td>Secondary</td>
+                            <td>/work</td>
+                        </tr>
+                        <tr>
+                            <td>Positioning</td>
+                            <td>Low Pressure</td>
+                            <td>Schedule a Call</td>
+                            <td>Primary</td>
+                            <td>/contact</td>
+                        </tr>
+                        <tr>
+                            <td>Positioning</td>
+                            <td>Philosophy</td>
+                            <td>Read Our Philosophy</td>
+                            <td>Secondary</td>
+                            <td>/philosophy</td>
+                        </tr>
+                        <tr>
+                            <td>Positioning</td>
+                            <td>Footer</td>
+                            <td>Start a Conversation</td>
+                            <td>Primary</td>
+                            <td>/contact?source=footer</td>
+                        </tr>
+                        <!-- Work Examples -->
+                        <tr>
+                            <td>Work Example</td>
+                            <td>End of Story</td>
+                            <td>Start a Conversation</td>
+                            <td>Primary</td>
+                            <td>/contact?source=work-example</td>
+                        </tr>
+                        <tr>
+                            <td>Work Example</td>
+                            <td>Sidebar</td>
+                            <td>Let's Talk</td>
+                            <td>Primary</td>
+                            <td>/contact?source=sidebar</td>
+                        </tr>
+                        <tr>
+                            <td>Work Example</td>
+                            <td>Related</td>
+                            <td>View All Examples</td>
+                            <td>Secondary</td>
+                            <td>/work</td>
+                        </tr>
+                        <!-- Blog -->
+                        <tr>
+                            <td>Blog</td>
+                            <td>In-Content</td>
+                            <td>Talk to an Expert</td>
+                            <td>Secondary</td>
+                            <td>/contact?source=blog-inline&post=[slug]</td>
+                        </tr>
+                        <tr>
+                            <td>Blog</td>
+                            <td>End of Post</td>
+                            <td>Schedule a Call</td>
+                            <td>Primary</td>
+                            <td>/contact?source=blog-end&post=[slug]</td>
+                        </tr>
+                        <tr>
+                            <td>Blog</td>
+                            <td>Newsletter</td>
+                            <td>Subscribe</td>
+                            <td>Lead Capture</td>
+                            <td>Newsletter signup</td>
+                        </tr>
+                        <tr>
+                            <td>Blog</td>
+                            <td>Related Posts</td>
+                            <td>Read More Articles</td>
+                            <td>Navigation</td>
+                            <td>/blog</td>
+                        </tr>
+                        <!-- About -->
+                        <tr>
+                            <td>About</td>
+                            <td>Story</td>
+                            <td>Learn About Our Approach</td>
+                            <td>Secondary</td>
+                            <td>/approach</td>
+                        </tr>
+                        <tr>
+                            <td>About</td>
+                            <td>About Calvin</td>
+                            <td>Schedule a Call</td>
+                            <td>Primary</td>
+                            <td>/contact?source=about</td>
+                        </tr>
+                        <tr>
+                            <td>About</td>
+                            <td>Footer</td>
+                            <td>Start a Conversation</td>
+                            <td>Primary</td>
+                            <td>/contact?source=about-footer</td>
+                        </tr>
+                        <!-- Contact -->
+                        <tr>
+                            <td>Contact</td>
+                            <td>Form Submit</td>
+                            <td>Send My Request</td>
+                            <td>Primary</td>
+                            <td>Form submission</td>
+                        </tr>
+                        <tr>
+                            <td>Contact</td>
+                            <td>Calendar</td>
+                            <td>Book a Time on Our Calendar</td>
+                            <td>Secondary</td>
+                            <td>Calendly/HubSpot</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="implementation-note">
+                <h3>Implementation Guidelines</h3>
+                <ul>
+                    <li><strong>Primary CTAs:</strong> Gold background (#D4A853) with Navy text (#0F1729). Used for main conversion actions.</li>
+                    <li><strong>Secondary CTAs:</strong> Outline style or Navy background. Used for supporting actions.</li>
+                    <li><strong>Honest Language:</strong> No fake statistics, no invented client counts, no fabricated growth percentages.</li>
+                    <li><strong>Real Services:</strong> Build Assessment, Startup Support, Technical POC, PM Consulting, OfferPath.</li>
+                    <li><strong>Button Sizing:</strong> Large (16px 40px padding) for hero/footer CTAs. Standard (14px 32px) for inline CTAs.</li>
+                    <li><strong>Tracking:</strong> All URLs include source/service parameters for attribution tracking.</li>
+                    <li><strong>Mobile:</strong> Stack buttons vertically on mobile. Primary CTA should always be visible without scrolling.</li>
+                    <li><strong>Hover States:</strong> Lighten gold to #e0bc6e, darken navy to #1a2744 on hover.</li>
+                </ul>
+            </div>
+
+            <h3 class="subsection-title" style="margin-top: 40px;">Button Style Quick Reference</h3>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 16px;">
+                <div style="text-align: center;">
+                    <button class="btn-preview btn-gold" style="display: block; width: 100%; margin-bottom: 8px;">Gold Primary</button>
+                    <code style="font-size: 0.75rem; color: var(--gray-500);">bg: #D4A853, text: #0F1729</code>
+                </div>
+                <div style="text-align: center;">
+                    <button class="btn-preview btn-navy" style="display: block; width: 100%; margin-bottom: 8px;">Navy Solid</button>
+                    <code style="font-size: 0.75rem; color: var(--gray-500);">bg: #0F1729, text: #FFFFFF</code>
+                </div>
+                <div style="text-align: center;">
+                    <button class="btn-preview btn-outline-gold" style="display: block; width: 100%; margin-bottom: 8px;">Gold Outline</button>
+                    <code style="font-size: 0.75rem; color: var(--gray-500);">border: #D4A853, text: #D4A853</code>
+                </div>
+                <div style="text-align: center;">
+                    <button class="btn-preview btn-outline-navy" style="display: block; width: 100%; margin-bottom: 8px;">Navy Outline</button>
+                    <code style="font-size: 0.75rem; color: var(--gray-500);">border: #0F1729, text: #0F1729</code>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<footer style="background: var(--navy); color: var(--white); padding: 32px 24px; text-align: center;">
+    <p style="opacity: 0.8;">ScaleUp Ventures CTA Library - Honest CTAs for an Early-Stage Consultancy</p>
+    <p style="color: var(--gold); margin-top: 8px;">Brand Colors: Navy #0F1729 | Gold #D4A853</p>
+</footer>
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;"><a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Content Index</a><p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p></footer>
+</body>
+</html>

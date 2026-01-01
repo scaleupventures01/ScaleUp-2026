@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions | ScaleUp Ventures</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #f8f9fa;
+            color: #0F1729;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0F1729 0%, #1a2744 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .header .tagline {
+            color: #D4A853;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .category {
+            margin-bottom: 60px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid #D4A853;
+        }
+
+        .category-number {
+            background: #0F1729;
+            color: #D4A853;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .category-title {
+            font-size: 1.75rem;
+            color: #0F1729;
+            font-weight: 700;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(15, 23, 41, 0.08);
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 16px rgba(15, 23, 41, 0.12);
+        }
+
+        .faq-question {
+            padding: 24px 28px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #0F1729;
+            transition: background-color 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #f8f9fa;
+        }
+
+        .faq-question .q-number {
+            color: #D4A853;
+            margin-right: 12px;
+            font-weight: 700;
+        }
+
+        .faq-question .toggle {
+            color: #D4A853;
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 28px 24px 28px;
+            color: #4a5568;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            display: none;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+            margin-top: 0;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        .faq-answer strong {
+            color: #0F1729;
+        }
+
+        .faq-answer .highlight {
+            color: #D4A853;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            background: #0F1729;
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.25rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #D4A853;
+            color: #0F1729;
+            padding: 18px 48px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #e6bc6a;
+            transform: translateY(-2px);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #D4A853;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            background: rgba(212, 168, 83, 0.1);
+            border-color: #D4A853;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.25rem;
+            }
+
+            .category-title {
+                font-size: 1.4rem;
+            }
+
+            .faq-question {
+                padding: 20px;
+                font-size: 1rem;
+            }
+
+            .faq-answer {
+                padding: 0 20px 20px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Frequently Asked Questions</h1>
+        <p>Straight answers to the questions business owners ask before partnering with us.</p>
+        <p class="tagline">Certainty First.</p>
+    </header>
+
+    <main class="container">
+        <!-- ABOUT SCALEUP -->
+        <section class="category">
+            <div class="category-header">
+                <div class="category-number">1</div>
+                <h2 class="category-title">About ScaleUp Ventures</h2>
+            </div>
+
+            <div class="faq-item open">
+                <div class="faq-question">
+                    <span><span class="q-number">Q1.</span> What does ScaleUp Ventures do?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    We help established business owners grow revenue through development, marketing, and AI automation - but only after we prove the numbers work. Unlike agencies that promise results and hope for the best, we build a custom ROI model for your specific situation <em>before</em> you invest a dollar. If the math doesn't show clear returns, we tell you upfront. Our clients typically see 3-5x returns within 12 months.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q2.</span> Who are your typical clients?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Our clients are established business owners, typically 50-65 years old, running companies with $2M-$50M in annual revenue. They've built something real over decades, they're skeptical of marketing hype, and they've been burned before by agencies that overpromised and underdelivered. They want growth, but they want certainty first. If that sounds like you, we should talk.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q3.</span> What industries do you specialize in?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    We work across B2B services, professional services, manufacturing, distribution, and healthcare. What matters more than industry is business model - we excel with companies that have proven offerings, existing customer bases, and room to scale operations. If you have a product or service people actually want to buy and you're ready to reach more of them, we can help.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q4.</span> How is ScaleUp different from other agencies?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Most agencies sell you services and hope they work. We prove they'll work first. Our <strong>"Proof Test"</strong> process builds a detailed ROI model using your actual business data before you commit. We also integrate development, marketing, and AI automation under one roof - no more managing five different vendors who don't talk to each other. And we only take clients where we're confident we can deliver measurable results.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q5.</span> What does "Certainty First" mean?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <span class="highlight">"Certainty First"</span> is our founding principle: you deserve to know what you're getting before you pay for it. We don't ask you to take a leap of faith. We model the expected returns, show you exactly where the numbers come from, and let you decide based on facts rather than promises. If we can't demonstrate clear ROI, we won't take your money.
+                </div>
+            </div>
+        </section>
+
+        <!-- WORKING WITH US -->
+        <section class="category">
+            <div class="category-header">
+                <div class="category-number">2</div>
+                <h2 class="category-title">Working With Us</h2>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q6.</span> How does the engagement process work?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    It starts with a 30-minute discovery call where we learn about your business and goals. If we see potential, we conduct our paid Proof Test analysis (typically 2-3 weeks) where we build your custom ROI model. You then decide whether to proceed based on real numbers. If you move forward, we create a detailed implementation roadmap and begin execution with weekly progress reviews. No surprises, no scope creep.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q7.</span> What is "The Proof Test"?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    The Proof Test is our signature diagnostic process. We analyze your current operations, revenue streams, customer acquisition costs, and market opportunity. Then we build a detailed projection showing exactly what returns you can expect from each service we recommend. It typically takes 2-3 weeks and costs $2,500. You get the complete analysis to keep regardless of whether you engage us for implementation.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q8.</span> How do you prove ROI before I invest?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    We use your actual business data - not industry averages or best-case scenarios. We analyze your current customer acquisition costs, lifetime value, conversion rates, and operational capacity. Then we model conservative, realistic, and optimistic scenarios for each initiative. You see exactly how many new customers, at what cost, generating what revenue. If the conservative scenario doesn't show positive ROI, we tell you.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q9.</span> What's your minimum engagement size?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Our minimum implementation engagement is $25,000. This ensures we can deliver meaningful results rather than superficial work. Most clients invest $50,000-$150,000 over 6-12 months across multiple services. The Proof Test, which comes first, is $2,500. We're not the cheapest option - we're the option that proves its value before you commit.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q10.</span> How long do projects typically take?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    The Proof Test takes 2-3 weeks. Implementation timelines vary by scope: a focused website and marketing project typically runs 3-4 months, while comprehensive development plus AI automation can take 6-9 months. We design projects with early wins - you'll see measurable progress within 60-90 days, not at some distant finish line. We also provide clear milestones so you always know where we stand.
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="category">
+            <div class="category-header">
+                <div class="category-number">3</div>
+                <h2 class="category-title">Our Services</h2>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q11.</span> What does your development service include?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Development covers websites, web applications, mobile apps, and custom software. For most clients, this means a conversion-optimized website, customer portals, booking or e-commerce systems, and integrations with your existing tools. We build on proven, maintainable technology - nothing experimental that leaves you stuck. Everything we create, you own completely.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q12.</span> What does growth marketing include?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Our growth marketing focuses on what actually generates revenue: SEO that brings qualified prospects, paid advertising with clear ROI tracking, email marketing that converts, and content that positions you as the authority in your field. We don't chase vanity metrics like followers or impressions. We track leads generated, conversion rates, and revenue attributed to each channel.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q13.</span> What does AI automation include?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    We implement practical AI that saves time and reduces costs today - not science fiction promises. This includes automated customer communication, intelligent document processing, predictive analytics for inventory or staffing, and workflow automation that eliminates manual data entry. Every AI project starts with clear time or cost savings projections, so you know exactly what you're getting.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q14.</span> Can I hire you for just one service?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, though most clients benefit from integrated work. You can engage us for development only, marketing only, or AI automation only. However, the Proof Test often reveals that the biggest ROI comes from combining services - for example, a better website plus targeted advertising plus automated follow-up. We'll show you the numbers for each approach and let you decide.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q15.</span> Do you work with my existing systems?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Absolutely. We integrate with your current CRM, ERP, accounting software, and operational tools. Ripping out working systems is expensive and disruptive. We build bridges, not replacements. During the Proof Test, we audit your technology stack and identify the most efficient path forward - sometimes that means keeping what works and adding what's missing.
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING & INVESTMENT -->
+        <section class="category">
+            <div class="category-header">
+                <div class="category-number">4</div>
+                <h2 class="category-title">Pricing & Investment</h2>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q16.</span> How much do your services cost?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    The Proof Test is $2,500. Implementation projects range from $25,000 to $200,000+ depending on scope. Most clients invest $50,000-$150,000 over 6-12 months. We provide exact pricing after the Proof Test, based on your specific needs. We're not the cheapest agency, but we're the one that proves the investment will pay off before you make it.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q17.</span> What are your payment terms?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    The Proof Test is paid upfront. For implementation projects, we typically structure payments in three phases: 40% to begin, 40% at midpoint milestone, and 20% at completion. For longer engagements, we offer monthly payment plans tied to deliverable milestones. We're flexible on structure - what matters is that payments align with value delivered.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q18.</span> Do you offer any guarantees?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    We guarantee delivery of what we promise, on timeline and on budget. We don't guarantee specific revenue results because too many factors are outside our control - but that's exactly why we do the Proof Test first. If the numbers don't make sense, we won't take your money. When we do engage, clients consistently see 3-5x returns because we only take projects where we're confident we can deliver.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q19.</span> What if the ROI model doesn't show positive return?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Then we tell you. About 20% of Proof Tests conclude with us advising against engagement - the numbers simply don't justify the investment. You still get the complete analysis (which often reveals other opportunities), and you've invested $2,500 instead of $50,000+ discovering it wouldn't work. That's the whole point of "Certainty First."
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q20.</span> What's included in your pricing?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Everything needed to complete the project. Strategy, design, development, testing, training, and launch support are all included. We don't nickel-and-dime with change orders. Third-party costs (hosting, software subscriptions, ad spend) are separate and clearly identified upfront. You'll never see surprise invoices for things you assumed were included.
+                </div>
+            </div>
+        </section>
+
+        <!-- GETTING STARTED -->
+        <section class="category">
+            <div class="category-header">
+                <div class="category-number">5</div>
+                <h2 class="category-title">Getting Started</h2>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q21.</span> How do I know if I'm ready to work with ScaleUp?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    You're ready if: you have an established business with real revenue ($2M+ annually), you have capacity to handle growth, and you're tired of marketing that doesn't show clear returns. You're probably <em>not</em> ready if you're still figuring out product-market fit, you're looking for the cheapest option, or you want results without involvement. We partner with clients; we don't do magic tricks.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q22.</span> What do I need to provide to get started?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    For the initial call: just your time and honest answers about your business. For the Proof Test: access to basic financial data (revenue, margins, customer counts), your current marketing performance data, and 2-3 hours for discovery interviews. We handle everything else. We make it easy because we know your time is valuable.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q23.</span> Can I talk to your existing clients?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, and we encourage it. After our initial call, we can connect you with 2-3 clients in similar situations (respecting their time and confidentiality). We have clients across multiple industries who are happy to share their experience working with us. Hearing directly from business owners like yourself is often more valuable than anything we could tell you.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q24.</span> What's the first step?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Schedule a 30-minute discovery call. No preparation needed - just come ready to have an honest conversation about your business, your goals, and your concerns. We'll ask questions, share relevant examples, and both decide if there's a fit worth exploring. If there is, we'll outline next steps for the Proof Test. If not, we'll part as friends with no hard feelings.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span><span class="q-number">Q25.</span> How quickly can we start?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Discovery calls are typically scheduled within 3-5 business days. If we proceed, the Proof Test can begin within 1-2 weeks. Implementation timelines depend on our current capacity - we intentionally limit active clients to ensure quality. Be direct with us about your timeline needs during our first call, and we'll tell you honestly what's realistic.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="cta-section">
+        <h2>Still Have Questions?</h2>
+        <p>Schedule a 30-minute discovery call. We'll give you straight answers - no sales pitch.</p>
+        <a href="#" class="cta-button">Schedule Your Discovery Call</a>
+        <div class="nav-links">
+            <a href="#">Return to Homepage</a>
+            <a href="#">View Case Studies</a>
+            <a href="#">About Our Team</a>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const wasOpen = item.classList.contains('open');
+
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('open');
+                });
+
+                // Toggle clicked item
+                if (!wasOpen) {
+                    item.classList.add('open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

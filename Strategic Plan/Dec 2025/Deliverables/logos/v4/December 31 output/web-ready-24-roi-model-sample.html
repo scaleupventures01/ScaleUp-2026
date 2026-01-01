@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Modeling Methodology | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --navy-lighter: #243352;
+            --gold: #D4A853;
+            --gold-light: #e6c580;
+            --gold-dark: #b8923f;
+            --white: #ffffff;
+            --gray-100: #f7f8fa;
+            --gray-200: #e9ebf0;
+            --gray-300: #d1d5e0;
+            --gray-600: #6b7280;
+            --green: #10b981;
+            --green-light: #d1fae5;
+            --amber: #f59e0b;
+            --amber-light: #fef3c7;
+            --red: #ef4444;
+            --red-light: #fee2e2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+            background: var(--gray-100);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: var(--navy);
+            padding: 24px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+        }
+
+        .logo-text {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-tagline {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .header-meta {
+            text-align: right;
+            color: var(--gray-300);
+            font-size: 14px;
+        }
+
+        .header-meta strong {
+            color: var(--white);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        /* Document Header */
+        .doc-header {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: 0 1px 3px rgba(15, 23, 41, 0.08);
+            border-left: 6px solid var(--gold);
+        }
+
+        .doc-label {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .doc-title {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .doc-subtitle {
+            font-size: 20px;
+            color: var(--gray-600);
+            margin-bottom: 24px;
+        }
+
+        .doc-meta {
+            display: flex;
+            gap: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .meta-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Section */
+        .section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(15, 23, 41, 0.08);
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--navy);
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 14px;
+            border-radius: 8px;
+            margin-right: 12px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 24px;
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
+        }
+
+        .data-table th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+
+        .data-table th:last-child {
+            border-radius: 0 8px 0 0;
+            text-align: right;
+        }
+
+        .data-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 15px;
+        }
+
+        .data-table td:last-child {
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tr:hover {
+            background: var(--gray-100);
+        }
+
+        .data-table .highlight-row {
+            background: var(--gold-light);
+        }
+
+        .data-table .highlight-row:hover {
+            background: var(--gold-light);
+        }
+
+        .data-table .no-build-row {
+            background: var(--red-light);
+        }
+
+        .data-table .no-build-row:hover {
+            background: var(--red-light);
+        }
+
+        /* Scenario Cards */
+        .scenarios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .scenario-card {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 24px;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .scenario-card.conservative {
+            border-color: var(--gray-300);
+        }
+
+        .scenario-card.expected {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+        }
+
+        .scenario-card.expected::before {
+            content: "RECOMMENDED";
+            position: absolute;
+            top: -10px;
+            left: 24px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .scenario-card.optimistic {
+            border-color: var(--green);
+        }
+
+        .scenario-card.no-build {
+            border-color: var(--red);
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+        }
+
+        .scenario-card.no-build::before {
+            content: "DO NOT PROCEED";
+            position: absolute;
+            top: -10px;
+            left: 24px;
+            background: var(--red);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .scenario-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .scenario-label.conservative { color: var(--gray-600); }
+        .scenario-label.expected { color: var(--gold-dark); }
+        .scenario-label.optimistic { color: var(--green); }
+        .scenario-label.no-build { color: var(--red); }
+
+        .scenario-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 4px;
+            font-family: 'SF Mono', 'Consolas', monospace;
+        }
+
+        .scenario-desc {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        .scenario-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(15, 23, 41, 0.1);
+        }
+
+        .scenario-metric {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+        }
+
+        .scenario-metric-label {
+            color: var(--gray-600);
+        }
+
+        .scenario-metric-value {
+            font-weight: 600;
+            color: var(--navy);
+            font-family: 'SF Mono', 'Consolas', monospace;
+        }
+
+        /* ROI Highlight Box */
+        .roi-highlight {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 16px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .roi-stat {
+            text-align: center;
+            position: relative;
+        }
+
+        .roi-stat:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: -16px;
+            top: 10%;
+            height: 80%;
+            width: 1px;
+            background: rgba(212, 168, 83, 0.3);
+        }
+
+        .roi-stat-label {
+            font-size: 12px;
+            color: var(--gray-300);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .roi-stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--gold);
+            font-family: 'SF Mono', 'Consolas', monospace;
+        }
+
+        .roi-stat-value.positive {
+            color: var(--green);
+        }
+
+        .roi-stat-sub {
+            font-size: 13px;
+            color: var(--gray-300);
+            margin-top: 4px;
+        }
+
+        /* Methodology Box */
+        .methodology-box {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+            border-left: 4px solid var(--gold);
+        }
+
+        .methodology-box h4 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 18px;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .methodology-box p {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 12px;
+        }
+
+        .methodology-box ul {
+            margin-left: 20px;
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .methodology-box li {
+            margin-bottom: 8px;
+        }
+
+        /* No-Build Callout */
+        .no-build-callout {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border: 2px solid var(--red);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 32px 0;
+        }
+
+        .no-build-callout h3 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 24px;
+            color: var(--red);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .no-build-callout p {
+            font-size: 15px;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .no-build-callout .outcome {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+
+        .no-build-callout .outcome-label {
+            font-size: 12px;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .no-build-callout .outcome-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        /* Assumptions List */
+        .assumptions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .assumption-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            background: var(--gray-100);
+            border-radius: 8px;
+        }
+
+        .assumption-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .assumption-icon svg {
+            width: 12px;
+            height: 12px;
+            color: var(--gold);
+        }
+
+        .assumption-text {
+            font-size: 14px;
+            color: var(--navy);
+        }
+
+        /* Risk Factors */
+        .risk-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .risk-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .risk-item.low {
+            background: var(--green-light);
+        }
+
+        .risk-item.medium {
+            background: var(--amber-light);
+        }
+
+        .risk-item.high {
+            background: var(--red-light);
+        }
+
+        .risk-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+
+        .risk-badge.low {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .risk-badge.medium {
+            background: var(--amber);
+            color: var(--white);
+        }
+
+        .risk-badge.high {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        .risk-content {
+            flex: 1;
+        }
+
+        .risk-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .risk-desc {
+            font-size: 13px;
+            color: var(--gray-600);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            padding: 32px 48px;
+            margin-top: 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            color: var(--gray-300);
+            font-size: 14px;
+        }
+
+        .footer-left strong {
+            color: var(--gold);
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-cta {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .footer-cta:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        .methodology-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(212, 168, 83, 0.15);
+            color: var(--gold);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .scenarios-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-highlight {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .roi-stat:nth-child(2)::after {
+                display: none;
+            }
+
+            .assumptions-grid,
+            .risk-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .doc-meta {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .header-meta {
+                text-align: center;
+            }
+
+            .roi-highlight {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-stat::after {
+                display: none;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .footer-right {
+                text-align: center;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .section {
+                break-inside: avoid;
+            }
+
+            .footer-cta {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;"><a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">Back to Index</a><span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span><div style="display:flex;gap:12px;"><a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a><a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a><a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a><a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a><a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a></div></nav>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="28" width="8" height="16" fill="#D4A853"/>
+                <rect x="15" y="20" width="8" height="24" fill="#D4A853"/>
+                <rect x="26" y="12" width="8" height="32" fill="#D4A853"/>
+                <rect x="37" y="4" width="8" height="40" fill="#D4A853"/>
+                <path d="M8 26L19 18L30 22L41 6" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+                <div class="logo-text">ScaleUp Ventures</div>
+                <div class="logo-tagline">Certainty First.</div>
+            </div>
+        </div>
+        <div class="header-meta">
+            <div><strong>Methodology Documentation</strong></div>
+            <div>Discovery Phase Deliverable</div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Document Header -->
+        <div class="doc-header">
+            <span class="doc-label">Methodology</span>
+            <h1 class="doc-title">ROI Modeling Framework</h1>
+            <p class="doc-subtitle">How We Calculate Whether Custom Software Makes Financial Sense</p>
+            <div class="doc-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Deliverable Type</span>
+                    <span class="meta-value">Discovery Phase Analysis</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Purpose</span>
+                    <span class="meta-value">Go/No-Go Decision Support</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Output</span>
+                    <span class="meta-value">Build, Buy, or Don't Proceed</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Why We Do This -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-number">1</span>
+                Why ROI Modeling Matters
+            </h2>
+
+            <div class="methodology-box">
+                <h4>The Uncomfortable Truth</h4>
+                <p>
+                    Most software projects fail to deliver positive ROI. Not because of technical failures, but because <strong>nobody did the math first</strong>.
+                    Companies spend six figures on software that saves them five figures, or build custom solutions when a SaaS tool would work fine.
+                </p>
+                <p>
+                    Our ROI model exists to answer one question before any code is written: <strong>Should you actually do this?</strong>
+                </p>
+            </div>
+
+            <p style="font-size: 14px; color: var(--gray-600); margin-top: 16px;">
+                <strong>Key Principle:</strong> We get paid the same whether you proceed or not. This removes our incentive to inflate projections.
+                If the numbers don't work, we'll tell you, and we have.
+            </p>
+        </section>
+
+        <!-- Section 2: The Framework -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-number">2</span>
+                The ROI Framework
+            </h2>
+
+            <p style="margin-bottom: 24px; color: var(--gray-600);">
+                Every ROI model we build follows this structure. The specific numbers come from your business; the framework ensures we capture all relevant factors.
+            </p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>What We Measure</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Current State Costs</strong></td>
+                        <td>Labor hours, error rates, opportunity cost, tool subscriptions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Build Investment</strong></td>
+                        <td>Development cost, implementation time, training, maintenance</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Projected Savings</strong></td>
+                        <td>Time saved, errors prevented, capacity unlocked</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Revenue Impact</strong></td>
+                        <td>New capabilities, faster delivery, competitive advantage</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Payback Period</strong></td>
+                        <td>Months until investment is recovered</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>3-Year ROI</strong></td>
+                        <td>Total return over useful life of the software</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 3: Three-Scenario Analysis -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-number">3</span>
+                Three-Scenario Analysis
+            </h2>
+
+            <p style="margin-bottom: 24px; color: var(--gray-600);">
+                We never present a single projection. Every ROI model includes three scenarios because software outcomes have variance.
+            </p>
+
+            <div class="scenarios-grid">
+                <!-- Conservative -->
+                <div class="scenario-card conservative">
+                    <div class="scenario-label conservative">Conservative</div>
+                    <div class="scenario-value">Scenario A</div>
+                    <div class="scenario-desc">If several things go wrong</div>
+                    <div class="scenario-metrics">
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Adoption rate</span>
+                            <span class="scenario-metric-value">Lower than hoped</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Timeline</span>
+                            <span class="scenario-metric-value">Some delays</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Efficiency gains</span>
+                            <span class="scenario-metric-value">Partial capture</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Decision threshold</span>
+                            <span class="scenario-metric-value">Still positive ROI?</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expected -->
+                <div class="scenario-card expected">
+                    <div class="scenario-label expected">Expected</div>
+                    <div class="scenario-value">Scenario B</div>
+                    <div class="scenario-desc">Realistic projection</div>
+                    <div class="scenario-metrics">
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Adoption rate</span>
+                            <span class="scenario-metric-value">Industry typical</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Timeline</span>
+                            <span class="scenario-metric-value">On target</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Efficiency gains</span>
+                            <span class="scenario-metric-value">Full capture</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Decision threshold</span>
+                            <span class="scenario-metric-value">Primary basis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Optimistic -->
+                <div class="scenario-card optimistic">
+                    <div class="scenario-label optimistic">Optimistic</div>
+                    <div class="scenario-value">Scenario C</div>
+                    <div class="scenario-desc">If things go well</div>
+                    <div class="scenario-metrics">
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Adoption rate</span>
+                            <span class="scenario-metric-value">Exceeds targets</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Timeline</span>
+                            <span class="scenario-metric-value">Ahead of schedule</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Efficiency gains</span>
+                            <span class="scenario-metric-value">Above expected</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Decision threshold</span>
+                            <span class="scenario-metric-value">Don't count on it</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="methodology-box">
+                <h4>How We Use the Scenarios</h4>
+                <p>
+                    The decision is based on the <strong>Conservative scenario</strong>, not the Expected one. If the Conservative scenario
+                    shows negative or marginal ROI, we recommend against proceeding, even if Expected and Optimistic look great.
+                </p>
+                <p>
+                    This protects you from optimism bias, which kills more software projects than technical debt.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 4: The No-Build Decision -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-number">4</span>
+                When the Answer is "Don't Build"
+            </h2>
+
+            <div class="no-build-callout">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="15" y1="9" x2="9" y2="15"/>
+                        <line x1="9" y1="9" x2="15" y2="15"/>
+                    </svg>
+                    Real Example: The No-Build Decision
+                </h3>
+                <p>
+                    During a discovery engagement, our ROI model revealed that a proposed internal tool would cost more to build and maintain
+                    than the manual process it was meant to replace. The client was surprised; they had assumed automation always saves money.
+                </p>
+                <p>
+                    The analysis showed:
+                </p>
+                <ul style="margin-left: 20px; margin-bottom: 16px; color: var(--navy);">
+                    <li>The manual process took approximately 20 hours/month across the team</li>
+                    <li>Custom software would require significant upfront investment plus ongoing maintenance</li>
+                    <li>An existing SaaS tool could handle 80% of the need at a fraction of the cost</li>
+                    <li>The remaining 20% wasn't painful enough to justify the delta</li>
+                </ul>
+                <div class="outcome">
+                    <div class="outcome-label">Outcome</div>
+                    <div class="outcome-value">Client saved significant capital by not building. They used the SaaS tool instead.</div>
+                </div>
+            </div>
+
+            <p style="font-size: 14px; color: var(--gray-600); margin-top: 16px;">
+                <strong>Why this matters:</strong> Any vendor who makes money on builds has an incentive to recommend building.
+                Our discovery model separates the analysis from the build, so you get honest recommendations.
+            </p>
+        </section>
+
+        <!-- Section 5: What Goes Into the Model -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-number">5</span>
+                Data We Collect
+            </h2>
+            <div class="assumptions-grid">
+                <div class="assumption-item">
+                    <div class="assumption-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20,6 9,17 4,12"></polyline>
+                        </svg>
+                    </div>
+                    <span class="assumption-text"><strong>Current labor costs:</strong> Hours spent on manual tasks, fully-loaded rates</span>
+                </div>
+                <div class="assumption-item">
+                    <div class="assumption-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20,6 9,17 4,12"></polyline>
+                        </svg>
+                    </div>
+                    <span class="assumption-text"><strong>Error/rework rates:</strong> How often things go wrong and the cost to fix them</span>
+                </div>
+                <div class="assumption-item">
+                    <div class="assumption-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20,6 9,17 4,12"></polyline>
+                        </svg>
+                    </div>
+                    <span class="assumption-text"><strong>Revenue impact:</strong> Sales lost to delays, customers lost to poor experience</span>
+                </div>
+                <div class="assumption-item">
+                    <div class="assumption-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20,6 9,17 4,12"></polyline>
+                        </svg>
+                    </div>
+                    <span class="assumption-text"><strong>Growth projections:</strong> How pain scales as the business grows</span>
+                </div>
+                <div class="assumption-item">
+                    <div class="assumption-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20,6 9,17 4,12"></polyline>
+                        </svg>
+                    </div>
+                    <span class="assumption-text"><strong>Existing tool costs:</strong> What you're already paying for partial solutions</span>
+                </div>
+                <div class="assumption-item">
+                    <div class="assumption-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20,6 9,17 4,12"></polyline>
+                        </svg>
+                    </div>
+                    <span class="assumption-text"><strong>Adoption likelihood:</strong> Will the team actually use this?</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Risk Factors We Account For -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-number">6</span>
+                Risk Factors We Account For
+            </h2>
+            <div class="risk-grid">
+                <div class="risk-item high">
+                    <span class="risk-badge high">Critical</span>
+                    <div class="risk-content">
+                        <div class="risk-title">Adoption Risk</div>
+                        <div class="risk-desc">Will people actually use the software? The best system in the world is worthless if the team won't adopt it.</div>
+                    </div>
+                </div>
+                <div class="risk-item medium">
+                    <span class="risk-badge medium">Significant</span>
+                    <div class="risk-content">
+                        <div class="risk-title">Scope Creep</div>
+                        <div class="risk-desc">We add a buffer for the inevitable "while we're at it" requests that add cost without adding proportional value.</div>
+                    </div>
+                </div>
+                <div class="risk-item medium">
+                    <span class="risk-badge medium">Significant</span>
+                    <div class="risk-content">
+                        <div class="risk-title">Integration Complexity</div>
+                        <div class="risk-desc">Connecting to existing systems always takes longer than expected. We factor in known integration points.</div>
+                    </div>
+                </div>
+                <div class="risk-item low">
+                    <span class="risk-badge low">Manageable</span>
+                    <div class="risk-content">
+                        <div class="risk-title">Maintenance Burden</div>
+                        <div class="risk-desc">Software requires ongoing care. We include Year 2+ maintenance costs in the 3-year ROI calculation.</div>
+                    </div>
+                </div>
+                <div class="risk-item high">
+                    <span class="risk-badge high">Critical</span>
+                    <div class="risk-content">
+                        <div class="risk-title">Business Model Changes</div>
+                        <div class="risk-desc">If your business might pivot, custom software becomes a liability. We assess how tied the solution is to current operations.</div>
+                    </div>
+                </div>
+                <div class="risk-item low">
+                    <span class="risk-badge low">Manageable</span>
+                    <div class="risk-content">
+                        <div class="risk-title">Technology Risk</div>
+                        <div class="risk-desc">We prefer boring, proven tech stacks. This reduces the risk of the technology becoming unsupportable.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary -->
+        <section class="section" style="border: 2px solid var(--gold);">
+            <h2 class="section-title">
+                <span class="section-number" style="background: var(--gold); color: var(--navy);">!</span>
+                The Bottom Line
+            </h2>
+            <table class="data-table" style="margin-bottom: 24px;">
+                <thead>
+                    <tr>
+                        <th>What You Get</th>
+                        <th>Why It Matters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Conservative, Expected, and Optimistic projections</td>
+                        <td>Decisions based on reality, not best-case fantasy</td>
+                    </tr>
+                    <tr>
+                        <td>Build vs. Buy vs. Don't recommendation</td>
+                        <td>Sometimes the right answer is "use existing software"</td>
+                    </tr>
+                    <tr>
+                        <td>Payback period calculation</td>
+                        <td>Know when you'll see returns, not just if</td>
+                    </tr>
+                    <tr>
+                        <td>Risk-adjusted 3-year ROI</td>
+                        <td>Accounts for things going wrong, as they do</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Honest assessment</strong></td>
+                        <td><strong>We'll tell you not to build if that's the right call</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="methodology-box">
+                <h4>Our Commitment</h4>
+                <p>
+                    The ROI model is part of our Discovery engagement. You pay for honest analysis, and that's what you get.
+                    If the numbers don't support proceeding, we'll say so clearly, even though it means we won't earn a build fee.
+                </p>
+                <p>
+                    <strong>This is what "Certainty First" means in practice.</strong>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-left">
+            <div><strong>ScaleUp Ventures</strong> | Growth Strategy & Execution</div>
+            <div class="methodology-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14,2 14,8 20,8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10,9 9,9 8,9"/>
+                </svg>
+                METHODOLOGY DOCUMENTATION - Not a specific client deliverable
+            </div>
+        </div>
+        <div class="footer-right">
+            <a href="#" class="footer-cta">Start Discovery</a>
+        </div>
+    </footer>
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;"><a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">Back to Content Index</a><p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p></footer>
+</body>
+</html>

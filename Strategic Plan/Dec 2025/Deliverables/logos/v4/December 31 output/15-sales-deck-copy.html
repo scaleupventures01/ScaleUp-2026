@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Deck Copy | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2540;
+            --gold: #D4A853;
+            --gold-light: #E4C07A;
+            --gold-dark: #B8913E;
+            --cream: #FAF8F5;
+            --white: #FFFFFF;
+            --gray-100: #F7F7F7;
+            --gray-200: #E5E5E5;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --success: #059669;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--gray-100);
+            color: var(--navy);
+            line-height: 1.7;
+            padding: 40px;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* Header */
+        .document-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: 16px;
+            margin-bottom: 40px;
+        }
+
+        .document-header .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+        }
+
+        .document-header .logo span {
+            color: var(--gold);
+        }
+
+        .document-header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .document-header .tagline {
+            color: var(--gold);
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .document-header .subtitle {
+            color: rgba(255,255,255,0.8);
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        /* Instructions */
+        .instructions {
+            background: var(--white);
+            border-left: 4px solid var(--gold);
+            padding: 25px 30px;
+            margin-bottom: 40px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .instructions h3 {
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .instructions p {
+            color: var(--gray-600);
+        }
+
+        /* Slide Container */
+        .slides-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Individual Slide */
+        .slide {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.1);
+        }
+
+        .slide-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .slide-number {
+            background: var(--gold);
+            color: var(--navy);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .slide-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .slide-type {
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Slide Preview */
+        .slide-preview {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, rgba(212, 168, 83, 0.1) 0%, transparent 60%);
+        }
+
+        .slide-preview.light {
+            background: var(--cream);
+            color: var(--navy);
+        }
+
+        .slide-preview.light::before {
+            background: radial-gradient(circle at 70% 30%, rgba(212, 168, 83, 0.15) 0%, transparent 60%);
+        }
+
+        .slide-preview.split {
+            flex-direction: row;
+            padding: 0;
+        }
+
+        .slide-preview .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-preview h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .slide-preview h2 .gold {
+            color: var(--gold);
+        }
+
+        .slide-preview h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .slide-preview .tagline-display {
+            color: var(--gold);
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .slide-preview .subtitle {
+            font-size: 20px;
+            color: rgba(255,255,255,0.8);
+            margin-top: 20px;
+        }
+
+        .slide-preview.light .subtitle {
+            color: var(--gray-600);
+        }
+
+        .slide-preview ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .slide-preview li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .slide-preview.light li {
+            border-bottom-color: rgba(15, 23, 41, 0.1);
+        }
+
+        .slide-preview li:last-child {
+            border-bottom: none;
+        }
+
+        .slide-preview li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .slide-preview .bullet-gold::before {
+            background: var(--gold);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 25px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--gold);
+            font-family: 'Crimson Pro', serif;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: rgba(255,255,255,0.7);
+            margin-top: 8px;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 15px;
+            font-family: 'Crimson Pro', serif;
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .step-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .service-card {
+            padding: 35px 25px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            border: 2px solid rgba(212, 168, 83, 0.3);
+            text-align: center;
+        }
+
+        .service-card h4 {
+            color: var(--gold);
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Differentiators */
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .diff-item {
+            display: flex;
+            gap: 20px;
+            padding: 25px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .diff-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .diff-content h4 {
+            color: var(--gold);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .diff-content p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Case Study */
+        .case-study-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .case-results {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .result-item {
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .result-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gold);
+            font-family: 'Crimson Pro', serif;
+        }
+
+        .result-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            margin-top: 5px;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            display: flex;
+            gap: 25px;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+        }
+
+        .team-photo {
+            width: 100px;
+            height: 100px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: var(--navy);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .team-info h4 {
+            color: var(--gold);
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .team-info .role {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .team-info p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Next Steps */
+        .next-steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .next-step-item {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 25px 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .next-step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .next-step-content h4 {
+            color: var(--gold);
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .next-step-content p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 25px 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-box h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .cta-box p {
+            font-size: 18px;
+        }
+
+        /* Slide Copy Section */
+        .slide-copy {
+            padding: 30px;
+            background: var(--gray-100);
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .slide-copy h4 {
+            color: var(--navy);
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .copy-block {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .copy-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .copy-label {
+            font-size: 12px;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .copy-text {
+            color: var(--navy);
+            font-size: 16px;
+            white-space: pre-wrap;
+        }
+
+        .copy-text strong {
+            color: var(--gold-dark);
+        }
+
+        /* Footer */
+        .document-footer {
+            margin-top: 60px;
+            padding: 40px;
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .document-footer .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .document-footer .logo span {
+            color: var(--gold);
+        }
+
+        .document-footer .tagline {
+            color: var(--gold);
+            font-size: 16px;
+            letter-spacing: 0.15em;
+        }
+
+        /* Print Styles */
+        @media print {
+            body { padding: 20px; }
+            .slide { page-break-inside: avoid; margin-bottom: 20px; }
+            .slide-preview { min-height: 400px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Document Header -->
+    <header class="document-header">
+        <div class="logo">Scale<span>Up</span> Ventures</div>
+        <h1>Complete Sales Deck Copy</h1>
+        <div class="tagline">Certainty First</div>
+        <p class="subtitle">18 slides ready for design and presentation</p>
+    </header>
+
+    <!-- Instructions -->
+    <div class="instructions">
+        <h3>Designer Notes</h3>
+        <p>This document contains complete copy for all 18 sales deck slides. Each slide includes a visual preview showing layout intent plus the raw copy text below. Use brand colors Navy #0F1729 and Gold #D4A853 throughout. Typography: Crimson Pro for headlines, DM Sans for body text.</p>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container">
+
+        <!-- SLIDE 1: Title -->
+        <div class="slide" id="slide-1">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">1</div>
+                    <div class="slide-title">Title Slide</div>
+                </div>
+                <div class="slide-type">Opening</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content" style="text-align: center;">
+                    <h2 style="font-size: 56px; margin-bottom: 10px;">Scale<span class="gold">Up</span> Ventures</h2>
+                    <div class="tagline-display">Certainty First</div>
+                    <p class="subtitle" style="font-size: 18px; margin-top: 40px; color: rgba(255,255,255,0.6);">
+                        Growth Partner for Ambitious SMBs
+                    </p>
+                    <div style="margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);">
+                        <p style="color: var(--gold); font-size: 16px; letter-spacing: 0.1em;">PREPARED FOR</p>
+                        <p style="font-size: 22px; margin-top: 10px;">[Client Name]</p>
+                        <p style="color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 5px;">[Date]</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>ScaleUp Ventures</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Tagline</div>
+                    <div class="copy-text"><strong>Certainty First.</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Subtitle</div>
+                    <div class="copy-text">Growth Partner for Ambitious SMBs</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Footer</div>
+                    <div class="copy-text">Prepared for [Client Name]
+[Date]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: Agenda -->
+        <div class="slide" id="slide-2">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">2</div>
+                    <div class="slide-title">Agenda</div>
+                </div>
+                <div class="slide-type">Navigation</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content">
+                    <h2>Today's <span class="gold">Conversation</span></h2>
+                    <ul>
+                        <li>The Challenge You're Facing</li>
+                        <li>Why We Do Things Differently</li>
+                        <li>How We Prove ROI Before You Invest</li>
+                        <li>Our Services and Approach</li>
+                        <li>What Happens Next</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>Today's Conversation</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Agenda Items</div>
+                    <div class="copy-text">1. The Challenge You're Facing
+2. Why We Do Things Differently
+3. How We Prove ROI Before You Invest
+4. Our Services and Approach
+5. What Happens Next</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: The Problem -->
+        <div class="slide" id="slide-3">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">3</div>
+                    <div class="slide-title">The Problem</div>
+                </div>
+                <div class="slide-type">Challenge</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content">
+                    <h3 style="font-size: 18px; letter-spacing: 0.1em; margin-bottom: 15px;">THE REALITY</h3>
+                    <h2>Growing Your Business <span class="gold">Shouldn't Feel Like Gambling</span></h2>
+                    <ul style="margin-top: 30px;">
+                        <li>You've invested in agencies, consultants, or tools that promised results but delivered excuses</li>
+                        <li>Every "growth partner" wants your money upfront but can't show you the math on how you'll make it back</li>
+                        <li>Your time is split between running the business and trying to figure out who to trust</li>
+                        <li>You know you need to invest in growth, but the fear of wasting another dollar keeps you stuck</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Section Label</div>
+                    <div class="copy-text">THE REALITY</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>Growing Your Business Shouldn't Feel Like Gambling</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Bullet Points</div>
+                    <div class="copy-text">- You've invested in agencies, consultants, or tools that promised results but delivered excuses
+
+- Every "growth partner" wants your money upfront but can't show you the math on how you'll make it back
+
+- Your time is split between running the business and trying to figure out who to trust
+
+- You know you need to invest in growth, but the fear of wasting another dollar keeps you stuck</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: The Burned Before Reality -->
+        <div class="slide" id="slide-4">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">4</div>
+                    <div class="slide-title">The Burned Before Reality</div>
+                </div>
+                <div class="slide-type">Empathy</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content">
+                    <h2>We Know Why <span class="gold">You're Skeptical</span></h2>
+                    <div class="stats-grid" style="margin-top: 40px;">
+                        <div class="stat-item">
+                            <div class="stat-number">72%</div>
+                            <div class="stat-label">of SMBs have had a negative experience with an agency or consultant</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">$18K</div>
+                            <div class="stat-label">average amount lost on failed marketing initiatives</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">6 mo</div>
+                            <div class="stat-label">typical time before realizing an engagement won't deliver</div>
+                        </div>
+                    </div>
+                    <p class="subtitle" style="text-align: center; margin-top: 40px; font-style: italic;">
+                        "We've heard every promise. We've been on the other side of broken commitments. That's exactly why we built ScaleUp differently."
+                    </p>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>We Know Why You're Skeptical</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Statistics</div>
+                    <div class="copy-text"><strong>72%</strong> of SMBs have had a negative experience with an agency or consultant
+
+<strong>$18K</strong> average amount lost on failed marketing initiatives
+
+<strong>6 months</strong> typical time before realizing an engagement won't deliver</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Acknowledgment Quote</div>
+                    <div class="copy-text">"We've heard every promise. We've been on the other side of broken commitments. That's exactly why we built ScaleUp differently."</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: A Different Approach -->
+        <div class="slide" id="slide-5">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">5</div>
+                    <div class="slide-title">A Different Approach</div>
+                </div>
+                <div class="slide-type">Positioning</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content" style="text-align: center;">
+                    <h3 style="font-size: 18px; letter-spacing: 0.1em; margin-bottom: 15px;">OUR PHILOSOPHY</h3>
+                    <h2 style="font-size: 64px;"><span class="gold">Certainty First.</span></h2>
+                    <p class="subtitle" style="font-size: 24px; max-width: 800px; margin: 30px auto 0; line-height: 1.6;">
+                        We show you exactly how you'll make your money back before you spend a dollar.
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px;">
+                        <div style="padding: 25px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                            <p style="color: var(--gold); font-size: 18px; font-weight: 600;">No Guesswork</p>
+                            <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 10px;">ROI modeled before any investment</p>
+                        </div>
+                        <div style="padding: 25px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                            <p style="color: var(--gold); font-size: 18px; font-weight: 600;">No Surprises</p>
+                            <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 10px;">Transparent pricing, clear deliverables</p>
+                        </div>
+                        <div style="padding: 25px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                            <p style="color: var(--gold); font-size: 18px; font-weight: 600;">No Excuses</p>
+                            <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 10px;">Accountability built into every engagement</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Section Label</div>
+                    <div class="copy-text">OUR PHILOSOPHY</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>Certainty First.</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Subheadline</div>
+                    <div class="copy-text">We show you exactly how you'll make your money back before you spend a dollar.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Three Pillars</div>
+                    <div class="copy-text"><strong>No Guesswork</strong>
+ROI modeled before any investment
+
+<strong>No Surprises</strong>
+Transparent pricing, clear deliverables
+
+<strong>No Excuses</strong>
+Accountability built into every engagement</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: How We Prove ROI First -->
+        <div class="slide" id="slide-6">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">6</div>
+                    <div class="slide-title">How We Prove ROI First</div>
+                </div>
+                <div class="slide-type">Differentiator</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content">
+                    <h2>The <span class="gold">Proof Test</span></h2>
+                    <p class="subtitle" style="margin-bottom: 30px;">Before you invest a dollar, we deliver a custom ROI model showing exactly how you'll make it back.</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px;">
+                        <div>
+                            <h3 style="font-size: 20px; margin-bottom: 20px;">What You Get</h3>
+                            <ul>
+                                <li style="font-size: 16px;">Custom revenue projection based on your actual numbers</li>
+                                <li style="font-size: 16px;">Clear timeline to positive ROI</li>
+                                <li style="font-size: 16px;">Specific actions we'll take and outcomes we'll measure</li>
+                                <li style="font-size: 16px;">Comparison to industry benchmarks</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 20px; margin-bottom: 20px;">Why We Do This</h3>
+                            <ul>
+                                <li style="font-size: 16px;">Eliminates the "hope" from your investment decision</li>
+                                <li style="font-size: 16px;">Creates shared accountability for results</li>
+                                <li style="font-size: 16px;">Filters out projects we can't confidently deliver</li>
+                                <li style="font-size: 16px;">Builds trust before you commit</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>The Proof Test</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Subheadline</div>
+                    <div class="copy-text">Before you invest a dollar, we deliver a custom ROI model showing exactly how you'll make it back.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">What You Get</div>
+                    <div class="copy-text">- Custom revenue projection based on your actual numbers
+- Clear timeline to positive ROI
+- Specific actions we'll take and outcomes we'll measure
+- Comparison to industry benchmarks</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Why We Do This</div>
+                    <div class="copy-text">- Eliminates the "hope" from your investment decision
+- Creates shared accountability for results
+- Filters out projects we can't confidently deliver
+- Builds trust before you commit</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: Our Services -->
+        <div class="slide" id="slide-7">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">7</div>
+                    <div class="slide-title">Our Services</div>
+                </div>
+                <div class="slide-type">Overview</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content">
+                    <h2>Three Ways We <span class="gold">Drive Growth</span></h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h4>Development</h4>
+                            <p>Websites and web applications that convert visitors into customers</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>Growth Marketing</h4>
+                            <p>Strategic campaigns that generate qualified leads and drive revenue</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>AI Automation</h4>
+                            <p>Intelligent systems that multiply your team's capacity and cut costs</p>
+                        </div>
+                    </div>
+                    <p class="subtitle" style="text-align: center; margin-top: 40px;">
+                        Most clients start with one service and expand as they see results.
+                    </p>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>Three Ways We Drive Growth</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Service 1</div>
+                    <div class="copy-text"><strong>Development</strong>
+Websites and web applications that convert visitors into customers</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Service 2</div>
+                    <div class="copy-text"><strong>Growth Marketing</strong>
+Strategic campaigns that generate qualified leads and drive revenue</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Service 3</div>
+                    <div class="copy-text"><strong>AI Automation</strong>
+Intelligent systems that multiply your team's capacity and cut costs</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Footer Note</div>
+                    <div class="copy-text">Most clients start with one service and expand as they see results.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: Development Details -->
+        <div class="slide" id="slide-8">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">8</div>
+                    <div class="slide-title">Development Details</div>
+                </div>
+                <div class="slide-type">Service Deep-Dive</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content">
+                    <h3 style="font-size: 18px; letter-spacing: 0.1em; margin-bottom: 10px;">SERVICE DETAILS</h3>
+                    <h2><span class="gold">Development</span></h2>
+                    <p class="subtitle">Websites and web applications built to perform, not just look good.</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+                        <div>
+                            <h4 style="color: var(--gold); font-size: 18px; margin-bottom: 15px;">What's Included</h4>
+                            <ul>
+                                <li style="font-size: 16px;">Custom website or web application design</li>
+                                <li style="font-size: 16px;">Mobile-responsive development</li>
+                                <li style="font-size: 16px;">Conversion-optimized user experience</li>
+                                <li style="font-size: 16px;">SEO foundation and technical optimization</li>
+                                <li style="font-size: 16px;">Analytics and tracking setup</li>
+                                <li style="font-size: 16px;">Ongoing maintenance and support</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--gold); font-size: 18px; margin-bottom: 15px;">Outcomes You Can Expect</h4>
+                            <ul>
+                                <li style="font-size: 16px;">Higher conversion rates from existing traffic</li>
+                                <li style="font-size: 16px;">Improved search engine rankings</li>
+                                <li style="font-size: 16px;">Professional credibility that wins trust</li>
+                                <li style="font-size: 16px;">Reduced bounce rates and longer sessions</li>
+                                <li style="font-size: 16px;">Platform that scales with your growth</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Section Label</div>
+                    <div class="copy-text">SERVICE DETAILS</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>Development</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Subheadline</div>
+                    <div class="copy-text">Websites and web applications built to perform, not just look good.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">What's Included</div>
+                    <div class="copy-text">- Custom website or web application design
+- Mobile-responsive development
+- Conversion-optimized user experience
+- SEO foundation and technical optimization
+- Analytics and tracking setup
+- Ongoing maintenance and support</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Outcomes You Can Expect</div>
+                    <div class="copy-text">- Higher conversion rates from existing traffic
+- Improved search engine rankings
+- Professional credibility that wins trust
+- Reduced bounce rates and longer sessions
+- Platform that scales with your growth</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: Growth Marketing Details -->
+        <div class="slide" id="slide-9">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">9</div>
+                    <div class="slide-title">Growth Marketing Details</div>
+                </div>
+                <div class="slide-type">Service Deep-Dive</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content">
+                    <h3 style="font-size: 18px; letter-spacing: 0.1em; margin-bottom: 10px;">SERVICE DETAILS</h3>
+                    <h2><span class="gold">Growth Marketing</span></h2>
+                    <p class="subtitle">Strategic campaigns that fill your pipeline with qualified leads.</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+                        <div>
+                            <h4 style="color: var(--gold); font-size: 18px; margin-bottom: 15px;">What's Included</h4>
+                            <ul>
+                                <li style="font-size: 16px;">Brand strategy and positioning</li>
+                                <li style="font-size: 16px;">Paid advertising (Google, Meta, LinkedIn)</li>
+                                <li style="font-size: 16px;">Content marketing and SEO</li>
+                                <li style="font-size: 16px;">Email marketing and nurture sequences</li>
+                                <li style="font-size: 16px;">Conversion rate optimization</li>
+                                <li style="font-size: 16px;">Monthly performance reporting</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--gold); font-size: 18px; margin-bottom: 15px;">Outcomes You Can Expect</h4>
+                            <ul>
+                                <li style="font-size: 16px;">Predictable lead flow you can count on</li>
+                                <li style="font-size: 16px;">Lower cost per acquisition</li>
+                                <li style="font-size: 16px;">Higher quality leads that close</li>
+                                <li style="font-size: 16px;">Clear visibility into what's working</li>
+                                <li style="font-size: 16px;">Compounding returns over time</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Section Label</div>
+                    <div class="copy-text">SERVICE DETAILS</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>Growth Marketing</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Subheadline</div>
+                    <div class="copy-text">Strategic campaigns that fill your pipeline with qualified leads.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">What's Included</div>
+                    <div class="copy-text">- Brand strategy and positioning
+- Paid advertising (Google, Meta, LinkedIn)
+- Content marketing and SEO
+- Email marketing and nurture sequences
+- Conversion rate optimization
+- Monthly performance reporting</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Outcomes You Can Expect</div>
+                    <div class="copy-text">- Predictable lead flow you can count on
+- Lower cost per acquisition
+- Higher quality leads that close
+- Clear visibility into what's working
+- Compounding returns over time</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: AI Automation Details -->
+        <div class="slide" id="slide-10">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">10</div>
+                    <div class="slide-title">AI Automation Details</div>
+                </div>
+                <div class="slide-type">Service Deep-Dive</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content">
+                    <h3 style="font-size: 18px; letter-spacing: 0.1em; margin-bottom: 10px;">SERVICE DETAILS</h3>
+                    <h2><span class="gold">AI Automation</span></h2>
+                    <p class="subtitle">Intelligent systems that work while you sleep.</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+                        <div>
+                            <h4 style="color: var(--gold); font-size: 18px; margin-bottom: 15px;">What's Included</h4>
+                            <ul>
+                                <li style="font-size: 16px;">Process audit and automation mapping</li>
+                                <li style="font-size: 16px;">AI agent development and deployment</li>
+                                <li style="font-size: 16px;">Workflow automation (Zapier, Make, custom)</li>
+                                <li style="font-size: 16px;">AI-powered customer service solutions</li>
+                                <li style="font-size: 16px;">Data integration and reporting automation</li>
+                                <li style="font-size: 16px;">Training and documentation</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--gold); font-size: 18px; margin-bottom: 15px;">Outcomes You Can Expect</h4>
+                            <ul>
+                                <li style="font-size: 16px;">Hours reclaimed from repetitive tasks</li>
+                                <li style="font-size: 16px;">Reduced operational costs</li>
+                                <li style="font-size: 16px;">Faster response times to customers</li>
+                                <li style="font-size: 16px;">Fewer errors and dropped balls</li>
+                                <li style="font-size: 16px;">Capacity to grow without adding headcount</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Section Label</div>
+                    <div class="copy-text">SERVICE DETAILS</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>AI Automation</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Subheadline</div>
+                    <div class="copy-text">Intelligent systems that work while you sleep.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">What's Included</div>
+                    <div class="copy-text">- Process audit and automation mapping
+- AI agent development and deployment
+- Workflow automation (Zapier, Make, custom)
+- AI-powered customer service solutions
+- Data integration and reporting automation
+- Training and documentation</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Outcomes You Can Expect</div>
+                    <div class="copy-text">- Hours reclaimed from repetitive tasks
+- Reduced operational costs
+- Faster response times to customers
+- Fewer errors and dropped balls
+- Capacity to grow without adding headcount</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: Case Study 1 - Staffing Agency -->
+        <div class="slide" id="slide-11">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">11</div>
+                    <div class="slide-title">Case Study: Staffing Agency</div>
+                </div>
+                <div class="slide-type">Proof</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content">
+                    <h3 style="font-size: 18px; letter-spacing: 0.1em; margin-bottom: 10px;">CASE STUDY</h3>
+                    <h2>Regional Staffing Agency <span class="gold">Transformation</span></h2>
+
+                    <div class="case-study-layout" style="margin-top: 30px;">
+                        <div>
+                            <h4 style="color: rgba(255,255,255,0.6); font-size: 14px; margin-bottom: 10px;">THE CHALLENGE</h4>
+                            <p style="font-size: 16px; margin-bottom: 20px;">Manual processes eating 20+ hours per week. Website failing to convert visitors. No visibility into marketing ROI.</p>
+
+                            <h4 style="color: rgba(255,255,255,0.6); font-size: 14px; margin-bottom: 10px;">OUR APPROACH</h4>
+                            <p style="font-size: 16px;">Complete website rebuild with conversion optimization. Automated candidate screening and scheduling. Targeted paid advertising campaign.</p>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-number">340%</div>
+                                <div class="result-label">increase in qualified leads</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number">18 hrs</div>
+                                <div class="result-label">per week reclaimed</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number">4.2x</div>
+                                <div class="result-label">ROI in first 6 months</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number">67%</div>
+                                <div class="result-label">reduction in cost per hire</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Section Label</div>
+                    <div class="copy-text">CASE STUDY</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>Regional Staffing Agency Transformation</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">The Challenge</div>
+                    <div class="copy-text">Manual processes eating 20+ hours per week. Website failing to convert visitors. No visibility into marketing ROI.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Our Approach</div>
+                    <div class="copy-text">Complete website rebuild with conversion optimization. Automated candidate screening and scheduling. Targeted paid advertising campaign.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Results</div>
+                    <div class="copy-text"><strong>340%</strong> increase in qualified leads
+<strong>18 hours</strong> per week reclaimed
+<strong>4.2x</strong> ROI in first 6 months
+<strong>67%</strong> reduction in cost per hire</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: Case Study 2 - Veterinary -->
+        <div class="slide" id="slide-12">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">12</div>
+                    <div class="slide-title">Case Study: Veterinary Practice</div>
+                </div>
+                <div class="slide-type">Proof</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content">
+                    <h3 style="font-size: 18px; letter-spacing: 0.1em; margin-bottom: 10px;">CASE STUDY</h3>
+                    <h2>Multi-Location Veterinary <span class="gold">Growth</span></h2>
+
+                    <div class="case-study-layout" style="margin-top: 30px;">
+                        <div>
+                            <h4 style="color: rgba(255,255,255,0.6); font-size: 14px; margin-bottom: 10px;">THE CHALLENGE</h4>
+                            <p style="font-size: 16px; margin-bottom: 20px;">Outdated website hurting credibility. Phone-only booking limiting capacity. Inconsistent brand across three locations.</p>
+
+                            <h4 style="color: rgba(255,255,255,0.6); font-size: 14px; margin-bottom: 10px;">OUR APPROACH</h4>
+                            <p style="font-size: 16px;">Modern website with online booking integration. Unified brand identity across all locations. Automated appointment reminders and follow-ups.</p>
+                        </div>
+                        <div class="case-results">
+                            <div class="result-item">
+                                <div class="result-number">52%</div>
+                                <div class="result-label">increase in new patient bookings</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number">78%</div>
+                                <div class="result-label">online booking adoption</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number">$127K</div>
+                                <div class="result-label">additional annual revenue</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number">89%</div>
+                                <div class="result-label">reduction in no-shows</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Section Label</div>
+                    <div class="copy-text">CASE STUDY</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>Multi-Location Veterinary Growth</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">The Challenge</div>
+                    <div class="copy-text">Outdated website hurting credibility. Phone-only booking limiting capacity. Inconsistent brand across three locations.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Our Approach</div>
+                    <div class="copy-text">Modern website with online booking integration. Unified brand identity across all locations. Automated appointment reminders and follow-ups.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Results</div>
+                    <div class="copy-text"><strong>52%</strong> increase in new patient bookings
+<strong>78%</strong> online booking adoption
+<strong>$127K</strong> additional annual revenue
+<strong>89%</strong> reduction in no-shows</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: Our Process -->
+        <div class="slide" id="slide-13">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">13</div>
+                    <div class="slide-title">Our Process</div>
+                </div>
+                <div class="slide-type">Methodology</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content">
+                    <h2>The <span class="gold">ScaleUp Method</span></h2>
+                    <p class="subtitle" style="margin-bottom: 30px;">Four steps from first conversation to measurable results.</p>
+
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Discover</div>
+                            <div class="step-desc">Deep dive into your business, goals, and current challenges. We learn what success looks like for you.</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Model</div>
+                            <div class="step-desc">Build your custom ROI projection. You'll see exactly how the investment pays back before committing.</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Build</div>
+                            <div class="step-desc">Execute the strategy with weekly check-ins and transparent progress reporting. No surprises.</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-title">Scale</div>
+                            <div class="step-desc">Measure results, optimize performance, and identify the next growth opportunities.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>The ScaleUp Method</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Subheadline</div>
+                    <div class="copy-text">Four steps from first conversation to measurable results.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Step 1</div>
+                    <div class="copy-text"><strong>Discover</strong>
+Deep dive into your business, goals, and current challenges. We learn what success looks like for you.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Step 2</div>
+                    <div class="copy-text"><strong>Model</strong>
+Build your custom ROI projection. You'll see exactly how the investment pays back before committing.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Step 3</div>
+                    <div class="copy-text"><strong>Build</strong>
+Execute the strategy with weekly check-ins and transparent progress reporting. No surprises.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Step 4</div>
+                    <div class="copy-text"><strong>Scale</strong>
+Measure results, optimize performance, and identify the next growth opportunities.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 14: Investment -->
+        <div class="slide" id="slide-14">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">14</div>
+                    <div class="slide-title">Investment</div>
+                </div>
+                <div class="slide-type">Pricing</div>
+            </div>
+            <div class="slide-preview light">
+                <div class="content">
+                    <h2 style="color: var(--navy);">How <span class="gold">Investment</span> Works</h2>
+                    <p style="color: var(--gray-600); font-size: 18px; margin-bottom: 30px;">We don't hide behind vague estimates. Here's our approach to pricing.</p>
+
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 30px;">
+                        <div style="padding: 30px; background: var(--navy); color: var(--white); border-radius: 12px;">
+                            <h4 style="color: var(--gold); font-size: 22px; margin-bottom: 15px;">Project-Based</h4>
+                            <p style="color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 15px;">Fixed scope, fixed price. You know the total investment before we start.</p>
+                            <p style="color: var(--gold); font-size: 14px;">Starting at $15,000</p>
+                        </div>
+                        <div style="padding: 30px; background: var(--navy); color: var(--white); border-radius: 12px;">
+                            <h4 style="color: var(--gold); font-size: 22px; margin-bottom: 15px;">Retainer</h4>
+                            <p style="color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 15px;">Ongoing partnership for continuous growth. Predictable monthly investment.</p>
+                            <p style="color: var(--gold); font-size: 14px;">Starting at $3,500/month</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 40px; padding: 25px; background: rgba(212, 168, 83, 0.1); border-radius: 8px; border-left: 4px solid var(--gold);">
+                        <p style="color: var(--navy); font-size: 18px;"><strong>The ScaleUp Guarantee:</strong> Every proposal includes a custom ROI model. If we can't show you a path to positive return, we'll tell you before you spend a dollar.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>How Investment Works</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Subheadline</div>
+                    <div class="copy-text">We don't hide behind vague estimates. Here's our approach to pricing.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Option 1</div>
+                    <div class="copy-text"><strong>Project-Based</strong>
+Fixed scope, fixed price. You know the total investment before we start.
+Starting at $15,000</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Option 2</div>
+                    <div class="copy-text"><strong>Retainer</strong>
+Ongoing partnership for continuous growth. Predictable monthly investment.
+Starting at $3,500/month</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Guarantee Statement</div>
+                    <div class="copy-text"><strong>The ScaleUp Guarantee:</strong> Every proposal includes a custom ROI model. If we can't show you a path to positive return, we'll tell you before you spend a dollar.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 15: Why ScaleUp -->
+        <div class="slide" id="slide-15">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">15</div>
+                    <div class="slide-title">Why ScaleUp</div>
+                </div>
+                <div class="slide-type">Differentiators</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content">
+                    <h2>Why Clients <span class="gold">Choose Us</span></h2>
+
+                    <div class="diff-grid">
+                        <div class="diff-item">
+                            <div class="diff-icon">1</div>
+                            <div class="diff-content">
+                                <h4>ROI Before Investment</h4>
+                                <p>We model your return before you spend. No other agency does this.</p>
+                            </div>
+                        </div>
+                        <div class="diff-item">
+                            <div class="diff-icon">2</div>
+                            <div class="diff-content">
+                                <h4>Integrated Expertise</h4>
+                                <p>Development, marketing, and automation under one roof. No coordination headaches.</p>
+                            </div>
+                        </div>
+                        <div class="diff-item">
+                            <div class="diff-icon">3</div>
+                            <div class="diff-content">
+                                <h4>Founder-Led Delivery</h4>
+                                <p>You work directly with experienced leadership, not junior account managers.</p>
+                            </div>
+                        </div>
+                        <div class="diff-item">
+                            <div class="diff-icon">4</div>
+                            <div class="diff-content">
+                                <h4>Results Over Deliverables</h4>
+                                <p>We measure success by your growth, not by how many things we shipped.</p>
+                            </div>
+                        </div>
+                        <div class="diff-item">
+                            <div class="diff-icon">5</div>
+                            <div class="diff-content">
+                                <h4>Selective Partnership</h4>
+                                <p>We only take clients we're confident we can help. Quality over quantity.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>Why Clients Choose Us</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Differentiator 1</div>
+                    <div class="copy-text"><strong>ROI Before Investment</strong>
+We model your return before you spend. No other agency does this.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Differentiator 2</div>
+                    <div class="copy-text"><strong>Integrated Expertise</strong>
+Development, marketing, and automation under one roof. No coordination headaches.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Differentiator 3</div>
+                    <div class="copy-text"><strong>Founder-Led Delivery</strong>
+You work directly with experienced leadership, not junior account managers.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Differentiator 4</div>
+                    <div class="copy-text"><strong>Results Over Deliverables</strong>
+We measure success by your growth, not by how many things we shipped.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Differentiator 5</div>
+                    <div class="copy-text"><strong>Selective Partnership</strong>
+We only take clients we're confident we can help. Quality over quantity.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 16: Meet the Team -->
+        <div class="slide" id="slide-16">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">16</div>
+                    <div class="slide-title">Meet the Team</div>
+                </div>
+                <div class="slide-type">Team</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content">
+                    <h2>The People Behind <span class="gold">Your Growth</span></h2>
+
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="team-photo">CW</div>
+                            <div class="team-info">
+                                <h4>Calvin Williams Jr.</h4>
+                                <div class="role">Founder & Principal</div>
+                                <p>15+ years building digital products and growth strategies for companies from startups to Fortune 500. Former [Previous Role/Company]. Built and sold [if applicable]. Lives in [City] with [family detail if appropriate].</p>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-photo">[+]</div>
+                            <div class="team-info">
+                                <h4>Expert Network</h4>
+                                <div class="role">Specialized Partners</div>
+                                <p>Depending on your project needs, we bring in specialists from our vetted network: designers, developers, paid media experts, and automation engineers. You get senior talent without agency overhead.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>The People Behind Your Growth</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Founder Bio</div>
+                    <div class="copy-text"><strong>Calvin Williams Jr.</strong>
+Founder & Principal
+
+15+ years building digital products and growth strategies for companies from startups to Fortune 500. Former [Previous Role/Company]. Built and sold [if applicable]. Lives in [City] with [family detail if appropriate].
+
+[Update with specific bio details]</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Team/Network</div>
+                    <div class="copy-text"><strong>Expert Network</strong>
+Specialized Partners
+
+Depending on your project needs, we bring in specialists from our vetted network: designers, developers, paid media experts, and automation engineers. You get senior talent without agency overhead.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 17: Next Steps -->
+        <div class="slide" id="slide-17">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">17</div>
+                    <div class="slide-title">Next Steps</div>
+                </div>
+                <div class="slide-type">Call to Action</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content">
+                    <h2>What <span class="gold">Happens Next</span></h2>
+
+                    <div class="next-steps-list">
+                        <div class="next-step-item">
+                            <div class="next-step-number">1</div>
+                            <div class="next-step-content">
+                                <h4>Discovery Session (30 min)</h4>
+                                <p>We'll dig deeper into your specific goals, challenges, and what success looks like for you.</p>
+                            </div>
+                        </div>
+                        <div class="next-step-item">
+                            <div class="next-step-number">2</div>
+                            <div class="next-step-content">
+                                <h4>Custom ROI Model (48 hours)</h4>
+                                <p>We'll build your personalized projection showing exactly how you'll make your investment back.</p>
+                            </div>
+                        </div>
+                        <div class="next-step-item">
+                            <div class="next-step-number">3</div>
+                            <div class="next-step-content">
+                                <h4>Proposal Review (45 min)</h4>
+                                <p>Walk through the ROI model, proposed approach, timeline, and investment together.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cta-box">
+                        <h4>Ready to See Your ROI Model?</h4>
+                        <p>Schedule your discovery session: [calendar link or contact info]</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>What Happens Next</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Step 1</div>
+                    <div class="copy-text"><strong>Discovery Session (30 min)</strong>
+We'll dig deeper into your specific goals, challenges, and what success looks like for you.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Step 2</div>
+                    <div class="copy-text"><strong>Custom ROI Model (48 hours)</strong>
+We'll build your personalized projection showing exactly how you'll make your investment back.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Step 3</div>
+                    <div class="copy-text"><strong>Proposal Review (45 min)</strong>
+Walk through the ROI model, proposed approach, timeline, and investment together.</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">CTA</div>
+                    <div class="copy-text"><strong>Ready to See Your ROI Model?</strong>
+Schedule your discovery session: [calendar link or contact info]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 18: Q&A / Thank You -->
+        <div class="slide" id="slide-18">
+            <div class="slide-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div class="slide-number">18</div>
+                    <div class="slide-title">Q&A / Thank You</div>
+                </div>
+                <div class="slide-type">Closing</div>
+            </div>
+            <div class="slide-preview">
+                <div class="content" style="text-align: center;">
+                    <h2 style="font-size: 56px; margin-bottom: 30px;">Questions?</h2>
+                    <div class="tagline-display" style="margin-bottom: 40px;">Let's Talk About Your Growth</div>
+
+                    <div style="display: inline-block; padding: 40px 60px; background: rgba(255,255,255,0.05); border-radius: 16px; border: 1px solid rgba(212, 168, 83, 0.3);">
+                        <p style="font-size: 36px; font-weight: 700; margin-bottom: 5px; font-family: 'Crimson Pro', serif;">Scale<span style="color: var(--gold);">Up</span> Ventures</p>
+                        <p style="color: var(--gold); font-size: 18px; letter-spacing: 0.15em; margin-bottom: 25px;">CERTAINTY FIRST</p>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px;">
+                            <p style="font-size: 16px; margin-bottom: 8px;">[email@scaleupventures.com]</p>
+                            <p style="font-size: 16px; margin-bottom: 8px;">[www.scaleupventures.com]</p>
+                            <p style="font-size: 16px; color: rgba(255,255,255,0.6);">[phone number if appropriate]</p>
+                        </div>
+                    </div>
+
+                    <p class="subtitle" style="margin-top: 50px; font-style: italic; color: rgba(255,255,255,0.6);">
+                        Thank you for your time today.
+                    </p>
+                </div>
+            </div>
+            <div class="slide-copy">
+                <h4>Slide Copy</h4>
+                <div class="copy-block">
+                    <div class="copy-label">Headline</div>
+                    <div class="copy-text"><strong>Questions?</strong></div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Subheadline</div>
+                    <div class="copy-text">Let's Talk About Your Growth</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Company Info</div>
+                    <div class="copy-text"><strong>ScaleUp Ventures</strong>
+CERTAINTY FIRST
+
+[email@scaleupventures.com]
+[www.scaleupventures.com]
+[phone number if appropriate]</div>
+                </div>
+                <div class="copy-block">
+                    <div class="copy-label">Closing</div>
+                    <div class="copy-text">Thank you for your time today.</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Document Footer -->
+    <footer class="document-footer">
+        <div class="logo">Scale<span>Up</span> Ventures</div>
+        <div class="tagline">Certainty First.</div>
+        <p style="margin-top: 20px; color: rgba(255,255,255,0.5); font-size: 14px;">
+            Sales Deck Copy | 18 Slides | Ready for Design
+        </p>
+    </footer>
+
+</body>
+</html>

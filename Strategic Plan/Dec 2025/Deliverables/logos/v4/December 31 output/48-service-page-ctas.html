@@ -1,0 +1,2309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures - Service Page CTAs with ROI Preview</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --navy-dark: #0a0f1a;
+            --gold: #D4A853;
+            --gold-light: #e4c078;
+            --gold-dark: #b8923f;
+            --white: #ffffff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-600: #6c757d;
+            --success: #28a745;
+            --gradient-gold: linear-gradient(135deg, #D4A853 0%, #e4c078 50%, #D4A853 100%);
+            --gradient-navy: linear-gradient(135deg, #0F1729 0%, #1a2744 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--gray-100);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 60px 40px;
+            background: var(--gradient-navy);
+            color: var(--white);
+            border-radius: 16px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tagline {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .section-number {
+            background: var(--navy);
+            color: var(--gold);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--navy);
+        }
+
+        /* CTA Card Container */
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+        }
+
+        .cta-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.1);
+        }
+
+        .cta-card-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cta-card-header h3 {
+            font-size: 1.1rem;
+        }
+
+        .cta-card-header .badge {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .cta-card-body {
+            padding: 32px;
+        }
+
+        /* CTA Button Styles */
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .cta-btn-primary:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 168, 83, 0.4);
+        }
+
+        .cta-btn-secondary {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .cta-btn-secondary:hover {
+            background: var(--navy-light);
+            transform: translateY(-2px);
+        }
+
+        .cta-btn-outline {
+            background: transparent;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+        }
+
+        .cta-btn-outline:hover {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .cta-btn-gold-outline {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .cta-btn-gold-outline:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .cta-btn-large {
+            padding: 20px 48px;
+            font-size: 1.15rem;
+        }
+
+        .cta-btn-small {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+
+        .cta-btn-full {
+            width: 100%;
+        }
+
+        /* ROI Badge */
+        .roi-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(40, 167, 69, 0.1);
+            color: var(--success);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        /* CTA Preview Box */
+        .cta-preview {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 20px;
+        }
+
+        .cta-preview-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray-600);
+            margin-bottom: 12px;
+        }
+
+        /* Copy Text Block */
+        .copy-block {
+            background: var(--navy-dark);
+            color: var(--white);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-top: 16px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        .copy-block .label {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Service Page Mockups */
+        .page-mockup {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(15, 23, 41, 0.15);
+        }
+
+        .browser-bar {
+            background: var(--gray-200);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .browser-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .browser-dot.red { background: #ff5f56; }
+        .browser-dot.yellow { background: #ffbd2e; }
+        .browser-dot.green { background: #27ca40; }
+
+        .browser-url {
+            flex: 1;
+            background: var(--white);
+            padding: 8px 16px;
+            border-radius: 6px;
+            margin-left: 12px;
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+
+        .page-content {
+            padding: 0;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: var(--gradient-navy);
+            color: var(--white);
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-section h1 span {
+            color: var(--gold);
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Inline CTA */
+        .inline-cta {
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.1) 0%, rgba(212, 168, 83, 0.05) 100%);
+            border-left: 4px solid var(--gold);
+            padding: 24px 32px;
+            margin: 32px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .inline-cta h4 {
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .inline-cta p {
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        /* Sidebar CTA */
+        .sidebar-cta {
+            background: var(--navy);
+            color: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .sidebar-cta .icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .sidebar-cta h4 {
+            margin-bottom: 12px;
+        }
+
+        .sidebar-cta p {
+            opacity: 0.8;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+
+        /* Sticky CTA */
+        .sticky-cta {
+            position: relative;
+            background: var(--white);
+            padding: 20px 32px;
+            border-radius: 60px;
+            box-shadow: 0 8px 32px rgba(15, 23, 41, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .sticky-cta-text {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .sticky-cta-text span {
+            color: var(--gold);
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            background: var(--gradient-navy);
+            padding: 80px 60px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .footer-cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-cta h2 span {
+            color: var(--gold);
+        }
+
+        .footer-cta p {
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            font-size: 1.1rem;
+        }
+
+        /* Exit Intent Popup */
+        .exit-popup {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(15, 23, 41, 0.3);
+        }
+
+        .exit-popup-header {
+            background: var(--gradient-navy);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .exit-popup-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .exit-popup-header h3 span {
+            color: var(--gold);
+        }
+
+        .exit-popup-body {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .exit-popup-body p {
+            color: var(--gray-600);
+            margin-bottom: 24px;
+        }
+
+        .exit-popup-body .highlight {
+            background: rgba(212, 168, 83, 0.1);
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .exit-popup-body .highlight strong {
+            color: var(--navy);
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        /* Mobile CTA */
+        .mobile-frame {
+            background: var(--navy-dark);
+            border-radius: 40px;
+            padding: 12px;
+            max-width: 375px;
+            margin: 0 auto;
+        }
+
+        .mobile-screen {
+            background: var(--white);
+            border-radius: 32px;
+            overflow: hidden;
+        }
+
+        .mobile-status-bar {
+            background: var(--navy);
+            color: var(--white);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+        }
+
+        .mobile-content {
+            padding: 20px;
+        }
+
+        .mobile-bottom-cta {
+            position: sticky;
+            bottom: 0;
+            background: var(--white);
+            padding: 16px 20px;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .mobile-floating-cta {
+            position: absolute;
+            bottom: 80px;
+            right: 20px;
+            background: var(--gold);
+            color: var(--navy);
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 24px rgba(212, 168, 83, 0.4);
+        }
+
+        /* A/B Test Variants */
+        .ab-test-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .ab-variant {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .ab-variant-header {
+            padding: 16px 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ab-variant-header.variant-a {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .ab-variant-header.variant-b {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        .ab-variant-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Visual Button Mockups */
+        .button-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 32px;
+            background: var(--gray-100);
+            border-radius: 12px;
+            justify-content: center;
+        }
+
+        .button-mockup {
+            text-align: center;
+        }
+
+        .button-mockup .label {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            margin-top: 8px;
+        }
+
+        /* Page Layout Mockup */
+        .layout-mockup {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 32px;
+            padding: 32px;
+            background: var(--gray-100);
+        }
+
+        .layout-main {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+        }
+
+        .layout-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .content-placeholder {
+            background: var(--gray-200);
+            height: 20px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .content-placeholder.short { width: 60%; }
+        .content-placeholder.medium { width: 80%; }
+
+        /* ROI Preview Card */
+        .roi-preview-card {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .roi-preview-card h4 {
+            color: var(--gold);
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .roi-preview-card .roi-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .roi-preview-card p {
+            opacity: 0.8;
+            margin-bottom: 24px;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin: 24px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Service Icon */
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .comparison-table th {
+            background: var(--gray-100);
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .comparison-table .check {
+            color: var(--success);
+        }
+
+        /* Animation Keyframes */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .shimmer-btn {
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ab-test-container {
+                grid-template-columns: 1fr;
+            }
+
+            .layout-mockup {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-section {
+                padding: 40px 24px;
+            }
+
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Service Page CTAs with <span>ROI Preview</span></h1>
+            <p>Comprehensive CTA collection for ScaleUp Ventures service pages. Each CTA incorporates ROI preview offers to drive qualified leads with certainty-focused messaging.</p>
+            <div class="tagline">Certainty First.</div>
+        </div>
+
+        <!-- Section 1: Development Service CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2 class="section-title">Development Service Page CTAs</h2>
+            </div>
+
+            <div class="cta-grid">
+                <!-- Primary Development CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Primary Hero CTA</h3>
+                        <span class="badge">HIGH IMPACT</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="roi-badge">
+                            <span>+</span> Preview Your Development ROI
+                        </div>
+                        <div class="cta-preview">
+                            <div class="cta-preview-label">Live Preview</div>
+                            <button class="cta-btn cta-btn-primary cta-btn-large cta-btn-full">
+                                Get Your Free Development ROI Analysis
+                                <span>&#8594;</span>
+                            </button>
+                        </div>
+                        <div class="copy-block">
+                            <span class="label">CTA Copy:</span><br>
+                            "Get Your Free Development ROI Analysis"<br><br>
+                            <span class="label">Subtext:</span><br>
+                            "See exactly what your project could deliver before committing."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary Development CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Secondary Value CTA</h3>
+                        <span class="badge">TRUST</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="roi-badge">
+                            <span>&#9432;</span> Cost Certainty Included
+                        </div>
+                        <div class="cta-preview">
+                            <div class="cta-preview-label">Live Preview</div>
+                            <button class="cta-btn cta-btn-secondary cta-btn-large cta-btn-full">
+                                Calculate Your Build Investment
+                            </button>
+                        </div>
+                        <div class="copy-block">
+                            <span class="label">CTA Copy:</span><br>
+                            "Calculate Your Build Investment"<br><br>
+                            <span class="label">Subtext:</span><br>
+                            "No surprise costs. Know your full investment upfront."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Assessment CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Technical Assessment CTA</h3>
+                        <span class="badge">QUALIFICATION</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="roi-badge">
+                            <span>&#128202;</span> Technical Analysis
+                        </div>
+                        <div class="cta-preview">
+                            <div class="cta-preview-label">Live Preview</div>
+                            <button class="cta-btn cta-btn-outline cta-btn-large cta-btn-full">
+                                Request Technical Feasibility Review
+                            </button>
+                        </div>
+                        <div class="copy-block">
+                            <span class="label">CTA Copy:</span><br>
+                            "Request Technical Feasibility Review"<br><br>
+                            <span class="label">Subtext:</span><br>
+                            "Validate your technical approach before development begins."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Timeline Certainty CTA</h3>
+                        <span class="badge">PLANNING</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="roi-badge">
+                            <span>&#128197;</span> Timeline Preview
+                        </div>
+                        <div class="cta-preview">
+                            <div class="cta-preview-label">Live Preview</div>
+                            <button class="cta-btn cta-btn-primary cta-btn-large cta-btn-full">
+                                See Your Project Timeline
+                            </button>
+                        </div>
+                        <div class="copy-block">
+                            <span class="label">CTA Copy:</span><br>
+                            "See Your Project Timeline"<br><br>
+                            <span class="label">Subtext:</span><br>
+                            "Get a realistic roadmap with milestone delivery dates."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Growth Marketing CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2 class="section-title">Growth Marketing Service Page CTAs</h2>
+            </div>
+
+            <div class="cta-grid">
+                <!-- Primary Growth CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Primary Growth CTA</h3>
+                        <span class="badge">LEAD GEN</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="roi-badge">
+                            <span>&#128200;</span> Revenue Projection Included
+                        </div>
+                        <div class="cta-preview">
+                            <div class="cta-preview-label">Live Preview</div>
+                            <button class="cta-btn cta-btn-primary cta-btn-large cta-btn-full shimmer-btn">
+                                Preview Your Growth Revenue
+                                <span>&#8594;</span>
+                            </button>
+                        </div>
+                        <div class="copy-block">
+                            <span class="label">CTA Copy:</span><br>
+                            "Preview Your Growth Revenue"<br><br>
+                            <span class="label">Subtext:</span><br>
+                            "Model your revenue trajectory with our proven growth framework."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Channel Analysis CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Channel Analysis CTA</h3>
+                        <span class="badge">STRATEGY</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="roi-badge">
+                            <span>&#127919;</span> Channel Optimization
+                        </div>
+                        <div class="cta-preview">
+                            <div class="cta-preview-label">Live Preview</div>
+                            <button class="cta-btn cta-btn-secondary cta-btn-large cta-btn-full">
+                                Get Channel Performance Audit
+                            </button>
+                        </div>
+                        <div class="copy-block">
+                            <span class="label">CTA Copy:</span><br>
+                            "Get Channel Performance Audit"<br><br>
+                            <span class="label">Subtext:</span><br>
+                            "Discover which channels will deliver the highest ROI for your business."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAC Analysis CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>CAC/LTV Analysis CTA</h3>
+                        <span class="badge">METRICS</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="roi-badge">
+                            <span>&#128176;</span> Unit Economics Preview
+                        </div>
+                        <div class="cta-preview">
+                            <div class="cta-preview-label">Live Preview</div>
+                            <button class="cta-btn cta-btn-outline cta-btn-large cta-btn-full">
+                                Calculate Your CAC Improvement
+                            </button>
+                        </div>
+                        <div class="copy-block">
+                            <span class="label">CTA Copy:</span><br>
+                            "Calculate Your CAC Improvement"<br><br>
+                            <span class="label">Subtext:</span><br>
+                            "See how we reduce customer acquisition costs by an average of 40%."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Funnel Optimization CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Funnel Optimization CTA</h3>
+                        <span class="badge">CONVERSION</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="roi-badge">
+                            <span>&#128208;</span> Conversion Preview
+                        </div>
+                        <div class="cta-preview">
+                            <div class="cta-preview-label">Live Preview</div>
+                            <button class="cta-btn cta-btn-primary cta-btn-large cta-btn-full">
+                                Model Your Conversion Improvements
+                            </button>
+                        </div>
+                        <div class="copy-block">
+                            <span class="label">CTA Copy:</span><br>
+                            "Model Your Conversion Improvements"<br><br>
+                            <span class="label">Subtext:</span><br>
+                            "Preview exact conversion rate targets across your funnel."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: AI Automation CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2 class="section-title">AI Automation Service Page CTAs</h2>
+            </div>
+
+            <div class="cta-grid">
+                <!-- Primary AI CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Primary AI Automation CTA</h3>
+                        <span class="badge">EFFICIENCY</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="roi-badge">
+                            <span>&#9889;</span> Time Savings Calculator
+                        </div>
+                        <div class="cta-preview">
+                            <div class="cta-preview-label">Live Preview</div>
+                            <button class="cta-btn cta-btn-primary cta-btn-large cta-btn-full pulse-animation">
+                                Calculate Your Automation Savings
+                                <span>&#8594;</span>
+                            </button>
+                        </div>
+                        <div class="copy-block">
+                            <span class="label">CTA Copy:</span><br>
+                            "Calculate Your Automation Savings"<br><br>
+                            <span class="label">Subtext:</span><br>
+                            "See how much time and money AI can save your team each month."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process Audit CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Process Audit CTA</h3>
+                        <span class="badge">ANALYSIS</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="roi-badge">
+                            <span>&#128269;</span> Automation Opportunities
+                        </div>
+                        <div class="cta-preview">
+                            <div class="cta-preview-label">Live Preview</div>
+                            <button class="cta-btn cta-btn-secondary cta-btn-large cta-btn-full">
+                                Get Your AI Readiness Assessment
+                            </button>
+                        </div>
+                        <div class="copy-block">
+                            <span class="label">CTA Copy:</span><br>
+                            "Get Your AI Readiness Assessment"<br><br>
+                            <span class="label">Subtext:</span><br>
+                            "Identify high-impact automation opportunities in your workflows."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FTE Savings CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>FTE Savings CTA</h3>
+                        <span class="badge">ROI</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="roi-badge">
+                            <span>&#128101;</span> Team Efficiency
+                        </div>
+                        <div class="cta-preview">
+                            <div class="cta-preview-label">Live Preview</div>
+                            <button class="cta-btn cta-btn-outline cta-btn-large cta-btn-full">
+                                Preview Team Capacity Gains
+                            </button>
+                        </div>
+                        <div class="copy-block">
+                            <span class="label">CTA Copy:</span><br>
+                            "Preview Team Capacity Gains"<br><br>
+                            <span class="label">Subtext:</span><br>
+                            "Model how automation frees your team to focus on high-value work."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Implementation Timeline CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Implementation CTA</h3>
+                        <span class="badge">PLANNING</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="roi-badge">
+                            <span>&#128736;</span> Implementation Preview
+                        </div>
+                        <div class="cta-preview">
+                            <div class="cta-preview-label">Live Preview</div>
+                            <button class="cta-btn cta-btn-primary cta-btn-large cta-btn-full">
+                                See Your Automation Roadmap
+                            </button>
+                        </div>
+                        <div class="copy-block">
+                            <span class="label">CTA Copy:</span><br>
+                            "See Your Automation Roadmap"<br><br>
+                            <span class="label">Subtext:</span><br>
+                            "Get a phased implementation plan with clear ROI milestones."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Combined Services CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2 class="section-title">Combined Services CTAs</h2>
+            </div>
+
+            <div class="cta-grid">
+                <!-- Full Stack CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Full Stack Partnership CTA</h3>
+                        <span class="badge">ENTERPRISE</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="roi-preview-card">
+                            <h4>Comprehensive ROI Analysis</h4>
+                            <div class="roi-value">3-5x ROI</div>
+                            <p>Average return across Development + Growth + AI</p>
+                            <button class="cta-btn cta-btn-primary cta-btn-large cta-btn-full">
+                                Get Your Full Partnership ROI Model
+                            </button>
+                        </div>
+                        <div class="copy-block">
+                            <span class="label">CTA Copy:</span><br>
+                            "Get Your Full Partnership ROI Model"<br><br>
+                            <span class="label">Subtext:</span><br>
+                            "Unified analysis across all services for maximum impact."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Build & Scale CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Build + Scale Bundle CTA</h3>
+                        <span class="badge">PACKAGE</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <div class="stat-value">40%</div>
+                                <div class="stat-label">Faster Launch</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">2.5x</div>
+                                <div class="stat-label">Growth Rate</div>
+                            </div>
+                        </div>
+                        <div class="cta-preview">
+                            <button class="cta-btn cta-btn-primary cta-btn-large cta-btn-full">
+                                Preview Build + Scale ROI
+                            </button>
+                        </div>
+                        <div class="copy-block">
+                            <span class="label">CTA Copy:</span><br>
+                            "Preview Build + Scale ROI"<br><br>
+                            <span class="label">Subtext:</span><br>
+                            "Development + Growth Marketing for accelerated market impact."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Growth + AI CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Growth + AI Bundle CTA</h3>
+                        <span class="badge">OPTIMIZATION</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <div class="stat-value">60%</div>
+                                <div class="stat-label">Efficiency Gain</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">3x</div>
+                                <div class="stat-label">Lead Volume</div>
+                            </div>
+                        </div>
+                        <div class="cta-preview">
+                            <button class="cta-btn cta-btn-secondary cta-btn-large cta-btn-full">
+                                Model Your Automated Growth
+                            </button>
+                        </div>
+                        <div class="copy-block">
+                            <span class="label">CTA Copy:</span><br>
+                            "Model Your Automated Growth"<br><br>
+                            <span class="label">Subtext:</span><br>
+                            "AI-powered marketing automation for scalable lead generation."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Service Comparison CTA</h3>
+                        <span class="badge">DECISION</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Benefit</th>
+                                    <th>Single</th>
+                                    <th>Combined</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ROI Multiplier</td>
+                                    <td>2x</td>
+                                    <td><strong>4x+</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Synergy Savings</td>
+                                    <td>-</td>
+                                    <td class="check"><strong>&#10003; 25%</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Unified Strategy</td>
+                                    <td>-</td>
+                                    <td class="check"><strong>&#10003;</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="cta-preview" style="margin-top: 24px;">
+                            <button class="cta-btn cta-btn-primary cta-btn-large cta-btn-full">
+                                Compare Your Service Options
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Hero CTAs for Each Service -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2 class="section-title">Hero CTAs for Each Service</h2>
+            </div>
+
+            <!-- Development Hero -->
+            <div class="page-mockup" style="margin-bottom: 32px;">
+                <div class="browser-bar">
+                    <div class="browser-dot red"></div>
+                    <div class="browser-dot yellow"></div>
+                    <div class="browser-dot green"></div>
+                    <div class="browser-url">scaleupventures.com/services/development</div>
+                </div>
+                <div class="hero-section">
+                    <div class="service-icon">&#128187;</div>
+                    <h1>Custom <span>Development</span> That Delivers</h1>
+                    <p>Enterprise-grade software built with cost certainty and measurable ROI. Know exactly what you'll get before you invest.</p>
+                    <div class="hero-cta-group">
+                        <button class="cta-btn cta-btn-primary cta-btn-large">
+                            Get Your Development ROI Preview
+                            <span>&#8594;</span>
+                        </button>
+                        <button class="cta-btn cta-btn-gold-outline cta-btn-large">
+                            View Our Process
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Growth Marketing Hero -->
+            <div class="page-mockup" style="margin-bottom: 32px;">
+                <div class="browser-bar">
+                    <div class="browser-dot red"></div>
+                    <div class="browser-dot yellow"></div>
+                    <div class="browser-dot green"></div>
+                    <div class="browser-url">scaleupventures.com/services/growth-marketing</div>
+                </div>
+                <div class="hero-section" style="background: linear-gradient(135deg, #1a2744 0%, #0F1729 100%);">
+                    <div class="service-icon">&#128200;</div>
+                    <h1>Growth Marketing with <span>Revenue Certainty</span></h1>
+                    <p>Data-driven acquisition strategies that deliver predictable growth. Preview your revenue trajectory before you commit.</p>
+                    <div class="hero-cta-group">
+                        <button class="cta-btn cta-btn-primary cta-btn-large shimmer-btn">
+                            Preview Your Growth Revenue
+                            <span>&#8594;</span>
+                        </button>
+                        <button class="cta-btn cta-btn-gold-outline cta-btn-large">
+                            See Case Studies
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Automation Hero -->
+            <div class="page-mockup">
+                <div class="browser-bar">
+                    <div class="browser-dot red"></div>
+                    <div class="browser-dot yellow"></div>
+                    <div class="browser-dot green"></div>
+                    <div class="browser-url">scaleupventures.com/services/ai-automation</div>
+                </div>
+                <div class="hero-section" style="background: linear-gradient(135deg, #0F1729 0%, #1a2744 50%, #0F1729 100%);">
+                    <div class="service-icon">&#9889;</div>
+                    <h1>AI Automation with <span>Guaranteed Savings</span></h1>
+                    <p>Transform manual processes into automated workflows. Calculate your exact time and cost savings before implementation.</p>
+                    <div class="hero-cta-group">
+                        <button class="cta-btn cta-btn-primary cta-btn-large pulse-animation">
+                            Calculate Your Automation ROI
+                            <span>&#8594;</span>
+                        </button>
+                        <button class="cta-btn cta-btn-gold-outline cta-btn-large">
+                            Watch Demo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Inline CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2 class="section-title">Inline CTAs Within Service Descriptions</h2>
+            </div>
+
+            <div class="cta-grid">
+                <!-- Development Inline -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Development - Mid-Content CTA</h3>
+                        <span class="badge">INLINE</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="content-placeholder"></div>
+                        <div class="content-placeholder medium"></div>
+                        <div class="content-placeholder short"></div>
+
+                        <div class="inline-cta">
+                            <h4>Want to see your project's ROI potential?</h4>
+                            <p>Before you read further, get a personalized analysis of what your development investment could return.</p>
+                            <button class="cta-btn cta-btn-primary">
+                                Get My ROI Preview
+                                <span>&#8594;</span>
+                            </button>
+                        </div>
+
+                        <div class="content-placeholder"></div>
+                        <div class="content-placeholder medium"></div>
+                    </div>
+                </div>
+
+                <!-- Growth Inline -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Growth - Feature Highlight CTA</h3>
+                        <span class="badge">INLINE</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="content-placeholder"></div>
+                        <div class="content-placeholder medium"></div>
+
+                        <div class="inline-cta">
+                            <h4>Curious about your revenue potential?</h4>
+                            <p>Our clients see an average 3x increase in qualified leads. See what that looks like for your business.</p>
+                            <button class="cta-btn cta-btn-primary">
+                                Model My Revenue Growth
+                                <span>&#8594;</span>
+                            </button>
+                        </div>
+
+                        <div class="content-placeholder short"></div>
+                        <div class="content-placeholder"></div>
+                    </div>
+                </div>
+
+                <!-- AI Inline -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>AI - Process Section CTA</h3>
+                        <span class="badge">INLINE</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="content-placeholder"></div>
+
+                        <div class="inline-cta">
+                            <h4>How much could automation save you?</h4>
+                            <p>Teams save an average of 20+ hours per week. Calculate your specific savings in 60 seconds.</p>
+                            <button class="cta-btn cta-btn-primary">
+                                Calculate My Savings
+                                <span>&#8594;</span>
+                            </button>
+                        </div>
+
+                        <div class="content-placeholder medium"></div>
+                        <div class="content-placeholder"></div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Adjacent CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Testimonial-Adjacent CTA</h3>
+                        <span class="badge">SOCIAL PROOF</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div style="background: var(--gray-100); padding: 24px; border-radius: 12px; margin-bottom: 20px;">
+                            <p style="font-style: italic; color: var(--gray-600); margin-bottom: 12px;">"ScaleUp's ROI preview was spot-on. We hit 4.2x return in 8 months - exactly what they projected."</p>
+                            <strong style="color: var(--navy);">- Sarah Chen, CEO at TechFlow</strong>
+                        </div>
+
+                        <div class="inline-cta">
+                            <h4>Want results like Sarah?</h4>
+                            <p>Get your personalized ROI projection based on your specific business.</p>
+                            <button class="cta-btn cta-btn-primary cta-btn-full">
+                                Get My Custom Projection
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7: Sidebar/Sticky CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2 class="section-title">Sidebar and Sticky CTAs</h2>
+            </div>
+
+            <!-- Layout with Sidebar -->
+            <div class="page-mockup" style="margin-bottom: 32px;">
+                <div class="browser-bar">
+                    <div class="browser-dot red"></div>
+                    <div class="browser-dot yellow"></div>
+                    <div class="browser-dot green"></div>
+                    <div class="browser-url">scaleupventures.com/services/development</div>
+                </div>
+                <div class="layout-mockup">
+                    <div class="layout-main">
+                        <h3 style="color: var(--navy); margin-bottom: 16px;">Development Service Content</h3>
+                        <div class="content-placeholder"></div>
+                        <div class="content-placeholder medium"></div>
+                        <div class="content-placeholder short"></div>
+                        <div class="content-placeholder"></div>
+                        <div class="content-placeholder medium"></div>
+                        <div class="content-placeholder"></div>
+                        <div class="content-placeholder short"></div>
+                        <div class="content-placeholder medium"></div>
+                    </div>
+                    <div class="layout-sidebar">
+                        <!-- Sidebar CTA 1 -->
+                        <div class="sidebar-cta">
+                            <div class="icon">&#128200;</div>
+                            <h4>Free ROI Preview</h4>
+                            <p>See your potential return before committing to development.</p>
+                            <button class="cta-btn cta-btn-primary cta-btn-full">
+                                Get My Preview
+                            </button>
+                        </div>
+
+                        <!-- Sidebar CTA 2 -->
+                        <div class="sidebar-cta" style="background: var(--gold); color: var(--navy);">
+                            <h4>Certainty First.</h4>
+                            <p style="color: var(--navy); opacity: 0.8;">Know exactly what you'll invest and what you'll receive.</p>
+                            <button class="cta-btn cta-btn-secondary cta-btn-full">
+                                Start Assessment
+                            </button>
+                        </div>
+
+                        <!-- Sidebar Quick Stats -->
+                        <div style="background: var(--white); border: 2px solid var(--gold); border-radius: 12px; padding: 24px; text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--gold);">94%</div>
+                            <div style="color: var(--gray-600); font-size: 0.9rem; margin-bottom: 16px;">Client Satisfaction</div>
+                            <button class="cta-btn cta-btn-outline cta-btn-small cta-btn-full">
+                                Read Reviews
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sticky Bottom CTA -->
+            <div class="cta-card">
+                <div class="cta-card-header">
+                    <h3>Sticky Bottom Bar CTA</h3>
+                    <span class="badge">PERSISTENT</span>
+                </div>
+                <div class="cta-card-body">
+                    <div class="sticky-cta">
+                        <div class="sticky-cta-text">
+                            <span>&#128200;</span> Ready to see your ROI potential?
+                        </div>
+                        <button class="cta-btn cta-btn-primary">
+                            Get Free ROI Preview
+                            <span>&#8594;</span>
+                        </button>
+                    </div>
+                    <div class="copy-block" style="margin-top: 24px;">
+                        <span class="label">Behavior:</span><br>
+                        - Appears after scrolling 40% of page<br>
+                        - Dismissable with X button<br>
+                        - Re-appears on new page load<br>
+                        - Hides when footer is visible
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 8: Footer CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <h2 class="section-title">Footer CTAs for Service Pages</h2>
+            </div>
+
+            <!-- Development Footer -->
+            <div class="page-mockup" style="margin-bottom: 32px;">
+                <div class="browser-bar">
+                    <div class="browser-dot red"></div>
+                    <div class="browser-dot yellow"></div>
+                    <div class="browser-dot green"></div>
+                    <div class="browser-url">scaleupventures.com/services/development</div>
+                </div>
+                <div class="footer-cta">
+                    <h2>Ready to Build with <span>Certainty</span>?</h2>
+                    <p>Get your personalized development ROI analysis and see exactly what your investment could deliver.</p>
+                    <div class="hero-cta-group">
+                        <button class="cta-btn cta-btn-primary cta-btn-large">
+                            Get Your Free ROI Analysis
+                            <span>&#8594;</span>
+                        </button>
+                        <button class="cta-btn cta-btn-gold-outline cta-btn-large">
+                            Schedule a Call
+                        </button>
+                    </div>
+                    <p style="margin-top: 24px; font-size: 0.9rem; opacity: 0.7;">No commitment required. Analysis delivered within 48 hours.</p>
+                </div>
+            </div>
+
+            <!-- Growth Footer -->
+            <div class="page-mockup" style="margin-bottom: 32px;">
+                <div class="browser-bar">
+                    <div class="browser-dot red"></div>
+                    <div class="browser-dot yellow"></div>
+                    <div class="browser-dot green"></div>
+                    <div class="browser-url">scaleupventures.com/services/growth-marketing</div>
+                </div>
+                <div class="footer-cta" style="background: linear-gradient(135deg, #1a2744 0%, #0F1729 100%);">
+                    <h2>See Your <span>Revenue Potential</span></h2>
+                    <p>Model your growth trajectory with our data-driven revenue projection. Know what's possible before you invest.</p>
+                    <div class="stats-row" style="margin-bottom: 32px;">
+                        <div class="stat-item">
+                            <div class="stat-value">3x</div>
+                            <div class="stat-label">Avg. Lead Increase</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">40%</div>
+                            <div class="stat-label">Lower CAC</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">87%</div>
+                            <div class="stat-label">Hit Projections</div>
+                        </div>
+                    </div>
+                    <button class="cta-btn cta-btn-primary cta-btn-large shimmer-btn">
+                        Preview My Growth Revenue
+                        <span>&#8594;</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- AI Footer -->
+            <div class="page-mockup">
+                <div class="browser-bar">
+                    <div class="browser-dot red"></div>
+                    <div class="browser-dot yellow"></div>
+                    <div class="browser-dot green"></div>
+                    <div class="browser-url">scaleupventures.com/services/ai-automation</div>
+                </div>
+                <div class="footer-cta">
+                    <h2>Calculate Your <span>Automation Savings</span></h2>
+                    <p>Discover exactly how much time and money AI automation can save your team every month.</p>
+                    <div class="stats-row" style="margin-bottom: 32px;">
+                        <div class="stat-item">
+                            <div class="stat-value">20+</div>
+                            <div class="stat-label">Hours Saved/Week</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">$50K+</div>
+                            <div class="stat-label">Annual Savings</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">4 weeks</div>
+                            <div class="stat-label">To Implementation</div>
+                        </div>
+                    </div>
+                    <button class="cta-btn cta-btn-primary cta-btn-large pulse-animation">
+                        Calculate My Savings Now
+                        <span>&#8594;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 9: Exit-Intent CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">9</div>
+                <h2 class="section-title">Exit-Intent CTAs</h2>
+            </div>
+
+            <div class="cta-grid">
+                <!-- Development Exit -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Development Exit-Intent</h3>
+                        <span class="badge">MODAL</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="exit-popup">
+                            <div class="exit-popup-header">
+                                <h3>Wait - See Your <span>ROI First</span></h3>
+                            </div>
+                            <div class="exit-popup-body">
+                                <p>Before you go, get a free ROI preview of your development project. No commitment, no sales pitch - just data.</p>
+                                <div class="highlight">
+                                    <strong>Takes 60 seconds</strong>
+                                    Delivered in 48 hours
+                                </div>
+                                <button class="cta-btn cta-btn-primary cta-btn-full">
+                                    Get My Free ROI Preview
+                                </button>
+                                <p style="margin-top: 16px; font-size: 0.85rem; color: var(--gray-600);">No thanks, I'll decide without the data</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Growth Exit -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Growth Marketing Exit-Intent</h3>
+                        <span class="badge">MODAL</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="exit-popup">
+                            <div class="exit-popup-header" style="background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);">
+                                <h3 style="color: var(--navy);">Your Revenue Potential</h3>
+                            </div>
+                            <div class="exit-popup-body">
+                                <p>Curious what your revenue could look like with data-driven growth? See your custom projection.</p>
+                                <div class="highlight">
+                                    <strong>Clients average 3x lead increase</strong>
+                                    What could that mean for you?
+                                </div>
+                                <button class="cta-btn cta-btn-primary cta-btn-full">
+                                    Model My Revenue Growth
+                                </button>
+                                <p style="margin-top: 16px; font-size: 0.85rem; color: var(--gray-600);">Maybe later</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Exit -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>AI Automation Exit-Intent</h3>
+                        <span class="badge">MODAL</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="exit-popup">
+                            <div class="exit-popup-header">
+                                <h3>Calculate Your <span>Savings</span></h3>
+                            </div>
+                            <div class="exit-popup-body">
+                                <p>Before you leave - how much time is your team wasting on manual tasks?</p>
+                                <div class="highlight">
+                                    <strong>Average: 20+ hours saved weekly</strong>
+                                    See your specific number
+                                </div>
+                                <button class="cta-btn cta-btn-primary cta-btn-full">
+                                    Calculate My Savings
+                                </button>
+                                <p style="margin-top: 16px; font-size: 0.85rem; color: var(--gray-600);">I'll keep doing things manually</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Last Chance Exit -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Combined - Last Chance Offer</h3>
+                        <span class="badge">URGENCY</span>
+                    </div>
+                    <div class="cta-card-body">
+                        <div class="exit-popup">
+                            <div class="exit-popup-header" style="background: var(--gold);">
+                                <h3 style="color: var(--navy);">Free Strategy Session</h3>
+                            </div>
+                            <div class="exit-popup-body">
+                                <p>Get a 30-minute strategy session with our team - we'll analyze your specific situation and show you exactly what's possible.</p>
+                                <div class="highlight">
+                                    <strong>Limited availability this month</strong>
+                                    Usually $500 - free for qualified companies
+                                </div>
+                                <button class="cta-btn cta-btn-primary cta-btn-full">
+                                    Claim My Free Session
+                                </button>
+                                <p style="margin-top: 16px; font-size: 0.85rem; color: var(--gray-600);">No thanks, I'm not interested in free advice</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 10: Mobile-Specific CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">10</div>
+                <h2 class="section-title">Mobile-Specific CTA Variations</h2>
+            </div>
+
+            <div class="cta-grid">
+                <!-- Mobile Hero -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Mobile Hero CTA</h3>
+                        <span class="badge">FULL WIDTH</span>
+                    </div>
+                    <div class="cta-card-body" style="display: flex; justify-content: center;">
+                        <div class="mobile-frame">
+                            <div class="mobile-screen">
+                                <div class="mobile-status-bar">
+                                    <span>9:41</span>
+                                    <span>100%</span>
+                                </div>
+                                <div style="background: var(--navy); color: var(--white); padding: 32px 20px; text-align: center;">
+                                    <div class="service-icon" style="margin: 0 auto 16px;">&#128187;</div>
+                                    <h3 style="margin-bottom: 12px;">Custom Development</h3>
+                                    <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 24px;">Know your ROI before you invest</p>
+                                    <button class="cta-btn cta-btn-primary cta-btn-full" style="font-size: 1rem;">
+                                        Get ROI Preview
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Floating CTA -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Mobile Floating Action Button</h3>
+                        <span class="badge">FAB</span>
+                    </div>
+                    <div class="cta-card-body" style="display: flex; justify-content: center;">
+                        <div class="mobile-frame">
+                            <div class="mobile-screen" style="position: relative; min-height: 500px;">
+                                <div class="mobile-status-bar">
+                                    <span>9:41</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="mobile-content">
+                                    <div class="content-placeholder"></div>
+                                    <div class="content-placeholder medium"></div>
+                                    <div class="content-placeholder short"></div>
+                                    <div class="content-placeholder"></div>
+                                    <div class="content-placeholder medium"></div>
+                                </div>
+                                <div class="mobile-floating-cta">
+                                    &#128200;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Bottom Fixed -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Mobile Fixed Bottom CTA</h3>
+                        <span class="badge">STICKY</span>
+                    </div>
+                    <div class="cta-card-body" style="display: flex; justify-content: center;">
+                        <div class="mobile-frame">
+                            <div class="mobile-screen" style="position: relative;">
+                                <div class="mobile-status-bar">
+                                    <span>9:41</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="mobile-content" style="padding-bottom: 80px;">
+                                    <div class="content-placeholder"></div>
+                                    <div class="content-placeholder medium"></div>
+                                    <div class="content-placeholder short"></div>
+                                </div>
+                                <div class="mobile-bottom-cta">
+                                    <button class="cta-btn cta-btn-primary cta-btn-full">
+                                        Get Free ROI Preview
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Thumb Zone -->
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Thumb-Zone Optimized CTA</h3>
+                        <span class="badge">UX</span>
+                    </div>
+                    <div class="cta-card-body" style="display: flex; justify-content: center;">
+                        <div class="mobile-frame">
+                            <div class="mobile-screen">
+                                <div class="mobile-status-bar">
+                                    <span>9:41</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="mobile-content" style="display: flex; flex-direction: column; min-height: 450px;">
+                                    <div style="flex: 1;">
+                                        <h4 style="color: var(--navy); margin-bottom: 12px;">AI Automation</h4>
+                                        <div class="content-placeholder"></div>
+                                        <div class="content-placeholder medium"></div>
+                                    </div>
+                                    <div style="padding: 20px 0;">
+                                        <button class="cta-btn cta-btn-primary cta-btn-full cta-btn-large" style="height: 60px;">
+                                            Calculate My Savings
+                                        </button>
+                                        <button class="cta-btn cta-btn-outline cta-btn-full" style="margin-top: 12px; height: 48px;">
+                                            Learn More
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 11: A/B Test Variants -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">11</div>
+                <h2 class="section-title">A/B Test Variants for Each Service</h2>
+            </div>
+
+            <!-- Development A/B Tests -->
+            <h3 style="margin-bottom: 24px; color: var(--navy);">Development Service A/B Tests</h3>
+            <div class="ab-test-container" style="margin-bottom: 40px;">
+                <div class="ab-variant">
+                    <div class="ab-variant-header variant-a">
+                        <span>&#9673;</span> Variant A: Benefit-Led
+                    </div>
+                    <div class="ab-variant-body">
+                        <button class="cta-btn cta-btn-primary cta-btn-large">
+                            See Your Project ROI
+                        </button>
+                        <p style="font-size: 0.9rem; color: var(--gray-600); text-align: center;">Focus: End benefit (ROI visibility)</p>
+                    </div>
+                </div>
+                <div class="ab-variant">
+                    <div class="ab-variant-header variant-b">
+                        <span>&#9673;</span> Variant B: Action-Led
+                    </div>
+                    <div class="ab-variant-body">
+                        <button class="cta-btn cta-btn-primary cta-btn-large">
+                            Get Free Development Analysis
+                        </button>
+                        <p style="font-size: 0.9rem; color: var(--gray-600); text-align: center;">Focus: Free offer + action</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ab-test-container" style="margin-bottom: 40px;">
+                <div class="ab-variant">
+                    <div class="ab-variant-header variant-a">
+                        <span>&#9673;</span> Variant A: Urgency
+                    </div>
+                    <div class="ab-variant-body">
+                        <button class="cta-btn cta-btn-primary cta-btn-large">
+                            Start Your Project This Quarter
+                        </button>
+                        <p style="font-size: 0.9rem; color: var(--gray-600); text-align: center;">Focus: Timeline urgency</p>
+                    </div>
+                </div>
+                <div class="ab-variant">
+                    <div class="ab-variant-header variant-b">
+                        <span>&#9673;</span> Variant B: Certainty
+                    </div>
+                    <div class="ab-variant-body">
+                        <button class="cta-btn cta-btn-primary cta-btn-large">
+                            Know Your Costs Before Starting
+                        </button>
+                        <p style="font-size: 0.9rem; color: var(--gray-600); text-align: center;">Focus: Risk reduction</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Growth A/B Tests -->
+            <h3 style="margin-bottom: 24px; color: var(--navy);">Growth Marketing A/B Tests</h3>
+            <div class="ab-test-container" style="margin-bottom: 40px;">
+                <div class="ab-variant">
+                    <div class="ab-variant-header variant-a">
+                        <span>&#9673;</span> Variant A: Revenue Focus
+                    </div>
+                    <div class="ab-variant-body">
+                        <button class="cta-btn cta-btn-primary cta-btn-large shimmer-btn">
+                            Preview Your Revenue Growth
+                        </button>
+                        <p style="font-size: 0.9rem; color: var(--gray-600); text-align: center;">Focus: Revenue outcome</p>
+                    </div>
+                </div>
+                <div class="ab-variant">
+                    <div class="ab-variant-header variant-b">
+                        <span>&#9673;</span> Variant B: Lead Focus
+                    </div>
+                    <div class="ab-variant-body">
+                        <button class="cta-btn cta-btn-primary cta-btn-large shimmer-btn">
+                            Triple Your Qualified Leads
+                        </button>
+                        <p style="font-size: 0.9rem; color: var(--gray-600); text-align: center;">Focus: Lead volume</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ab-test-container" style="margin-bottom: 40px;">
+                <div class="ab-variant">
+                    <div class="ab-variant-header variant-a">
+                        <span>&#9673;</span> Variant A: Social Proof
+                    </div>
+                    <div class="ab-variant-body">
+                        <button class="cta-btn cta-btn-primary cta-btn-large">
+                            Join 50+ Growing Companies
+                        </button>
+                        <p style="font-size: 0.9rem; color: var(--gray-600); text-align: center;">Focus: Peer validation</p>
+                    </div>
+                </div>
+                <div class="ab-variant">
+                    <div class="ab-variant-header variant-b">
+                        <span>&#9673;</span> Variant B: Personalization
+                    </div>
+                    <div class="ab-variant-body">
+                        <button class="cta-btn cta-btn-primary cta-btn-large">
+                            Get Your Custom Growth Plan
+                        </button>
+                        <p style="font-size: 0.9rem; color: var(--gray-600); text-align: center;">Focus: Customization</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI A/B Tests -->
+            <h3 style="margin-bottom: 24px; color: var(--navy);">AI Automation A/B Tests</h3>
+            <div class="ab-test-container" style="margin-bottom: 40px;">
+                <div class="ab-variant">
+                    <div class="ab-variant-header variant-a">
+                        <span>&#9673;</span> Variant A: Time Savings
+                    </div>
+                    <div class="ab-variant-body">
+                        <button class="cta-btn cta-btn-primary cta-btn-large pulse-animation">
+                            Save 20+ Hours Per Week
+                        </button>
+                        <p style="font-size: 0.9rem; color: var(--gray-600); text-align: center;">Focus: Time benefit</p>
+                    </div>
+                </div>
+                <div class="ab-variant">
+                    <div class="ab-variant-header variant-b">
+                        <span>&#9673;</span> Variant B: Cost Savings
+                    </div>
+                    <div class="ab-variant-body">
+                        <button class="cta-btn cta-btn-primary cta-btn-large pulse-animation">
+                            Save $50K+ Annually
+                        </button>
+                        <p style="font-size: 0.9rem; color: var(--gray-600); text-align: center;">Focus: Cost benefit</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ab-test-container">
+                <div class="ab-variant">
+                    <div class="ab-variant-header variant-a">
+                        <span>&#9673;</span> Variant A: Calculator
+                    </div>
+                    <div class="ab-variant-body">
+                        <button class="cta-btn cta-btn-primary cta-btn-large">
+                            Calculate Your Automation ROI
+                        </button>
+                        <p style="font-size: 0.9rem; color: var(--gray-600); text-align: center;">Focus: Interactive tool</p>
+                    </div>
+                </div>
+                <div class="ab-variant">
+                    <div class="ab-variant-header variant-b">
+                        <span>&#9673;</span> Variant B: Assessment
+                    </div>
+                    <div class="ab-variant-body">
+                        <button class="cta-btn cta-btn-primary cta-btn-large">
+                            Get AI Readiness Score
+                        </button>
+                        <p style="font-size: 0.9rem; color: var(--gray-600); text-align: center;">Focus: Assessment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 12: Visual Button Mockups -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">12</div>
+                <h2 class="section-title">Visual CTA Button Mockups</h2>
+            </div>
+
+            <!-- Primary Button Styles -->
+            <div class="cta-card" style="margin-bottom: 32px;">
+                <div class="cta-card-header">
+                    <h3>Primary Button Styles</h3>
+                    <span class="badge">GOLD ON NAVY</span>
+                </div>
+                <div class="cta-card-body">
+                    <div class="button-showcase">
+                        <div class="button-mockup">
+                            <button class="cta-btn cta-btn-primary cta-btn-large">
+                                Get ROI Preview
+                            </button>
+                            <div class="label">Large Primary</div>
+                        </div>
+                        <div class="button-mockup">
+                            <button class="cta-btn cta-btn-primary">
+                                Get ROI Preview
+                            </button>
+                            <div class="label">Standard Primary</div>
+                        </div>
+                        <div class="button-mockup">
+                            <button class="cta-btn cta-btn-primary cta-btn-small">
+                                Get ROI Preview
+                            </button>
+                            <div class="label">Small Primary</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary Button Styles -->
+            <div class="cta-card" style="margin-bottom: 32px;">
+                <div class="cta-card-header">
+                    <h3>Secondary Button Styles</h3>
+                    <span class="badge">NAVY SOLID</span>
+                </div>
+                <div class="cta-card-body">
+                    <div class="button-showcase">
+                        <div class="button-mockup">
+                            <button class="cta-btn cta-btn-secondary cta-btn-large">
+                                Schedule Consultation
+                            </button>
+                            <div class="label">Large Secondary</div>
+                        </div>
+                        <div class="button-mockup">
+                            <button class="cta-btn cta-btn-secondary">
+                                Schedule Consultation
+                            </button>
+                            <div class="label">Standard Secondary</div>
+                        </div>
+                        <div class="button-mockup">
+                            <button class="cta-btn cta-btn-secondary cta-btn-small">
+                                Schedule Consultation
+                            </button>
+                            <div class="label">Small Secondary</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outline Button Styles -->
+            <div class="cta-card" style="margin-bottom: 32px;">
+                <div class="cta-card-header">
+                    <h3>Outline Button Styles</h3>
+                    <span class="badge">BORDERS</span>
+                </div>
+                <div class="cta-card-body">
+                    <div class="button-showcase">
+                        <div class="button-mockup">
+                            <button class="cta-btn cta-btn-outline cta-btn-large">
+                                Learn More
+                            </button>
+                            <div class="label">Navy Outline</div>
+                        </div>
+                        <div class="button-mockup" style="background: var(--navy); padding: 20px; border-radius: 8px;">
+                            <button class="cta-btn cta-btn-gold-outline cta-btn-large">
+                                Learn More
+                            </button>
+                            <div class="label" style="color: var(--white);">Gold Outline (on Dark)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animated Button Styles -->
+            <div class="cta-card" style="margin-bottom: 32px;">
+                <div class="cta-card-header">
+                    <h3>Animated Button Styles</h3>
+                    <span class="badge">MOTION</span>
+                </div>
+                <div class="cta-card-body">
+                    <div class="button-showcase">
+                        <div class="button-mockup">
+                            <button class="cta-btn cta-btn-primary cta-btn-large shimmer-btn">
+                                Preview Revenue
+                            </button>
+                            <div class="label">Shimmer Effect</div>
+                        </div>
+                        <div class="button-mockup">
+                            <button class="cta-btn cta-btn-primary cta-btn-large pulse-animation">
+                                Calculate Savings
+                            </button>
+                            <div class="label">Pulse Animation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button with Icons -->
+            <div class="cta-card" style="margin-bottom: 32px;">
+                <div class="cta-card-header">
+                    <h3>Buttons with Icons</h3>
+                    <span class="badge">ENHANCED</span>
+                </div>
+                <div class="cta-card-body">
+                    <div class="button-showcase">
+                        <div class="button-mockup">
+                            <button class="cta-btn cta-btn-primary cta-btn-large">
+                                Get ROI Preview
+                                <span>&#8594;</span>
+                            </button>
+                            <div class="label">Arrow Right</div>
+                        </div>
+                        <div class="button-mockup">
+                            <button class="cta-btn cta-btn-primary cta-btn-large">
+                                <span>&#128200;</span>
+                                Calculate Savings
+                            </button>
+                            <div class="label">Chart Icon</div>
+                        </div>
+                        <div class="button-mockup">
+                            <button class="cta-btn cta-btn-secondary cta-btn-large">
+                                <span>&#128197;</span>
+                                Schedule Call
+                            </button>
+                            <div class="label">Calendar Icon</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button States -->
+            <div class="cta-card">
+                <div class="cta-card-header">
+                    <h3>Button States Reference</h3>
+                    <span class="badge">STATES</span>
+                </div>
+                <div class="cta-card-body">
+                    <div class="button-showcase">
+                        <div class="button-mockup">
+                            <button class="cta-btn cta-btn-primary cta-btn-large">
+                                Default State
+                            </button>
+                            <div class="label">Normal</div>
+                        </div>
+                        <div class="button-mockup">
+                            <button class="cta-btn cta-btn-primary cta-btn-large" style="background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212, 168, 83, 0.4);">
+                                Hover State
+                            </button>
+                            <div class="label">Hover</div>
+                        </div>
+                        <div class="button-mockup">
+                            <button class="cta-btn cta-btn-primary cta-btn-large" style="opacity: 0.7; transform: scale(0.98);">
+                                Active State
+                            </button>
+                            <div class="label">Active/Pressed</div>
+                        </div>
+                        <div class="button-mockup">
+                            <button class="cta-btn cta-btn-primary cta-btn-large" style="opacity: 0.5; cursor: not-allowed;">
+                                Disabled State
+                            </button>
+                            <div class="label">Disabled</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Implementation Guidelines -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">&#9733;</div>
+                <h2 class="section-title">CTA Implementation Guidelines</h2>
+            </div>
+
+            <div class="cta-grid">
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Placement Best Practices</h3>
+                    </div>
+                    <div class="cta-card-body">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
+                                <strong style="color: var(--navy);">Hero Section:</strong> Primary CTA above the fold, secondary CTA below
+                            </li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
+                                <strong style="color: var(--navy);">Inline CTAs:</strong> Place after key value propositions or social proof
+                            </li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
+                                <strong style="color: var(--navy);">Sidebar CTAs:</strong> Keep visible during scroll, refresh content every 2-3 screens
+                            </li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
+                                <strong style="color: var(--navy);">Footer CTA:</strong> Strong closer with urgency or social proof
+                            </li>
+                            <li style="padding: 12px 0;">
+                                <strong style="color: var(--navy);">Exit-Intent:</strong> Trigger at 40% scroll + mouse exit, show once per session
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Copy Guidelines</h3>
+                    </div>
+                    <div class="cta-card-body">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
+                                <strong style="color: var(--navy);">Action Words:</strong> Get, Calculate, Preview, See, Model, Start
+                            </li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
+                                <strong style="color: var(--navy);">Value Words:</strong> Free, Your, ROI, Savings, Growth, Certainty
+                            </li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
+                                <strong style="color: var(--navy);">Length:</strong> 3-6 words for primary CTAs, up to 8 for secondary
+                            </li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
+                                <strong style="color: var(--navy);">Subtext:</strong> Always include supporting copy below primary CTAs
+                            </li>
+                            <li style="padding: 12px 0;">
+                                <strong style="color: var(--navy);">Personalization:</strong> Use "My" and "Your" for ownership language
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>A/B Testing Priority</h3>
+                    </div>
+                    <div class="cta-card-body">
+                        <ol style="padding-left: 20px;">
+                            <li style="padding: 8px 0; color: var(--navy);">
+                                <strong>Hero CTA copy</strong> - highest traffic, most impact
+                            </li>
+                            <li style="padding: 8px 0; color: var(--navy);">
+                                <strong>Button color/style</strong> - primary vs animated
+                            </li>
+                            <li style="padding: 8px 0; color: var(--navy);">
+                                <strong>Exit-intent offer</strong> - ROI preview vs strategy session
+                            </li>
+                            <li style="padding: 8px 0; color: var(--navy);">
+                                <strong>Sidebar CTA position</strong> - top vs middle placement
+                            </li>
+                            <li style="padding: 8px 0; color: var(--navy);">
+                                <strong>Mobile CTA type</strong> - fixed bottom vs floating
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <div class="cta-card-header">
+                        <h3>Tracking Requirements</h3>
+                    </div>
+                    <div class="cta-card-body">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
+                                <strong style="color: var(--navy);">Click Events:</strong> Track all CTA clicks with location context
+                            </li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
+                                <strong style="color: var(--navy);">Scroll Depth:</strong> Correlate CTA visibility with conversion
+                            </li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
+                                <strong style="color: var(--navy);">Device Type:</strong> Segment mobile vs desktop performance
+                            </li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
+                                <strong style="color: var(--navy);">Time on Page:</strong> Track engagement before CTA interaction
+                            </li>
+                            <li style="padding: 12px 0;">
+                                <strong style="color: var(--navy);">Exit-Intent:</strong> Track popup views, closes, and conversions
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 60px 40px; background: var(--navy); color: var(--white); border-radius: 16px; margin-top: 40px;">
+            <h2 style="margin-bottom: 16px;">ScaleUp Ventures</h2>
+            <p style="color: var(--gold); font-size: 1.2rem; margin-bottom: 8px;">Certainty First.</p>
+            <p style="opacity: 0.7;">Service Page CTAs with ROI Preview - Complete Collection</p>
+            <p style="opacity: 0.5; font-size: 0.85rem; margin-top: 24px;">Generated December 31, 2025</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,2044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>55+ Accessibility Design Guide | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --gold-light: #E8C97A;
+            --gold-dark: #B8923F;
+            --white: #FFFFFF;
+            --gray-50: #F8F9FA;
+            --gray-100: #F1F3F5;
+            --gray-200: #E9ECEF;
+            --gray-300: #DEE2E6;
+            --gray-600: #6C757D;
+            --gray-800: #343A40;
+            --success: #28A745;
+            --warning: #FFC107;
+            --danger: #DC3545;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--navy);
+            background: var(--white);
+        }
+
+        /* Header */
+        .header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 48px 24px;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 32px;
+            letter-spacing: 0.5px;
+        }
+
+        .header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .header-subtitle {
+            font-size: 22px;
+            color: var(--gray-300);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: var(--gray-50);
+            border-bottom: 2px solid var(--gray-200);
+            padding: 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            padding: 12px 20px;
+            background: var(--white);
+            border: 2px solid var(--gray-300);
+            border-radius: 8px;
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+            outline: 3px solid var(--gold-light);
+            outline-offset: 2px;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 64px;
+            scroll-margin-top: 120px;
+        }
+
+        .section-number {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-family: 'Crimson Pro', serif;
+            font-size: 18px;
+            font-weight: 700;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-bottom: 16px;
+        }
+
+        .section h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+
+        .section h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--navy);
+            margin: 32px 0 16px 0;
+            line-height: 1.4;
+        }
+
+        .section p {
+            margin-bottom: 20px;
+            color: var(--gray-800);
+        }
+
+        /* Introduction Box */
+        .intro-box {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 48px;
+        }
+
+        .intro-box h2 {
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .intro-box p {
+            color: var(--gray-200);
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        .intro-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 24px;
+            background: rgba(212, 168, 83, 0.15);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 168, 83, 0.3);
+        }
+
+        .stat-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--gray-300);
+        }
+
+        /* Specification Tables */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 17px;
+        }
+
+        .spec-table th,
+        .spec-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .spec-table th {
+            background: var(--navy);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .spec-table th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+
+        .spec-table th:last-child {
+            border-radius: 0 8px 0 0;
+        }
+
+        .spec-table tr:hover {
+            background: var(--gray-50);
+        }
+
+        .spec-table td:first-child {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .spec-value {
+            font-family: 'DM Sans', monospace;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Requirement Cards */
+        .requirement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .requirement-card {
+            background: var(--gray-50);
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.2s ease;
+        }
+
+        .requirement-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.1);
+        }
+
+        .requirement-card h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .requirement-card .value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gold-dark);
+            margin-bottom: 12px;
+        }
+
+        .requirement-card p {
+            font-size: 16px;
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        /* Color Contrast Demo */
+        .contrast-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .contrast-example {
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .contrast-example.pass {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .contrast-example.pass-gold {
+            background: var(--navy);
+            color: var(--gold);
+        }
+
+        .contrast-example.fail {
+            background: var(--gray-300);
+            color: var(--gray-600);
+        }
+
+        .contrast-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            opacity: 0.8;
+        }
+
+        .contrast-text {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .contrast-ratio {
+            font-size: 16px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .contrast-example.pass .contrast-ratio,
+        .contrast-example.pass-gold .contrast-ratio {
+            background: var(--success);
+            color: var(--white);
+        }
+
+        .contrast-example.fail .contrast-ratio {
+            background: var(--danger);
+            color: var(--white);
+        }
+
+        /* Touch Target Demo */
+        .touch-demo {
+            background: var(--gray-100);
+            padding: 40px;
+            border-radius: 12px;
+            margin: 32px 0;
+        }
+
+        .touch-demo h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 22px;
+            margin-bottom: 24px;
+            color: var(--navy);
+        }
+
+        .touch-comparison {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .touch-item {
+            text-align: center;
+        }
+
+        .touch-target {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .touch-target.small {
+            width: 32px;
+            height: 32px;
+            font-size: 12px;
+        }
+
+        .touch-target.minimum {
+            width: 44px;
+            height: 44px;
+            font-size: 14px;
+        }
+
+        .touch-target.recommended {
+            width: 48px;
+            height: 48px;
+            font-size: 16px;
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .touch-label {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .touch-status {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 12px;
+            margin-top: 8px;
+            display: inline-block;
+        }
+
+        .touch-status.fail {
+            background: #FFEAEA;
+            color: var(--danger);
+        }
+
+        .touch-status.pass {
+            background: #E8F5E9;
+            color: var(--success);
+        }
+
+        /* Link Styling Demo */
+        .link-demo {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 24px 0;
+        }
+
+        .link-example {
+            padding: 20px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+        }
+
+        .link-example:last-child {
+            margin-bottom: 0;
+        }
+
+        .link-example.bad {
+            background: #FFF5F5;
+            border-left: 4px solid var(--danger);
+        }
+
+        .link-example.good {
+            background: #F0FFF4;
+            border-left: 4px solid var(--success);
+        }
+
+        .link-example-label {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .link-example.bad .link-example-label {
+            color: var(--danger);
+        }
+
+        .link-example.good .link-example-label {
+            color: var(--success);
+        }
+
+        .link-example p {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .link-bad {
+            color: var(--navy);
+            text-decoration: none;
+        }
+
+        .link-good {
+            color: #0066CC;
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
+        }
+
+        .link-good:hover {
+            color: #004499;
+            text-decoration-thickness: 3px;
+        }
+
+        /* Form Demo */
+        .form-demo {
+            background: var(--gray-50);
+            padding: 40px;
+            border-radius: 12px;
+            margin: 32px 0;
+        }
+
+        .form-group {
+            margin-bottom: 28px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .form-hint {
+            font-size: 15px;
+            color: var(--gray-600);
+            margin-bottom: 10px;
+        }
+
+        .form-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 16px 20px;
+            font-size: 18px;
+            font-family: 'DM Sans', sans-serif;
+            border: 2px solid var(--gray-300);
+            border-radius: 8px;
+            color: var(--navy);
+            background: var(--white);
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(212, 168, 83, 0.3);
+        }
+
+        .form-input.error {
+            border-color: var(--danger);
+        }
+
+        .form-input.error:focus {
+            box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.2);
+        }
+
+        .form-error {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-top: 10px;
+            padding: 12px 16px;
+            background: #FFF5F5;
+            border-radius: 6px;
+            border-left: 4px solid var(--danger);
+        }
+
+        .error-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            background: var(--danger);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .error-text {
+            font-size: 16px;
+            color: var(--danger);
+            font-weight: 500;
+        }
+
+        /* Checklist */
+        .checklist {
+            background: var(--white);
+            border: 3px solid var(--gold);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 32px 0;
+        }
+
+        .checklist h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 28px;
+            color: var(--navy);
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .checklist-category {
+            margin-bottom: 32px;
+        }
+
+        .checklist-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .checklist-category h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 22px;
+            color: var(--navy);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .category-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gold);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .checklist-items {
+            list-style: none;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checkbox {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border: 3px solid var(--gold);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .checkbox:hover {
+            background: rgba(212, 168, 83, 0.2);
+        }
+
+        .checkbox.checked {
+            background: var(--gold);
+        }
+
+        .checkbox.checked::after {
+            content: "\\2713";
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .checklist-text {
+            font-size: 17px;
+            color: var(--gray-800);
+            line-height: 1.6;
+        }
+
+        /* Do/Don't Grid */
+        .do-dont-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .do-card,
+        .dont-card {
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .do-card {
+            background: #F0FFF4;
+            border: 2px solid var(--success);
+        }
+
+        .dont-card {
+            background: #FFF5F5;
+            border: 2px solid var(--danger);
+        }
+
+        .do-card h4,
+        .dont-card h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 22px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .do-card h4 {
+            color: var(--success);
+        }
+
+        .dont-card h4 {
+            color: var(--danger);
+        }
+
+        .do-card ul,
+        .dont-card ul {
+            list-style: none;
+        }
+
+        .do-card li,
+        .dont-card li {
+            padding: 10px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .do-card li::before {
+            content: "\\2713";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        .dont-card li::before {
+            content: "\\2717";
+            position: absolute;
+            left: 0;
+            color: var(--danger);
+            font-weight: 700;
+        }
+
+        /* Callout Boxes */
+        .callout {
+            padding: 28px;
+            border-radius: 12px;
+            margin: 28px 0;
+        }
+
+        .callout.info {
+            background: linear-gradient(135deg, rgba(15, 23, 41, 0.05) 0%, rgba(15, 23, 41, 0.02) 100%);
+            border-left: 4px solid var(--navy);
+        }
+
+        .callout.warning {
+            background: #FFF8E6;
+            border-left: 4px solid var(--warning);
+        }
+
+        .callout.tip {
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.15) 0%, rgba(212, 168, 83, 0.05) 100%);
+            border-left: 4px solid var(--gold);
+        }
+
+        .callout-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .callout p {
+            margin: 0;
+            font-size: 17px;
+        }
+
+        /* Reading Level Demo */
+        .reading-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .reading-example {
+            padding: 28px;
+            border-radius: 12px;
+            border: 2px solid var(--gray-200);
+        }
+
+        .reading-example.complex {
+            border-color: var(--danger);
+            background: #FFF5F5;
+        }
+
+        .reading-example.simple {
+            border-color: var(--success);
+            background: #F0FFF4;
+        }
+
+        .reading-label {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .reading-example.complex .reading-label {
+            color: var(--danger);
+        }
+
+        .reading-example.simple .reading-label {
+            color: var(--success);
+        }
+
+        .reading-example p {
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 48px 24px;
+            margin-top: 64px;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .footer p {
+            color: var(--gray-300);
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+
+        .footer-note {
+            font-size: 14px;
+            color: var(--gray-600);
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav-container {
+                display: none;
+            }
+
+            .section {
+                break-inside: avoid;
+            }
+
+            .checkbox {
+                border: 2px solid var(--navy);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .section h2 {
+                font-size: 30px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+            }
+
+            .nav-link {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .intro-box {
+                padding: 28px;
+            }
+
+            .stat-number {
+                font-size: 32px;
+            }
+
+            .checklist {
+                padding: 24px;
+            }
+
+            .spec-table {
+                font-size: 15px;
+            }
+
+            .spec-table th,
+            .spec-table td {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">ScaleUp Ventures</div>
+            <h1>55+ Accessibility Design Guide</h1>
+            <p class="header-subtitle">Designing digital experiences that respect the needs of business owners aged 50-65</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <div class="nav-title">Quick Navigation</div>
+            <div class="nav-links">
+                <a href="#why-accessibility" class="nav-link">Why It Matters</a>
+                <a href="#font-sizes" class="nav-link">Font Sizes</a>
+                <a href="#spacing" class="nav-link">Spacing</a>
+                <a href="#contrast" class="nav-link">Contrast</a>
+                <a href="#touch-targets" class="nav-link">Touch Targets</a>
+                <a href="#links" class="nav-link">Links</a>
+                <a href="#forms" class="nav-link">Forms</a>
+                <a href="#errors" class="nav-link">Errors</a>
+                <a href="#navigation" class="nav-link">Navigation</a>
+                <a href="#reading-level" class="nav-link">Reading Level</a>
+                <a href="#checklist" class="nav-link">Checklist</a>
+                <a href="#mistakes" class="nav-link">Mistakes</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Introduction -->
+        <div class="intro-box">
+            <h2>Our Audience Deserves Better Design</h2>
+            <p>ScaleUp Ventures serves business owners aged 50-65 who have built successful companies and are now looking to scale or exit. This audience has different accessibility needs than younger users, and meeting those needs is not just ethical; it is essential for business success.</p>
+            <div class="intro-stats">
+                <div class="stat-item">
+                    <span class="stat-number">83%</span>
+                    <span class="stat-label">of 55+ users abandon sites with poor accessibility</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">93%</span>
+                    <span class="stat-label">experience some form of vision change by age 55</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$15T</span>
+                    <span class="stat-label">in annual purchasing power for 50+ consumers</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Why Accessibility Matters -->
+        <section class="section" id="why-accessibility">
+            <div class="section-number">1</div>
+            <h2>Why Accessibility Matters for This Audience</h2>
+
+            <p>Business owners in the 50-65 age range are at the peak of their professional power but are also experiencing natural age-related changes that affect how they interact with digital products. Understanding these changes is the foundation of good design.</p>
+
+            <h3>Common Age-Related Changes</h3>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Change</th>
+                        <th>Impact on Users</th>
+                        <th>Design Response</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Presbyopia</td>
+                        <td>Difficulty focusing on near objects; need for reading glasses</td>
+                        <td>Larger text, adjustable sizing</td>
+                    </tr>
+                    <tr>
+                        <td>Reduced Contrast Sensitivity</td>
+                        <td>Harder to distinguish similar colors and low-contrast text</td>
+                        <td>High contrast ratios, clear boundaries</td>
+                    </tr>
+                    <tr>
+                        <td>Slower Processing Speed</td>
+                        <td>Need more time to process information and make decisions</td>
+                        <td>Generous timeouts, clear confirmations</td>
+                    </tr>
+                    <tr>
+                        <td>Reduced Fine Motor Control</td>
+                        <td>Less precise tapping and clicking, especially on mobile</td>
+                        <td>Larger touch targets, spacing between clickables</td>
+                    </tr>
+                    <tr>
+                        <td>Working Memory Changes</td>
+                        <td>Harder to hold multiple pieces of information at once</td>
+                        <td>Progressive disclosure, clear progress indicators</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout tip">
+                <div class="callout-title">Business Reality</div>
+                <p>Our audience controls significant assets and makes major business decisions. Poor accessibility does not just frustrate them; it signals that we do not understand or respect their needs. This directly impacts trust and conversion.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Font Sizes -->
+        <section class="section" id="font-sizes">
+            <div class="section-number">2</div>
+            <h2>Minimum Font Sizes</h2>
+
+            <p>Typography size is the most critical accessibility factor for our audience. These are non-negotiable minimums for all ScaleUp Ventures digital properties.</p>
+
+            <div class="requirement-grid">
+                <div class="requirement-card">
+                    <h4>Body Text</h4>
+                    <div class="value">18px minimum</div>
+                    <p>All paragraph text, descriptions, and general content. 20px preferred for longer reading.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>Headlines (H1)</h4>
+                    <div class="value">36-48px</div>
+                    <p>Page titles and primary headlines. Must be clearly distinguishable from body text.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>Subheadings (H2-H3)</h4>
+                    <div class="value">24-32px</div>
+                    <p>Section headers and content divisions. Clear hierarchy is essential.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>Navigation Links</h4>
+                    <div class="value">16px minimum</div>
+                    <p>Menu items and navigation elements. Combined with adequate spacing.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>Button Text</h4>
+                    <div class="value">16px minimum</div>
+                    <p>All button labels and calls to action. Font weight of 500 or higher.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>Form Labels</h4>
+                    <div class="value">16px minimum</div>
+                    <p>Input labels and field descriptions. Bold weight for labels.</p>
+                </div>
+            </div>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Minimum Size</th>
+                        <th>Preferred Size</th>
+                        <th>Font Family</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Page Title (H1)</td>
+                        <td><span class="spec-value">36px</span></td>
+                        <td>48px</td>
+                        <td>Crimson Pro</td>
+                    </tr>
+                    <tr>
+                        <td>Section Header (H2)</td>
+                        <td><span class="spec-value">28px</span></td>
+                        <td>32px</td>
+                        <td>Crimson Pro</td>
+                    </tr>
+                    <tr>
+                        <td>Subsection (H3)</td>
+                        <td><span class="spec-value">22px</span></td>
+                        <td>26px</td>
+                        <td>Crimson Pro</td>
+                    </tr>
+                    <tr>
+                        <td>Body Text</td>
+                        <td><span class="spec-value">18px</span></td>
+                        <td>20px</td>
+                        <td>DM Sans</td>
+                    </tr>
+                    <tr>
+                        <td>Small Text / Captions</td>
+                        <td><span class="spec-value">14px</span></td>
+                        <td>16px</td>
+                        <td>DM Sans</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout warning">
+                <div class="callout-title">Never Go Below 14px</div>
+                <p>Any text smaller than 14px becomes essentially unreadable for users with presbyopia, even with reading glasses. If something feels like it needs to be smaller than 14px, reconsider whether it needs to be shown at all.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Line Height and Spacing -->
+        <section class="section" id="spacing">
+            <div class="section-number">3</div>
+            <h2>Line Height and Spacing Requirements</h2>
+
+            <p>Generous spacing dramatically improves readability for all users, but especially for those with age-related vision changes. Cramped text causes eye strain and increases cognitive load.</p>
+
+            <h3>Line Height Specifications</h3>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Text Type</th>
+                        <th>Minimum Line Height</th>
+                        <th>Calculation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Body Text</td>
+                        <td><span class="spec-value">1.6 - 1.8</span></td>
+                        <td>18px text = 29-32px line height</td>
+                    </tr>
+                    <tr>
+                        <td>Headlines</td>
+                        <td><span class="spec-value">1.2 - 1.3</span></td>
+                        <td>48px text = 58-62px line height</td>
+                    </tr>
+                    <tr>
+                        <td>Lists</td>
+                        <td><span class="spec-value">1.5 - 1.6</span></td>
+                        <td>With additional spacing between items</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Paragraph and Element Spacing</h3>
+
+            <div class="requirement-grid">
+                <div class="requirement-card">
+                    <h4>Between Paragraphs</h4>
+                    <div class="value">20-28px</div>
+                    <p>Clear visual separation between text blocks aids scanning and comprehension.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>Section Spacing</h4>
+                    <div class="value">48-64px</div>
+                    <p>Major content sections need clear breathing room to establish hierarchy.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>List Item Spacing</h4>
+                    <div class="value">12-16px</div>
+                    <p>Each list item should be clearly distinct from neighbors.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>Line Length</h4>
+                    <div class="value">60-80 characters</div>
+                    <p>Optimal line length for comfortable reading without losing place.</p>
+                </div>
+            </div>
+
+            <div class="callout info">
+                <div class="callout-title">The 50% Rule</div>
+                <p>When in doubt, add 50% more spacing than you think you need. What looks "clean and tight" to a 25-year-old designer often looks cramped and overwhelming to a 55-year-old reader.</p>
+            </div>
+        </section>
+
+        <!-- Section 4: Color Contrast -->
+        <section class="section" id="contrast">
+            <div class="section-number">4</div>
+            <h2>Color Contrast Requirements and Testing</h2>
+
+            <p>Contrast sensitivity declines with age, making it harder to distinguish between similar colors. Our brand colors have been selected to meet enhanced contrast requirements.</p>
+
+            <h3>Minimum Contrast Ratios</h3>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>WCAG AA</th>
+                        <th>ScaleUp Standard (Enhanced)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Body Text</td>
+                        <td>4.5:1</td>
+                        <td><span class="spec-value">7:1</span></td>
+                    </tr>
+                    <tr>
+                        <td>Large Text (24px+)</td>
+                        <td>3:1</td>
+                        <td><span class="spec-value">4.5:1</span></td>
+                    </tr>
+                    <tr>
+                        <td>UI Components</td>
+                        <td>3:1</td>
+                        <td><span class="spec-value">4.5:1</span></td>
+                    </tr>
+                    <tr>
+                        <td>Focus Indicators</td>
+                        <td>3:1</td>
+                        <td><span class="spec-value">4.5:1</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Brand Color Contrast Examples</h3>
+
+            <div class="contrast-demo">
+                <div class="contrast-example pass">
+                    <div class="contrast-label">Navy on White</div>
+                    <div class="contrast-text">This text passes</div>
+                    <div class="contrast-ratio">15.5:1 - PASS</div>
+                </div>
+                <div class="contrast-example pass-gold">
+                    <div class="contrast-label">Gold on Navy</div>
+                    <div class="contrast-text">This text passes</div>
+                    <div class="contrast-ratio">7.2:1 - PASS</div>
+                </div>
+                <div class="contrast-example fail">
+                    <div class="contrast-label">Gray on Gray</div>
+                    <div class="contrast-text">This text fails</div>
+                    <div class="contrast-ratio">2.1:1 - FAIL</div>
+                </div>
+            </div>
+
+            <h3>Contrast Testing Tools</h3>
+
+            <div class="requirement-grid">
+                <div class="requirement-card">
+                    <h4>WebAIM Contrast Checker</h4>
+                    <p>Free web tool for testing color combinations against WCAG standards. Enter hex codes to get instant ratio.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>Stark (Figma/Sketch Plugin)</h4>
+                    <p>Integrated design tool for checking contrast as you work. Essential for designers.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>WAVE Browser Extension</h4>
+                    <p>Full page accessibility audit including contrast issues. Use on staging before launch.</p>
+                </div>
+            </div>
+
+            <div class="callout tip">
+                <div class="callout-title">Test in Context</div>
+                <p>Always test contrast on actual screens in various lighting conditions. What passes in a dark office may fail in bright sunlight on a mobile device, which is often how our audience reviews materials.</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Touch Targets -->
+        <section class="section" id="touch-targets">
+            <div class="section-number">5</div>
+            <h2>Touch Target Sizes for Mobile</h2>
+
+            <p>Reduced fine motor control and slightly less precise touch make larger tap targets essential. Small buttons are the number one frustration for 55+ mobile users.</p>
+
+            <div class="touch-demo">
+                <h4>Touch Target Size Comparison</h4>
+                <div class="touch-comparison">
+                    <div class="touch-item">
+                        <div class="touch-target small">x</div>
+                        <div class="touch-label">32x32px</div>
+                        <div class="touch-status fail">Too Small</div>
+                    </div>
+                    <div class="touch-item">
+                        <div class="touch-target minimum">OK</div>
+                        <div class="touch-label">44x44px</div>
+                        <div class="touch-status pass">WCAG Minimum</div>
+                    </div>
+                    <div class="touch-item">
+                        <div class="touch-target recommended">Best</div>
+                        <div class="touch-label">48x48px</div>
+                        <div class="touch-status pass">Recommended</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Touch Target Requirements</h3>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Minimum Size</th>
+                        <th>Minimum Spacing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Primary Buttons (CTA)</td>
+                        <td><span class="spec-value">48x48px</span></td>
+                        <td>16px between buttons</td>
+                    </tr>
+                    <tr>
+                        <td>Secondary Buttons</td>
+                        <td><span class="spec-value">44x44px</span></td>
+                        <td>12px between buttons</td>
+                    </tr>
+                    <tr>
+                        <td>Navigation Links</td>
+                        <td><span class="spec-value">44x44px</span></td>
+                        <td>8px minimum between items</td>
+                    </tr>
+                    <tr>
+                        <td>Form Checkboxes/Radios</td>
+                        <td><span class="spec-value">24x24px</span> (visual) + padding</td>
+                        <td>Clickable area 44x44px</td>
+                    </tr>
+                    <tr>
+                        <td>Close/Dismiss Buttons</td>
+                        <td><span class="spec-value">44x44px</span></td>
+                        <td>Clear of other interactive elements</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout warning">
+                <div class="callout-title">The Spacing Is As Important As the Size</div>
+                <p>A 48px button next to another 48px button with only 4px gap will still cause mis-taps. Adequate spacing between touch targets is essential to prevent accidental activation of the wrong element.</p>
+            </div>
+        </section>
+
+        <!-- Section 6: Link Styling -->
+        <section class="section" id="links">
+            <div class="section-number">6</div>
+            <h2>Link Styling for Visibility</h2>
+
+            <p>Links must be identifiable through more than just color. Users with reduced color perception need additional visual cues to distinguish links from regular text.</p>
+
+            <div class="link-demo">
+                <div class="link-example bad">
+                    <div class="link-example-label">Avoid: Color-Only Links</div>
+                    <p>Learn more about our services and <a href="#" class="link-bad">investment approach</a> for business owners looking to scale.</p>
+                </div>
+                <div class="link-example good">
+                    <div class="link-example-label">Correct: Underlined + Color</div>
+                    <p>Learn more about our services and <a href="#" class="link-good">investment approach</a> for business owners looking to scale.</p>
+                </div>
+            </div>
+
+            <h3>Link Styling Requirements</h3>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>State</th>
+                        <th>Visual Treatment</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Default</td>
+                        <td>Blue (#0066CC) + underline (2px)</td>
+                        <td>Clearly distinguishable from body text</td>
+                    </tr>
+                    <tr>
+                        <td>Hover</td>
+                        <td>Darker blue (#004499) + thicker underline (3px)</td>
+                        <td>Confirms interactivity on desktop</td>
+                    </tr>
+                    <tr>
+                        <td>Focus</td>
+                        <td>Visible focus ring (3px solid, offset 2px)</td>
+                        <td>Keyboard navigation indicator</td>
+                    </tr>
+                    <tr>
+                        <td>Visited</td>
+                        <td>Purple (#551A8B) + underline</td>
+                        <td>Indicates previously clicked links</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="do-dont-grid">
+                <div class="do-card">
+                    <h4>&#10003; Do</h4>
+                    <ul>
+                        <li>Always underline links in body text</li>
+                        <li>Use descriptive link text ("Read the full report")</li>
+                        <li>Maintain consistent link styling across the site</li>
+                        <li>Ensure links have visible focus states</li>
+                        <li>Make link text meaningful out of context</li>
+                    </ul>
+                </div>
+                <div class="dont-card">
+                    <h4>&#10007; Don't</h4>
+                    <ul>
+                        <li>Rely only on color to indicate links</li>
+                        <li>Use "click here" or "learn more" alone</li>
+                        <li>Remove underlines for "cleaner" design</li>
+                        <li>Use colors too similar to body text</li>
+                        <li>Create links that look like buttons (or vice versa)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Form Design -->
+        <section class="section" id="forms">
+            <div class="section-number">7</div>
+            <h2>Form Field Design Guidelines</h2>
+
+            <p>Forms are high-stakes interactions. Poor form design leads to errors, frustration, and abandonment. Our audience expects forms that respect their time and cognitive load.</p>
+
+            <div class="form-demo">
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <div class="form-hint">We will use this to send your account information</div>
+                    <input type="email" id="email" class="form-input" placeholder="name@company.com">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="phone">Phone Number</label>
+                    <div class="form-hint">Format: (555) 555-5555</div>
+                    <input type="tel" id="phone" class="form-input error" value="555-1234">
+                    <div class="form-error">
+                        <div class="error-icon">!</div>
+                        <div class="error-text">Please enter a complete phone number with area code, for example: (555) 555-5555</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Form Design Requirements</h3>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Requirement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Labels</td>
+                        <td>Always visible (no placeholder-only labels). 16px minimum, bold weight.</td>
+                    </tr>
+                    <tr>
+                        <td>Input Fields</td>
+                        <td>48px minimum height. 16px+ text. 2px+ border. High contrast border.</td>
+                    </tr>
+                    <tr>
+                        <td>Placeholder Text</td>
+                        <td>Show format examples, not labels. Use gray that passes contrast.</td>
+                    </tr>
+                    <tr>
+                        <td>Helper Text</td>
+                        <td>Position below label, above input. Explain format requirements upfront.</td>
+                    </tr>
+                    <tr>
+                        <td>Focus States</td>
+                        <td>Visible focus ring (3px+). Color change on border. No subtle-only indicators.</td>
+                    </tr>
+                    <tr>
+                        <td>Field Spacing</td>
+                        <td>24px minimum between form groups. Clear visual grouping.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout tip">
+                <div class="callout-title">One Column, Always</div>
+                <p>Multi-column form layouts cause cognitive overhead and increase error rates for all users. For our 55+ audience, always use single-column forms with clear top-to-bottom progression.</p>
+            </div>
+        </section>
+
+        <!-- Section 8: Error Messages -->
+        <section class="section" id="errors">
+            <div class="section-number">8</div>
+            <h2>Error Message Clarity</h2>
+
+            <p>Error messages must be immediate, specific, and helpful. Vague errors waste time and increase frustration. Our audience expects professional, respectful communication even when something goes wrong.</p>
+
+            <h3>Error Message Requirements</h3>
+
+            <div class="do-dont-grid">
+                <div class="do-card">
+                    <h4>&#10003; Good Error Messages</h4>
+                    <ul>
+                        <li>"Please enter your email address in this format: name@company.com"</li>
+                        <li>"Your password must include at least 8 characters. Add 2 more characters."</li>
+                        <li>"We could not find an account with that email. Check the spelling or create a new account."</li>
+                        <li>"The phone number needs an area code. Example: (555) 555-5555"</li>
+                    </ul>
+                </div>
+                <div class="dont-card">
+                    <h4>&#10007; Bad Error Messages</h4>
+                    <ul>
+                        <li>"Invalid input"</li>
+                        <li>"Error: Please try again"</li>
+                        <li>"Field required"</li>
+                        <li>"Format incorrect"</li>
+                        <li>"Something went wrong"</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Error Display Guidelines</h3>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Requirement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Timing</td>
+                        <td>Show errors immediately after field loses focus or on submit. Never on keystroke.</td>
+                    </tr>
+                    <tr>
+                        <td>Position</td>
+                        <td>Directly below the problematic field. Never in a distant summary only.</td>
+                    </tr>
+                    <tr>
+                        <td>Visual</td>
+                        <td>Red border on field + red text + error icon. Never color alone.</td>
+                    </tr>
+                    <tr>
+                        <td>Content</td>
+                        <td>State what is wrong + how to fix it. Include example of correct format.</td>
+                    </tr>
+                    <tr>
+                        <td>Tone</td>
+                        <td>Helpful, not blaming. "Please enter..." not "You forgot..."</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout info">
+                <div class="callout-title">Prevent Errors, Do Not Just Report Them</div>
+                <p>The best error handling is error prevention. Use input masks, real-time validation, clear format examples, and smart defaults to help users enter correct information the first time.</p>
+            </div>
+        </section>
+
+        <!-- Section 9: Navigation -->
+        <section class="section" id="navigation">
+            <div class="section-number">9</div>
+            <h2>Navigation Simplicity</h2>
+
+            <p>Complex navigation taxes working memory. Our audience values efficiency and directness. Navigation should make the site structure immediately clear with minimal cognitive overhead.</p>
+
+            <h3>Navigation Principles</h3>
+
+            <div class="requirement-grid">
+                <div class="requirement-card">
+                    <h4>Maximum Items</h4>
+                    <div class="value">5-7 items</div>
+                    <p>Primary navigation should have no more than 7 top-level items. Use grouping for more.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>Depth Limit</h4>
+                    <div class="value">2 levels</div>
+                    <p>Avoid deeply nested menus. Two levels maximum for dropdown navigation.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>Current Location</h4>
+                    <div class="value">Always visible</div>
+                    <p>Users must always know where they are. Use breadcrumbs and active states.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>Consistent Position</h4>
+                    <div class="value">Fixed location</div>
+                    <p>Navigation stays in the same place across all pages. No surprises.</p>
+                </div>
+            </div>
+
+            <h3>Navigation Checklist</h3>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Requirement</th>
+                        <th>Implementation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Clear Labels</td>
+                        <td>Use plain language. "Our Services" not "Solutions Hub"</td>
+                    </tr>
+                    <tr>
+                        <td>Visual Hierarchy</td>
+                        <td>Primary nav clearly distinguished from secondary and utility nav</td>
+                    </tr>
+                    <tr>
+                        <td>Touch-Friendly Dropdowns</td>
+                        <td>Dropdowns work on tap (not just hover). Clear open/close indicators.</td>
+                    </tr>
+                    <tr>
+                        <td>Breadcrumbs</td>
+                        <td>Show path on all pages deeper than home. Clickable links to each level.</td>
+                    </tr>
+                    <tr>
+                        <td>Search</td>
+                        <td>Prominent search for sites with significant content. Large input field.</td>
+                    </tr>
+                    <tr>
+                        <td>Skip Links</td>
+                        <td>"Skip to main content" link for keyboard users. Visible on focus.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout warning">
+                <div class="callout-title">Mobile Navigation</div>
+                <p>Hamburger menus are less intuitive for 55+ users who may not recognize the icon. Consider showing primary nav items directly on mobile when possible, or label the hamburger icon with "Menu" text.</p>
+            </div>
+        </section>
+
+        <!-- Section 10: Reading Level -->
+        <section class="section" id="reading-level">
+            <div class="section-number">10</div>
+            <h2>Reading Level Recommendations</h2>
+
+            <p>Clear, direct writing respects our audience's time and reduces cognitive load. This is not about "dumbing down" content; it is about communicating efficiently with busy professionals.</p>
+
+            <h3>Reading Level Targets</h3>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Content Type</th>
+                        <th>Target Grade Level</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Marketing Copy</td>
+                        <td><span class="spec-value">8th Grade</span></td>
+                        <td>Clear, compelling, jargon-free</td>
+                    </tr>
+                    <tr>
+                        <td>Product/Service Descriptions</td>
+                        <td><span class="spec-value">9th-10th Grade</span></td>
+                        <td>Accessible while maintaining professionalism</td>
+                    </tr>
+                    <tr>
+                        <td>Technical/Legal Content</td>
+                        <td><span class="spec-value">10th-12th Grade</span></td>
+                        <td>Necessary complexity with plain language summaries</td>
+                    </tr>
+                    <tr>
+                        <td>UI Text/Microcopy</td>
+                        <td><span class="spec-value">6th-8th Grade</span></td>
+                        <td>Action-oriented, extremely clear</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Writing Examples</h3>
+
+            <div class="reading-demo">
+                <div class="reading-example complex">
+                    <div class="reading-label">Before: Complex</div>
+                    <p>Our comprehensive suite of strategic advisory services leverages decades of accumulated expertise to facilitate optimal value realization for stakeholders seeking to effectuate transformational liquidity events.</p>
+                </div>
+                <div class="reading-example simple">
+                    <div class="reading-label">After: Clear</div>
+                    <p>We help business owners get the best possible price when selling their company. Our advisors have helped hundreds of owners through successful sales.</p>
+                </div>
+            </div>
+
+            <h3>Writing Guidelines</h3>
+
+            <div class="do-dont-grid">
+                <div class="do-card">
+                    <h4>&#10003; Do</h4>
+                    <ul>
+                        <li>Use short sentences (15-20 words average)</li>
+                        <li>Choose simple words over complex ones</li>
+                        <li>Write in active voice</li>
+                        <li>Break up long paragraphs</li>
+                        <li>Use bullet points for lists</li>
+                        <li>Define technical terms when first used</li>
+                    </ul>
+                </div>
+                <div class="dont-card">
+                    <h4>&#10007; Avoid</h4>
+                    <ul>
+                        <li>Jargon and buzzwords</li>
+                        <li>Unnecessarily long sentences</li>
+                        <li>Passive voice when active works</li>
+                        <li>Dense walls of text</li>
+                        <li>Acronyms without explanation</li>
+                        <li>Unnecessarily formal language</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="callout tip">
+                <div class="callout-title">Testing Readability</div>
+                <p>Use the Hemingway Editor (free online) to check reading level and highlight complex sentences. Aim for "Good" or better rating on most content.</p>
+            </div>
+        </section>
+
+        <!-- Section 11: Testing Checklist -->
+        <section class="section" id="checklist">
+            <div class="section-number">11</div>
+            <h2>Testing Checklist for 55+ Accessibility</h2>
+
+            <p>Use this checklist before launching any page, feature, or campaign. Every item should pass. Click checkboxes to track your audit progress.</p>
+
+            <div class="checklist">
+                <h3>Complete Accessibility Audit Checklist</h3>
+
+                <div class="checklist-category">
+                    <h4><span class="category-icon">A</span> Typography</h4>
+                    <ul class="checklist-items">
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Body text is 18px or larger</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">No text is smaller than 14px anywhere on the page</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Line height is 1.6 or greater for body text</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Line length does not exceed 80 characters</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Clear visual hierarchy between heading levels</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Sufficient spacing between paragraphs (20px+)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="checklist-category">
+                    <h4><span class="category-icon">B</span> Color and Contrast</h4>
+                    <ul class="checklist-items">
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Body text has 7:1 contrast ratio or better</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Large text (24px+) has 4.5:1 contrast ratio or better</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">UI components have 4.5:1 contrast against background</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Color is not the only means of conveying information</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Focus indicators are clearly visible (3:1+ contrast)</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Tested with color blindness simulator</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="checklist-category">
+                    <h4><span class="category-icon">C</span> Touch and Interaction</h4>
+                    <ul class="checklist-items">
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">All touch targets are 44x44px or larger</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Primary CTAs are 48x48px or larger</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Adequate spacing between clickable elements (8px+)</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Hover effects also work on tap/focus</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">No functionality requires precise gestures (pinch, swipe)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="checklist-category">
+                    <h4><span class="category-icon">D</span> Links and Navigation</h4>
+                    <ul class="checklist-items">
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Links are underlined (not color-only)</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Link text is descriptive (not "click here")</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Current location is clearly indicated</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Navigation has 7 or fewer primary items</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Breadcrumbs present on deeper pages</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Skip link available for keyboard users</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="checklist-category">
+                    <h4><span class="category-icon">E</span> Forms and Errors</h4>
+                    <ul class="checklist-items">
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">All form fields have visible labels (not placeholder-only)</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Form inputs are 48px tall or larger</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Error messages appear next to problematic field</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Error messages explain how to fix the problem</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Required fields are clearly marked</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Form uses single-column layout</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="checklist-category">
+                    <h4><span class="category-icon">F</span> Content and Language</h4>
+                    <ul class="checklist-items">
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Reading level is 10th grade or lower</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Sentences average 15-20 words</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Jargon and acronyms are explained</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Key information is at the beginning (not buried)</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Content uses bullet points and headers to break up text</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="checklist-category">
+                    <h4><span class="category-icon">G</span> Testing Methods</h4>
+                    <ul class="checklist-items">
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Tested with screen zoomed to 200%</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Tested with keyboard-only navigation</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Tested on actual mobile device (not just emulator)</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Tested with someone in target age range (50-65)</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                            <span class="checklist-text">Run automated accessibility audit (WAVE, Lighthouse)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 12: Common Mistakes -->
+        <section class="section" id="mistakes">
+            <div class="section-number">12</div>
+            <h2>Common Accessibility Mistakes to Avoid</h2>
+
+            <p>These are the most frequent accessibility failures we see in digital products targeting our demographic. Every one of these issues directly impacts user experience and business metrics.</p>
+
+            <div class="requirement-grid">
+                <div class="requirement-card" style="border-left: 4px solid var(--danger);">
+                    <h4>1. Placeholder-Only Labels</h4>
+                    <p>Using placeholder text as the only label for form fields. When users start typing, they lose context about what the field is for.</p>
+                </div>
+                <div class="requirement-card" style="border-left: 4px solid var(--danger);">
+                    <h4>2. Light Gray Text</h4>
+                    <p>Using gray text for "secondary" content that fails contrast requirements. If it is worth showing, it is worth making readable.</p>
+                </div>
+                <div class="requirement-card" style="border-left: 4px solid var(--danger);">
+                    <h4>3. Tiny Touch Targets</h4>
+                    <p>Designing for pixel precision instead of finger-friendly interactions. Common in footer links, close buttons, and pagination.</p>
+                </div>
+                <div class="requirement-card" style="border-left: 4px solid var(--danger);">
+                    <h4>4. Color-Only Indicators</h4>
+                    <p>Using red/green color alone to indicate success/error states. Users with color vision deficiency cannot distinguish these.</p>
+                </div>
+                <div class="requirement-card" style="border-left: 4px solid var(--danger);">
+                    <h4>5. Removing Underlines from Links</h4>
+                    <p>Eliminating underlines for "cleaner" design makes links invisible to users who do not perceive subtle color differences.</p>
+                </div>
+                <div class="requirement-card" style="border-left: 4px solid var(--danger);">
+                    <h4>6. Complex Navigation</h4>
+                    <p>Mega menus with dozens of options, multiple levels of nesting, and hover-triggered dropdowns that do not work on touch.</p>
+                </div>
+                <div class="requirement-card" style="border-left: 4px solid var(--danger);">
+                    <h4>7. Vague Error Messages</h4>
+                    <p>"An error occurred" or "Invalid input" without explanation of what went wrong or how to fix it.</p>
+                </div>
+                <div class="requirement-card" style="border-left: 4px solid var(--danger);">
+                    <h4>8. Auto-Playing Media</h4>
+                    <p>Videos or audio that start automatically, potentially startling users or causing confusion about the source of sound.</p>
+                </div>
+                <div class="requirement-card" style="border-left: 4px solid var(--danger);">
+                    <h4>9. Session Timeouts Without Warning</h4>
+                    <p>Logging users out or losing form data without warning. Our audience may take more time to complete tasks.</p>
+                </div>
+                <div class="requirement-card" style="border-left: 4px solid var(--danger);">
+                    <h4>10. PDF-Only Documents</h4>
+                    <p>Critical information locked in PDFs that may not be accessible or easy to read on mobile devices.</p>
+                </div>
+                <div class="requirement-card" style="border-left: 4px solid var(--danger);">
+                    <h4>11. Missing Focus States</h4>
+                    <p>Removing outline styles for "cleaner" design makes keyboard navigation impossible to use.</p>
+                </div>
+                <div class="requirement-card" style="border-left: 4px solid var(--danger);">
+                    <h4>12. Infinite Scroll</h4>
+                    <p>Continuous scrolling without pagination makes it impossible to return to a specific item or reach the footer.</p>
+                </div>
+            </div>
+
+            <div class="callout info">
+                <div class="callout-title">The Cost of These Mistakes</div>
+                <p>Each accessibility failure has a measurable business impact: increased bounce rates, lower conversion rates, more support requests, and damaged brand perception. Fixing these issues is not just ethical; it is profitable.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">ScaleUp Ventures</div>
+            <p>Accessibility is not an obstacle to good design. It is the foundation of great design.</p>
+            <p class="footer-note">55+ Accessibility Design Guide | Version 1.0 | December 2025</p>
+        </div>
+    </footer>
+
+</body>
+</html>

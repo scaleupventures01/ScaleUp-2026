@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures - Logo Generation Status</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', serif;
+            background: #f8f9fa;
+            color: #0F1729;
+            line-height: 1.7;
+            padding: 40px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        h1 { color: #0F1729; margin-bottom: 10px; }
+        .subtitle { color: #D4A853; font-size: 1.2rem; margin-bottom: 30px; }
+
+        .status-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .status-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .status-badge {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .status-error { background: #ffebee; color: #c62828; }
+        .status-pending { background: #fff3e0; color: #e65100; }
+        .status-success { background: #e8f5e9; color: #2e7d32; }
+
+        .cost-breakdown {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .cost-breakdown h3 { margin-bottom: 15px; color: #0F1729; }
+        .cost-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .cost-row:last-child { border-bottom: none; }
+        .cost-total {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #2e7d32;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 2px solid #0F1729;
+        }
+
+        .prompt-section {
+            margin-top: 30px;
+        }
+        .prompt-section h2 {
+            color: #0F1729;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .prompt-section h2 .icon {
+            width: 40px;
+            height: 40px;
+            background: #D4A853;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .prompt-card {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .prompt-card h4 {
+            color: #D4A853;
+            margin-bottom: 10px;
+        }
+        .prompt-card .description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .prompt-text {
+            background: #0F1729;
+            color: #e0e0e0;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .copy-btn {
+            background: #D4A853;
+            color: #0F1729;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .copy-btn:hover { background: #B8956E; }
+
+        .instructions {
+            background: linear-gradient(135deg, #0F1729 0%, #1a2744 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        .instructions h3 { color: #D4A853; margin-bottom: 15px; }
+        .instructions ol { margin-left: 25px; }
+        .instructions li { margin: 10px 0; }
+        .instructions a { color: #D4A853; }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        @media (max-width: 900px) {
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ScaleUp Ventures Logo Generation</h1>
+        <p class="subtitle">Status Report - December 31, 2025</p>
+
+        <!-- API Status -->
+        <div class="status-card">
+            <div class="status-header">
+                <h2>API Status</h2>
+                <span class="status-badge status-error">QUOTA EXHAUSTED</span>
+            </div>
+            <p>The Gemini API daily quota has been reached. Image generation is temporarily unavailable.</p>
+            <p style="margin-top: 10px;"><strong>Quota Reset:</strong> Midnight Pacific Time (PT)</p>
+
+            <div class="cost-breakdown">
+                <h3>Gemini API Cost Breakdown</h3>
+                <div class="cost-row">
+                    <span>API Tier</span>
+                    <span><strong>Free Tier</strong> (Google AI Studio)</span>
+                </div>
+                <div class="cost-row">
+                    <span>Model Used</span>
+                    <span>gemini-2.0-flash-exp (image generation)</span>
+                </div>
+                <div class="cost-row">
+                    <span>Successful Image Generations</span>
+                    <span>~10-15 images (V1, V2, V3 attempts)</span>
+                </div>
+                <div class="cost-row">
+                    <span>Failed Attempts (quota hit)</span>
+                    <span>6 attempts (Heron + Lynx)</span>
+                </div>
+                <div class="cost-row cost-total">
+                    <span>TOTAL COST</span>
+                    <span style="color: #2e7d32;">$0.00</span>
+                </div>
+                <p style="margin-top: 15px; font-size: 0.85rem; color: #666;">
+                    <strong>Note:</strong> Using Google AI Studio free tier. No charges incurred.
+                    Free tier includes ~1,500 requests/day with rate limits of 15 RPM.
+                </p>
+            </div>
+        </div>
+
+        <!-- Manual Generation Instructions -->
+        <div class="instructions">
+            <h3>How to Generate Logos Now (Manual)</h3>
+            <ol>
+                <li>Go to <a href="https://aistudio.google.com/" target="_blank">Google AI Studio</a></li>
+                <li>Click "Create new prompt" → Select "Freeform"</li>
+                <li>In settings (gear icon), enable "Generate images"</li>
+                <li>Select model: <strong>Gemini 2.0 Flash Experimental</strong></li>
+                <li>Copy each prompt below and paste into the prompt box</li>
+                <li>Click "Run" to generate the image</li>
+                <li>Right-click the generated image → "Save image as..."</li>
+            </ol>
+        </div>
+
+        <!-- Prompts Grid -->
+        <div class="grid-2">
+            <!-- HERON PROMPTS -->
+            <div class="prompt-section">
+                <h2><span class="icon">H</span> HERON Prompts</h2>
+
+                <div class="prompt-card">
+                    <h4>1. Minimal Geometric (Most Abstract)</h4>
+                    <p class="description">Simplified silhouette, works at favicon size</p>
+                    <div class="prompt-text">Create a professional minimalist logo for "ScaleUp Ventures" featuring an abstract heron silhouette.
+
+DESIGN:
+- Highly simplified, geometric heron using clean lines
+- Single continuous line or minimal stroke design
+- Elegant standing pose, long neck in S-shape
+- Colors: Navy (#0F1729) heron, gold (#D4A853) accent on beak/eye
+- Pure white background (#FFFFFF)
+- "ScaleUp Ventures" below in elegant serif font
+
+STYLE: Corporate, sophisticated, Saul Bass aesthetic
+NOT cartoonish or cute. Must work at 16x16px.</div>
+                    <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+                </div>
+
+                <div class="prompt-card">
+                    <h4>2. Elegant Standing Profile (Medium Detail)</h4>
+                    <p class="description">Classic pose, recognizable but stylized</p>
+                    <div class="prompt-text">Create a professional logo for "ScaleUp Ventures" featuring an elegant heron in standing profile.
+
+DESIGN:
+- Heron in classic standing pose, facing left
+- Medium detail - recognizable but stylized
+- Long elegant neck with gentle S-curve
+- Sharp pointed beak suggesting precision
+- Slender legs, possibly in stylized water ripple
+- Navy (#0F1729) primary, gold (#D4A853) accent
+- White background, serif typography
+
+STYLE: Refined, dignified, heritage brand aesthetic
+Evokes patience and precision. NOT aggressive.</div>
+                    <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+                </div>
+
+                <div class="prompt-card">
+                    <h4>3. Strike Pose (Most Detailed)</h4>
+                    <p class="description">Dynamic action moment, decisive strike</p>
+                    <div class="prompt-text">Create a professional logo for "ScaleUp Ventures" featuring a heron in dynamic strike pose.
+
+DESIGN:
+- Heron at moment of striking - neck extended, beak down
+- Suggests decisive action after patient observation
+- Optional: small fish or water splash
+- More detailed while maintaining logo clarity
+- Navy (#0F1729) heron, gold (#D4A853) accents
+- White background, company name positioned well
+
+STYLE: Dynamic yet controlled, precision in motion
+Represents "patience then decisive action"
+Premium quality, corporate appropriate.</div>
+                    <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+                </div>
+            </div>
+
+            <!-- LYNX PROMPTS -->
+            <div class="prompt-section">
+                <h2><span class="icon">L</span> LYNX Prompts</h2>
+
+                <div class="prompt-card">
+                    <h4>1. Minimal Eyes Only (Most Abstract)</h4>
+                    <p class="description">Piercing gaze only, maximum impact</p>
+                    <div class="prompt-text">Create a professional minimalist logo for "ScaleUp Ventures" featuring abstract lynx eyes.
+
+DESIGN:
+- Just the piercing eyes of a lynx, nothing else
+- Almond-shaped, intense, knowing gaze
+- Gold (#D4A853) irises representing valuable insight
+- Navy (#0F1729) pupils and minimal outline
+- Pure white background (#FFFFFF)
+- "ScaleUp Ventures" in elegant serif below
+
+STYLE: Maximum simplicity, works at favicon size
+Mysterious, all-seeing, powerful
+NOT cute or cartoonish. Corporate appropriate.</div>
+                    <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+                </div>
+
+                <div class="prompt-card">
+                    <h4>2. Profile with Tufted Ears (Medium Detail)</h4>
+                    <p class="description">Side profile showcasing distinctive ears</p>
+                    <div class="prompt-text">Create a professional logo for "ScaleUp Ventures" featuring a lynx head in profile.
+
+DESIGN:
+- Left-facing profile view of lynx head
+- Prominent tufted ears (the lynx's signature)
+- Single visible eye with gold (#D4A853) iris
+- Clean geometric rendering, stylized
+- Navy (#0F1729) primary color
+- White background, elegant serif typography
+
+STYLE: Refined, observant, Saul Bass aesthetic
+Suggests seeing what others miss
+NOT aggressive or threatening. Wise guardian.</div>
+                    <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+                </div>
+
+                <div class="prompt-card">
+                    <h4>3. Front-Facing Intense (Most Detailed)</h4>
+                    <p class="description">Full face, direct authoritative stare</p>
+                    <div class="prompt-text">Create a professional logo for "ScaleUp Ventures" featuring a front-facing lynx head.
+
+DESIGN:
+- Full front-facing lynx head
+- Direct, intense stare - authoritative presence
+- Both tufted ears prominently displayed
+- Gold (#D4A853) eyes as focal point
+- Navy (#0F1729) fur rendering, stylized
+- White background, balanced composition
+- Company name in elegant serif font
+
+STYLE: Powerful but wise, not aggressive
+"The keeper of secrets" - sees hidden truths
+Premium corporate quality, sophisticated.</div>
+                    <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brand Reference -->
+        <div class="status-card" style="margin-top: 30px;">
+            <h3 style="margin-bottom: 15px;">Brand Color Reference</h3>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #0F1729; border-radius: 8px;"></div>
+                    <div style="margin-top: 8px; font-size: 0.85rem;">Navy<br>#0F1729</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #D4A853; border-radius: 8px;"></div>
+                    <div style="margin-top: 8px; font-size: 0.85rem;">Gold<br>#D4A853</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #FFFFFF; border: 2px solid #ddd; border-radius: 8px;"></div>
+                    <div style="margin-top: 8px; font-size: 0.85rem;">White<br>#FFFFFF</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyPrompt(btn) {
+            const promptText = btn.previousElementSibling.textContent;
+            navigator.clipboard.writeText(promptText).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                btn.style.background = '#2e7d32';
+                btn.style.color = 'white';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '#D4A853';
+                    btn.style.color = '#0F1729';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

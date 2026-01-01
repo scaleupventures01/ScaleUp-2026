@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Rebrand Project Plan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --white: #FFFFFF;
+            --light-gray: #f8f9fa;
+            --mid-gray: #e9ecef;
+            --dark-gray: #6c757d;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --info: #17a2b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--light-gray);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .header .subtitle {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        /* Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .summary-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .summary-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .summary-card .number.gold { color: var(--gold); }
+        .summary-card .label {
+            color: var(--dark-gray);
+            margin-top: 5px;
+        }
+
+        /* Timeline */
+        .timeline-header {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .timeline-header h2 {
+            font-family: 'Crimson Pro', serif;
+            margin-bottom: 15px;
+        }
+        .timeline-bar {
+            display: flex;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .timeline-segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 5px;
+        }
+        .phase-1 { background: var(--danger); }
+        .phase-2 { background: var(--warning); color: var(--navy); }
+        .phase-3 { background: var(--info); }
+        .phase-4 { background: var(--success); }
+        .phase-5 { background: var(--navy); }
+
+        .timeline-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        /* Phase Sections */
+        .phase {
+            background: var(--white);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        .phase-header {
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .phase-header:hover {
+            background: var(--light-gray);
+        }
+        .phase-header h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .phase-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .phase-meta {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .phase-meta span {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+        .toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+        .phase.open .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .phase-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .phase.open .phase-content {
+            max-height: 5000px;
+        }
+
+        /* Task Table */
+        .task-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .task-table th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .task-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--mid-gray);
+            font-size: 0.9rem;
+        }
+        .task-table tr:hover {
+            background: var(--light-gray);
+        }
+
+        .task-checkbox {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .priority {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .priority.critical { background: #ffe5e5; color: var(--danger); }
+        .priority.high { background: #fff3cd; color: #856404; }
+        .priority.medium { background: #e7f5ff; color: #0c5460; }
+        .priority.low { background: var(--mid-gray); color: var(--dark-gray); }
+
+        .time-badge {
+            background: var(--light-gray);
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            color: var(--dark-gray);
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: var(--mid-gray);
+            border-radius: 10px;
+            height: 8px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--success);
+            transition: width 0.3s;
+        }
+
+        /* Week View */
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .week-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .week-card h4 {
+            font-family: 'Crimson Pro', serif;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .week-card .date {
+            font-size: 0.85rem;
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+        }
+        .week-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .week-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--mid-gray);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .week-card li:last-child {
+            border-bottom: none;
+        }
+        .week-hours {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Milestones */
+        .milestone {
+            background: linear-gradient(135deg, #fffef5 0%, #fff 100%);
+            border-left: 4px solid var(--gold);
+            padding: 15px 20px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .milestone strong {
+            color: var(--navy);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Assumptions Box */
+        .assumptions {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .assumptions h3 {
+            font-family: 'Crimson Pro', serif;
+            margin-bottom: 15px;
+        }
+        .assumptions ul {
+            padding-left: 20px;
+        }
+        .assumptions li {
+            margin-bottom: 8px;
+        }
+
+        @media print {
+            .phase-content { max-height: none !important; }
+            .toggle-icon { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ScaleUp Rebrand Project Plan</h1>
+        <div class="subtitle">Brand Audit → Website → Launch Ready</div>
+        <p style="margin-top: 15px; opacity: 0.8;">10 hours/week | 30-min tasks | Target: Roe runs ads in Week 8</p>
+    </div>
+
+    <div class="container">
+        <!-- Summary -->
+        <div class="summary-grid">
+            <div class="summary-card">
+                <div class="number">98</div>
+                <div class="label">Total Tasks</div>
+            </div>
+            <div class="summary-card">
+                <div class="number">49</div>
+                <div class="label">Hours of Work</div>
+            </div>
+            <div class="summary-card">
+                <div class="number">8</div>
+                <div class="label">Weeks to Launch</div>
+            </div>
+            <div class="summary-card">
+                <div class="number gold">Feb 24</div>
+                <div class="label">Target Launch Date</div>
+            </div>
+        </div>
+
+        <!-- Assumptions -->
+        <div class="assumptions">
+            <h3>Planning Assumptions</h3>
+            <ul>
+                <li><strong>10 hours/week</strong> available for rebrand work</li>
+                <li><strong>30 minutes per task</strong> - each task is sized to fit one focused session</li>
+                <li><strong>20 tasks per week maximum</strong> (10 hrs ÷ 0.5 hrs)</li>
+                <li><strong>Dependencies:</strong> Brand assets must be complete before website build</li>
+                <li><strong>Blocker:</strong> Roe cannot run ads until website is live</li>
+                <li><strong>Parallel track:</strong> Trading/Prevyu work continues separately (your personal time)</li>
+            </ul>
+        </div>
+
+        <!-- Timeline Bar -->
+        <div class="timeline-header">
+            <h2>Project Timeline</h2>
+            <div class="timeline-bar">
+                <div class="timeline-segment phase-1" style="width: 25%;">Phase 1<br>Critical (2 wks)</div>
+                <div class="timeline-segment phase-2" style="width: 25%;">Phase 2<br>High Priority (2 wks)</div>
+                <div class="timeline-segment phase-3" style="width: 25%;">Phase 3<br>Website (2 wks)</div>
+                <div class="timeline-segment phase-4" style="width: 12.5%;">Phase 4<br>Launch (1 wk)</div>
+                <div class="timeline-segment phase-5" style="width: 12.5%;">Phase 5<br>Ads Live</div>
+            </div>
+            <div class="timeline-legend">
+                <div class="legend-item"><div class="legend-dot" style="background: var(--danger);"></div> Week 1-2: Critical Brand Tasks</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--warning);"></div> Week 3-4: High Priority Assets</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--info);"></div> Week 5-6: Website Build</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--success);"></div> Week 7: Launch Prep</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--navy);"></div> Week 8+: Roe Runs Ads</div>
+            </div>
+        </div>
+
+        <!-- PHASE 1: CRITICAL -->
+        <div class="phase open" id="phase1">
+            <div class="phase-header" onclick="togglePhase('phase1')">
+                <h3>
+                    <span class="phase-badge" style="background: #ffe5e5; color: var(--danger);">PHASE 1</span>
+                    Critical Brand Tasks (Launch Blockers)
+                </h3>
+                <div class="phase-meta">
+                    <span>20 tasks</span>
+                    <span>10 hours</span>
+                    <span>Week 1-2</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+            </div>
+            <div class="phase-content">
+                <div class="milestone">
+                    <strong>Milestone:</strong> Tagline selected, testimonials requested, 1 case study drafted, founder bio complete
+                </div>
+                <table class="task-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;">✓</th>
+                            <th>Task</th>
+                            <th style="width: 80px;">Priority</th>
+                            <th style="width: 60px;">Time</th>
+                            <th style="width: 100px;">Owner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Tagline -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Review top 5 tagline options from brand audit</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Select primary tagline: "Proof First." or "Certainty First."</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- Testimonials -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Draft testimonial request email template</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>List 5 clients to request testimonials from (names, emails, strengths)</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Send testimonial request to Client 1</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Send testimonial request to Client 2</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Send testimonial request to Client 3</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Send testimonial request to Client 4</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Send testimonial request to Client 5</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- Case Study 1 -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Select best client for Case Study #1 (clearest ROI story)</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Draft Case Study #1: Challenge section</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Draft Case Study #1: Approach section</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Draft Case Study #1: Results section with metrics</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Get client approval for Case Study #1</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- Founder Bio -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Draft founder bio paragraph 1: Experience & credentials</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Draft founder bio paragraph 2: Why ScaleUp exists</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Draft founder origin story: Personal catalyst moment</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- ROI Model -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Define ROI model deliverable format (spreadsheet/PDF/dashboard)</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Create anonymized ROI model sample for website</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="1"></td>
+                            <td>Document "The Proof Test" methodology (named framework)</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- PHASE 2: HIGH PRIORITY -->
+        <div class="phase" id="phase2">
+            <div class="phase-header" onclick="togglePhase('phase2')">
+                <h3>
+                    <span class="phase-badge" style="background: #fff3cd; color: #856404;">PHASE 2</span>
+                    High Priority Brand Assets
+                </h3>
+                <div class="phase-meta">
+                    <span>24 tasks</span>
+                    <span>12 hours</span>
+                    <span>Week 3-4</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+            </div>
+            <div class="phase-content">
+                <div class="milestone">
+                    <strong>Milestone:</strong> Voice guidelines complete, CTAs defined, Case Study #2 done, messaging hierarchy finalized
+                </div>
+                <table class="task-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;">✓</th>
+                            <th>Task</th>
+                            <th style="width: 80px;">Priority</th>
+                            <th style="width: 60px;">Time</th>
+                            <th style="width: 100px;">Owner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Case Study 2 -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Select client for Case Study #2</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Draft Case Study #2: Challenge section</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Draft Case Study #2: Approach section</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Draft Case Study #2: Results section</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Get client approval for Case Study #2</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- Voice Guidelines -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Define 3 voice attributes: Watchful, Measured, Decisive</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Write voice attribute examples (Do this / Not this)</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Create "Words We Use / Words We Avoid" list</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Document pronoun usage and active voice guidelines</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- CTAs -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Write homepage hero CTA: "See How We Prove ROI Before You Spend"</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Write service page CTAs with ROI preview offer</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Write case study CTAs that connect to prospect's business</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Define graduated CTA sequence (awareness → decision)</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- Messaging -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Create message repetition guidelines (primary 3x, secondary 1-2x)</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Build channel-specific messaging matrix (website, social, proposals)</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Create objection-to-message mapping table</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- Collateral -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Develop tagline/supporting copy pairings for each context</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Create "Why We're Not a Typical Agency" one-pager</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Write risk-sharing/guarantee policy statement</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Document client retention/expansion metrics</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- Story -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Create transformation story template: "Skeptic Who Believed"</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Write "The End of Doubt" manifesto (1-page emotional doc)</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Create Heron narrative bridge statement for customer-facing copy</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="2"></td>
+                            <td>Formalize "Talk to Our Clients" reference program (5+ contacts)</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- PHASE 3: WEBSITE -->
+        <div class="phase" id="phase3">
+            <div class="phase-header" onclick="togglePhase('phase3')">
+                <h3>
+                    <span class="phase-badge" style="background: #cce5ff; color: var(--info);">PHASE 3</span>
+                    Website Build
+                </h3>
+                <div class="phase-meta">
+                    <span>28 tasks</span>
+                    <span>14 hours</span>
+                    <span>Week 5-6</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+            </div>
+            <div class="phase-content">
+                <div class="milestone">
+                    <strong>Milestone:</strong> Website live with homepage, services, about, case studies, and contact pages
+                </div>
+                <table class="task-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;">✓</th>
+                            <th>Task</th>
+                            <th style="width: 80px;">Priority</th>
+                            <th style="width: 60px;">Time</th>
+                            <th style="width: 100px;">Owner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Homepage -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Write homepage hero section copy</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Write homepage "How It Works" section (The Proof Test)</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Write homepage services overview section</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Write homepage testimonials section</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Build homepage in website builder</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Add homepage images and logo</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- Services -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Write Growth Services page copy</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Write Development Services page copy</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Write Process Improvement page copy</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Build services pages in website builder</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- About -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Write About page intro section</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Add founder bio and photo to About page</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Write "Our Approach" section (The Proof Test methodology)</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Build About page in website builder</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- Case Studies -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Format Case Study #1 for web</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Format Case Study #2 for web</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Build Case Studies page in website builder</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Add client logos to Case Studies page</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- Contact -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Write Contact page copy with proof-forward CTA</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Set up contact form with proper fields</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Build Contact page in website builder</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- Navigation & Footer -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Set up site navigation menu</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Create footer with contact info and tagline</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- Technical -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Set up Google Analytics</td>
+                            <td><span class="priority medium">MEDIUM</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Set up LinkedIn Insight Tag for ad tracking</td>
+                            <td><span class="priority medium">MEDIUM</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Configure meta titles and descriptions for SEO</td>
+                            <td><span class="priority medium">MEDIUM</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Test website on mobile devices</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="3"></td>
+                            <td>Final review: Check all links, forms, images</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- PHASE 4: LAUNCH -->
+        <div class="phase" id="phase4">
+            <div class="phase-header" onclick="togglePhase('phase4')">
+                <h3>
+                    <span class="phase-badge" style="background: #d4edda; color: var(--success);">PHASE 4</span>
+                    Launch Prep & Handoff
+                </h3>
+                <div class="phase-meta">
+                    <span>14 tasks</span>
+                    <span>7 hours</span>
+                    <span>Week 7</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+            </div>
+            <div class="phase-content">
+                <div class="milestone">
+                    <strong>Milestone:</strong> Website live, Roe briefed, ads ready to launch
+                </div>
+                <table class="task-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;">✓</th>
+                            <th>Task</th>
+                            <th style="width: 80px;">Priority</th>
+                            <th style="width: 60px;">Time</th>
+                            <th style="width: 100px;">Owner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Final Polish -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="4"></td>
+                            <td>Collect and add any received testimonials to website</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="4"></td>
+                            <td>Update email signature with new branding and CTA</td>
+                            <td><span class="priority medium">MEDIUM</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="4"></td>
+                            <td>Update LinkedIn profile with new messaging</td>
+                            <td><span class="priority medium">MEDIUM</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="4"></td>
+                            <td>Update LinkedIn company page</td>
+                            <td><span class="priority medium">MEDIUM</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- Roe Handoff -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="4"></td>
+                            <td>Create ICP document for Roe (Ideal Client Profile)</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="4"></td>
+                            <td>Write ad messaging brief for Roe</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="4"></td>
+                            <td>Define ad budget: $100-150/week for consulting ads</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="4"></td>
+                            <td>Define success metrics for ads (leads, CPL targets)</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="4"></td>
+                            <td>Schedule kickoff call with Roe</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="4"></td>
+                            <td>Brief Roe on brand, ICP, and expectations</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <!-- Launch -->
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="4"></td>
+                            <td>Publish website (go live)</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="4"></td>
+                            <td>Announce rebrand on LinkedIn</td>
+                            <td><span class="priority medium">MEDIUM</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="4"></td>
+                            <td>Email existing clients about rebrand</td>
+                            <td><span class="priority medium">MEDIUM</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="4"></td>
+                            <td>Set up weekly review rhythm with Roe</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- PHASE 5: ADS LIVE -->
+        <div class="phase" id="phase5">
+            <div class="phase-header" onclick="togglePhase('phase5')">
+                <h3>
+                    <span class="phase-badge" style="background: var(--navy); color: var(--gold);">PHASE 5</span>
+                    Roe Runs Ads (Week 8+)
+                </h3>
+                <div class="phase-meta">
+                    <span>12 tasks</span>
+                    <span>6 hours</span>
+                    <span>Week 8+</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+            </div>
+            <div class="phase-content">
+                <div class="milestone">
+                    <strong>Milestone:</strong> Ads live, leads coming in, you're closing deals at $15K+
+                </div>
+                <table class="task-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;">✓</th>
+                            <th>Task</th>
+                            <th style="width: 80px;">Priority</th>
+                            <th style="width: 60px;">Time</th>
+                            <th style="width: 100px;">Owner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="5"></td>
+                            <td>Roe launches LinkedIn ads</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Roe</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="5"></td>
+                            <td>Review Week 1 ad performance with Roe</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="5"></td>
+                            <td>Respond to first batch of leads</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="5"></td>
+                            <td>Conduct discovery call with Lead 1</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="5"></td>
+                            <td>Create ROI model for Lead 1</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="5"></td>
+                            <td>Send proposal to Lead 1 ($15K+ minimum)</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="5"></td>
+                            <td>Review Week 2 ad performance with Roe</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="5"></td>
+                            <td>Adjust ad targeting based on lead quality</td>
+                            <td><span class="priority medium">MEDIUM</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Roe</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="5"></td>
+                            <td>Close first ad-sourced deal</td>
+                            <td><span class="priority critical">CRITICAL</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="5"></td>
+                            <td>Document what's working for future optimization</td>
+                            <td><span class="priority medium">MEDIUM</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="5"></td>
+                            <td>Month 1 review: leads, opportunities, revenue</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="task-checkbox" data-phase="5"></td>
+                            <td>Decide: scale ads up or adjust strategy</td>
+                            <td><span class="priority high">HIGH</span></td>
+                            <td><span class="time-badge">30m</span></td>
+                            <td>Founder</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Week by Week View -->
+        <h2 style="font-family: 'Crimson Pro', serif; margin: 40px 0 20px;">Week-by-Week Schedule</h2>
+        <div class="week-grid">
+            <div class="week-card">
+                <h4>Week 1 <span class="week-hours">10 hrs</span></h4>
+                <div class="date">Jan 1-7, 2026</div>
+                <ul>
+                    <li>☐ Select tagline</li>
+                    <li>☐ Draft testimonial request email</li>
+                    <li>☐ Send 5 testimonial requests</li>
+                    <li>☐ Select Case Study #1 client</li>
+                    <li>☐ Draft founder bio</li>
+                </ul>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 0%;"></div>
+                </div>
+            </div>
+            <div class="week-card">
+                <h4>Week 2 <span class="week-hours">10 hrs</span></h4>
+                <div class="date">Jan 8-14, 2026</div>
+                <ul>
+                    <li>☐ Complete Case Study #1</li>
+                    <li>☐ Get client approval</li>
+                    <li>☐ Define ROI model format</li>
+                    <li>☐ Create sample ROI model</li>
+                    <li>☐ Document "Proof Test" methodology</li>
+                </ul>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 0%;"></div>
+                </div>
+            </div>
+            <div class="week-card">
+                <h4>Week 3 <span class="week-hours">10 hrs</span></h4>
+                <div class="date">Jan 15-21, 2026</div>
+                <ul>
+                    <li>☐ Complete Case Study #2</li>
+                    <li>☐ Create voice guidelines</li>
+                    <li>☐ Write all CTAs</li>
+                    <li>☐ Build messaging matrix</li>
+                </ul>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 0%;"></div>
+                </div>
+            </div>
+            <div class="week-card">
+                <h4>Week 4 <span class="week-hours">10 hrs</span></h4>
+                <div class="date">Jan 22-28, 2026</div>
+                <ul>
+                    <li>☐ Complete brand collateral</li>
+                    <li>☐ Write manifesto</li>
+                    <li>☐ Create transformation stories</li>
+                    <li>☐ Formalize reference program</li>
+                </ul>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 0%;"></div>
+                </div>
+            </div>
+            <div class="week-card">
+                <h4>Week 5 <span class="week-hours">10 hrs</span></h4>
+                <div class="date">Jan 29 - Feb 4, 2026</div>
+                <ul>
+                    <li>☐ Build homepage</li>
+                    <li>☐ Build services pages</li>
+                    <li>☐ Build about page</li>
+                    <li>☐ Add all copy and images</li>
+                </ul>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 0%;"></div>
+                </div>
+            </div>
+            <div class="week-card">
+                <h4>Week 6 <span class="week-hours">10 hrs</span></h4>
+                <div class="date">Feb 5-11, 2026</div>
+                <ul>
+                    <li>☐ Build case studies page</li>
+                    <li>☐ Build contact page</li>
+                    <li>☐ Set up analytics</li>
+                    <li>☐ Test and review site</li>
+                </ul>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 0%;"></div>
+                </div>
+            </div>
+            <div class="week-card">
+                <h4>Week 7 <span class="week-hours">7 hrs</span></h4>
+                <div class="date">Feb 12-18, 2026</div>
+                <ul>
+                    <li>☐ Add final testimonials</li>
+                    <li>☐ Update social profiles</li>
+                    <li>☐ Brief Roe on ads</li>
+                    <li>☐ PUBLISH WEBSITE</li>
+                    <li>☐ Announce rebrand</li>
+                </ul>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 0%;"></div>
+                </div>
+            </div>
+            <div class="week-card" style="border: 2px solid var(--gold);">
+                <h4>Week 8+ <span class="week-hours">🚀</span></h4>
+                <div class="date">Feb 19+, 2026</div>
+                <ul>
+                    <li>☐ Roe launches ads</li>
+                    <li>☐ Leads start coming in</li>
+                    <li>☐ You close deals at $15K+</li>
+                    <li>☐ Cash engine running</li>
+                </ul>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 0%; background: var(--gold);"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>ScaleUp Rebrand Project Plan | Generated January 1, 2026</p>
+            <p style="margin-top: 10px; color: var(--gold);">Target: Roe runs ads by Feb 24, 2026</p>
+        </div>
+    </div>
+
+    <script>
+        function togglePhase(phaseId) {
+            const phase = document.getElementById(phaseId);
+            phase.classList.toggle('open');
+        }
+
+        // Progress tracking with localStorage
+        document.querySelectorAll('.task-checkbox').forEach(checkbox => {
+            const taskText = checkbox.closest('tr').querySelector('td:nth-child(2)').textContent;
+            const storageKey = 'task_' + taskText.substring(0, 50);
+
+            // Load saved state
+            checkbox.checked = localStorage.getItem(storageKey) === 'true';
+
+            // Save on change
+            checkbox.addEventListener('change', function() {
+                localStorage.setItem(storageKey, this.checked);
+                updateProgress();
+            });
+        });
+
+        function updateProgress() {
+            const phases = ['1', '2', '3', '4', '5'];
+            phases.forEach(phase => {
+                const checkboxes = document.querySelectorAll(`[data-phase="${phase}"]`);
+                const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
+                const total = checkboxes.length;
+                const percent = total > 0 ? (checked / total) * 100 : 0;
+
+                // Update progress bars if they exist
+                const weekCards = document.querySelectorAll('.week-card');
+                // This would need more complex mapping for accurate week progress
+            });
+        }
+
+        // Initialize progress
+        updateProgress();
+    </script>
+</body>
+</html>

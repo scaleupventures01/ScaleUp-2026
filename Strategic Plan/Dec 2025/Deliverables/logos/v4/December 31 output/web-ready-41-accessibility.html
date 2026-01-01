@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>55+ Accessibility Guidelines | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --gold: #D4A853;
+            --gold-light: #e8c882;
+            --white: #ffffff;
+            --gray-100: #f7f8fa;
+            --gray-200: #e5e7eb;
+            --gray-400: #9ca3af;
+            --gray-600: #4b5563;
+            --success: #059669;
+            --warning: #d97706;
+            --error: #dc2626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--navy);
+            background: var(--white);
+        }
+
+        /* Header */
+        .header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 48px 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .header .subtitle {
+            font-size: 20px;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .header .description {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray-200);
+            font-size: 18px;
+        }
+
+        /* Navigation */
+        .toc {
+            background: var(--gray-100);
+            padding: 32px 24px;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .toc-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .toc h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 24px;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .toc a {
+            color: var(--navy);
+            text-decoration: none;
+            padding: 12px 16px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.2s ease;
+            display: block;
+            font-size: 16px;
+        }
+
+        .toc a:hover {
+            border-color: var(--gold);
+            background: #fffbf5;
+        }
+
+        .toc a:focus {
+            outline: 3px solid var(--gold);
+            outline-offset: 2px;
+        }
+
+        /* Main Content */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 64px;
+            scroll-margin-top: 24px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .section-number {
+            background: var(--navy);
+            color: var(--gold);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .section h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 32px;
+            color: var(--navy);
+        }
+
+        .section h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 24px;
+            color: var(--navy);
+            margin: 32px 0 16px 0;
+        }
+
+        .section h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--navy);
+            margin: 24px 0 12px 0;
+        }
+
+        /* Guideline Cards */
+        .guideline {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .guideline-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .guideline-content {
+            color: var(--gray-600);
+            font-size: 16px;
+        }
+
+        .guideline-content ul {
+            margin-top: 12px;
+            padding-left: 24px;
+        }
+
+        .guideline-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Specification Tables */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 16px;
+        }
+
+        .spec-table th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .spec-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--gray-200);
+            vertical-align: top;
+        }
+
+        .spec-table tr:nth-child(even) {
+            background: var(--gray-100);
+        }
+
+        .spec-table code {
+            background: var(--navy-light);
+            color: var(--gold);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Color Swatches */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .color-swatch {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+        }
+
+        .color-preview {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .color-info {
+            padding: 16px;
+            background: var(--white);
+        }
+
+        .color-info strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .color-info span {
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        /* Contrast Examples */
+        .contrast-example {
+            padding: 24px;
+            border-radius: 12px;
+            margin: 16px 0;
+            font-size: 18px;
+        }
+
+        .contrast-pass {
+            border: 2px solid var(--success);
+        }
+
+        .contrast-fail {
+            border: 2px solid var(--error);
+        }
+
+        .contrast-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-left: 12px;
+        }
+
+        .badge-pass {
+            background: var(--success);
+            color: var(--white);
+        }
+
+        .badge-fail {
+            background: var(--error);
+            color: var(--white);
+        }
+
+        /* Checklist */
+        .checklist {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 24px 0;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checkbox {
+            width: 28px;
+            height: 28px;
+            border: 2px solid var(--navy);
+            border-radius: 6px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checklist-text {
+            flex: 1;
+        }
+
+        .checklist-text strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .checklist-text span {
+            color: var(--gray-600);
+            font-size: 16px;
+        }
+
+        /* Warning/Info Boxes */
+        .callout {
+            padding: 24px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+
+        .callout-warning {
+            background: #fef3c7;
+            border-left: 4px solid var(--warning);
+        }
+
+        .callout-info {
+            background: #dbeafe;
+            border-left: 4px solid #2563eb;
+        }
+
+        .callout-success {
+            background: #d1fae5;
+            border-left: 4px solid var(--success);
+        }
+
+        .callout-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Code Examples */
+        .code-block {
+            background: var(--navy);
+            color: var(--gray-200);
+            padding: 24px;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 16px 0;
+        }
+
+        .code-block .comment {
+            color: var(--gray-400);
+        }
+
+        .code-block .property {
+            color: #93c5fd;
+        }
+
+        .code-block .value {
+            color: var(--gold);
+        }
+
+        /* Visual Examples */
+        .example-box {
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+
+        .example-header {
+            background: var(--gray-100);
+            padding: 12px 16px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .example-content {
+            padding: 24px;
+        }
+
+        /* Comparison Grid */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        @media (max-width: 600px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .comparison-do {
+            border: 2px solid var(--success);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-dont {
+            border: 2px solid var(--error);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-header {
+            padding: 12px 16px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .comparison-do .comparison-header {
+            background: var(--success);
+        }
+
+        .comparison-dont .comparison-header {
+            background: var(--error);
+        }
+
+        .comparison-body {
+            padding: 24px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--gray-200);
+            padding: 48px 24px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            color: var(--gold);
+            font-family: 'Crimson Pro', serif;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        /* Print Styles */
+        @media print {
+            .header {
+                background: var(--white);
+                color: var(--navy);
+                border-bottom: 3px solid var(--navy);
+            }
+
+            .header .subtitle {
+                color: var(--navy);
+            }
+
+            .toc {
+                page-break-after: always;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .checkbox {
+                border-width: 1px;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Index</a>
+  <span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span>
+  <div style="display:flex;gap:12px;">
+    <a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a>
+    <a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a>
+    <a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a>
+    <a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a>
+    <a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a>
+  </div>
+</nav>
+    <header class="header">
+        <h1>55+ Accessibility Guidelines</h1>
+        <p class="subtitle">ScaleUp Ventures Brand Standards</p>
+        <p class="description">
+            Comprehensive accessibility standards designed for business owners aged 50-65.
+            These guidelines ensure all ScaleUp Ventures materials are readable, navigable,
+            and usable for this demographic.
+        </p>
+    </header>
+
+    <nav class="toc">
+        <div class="toc-inner">
+            <h2>Quick Navigation</h2>
+            <div class="toc-grid">
+                <a href="#typography">1. Typography Standards</a>
+                <a href="#color-contrast">2. Color & Contrast</a>
+                <a href="#layout">3. Layout & Spacing</a>
+                <a href="#forms">4. Form Design</a>
+                <a href="#images">5. Images & Graphics</a>
+                <a href="#testing">6. Testing Checklist</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content">
+        <!-- SECTION 1: TYPOGRAPHY -->
+        <section id="typography" class="section">
+            <div class="section-header">
+                <span class="section-number">1</span>
+                <h2>Typography Standards</h2>
+            </div>
+
+            <p>Typography is the foundation of accessibility for our 55+ audience. Clear,
+            readable text reduces eye strain and improves comprehension. These standards
+            apply to all ScaleUp Ventures digital and print materials.</p>
+
+            <h3>1.1 Minimum Font Sizes</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Body Text: 18px Minimum</div>
+                <div class="guideline-content">
+                    All body copy must be at least 18px (1.125rem). This exceeds the standard
+                    16px recommendation and accounts for reading on various devices and lighting conditions.
+                    <ul>
+                        <li>Desktop body text: 18px-20px</li>
+                        <li>Mobile body text: 18px minimum (do not reduce)</li>
+                        <li>Long-form content: 20px recommended</li>
+                        <li>Captions and fine print: 16px absolute minimum</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline">
+                <div class="guideline-title">Headlines: 24px+ Minimum</div>
+                <div class="guideline-content">
+                    Headlines must create clear visual hierarchy while remaining readable:
+                    <ul>
+                        <li>H1 (Page titles): 42px-56px</li>
+                        <li>H2 (Section headers): 32px-42px</li>
+                        <li>H3 (Subsection headers): 24px-32px</li>
+                        <li>H4 (Minor headers): 20px-24px</li>
+                    </ul>
+                </div>
+            </div>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Minimum Size</th>
+                        <th>Recommended</th>
+                        <th>CSS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Body text</td>
+                        <td>18px</td>
+                        <td>18-20px</td>
+                        <td><code>font-size: 1.125rem</code></td>
+                    </tr>
+                    <tr>
+                        <td>H1</td>
+                        <td>42px</td>
+                        <td>48-56px</td>
+                        <td><code>font-size: 2.625rem</code></td>
+                    </tr>
+                    <tr>
+                        <td>H2</td>
+                        <td>32px</td>
+                        <td>36-42px</td>
+                        <td><code>font-size: 2rem</code></td>
+                    </tr>
+                    <tr>
+                        <td>H3</td>
+                        <td>24px</td>
+                        <td>26-32px</td>
+                        <td><code>font-size: 1.5rem</code></td>
+                    </tr>
+                    <tr>
+                        <td>H4</td>
+                        <td>20px</td>
+                        <td>20-24px</td>
+                        <td><code>font-size: 1.25rem</code></td>
+                    </tr>
+                    <tr>
+                        <td>Captions</td>
+                        <td>16px</td>
+                        <td>16-18px</td>
+                        <td><code>font-size: 1rem</code></td>
+                    </tr>
+                    <tr>
+                        <td>Button text</td>
+                        <td>16px</td>
+                        <td>18px</td>
+                        <td><code>font-size: 1.125rem</code></td>
+                    </tr>
+                    <tr>
+                        <td>Form labels</td>
+                        <td>16px</td>
+                        <td>18px</td>
+                        <td><code>font-size: 1.125rem</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>1.2 Line Height & Spacing</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Line Height: 1.6 Minimum for Body Text</div>
+                <div class="guideline-content">
+                    Generous line spacing improves readability and reduces visual fatigue:
+                    <ul>
+                        <li>Body text: 1.6-1.8 line height</li>
+                        <li>Headlines: 1.2-1.3 line height</li>
+                        <li>Lists: 1.5 line height within items</li>
+                        <li>Paragraph spacing: 24px between paragraphs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline">
+                <div class="guideline-title">Letter Spacing</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Body text: Normal (0)</li>
+                        <li>Headlines in Crimson Pro: 0 to -0.02em</li>
+                        <li>All caps text: +0.05em minimum</li>
+                        <li>Never use condensed letter spacing in body copy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>1.3 Font Family Specifications</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Crimson Pro (Headlines)</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Use for: Page titles, section headers, hero text</li>
+                        <li>Weights: 500 (Medium), 600 (SemiBold), 700 (Bold)</li>
+                        <li>Never use: Light (300) or Regular (400) for headlines</li>
+                        <li>Fallback: Georgia, "Times New Roman", serif</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline">
+                <div class="guideline-title">DM Sans (Body Copy)</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Use for: All body text, buttons, forms, navigation</li>
+                        <li>Weights: 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold)</li>
+                        <li>Never use: Light weights for body text</li>
+                        <li>Fallback: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="code-block">
+<span class="comment">/* ScaleUp Typography CSS */</span>
+<span class="property">body</span> {
+    <span class="property">font-family</span>: <span class="value">'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif</span>;
+    <span class="property">font-size</span>: <span class="value">18px</span>;
+    <span class="property">line-height</span>: <span class="value">1.7</span>;
+    <span class="property">font-weight</span>: <span class="value">400</span>;
+}
+
+<span class="property">h1, h2, h3</span> {
+    <span class="property">font-family</span>: <span class="value">'Crimson Pro', Georgia, serif</span>;
+    <span class="property">font-weight</span>: <span class="value">600</span>;
+    <span class="property">line-height</span>: <span class="value">1.2</span>;
+}
+
+<span class="property">h1</span> { <span class="property">font-size</span>: <span class="value">clamp(42px, 5vw, 56px)</span>; }
+<span class="property">h2</span> { <span class="property">font-size</span>: <span class="value">clamp(32px, 4vw, 42px)</span>; }
+<span class="property">h3</span> { <span class="property">font-size</span>: <span class="value">clamp(24px, 3vw, 32px)</span>; }
+            </div>
+
+            <h3>1.4 Font Weight Guidelines</h3>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Important: Avoid Thin Weights</div>
+                Never use font weights below 400 for any text. Light and thin weights (100-300)
+                significantly reduce readability for users with vision changes common in the 55+ demographic.
+            </div>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Weight</th>
+                        <th>Use Case</th>
+                        <th>Approved</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>300 (Light)</td>
+                        <td>Never use</td>
+                        <td style="color: var(--error);">No</td>
+                    </tr>
+                    <tr>
+                        <td>400 (Regular)</td>
+                        <td>Body text, form fields</td>
+                        <td style="color: var(--success);">Yes</td>
+                    </tr>
+                    <tr>
+                        <td>500 (Medium)</td>
+                        <td>Subheadings, emphasized text</td>
+                        <td style="color: var(--success);">Yes</td>
+                    </tr>
+                    <tr>
+                        <td>600 (SemiBold)</td>
+                        <td>Headlines, buttons, labels</td>
+                        <td style="color: var(--success);">Yes</td>
+                    </tr>
+                    <tr>
+                        <td>700 (Bold)</td>
+                        <td>Primary headlines, CTAs</td>
+                        <td style="color: var(--success);">Yes</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>1.5 Text Formatting Rules</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Avoid All Caps</div>
+                <div class="guideline-content">
+                    All-caps text is harder to read because it removes word shape recognition:
+                    <ul>
+                        <li>Never use ALL CAPS for sentences or paragraphs</li>
+                        <li>Limit to: Button text (2-3 words max), Labels, Short navigation items</li>
+                        <li>When using all caps, increase letter spacing by 0.05em</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline">
+                <div class="guideline-title">Italics Usage</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Use sparingly for emphasis or citations</li>
+                        <li>Never italicize entire paragraphs</li>
+                        <li>Avoid for navigation or UI elements</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline">
+                <div class="guideline-title">Underlines</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Reserve underlines exclusively for links</li>
+                        <li>Never underline for emphasis (use bold instead)</li>
+                        <li>Link underlines should be visible and consistent</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: COLOR CONTRAST -->
+        <section id="color-contrast" class="section">
+            <div class="section-header">
+                <span class="section-number">2</span>
+                <h2>Color & Contrast</h2>
+            </div>
+
+            <p>Color contrast directly impacts readability. Our 55+ audience may have reduced
+            contrast sensitivity, making proper color ratios essential. All color combinations
+            must meet WCAG AA standards (4.5:1 for normal text, 3:1 for large text).</p>
+
+            <h3>2.1 Primary Color Specifications</h3>
+
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #0F1729; color: #ffffff;">
+                        Aa
+                    </div>
+                    <div class="color-info">
+                        <strong>Navy (Primary)</strong>
+                        <span>#0F1729</span>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #D4A853; color: #0F1729;">
+                        Aa
+                    </div>
+                    <div class="color-info">
+                        <strong>Gold (Accent)</strong>
+                        <span>#D4A853</span>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #ffffff; color: #0F1729; border: 1px solid #e5e7eb;">
+                        Aa
+                    </div>
+                    <div class="color-info">
+                        <strong>White (Background)</strong>
+                        <span>#FFFFFF</span>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #4b5563; color: #ffffff;">
+                        Aa
+                    </div>
+                    <div class="color-info">
+                        <strong>Gray 600 (Secondary)</strong>
+                        <span>#4B5563</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>2.2 Contrast Ratios</h3>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Combination</th>
+                        <th>Contrast Ratio</th>
+                        <th>WCAG Rating</th>
+                        <th>Use For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Navy on White</td>
+                        <td>16.4:1</td>
+                        <td style="color: var(--success);">AAA</td>
+                        <td>Body text, headlines</td>
+                    </tr>
+                    <tr>
+                        <td>White on Navy</td>
+                        <td>16.4:1</td>
+                        <td style="color: var(--success);">AAA</td>
+                        <td>Inverted sections, buttons</td>
+                    </tr>
+                    <tr>
+                        <td>Gray 600 on White</td>
+                        <td>5.9:1</td>
+                        <td style="color: var(--success);">AA</td>
+                        <td>Secondary text, captions</td>
+                    </tr>
+                    <tr>
+                        <td>Gold on Navy</td>
+                        <td>7.2:1</td>
+                        <td style="color: var(--success);">AAA</td>
+                        <td>Accents on dark backgrounds</td>
+                    </tr>
+                    <tr>
+                        <td>Navy on Gold</td>
+                        <td>7.2:1</td>
+                        <td style="color: var(--success);">AAA</td>
+                        <td>Text on gold highlights</td>
+                    </tr>
+                    <tr>
+                        <td>Gold on White</td>
+                        <td>2.3:1</td>
+                        <td style="color: var(--error);">Fail</td>
+                        <td>NEVER use for text</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>2.3 Approved Color Combinations</h3>
+
+            <div class="contrast-example contrast-pass" style="background: #ffffff; color: #0F1729;">
+                <strong>Navy text on White</strong> - Primary body text combination
+                <span class="contrast-badge badge-pass">16.4:1 AAA</span>
+            </div>
+
+            <div class="contrast-example contrast-pass" style="background: #0F1729; color: #ffffff;">
+                <strong>White text on Navy</strong> - Headers, hero sections, buttons
+                <span class="contrast-badge badge-pass">16.4:1 AAA</span>
+            </div>
+
+            <div class="contrast-example contrast-pass" style="background: #0F1729; color: #D4A853;">
+                <strong>Gold text on Navy</strong> - Accents, highlights, labels
+                <span class="contrast-badge badge-pass">7.2:1 AAA</span>
+            </div>
+
+            <div class="contrast-example contrast-pass" style="background: #ffffff; color: #4b5563;">
+                <strong>Gray 600 on White</strong> - Secondary text, descriptions
+                <span class="contrast-badge badge-pass">5.9:1 AA</span>
+            </div>
+
+            <h3>2.4 Prohibited Color Combinations</h3>
+
+            <div class="contrast-example contrast-fail" style="background: #ffffff; color: #D4A853;">
+                <strong>Gold text on White</strong> - Never use for any text
+                <span class="contrast-badge badge-fail">2.3:1 Fail</span>
+            </div>
+
+            <div class="contrast-example contrast-fail" style="background: #e5e7eb; color: #9ca3af;">
+                <strong>Light gray on light gray</strong> - Insufficient contrast
+                <span class="contrast-badge badge-fail">1.9:1 Fail</span>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Gold Text Warning</div>
+                Gold (#D4A853) should ONLY be used for text when placed on Navy backgrounds.
+                On white or light backgrounds, gold fails contrast requirements. Use gold only
+                for decorative elements, borders, or icons on light backgrounds.
+            </div>
+
+            <h3>2.5 Link Colors</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Text Links</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Default state: Navy (#0F1729) with underline</li>
+                        <li>Hover state: Gold (#D4A853) underline</li>
+                        <li>Visited state: Navy at 80% opacity or purple (#5b21b6)</li>
+                        <li>Focus state: 3px gold outline, 2px offset</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline">
+                <div class="guideline-title">Links on Dark Backgrounds</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Default: White with underline</li>
+                        <li>Hover: Gold (#D4A853)</li>
+                        <li>Focus: 3px white outline</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>2.6 Button States</h3>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Button Type</th>
+                        <th>Default</th>
+                        <th>Hover</th>
+                        <th>Focus</th>
+                        <th>Disabled</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Primary</td>
+                        <td>Navy bg, white text</td>
+                        <td>Darker navy (#0a1018)</td>
+                        <td>3px gold outline</td>
+                        <td>50% opacity</td>
+                    </tr>
+                    <tr>
+                        <td>Secondary</td>
+                        <td>White bg, navy border</td>
+                        <td>Gray-100 bg</td>
+                        <td>3px gold outline</td>
+                        <td>50% opacity</td>
+                    </tr>
+                    <tr>
+                        <td>Gold Accent</td>
+                        <td>Gold bg, navy text</td>
+                        <td>Darker gold (#c49743)</td>
+                        <td>3px navy outline</td>
+                        <td>50% opacity</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>2.7 Color Independence</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Never Rely on Color Alone</div>
+                <div class="guideline-content">
+                    Always provide secondary indicators alongside color:
+                    <ul>
+                        <li>Error states: Red color + icon + descriptive text</li>
+                        <li>Success states: Green color + checkmark icon + confirmation text</li>
+                        <li>Required fields: Asterisk (*) + "(required)" text</li>
+                        <li>Links: Color change + underline</li>
+                        <li>Charts: Color + patterns + labels</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: LAYOUT -->
+        <section id="layout" class="section">
+            <div class="section-header">
+                <span class="section-number">3</span>
+                <h2>Layout & Spacing</h2>
+            </div>
+
+            <p>Generous whitespace and appropriate content widths reduce cognitive load and
+            improve focus. These layout standards ensure comfortable reading and navigation.</p>
+
+            <h3>3.1 White Space Requirements</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Minimum Margins & Padding</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Page margins: 24px minimum on mobile, 48px+ on desktop</li>
+                        <li>Section padding: 48px-64px vertical spacing between sections</li>
+                        <li>Card padding: 24px minimum internal padding</li>
+                        <li>Button padding: 16px vertical, 24px horizontal minimum</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline">
+                <div class="guideline-title">8px Grid System</div>
+                <div class="guideline-content">
+                    All spacing should be multiples of 8px:
+                    <ul>
+                        <li>8px - Tight spacing (between related elements)</li>
+                        <li>16px - Standard element spacing</li>
+                        <li>24px - Card padding, form field spacing</li>
+                        <li>32px - Section sub-divisions</li>
+                        <li>48px - Major section spacing</li>
+                        <li>64px - Page section divisions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>3.2 Content Width Limits</h3>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Content Type</th>
+                        <th>Max Width</th>
+                        <th>Optimal Width</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Body text lines</td>
+                        <td>75 characters</td>
+                        <td>60-70 characters</td>
+                    </tr>
+                    <tr>
+                        <td>Main content container</td>
+                        <td>900px</td>
+                        <td>800px</td>
+                    </tr>
+                    <tr>
+                        <td>Full-width sections</td>
+                        <td>1400px</td>
+                        <td>1200px</td>
+                    </tr>
+                    <tr>
+                        <td>Form containers</td>
+                        <td>600px</td>
+                        <td>500px</td>
+                    </tr>
+                    <tr>
+                        <td>Card grids</td>
+                        <td>1200px</td>
+                        <td>1000px</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Line Length Matters</div>
+                Lines longer than 75 characters require excessive eye movement and make it
+                difficult to track to the next line. This is especially problematic for readers
+                with reduced visual acuity.
+            </div>
+
+            <h3>3.3 Mobile Considerations</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Touch Target Sizes</div>
+                <div class="guideline-content">
+                    All interactive elements must be easily tappable:
+                    <ul>
+                        <li>Minimum touch target: 44px x 44px (48px x 48px recommended)</li>
+                        <li>Spacing between targets: 8px minimum</li>
+                        <li>Links in text: Generous padding, clear tap areas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline">
+                <div class="guideline-title">Mobile Typography</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Never reduce body text below 18px on mobile</li>
+                        <li>Headlines scale down proportionally but never below 24px for H3</li>
+                        <li>Maintain 1.6+ line height on all devices</li>
+                        <li>Increase tap area padding on links</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline">
+                <div class="guideline-title">Mobile Navigation</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Hamburger menu icon: 48px x 48px minimum</li>
+                        <li>Menu items: Full-width, 56px height minimum</li>
+                        <li>Close button: Prominent, 48px tap target</li>
+                        <li>Fixed header: Maximum 64px height to preserve content</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>3.4 Responsive Breakpoints</h3>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Breakpoint</th>
+                        <th>Width</th>
+                        <th>Considerations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mobile</td>
+                        <td>320px - 639px</td>
+                        <td>Single column, stacked layouts, 24px margins</td>
+                    </tr>
+                    <tr>
+                        <td>Tablet</td>
+                        <td>640px - 1023px</td>
+                        <td>2-column grids, 32px margins</td>
+                    </tr>
+                    <tr>
+                        <td>Desktop</td>
+                        <td>1024px - 1399px</td>
+                        <td>Multi-column, 48px margins</td>
+                    </tr>
+                    <tr>
+                        <td>Large Desktop</td>
+                        <td>1400px+</td>
+                        <td>Max-width containers, centered content</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>3.5 Visual Hierarchy</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Clear Content Structure</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>One primary action per viewport</li>
+                        <li>Clear visual grouping with whitespace</li>
+                        <li>Consistent heading hierarchy (never skip levels)</li>
+                        <li>Important content placed top-left for natural reading flow</li>
+                        <li>Progressive disclosure for complex information</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: FORMS -->
+        <section id="forms" class="section">
+            <div class="section-header">
+                <span class="section-number">4</span>
+                <h2>Form Design</h2>
+            </div>
+
+            <p>Forms are critical conversion points. Our 55+ audience needs clear labels,
+            generous field sizes, and helpful error messaging to complete forms successfully.</p>
+
+            <h3>4.1 Field Size Requirements</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Input Field Dimensions</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Minimum height: 48px (56px recommended)</li>
+                        <li>Internal padding: 16px horizontal, 12px vertical</li>
+                        <li>Font size in fields: 18px minimum</li>
+                        <li>Border width: 2px (visible boundaries)</li>
+                        <li>Border radius: 8px for softer appearance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <div class="example-header">Accessible Form Field Example</div>
+                <div class="example-content">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; font-size: 18px;">
+                        Email Address <span style="color: #dc2626;">*</span>
+                    </label>
+                    <input type="email"
+                           placeholder="you@company.com"
+                           style="width: 100%; max-width: 400px; height: 56px; padding: 16px; font-size: 18px; border: 2px solid #0F1729; border-radius: 8px; font-family: 'DM Sans', sans-serif;">
+                    <p style="margin-top: 8px; color: #4b5563; font-size: 16px;">We will use this to send your consultation details.</p>
+                </div>
+            </div>
+
+            <h3>4.2 Label Placement</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Labels Above Fields</div>
+                <div class="guideline-content">
+                    Always place labels above input fields, never inside (as placeholders) or to the side:
+                    <ul>
+                        <li>Label position: Directly above the field</li>
+                        <li>Label spacing: 8px below label, before field</li>
+                        <li>Label weight: 600 (SemiBold) for visibility</li>
+                        <li>Required indicator: Red asterisk + "(required)" for screen readers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="comparison">
+                <div class="comparison-do">
+                    <div class="comparison-header">Do This</div>
+                    <div class="comparison-body">
+                        <label style="display: block; font-weight: 600; margin-bottom: 8px;">Phone Number</label>
+                        <input type="tel" style="width: 100%; height: 48px; padding: 12px; border: 2px solid #0F1729; border-radius: 8px; font-size: 18px;">
+                        <p style="margin-top: 4px; color: #4b5563; font-size: 14px;">Labels above fields are easier to scan</p>
+                    </div>
+                </div>
+                <div class="comparison-dont">
+                    <div class="comparison-header">Avoid This</div>
+                    <div class="comparison-body">
+                        <input type="tel" placeholder="Phone Number" style="width: 100%; height: 48px; padding: 12px; border: 2px solid #9ca3af; border-radius: 8px; font-size: 18px; color: #9ca3af;">
+                        <p style="margin-top: 4px; color: #4b5563; font-size: 14px;">Placeholder-only labels disappear on focus</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>4.3 Error Messaging</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Error Display Requirements</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Position: Directly below the field with error</li>
+                        <li>Color: Red (#dc2626) text + red border on field</li>
+                        <li>Icon: Error icon before message text</li>
+                        <li>Message: Specific, actionable instructions</li>
+                        <li>Focus: Auto-focus to first field with error</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <div class="example-header">Error State Example</div>
+                <div class="example-content">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; font-size: 18px;">
+                        Email Address <span style="color: #dc2626;">*</span>
+                    </label>
+                    <input type="email"
+                           value="john@"
+                           style="width: 100%; max-width: 400px; height: 56px; padding: 16px; font-size: 18px; border: 2px solid #dc2626; border-radius: 8px; font-family: 'DM Sans', sans-serif; background: #fef2f2;">
+                    <p style="margin-top: 8px; color: #dc2626; font-size: 16px; display: flex; align-items: center; gap: 8px;">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="9" stroke="#dc2626" stroke-width="2"/>
+                            <path d="M10 6v5" stroke="#dc2626" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="10" cy="14" r="1" fill="#dc2626"/>
+                        </svg>
+                        Please enter a complete email address (example: john@company.com)
+                    </p>
+                </div>
+            </div>
+
+            <h3>4.4 Form Accessibility Features</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Required Implementation</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>All form fields must have visible labels (no placeholder-only)</li>
+                        <li>Labels must be programmatically linked to inputs (for/id or aria-labelledby)</li>
+                        <li>Error messages must be linked with aria-describedby</li>
+                        <li>Form submission status announced to screen readers</li>
+                        <li>Tab order must follow visual order</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline">
+                <div class="guideline-title">Helper Text</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Provide format hints for phone numbers, dates</li>
+                        <li>Explain why information is needed</li>
+                        <li>Show character counts for limited fields</li>
+                        <li>Indicate password requirements upfront</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>4.5 Button Specifications</h3>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Minimum</th>
+                        <th>Recommended</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Height</td>
+                        <td>48px</td>
+                        <td>56px</td>
+                    </tr>
+                    <tr>
+                        <td>Horizontal padding</td>
+                        <td>24px</td>
+                        <td>32px</td>
+                    </tr>
+                    <tr>
+                        <td>Font size</td>
+                        <td>16px</td>
+                        <td>18px</td>
+                    </tr>
+                    <tr>
+                        <td>Font weight</td>
+                        <td>600</td>
+                        <td>600</td>
+                    </tr>
+                    <tr>
+                        <td>Border radius</td>
+                        <td>8px</td>
+                        <td>8px</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECTION 5: IMAGES -->
+        <section id="images" class="section">
+            <div class="section-header">
+                <span class="section-number">5</span>
+                <h2>Images & Graphics</h2>
+            </div>
+
+            <p>Visual content must be accessible to all users, including those using screen
+            readers or experiencing reduced vision. Proper alt text and sizing ensure images
+            enhance rather than hinder the user experience.</p>
+
+            <h3>5.1 Alt Text Requirements</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Descriptive Alt Text Guidelines</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Maximum length: 125 characters (screen readers may truncate longer)</li>
+                        <li>Describe the content and function, not appearance</li>
+                        <li>Include text visible in the image</li>
+                        <li>Avoid "Image of..." or "Picture of..." prefixes</li>
+                        <li>For decorative images, use empty alt="" (not missing alt)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="comparison">
+                <div class="comparison-do">
+                    <div class="comparison-header">Good Alt Text</div>
+                    <div class="comparison-body">
+                        <p><strong>Image:</strong> Business owner shaking hands</p>
+                        <p><code>alt="Jennifer Miller, owner of Miller Staffing, celebrates closing a $2M client"</code></p>
+                    </div>
+                </div>
+                <div class="comparison-dont">
+                    <div class="comparison-header">Poor Alt Text</div>
+                    <div class="comparison-body">
+                        <p><strong>Image:</strong> Business owner shaking hands</p>
+                        <p><code>alt="Image of two people shaking hands"</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>5.2 Image Categories & Alt Text</h3>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Image Type</th>
+                        <th>Alt Text Approach</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Informative</td>
+                        <td>Describe content and purpose</td>
+                        <td>"Chart showing 47% revenue growth over 18 months"</td>
+                    </tr>
+                    <tr>
+                        <td>Decorative</td>
+                        <td>Empty alt=""</td>
+                        <td>Background patterns, divider lines</td>
+                    </tr>
+                    <tr>
+                        <td>Functional (links)</td>
+                        <td>Describe destination/action</td>
+                        <td>"Download the complete case study PDF"</td>
+                    </tr>
+                    <tr>
+                        <td>Complex (charts)</td>
+                        <td>Brief alt + detailed description nearby</td>
+                        <td>"Revenue comparison chart. Details in table below."</td>
+                    </tr>
+                    <tr>
+                        <td>Logos</td>
+                        <td>Company name</td>
+                        <td>"ScaleUp Ventures"</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>5.3 Icon Sizing</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Minimum Icon Dimensions</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Standalone icons: 24px x 24px minimum, 32px recommended</li>
+                        <li>Icons in buttons: 20px x 20px minimum, aligned with text</li>
+                        <li>Navigation icons: 24px x 24px minimum</li>
+                        <li>Social media icons: 32px x 32px minimum (tap targets 44px)</li>
+                        <li>Status indicators: 16px minimum, 20px recommended</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline">
+                <div class="guideline-title">Icon Accessibility</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Icons with meaning: Include aria-label or visible text</li>
+                        <li>Decorative icons: Use aria-hidden="true"</li>
+                        <li>Icon buttons: Always include accessible name</li>
+                        <li>Icon color: Must meet 3:1 contrast against background</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>5.4 Chart Readability</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Chart Design for 55+ Audience</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Use high-contrast color combinations</li>
+                        <li>Label data points directly (avoid relying on legends)</li>
+                        <li>Font size in charts: 14px minimum, 16px recommended</li>
+                        <li>Line thickness: 3px minimum for data lines</li>
+                        <li>Data point markers: 8px minimum diameter</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline">
+                <div class="guideline-title">Chart Accessibility Requirements</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Provide data table alternative for all charts</li>
+                        <li>Use patterns in addition to colors</li>
+                        <li>Include summary text describing trends</li>
+                        <li>Avoid 3D effects that distort data</li>
+                        <li>Limit pie charts to 5 segments maximum</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>5.5 Logo Usage</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">ScaleUp Ventures Logo Specifications</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li>Minimum width: 120px (digital), 1 inch (print)</li>
+                        <li>Clear space: Equal to height of "S" in ScaleUp on all sides</li>
+                        <li>Alt text: "ScaleUp Ventures" (not "ScaleUp Ventures logo")</li>
+                        <li>Link home when used as primary logo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>5.6 Image Resolution</h3>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Use Case</th>
+                        <th>Minimum Resolution</th>
+                        <th>Format</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hero images</td>
+                        <td>1920px wide, 2x for retina</td>
+                        <td>WebP with JPG fallback</td>
+                    </tr>
+                    <tr>
+                        <td>Thumbnails</td>
+                        <td>400px wide, 2x for retina</td>
+                        <td>WebP with JPG fallback</td>
+                    </tr>
+                    <tr>
+                        <td>Team photos</td>
+                        <td>600px wide minimum</td>
+                        <td>WebP with JPG fallback</td>
+                    </tr>
+                    <tr>
+                        <td>Icons</td>
+                        <td>SVG preferred</td>
+                        <td>SVG or PNG at 2x</td>
+                    </tr>
+                    <tr>
+                        <td>Logos</td>
+                        <td>SVG preferred</td>
+                        <td>SVG with PNG fallback</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECTION 6: TESTING CHECKLIST -->
+        <section id="testing" class="section">
+            <div class="section-header">
+                <span class="section-number">6</span>
+                <h2>10-Point Accessibility Testing Checklist</h2>
+            </div>
+
+            <p>Use this checklist before publishing any ScaleUp Ventures material.
+            All items must pass before launch.</p>
+
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>1. Text Size & Readability</strong>
+                        <span>Body text is 18px+, headlines are 24px+, line height is 1.6+, and line length is under 75 characters.</span>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>2. Color Contrast</strong>
+                        <span>All text meets WCAG AA standards (4.5:1 for normal text, 3:1 for large text). Test with WebAIM Contrast Checker.</span>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>3. Keyboard Navigation</strong>
+                        <span>All interactive elements are reachable via Tab key. Focus indicators are visible (3px outline). Tab order follows visual order.</span>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>4. Touch Targets</strong>
+                        <span>All buttons and links have 44x44px minimum tap targets. Spacing between targets is at least 8px.</span>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>5. Form Labels</strong>
+                        <span>All form fields have visible labels above them. Labels are linked to inputs. Required fields are clearly marked.</span>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>6. Error Messages</strong>
+                        <span>Error messages are specific and actionable. Errors use color + icon + text. Focus moves to first error field.</span>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>7. Image Alt Text</strong>
+                        <span>All meaningful images have descriptive alt text. Decorative images have empty alt="". No "Image of..." prefixes.</span>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>8. Heading Structure</strong>
+                        <span>Headings follow logical order (H1 > H2 > H3). No heading levels are skipped. Only one H1 per page.</span>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>9. Link Clarity</strong>
+                        <span>Link text describes destination (no "click here"). Links are underlined. Visited links are distinguishable.</span>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>10. Mobile Responsiveness</strong>
+                        <span>Content is readable without horizontal scrolling. Text doesn't shrink below 18px. Primary CTA is visible without scrolling.</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Testing Tools</h3>
+
+            <div class="guideline">
+                <div class="guideline-title">Recommended Accessibility Testing Tools</div>
+                <div class="guideline-content">
+                    <ul>
+                        <li><strong>WebAIM Contrast Checker:</strong> webaim.org/resources/contrastchecker</li>
+                        <li><strong>WAVE Browser Extension:</strong> Automated accessibility testing</li>
+                        <li><strong>axe DevTools:</strong> Chrome extension for detailed audits</li>
+                        <li><strong>Lighthouse:</strong> Built into Chrome DevTools</li>
+                        <li><strong>Screen Reader Testing:</strong> VoiceOver (Mac), NVDA (Windows)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Quick Reference Card</h3>
+
+            <div class="callout callout-success">
+                <div class="callout-title">ScaleUp Ventures 55+ Quick Reference</div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 16px;">
+                    <div>
+                        <strong>Typography</strong>
+                        <ul style="margin-top: 8px;">
+                            <li>Body: 18px+ DM Sans</li>
+                            <li>Headlines: Crimson Pro 600</li>
+                            <li>Line height: 1.6+</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong>Colors</strong>
+                        <ul style="margin-top: 8px;">
+                            <li>Navy: #0F1729</li>
+                            <li>Gold: #D4A853</li>
+                            <li>Min contrast: 4.5:1</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong>Spacing</strong>
+                        <ul style="margin-top: 8px;">
+                            <li>8px grid system</li>
+                            <li>900px max content</li>
+                            <li>75 char max lines</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong>Touch</strong>
+                        <ul style="margin-top: 8px;">
+                            <li>44px min targets</li>
+                            <li>48-56px buttons</li>
+                            <li>8px spacing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation Guide -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">+</span>
+                <h2>Implementation Checklist</h2>
+            </div>
+
+            <p>Use this implementation checklist when creating new ScaleUp Ventures materials:</p>
+
+            <h3>Before Starting</h3>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>Load brand fonts</strong>
+                        <span>Include Crimson Pro (500, 600, 700) and DM Sans (400, 500, 600, 700) from Google Fonts</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>Set CSS variables</strong>
+                        <span>Define --navy: #0F1729 and --gold: #D4A853 for consistent usage</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>Set base typography</strong>
+                        <span>font-size: 18px, line-height: 1.7 on body element</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>During Development</h3>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>Use semantic HTML</strong>
+                        <span>Proper heading hierarchy, landmarks, lists, and form elements</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>Add alt text as you go</strong>
+                        <span>Write alt text when adding each image, not after</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>Test keyboard navigation</strong>
+                        <span>Tab through each section as you build it</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>Check mobile view</strong>
+                        <span>Test responsiveness at 375px width frequently</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Before Publishing</h3>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>Run WAVE or axe</strong>
+                        <span>Fix all errors, review all warnings</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>Test with screen reader</strong>
+                        <span>Listen to full page announcement, verify logical flow</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-text">
+                        <strong>Complete 10-point checklist</strong>
+                        <span>All items must pass before publishing</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-logo">ScaleUp Ventures</div>
+        <p>55+ Accessibility Guidelines v1.0</p>
+        <p style="margin-top: 16px; color: var(--gray-400);">
+            Designed for business owners aged 50-65 | WCAG 2.1 AA Compliant
+        </p>
+    </footer>
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Content Index</a>
+  <p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p>
+</footer>
+</body>
+</html>

@@ -378,3 +378,212 @@ A:
 - Eventually: **Quit W-2 job, retire wife, take care of kids**
 
 **Key Insight:** This isn't just about $100K - it's about building a foundation for financial independence and a scalable asset portfolio. The business is the long-term play.
+
+---
+
+## Product & Project Backlog (Added January 2026)
+
+### New Product Ideas Evaluated
+
+#### 1. OfferPath (Existing - Under Validation)
+**Description:** Career readiness platform that applies to jobs on behalf of users. 200-1000 applications/month depending on tier ($499-$999/month).
+
+**Key Characteristics:**
+- Blended MRR: $694/month per customer
+- Current delivery cost: $378/month (outsourced labor)
+- Current gross margin: ~46% (model assumes 53% with automation)
+- 3-month average customer lifetime → $781 lifetime gross profit
+- CAC must be under $368 for model to work
+
+**Current Status:** Running CAC validation test
+- Ads getting $30-38/lead
+- Need 10 leads for $322 to validate
+- Assuming 1/10 close rate → ~$320 CAC (viable)
+- LinkedIn paused campaign after $100 spent, got 3 leads
+- If test fails (CAC > $368): Kill it
+
+**Critical Dependencies:**
+1. **CAC validation** - Test in progress, decision pending
+2. **Automation build** - Reduces $378 delivery cost, unlocks margins
+3. **Build timeline** - ~1 month with founder + Aaron
+
+**Team Concerns (Ray):** True operational costs for "priority job matching" and "interview prep" need validation. Currently using outsourced labor, need automation to scale.
+
+**Founder Passion:** Low - "margins aren't healthy, more work" - but practical ("w2 pays bills, this can too")
+
+---
+
+#### 2. Trading Mastery (via Prevyu)
+**Description:** Day trading as a skill/income source. Founder has a good system, profitable on demo, mixed results live. If mastered, provides lifetime income and financial freedom.
+
+**Key Characteristics:**
+- High margin (100% - just trading capital)
+- Requires significant time to master the skill
+- Prevyu IS the trading tool (synergy with existing product)
+- Fastest path to revenue if consistency achieved
+- High risk (consistency is the challenge)
+
+**Founder Connection:** Most passionate about this. Aligns with "freedom" goal.
+
+---
+
+#### 3. Digital Marketing App (ScaleUp Ecosystem)
+**Description:** A digital marketing platform that manages paid ad campaigns for users through APIs. Users sign up, ScaleUp builds and manages campaigns. Ties into ScaleUp services as a funnel.
+
+**Key Characteristics:**
+- High margin (API costs only, charge $50-200/month or % of ad spend)
+- Already doing this work manually for clients
+- Team member (Roe) would operate it - doesn't require founder time
+- Feeds ScaleUp client pipeline (ecosystem play)
+- 1-2 month MVP timeline
+- Revenue model flexible: SaaS, % of spend, or done-for-you service
+- Differentiator: Full service (we manage it), not just software
+
+**Target:** ScaleUp clients + small business owners entering the ecosystem
+
+---
+
+#### 4. Family Activity App
+**Description:** App for parents (especially shared custody) to discover activities for their kids. Collects user interests, finds activities (including free ones), alerts about opportunities to make memories.
+
+**Key Characteristics:**
+- High margin (API costs only, $5-10/month subscription)
+- Personal pain point (founder is 50/50 custody dad)
+- Would build for self first, validate with ads, then productize
+- Low commitment side project
+- No ScaleUp synergy
+
+**Approach:** Build for personal use → test market with ads → monetize if validated
+
+---
+
+#### 5. Freeman Capital (Rebuild)
+**Description:** Previously built fintech company (https://www.linkedin.com/company/6009771/) that failed due to VC pressure, not market fit. Can rebuild with AI, target same consumers with different apps.
+
+**Key Characteristics:**
+- High margin (API costs only, $5-20/month)
+- Know the target customers, have relationships
+- 1 month or less to rebuild
+- Failed before due to VC, not users (was growing, on pace to profit)
+- This time: self-sustainable, no VC dependency
+- "Community service passion project" - can wait
+
+**Founder Note:** This is a passion project. Can be deferred until other priorities are stable.
+
+---
+
+### Product Prioritization Matrix
+
+| Rank | Product | Score | Time Required | Revenue Speed | Margin | Synergy | Notes |
+|------|---------|-------|---------------|---------------|--------|---------|-------|
+| **1** | ScaleUp Consulting | 9/10 | You + Team | NOW (active) | 40-50% | Foundation | Proven revenue engine. $50K in 2024, targeting $100K. Cash engine for everything else. |
+| **1** | Trading / Prevyu | 9/10 | Your time | Fastest (if consistent) | 100% | High (same product) | Passion + freedom goal + funds everything. Co-priority with consulting. |
+| **2** | Digital Marketing App | 8/10 | Team time | 1-2 months to MVP | 80%+ | High (ScaleUp funnel) | Productizes existing work, doesn't need founder |
+| **3** | OfferPath | 6/10 | You + Aaron | Test in progress | 46%→53% | Medium | **Conditional:** CAC test decides fate. Pass → automate → scale. Fail → kill. |
+| **4** | Family App | 5/10 | Side project | 2-3 months | 85%+ | None | Personal use first, validate later |
+| **5** | Freeman Capital | 4/10 | Hire help | 1 month build | 90%+ | None | Passion project, can wait |
+
+---
+
+### Recommended Execution Order
+
+| Priority | Product | Timeline | Owner | Success Unlocks |
+|----------|---------|----------|-------|-----------------|
+| **P1** | ScaleUp Consulting | NOW (active) | Founder + Team | Cash engine. $100K target. Funds everything else. |
+| **P1** | Trading / Prevyu | Q1 2026 | Founder | Consistent income → financial freedom. Co-priority. |
+| **P2** | Digital Marketing App | Q1-Q2 2026 | Roe (team) | Recurring revenue + ScaleUp client pipeline |
+| **P3** | OfferPath | NOW (testing) | Ray + Founder + Aaron | If CAC passes → automate → Stripe Capital scale |
+| **P4** | Family App | When inspired | Founder (side) | Personal satisfaction, possible passive income |
+| **P5** | Freeman Capital | Q3+ or funded | Hire help | Community impact, passion fulfilled |
+
+### OfferPath Decision Tree
+
+```
+Current: 10-lead test for $322 → need 1/10 close rate
+                    ↓
+      ┌─────────────┴─────────────┐
+      ↓                           ↓
+ CAC < $368                  CAC > $368
+      ↓                           ↓
+ BUILD AUTOMATION              KILL IT
+ (You + Aaron, <1 month)      (Redirect time to P1/P2)
+      ↓
+ Margins: 46% → 60%+
+      ↓
+ SCALE with Stripe Capital
+ ($624K 2-year projection)
+```
+
+---
+
+### Execution Sequence (CRITICAL)
+
+**TWO PARALLEL #1 PRIORITIES (Different Resources)**
+
+| Track | Resource | Focus | Status |
+|-------|----------|-------|--------|
+| **Track A** | Roe's Time | ScaleUp Consulting Funnel | Must be running before other products get team time |
+| **Track B** | Your Time | Trading / Prevyu | Runs in parallel - your personal hours, path to freedom |
+
+---
+
+**TRACK A: ScaleUp Funnel (Roe's Time) - January 2026**
+```
+Roe sets up consulting paid ads
+    └→ Leads start coming in (50+/month target)
+    └→ You close deals at $15K+ minimum
+    └→ Cash engine is humming
+    └→ Weekly review rhythm established
+    └→ THEN Roe can work on other products (Digital Marketing App)
+```
+
+**TRACK B: Trading/Prevyu (Your Time) - Parallel**
+```
+Your personal skill development + Prevyu tool building
+    └→ Runs in parallel with Track A
+    └→ Uses YOUR hours, not team hours
+    └→ Path to financial freedom
+    └→ Success here accelerates everything
+```
+
+**SEQUENTIAL: Other Products (After Track A Stable)**
+```
+Only after consulting funnel is running:
+    └→ OfferPath CAC decision (complete test, decide)
+    └→ Digital Marketing App (Roe operates - Q2)
+    └→ Family App (your side project, when inspired)
+    └→ Freeman Capital (hire help, when funded)
+```
+
+---
+
+### Strategic Logic
+
+1. **Two parallel #1 priorities using DIFFERENT resources:**
+   - ScaleUp Funnel = Roe's time (must be running first for cash flow)
+   - Trading/Prevyu = Your time (can run in parallel, path to freedom)
+
+2. **Everything else waits for the funnel.** Digital Marketing App needs Roe → can't start until funnel is stable. OfferPath needs your decision → complete CAC test first.
+
+3. **OfferPath is a data-driven decision.** Complete the CAC test. If CAC < $368 → automate → scale. If CAC > $368 → kill it. No emotion, just math.
+
+4. **Family App is a hobby project.** No pressure. Build for yourself when inspired.
+
+5. **Freeman Capital can wait.** Passion project. Do it when profits let you hire help.
+
+**Constraint Reality:** You have 1-5 hrs/week for new projects. Roe has limited bandwidth. Don't spread either resource thin. Get Track A running, pursue Track B personally, then layer in the rest.
+
+---
+
+## Summary: Final Rankings
+
+| Rank | Product | Score | Status |
+|------|---------|-------|--------|
+| **#1** | ScaleUp Consulting | 9/10 | Active - Cash engine, $100K target |
+| **#1** | Trading / Prevyu | 9/10 | Active - Q1 2026 focus (co-priority) |
+| **#2** | Digital Marketing App | 8/10 | Queue - Roe operates |
+| **#3** | OfferPath | 6/10 | Testing - CAC validation in progress |
+| **#4** | Family App | 5/10 | Backlog - side project |
+| **#5** | Freeman Capital | 4/10 | Backlog - passion project |
+
+*Last updated: January 2026*

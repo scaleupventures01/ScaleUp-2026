@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample ROI Model | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1A2744;
+            --gold: #D4A853;
+            --gold-light: #E8C87A;
+            --gold-dark: #B8923F;
+            --white: #FFFFFF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --success: #059669;
+            --success-light: #D1FAE5;
+            --warning: #D97706;
+            --warning-light: #FEF3C7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--white);
+            color: var(--gray-700);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Crimson Pro', serif;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4A853' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sample-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+        }
+
+        .brand-tag {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 52px;
+            color: var(--white);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .header-subtitle {
+            font-size: 20px;
+            color: var(--gray-300);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .tagline {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 8px 20px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Client Label */
+        .client-label {
+            background: var(--gray-50);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 20px 40px;
+            text-align: center;
+        }
+
+        .client-label-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .client-info-label {
+            font-size: 13px;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .client-info-value {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .container-narrow {
+            max-width: 900px;
+        }
+
+        /* Introduction Section */
+        .intro-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 36px;
+            margin-bottom: 24px;
+        }
+
+        .intro-text p {
+            color: var(--gray-600);
+            margin-bottom: 20px;
+        }
+
+        .intro-visual {
+            background: var(--navy);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .roi-highlight {
+            font-family: 'Crimson Pro', serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .roi-label {
+            color: var(--gray-300);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .roi-subtext {
+            color: var(--white);
+            font-size: 20px;
+            margin-top: 16px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            color: var(--gray-600);
+            font-size: 18px;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        /* Input Cards */
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .input-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.3s ease;
+        }
+
+        .input-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 8px 24px rgba(15, 23, 41, 0.08);
+        }
+
+        .input-card-label {
+            font-size: 13px;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .input-card-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .input-card-unit {
+            font-size: 14px;
+            color: var(--gray-400);
+        }
+
+        .input-card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gray-100);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .input-card-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--navy);
+        }
+
+        /* Methodology Section */
+        .methodology-container {
+            background: var(--gray-50);
+            border-radius: 16px;
+            padding: 48px;
+            margin-bottom: 60px;
+        }
+
+        .methodology-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 32px;
+        }
+
+        .method-step {
+            flex: 1;
+            text-align: center;
+            padding: 0 16px;
+        }
+
+        .method-step-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--white);
+            border: 2px solid var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .method-step-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--navy);
+        }
+
+        .method-step-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .method-step-desc {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .method-arrow {
+            color: var(--gold);
+            font-size: 24px;
+        }
+
+        /* Outcomes Display */
+        .outcomes-section {
+            margin-bottom: 60px;
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .outcome-card {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .outcome-card.highlight {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%);
+            color: var(--navy);
+        }
+
+        .outcome-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .outcome-card.highlight .outcome-value {
+            color: var(--navy);
+        }
+
+        .outcome-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .outcome-change {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 12px;
+            padding: 4px 12px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .outcome-card.highlight .outcome-change {
+            background: rgba(15, 23, 41, 0.1);
+        }
+
+        /* Payback Timeline */
+        .timeline-section {
+            margin-bottom: 60px;
+        }
+
+        .timeline-container {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 48px;
+        }
+
+        .timeline-visual {
+            position: relative;
+            height: 200px;
+            margin: 32px 0;
+        }
+
+        .timeline-axis {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gray-200);
+        }
+
+        .timeline-months {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .timeline-month {
+            font-size: 12px;
+            color: var(--gray-600);
+            text-align: center;
+        }
+
+        .investment-curve {
+            position: absolute;
+            bottom: 42px;
+            left: 0;
+            right: 0;
+            height: 120px;
+        }
+
+        .curve-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .breakeven-marker {
+            position: absolute;
+            bottom: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .breakeven-line {
+            width: 2px;
+            height: 130px;
+            background: var(--gold);
+            margin: 0 auto;
+        }
+
+        .breakeven-label {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            white-space: nowrap;
+            margin-top: 8px;
+        }
+
+        .timeline-legend {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 24px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .legend-line {
+            width: 24px;
+            height: 3px;
+            border-radius: 2px;
+        }
+
+        .legend-line.investment {
+            background: #EF4444;
+        }
+
+        .legend-line.returns {
+            background: var(--success);
+        }
+
+        /* Scenario Comparison */
+        .scenarios-section {
+            margin-bottom: 60px;
+        }
+
+        .scenarios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .scenario-card {
+            border: 2px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .scenario-card.conservative {
+            border-color: var(--gray-300);
+        }
+
+        .scenario-card.expected {
+            border-color: var(--gold);
+            background: linear-gradient(to bottom, rgba(212, 168, 83, 0.05) 0%, var(--white) 100%);
+        }
+
+        .scenario-card.optimistic {
+            border-color: var(--success);
+        }
+
+        .scenario-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .scenario-card.conservative .scenario-badge {
+            background: var(--gray-100);
+            color: var(--gray-700);
+        }
+
+        .scenario-card.expected .scenario-badge {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .scenario-card.optimistic .scenario-badge {
+            background: var(--success-light);
+            color: var(--success);
+        }
+
+        .scenario-roi {
+            font-family: 'Crimson Pro', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .scenario-card.conservative .scenario-roi {
+            color: var(--gray-700);
+        }
+
+        .scenario-card.expected .scenario-roi {
+            color: var(--gold-dark);
+        }
+
+        .scenario-card.optimistic .scenario-roi {
+            color: var(--success);
+        }
+
+        .scenario-label {
+            font-size: 16px;
+            color: var(--gray-600);
+            margin-bottom: 24px;
+        }
+
+        .scenario-details {
+            text-align: left;
+            border-top: 1px solid var(--gray-200);
+            padding-top: 20px;
+        }
+
+        .scenario-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .scenario-detail-label {
+            color: var(--gray-600);
+        }
+
+        .scenario-detail-value {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Before/After Comparison */
+        .comparison-section {
+            margin-bottom: 60px;
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 32px;
+            align-items: stretch;
+        }
+
+        .comparison-card {
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .comparison-card.before {
+            background: var(--gray-100);
+            border: 2px solid var(--gray-200);
+        }
+
+        .comparison-card.after {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+        }
+
+        .comparison-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .comparison-card.before .comparison-label {
+            color: var(--gray-600);
+        }
+
+        .comparison-card.after .comparison-label {
+            color: var(--gold);
+        }
+
+        .comparison-metric {
+            margin-bottom: 20px;
+        }
+
+        .comparison-metric-label {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .comparison-card.before .comparison-metric-label {
+            color: var(--gray-600);
+        }
+
+        .comparison-card.after .comparison-metric-label {
+            color: var(--gray-300);
+        }
+
+        .comparison-metric-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .comparison-card.before .comparison-metric-value {
+            color: var(--gray-700);
+        }
+
+        .comparison-card.after .comparison-metric-value {
+            color: var(--white);
+        }
+
+        .comparison-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arrow-circle {
+            width: 56px;
+            height: 56px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arrow-circle svg {
+            width: 24px;
+            height: 24px;
+            color: var(--navy);
+        }
+
+        /* Assumptions Section */
+        .assumptions-section {
+            margin-bottom: 60px;
+        }
+
+        .assumptions-container {
+            background: var(--warning-light);
+            border: 1px solid var(--warning);
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .assumptions-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .assumptions-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--warning);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .assumptions-icon svg {
+            width: 20px;
+            height: 20px;
+            color: var(--white);
+        }
+
+        .assumptions-title {
+            font-size: 20px;
+            color: var(--warning);
+        }
+
+        .assumptions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .assumption-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--white);
+            border-radius: 8px;
+        }
+
+        .assumption-bullet {
+            width: 20px;
+            height: 20px;
+            background: var(--warning);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .assumption-bullet svg {
+            width: 12px;
+            height: 12px;
+            color: var(--white);
+        }
+
+        .assumption-text {
+            font-size: 14px;
+            color: var(--gray-700);
+        }
+
+        /* Interactive Calculator Preview */
+        .interactive-section {
+            margin-bottom: 60px;
+        }
+
+        .calculator-preview {
+            background: var(--gray-50);
+            border: 2px dashed var(--gray-300);
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+        }
+
+        .calculator-mockup {
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .slider-group {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .slider-label span:first-child {
+            color: var(--gray-600);
+        }
+
+        .slider-label span:last-child {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .slider-track {
+            width: 100%;
+            height: 8px;
+            background: var(--gray-200);
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .slider-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: var(--gold);
+            border-radius: 4px;
+        }
+
+        .slider-thumb {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: var(--navy);
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .calculator-note {
+            color: var(--gray-600);
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 20px;
+            padding: 64px;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 168, 83, 0.1) 0%, transparent 70%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .cta-subtitle {
+            font-size: 18px;
+            color: var(--gray-300);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 168, 83, 0.4);
+        }
+
+        .cta-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .cta-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--gray-300);
+        }
+
+        .cta-feature svg {
+            width: 20px;
+            height: 20px;
+            color: var(--gold);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 60px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px;
+            background: var(--white);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: var(--gray-50);
+        }
+
+        .faq-question h4 {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .faq-toggle {
+            width: 32px;
+            height: 32px;
+            background: var(--gray-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.open .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 24px 24px;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            background: var(--gray-50);
+            border-left: 4px solid var(--gray-300);
+            padding: 24px;
+            margin-bottom: 60px;
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .disclaimer-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--gray-400);
+            text-align: center;
+            padding: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .footer-tagline {
+            color: var(--gold);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .footer-note {
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .input-grid,
+            .outcomes-grid,
+            .scenarios-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .intro-section {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-arrow {
+                transform: rotate(90deg);
+                padding: 20px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 60px 24px;
+            }
+
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .container {
+                padding: 40px 24px;
+            }
+
+            .input-grid,
+            .outcomes-grid,
+            .scenarios-grid,
+            .assumptions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .methodology-flow {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .method-arrow {
+                transform: rotate(90deg);
+            }
+
+            .cta-features {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .client-label-content {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <span class="sample-badge">Sample Model - Anonymized Data</span>
+            <div class="brand-tag">ScaleUp Ventures</div>
+            <h1>Pre-Engagement ROI Model</h1>
+            <p class="header-subtitle">See exactly what your investment will deliver before you commit. This sample demonstrates how we quantify outcomes and eliminate uncertainty.</p>
+            <span class="tagline">Certainty First.</span>
+        </div>
+    </header>
+
+    <!-- Client Label -->
+    <div class="client-label">
+        <div class="client-label-content">
+            <div class="client-info">
+                <span class="client-info-label">Client:</span>
+                <span class="client-info-value">TechCorp Industries [Anonymized]</span>
+            </div>
+            <div class="client-info">
+                <span class="client-info-label">Industry:</span>
+                <span class="client-info-value">B2B SaaS</span>
+            </div>
+            <div class="client-info">
+                <span class="client-info-label">Model Date:</span>
+                <span class="client-info-value">Q4 2024</span>
+            </div>
+            <div class="client-info">
+                <span class="client-info-label">Engagement:</span>
+                <span class="client-info-value">Revenue Optimization</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Introduction -->
+    <div class="container">
+        <section class="intro-section">
+            <div class="intro-text">
+                <h2>Why We Model ROI Before Engagement</h2>
+                <p>Most consulting relationships begin with hope and end with uncertainty. You pay for expertise, receive deliverables, and wonder if it was worth it.</p>
+                <p>We do it differently. Before any engagement, we build a custom ROI model that projects exactly what your investment will return. This isn't guesswork - it's rigorous financial modeling based on your actual business data.</p>
+                <p>This sample shows you what to expect: clear inputs, transparent methodology, multiple scenarios, and measurable outcomes you can track.</p>
+            </div>
+            <div class="intro-visual">
+                <div class="roi-highlight">4.2x</div>
+                <div class="roi-label">Projected Return on Investment</div>
+                <div class="roi-subtext">Expected Scenario - 12 Months</div>
+            </div>
+        </section>
+
+        <!-- Sample Inputs -->
+        <section>
+            <div class="section-header">
+                <h2><span class="section-number">1</span>Client Inputs (Anonymized)</h2>
+                <p class="section-subtitle">Starting with your actual business metrics - no generic assumptions</p>
+            </div>
+            <div class="input-grid">
+                <div class="input-card">
+                    <div class="input-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="input-card-label">Annual Revenue</div>
+                    <div class="input-card-value">$8.4M</div>
+                    <div class="input-card-unit">Current ARR</div>
+                </div>
+                <div class="input-card">
+                    <div class="input-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                    </div>
+                    <div class="input-card-label">Current Growth Rate</div>
+                    <div class="input-card-value">18%</div>
+                    <div class="input-card-unit">Year-over-Year</div>
+                </div>
+                <div class="input-card">
+                    <div class="input-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <div class="input-card-label">Sales Team Size</div>
+                    <div class="input-card-value">12</div>
+                    <div class="input-card-unit">Account Executives</div>
+                </div>
+                <div class="input-card">
+                    <div class="input-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <div class="input-card-label">Win Rate</div>
+                    <div class="input-card-value">22%</div>
+                    <div class="input-card-unit">Proposal to Close</div>
+                </div>
+                <div class="input-card">
+                    <div class="input-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="input-card-label">Sales Cycle</div>
+                    <div class="input-card-value">68</div>
+                    <div class="input-card-unit">Days Average</div>
+                </div>
+                <div class="input-card">
+                    <div class="input-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                    </div>
+                    <div class="input-card-label">Average Deal Size</div>
+                    <div class="input-card-value">$47K</div>
+                    <div class="input-card-unit">Annual Contract Value</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculation Methodology -->
+        <section>
+            <div class="section-header">
+                <h2><span class="section-number">2</span>Calculation Methodology</h2>
+                <p class="section-subtitle">Our transparent approach to projecting outcomes</p>
+            </div>
+            <div class="methodology-container">
+                <p style="color: var(--gray-600); margin-bottom: 8px;">We model ROI through a rigorous four-phase process that connects intervention to outcomes:</p>
+                <div class="methodology-flow">
+                    <div class="method-step">
+                        <div class="method-step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            </svg>
+                        </div>
+                        <div class="method-step-title">Data Collection</div>
+                        <div class="method-step-desc">Your actual metrics, not benchmarks</div>
+                    </div>
+                    <div class="method-arrow">&#10132;</div>
+                    <div class="method-step">
+                        <div class="method-step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div class="method-step-title">Lever Modeling</div>
+                        <div class="method-step-desc">Identify improvement drivers</div>
+                    </div>
+                    <div class="method-arrow">&#10132;</div>
+                    <div class="method-step">
+                        <div class="method-step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                            </svg>
+                        </div>
+                        <div class="method-step-title">Scenario Analysis</div>
+                        <div class="method-step-desc">Conservative to optimistic range</div>
+                    </div>
+                    <div class="method-arrow">&#10132;</div>
+                    <div class="method-step">
+                        <div class="method-step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="method-step-title">Validation</div>
+                        <div class="method-step-desc">Historical comparison testing</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projected Outcomes -->
+        <section class="outcomes-section">
+            <div class="section-header">
+                <h2><span class="section-number">3</span>Projected Outcomes (Expected Scenario)</h2>
+                <p class="section-subtitle">Quantified results from our engagement - not aspirations, projections</p>
+            </div>
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <div class="outcome-value">$11.2M</div>
+                    <div class="outcome-label">Projected Year 1 ARR</div>
+                    <div class="outcome-change">&#8593; +33% vs. baseline</div>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">31%</div>
+                    <div class="outcome-label">Improved Win Rate</div>
+                    <div class="outcome-change">&#8593; +9 points</div>
+                </div>
+                <div class="outcome-card highlight">
+                    <div class="outcome-value">$2.8M</div>
+                    <div class="outcome-label">Net Revenue Gain</div>
+                    <div class="outcome-change">Above trajectory</div>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">52</div>
+                    <div class="outcome-label">Days Sales Cycle</div>
+                    <div class="outcome-change">&#8595; -16 days</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payback Timeline -->
+        <section class="timeline-section">
+            <div class="section-header">
+                <h2><span class="section-number">4</span>Payback Timeline</h2>
+                <p class="section-subtitle">When your investment begins generating positive returns</p>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-visual">
+                    <svg class="curve-svg" viewBox="0 0 800 150" preserveAspectRatio="none">
+                        <!-- Investment curve (red - going down then up) -->
+                        <path d="M 0,20 Q 100,80 200,100 T 400,60 T 600,30 T 800,10"
+                              stroke="#EF4444" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <!-- Returns curve (green - starting later, going up) -->
+                        <path d="M 0,120 Q 200,110 300,90 T 500,40 T 700,15 T 800,5"
+                              stroke="#059669" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <!-- Breakeven point -->
+                        <circle cx="400" cy="60" r="8" fill="#D4A853"/>
+                    </svg>
+                    <div class="breakeven-marker">
+                        <div class="breakeven-line"></div>
+                        <div class="breakeven-label">Breakeven: Month 6</div>
+                    </div>
+                    <div class="timeline-axis"></div>
+                    <div class="timeline-months">
+                        <span class="timeline-month">M1</span>
+                        <span class="timeline-month">M2</span>
+                        <span class="timeline-month">M3</span>
+                        <span class="timeline-month">M4</span>
+                        <span class="timeline-month">M5</span>
+                        <span class="timeline-month">M6</span>
+                        <span class="timeline-month">M7</span>
+                        <span class="timeline-month">M8</span>
+                        <span class="timeline-month">M9</span>
+                        <span class="timeline-month">M10</span>
+                        <span class="timeline-month">M11</span>
+                        <span class="timeline-month">M12</span>
+                    </div>
+                </div>
+                <div class="timeline-legend">
+                    <div class="legend-item">
+                        <span class="legend-line investment"></span>
+                        <span>Cumulative Investment</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-line returns"></span>
+                        <span>Cumulative Returns</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scenario Comparison -->
+        <section class="scenarios-section">
+            <div class="section-header">
+                <h2><span class="section-number">5</span>Scenario Analysis</h2>
+                <p class="section-subtitle">Three scenarios accounting for market variability and execution factors</p>
+            </div>
+            <div class="scenarios-grid">
+                <div class="scenario-card conservative">
+                    <span class="scenario-badge">Conservative</span>
+                    <div class="scenario-roi">2.4x</div>
+                    <div class="scenario-label">Return on Investment</div>
+                    <div class="scenario-details">
+                        <div class="scenario-detail">
+                            <span class="scenario-detail-label">Net Revenue Gain</span>
+                            <span class="scenario-detail-value">$1.6M</span>
+                        </div>
+                        <div class="scenario-detail">
+                            <span class="scenario-detail-label">Win Rate Improvement</span>
+                            <span class="scenario-detail-value">+5 points</span>
+                        </div>
+                        <div class="scenario-detail">
+                            <span class="scenario-detail-label">Payback Period</span>
+                            <span class="scenario-detail-value">9 months</span>
+                        </div>
+                        <div class="scenario-detail">
+                            <span class="scenario-detail-label">Probability</span>
+                            <span class="scenario-detail-value">85%+</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="scenario-card expected">
+                    <span class="scenario-badge">Expected</span>
+                    <div class="scenario-roi">4.2x</div>
+                    <div class="scenario-label">Return on Investment</div>
+                    <div class="scenario-details">
+                        <div class="scenario-detail">
+                            <span class="scenario-detail-label">Net Revenue Gain</span>
+                            <span class="scenario-detail-value">$2.8M</span>
+                        </div>
+                        <div class="scenario-detail">
+                            <span class="scenario-detail-label">Win Rate Improvement</span>
+                            <span class="scenario-detail-value">+9 points</span>
+                        </div>
+                        <div class="scenario-detail">
+                            <span class="scenario-detail-label">Payback Period</span>
+                            <span class="scenario-detail-value">6 months</span>
+                        </div>
+                        <div class="scenario-detail">
+                            <span class="scenario-detail-label">Probability</span>
+                            <span class="scenario-detail-value">60-70%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="scenario-card optimistic">
+                    <span class="scenario-badge">Optimistic</span>
+                    <div class="scenario-roi">6.1x</div>
+                    <div class="scenario-label">Return on Investment</div>
+                    <div class="scenario-details">
+                        <div class="scenario-detail">
+                            <span class="scenario-detail-label">Net Revenue Gain</span>
+                            <span class="scenario-detail-value">$4.1M</span>
+                        </div>
+                        <div class="scenario-detail">
+                            <span class="scenario-detail-label">Win Rate Improvement</span>
+                            <span class="scenario-detail-value">+14 points</span>
+                        </div>
+                        <div class="scenario-detail">
+                            <span class="scenario-detail-label">Payback Period</span>
+                            <span class="scenario-detail-value">4 months</span>
+                        </div>
+                        <div class="scenario-detail">
+                            <span class="scenario-detail-label">Probability</span>
+                            <span class="scenario-detail-value">25-35%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Before/After Comparison -->
+        <section class="comparison-section">
+            <div class="section-header">
+                <h2><span class="section-number">6</span>Before/After Comparison</h2>
+                <p class="section-subtitle">Your business trajectory: current state vs. post-engagement projection</p>
+            </div>
+            <div class="comparison-container">
+                <div class="comparison-card before">
+                    <div class="comparison-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        Before Engagement
+                    </div>
+                    <div class="comparison-metric">
+                        <div class="comparison-metric-label">Annual Revenue</div>
+                        <div class="comparison-metric-value">$8.4M ARR</div>
+                    </div>
+                    <div class="comparison-metric">
+                        <div class="comparison-metric-label">Growth Rate</div>
+                        <div class="comparison-metric-value">18% YoY</div>
+                    </div>
+                    <div class="comparison-metric">
+                        <div class="comparison-metric-label">Win Rate</div>
+                        <div class="comparison-metric-value">22%</div>
+                    </div>
+                    <div class="comparison-metric">
+                        <div class="comparison-metric-label">Sales Cycle</div>
+                        <div class="comparison-metric-value">68 days</div>
+                    </div>
+                    <div class="comparison-metric">
+                        <div class="comparison-metric-label">Deals per AE/Quarter</div>
+                        <div class="comparison-metric-value">3.2</div>
+                    </div>
+                </div>
+                <div class="comparison-arrow">
+                    <div class="arrow-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="comparison-card after">
+                    <div class="comparison-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                        After Engagement (Projected)
+                    </div>
+                    <div class="comparison-metric">
+                        <div class="comparison-metric-label">Annual Revenue</div>
+                        <div class="comparison-metric-value">$11.2M ARR</div>
+                    </div>
+                    <div class="comparison-metric">
+                        <div class="comparison-metric-label">Growth Rate</div>
+                        <div class="comparison-metric-value">33% YoY</div>
+                    </div>
+                    <div class="comparison-metric">
+                        <div class="comparison-metric-label">Win Rate</div>
+                        <div class="comparison-metric-value">31%</div>
+                    </div>
+                    <div class="comparison-metric">
+                        <div class="comparison-metric-label">Sales Cycle</div>
+                        <div class="comparison-metric-value">52 days</div>
+                    </div>
+                    <div class="comparison-metric">
+                        <div class="comparison-metric-label">Deals per AE/Quarter</div>
+                        <div class="comparison-metric-value">4.8</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assumptions -->
+        <section class="assumptions-section">
+            <div class="section-header">
+                <h2><span class="section-number">7</span>Model Assumptions</h2>
+                <p class="section-subtitle">Transparency about what underlies these projections</p>
+            </div>
+            <div class="assumptions-container">
+                <div class="assumptions-header">
+                    <div class="assumptions-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="assumptions-title">Key Assumptions - All Models</h3>
+                </div>
+                <div class="assumptions-grid">
+                    <div class="assumption-item">
+                        <div class="assumption-bullet">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <span class="assumption-text">Current team capacity remains stable (no departures exceeding normal turnover)</span>
+                    </div>
+                    <div class="assumption-item">
+                        <div class="assumption-bullet">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <span class="assumption-text">Market conditions remain comparable to trailing 12-month period</span>
+                    </div>
+                    <div class="assumption-item">
+                        <div class="assumption-bullet">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <span class="assumption-text">Pipeline volume maintained at minimum 3x coverage ratio</span>
+                    </div>
+                    <div class="assumption-item">
+                        <div class="assumption-bullet">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <span class="assumption-text">Full implementation of recommended process changes within 90 days</span>
+                    </div>
+                    <div class="assumption-item">
+                        <div class="assumption-bullet">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <span class="assumption-text">Executive sponsorship and change management support available</span>
+                    </div>
+                    <div class="assumption-item">
+                        <div class="assumption-bullet">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <span class="assumption-text">No major product or pricing changes during measurement period</span>
+                    </div>
+                    <div class="assumption-item">
+                        <div class="assumption-bullet">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <span class="assumption-text">Historical conversion patterns remain indicative of future behavior</span>
+                    </div>
+                    <div class="assumption-item">
+                        <div class="assumption-bullet">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <span class="assumption-text">CRM data quality sufficient for accurate baseline measurement</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Preview -->
+        <section class="interactive-section">
+            <div class="section-header">
+                <h2><span class="section-number">8</span>Interactive Modeling</h2>
+                <p class="section-subtitle">Your custom model will include adjustable parameters</p>
+            </div>
+            <div class="calculator-preview">
+                <div class="calculator-mockup">
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <span>Win Rate Improvement Target</span>
+                            <span>+9 points</span>
+                        </div>
+                        <div class="slider-track">
+                            <div class="slider-fill" style="width: 60%;"></div>
+                            <div class="slider-thumb" style="left: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <span>Sales Cycle Reduction</span>
+                            <span>-16 days</span>
+                        </div>
+                        <div class="slider-track">
+                            <div class="slider-fill" style="width: 45%;"></div>
+                            <div class="slider-thumb" style="left: 45%;"></div>
+                        </div>
+                    </div>
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <span>Average Deal Size Impact</span>
+                            <span>+$8K</span>
+                        </div>
+                        <div class="slider-track">
+                            <div class="slider-fill" style="width: 35%;"></div>
+                            <div class="slider-thumb" style="left: 35%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="calculator-note">Your personalized model will allow you to adjust parameters and see real-time impact on projected ROI</p>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Request Your Custom ROI Model</h2>
+                <p class="cta-subtitle">No obligation, no cost. See exactly what working together could deliver - with numbers, not promises.</p>
+                <a href="#" class="cta-button">
+                    Get Your Model
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Based on your actual data
+                    </div>
+                    <div class="cta-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Delivered within 5 business days
+                    </div>
+                    <div class="cta-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        100% confidential
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="section-header">
+                <h2><span class="section-number">9</span>Frequently Asked Questions</h2>
+                <p class="section-subtitle">Common questions about our ROI modeling approach</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item open">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h4>How accurate are these projections?</h4>
+                        <div class="faq-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        Our models have historically delivered within +/- 15% of the expected scenario 73% of the time. We validate our methodology by tracking actual outcomes against projections for every engagement. The conservative scenario is designed to represent a floor that we achieve 85%+ of the time.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h4>What data do you need to build my model?</h4>
+                        <div class="faq-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        We need 12-24 months of sales performance data: win rates, deal sizes, cycle times, and pipeline metrics. Ideally this comes from your CRM, but we can work with spreadsheets if needed. We also conduct a 60-minute discovery call to understand qualitative factors that affect the model.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h4>Is there a cost for the ROI model?</h4>
+                        <div class="faq-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        No. We build your ROI model at no cost and with no obligation. This is how we demonstrate value before asking for commitment. The model is yours to keep regardless of whether you choose to engage with us.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h4>What happens if you don't hit the projections?</h4>
+                        <div class="faq-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        Our engagement terms include performance guarantees tied to the conservative scenario. If we don't achieve at least the conservative case, we continue working at no additional cost until we do. We put our fees at risk because we're confident in our methodology.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h4>How is this different from other consultants' proposals?</h4>
+                        <div class="faq-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        Most consultants present capabilities and methodologies. We present a financial model built on your data with specific, measurable outcomes and explicit assumptions. You know exactly what you're buying before you buy it. No other firm we're aware of does this.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h4>Can I share this model with my board or investors?</h4>
+                        <div class="faq-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        Absolutely. The model is yours. Many clients use it for internal business cases, board presentations, and investor communications. We can provide an executive summary version designed specifically for stakeholder communication if helpful.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer">
+            <div class="disclaimer-title">Important Disclaimer</div>
+            <p>This sample ROI model uses anonymized data from an actual client engagement. All projections are illustrative and based on historical analysis. Your actual results will depend on your specific business context, market conditions, and implementation execution. Past performance of other clients does not guarantee future results. The model presented here is for demonstration purposes only and should not be construed as a guarantee of outcomes.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">ScaleUp Ventures</div>
+        <div class="footer-tagline">Certainty First.</div>
+        <p class="footer-note">Sample ROI Model | For Demonstration Purposes Only</p>
+    </footer>
+
+    <script>
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            faqItem.classList.toggle('open');
+        }
+    </script>
+
+</body>
+</html>

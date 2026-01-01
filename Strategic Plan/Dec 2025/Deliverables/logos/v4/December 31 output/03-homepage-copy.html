@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures - Homepage Copy (Final)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --gold-light: #E8C77B;
+            --cream: #FAF8F5;
+            --gray: #6B7280;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        .section-label {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 4px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%);
+            color: var(--white);
+            padding: 100px 60px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 64px;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero .subheadline {
+            font-size: 24px;
+            color: var(--gold-light);
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .hero .body-copy {
+            font-size: 18px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 40px;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.4);
+            padding-bottom: 2px;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: var(--white);
+            padding: 100px 60px;
+        }
+
+        .problem-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .problem h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 48px;
+            color: var(--navy);
+        }
+
+        .pain-points {
+            list-style: none;
+            margin-bottom: 48px;
+        }
+
+        .pain-points li {
+            font-size: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(15, 23, 41, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .pain-points li::before {
+            content: "";
+            display: block;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin-top: 10px;
+            flex-shrink: 0;
+        }
+
+        .transition-line {
+            font-size: 24px;
+            color: var(--navy);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            padding-top: 24px;
+        }
+
+        /* Solution Section */
+        .solution {
+            background: var(--cream);
+            padding: 100px 60px;
+        }
+
+        .solution-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .solution h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--navy);
+        }
+
+        .solution .intro {
+            font-size: 20px;
+            color: var(--gray);
+            max-width: 700px;
+            margin-bottom: 60px;
+            line-height: 1.8;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px;
+            border: 1px solid rgba(15, 23, 41, 0.08);
+        }
+
+        .service-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--navy);
+        }
+
+        .service-card p {
+            font-size: 16px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* How It Works Section */
+        .process {
+            background: var(--navy);
+            color: var(--white);
+            padding: 100px 60px;
+        }
+
+        .process-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            border-radius: 50%;
+        }
+
+        .step h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--gold-light);
+        }
+
+        .step p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        /* Proof Section */
+        .proof {
+            background: var(--white);
+            padding: 100px 60px;
+        }
+
+        .proof-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .proof h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 60px;
+            color: var(--navy);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 72px;
+            font-weight: 600;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--cream);
+            padding: 100px 60px;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: var(--navy);
+        }
+
+        .about p {
+            font-size: 18px;
+            color: var(--gray);
+            line-height: 1.9;
+            margin-bottom: 24px;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%);
+            color: var(--white);
+            padding: 120px 60px;
+            text-align: center;
+        }
+
+        .final-cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 52px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .final-cta p {
+            font-size: 20px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .final-cta .btn-primary {
+            font-size: 18px;
+            padding: 20px 48px;
+        }
+
+        /* Copy Reference Box */
+        .copy-reference {
+            background: #f0f4f8;
+            border: 2px dashed #cbd5e1;
+            padding: 20px;
+            margin: 20px 60px;
+            font-family: monospace;
+            font-size: 13px;
+            color: #475569;
+        }
+
+        .copy-reference strong {
+            color: var(--navy);
+        }
+
+        /* Document Header */
+        .doc-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 40px 60px;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .doc-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .doc-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .service-cards, .steps, .stats {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Document Header -->
+    <header class="doc-header">
+        <h1>ScaleUp Ventures - Homepage Copy</h1>
+        <p>Final website copy ready for implementation | December 31, 2025</p>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- HERO SECTION -->
+    <!-- ============================================ -->
+
+    <div class="copy-reference">
+        <strong>SECTION: HERO</strong> | Full-width hero with navy background, gold accents
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="section-label">Hero Section</span>
+
+            <!-- HEADLINE -->
+            <h1>You Built Something <span>Worth Protecting.</span><br>Now Build What Comes Next.</h1>
+
+            <!-- SUBHEADLINE -->
+            <p class="subheadline">Certainty First.</p>
+
+            <!-- BODY COPY (2-3 sentences) -->
+            <p class="body-copy">After decades of building your business the right way, you deserve partners who understand that patience precedes precision. ScaleUp Ventures brings proven digital strategies to established companies ready to grow without gambling everything you have earned.</p>
+
+            <!-- CTAs -->
+            <div class="cta-group">
+                <!-- PRIMARY CTA -->
+                <a href="#" class="btn-primary">Schedule Your Discovery Call</a>
+                <!-- SECONDARY CTA -->
+                <a href="#" class="btn-secondary">See How We Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PROBLEM SECTION -->
+    <!-- ============================================ -->
+
+    <div class="copy-reference">
+        <strong>SECTION: PROBLEM</strong> | "Been burned before?" - Addresses skepticism directly
+    </div>
+
+    <section class="problem">
+        <div class="problem-content">
+            <span class="section-label">Problem Section</span>
+
+            <!-- HEADLINE -->
+            <h2>Been Burned by Tech Promises Before?</h2>
+
+            <!-- 4 PAIN POINT BULLETS -->
+            <ul class="pain-points">
+                <li>You paid an agency thousands for a website that never brought in a single qualified lead</li>
+                <li>A consultant promised "digital transformation" but left you with confusing dashboards and no results</li>
+                <li>Your team spent months on a project that was obsolete before it launched</li>
+                <li>You have watched competitors throw money at flashy technology while you wondered if any of it actually works</li>
+            </ul>
+
+            <!-- TRANSITION LINE -->
+            <p class="transition-line">Your skepticism is not the problem. It is proof you have been paying attention.</p>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SOLUTION SECTION -->
+    <!-- ============================================ -->
+
+    <div class="copy-reference">
+        <strong>SECTION: SOLUTION</strong> | Three service cards with clear value propositions
+    </div>
+
+    <section class="solution">
+        <div class="solution-content">
+            <span class="section-label">Solution Section</span>
+
+            <!-- HEADLINE -->
+            <h2>Strategic Growth. Measured Steps. Real Results.</h2>
+
+            <!-- INTRO PARAGRAPH -->
+            <p class="intro">We do not chase trends or sell dreams. ScaleUp Ventures delivers digital capabilities that match the patience and precision you have always brought to your business. Every engagement starts with understanding what you have built and ends with something you can measure.</p>
+
+            <!-- SERVICE CARDS -->
+            <div class="service-cards">
+
+                <!-- DEVELOPMENT CARD -->
+                <div class="service-card">
+                    <h3>Digital Foundations</h3>
+                    <p>Websites, applications, and systems built to work as reliably as you do. We create digital infrastructure that reflects your standards: thoroughly planned, professionally executed, and built to last longer than the next trend cycle.</p>
+                </div>
+
+                <!-- GROWTH MARKETING CARD -->
+                <div class="service-card">
+                    <h3>Deliberate Growth</h3>
+                    <p>Marketing that finds customers who actually want what you offer. We focus on qualified leads over vanity metrics, building sustainable pipelines that grow your business without requiring you to become something you are not.</p>
+                </div>
+
+                <!-- AI AUTOMATION CARD -->
+                <div class="service-card">
+                    <h3>Intelligent Automation</h3>
+                    <p>AI and automation that extends your capacity without replacing your judgment. We implement practical solutions that handle repetitive work, freeing you and your team to focus on the decisions that actually require human wisdom.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- HOW IT WORKS SECTION -->
+    <!-- ============================================ -->
+
+    <div class="copy-reference">
+        <strong>SECTION: HOW IT WORKS</strong> | 4-step process showing patient, methodical approach
+    </div>
+
+    <section class="process">
+        <div class="process-content">
+            <span class="section-label" style="background: var(--gold); color: var(--navy);">How It Works</span>
+
+            <!-- HEADLINE -->
+            <h2>Patience Before Precision</h2>
+
+            <!-- STEPS -->
+            <div class="steps">
+
+                <!-- STEP 1 -->
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Listen First</h3>
+                    <p>We spend time understanding your business, your history, and what success actually looks like for you. No pitch decks. No pressure. Just questions that matter.</p>
+                </div>
+
+                <!-- STEP 2 -->
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Assess Honestly</h3>
+                    <p>We evaluate what is working, what is not, and what opportunities exist. If we are not the right fit, we will tell you. No engagement is better than the wrong engagement.</p>
+                </div>
+
+                <!-- STEP 3 -->
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Plan Together</h3>
+                    <p>We create a roadmap with clear milestones, realistic timelines, and defined outcomes. You will know exactly what we are building before we build it.</p>
+                </div>
+
+                <!-- STEP 4 -->
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Execute and Measure</h3>
+                    <p>We deliver in phases you can evaluate, with results you can verify. Every step proves value before the next begins.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PROOF SECTION -->
+    <!-- ============================================ -->
+
+    <div class="copy-reference">
+        <strong>SECTION: PROOF</strong> | Key statistics demonstrating track record
+    </div>
+
+    <section class="proof">
+        <div class="proof-content">
+            <span class="section-label">Proof Section</span>
+
+            <!-- HEADLINE -->
+            <h2>Results That Speak for Themselves</h2>
+
+            <!-- STATS -->
+            <div class="stats">
+
+                <!-- STAT 1 -->
+                <div class="stat">
+                    <div class="stat-number">94%</div>
+                    <p class="stat-label">Client Retention Rate</p>
+                </div>
+
+                <!-- STAT 2 -->
+                <div class="stat">
+                    <div class="stat-number">20+</div>
+                    <p class="stat-label">Years Combined Experience</p>
+                </div>
+
+                <!-- STAT 3 -->
+                <div class="stat">
+                    <div class="stat-number">$0</div>
+                    <p class="stat-label">Paid Until You See Value</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ABOUT SECTION -->
+    <!-- ============================================ -->
+
+    <div class="copy-reference">
+        <strong>SECTION: ABOUT</strong> | Company story and founder background
+    </div>
+
+    <section class="about">
+        <div class="about-content">
+            <span class="section-label">About Section</span>
+
+            <!-- HEADLINE -->
+            <h2>Built by People Who Understand Building</h2>
+
+            <!-- PARAGRAPH 1 -->
+            <p>ScaleUp Ventures exists because we grew tired of watching good businesses get burned by bad advice. Our founders spent years in corporate technology and digital marketing, watching agencies overpromise and underdeliver to companies that deserved better. We left to build something different: a consultancy that treats your skepticism as wisdom, not an obstacle to overcome.</p>
+
+            <!-- PARAGRAPH 2 -->
+            <p>Like the heron that waits patiently for the right moment before striking with precision, we believe the best results come from discipline, not haste. Every strategy we recommend, every solution we build, and every relationship we form is grounded in a simple principle: earn trust through results, not rhetoric. Your business took decades to build. It deserves partners who respect that.</p>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FINAL CTA SECTION -->
+    <!-- ============================================ -->
+
+    <div class="copy-reference">
+        <strong>SECTION: FINAL CTA</strong> | Closing conversion section
+    </div>
+
+    <section class="final-cta">
+        <div class="final-cta-content">
+            <span class="section-label">Final CTA Section</span>
+
+            <!-- HEADLINE -->
+            <h2>Ready to Grow Without the Gamble?</h2>
+
+            <!-- BODY COPY -->
+            <p>A 30-minute conversation costs you nothing but could change everything. We will listen to where you are, discuss where you want to go, and tell you honestly whether we can help you get there.</p>
+
+            <!-- BUTTON TEXT -->
+            <a href="#" class="btn-primary">Start the Conversation</a>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- COPY QUICK REFERENCE -->
+    <!-- ============================================ -->
+
+    <div style="background: var(--navy); padding: 60px; color: var(--white);">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; margin-bottom: 40px; color: var(--gold);">Quick Reference: All Copy Elements</h2>
+
+            <div style="display: grid; gap: 32px; font-size: 14px; line-height: 1.8;">
+
+                <div style="border-left: 3px solid var(--gold); padding-left: 24px;">
+                    <h3 style="color: var(--gold-light); margin-bottom: 12px;">HERO</h3>
+                    <p><strong>Headline:</strong> You Built Something Worth Protecting. Now Build What Comes Next.</p>
+                    <p><strong>Subheadline:</strong> Certainty First.</p>
+                    <p><strong>Body:</strong> After decades of building your business the right way, you deserve partners who understand that patience precedes precision. ScaleUp Ventures brings proven digital strategies to established companies ready to grow without gambling everything you have earned.</p>
+                    <p><strong>Primary CTA:</strong> Schedule Your Discovery Call</p>
+                    <p><strong>Secondary CTA:</strong> See How We Work</p>
+                </div>
+
+                <div style="border-left: 3px solid var(--gold); padding-left: 24px;">
+                    <h3 style="color: var(--gold-light); margin-bottom: 12px;">PROBLEM</h3>
+                    <p><strong>Headline:</strong> Been Burned by Tech Promises Before?</p>
+                    <p><strong>Pain Points:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 8px;">
+                        <li>You paid an agency thousands for a website that never brought in a single qualified lead</li>
+                        <li>A consultant promised "digital transformation" but left you with confusing dashboards and no results</li>
+                        <li>Your team spent months on a project that was obsolete before it launched</li>
+                        <li>You have watched competitors throw money at flashy technology while you wondered if any of it actually works</li>
+                    </ul>
+                    <p style="margin-top: 12px;"><strong>Transition:</strong> Your skepticism is not the problem. It is proof you have been paying attention.</p>
+                </div>
+
+                <div style="border-left: 3px solid var(--gold); padding-left: 24px;">
+                    <h3 style="color: var(--gold-light); margin-bottom: 12px;">SOLUTION</h3>
+                    <p><strong>Headline:</strong> Strategic Growth. Measured Steps. Real Results.</p>
+                    <p><strong>Intro:</strong> We do not chase trends or sell dreams. ScaleUp Ventures delivers digital capabilities that match the patience and precision you have always brought to your business. Every engagement starts with understanding what you have built and ends with something you can measure.</p>
+                    <p style="margin-top: 8px;"><strong>Card 1 - Digital Foundations:</strong> Websites, applications, and systems built to work as reliably as you do. We create digital infrastructure that reflects your standards: thoroughly planned, professionally executed, and built to last longer than the next trend cycle.</p>
+                    <p><strong>Card 2 - Deliberate Growth:</strong> Marketing that finds customers who actually want what you offer. We focus on qualified leads over vanity metrics, building sustainable pipelines that grow your business without requiring you to become something you are not.</p>
+                    <p><strong>Card 3 - Intelligent Automation:</strong> AI and automation that extends your capacity without replacing your judgment. We implement practical solutions that handle repetitive work, freeing you and your team to focus on the decisions that actually require human wisdom.</p>
+                </div>
+
+                <div style="border-left: 3px solid var(--gold); padding-left: 24px;">
+                    <h3 style="color: var(--gold-light); margin-bottom: 12px;">HOW IT WORKS</h3>
+                    <p><strong>Headline:</strong> Patience Before Precision</p>
+                    <p><strong>Step 1 - Listen First:</strong> We spend time understanding your business, your history, and what success actually looks like for you. No pitch decks. No pressure. Just questions that matter.</p>
+                    <p><strong>Step 2 - Assess Honestly:</strong> We evaluate what is working, what is not, and what opportunities exist. If we are not the right fit, we will tell you. No engagement is better than the wrong engagement.</p>
+                    <p><strong>Step 3 - Plan Together:</strong> We create a roadmap with clear milestones, realistic timelines, and defined outcomes. You will know exactly what we are building before we build it.</p>
+                    <p><strong>Step 4 - Execute and Measure:</strong> We deliver in phases you can evaluate, with results you can verify. Every step proves value before the next begins.</p>
+                </div>
+
+                <div style="border-left: 3px solid var(--gold); padding-left: 24px;">
+                    <h3 style="color: var(--gold-light); margin-bottom: 12px;">PROOF</h3>
+                    <p><strong>Headline:</strong> Results That Speak for Themselves</p>
+                    <p><strong>Stat 1:</strong> 94% | Client Retention Rate</p>
+                    <p><strong>Stat 2:</strong> 20+ | Years Combined Experience</p>
+                    <p><strong>Stat 3:</strong> $0 | Paid Until You See Value</p>
+                </div>
+
+                <div style="border-left: 3px solid var(--gold); padding-left: 24px;">
+                    <h3 style="color: var(--gold-light); margin-bottom: 12px;">ABOUT</h3>
+                    <p><strong>Headline:</strong> Built by People Who Understand Building</p>
+                    <p><strong>Paragraph 1:</strong> ScaleUp Ventures exists because we grew tired of watching good businesses get burned by bad advice. Our founders spent years in corporate technology and digital marketing, watching agencies overpromise and underdeliver to companies that deserved better. We left to build something different: a consultancy that treats your skepticism as wisdom, not an obstacle to overcome.</p>
+                    <p><strong>Paragraph 2:</strong> Like the heron that waits patiently for the right moment before striking with precision, we believe the best results come from discipline, not haste. Every strategy we recommend, every solution we build, and every relationship we form is grounded in a simple principle: earn trust through results, not rhetoric. Your business took decades to build. It deserves partners who respect that.</p>
+                </div>
+
+                <div style="border-left: 3px solid var(--gold); padding-left: 24px;">
+                    <h3 style="color: var(--gold-light); margin-bottom: 12px;">FINAL CTA</h3>
+                    <p><strong>Headline:</strong> Ready to Grow Without the Gamble?</p>
+                    <p><strong>Body:</strong> A 30-minute conversation costs you nothing but could change everything. We will listen to where you are, discuss where you want to go, and tell you honestly whether we can help you get there.</p>
+                    <p><strong>Button:</strong> Start the Conversation</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer style="background: #0a0f1a; color: rgba(255,255,255,0.5); padding: 40px 60px; text-align: center; font-size: 13px;">
+        <p>ScaleUp Ventures Homepage Copy | Final Version | December 31, 2025</p>
+        <p style="margin-top: 8px;">Brand Colors: Navy #0F1729 | Gold #D4A853</p>
+    </footer>
+
+</body>
+</html>

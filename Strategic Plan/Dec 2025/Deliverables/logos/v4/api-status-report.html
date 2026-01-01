@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini API Status Report - ScaleUp Ventures</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', serif;
+            background: #f8f9fa;
+            color: #0F1729;
+            line-height: 1.7;
+            padding: 40px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+
+        h1 { color: #0F1729; margin-bottom: 10px; }
+        .subtitle { color: #D4A853; font-size: 1.2rem; margin-bottom: 30px; }
+
+        .status-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .status-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .status-badge {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .status-error { background: #ffebee; color: #c62828; }
+        .status-success { background: #e8f5e9; color: #2e7d32; }
+
+        .test-result {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.85rem;
+        }
+        .test-result h4 {
+            margin-bottom: 10px;
+            font-family: 'Georgia', serif;
+            color: #0F1729;
+        }
+        .test-result .output {
+            background: #0F1729;
+            color: #e0e0e0;
+            padding: 15px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        .test-result .output .error { color: #ff6b6b; }
+        .test-result .output .success { color: #51cf66; }
+        .test-result .output .status { color: #D4A853; font-weight: bold; }
+
+        .explanation {
+            background: linear-gradient(135deg, #0F1729 0%, #1a2744 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        .explanation h3 { color: #D4A853; margin-bottom: 15px; }
+        .explanation p { margin: 10px 0; }
+        .explanation strong { color: #D4A853; }
+
+        .cost-box {
+            background: #e8f5e9;
+            border: 2px solid #2e7d32;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .cost-box .amount {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        .cost-box .label { color: #666; }
+
+        .timeline {
+            margin: 20px 0;
+        }
+        .timeline-item {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .timeline-item:last-child { border-bottom: none; }
+        .timeline-time {
+            width: 120px;
+            font-weight: bold;
+            color: #D4A853;
+        }
+        .timeline-event { flex: 1; }
+
+        .next-steps {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #D4A853;
+        }
+        .next-steps h3 { margin-bottom: 15px; }
+        .next-steps ol { margin-left: 25px; }
+        .next-steps li { margin: 10px 0; }
+        .next-steps a { color: #D4A853; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gemini API Status Report</h1>
+        <p class="subtitle">Direct API Test Results - December 31, 2025 at 9:36 AM PT</p>
+
+        <!-- Connectivity Status -->
+        <div class="status-card">
+            <div class="status-header">
+                <h2>API Connectivity</h2>
+                <span class="status-badge status-success">CONNECTED</span>
+            </div>
+            <p><strong>Result:</strong> The API is accessible and responding. We successfully connected to Google's servers.</p>
+            <p style="margin-top: 10px;"><strong>Endpoint:</strong> https://generativelanguage.googleapis.com/v1beta/</p>
+
+            <div class="test-result">
+                <h4>Test 1: Basic Text Generation</h4>
+                <div class="output"><span class="error">ERROR: [GoogleGenerativeAI Error]: Error fetching from
+https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent:
+
+<span class="status">[429 Too Many Requests]</span>
+
+You exceeded your current quota, please check your plan and billing details.</span></div>
+            </div>
+
+            <div class="test-result">
+                <h4>Test 2: Image Generation</h4>
+                <div class="output"><span class="error">ERROR: [GoogleGenerativeAI Error]: Error fetching from
+https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp-image-generation:generateContent:
+
+<span class="status">[429 Too Many Requests]</span>
+
+You exceeded your current quota, please check your plan and billing details.
+
+* Quota exceeded for metric: generativelanguage.googleapis.com/gen
+
+<span class="status">STATUS: QUOTA_EXHAUSTED</span></span></div>
+            </div>
+        </div>
+
+        <!-- Cost Summary -->
+        <div class="status-card">
+            <h2 style="margin-bottom: 20px;">Total Cost Incurred</h2>
+            <div class="cost-box">
+                <div class="amount">$0.00</div>
+                <div class="label">Using Google AI Studio Free Tier</div>
+            </div>
+            <p style="text-align: center; color: #666;">
+                All API calls were made using the free tier. No billing charges.
+            </p>
+        </div>
+
+        <!-- Explanation -->
+        <div class="explanation">
+            <h3>What This Means</h3>
+            <p>The <strong>429 Too Many Requests</strong> error confirms:</p>
+            <p>1. <strong>API key is valid</strong> - Google accepted our credentials and processed the request</p>
+            <p>2. <strong>API is reachable</strong> - We successfully connected to Google's servers</p>
+            <p>3. <strong>Quota is exhausted</strong> - We hit the daily limit on the free tier</p>
+            <p style="margin-top: 15px;">The free tier allows approximately <strong>15 requests per minute</strong> with a daily cap.
+               Previous logo generation attempts (V1, V2, V3, and early V4 attempts) consumed today's quota.</p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="status-card">
+            <h2 style="margin-bottom: 20px;">Today's API Usage Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">~8:00 AM</div>
+                    <div class="timeline-event">Started V4 logo generation attempts (Heron concept)</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">~8:30 AM</div>
+                    <div class="timeline-event">Rate limited after multiple retries (0/3 generated)</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">~8:45 AM</div>
+                    <div class="timeline-event">Started Lynx concept generation</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">~9:00 AM</div>
+                    <div class="timeline-event">Quota completely exhausted (0/3 generated)</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">9:36 AM</div>
+                    <div class="timeline-event">Direct API test confirms quota exhausted</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- What Now -->
+        <div class="next-steps">
+            <h3>Next Steps</h3>
+            <ol>
+                <li><strong>Wait for quota reset</strong> - Resets at <strong>midnight Pacific Time (PT)</strong></li>
+                <li><strong>Use AI Studio directly</strong> - <a href="https://aistudio.google.com/" target="_blank">Google AI Studio</a> may have separate quota</li>
+                <li><strong>Enable billing</strong> - Add a payment method to remove free tier limits</li>
+            </ol>
+            <p style="margin-top: 20px; color: #666;">
+                <strong>Recommendation:</strong> The free tier reset happens at midnight PT. Tomorrow, we can
+                run the generation scripts again with full quota.
+            </p>
+        </div>
+
+        <!-- API Key Info -->
+        <div class="status-card" style="margin-top: 30px;">
+            <h3 style="margin-bottom: 15px;">API Configuration</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px 0; width: 200px;"><strong>API Key Present</strong></td>
+                    <td style="padding: 10px 0;">Yes (39 characters)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px 0;"><strong>Key Prefix</strong></td>
+                    <td style="padding: 10px 0; font-family: monospace;">AIzaSyD2...</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px 0;"><strong>Model (Text)</strong></td>
+                    <td style="padding: 10px 0;">gemini-2.0-flash</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 0;"><strong>Model (Image)</strong></td>
+                    <td style="padding: 10px 0;">gemini-2.0-flash-exp-image-generation</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

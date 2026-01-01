@@ -1,0 +1,2767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Testimonial Strategy | ScaleUp Ventures</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --gold-light: #E8C97A;
+            --gold-dark: #B8923F;
+            --white: #FFFFFF;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --navy-light: #1A2744;
+            --navy-lighter: #243352;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--gray-50);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 25 L55 30 L35 35 L30 55 L25 35 L5 30 L25 25 Z' fill='%23D4A853' fill-opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .logo-mark {
+            width: 80px;
+            height: 80px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            box-shadow: 0 4px 20px rgba(212, 168, 83, 0.3);
+        }
+
+        .logo-mark svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .document-type {
+            font-family: 'Arial', sans-serif;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: normal;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 20px;
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .header-meta {
+            font-family: 'Arial', sans-serif;
+            font-size: 13px;
+            color: var(--gray-300);
+        }
+
+        /* Video Icon Animation */
+        .video-icon-container {
+            margin: 30px auto;
+            width: 120px;
+            height: 80px;
+            position: relative;
+        }
+
+        .video-frame {
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-button {
+            width: 0;
+            height: 0;
+            border-left: 25px solid var(--gold);
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            margin-left: 5px;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            background: var(--navy);
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-link {
+            font-family: 'Arial', sans-serif;
+            font-size: 11px;
+            color: var(--gray-300);
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-link:hover {
+            background: var(--navy-lighter);
+            color: var(--gold);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* Executive Summary */
+        .executive-summary {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.08);
+            border-left: 5px solid var(--gold);
+        }
+
+        .executive-summary h2 {
+            font-size: 28px;
+            color: var(--navy);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .summary-stat {
+            text-align: center;
+            padding: 25px;
+            background: var(--gray-50);
+            border-radius: 8px;
+        }
+
+        .summary-stat .number {
+            font-size: 36px;
+            color: var(--gold);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .summary-stat .label {
+            font-family: 'Arial', sans-serif;
+            font-size: 12px;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Styling */
+        .section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.08);
+        }
+
+        .section-number {
+            font-family: 'Arial', sans-serif;
+            font-size: 12px;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .section h2 {
+            font-size: 28px;
+            color: var(--navy);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gray-100);
+        }
+
+        .section h3 {
+            font-size: 20px;
+            color: var(--navy);
+            margin: 30px 0 15px;
+        }
+
+        .section h4 {
+            font-size: 16px;
+            color: var(--navy-light);
+            margin: 25px 0 12px;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section p {
+            color: var(--gray-700);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        /* Key Point Callout */
+        .key-point {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .key-point h4 {
+            color: var(--gold);
+            margin-top: 0;
+            font-size: 14px;
+        }
+
+        .key-point p {
+            color: var(--gray-200);
+            margin-bottom: 0;
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        /* Impact Cards */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .impact-card {
+            background: var(--gray-50);
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .impact-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(15, 23, 41, 0.1);
+        }
+
+        .impact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .impact-card h4 {
+            margin-top: 0;
+            color: var(--navy);
+        }
+
+        .impact-card p {
+            margin-bottom: 0;
+            font-size: 15px;
+        }
+
+        .impact-stat {
+            font-size: 28px;
+            color: var(--gold);
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Testimonial Types */
+        .type-showcase {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .type-card {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .type-card:hover {
+            border-color: var(--gold);
+        }
+
+        .type-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .type-header h4 {
+            color: var(--gold);
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .type-body {
+            padding: 25px;
+        }
+
+        .type-body ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .type-body li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 14px;
+            color: var(--gray-700);
+        }
+
+        .type-body li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .type-footer {
+            background: var(--gray-50);
+            padding: 15px 25px;
+            font-family: 'Arial', sans-serif;
+            font-size: 12px;
+            color: var(--gray-600);
+        }
+
+        .type-footer strong {
+            color: var(--navy);
+        }
+
+        /* Criteria Checklist */
+        .criteria-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .criteria-box {
+            background: var(--gray-50);
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .criteria-box.ideal {
+            border: 2px solid var(--gold);
+        }
+
+        .criteria-box.avoid {
+            border: 2px solid #DC2626;
+        }
+
+        .criteria-box h4 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .criteria-box.ideal h4 {
+            color: var(--gold-dark);
+        }
+
+        .criteria-box.avoid h4 {
+            color: #DC2626;
+        }
+
+        .criteria-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .criteria-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 15px;
+            color: var(--gray-700);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .criteria-list li:last-child {
+            border-bottom: none;
+        }
+
+        .criteria-box.ideal .criteria-list li::before {
+            content: '\\2713';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .criteria-box.avoid .criteria-list li::before {
+            content: '\\2717';
+            position: absolute;
+            left: 0;
+            color: #DC2626;
+            font-weight: bold;
+        }
+
+        /* Question Cards */
+        .question-category {
+            margin: 30px 0;
+            background: var(--gray-50);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .category-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 20px 30px;
+        }
+
+        .category-header h4 {
+            color: var(--gold);
+            margin: 0;
+        }
+
+        .category-header p {
+            color: var(--gray-300);
+            margin: 10px 0 0;
+            font-size: 14px;
+        }
+
+        .question-list {
+            padding: 25px 30px;
+            list-style: none;
+        }
+
+        .question-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 15px;
+            color: var(--gray-700);
+            display: flex;
+            gap: 15px;
+        }
+
+        .question-list li:last-child {
+            border-bottom: none;
+        }
+
+        .question-number {
+            background: var(--gold);
+            color: var(--navy);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Tech Specs */
+        .tech-specs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .spec-card {
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .spec-card .spec-value {
+            font-size: 28px;
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .spec-card .spec-label {
+            font-family: 'Arial', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray-300);
+        }
+
+        .spec-card .spec-note {
+            font-size: 12px;
+            color: var(--gray-400);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Filming Tips */
+        .filming-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .filming-category {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .filming-category h4 {
+            background: var(--gray-50);
+            margin: 0;
+            padding: 20px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 14px;
+        }
+
+        .filming-tips {
+            padding: 20px;
+        }
+
+        .tip-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--gray-200);
+        }
+
+        .tip-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .tip-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 18px;
+        }
+
+        .tip-content h5 {
+            font-family: 'Arial', sans-serif;
+            font-size: 13px;
+            color: var(--navy);
+            margin: 0 0 5px;
+        }
+
+        .tip-content p {
+            font-size: 14px;
+            margin: 0;
+            color: var(--gray-600);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .comparison-table th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 18px 25px;
+            text-align: left;
+            font-family: 'Arial', sans-serif;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .comparison-table th:first-child {
+            border-right: 1px solid var(--navy-lighter);
+        }
+
+        .comparison-table td {
+            padding: 15px 25px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 14px;
+            color: var(--gray-700);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--gray-50);
+        }
+
+        .comparison-table td:first-child {
+            font-weight: bold;
+            color: var(--navy);
+            background: var(--gray-100);
+        }
+
+        .comparison-table .recommended {
+            background: rgba(212, 168, 83, 0.1);
+        }
+
+        .comparison-table .recommended td {
+            color: var(--navy);
+        }
+
+        /* Placement Grid */
+        .placement-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .placement-card {
+            background: var(--gray-50);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .placement-card:hover {
+            border-color: var(--gold);
+        }
+
+        .placement-card.primary {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .placement-card.primary h4 {
+            color: var(--gold);
+        }
+
+        .placement-card.primary p {
+            color: var(--gray-300);
+        }
+
+        .placement-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .placement-card h4 {
+            margin: 0 0 10px;
+            font-size: 16px;
+        }
+
+        .placement-card p {
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .priority-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-family: 'Arial', sans-serif;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 12px;
+        }
+
+        .priority-badge.high {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .priority-badge.medium {
+            background: var(--gray-300);
+            color: var(--navy);
+        }
+
+        /* Editing Guidelines */
+        .brand-element {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .brand-element:last-child {
+            border-bottom: none;
+        }
+
+        .brand-element .label {
+            font-family: 'Arial', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray-600);
+            padding-top: 5px;
+        }
+
+        .brand-element .content {
+            font-size: 15px;
+            color: var(--gray-700);
+        }
+
+        .color-swatch {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 20px;
+        }
+
+        .swatch {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .swatch.navy { background: var(--navy); }
+        .swatch.gold { background: var(--gold); }
+        .swatch.white { background: var(--white); }
+
+        /* Template Box */
+        .template-box {
+            background: var(--gray-50);
+            border: 2px solid var(--gray-200);
+            border-radius: 10px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+
+        .template-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .template-header h4 {
+            color: var(--gold);
+            margin: 0;
+        }
+
+        .template-content {
+            padding: 30px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.8;
+            color: var(--gray-700);
+            white-space: pre-wrap;
+        }
+
+        .template-content .variable {
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold-dark);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Distribution Timeline */
+        .distribution-timeline {
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 39px;
+            top: 50px;
+            bottom: -30px;
+            width: 2px;
+            background: var(--gray-200);
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-marker {
+            width: 80px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .timeline-day {
+            background: var(--gold);
+            color: var(--navy);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0 auto 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-label {
+            font-family: 'Arial', sans-serif;
+            font-size: 11px;
+            color: var(--gray-600);
+            text-transform: uppercase;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: var(--gray-50);
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .timeline-content h4 {
+            margin: 0 0 15px;
+            color: var(--navy);
+            font-size: 16px;
+        }
+
+        .timeline-content ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .timeline-content li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--gray-700);
+        }
+
+        /* Metrics Dashboard */
+        .metrics-dashboard {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .metric-card {
+            background: var(--gray-50);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            border-left: 4px solid var(--gold);
+        }
+
+        .metric-card .metric-name {
+            font-family: 'Arial', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray-600);
+            margin-bottom: 10px;
+        }
+
+        .metric-card .metric-target {
+            font-size: 28px;
+            color: var(--navy);
+            font-weight: bold;
+        }
+
+        .metric-card .metric-benchmark {
+            font-size: 12px;
+            color: var(--gray-500);
+            margin-top: 8px;
+        }
+
+        /* Implementation Timeline */
+        .implementation-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            border-radius: 12px;
+            padding: 50px;
+            margin: 50px 0;
+        }
+
+        .implementation-section h2 {
+            color: var(--gold);
+            border-bottom-color: var(--navy-lighter);
+        }
+
+        .phase-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .phase-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .phase-number {
+            background: var(--gold);
+            color: var(--navy);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .phase-card h4 {
+            color: var(--gold);
+            font-size: 16px;
+            margin: 0 0 10px;
+        }
+
+        .phase-card .timeframe {
+            font-family: 'Arial', sans-serif;
+            font-size: 11px;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .phase-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .phase-card li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 13px;
+            color: var(--gray-300);
+        }
+
+        .phase-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        /* Budget Estimate */
+        .budget-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+
+        .budget-table th {
+            background: var(--navy);
+            color: var(--gold);
+            padding: 15px 20px;
+            text-align: left;
+            font-family: 'Arial', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .budget-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 14px;
+        }
+
+        .budget-table tr:nth-child(even) {
+            background: var(--gray-50);
+        }
+
+        .budget-table tfoot td {
+            background: var(--gray-100);
+            font-weight: bold;
+            color: var(--navy);
+        }
+
+        .budget-table .amount {
+            text-align: right;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Pro Tip Box */
+        .pro-tip {
+            background: rgba(212, 168, 83, 0.1);
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            padding: 25px 30px;
+            margin: 30px 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .pro-tip-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 24px;
+        }
+
+        .pro-tip-content h4 {
+            color: var(--gold-dark);
+            margin: 0 0 10px;
+            font-size: 16px;
+        }
+
+        .pro-tip-content p {
+            margin: 0;
+            font-size: 15px;
+            color: var(--gray-700);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 50px 40px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-tagline {
+            font-size: 24px;
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .footer p {
+            color: var(--gray-400);
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 30px auto;
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav-bar { display: none; }
+            .section { break-inside: avoid; }
+            .header { padding: 40px; }
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .summary-grid,
+            .impact-grid,
+            .type-showcase,
+            .criteria-section,
+            .filming-grid,
+            .placement-grid,
+            .tech-specs,
+            .phase-grid,
+            .metrics-dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .brand-element {
+                grid-template-columns: 1fr;
+            }
+
+            h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-mark">
+                <svg viewBox="0 0 40 40" fill="none">
+                    <path d="M20 5 L35 15 L35 30 L20 35 L5 30 L5 15 Z" stroke="#0F1729" stroke-width="2" fill="none"/>
+                    <path d="M20 12 L28 17 L28 27 L20 30 L12 27 L12 17 Z" fill="#0F1729"/>
+                </svg>
+            </div>
+            <div class="document-type">Strategic Marketing Asset</div>
+            <h1>Video Testimonial Strategy</h1>
+            <div class="tagline">"Certainty First."</div>
+            <div class="video-icon-container">
+                <div class="video-frame">
+                    <div class="play-button"></div>
+                </div>
+            </div>
+            <div class="header-meta">
+                ScaleUp Ventures | December 2025 | Comprehensive Video Testimonial Program
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="#why-video" class="nav-link">Why Video</a>
+            <a href="#types" class="nav-link">Types</a>
+            <a href="#selection" class="nav-link">Client Selection</a>
+            <a href="#questions" class="nav-link">Interview Questions</a>
+            <a href="#technical" class="nav-link">Technical Specs</a>
+            <a href="#filming" class="nav-link">Filming Guide</a>
+            <a href="#production" class="nav-link">Production</a>
+            <a href="#placement" class="nav-link">Placement</a>
+            <a href="#editing" class="nav-link">Editing</a>
+            <a href="#releases" class="nav-link">Releases</a>
+            <a href="#distribution" class="nav-link">Distribution</a>
+            <a href="#metrics" class="nav-link">Metrics</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Executive Summary -->
+        <div class="executive-summary">
+            <h2>Executive Summary</h2>
+            <p>Video testimonials are the most powerful trust-building tool for reaching skeptical business owners aged 50-65. Unlike written testimonials, video provides authenticity that cannot be fabricated, showing real emotion, body language, and genuine conviction that resonates with our target audience's need for certainty before making business decisions.</p>
+
+            <div class="summary-grid">
+                <div class="summary-stat">
+                    <span class="number">2x</span>
+                    <span class="label">Higher Conversion Rate vs. Text</span>
+                </div>
+                <div class="summary-stat">
+                    <span class="number">95%</span>
+                    <span class="label">Retention of Video Messages</span>
+                </div>
+                <div class="summary-stat">
+                    <span class="number">88%</span>
+                    <span class="label">Trust Video Over Claims</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Why Video Testimonials Matter -->
+        <section id="why-video" class="section">
+            <span class="section-number">Section 01</span>
+            <h2>Why Video Testimonials Matter</h2>
+
+            <p>For skeptical business owners aged 50-65, trust is earned through evidence, not claims. Video testimonials provide irrefutable social proof that addresses the core concerns of this demographic: "Is this real? Will this work for someone like me? Can I trust these people?"</p>
+
+            <div class="key-point">
+                <h4>The Skeptic's Perspective</h4>
+                <p>"I've seen enough marketing fluff. I want to hear from real business owners who've been where I am and can tell me straight whether this is worth my time."</p>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">&#128065;</div>
+                    <h4>Visual Authenticity</h4>
+                    <p>Video captures genuine emotion, body language, and conviction that text simply cannot convey. Viewers can read facial expressions and hear voice inflection.</p>
+                    <div class="impact-stat">73%</div>
+                    <p style="font-size: 12px; color: var(--gray-500);">of consumers prefer video to learn about products</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">&#128101;</div>
+                    <h4>Peer Identification</h4>
+                    <p>Viewers see people like themselves, business owners of similar age and experience, creating immediate relatability and reducing the perception of risk.</p>
+                    <div class="impact-stat">92%</div>
+                    <p style="font-size: 12px; color: var(--gray-500);">trust peer recommendations over advertising</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">&#128200;</div>
+                    <h4>Tangible Results</h4>
+                    <p>Video testimonials allow clients to share specific numbers, outcomes, and stories with the credibility that comes from looking someone in the eye.</p>
+                    <div class="impact-stat">64%</div>
+                    <p style="font-size: 12px; color: var(--gray-500);">more likely to buy after watching testimonial</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">&#128338;</div>
+                    <h4>Lasting Impact</h4>
+                    <p>Video content is remembered longer than text, creating sustained brand recall and reinforcing trust over time with multiple viewings.</p>
+                    <div class="impact-stat">95%</div>
+                    <p style="font-size: 12px; color: var(--gray-500);">message retention vs. 10% for text</p>
+                </div>
+            </div>
+
+            <h3>Why This Matters for Our Audience</h3>
+            <p>Business owners aged 50-65 have decades of experience detecting inauthentic marketing. They've been burned before and approach new opportunities with healthy skepticism. Video testimonials address their concerns directly:</p>
+
+            <ul style="margin: 20px 0; padding-left: 25px;">
+                <li style="margin-bottom: 12px;"><strong>Concern:</strong> "This sounds too good to be true." <strong>Solution:</strong> Real clients sharing honest experiences, including challenges.</li>
+                <li style="margin-bottom: 12px;"><strong>Concern:</strong> "I can't tell if these testimonials are real." <strong>Solution:</strong> Video proves authenticity through real people, real businesses.</li>
+                <li style="margin-bottom: 12px;"><strong>Concern:</strong> "Will this work for my situation?" <strong>Solution:</strong> Testimonials from similar business types and challenges.</li>
+                <li style="margin-bottom: 12px;"><strong>Concern:</strong> "What's the actual ROI?" <strong>Solution:</strong> Specific numbers and outcomes shared directly by clients.</li>
+            </ul>
+        </section>
+
+        <!-- Section 2: Types of Video Testimonials -->
+        <section id="types" class="section">
+            <span class="section-number">Section 02</span>
+            <h2>Types of Video Testimonials</h2>
+
+            <p>Different situations call for different testimonial formats. Each type serves a specific purpose in the buyer's journey and addresses different concerns of our skeptical audience.</p>
+
+            <div class="type-showcase">
+                <div class="type-card">
+                    <div class="type-header">
+                        <h4>Formal Executive</h4>
+                    </div>
+                    <div class="type-body">
+                        <ul>
+                            <li>Professional studio setting</li>
+                            <li>Business owner or executive</li>
+                            <li>Structured interview format</li>
+                            <li>Multiple camera angles</li>
+                            <li>High production value</li>
+                            <li>Company logo integration</li>
+                        </ul>
+                    </div>
+                    <div class="type-footer">
+                        <strong>Best for:</strong> Website hero, investor presentations, sales materials
+                    </div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-header">
+                        <h4>Casual Conversation</h4>
+                    </div>
+                    <div class="type-body">
+                        <ul>
+                            <li>Natural office environment</li>
+                            <li>Relaxed, candid delivery</li>
+                            <li>Authentic, unscripted feel</li>
+                            <li>Single camera setup</li>
+                            <li>Conversational tone</li>
+                            <li>Behind-the-scenes glimpses</li>
+                        </ul>
+                    </div>
+                    <div class="type-footer">
+                        <strong>Best for:</strong> Social media, email campaigns, blog posts
+                    </div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-header">
+                        <h4>Results-Focused</h4>
+                    </div>
+                    <div class="type-body">
+                        <ul>
+                            <li>Data and metrics prominently featured</li>
+                            <li>Before/after comparisons</li>
+                            <li>Screen recordings of results</li>
+                            <li>Charts and visual proof</li>
+                            <li>Specific numbers cited</li>
+                            <li>Timeline of achievement</li>
+                        </ul>
+                    </div>
+                    <div class="type-footer">
+                        <strong>Best for:</strong> Case studies, ROI presentations, landing pages
+                    </div>
+                </div>
+            </div>
+
+            <h3>Additional Testimonial Formats</h3>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <h4>Quick Quote Clips</h4>
+                    <p>15-30 second soundbites capturing a single powerful statement. Perfect for social media ads, email GIFs, and website micro-interactions.</p>
+                </div>
+                <div class="impact-card">
+                    <h4>Problem-Solution Stories</h4>
+                    <p>3-5 minute narratives following the client's journey from challenge through resolution. Ideal for dedicated testimonial pages and nurture sequences.</p>
+                </div>
+                <div class="impact-card">
+                    <h4>Industry-Specific Deep Dives</h4>
+                    <p>Detailed testimonials focused on specific industry challenges and solutions. Essential for vertical marketing and trade show content.</p>
+                </div>
+                <div class="impact-card">
+                    <h4>Team Testimonials</h4>
+                    <p>Multiple team members sharing different perspectives on the same experience. Provides comprehensive validation for enterprise decisions.</p>
+                </div>
+            </div>
+
+            <div class="pro-tip">
+                <div class="pro-tip-icon">&#128161;</div>
+                <div class="pro-tip-content">
+                    <h4>Strategic Recommendation</h4>
+                    <p>Build a library that includes all three primary formats. Formal testimonials establish authority, casual builds relatability, and results-focused provides the proof that skeptical business owners demand. Each testimonial session should aim to capture content for all three formats.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Client Selection Criteria -->
+        <section id="selection" class="section">
+            <span class="section-number">Section 03</span>
+            <h2>Client Selection Criteria</h2>
+
+            <p>Not every satisfied client makes an effective testimonial. The most impactful video testimonials come from clients who can articulate their experience authentically and represent the type of business owner we want to attract.</p>
+
+            <div class="criteria-section">
+                <div class="criteria-box ideal">
+                    <h4>&#9989; Ideal Testimonial Candidates</h4>
+                    <ul class="criteria-list">
+                        <li>Measurable results they can share (revenue, time saved, growth metrics)</li>
+                        <li>Articulate and comfortable speaking on camera</li>
+                        <li>Demographic match to target audience (50-65, established business owner)</li>
+                        <li>Industry or challenge that resonates with prospects</li>
+                        <li>Genuine enthusiasm without being salesy</li>
+                        <li>Initially skeptical before working with us (relatable journey)</li>
+                        <li>Willing to share specific details, not just generalities</li>
+                        <li>Professional reputation that adds credibility</li>
+                        <li>Available for filming within reasonable timeframe</li>
+                        <li>Ongoing relationship (can provide updates)</li>
+                    </ul>
+                </div>
+
+                <div class="criteria-box avoid">
+                    <h4>&#10060; Candidates to Avoid</h4>
+                    <ul class="criteria-list">
+                        <li>Uncomfortable on camera or extremely nervous</li>
+                        <li>Unable to articulate specific outcomes or benefits</li>
+                        <li>Results that can't be verified or seem exaggerated</li>
+                        <li>Overly promotional or sounds scripted</li>
+                        <li>Industry or situation that won't resonate with prospects</li>
+                        <li>Relationship has had significant issues (even if resolved)</li>
+                        <li>Unwilling to commit appropriate time</li>
+                        <li>Looking for compensation beyond reasonable expenses</li>
+                        <li>Business practices that could reflect poorly on us</li>
+                        <li>Legal or compliance concerns about their industry</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Selection Scoring Matrix</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Criteria</th>
+                        <th>Weight</th>
+                        <th>Scoring Guide</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Measurable Results</td>
+                        <td>25%</td>
+                        <td>5 = Specific ROI/numbers | 3 = General improvement | 1 = Vague satisfaction</td>
+                    </tr>
+                    <tr>
+                        <td>Camera Presence</td>
+                        <td>20%</td>
+                        <td>5 = Natural, engaging | 3 = Adequate with coaching | 1 = Uncomfortable</td>
+                    </tr>
+                    <tr>
+                        <td>Audience Match</td>
+                        <td>20%</td>
+                        <td>5 = Perfect demographic | 3 = Partial match | 1 = Poor fit</td>
+                    </tr>
+                    <tr>
+                        <td>Story Quality</td>
+                        <td>15%</td>
+                        <td>5 = Compelling journey | 3 = Standard experience | 1 = Unremarkable</td>
+                    </tr>
+                    <tr>
+                        <td>Credibility Factor</td>
+                        <td>10%</td>
+                        <td>5 = Industry leader | 3 = Respected peer | 1 = Unknown</td>
+                    </tr>
+                    <tr class="recommended">
+                        <td>Skeptic-to-Believer Arc</td>
+                        <td>10%</td>
+                        <td>5 = Strong skepticism overcome | 3 = Some initial doubt | 1 = Easy convert</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="key-point">
+                <h4>Target Score: 4.0+ Overall</h4>
+                <p>Prioritize candidates scoring 4.0 or higher on weighted average. The "skeptic-to-believer arc" is particularly valuable for our audience, as it mirrors their own decision-making process.</p>
+            </div>
+        </section>
+
+        <!-- Section 4: Interview Questions -->
+        <section id="questions" class="section">
+            <span class="section-number">Section 04</span>
+            <h2>Interview Questions for Video Testimonials</h2>
+
+            <p>Great testimonials come from great questions. This question framework guides clients to share authentic, compelling stories while ensuring we capture content that addresses prospect concerns and supports the "Certainty First" message.</p>
+
+            <div class="question-category">
+                <div class="category-header">
+                    <h4>Opening Context Questions</h4>
+                    <p>Establish who they are and build credibility with viewers</p>
+                </div>
+                <ul class="question-list">
+                    <li><span class="question-number">1</span>"Tell us about yourself and your business, how long have you been running it?"</li>
+                    <li><span class="question-number">2</span>"What industry are you in, and what makes your business unique?"</li>
+                    <li><span class="question-number">3</span>"What stage was your business at when we first connected?"</li>
+                </ul>
+            </div>
+
+            <div class="question-category">
+                <div class="category-header">
+                    <h4>Before-State Questions</h4>
+                    <p>Paint the picture of challenges and skepticism before working together</p>
+                </div>
+                <ul class="question-list">
+                    <li><span class="question-number">4</span>"What challenges were you facing before we started working together?"</li>
+                    <li><span class="question-number">5</span>"Had you tried other solutions before? What was that experience like?"</li>
+                    <li><span class="question-number">6</span>"What were your initial doubts or concerns about working with us?"</li>
+                    <li><span class="question-number">7</span>"What would have happened if you hadn't addressed this challenge?"</li>
+                </ul>
+            </div>
+
+            <div class="question-category">
+                <div class="category-header">
+                    <h4>Decision Process Questions</h4>
+                    <p>Address how skeptics become confident clients (mirrors prospect journey)</p>
+                </div>
+                <ul class="question-list">
+                    <li><span class="question-number">8</span>"What made you decide to work with ScaleUp Ventures despite any initial concerns?"</li>
+                    <li><span class="question-number">9</span>"What moment or conversation helped you feel confident in moving forward?"</li>
+                    <li><span class="question-number">10</span>"How did our approach differ from what you'd experienced before?"</li>
+                </ul>
+            </div>
+
+            <div class="question-category">
+                <div class="category-header">
+                    <h4>Results and Outcomes Questions</h4>
+                    <p>Capture specific, measurable outcomes that prove value</p>
+                </div>
+                <ul class="question-list">
+                    <li><span class="question-number">11</span>"What specific results have you achieved since working with us?"</li>
+                    <li><span class="question-number">12</span>"Can you share any numbers, revenue growth, time saved, or other metrics?"</li>
+                    <li><span class="question-number">13</span>"What unexpected benefits have you experienced?"</li>
+                    <li><span class="question-number">14</span>"How has this impacted your day-to-day operations or peace of mind?"</li>
+                </ul>
+            </div>
+
+            <div class="question-category">
+                <div class="category-header">
+                    <h4>Experience and Relationship Questions</h4>
+                    <p>Humanize the testimonial with personal elements</p>
+                </div>
+                <ul class="question-list">
+                    <li><span class="question-number">15</span>"How would you describe working with our team?"</li>
+                    <li><span class="question-number">16</span>"Was there a particular team member or moment that stood out?"</li>
+                    <li><span class="question-number">17</span>"How responsive have we been when you've had questions or concerns?"</li>
+                </ul>
+            </div>
+
+            <div class="question-category">
+                <div class="category-header">
+                    <h4>Recommendation Questions</h4>
+                    <p>Direct endorsement and advice for prospects considering us</p>
+                </div>
+                <ul class="question-list">
+                    <li><span class="question-number">18</span>"What would you say to a business owner who's skeptical about working with us?"</li>
+                    <li><span class="question-number">19</span>"Why would you recommend ScaleUp Ventures to other business owners?"</li>
+                    <li><span class="question-number">20</span>"If you had to describe your experience in one sentence, what would it be?"</li>
+                </ul>
+            </div>
+
+            <div class="pro-tip">
+                <div class="pro-tip-icon">&#127908;</div>
+                <div class="pro-tip-content">
+                    <h4>Interview Best Practices</h4>
+                    <p>Share questions with clients 24-48 hours before filming so they can prepare thoughtful responses. During the interview, ask follow-up questions and encourage specific examples. The best soundbites often come from natural conversation, not scripted answers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Technical Requirements -->
+        <section id="technical" class="section">
+            <span class="section-number">Section 05</span>
+            <h2>Technical Requirements</h2>
+
+            <p>Professional quality video builds credibility with our discerning audience. These specifications ensure every testimonial meets the production standards that reflect our brand's commitment to excellence.</p>
+
+            <div class="tech-specs">
+                <div class="spec-card">
+                    <div class="spec-value">1080p+</div>
+                    <div class="spec-label">Resolution</div>
+                    <div class="spec-note">4K preferred for future-proofing</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-value">30fps</div>
+                    <div class="spec-label">Frame Rate</div>
+                    <div class="spec-note">24fps for cinematic feel</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-value">16:9</div>
+                    <div class="spec-label">Aspect Ratio</div>
+                    <div class="spec-note">9:16 versions for social</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-value">H.264</div>
+                    <div class="spec-label">Codec</div>
+                    <div class="spec-note">MP4 container format</div>
+                </div>
+            </div>
+
+            <h3>Duration Guidelines</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Format</th>
+                        <th>Optimal Length</th>
+                        <th>Maximum Length</th>
+                        <th>Use Case</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Quick Quote Clip</td>
+                        <td>15-30 seconds</td>
+                        <td>45 seconds</td>
+                        <td>Social ads, email, website snippets</td>
+                    </tr>
+                    <tr>
+                        <td>Standard Testimonial</td>
+                        <td>60-90 seconds</td>
+                        <td>2 minutes</td>
+                        <td>Website, landing pages, presentations</td>
+                    </tr>
+                    <tr class="recommended">
+                        <td>Feature Testimonial</td>
+                        <td>2-3 minutes</td>
+                        <td>4 minutes</td>
+                        <td>Case study pages, sales meetings</td>
+                    </tr>
+                    <tr>
+                        <td>Deep Dive Story</td>
+                        <td>4-6 minutes</td>
+                        <td>8 minutes</td>
+                        <td>YouTube, dedicated testimonial section</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Audio Requirements</h3>
+            <div class="filming-grid">
+                <div class="filming-category">
+                    <h4>Audio Specifications</h4>
+                    <div class="filming-tips">
+                        <div class="tip-item">
+                            <div class="tip-content">
+                                <h5>Sample Rate: 48kHz minimum</h5>
+                                <p>Standard broadcast quality for professional output</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-content">
+                                <h5>Bit Depth: 16-bit minimum</h5>
+                                <p>24-bit preferred for post-production flexibility</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-content">
+                                <h5>Peak Level: -6dB to -12dB</h5>
+                                <p>Prevents clipping while maintaining dynamics</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="filming-category">
+                    <h4>Audio Equipment Priority</h4>
+                    <div class="filming-tips">
+                        <div class="tip-item">
+                            <div class="tip-content">
+                                <h5>Lavalier Microphone</h5>
+                                <p>Primary choice for clear, consistent dialogue</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-content">
+                                <h5>Shotgun Microphone</h5>
+                                <p>Secondary option for natural sound</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-content">
+                                <h5>Room Treatment</h5>
+                                <p>Minimize echo and ambient noise</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>File Delivery Specifications</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Deliverable</th>
+                        <th>Format</th>
+                        <th>Resolution</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Master File</td>
+                        <td>ProRes 422 / DNxHD</td>
+                        <td>4K or 1080p</td>
+                        <td>Archive and future re-edits</td>
+                    </tr>
+                    <tr>
+                        <td>Web Delivery</td>
+                        <td>H.264 MP4</td>
+                        <td>1080p</td>
+                        <td>10-15 Mbps bitrate</td>
+                    </tr>
+                    <tr>
+                        <td>Social Media</td>
+                        <td>H.264 MP4</td>
+                        <td>1080p / 720p</td>
+                        <td>Platform-specific specs</td>
+                    </tr>
+                    <tr>
+                        <td>Mobile Optimized</td>
+                        <td>H.264 MP4</td>
+                        <td>720p</td>
+                        <td>5-8 Mbps for faster loading</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 6: Filming Guidance for Clients -->
+        <section id="filming" class="section">
+            <span class="section-number">Section 06</span>
+            <h2>Filming Guidance for Clients</h2>
+
+            <p>Proper preparation ensures comfortable clients and professional results. These guidelines help clients prepare for their testimonial session, whether filming professionally or creating DIY content.</p>
+
+            <div class="filming-grid">
+                <div class="filming-category">
+                    <h4>Location Setup</h4>
+                    <div class="filming-tips">
+                        <div class="tip-item">
+                            <div class="tip-icon">&#127968;</div>
+                            <div class="tip-content">
+                                <h5>Choose a Professional Space</h5>
+                                <p>Office, conference room, or workspace that reflects your business positively</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">&#128161;</div>
+                            <div class="tip-content">
+                                <h5>Natural Light Preferred</h5>
+                                <p>Face windows for soft, flattering light; avoid backlighting</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">&#128263;</div>
+                            <div class="tip-content">
+                                <h5>Minimize Background Noise</h5>
+                                <p>Turn off HVAC, close windows, silence phones</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">&#127912;</div>
+                            <div class="tip-content">
+                                <h5>Declutter the Background</h5>
+                                <p>Clean, simple backgrounds; avoid distracting elements</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filming-category">
+                    <h4>Personal Preparation</h4>
+                    <div class="filming-tips">
+                        <div class="tip-item">
+                            <div class="tip-icon">&#128084;</div>
+                            <div class="tip-content">
+                                <h5>Professional Attire</h5>
+                                <p>Business casual or typical work attire; avoid stripes and busy patterns</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">&#128172;</div>
+                            <div class="tip-content">
+                                <h5>Review Questions Beforehand</h5>
+                                <p>Prepare key points but don't memorize scripts</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">&#9749;</div>
+                            <div class="tip-content">
+                                <h5>Rest and Hydrate</h5>
+                                <p>Get good sleep; have water available during filming</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">&#128336;</div>
+                            <div class="tip-content">
+                                <h5>Allow Adequate Time</h5>
+                                <p>Plan for 60-90 minutes without rushing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filming-category">
+                    <h4>During the Interview</h4>
+                    <div class="filming-tips">
+                        <div class="tip-item">
+                            <div class="tip-icon">&#128064;</div>
+                            <div class="tip-content">
+                                <h5>Eye Contact with Interviewer</h5>
+                                <p>Look at the person asking questions, not directly at camera</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">&#128516;</div>
+                            <div class="tip-content">
+                                <h5>Be Authentically You</h5>
+                                <p>Genuine enthusiasm beats polished delivery every time</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">&#128221;</div>
+                            <div class="tip-content">
+                                <h5>Include Specifics</h5>
+                                <p>Use real numbers, timeframes, and concrete examples</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">&#128260;</div>
+                            <div class="tip-content">
+                                <h5>Retakes Are Welcome</h5>
+                                <p>If you stumble, pause and restart; editing fixes everything</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filming-category">
+                    <h4>What to Avoid</h4>
+                    <div class="filming-tips">
+                        <div class="tip-item">
+                            <div class="tip-icon">&#128683;</div>
+                            <div class="tip-content">
+                                <h5>Reading from Notes</h5>
+                                <p>Sounds scripted and inauthentic; use bullet points only</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">&#128683;</div>
+                            <div class="tip-content">
+                                <h5>Marketing Speak</h5>
+                                <p>Talk like you would to a peer, not a commercial</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">&#128683;</div>
+                            <div class="tip-content">
+                                <h5>Revealing Confidential Info</h5>
+                                <p>Discuss with our team what can and cannot be shared</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">&#128683;</div>
+                            <div class="tip-content">
+                                <h5>Overcomplicating Answers</h5>
+                                <p>Simple, direct responses are most effective</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-point">
+                <h4>The 24-Hour Prep Checklist</h4>
+                <p>Send clients this reminder the day before: Review questions, choose outfit, clear schedule for filming time, prepare workspace, gather any materials or props, get good rest, and remember: be yourself.</p>
+            </div>
+        </section>
+
+        <!-- Section 7: Professional vs DIY Production -->
+        <section id="production" class="section">
+            <span class="section-number">Section 07</span>
+            <h2>Professional Production vs DIY Options</h2>
+
+            <p>Both approaches have merit. The decision depends on budget, use case, and the importance of production quality for specific testimonials.</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Professional Production</th>
+                        <th>DIY Production</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cost per Video</td>
+                        <td>$2,000 - $8,000</td>
+                        <td>$100 - $500</td>
+                    </tr>
+                    <tr>
+                        <td>Production Time</td>
+                        <td>2-4 weeks from shoot to delivery</td>
+                        <td>1-3 days with internal resources</td>
+                    </tr>
+                    <tr>
+                        <td>Quality Level</td>
+                        <td>Broadcast-quality, polished finish</td>
+                        <td>Good quality with proper equipment</td>
+                    </tr>
+                    <tr>
+                        <td>Lighting</td>
+                        <td>Professional multi-point lighting</td>
+                        <td>Natural light or basic LED panels</td>
+                    </tr>
+                    <tr>
+                        <td>Audio</td>
+                        <td>Professional wireless lavs, backup audio</td>
+                        <td>USB microphone or smartphone lav</td>
+                    </tr>
+                    <tr>
+                        <td>Camera</td>
+                        <td>Cinema camera, multiple angles</td>
+                        <td>Smartphone or webcam (4K capable)</td>
+                    </tr>
+                    <tr>
+                        <td>Editing</td>
+                        <td>Professional color grading, graphics, music</td>
+                        <td>Basic cuts, simple lower thirds</td>
+                    </tr>
+                    <tr class="recommended">
+                        <td>Best For</td>
+                        <td>Hero testimonials, key clients, website features</td>
+                        <td>Social media, quick updates, volume</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Recommended Production Approach</h3>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon" style="background: var(--navy); color: var(--gold);">&#9733;</div>
+                    <h4>Tier 1: Professional Production</h4>
+                    <p>Reserve for 3-5 flagship testimonials annually. These become primary website content, sales presentation anchors, and investor materials.</p>
+                    <p style="margin-top: 15px; font-size: 13px;"><strong>Budget:</strong> $15,000 - $40,000/year</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">&#9734;</div>
+                    <h4>Tier 2: Hybrid Approach</h4>
+                    <p>Professional videographer, client location. Cost-effective for secondary testimonials, industry-specific content, and refreshed versions.</p>
+                    <p style="margin-top: 15px; font-size: 13px;"><strong>Budget:</strong> $1,000 - $2,000/video</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">&#9734;</div>
+                    <h4>Tier 3: DIY with Guidelines</h4>
+                    <p>Client-recorded with our equipment kit and coaching. Perfect for volume content, social media, and quick testimonials.</p>
+                    <p style="margin-top: 15px; font-size: 13px;"><strong>Budget:</strong> $100 - $300/video</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">&#9734;</div>
+                    <h4>Tier 4: Remote Capture</h4>
+                    <p>Zoom/Teams recordings with quality guidelines. For geographically distant clients or quick quote captures.</p>
+                    <p style="margin-top: 15px; font-size: 13px;"><strong>Budget:</strong> $50 - $100/video</p>
+                </div>
+            </div>
+
+            <h3>DIY Equipment Kit</h3>
+            <p>Provide this kit to clients for self-filming:</p>
+            <table class="budget-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Recommended Model</th>
+                        <th class="amount">Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ring Light (18")</td>
+                        <td>Neewer 18" LED with stand</td>
+                        <td class="amount">$100</td>
+                    </tr>
+                    <tr>
+                        <td>Lavalier Microphone</td>
+                        <td>Rode Wireless Go II</td>
+                        <td class="amount">$300</td>
+                    </tr>
+                    <tr>
+                        <td>Phone Tripod</td>
+                        <td>Joby GorillaPod with phone mount</td>
+                        <td class="amount">$50</td>
+                    </tr>
+                    <tr>
+                        <td>Backdrop (optional)</td>
+                        <td>Portable navy backdrop</td>
+                        <td class="amount">$75</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">Total Kit Cost</td>
+                        <td class="amount">$525</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <!-- Section 8: Where to Use Video Testimonials -->
+        <section id="placement" class="section">
+            <span class="section-number">Section 08</span>
+            <h2>Where to Use Video Testimonials</h2>
+
+            <p>Strategic placement ensures testimonials reach prospects at every stage of their decision journey. Different placements require different formats and lengths.</p>
+
+            <div class="placement-grid">
+                <div class="placement-card primary">
+                    <div class="placement-icon">&#127760;</div>
+                    <h4>Website Homepage</h4>
+                    <p>Hero testimonial prominently featured above the fold</p>
+                    <span class="priority-badge high">Primary Priority</span>
+                </div>
+                <div class="placement-card primary">
+                    <div class="placement-icon">&#128196;</div>
+                    <h4>Dedicated Testimonial Page</h4>
+                    <p>Full library organized by industry, challenge, or result type</p>
+                    <span class="priority-badge high">Primary Priority</span>
+                </div>
+                <div class="placement-card primary">
+                    <div class="placement-icon">&#128640;</div>
+                    <h4>Landing Pages</h4>
+                    <p>Relevant testimonials matching page offer and audience</p>
+                    <span class="priority-badge high">Primary Priority</span>
+                </div>
+                <div class="placement-card">
+                    <div class="placement-icon">&#128231;</div>
+                    <h4>Email Campaigns</h4>
+                    <p>Embedded in nurture sequences and sales follow-ups</p>
+                    <span class="priority-badge medium">Secondary</span>
+                </div>
+                <div class="placement-card">
+                    <div class="placement-icon">&#128247;</div>
+                    <h4>Social Media</h4>
+                    <p>LinkedIn, Facebook, YouTube with platform-specific cuts</p>
+                    <span class="priority-badge medium">Secondary</span>
+                </div>
+                <div class="placement-card">
+                    <div class="placement-icon">&#128202;</div>
+                    <h4>Sales Presentations</h4>
+                    <p>Embedded in decks for meetings and proposals</p>
+                    <span class="priority-badge medium">Secondary</span>
+                </div>
+                <div class="placement-card">
+                    <div class="placement-icon">&#127891;</div>
+                    <h4>Trade Shows</h4>
+                    <p>Looping on booth displays, presentation theaters</p>
+                    <span class="priority-badge medium">Secondary</span>
+                </div>
+                <div class="placement-card">
+                    <div class="placement-icon">&#128218;</div>
+                    <h4>Case Study Pages</h4>
+                    <p>Integrated into written case studies for multimedia experience</p>
+                    <span class="priority-badge medium">Secondary</span>
+                </div>
+                <div class="placement-card">
+                    <div class="placement-icon">&#128176;</div>
+                    <h4>Paid Advertising</h4>
+                    <p>YouTube pre-roll, LinkedIn video ads, Facebook/Instagram</p>
+                    <span class="priority-badge medium">Secondary</span>
+                </div>
+            </div>
+
+            <h3>Placement Strategy by Buyer Journey</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Journey Stage</th>
+                        <th>Testimonial Type</th>
+                        <th>Placement</th>
+                        <th>Goal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Awareness</td>
+                        <td>Quick quotes, problem-focused</td>
+                        <td>Social ads, display ads, blog posts</td>
+                        <td>Capture attention, create recognition</td>
+                    </tr>
+                    <tr>
+                        <td>Consideration</td>
+                        <td>Results-focused, comparison</td>
+                        <td>Landing pages, case studies, YouTube</td>
+                        <td>Build credibility, differentiate</td>
+                    </tr>
+                    <tr class="recommended">
+                        <td>Decision</td>
+                        <td>Deep-dive stories, similar clients</td>
+                        <td>Sales calls, proposals, testimonial page</td>
+                        <td>Overcome objections, inspire confidence</td>
+                    </tr>
+                    <tr>
+                        <td>Retention</td>
+                        <td>Success stories, community</td>
+                        <td>Client portal, newsletters, events</td>
+                        <td>Reinforce value, encourage referrals</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 9: Editing and Branding Guidelines -->
+        <section id="editing" class="section">
+            <span class="section-number">Section 09</span>
+            <h2>Editing and Branding Guidelines</h2>
+
+            <p>Consistent branding across all testimonials reinforces professional credibility and creates a cohesive library that strengthens the ScaleUp Ventures identity.</p>
+
+            <h3>Brand Elements for Video</h3>
+            <div style="background: var(--gray-50); border-radius: 10px; padding: 30px; margin: 30px 0;">
+                <div class="brand-element">
+                    <div class="label">Primary Colors</div>
+                    <div class="content">
+                        <span class="color-swatch"><span class="swatch navy"></span> Navy #0F1729</span>
+                        <span class="color-swatch"><span class="swatch gold"></span> Gold #D4A853</span>
+                        <span class="color-swatch"><span class="swatch white"></span> White #FFFFFF</span>
+                    </div>
+                </div>
+                <div class="brand-element">
+                    <div class="label">Typography</div>
+                    <div class="content">
+                        Headlines: Georgia or similar serif<br>
+                        Lower thirds: Clean sans-serif (Arial, Helvetica)
+                    </div>
+                </div>
+                <div class="brand-element">
+                    <div class="label">Logo Usage</div>
+                    <div class="content">
+                        Opening: Animated logo (3 seconds max)<br>
+                        Closing: Logo with tagline + website URL<br>
+                        Lower thirds: Small logo watermark (optional)
+                    </div>
+                </div>
+                <div class="brand-element">
+                    <div class="label">Lower Thirds</div>
+                    <div class="content">
+                        Background: Navy with gold accent line<br>
+                        Text: White name, gold title/company<br>
+                        Duration: 5-8 seconds
+                    </div>
+                </div>
+                <div class="brand-element">
+                    <div class="label">Transitions</div>
+                    <div class="content">
+                        Simple cuts preferred; avoid flashy effects<br>
+                        Cross-dissolves for b-roll transitions (0.5 seconds)
+                    </div>
+                </div>
+                <div class="brand-element">
+                    <div class="label">Music</div>
+                    <div class="content">
+                        Subtle, professional background<br>
+                        Licensed tracks only (Artlist, Epidemic Sound)<br>
+                        Lower volume during dialogue
+                    </div>
+                </div>
+            </div>
+
+            <h3>Editing Structure Template</h3>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <h4>Opening (5-10 seconds)</h4>
+                    <ul style="margin: 15px 0; padding-left: 20px; font-size: 14px;">
+                        <li>ScaleUp Ventures logo animation</li>
+                        <li>Fade to first shot of client</li>
+                        <li>Optional: Text overlay with client's key result</li>
+                    </ul>
+                </div>
+                <div class="impact-card">
+                    <h4>Introduction (15-30 seconds)</h4>
+                    <ul style="margin: 15px 0; padding-left: 20px; font-size: 14px;">
+                        <li>Client introduces themselves</li>
+                        <li>Lower third with name, title, company</li>
+                        <li>Brief context about their business</li>
+                    </ul>
+                </div>
+                <div class="impact-card">
+                    <h4>Main Content (60-180 seconds)</h4>
+                    <ul style="margin: 15px 0; padding-left: 20px; font-size: 14px;">
+                        <li>Challenge / Before state</li>
+                        <li>Decision to work together</li>
+                        <li>Results and transformation</li>
+                        <li>B-roll cutaways as appropriate</li>
+                    </ul>
+                </div>
+                <div class="impact-card">
+                    <h4>Closing (10-15 seconds)</h4>
+                    <ul style="margin: 15px 0; padding-left: 20px; font-size: 14px;">
+                        <li>Key recommendation quote</li>
+                        <li>ScaleUp Ventures logo</li>
+                        <li>"Certainty First." tagline</li>
+                        <li>Website URL and CTA</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pro-tip">
+                <div class="pro-tip-icon">&#127916;</div>
+                <div class="pro-tip-content">
+                    <h4>Editing Best Practice</h4>
+                    <p>The most powerful testimonials feel unedited even when they're carefully crafted. Remove ums, ahs, and tangents, but preserve natural speech patterns. The goal is authentic, not polished.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Release and Permission Templates -->
+        <section id="releases" class="section">
+            <span class="section-number">Section 10</span>
+            <h2>Release and Permission Templates</h2>
+
+            <p>Proper documentation protects both ScaleUp Ventures and our clients. These templates ensure we have legal permission to use testimonial content across all channels.</p>
+
+            <div class="template-box">
+                <div class="template-header">
+                    <h4>Video Testimonial Release Form</h4>
+                </div>
+                <div class="template-content">VIDEO TESTIMONIAL RELEASE AND CONSENT AGREEMENT
+
+I, <span class="variable">[Client Full Name]</span>, hereby grant ScaleUp Ventures, LLC and its affiliates, successors, and assigns the irrevocable right and permission to use, publish, and distribute my video testimonial, including my name, voice, likeness, image, and any statements made therein, for the following purposes:
+
+PERMITTED USES:
+- Website and digital platforms owned by ScaleUp Ventures
+- Social media channels (LinkedIn, Facebook, YouTube, Instagram, Twitter/X)
+- Email marketing and newsletters
+- Sales presentations and proposals
+- Printed marketing materials and brochures
+- Trade shows, conferences, and events
+- Paid advertising (digital and traditional)
+- Press releases and media outreach
+
+TERMS AND CONDITIONS:
+1. This release is perpetual unless revoked in writing with 90 days notice.
+2. I acknowledge that I will not receive compensation for this testimonial.
+3. I confirm that all statements made are true and accurate to the best of my knowledge.
+4. I waive any right to inspect or approve the final edited version.
+5. I understand my testimonial may be edited for length and clarity.
+6. ScaleUp Ventures agrees to represent my statements in context and good faith.
+
+OPTIONAL RESTRICTIONS (check if applicable):
+[ ] Do not use my company logo
+[ ] Do not mention specific revenue or financial figures
+[ ] Require approval before use in paid advertising
+[ ] Other: <span class="variable">[Specify]</span>
+
+CLIENT SIGNATURE: _______________________________  DATE: ___________
+PRINTED NAME: <span class="variable">[Client Full Name]</span>
+COMPANY: <span class="variable">[Company Name]</span>
+EMAIL: <span class="variable">[Email Address]</span>
+
+ScaleUp Ventures REPRESENTATIVE: _______________  DATE: ___________
+                </div>
+            </div>
+
+            <div class="template-box">
+                <div class="template-header">
+                    <h4>Testimonial Request Email Template</h4>
+                </div>
+                <div class="template-content">Subject: Would You Share Your Experience on Video?
+
+Dear <span class="variable">[Client Name]</span>,
+
+I hope this message finds you well. Given the great results we've achieved together, I'm reaching out with a request.
+
+We're building a library of client success stories, and your experience would be incredibly valuable for other business owners considering a similar path. Many of our best prospects are understandably skeptical, and hearing from someone who's been in their shoes makes a real difference.
+
+We'd love to feature you in a brief video testimonial (typically 2-3 minutes in the final edit). Here's what it would involve:
+
+- 45-60 minute interview session at your convenience
+- Questions provided in advance so you can prepare
+- Professional filming at your office or via video call
+- Full review and approval rights before publication
+
+We know your time is valuable, so we've made the process as streamlined as possible. As a thank you, we'd also feature your company prominently with a link back to your website.
+
+Would you be open to participating? If so, I'd be happy to schedule a quick call to discuss details.
+
+Thank you for considering this. Your story could genuinely help another business owner make an informed decision.
+
+Best regards,
+<span class="variable">[Your Name]</span>
+ScaleUp Ventures
+                </div>
+            </div>
+
+            <div class="template-box">
+                <div class="template-header">
+                    <h4>Testimonial Confirmation and Prep Email</h4>
+                </div>
+                <div class="template-content">Subject: Your Video Testimonial Session - Prep Guide
+
+Dear <span class="variable">[Client Name]</span>,
+
+Thank you for agreeing to share your experience! Your testimonial session is confirmed for:
+
+DATE: <span class="variable">[Date]</span>
+TIME: <span class="variable">[Time]</span>
+LOCATION: <span class="variable">[Location/Video Link]</span>
+DURATION: Approximately 60 minutes
+
+PREPARATION GUIDE:
+
+1. REVIEW THE QUESTIONS (attached)
+   Think about your answers but don't memorize them. Natural responses work best.
+
+2. PREPARE YOUR SPACE (if filming at your location)
+   - Professional background (office, conference room)
+   - Good lighting (face a window if possible)
+   - Quiet environment (close windows, silence phones)
+
+3. DRESS FOR SUCCESS
+   - Business casual works well
+   - Avoid busy patterns or stripes
+   - Solid colors photograph best
+
+4. HAVE YOUR RESULTS HANDY
+   - Any specific numbers you'd like to share
+   - Timeline of key milestones
+   - Before/after comparisons
+
+5. RELAX AND BE YOURSELF
+   - There are no wrong answers
+   - We'll do retakes if needed
+   - Authenticity is what matters most
+
+Please complete and return the attached release form before our session.
+
+If you have any questions, don't hesitate to reach out. We're looking forward to capturing your story!
+
+Best regards,
+<span class="variable">[Your Name]</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 11: Distribution Strategy -->
+        <section id="distribution" class="section">
+            <span class="section-number">Section 11</span>
+            <h2>Distribution Strategy</h2>
+
+            <p>A single testimonial should fuel content across multiple channels. Strategic distribution maximizes reach and ensures every video testimonial delivers full value.</p>
+
+            <h3>30-Day Distribution Timeline</h3>
+            <div class="distribution-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-day">D1</div>
+                        <div class="timeline-label">Day One</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Initial Launch</h4>
+                        <ul>
+                            <li>Publish full testimonial on YouTube with SEO-optimized description</li>
+                            <li>Add to dedicated testimonial page on website</li>
+                            <li>Send to client for their approval and sharing</li>
+                            <li>Internal notification to sales team with talking points</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-day">D3</div>
+                        <div class="timeline-label">Day Three</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Social Media Launch</h4>
+                        <ul>
+                            <li>LinkedIn native video post (60-90 second highlight)</li>
+                            <li>Facebook video with extended description</li>
+                            <li>Instagram Reel or Story (15-30 second clip)</li>
+                            <li>Tag client and their company for cross-promotion</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-day">D7</div>
+                        <div class="timeline-label">Week One</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Email Integration</h4>
+                        <ul>
+                            <li>Feature in weekly newsletter with brief context</li>
+                            <li>Add to relevant automated nurture sequences</li>
+                            <li>Create sales follow-up template with video embedded</li>
+                            <li>Update signature blocks with testimonial link (rotating)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-day">D14</div>
+                        <div class="timeline-label">Week Two</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Content Repurposing</h4>
+                        <ul>
+                            <li>Create 3-5 quote graphics with video stills</li>
+                            <li>Write blog post expanding on client's story</li>
+                            <li>Develop case study PDF with embedded video</li>
+                            <li>Extract audio for podcast or audio content</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-day">D21</div>
+                        <div class="timeline-label">Week Three</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Paid Amplification</h4>
+                        <ul>
+                            <li>Launch LinkedIn sponsored content campaign</li>
+                            <li>Create YouTube pre-roll ad (15-second cut)</li>
+                            <li>Retargeting ads featuring testimonial clips</li>
+                            <li>A/B test different cuts and messaging</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-day">D30</div>
+                        <div class="timeline-label">Month One</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Performance Review</h4>
+                        <ul>
+                            <li>Analyze engagement metrics across all channels</li>
+                            <li>Document what worked for future testimonials</li>
+                            <li>Identify opportunities for ongoing use</li>
+                            <li>Plan for 90-day content calendar integration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Platform-Specific Optimization</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Format</th>
+                        <th>Length</th>
+                        <th>Special Considerations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>YouTube</td>
+                        <td>16:9 horizontal</td>
+                        <td>2-5 minutes</td>
+                        <td>Full version with chapters, SEO description, end screens</td>
+                    </tr>
+                    <tr>
+                        <td>LinkedIn</td>
+                        <td>1:1 or 16:9</td>
+                        <td>60-90 seconds</td>
+                        <td>Caption required (85% watch muted), native upload</td>
+                    </tr>
+                    <tr>
+                        <td>Facebook</td>
+                        <td>1:1 or 4:5</td>
+                        <td>60-120 seconds</td>
+                        <td>Auto-captions, engaging first 3 seconds, share-worthy</td>
+                    </tr>
+                    <tr>
+                        <td>Instagram Feed</td>
+                        <td>1:1 or 4:5</td>
+                        <td>60 seconds max</td>
+                        <td>High impact opening, captions essential</td>
+                    </tr>
+                    <tr>
+                        <td>Instagram Reels</td>
+                        <td>9:16 vertical</td>
+                        <td>15-30 seconds</td>
+                        <td>Quick hook, trending audio optional, text overlay</td>
+                    </tr>
+                    <tr>
+                        <td>Website</td>
+                        <td>16:9</td>
+                        <td>90-180 seconds</td>
+                        <td>Thumbnail optimization, lazy loading, fallback image</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>GIF preview + link</td>
+                        <td>Link to full</td>
+                        <td>Animated thumbnail, clear CTA to watch</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 12: Success Metrics -->
+        <section id="metrics" class="section">
+            <span class="section-number">Section 12</span>
+            <h2>Success Metrics for Video Testimonials</h2>
+
+            <p>Measuring testimonial performance ensures continuous improvement and demonstrates ROI. These metrics guide optimization and inform future testimonial strategy.</p>
+
+            <div class="metrics-dashboard">
+                <div class="metric-card">
+                    <div class="metric-name">View Rate</div>
+                    <div class="metric-target">50%+</div>
+                    <div class="metric-benchmark">of page visitors play video</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-name">Watch Time</div>
+                    <div class="metric-target">75%+</div>
+                    <div class="metric-benchmark">average completion rate</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-name">Engagement</div>
+                    <div class="metric-target">5%+</div>
+                    <div class="metric-benchmark">likes, comments, shares</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-name">Conversion Lift</div>
+                    <div class="metric-target">25%+</div>
+                    <div class="metric-benchmark">vs. pages without video</div>
+                </div>
+            </div>
+
+            <h3>Key Performance Indicators</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Metric Category</th>
+                        <th>Specific KPIs</th>
+                        <th>Target</th>
+                        <th>Measurement Tool</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Visibility</td>
+                        <td>Total views, impressions, reach</td>
+                        <td>1,000+ views per video</td>
+                        <td>YouTube Analytics, social insights</td>
+                    </tr>
+                    <tr>
+                        <td>Engagement</td>
+                        <td>Watch time, completion rate, replays</td>
+                        <td>75% average watch time</td>
+                        <td>Wistia, Vimeo Pro, YouTube</td>
+                    </tr>
+                    <tr>
+                        <td>Action</td>
+                        <td>Clicks, form fills, calls scheduled</td>
+                        <td>10% CTR on CTA</td>
+                        <td>Google Analytics, CRM tracking</td>
+                    </tr>
+                    <tr class="recommended">
+                        <td>Conversion</td>
+                        <td>Pipeline influence, closed deals mentioning testimonials</td>
+                        <td>30% of deals touch testimonial</td>
+                        <td>CRM attribution, sales surveys</td>
+                    </tr>
+                    <tr>
+                        <td>Sentiment</td>
+                        <td>Comments, shares, qualitative feedback</td>
+                        <td>90% positive sentiment</td>
+                        <td>Social listening, survey responses</td>
+                    </tr>
+                    <tr>
+                        <td>Production</td>
+                        <td>Cost per video, time to publish</td>
+                        <td>Under $3,000 avg, 3-week turnaround</td>
+                        <td>Project management tracking</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Attribution Tracking</h3>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <h4>Direct Attribution</h4>
+                    <ul style="margin: 15px 0; padding-left: 20px; font-size: 14px;">
+                        <li>UTM parameters on all video CTAs</li>
+                        <li>Unique landing pages per testimonial</li>
+                        <li>Post-conversion surveys ("How did you hear about us?")</li>
+                        <li>Sales team logging testimonial mentions</li>
+                    </ul>
+                </div>
+                <div class="impact-card">
+                    <h4>Influence Attribution</h4>
+                    <ul style="margin: 15px 0; padding-left: 20px; font-size: 14px;">
+                        <li>Multi-touch attribution modeling</li>
+                        <li>Page visit patterns before conversion</li>
+                        <li>Time spent on testimonial content</li>
+                        <li>Retargeting engagement rates</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="key-point">
+                <h4>The Ultimate Metric</h4>
+                <p>The most important measure of testimonial success is whether prospects say, "I watched your client videos, and that's what convinced me to reach out." Track this through intake forms and sales conversations.</p>
+            </div>
+        </section>
+
+        <!-- Implementation Timeline -->
+        <section class="implementation-section">
+            <span class="section-number" style="color: var(--gold);">Implementation</span>
+            <h2>12-Month Video Testimonial Program</h2>
+
+            <div class="phase-grid">
+                <div class="phase-card">
+                    <div class="phase-number">1</div>
+                    <h4>Foundation</h4>
+                    <div class="timeframe">Months 1-2</div>
+                    <ul>
+                        <li>Finalize release forms and templates</li>
+                        <li>Select first 3-5 testimonial candidates</li>
+                        <li>Secure production partner or DIY equipment</li>
+                        <li>Build testimonial page on website</li>
+                        <li>Train sales team on testimonial use</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">2</div>
+                    <h4>Launch</h4>
+                    <div class="timeframe">Months 3-4</div>
+                    <ul>
+                        <li>Film first 3 professional testimonials</li>
+                        <li>Complete editing and branding</li>
+                        <li>Publish flagship testimonials</li>
+                        <li>Execute 30-day distribution plan</li>
+                        <li>Collect initial performance data</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">3</div>
+                    <h4>Scale</h4>
+                    <div class="timeframe">Months 5-8</div>
+                    <ul>
+                        <li>Add 6-8 additional testimonials</li>
+                        <li>Introduce DIY option for volume</li>
+                        <li>Develop industry-specific versions</li>
+                        <li>Launch paid testimonial campaigns</li>
+                        <li>Optimize based on performance data</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">4</div>
+                    <h4>Optimize</h4>
+                    <div class="timeframe">Months 9-12</div>
+                    <ul>
+                        <li>Reach 15-20 total testimonials</li>
+                        <li>Establish quarterly production cadence</li>
+                        <li>Implement advanced attribution</li>
+                        <li>Document ROI and business impact</li>
+                        <li>Plan Year 2 testimonial strategy</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Budget Estimate -->
+        <section class="section">
+            <span class="section-number">Budget</span>
+            <h2>Annual Investment Estimate</h2>
+
+            <table class="budget-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th class="amount">Annual Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Professional Production</td>
+                        <td>3-5 flagship testimonials at $3,000-$5,000 each</td>
+                        <td class="amount">$15,000</td>
+                    </tr>
+                    <tr>
+                        <td>Hybrid Production</td>
+                        <td>6-8 secondary testimonials at $1,500 each</td>
+                        <td class="amount">$12,000</td>
+                    </tr>
+                    <tr>
+                        <td>DIY Equipment</td>
+                        <td>2-3 client kits at $500 each</td>
+                        <td class="amount">$1,500</td>
+                    </tr>
+                    <tr>
+                        <td>Video Hosting</td>
+                        <td>Wistia or Vimeo Pro annual subscription</td>
+                        <td class="amount">$1,200</td>
+                    </tr>
+                    <tr>
+                        <td>Music Licensing</td>
+                        <td>Artlist or Epidemic Sound subscription</td>
+                        <td class="amount">$200</td>
+                    </tr>
+                    <tr>
+                        <td>Paid Distribution</td>
+                        <td>Social media and YouTube advertising</td>
+                        <td class="amount">$6,000</td>
+                    </tr>
+                    <tr>
+                        <td>Contingency</td>
+                        <td>Additional production, travel, unexpected costs</td>
+                        <td class="amount">$4,100</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">Total Annual Investment</td>
+                        <td class="amount">$40,000</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="pro-tip">
+                <div class="pro-tip-icon">&#128176;</div>
+                <div class="pro-tip-content">
+                    <h4>Expected ROI</h4>
+                    <p>Based on industry benchmarks, a well-executed testimonial program typically delivers 3-5x ROI through increased conversion rates, shortened sales cycles, and improved prospect confidence. At $40,000 annual investment with target 25% conversion lift, break-even requires just 1-2 additional closed deals per year.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-tagline">"Certainty First."</div>
+        <div class="footer-divider"></div>
+        <p><strong>ScaleUp Ventures</strong></p>
+        <p>Video Testimonial Strategy | December 2025</p>
+        <p style="margin-top: 20px; font-size: 12px; color: var(--gray-500);">
+            This document provides strategic guidance for developing a comprehensive video testimonial program<br>
+            designed to build trust with skeptical business owners aged 50-65.
+        </p>
+    </footer>
+</body>
+</html>

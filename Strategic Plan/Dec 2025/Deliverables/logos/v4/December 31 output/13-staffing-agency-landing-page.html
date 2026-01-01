@@ -1,0 +1,2288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Solutions for Staffing Agencies | ScaleUp Ventures</title>
+    <meta name="description" content="Stop losing placements to Indeed and ZipRecruiter. Get AI-powered candidate matching, automated outreach, and modern job seeker portals - with ROI you can see before you invest.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --navy-dark: #0a0f1a;
+            --slate: #334155;
+            --slate-light: #64748b;
+            --gold: #D4A853;
+            --gold-muted: #b8956e;
+            --gold-light: rgba(212, 168, 83, 0.15);
+            --cream: #faf8f5;
+            --cream-dark: #f1ede6;
+            --white: #ffffff;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--white);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--navy);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.6rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 8rem 2rem 5rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a853' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gold-light);
+            color: var(--gold);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.25rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title .highlight {
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-stat {
+            text-align: left;
+        }
+
+        .hero-stat-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 0.25rem;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+            border: 2px solid var(--gold);
+        }
+
+        .btn-primary:hover {
+            background: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .hero-visual {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .urgency-card {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(212, 168, 83, 0.1) 100%);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .urgency-card-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+
+        .urgency-card-text {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trust-badge-icon {
+            color: var(--gold);
+            font-size: 1rem;
+        }
+
+        /* Pain Points Section */
+        .pain-section {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--gold-light);
+            color: var(--gold-muted);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--slate);
+            max-width: 700px;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .pain-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--danger);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .pain-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .pain-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(220, 38, 38, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .pain-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .pain-text {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.6;
+        }
+
+        /* Competitor Threat Section */
+        .threat-section {
+            padding: 6rem 2rem;
+            background: var(--navy);
+        }
+
+        .threat-section .section-badge {
+            background: var(--gold-light);
+        }
+
+        .threat-section .section-title {
+            color: var(--white);
+        }
+
+        .threat-section .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .threat-comparison {
+            display: grid;
+            grid-template-columns: 1fr 100px 1fr;
+            gap: 2rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+
+        .threat-column {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .threat-column.platform {
+            border-color: rgba(220, 38, 38, 0.4);
+            background: rgba(220, 38, 38, 0.05);
+        }
+
+        .threat-column.scaleup {
+            border-color: var(--gold);
+            background: rgba(212, 168, 83, 0.1);
+        }
+
+        .threat-column-header {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .threat-column-header .badge {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.65rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .threat-column.platform .badge {
+            background: rgba(220, 38, 38, 0.2);
+            color: #f87171;
+        }
+
+        .threat-column.scaleup .badge {
+            background: rgba(212, 168, 83, 0.3);
+            color: var(--gold);
+        }
+
+        .threat-column-subhead {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1.5rem;
+        }
+
+        .threat-list {
+            list-style: none;
+        }
+
+        .threat-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.8);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .threat-list li:last-child {
+            border-bottom: none;
+        }
+
+        .threat-list .icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            margin-top: 2px;
+        }
+
+        .threat-column.platform .icon {
+            background: rgba(220, 38, 38, 0.2);
+            color: #f87171;
+        }
+
+        .threat-column.scaleup .icon {
+            background: rgba(5, 150, 105, 0.2);
+            color: #34d399;
+        }
+
+        .vs-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vs-circle {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--cream);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid var(--cream-dark);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: var(--white);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--navy);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-description {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            font-size: 0.9rem;
+            color: var(--slate);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--cream-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features .check {
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* ROI Section */
+        .roi-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+        }
+
+        .roi-section .section-title {
+            color: var(--white);
+        }
+
+        .roi-section .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .roi-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .roi-metric {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .roi-label {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.4;
+        }
+
+        .roi-example {
+            background: rgba(212, 168, 83, 0.1);
+            border: 1px solid var(--gold);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .roi-example-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .roi-example-badge {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .roi-example-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .roi-example-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .roi-example-item {
+            text-align: center;
+        }
+
+        .roi-example-label {
+            font-size: 0.8rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .roi-example-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .roi-example-note {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 0.25rem;
+        }
+
+        /* Case Study Section */
+        .case-study-section {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+
+        .case-study-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .case-study-content {
+            padding: 3rem;
+        }
+
+        .case-study-badge {
+            display: inline-block;
+            background: var(--gold-light);
+            color: var(--gold-muted);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-study-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .case-study-client {
+            font-size: 1rem;
+            color: var(--slate);
+            margin-bottom: 1.5rem;
+        }
+
+        .case-study-quote {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--navy);
+            line-height: 1.6;
+            padding: 1.5rem;
+            background: var(--cream);
+            border-left: 4px solid var(--gold);
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-study-author {
+            font-size: 0.9rem;
+            color: var(--slate);
+        }
+
+        .case-study-author strong {
+            color: var(--navy);
+        }
+
+        .case-study-metrics {
+            background: var(--navy);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .case-study-metrics-title {
+            font-size: 0.8rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+        }
+
+        .case-study-metric {
+            margin-bottom: 2rem;
+        }
+
+        .case-study-metric:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-study-metric-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .case-study-metric-label {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 0.25rem;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 50%;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .process-step:first-child::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            width: 50%;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .process-step:not(:first-child):not(:last-child)::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .process-step:last-child::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .process-number {
+            width: 64px;
+            height: 64px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .process-description {
+            font-size: 0.9rem;
+            color: var(--slate);
+            line-height: 1.5;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-rating {
+            color: var(--gold);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .testimonial-text {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--navy);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-family: 'Crimson Pro', serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .testimonial-info {
+            flex: 1;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 1rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: var(--slate-light);
+        }
+
+        /* Trust Signals Section */
+        .trust-section {
+            padding: 4rem 2rem;
+            background: var(--white);
+            border-top: 1px solid var(--cream-dark);
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .trust-item {
+            padding: 1rem;
+        }
+
+        .trust-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin: 0 auto 1rem;
+            color: var(--navy);
+        }
+
+        .trust-title {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .trust-text {
+            font-size: 0.85rem;
+            color: var(--slate-light);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--cream);
+        }
+
+        .faq-toggle {
+            width: 28px;
+            height: 28px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--gold);
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 2rem 1.5rem;
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        /* Contact Form Section */
+        .form-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+        }
+
+        .form-section .section-title {
+            color: var(--white);
+        }
+
+        .form-section .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .form-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .form-info {
+            padding: 2rem 0;
+        }
+
+        .form-tagline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .form-benefits {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .form-benefits li {
+            padding: 0.75rem 0;
+            color: rgba(255,255,255,0.8);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .form-benefits .check {
+            color: var(--gold);
+            font-size: 1.25rem;
+        }
+
+        .form-guarantee {
+            background: rgba(212, 168, 83, 0.1);
+            border: 1px solid var(--gold);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .form-guarantee-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-guarantee-text {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        .form-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+
+        .form-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-subtitle {
+            font-size: 0.9rem;
+            color: var(--slate);
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--cream-dark);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--navy);
+            background: var(--cream);
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: var(--white);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            margin-top: 0.5rem;
+        }
+
+        .form-submit:hover {
+            background: var(--gold-muted);
+        }
+
+        .form-privacy {
+            font-size: 0.8rem;
+            color: var(--slate-light);
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            padding: 4rem 2rem;
+            background: var(--gold);
+            text-align: center;
+        }
+
+        .cta-banner-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .cta-banner-text {
+            font-size: 1.15rem;
+            color: var(--navy-light);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-banner .btn-dark {
+            background: var(--navy);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .cta-banner .btn-dark:hover {
+            background: var(--navy-dark);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy-dark);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand span {
+            color: var(--gold);
+        }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-heading {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .pain-grid,
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .roi-example-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .threat-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .vs-divider {
+                padding: 1rem 0;
+            }
+
+            .case-study-card {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-step::after,
+            .process-step::before {
+                display: none;
+            }
+
+            .trust-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .form-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 7rem 1.5rem 4rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .roi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-legal {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#" class="nav-logo">ScaleUp<span>Ventures</span></a>
+        <div class="nav-links">
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#results" class="nav-link">Results</a>
+            <a href="#process" class="nav-link">Process</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+            <a href="#contact" class="nav-cta">Get Your Free ROI Assessment</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">For Staffing Agency Owners</span>
+                <h1 class="hero-title">Stop Losing Placements to <span class="highlight">Indeed and ZipRecruiter</span></h1>
+                <p class="hero-subtitle">Get AI-powered candidate matching, automated outreach, and modern job seeker portals - with ROI you can see before you invest a dollar.</p>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">70%</div>
+                        <div class="hero-stat-label">Less Admin Time</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">4-8</div>
+                        <div class="hero-stat-label">Weeks to Results</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">3.2x</div>
+                        <div class="hero-stat-label">Average ROI</div>
+                    </div>
+                </div>
+
+                <div class="hero-cta-group">
+                    <a href="#contact" class="btn-primary">Get Your Free ROI Assessment</a>
+                    <a href="#case-study" class="btn-secondary">See Staffing Agency Results</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="urgency-card">
+                    <div class="urgency-card-title">The AI Threat Is Real</div>
+                    <p class="urgency-card-text">90% of staffing agency owners fear AI is coming for their business. Every day you wait, Indeed and ZipRecruiter get smarter - using AI to place candidates faster than your recruiters can make phone calls.</p>
+                </div>
+
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">&#10003;</span>
+                        ROI Model Before You Invest
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">&#10003;</span>
+                        You Own Everything We Build
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">&#10003;</span>
+                        No Long-Term Contracts
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">&#10003;</span>
+                        Talk to Clients First
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Pain Points Section -->
+    <section class="pain-section">
+        <div class="container">
+            <span class="section-badge">The Challenges You Face</span>
+            <h2 class="section-title">We Understand What Keeps You Up at Night</h2>
+            <p class="section-subtitle">After 20+ years in business, the rules have changed. The digital platforms are eating your lunch, and every "expert" wants to sell you something you do not understand.</p>
+
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-icon">!</div>
+                    <h3 class="pain-title">Candidates Go Direct</h3>
+                    <p class="pain-text">Indeed and ZipRecruiter are training candidates to bypass agencies entirely. Your database is aging while theirs grows every second.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">!</div>
+                    <h3 class="pain-title">AI Is Moving Faster</h3>
+                    <p class="pain-text">The platforms are using AI to match candidates and fill positions before your recruiters even see the job posting. Speed kills.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">!</div>
+                    <h3 class="pain-title">Recruiters Waste Time</h3>
+                    <p class="pain-text">Your best people spend 70% of their time on admin - data entry, scheduling, and chasing candidates who ghost. The relationships suffer.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">!</div>
+                    <h3 class="pain-title">Your Website Does Not Convert</h3>
+                    <p class="pain-text">Candidates land on your site and bounce to the competition. No self-service portal. No mobile experience. No reason to stay.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">!</div>
+                    <h3 class="pain-title">Marketing Agencies Failed You</h3>
+                    <p class="pain-text">You have been sold SEO, PPC, and social media - but no one could show you what it actually did for placements. Just reports you cannot understand.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">!</div>
+                    <h3 class="pain-title">Exit Value At Risk</h3>
+                    <p class="pain-text">PE firms want modern, scalable agencies. If your systems are outdated, your multiple drops. Technology = transferable value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitor Threat Section -->
+    <section class="threat-section">
+        <div class="container">
+            <span class="section-badge">Know Your Competition</span>
+            <h2 class="section-title">The Platforms vs. Your Agency</h2>
+            <p class="section-subtitle">Indeed and ZipRecruiter are not just job boards anymore. They are AI-powered placement machines. Here is how we help you compete.</p>
+
+            <div class="threat-comparison">
+                <div class="threat-column platform">
+                    <div class="threat-column-header">
+                        The Digital Platforms
+                        <span class="badge">The Threat</span>
+                    </div>
+                    <p class="threat-column-subhead">What you are up against</p>
+                    <ul class="threat-list">
+                        <li><span class="icon">X</span> AI-powered instant matching</li>
+                        <li><span class="icon">X</span> 24/7 candidate engagement</li>
+                        <li><span class="icon">X</span> Mobile-first experience</li>
+                        <li><span class="icon">X</span> Self-service job applications</li>
+                        <li><span class="icon">X</span> Automated follow-up sequences</li>
+                        <li><span class="icon">X</span> Real-time analytics dashboards</li>
+                        <li><span class="icon">X</span> Billions in tech investment</li>
+                    </ul>
+                </div>
+
+                <div class="vs-divider">
+                    <div class="vs-circle">VS</div>
+                </div>
+
+                <div class="threat-column scaleup">
+                    <div class="threat-column-header">
+                        Your Agency + ScaleUp
+                        <span class="badge">The Solution</span>
+                    </div>
+                    <p class="threat-column-subhead">Your competitive advantage</p>
+                    <ul class="threat-list">
+                        <li><span class="icon">&#10003;</span> AI matching + human relationships</li>
+                        <li><span class="icon">&#10003;</span> Automated outreach that feels personal</li>
+                        <li><span class="icon">&#10003;</span> Modern candidate portal on any device</li>
+                        <li><span class="icon">&#10003;</span> Self-service with recruiter handoff</li>
+                        <li><span class="icon">&#10003;</span> Smart nurturing that builds loyalty</li>
+                        <li><span class="icon">&#10003;</span> ROI dashboards you actually understand</li>
+                        <li><span class="icon">&#10003;</span> 20+ years of client relationships</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <span class="section-badge">How We Help</span>
+            <h2 class="section-title">Three Services. One Partner. Complete Digital Transformation.</h2>
+            <p class="section-subtitle">Stop juggling vendors who do not talk to each other. Get everything you need under one roof - with ROI you can see before you commit.</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon" style="background: var(--navy); color: var(--gold);">&#9881;</div>
+                    <h3 class="service-title">Candidate Experience Platform</h3>
+                    <p class="service-description">A modern candidate portal that competes with the job boards. Self-service applications, profile management, and job matching.</p>
+                    <ul class="service-features">
+                        <li><span class="check">&#10003;</span> Mobile-responsive job seeker portal</li>
+                        <li><span class="check">&#10003;</span> Self-service application tracking</li>
+                        <li><span class="check">&#10003;</span> AI-powered job matching</li>
+                        <li><span class="check">&#10003;</span> Integrated ATS connectivity</li>
+                        <li><span class="check">&#10003;</span> Candidate profile management</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon" style="background: var(--navy); color: var(--gold);">&#9733;</div>
+                    <h3 class="service-title">Recruiter Productivity Suite</h3>
+                    <p class="service-description">Give your recruiters back 70% of their time. Automated outreach, scheduling, and follow-up so they can focus on relationships.</p>
+                    <ul class="service-features">
+                        <li><span class="check">&#10003;</span> Automated candidate outreach</li>
+                        <li><span class="check">&#10003;</span> Smart scheduling automation</li>
+                        <li><span class="check">&#10003;</span> Follow-up sequence builder</li>
+                        <li><span class="check">&#10003;</span> AI-assisted candidate screening</li>
+                        <li><span class="check">&#10003;</span> Activity tracking and reporting</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon" style="background: var(--navy); color: var(--gold);">&#9830;</div>
+                    <h3 class="service-title">Growth and Visibility Engine</h3>
+                    <p class="service-description">Get found by the right candidates and clients. SEO, content, and advertising that actually moves placement numbers.</p>
+                    <ul class="service-features">
+                        <li><span class="check">&#10003;</span> Industry-specific SEO strategy</li>
+                        <li><span class="check">&#10003;</span> Job board integration</li>
+                        <li><span class="check">&#10003;</span> Employer brand content</li>
+                        <li><span class="check">&#10003;</span> Paid candidate acquisition</li>
+                        <li><span class="check">&#10003;</span> Client lead generation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section id="results" class="roi-section">
+        <div class="container">
+            <span class="section-badge" style="background: rgba(212,168,83,0.2);">Results That Matter</span>
+            <h2 class="section-title">Real ROI for Staffing Agencies</h2>
+            <p class="section-subtitle">These are the numbers that move your business. Not vanity metrics - actual placement and efficiency improvements.</p>
+
+            <div class="roi-grid">
+                <div class="roi-card">
+                    <div class="roi-metric">70%</div>
+                    <div class="roi-label">Less recruiter admin time</div>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-metric">45%</div>
+                    <div class="roi-label">Faster time-to-fill</div>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-metric">60%</div>
+                    <div class="roi-label">More qualified applicants</div>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-metric">3.2x</div>
+                    <div class="roi-label">Average first-year ROI</div>
+                </div>
+            </div>
+
+            <div class="roi-example">
+                <div class="roi-example-header">
+                    <span class="roi-example-badge">Example ROI Model</span>
+                    <span class="roi-example-title">$3M Staffing Agency, 8 Recruiters</span>
+                </div>
+                <div class="roi-example-grid">
+                    <div class="roi-example-item">
+                        <div class="roi-example-label">Investment</div>
+                        <div class="roi-example-value">$45,000</div>
+                        <div class="roi-example-note">Platform build + 6 months</div>
+                    </div>
+                    <div class="roi-example-item">
+                        <div class="roi-example-label">First-Year Value</div>
+                        <div class="roi-example-value">$144,000</div>
+                        <div class="roi-example-note">Additional placements + efficiency</div>
+                    </div>
+                    <div class="roi-example-item">
+                        <div class="roi-example-label">ROI</div>
+                        <div class="roi-example-value">3.2x</div>
+                        <div class="roi-example-note">Proven before you invest</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section id="case-study" class="case-study-section">
+        <div class="container">
+            <span class="section-badge">Success Story</span>
+            <h2 class="section-title">How Regional Staffing Companies Compete with National Platforms</h2>
+
+            <div class="case-study-card">
+                <div class="case-study-content">
+                    <span class="case-study-badge">Staffing Case Study</span>
+                    <h3 class="case-study-title">From Phone-Based Agency to Digital-First Competitor</h3>
+                    <p class="case-study-client">$4.2M regional staffing agency, 12 recruiters, specializing in manufacturing and logistics</p>
+
+                    <blockquote class="case-study-quote">
+                        "We were losing candidates to Indeed every single day. Now our recruiters spend their time building relationships instead of chasing down applications. The ROI model ScaleUp showed us was conservative - we are actually seeing better numbers."
+                    </blockquote>
+
+                    <p class="case-study-author">
+                        <strong>[Agency Owner Name]</strong><br>
+                        Owner, [Agency Name] Staffing
+                    </p>
+                </div>
+
+                <div class="case-study-metrics">
+                    <div class="case-study-metrics-title">Results After 6 Months</div>
+
+                    <div class="case-study-metric">
+                        <div class="case-study-metric-value">68%</div>
+                        <div class="case-study-metric-label">Reduction in admin time</div>
+                    </div>
+
+                    <div class="case-study-metric">
+                        <div class="case-study-metric-value">+47</div>
+                        <div class="case-study-metric-label">Additional placements per quarter</div>
+                    </div>
+
+                    <div class="case-study-metric">
+                        <div class="case-study-metric-value">$186K</div>
+                        <div class="case-study-metric-label">Incremental revenue (Year 1)</div>
+                    </div>
+
+                    <div class="case-study-metric">
+                        <div class="case-study-metric-value">4.1x</div>
+                        <div class="case-study-metric-label">Return on investment</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <span class="section-badge">How It Works</span>
+            <h2 class="section-title">From First Call to Measurable Results in 4-8 Weeks</h2>
+            <p class="section-subtitle">A straightforward process designed for busy agency owners. We do the heavy lifting - you see the results.</p>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <h3 class="process-title">Discovery Call</h3>
+                    <p class="process-description">30 minutes to understand your agency, your challenges, and your goals. No obligation.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <h3 class="process-title">ROI Model</h3>
+                    <p class="process-description">We build a custom financial model showing exactly what results to expect before you invest a dollar.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <h3 class="process-title">Implementation</h3>
+                    <p class="process-description">4-8 weeks to launch. We handle everything - you approve milestones and watch progress.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <h3 class="process-title">Measure and Optimize</h3>
+                    <p class="process-description">Monthly reporting against the ROI model. We are accountable to the numbers we promised.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <span class="section-badge">What Owners Say</span>
+            <h2 class="section-title">Trusted by Staffing Agency Owners Like You</h2>
+            <p class="section-subtitle">Do not just take our word for it. Talk to our clients before you commit.</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">* * * * *</div>
+                    <p class="testimonial-text">"Finally, an agency that shows me the math before asking for money. The ROI model was spot-on, and we are exceeding projections."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">RJ</div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">[Robert J.]</div>
+                            <div class="testimonial-role">Owner, [Agency] Staffing - 15 years in business</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">* * * * *</div>
+                    <p class="testimonial-text">"My recruiters actually enjoy using the new system. They spend time with candidates instead of fighting spreadsheets. Placements are up 40%."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SM</div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">[Sarah M.]</div>
+                            <div class="testimonial-role">President, [Agency] Talent Solutions</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">* * * * *</div>
+                    <p class="testimonial-text">"I was skeptical of another marketing agency. ScaleUp is different - they understand staffing, and they prove value before asking for commitment."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">DT</div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">[David T.]</div>
+                            <div class="testimonial-role">Founder, [Agency] Recruiting - 22 years in business</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Signals -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">&#128274;</div>
+                    <div class="trust-title">You Own Everything</div>
+                    <div class="trust-text">No lock-in, no hostage situations</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">&#128202;</div>
+                    <div class="trust-title">ROI Before Investment</div>
+                    <div class="trust-text">Know your return before you spend</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">&#128222;</div>
+                    <div class="trust-title">Talk to Clients First</div>
+                    <div class="trust-text">References before commitment</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">&#128197;</div>
+                    <div class="trust-title">No Long-Term Contracts</div>
+                    <div class="trust-text">Month-to-month after launch</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">&#128161;</div>
+                    <div class="trust-title">Staffing Expertise</div>
+                    <div class="trust-text">We know your industry</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="faq-container">
+                <span class="section-badge">Common Questions</span>
+                <h2 class="section-title">Questions Staffing Agency Owners Ask</h2>
+                <p class="section-subtitle">Straight answers from someone who understands your business.</p>
+
+                <div class="faq-list" style="margin-top: 2rem;">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How is this different from what Indeed and ZipRecruiter offer?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                The platforms are trying to replace you. We are trying to make you more competitive. They want candidates to bypass your agency - we help you capture those candidates first, then add the personal relationship and industry expertise that no algorithm can match. You keep your client relationships and your margins. They are not doing that.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How long until I see results?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                4-8 weeks to launch, depending on scope. Most agencies see measurable efficiency gains within the first month of operation. Placement increases typically follow in months 2-3 as your recruiters have more time for relationship-building. We set realistic expectations in the ROI model and report against them monthly.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What if this does not work for my agency?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                That is why we build the ROI model first. Before you invest a dollar, you will see exactly what we expect to deliver and how we calculated it. If the numbers do not make sense for your situation, we will tell you. We are not interested in taking on projects that will not succeed - our reputation depends on results, not revenue.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Will my recruiters actually use this?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                We design for adoption, not just features. Everything we build reduces work - it does not add complexity. Your recruiters will see immediate time savings (less data entry, automated scheduling, one-click follow-ups) which drives usage. We also include training and support to ensure smooth adoption. If your team is not using it, it does not work for us either.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How does this integrate with my existing ATS?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                We integrate with all major staffing ATS platforms - Bullhorn, JobDiva, Avionte, TempWorks, and others. Your candidate data flows both ways. Your recruiters work in the system they know, with new capabilities layered on top. No rip-and-replace required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What about my current marketing agency?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                If they are delivering measurable results, keep them. We can work alongside existing providers or take over entirely - whatever makes sense for your situation. What we will not do is duplicate effort or compete for budget without demonstrating clear additional value. The ROI model makes this transparent.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            I have been burned by agencies before. Why should I trust you?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Fair question. Three things: First, we build the ROI model before you commit - you see exactly what to expect. Second, you own everything we build - no lock-in, no hostage situations. Third, we will give you references of staffing agency owners just like you - call them and ask hard questions. If we cannot earn your trust, we do not deserve your business.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What does this cost?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                It depends on scope, but typical staffing agency engagements range from $35,000-$75,000 for the initial build, with ongoing support starting at $2,500/month. More importantly, we show you exactly what that investment returns before you commit. If the ROI does not make sense, we will tell you. Schedule a call and we will build a custom model for your agency.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="form-section">
+        <div class="container">
+            <span class="section-badge" style="background: rgba(212,168,83,0.2);">Get Started</span>
+            <h2 class="section-title">Get Your Free Staffing Agency ROI Assessment</h2>
+            <p class="section-subtitle">30 minutes to understand your agency. A custom model showing your expected return. No obligation.</p>
+
+            <div class="form-container">
+                <div class="form-info">
+                    <h3 class="form-tagline">Know Your ROI Before You Invest a Dollar</h3>
+
+                    <ul class="form-benefits">
+                        <li><span class="check">&#10003;</span> Custom financial model for your agency</li>
+                        <li><span class="check">&#10003;</span> Realistic timeline and scope estimate</li>
+                        <li><span class="check">&#10003;</span> Competitive positioning analysis</li>
+                        <li><span class="check">&#10003;</span> Integration assessment with your ATS</li>
+                        <li><span class="check">&#10003;</span> No sales pressure - just clarity</li>
+                    </ul>
+
+                    <div class="form-guarantee">
+                        <div class="form-guarantee-title">Certainty First.</div>
+                        <p class="form-guarantee-text">If the ROI does not make sense for your agency, we will tell you. We are not interested in projects that will not succeed - our reputation depends on results.</p>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h3 class="form-title">Schedule Your Assessment</h3>
+                    <p class="form-subtitle">Fill out the form and we will reach out within 24 hours.</p>
+
+                    <form action="#" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">Business Email *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="agency">Agency Name *</label>
+                            <input type="text" id="agency" name="agency" class="form-input" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="revenue">Annual Revenue Range *</label>
+                                <select id="revenue" name="revenue" class="form-select" required>
+                                    <option value="">Select range</option>
+                                    <option value="under-1m">Under $1M</option>
+                                    <option value="1m-3m">$1M - $3M</option>
+                                    <option value="3m-5m">$3M - $5M</option>
+                                    <option value="5m-10m">$5M - $10M</option>
+                                    <option value="10m-15m">$10M - $15M</option>
+                                    <option value="over-15m">Over $15M</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="recruiters">Number of Recruiters *</label>
+                                <select id="recruiters" name="recruiters" class="form-select" required>
+                                    <option value="">Select range</option>
+                                    <option value="1-3">1-3</option>
+                                    <option value="4-8">4-8</option>
+                                    <option value="9-15">9-15</option>
+                                    <option value="16-25">16-25</option>
+                                    <option value="over-25">Over 25</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="specialty">Primary Staffing Specialty *</label>
+                            <select id="specialty" name="specialty" class="form-select" required>
+                                <option value="">Select specialty</option>
+                                <option value="industrial-light">Light Industrial / Manufacturing</option>
+                                <option value="administrative">Administrative / Clerical</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="it-technical">IT / Technical</option>
+                                <option value="professional">Professional / Executive</option>
+                                <option value="logistics">Logistics / Warehouse</option>
+                                <option value="hospitality">Hospitality</option>
+                                <option value="construction">Construction / Skilled Trades</option>
+                                <option value="mixed">Multiple Specialties</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="ats">Current ATS System</label>
+                            <select id="ats" name="ats" class="form-select">
+                                <option value="">Select your ATS</option>
+                                <option value="bullhorn">Bullhorn</option>
+                                <option value="jobdiva">JobDiva</option>
+                                <option value="avionte">Avionte</option>
+                                <option value="tempworks">TempWorks</option>
+                                <option value="crelate">Crelate</option>
+                                <option value="stafferlink">StafferLink</option>
+                                <option value="pcrecruiter">PCRecruiter</option>
+                                <option value="none">No ATS</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="challenge">What is your biggest challenge right now?</label>
+                            <textarea id="challenge" name="challenge" class="form-textarea" placeholder="Competition from job boards? Recruiter efficiency? Candidate acquisition? Exit planning?"></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit">Get My Free ROI Assessment</button>
+
+                        <p class="form-privacy">Your information is secure. We never share your data with third parties.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="container">
+            <h2 class="cta-banner-title">Ready to Compete with the Platforms?</h2>
+            <p class="cta-banner-text">Every day you wait, Indeed and ZipRecruiter get smarter. Let us show you how to fight back - with ROI you can see before you invest.</p>
+            <a href="#contact" class="btn-dark">Schedule Your Free Assessment</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">ScaleUp<span>Ventures</span></div>
+                <p class="footer-tagline">Certainty First. We prove ROI before you invest.</p>
+            </div>
+
+            <div>
+                <div class="footer-heading">Services</div>
+                <ul class="footer-links">
+                    <li><a href="#">Candidate Experience Platform</a></li>
+                    <li><a href="#">Recruiter Productivity Suite</a></li>
+                    <li><a href="#">Growth and Visibility Engine</a></li>
+                    <li><a href="#">AI Automation</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="footer-heading">Industries</div>
+                <ul class="footer-links">
+                    <li><a href="#">Staffing Agencies</a></li>
+                    <li><a href="#">Veterinary Practices</a></li>
+                    <li><a href="#">Pest Control</a></li>
+                    <li><a href="#">Home Services</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="footer-heading">Company</div>
+                <ul class="footer-links">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">ROI Calculator</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copyright">2025 ScaleUp Ventures. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FAQ Toggle Script -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

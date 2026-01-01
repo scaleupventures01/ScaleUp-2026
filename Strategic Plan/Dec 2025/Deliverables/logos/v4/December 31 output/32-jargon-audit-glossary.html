@@ -1,0 +1,2188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jargon Audit & Plain English Glossary | ScaleUp Ventures</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --gold-light: rgba(212, 168, 83, 0.15);
+            --gold-medium: rgba(212, 168, 83, 0.3);
+            --white: #FFFFFF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --red-light: #FEE2E2;
+            --red: #DC2626;
+            --green-light: #D1FAE5;
+            --green: #059669;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: var(--gray-50);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        /* Header */
+        .header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.75rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+        }
+
+        .header-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Core Principle Banner */
+        .principle-banner {
+            background: linear-gradient(135deg, var(--gold) 0%, #C49643 100%);
+            color: var(--navy);
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .principle-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .principle-quote {
+            font-size: 1.75rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .principle-attribution {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Search Section */
+        .search-section {
+            background: var(--white);
+            padding: 2rem;
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .search-wrapper {
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3.5rem;
+            font-size: 1.125rem;
+            font-family: 'Georgia', serif;
+            border: 2px solid var(--gray-200);
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px var(--gold-light);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-600);
+        }
+
+        .search-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .search-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat-number {
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: var(--navy);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 84px;
+            z-index: 99;
+        }
+
+        .nav-scroll {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.8125rem;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover,
+        .nav-btn.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Section Styling */
+        .section {
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--gold-light);
+        }
+
+        .section-number {
+            background: var(--navy);
+            color: var(--gold);
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: var(--navy);
+        }
+
+        .section-intro {
+            background: var(--gray-50);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--gold);
+        }
+
+        /* Jargon Table */
+        .jargon-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .jargon-table th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 1rem 1.25rem;
+            text-align: left;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .jargon-table td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--gray-200);
+            vertical-align: top;
+        }
+
+        .jargon-table tr:hover td {
+            background: var(--gold-light);
+        }
+
+        .jargon-table tr.searchable {
+            display: table-row;
+        }
+
+        .jargon-word {
+            font-weight: 700;
+            color: var(--red);
+            font-family: 'Arial', sans-serif;
+            text-decoration: line-through;
+            text-decoration-color: var(--red);
+        }
+
+        .plain-word {
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        .context-note {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        .category-tag {
+            display: inline-block;
+            background: var(--gold-light);
+            color: var(--navy);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Before/After Examples */
+        .example-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .example-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .example-box {
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .example-before {
+            background: var(--red-light);
+            border: 2px solid var(--red);
+        }
+
+        .example-after {
+            background: var(--green-light);
+            border: 2px solid var(--green);
+        }
+
+        .example-label {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .example-before .example-label {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        .example-after .example-label {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .example-text {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .highlight-jargon {
+            background: rgba(220, 38, 38, 0.2);
+            padding: 0.125rem 0.25rem;
+            border-radius: 0.25rem;
+        }
+
+        .highlight-plain {
+            background: rgba(5, 150, 105, 0.2);
+            padding: 0.125rem 0.25rem;
+            border-radius: 0.25rem;
+        }
+
+        /* Approved Terms Section */
+        .approved-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .approved-term {
+            background: var(--green-light);
+            border: 1px solid var(--green);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .approved-term-word {
+            font-weight: 700;
+            color: var(--green);
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .approved-term-reason {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checkbox {
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 2px solid var(--navy);
+            border-radius: 0.25rem;
+            flex-shrink: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox.checked {
+            background: var(--green);
+            border-color: var(--green);
+        }
+
+        .checkbox.checked::after {
+            content: "\\2713";
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .checklist-text {
+            flex: 1;
+        }
+
+        .checklist-main {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .checklist-sub {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        /* Glossary Cards */
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .glossary-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .glossary-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 4px 12px rgba(15, 23, 41, 0.1);
+        }
+
+        .glossary-term {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .glossary-category {
+            font-size: 0.625rem;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.125rem 0.5rem;
+            border-radius: 1rem;
+            font-family: 'Arial', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .glossary-definition {
+            color: var(--gray-700);
+            margin-bottom: 1rem;
+        }
+
+        .glossary-plain {
+            background: var(--white);
+            padding: 0.75rem 1rem;
+            border-radius: 0.375rem;
+            border-left: 3px solid var(--green);
+        }
+
+        .glossary-plain-label {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 0.25rem;
+        }
+
+        /* Technical Term Handling */
+        .technique-card {
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+
+        .technique-title {
+            color: var(--gold);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .technique-steps {
+            list-style: none;
+            counter-reset: steps;
+        }
+
+        .technique-steps li {
+            counter-increment: steps;
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .technique-steps li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .technique-steps li::before {
+            content: counter(steps);
+            background: var(--gold);
+            color: var(--navy);
+            width: 1.75rem;
+            height: 1.75rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            font-weight: 700;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        /* Training Guide */
+        .training-module {
+            border: 2px solid var(--gold);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            margin: 1.5rem 0;
+        }
+
+        .training-header {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 1rem 1.5rem;
+            font-family: 'Arial', sans-serif;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .training-content {
+            padding: 1.5rem;
+        }
+
+        .training-exercise {
+            background: var(--gray-50);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .exercise-label {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Category Filter Buttons */
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-btn {
+            background: var(--gray-100);
+            border: 1px solid var(--gray-300);
+            color: var(--navy);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.8125rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Quick Reference Card */
+        .quick-ref {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%);
+            color: var(--white);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .quick-ref-title {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .quick-ref-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .quick-ref-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quick-ref-item {
+            text-align: center;
+        }
+
+        .quick-ref-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .quick-ref-text {
+            font-size: 0.9375rem;
+        }
+
+        /* Print Styles */
+        @media print {
+            .search-section,
+            .nav-container {
+                display: none;
+            }
+
+            .section {
+                break-inside: avoid;
+            }
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-badge">Brand Language Guide</div>
+        <h1>Jargon Audit & <span>Plain English Glossary</span></h1>
+        <p class="header-subtitle">Speak clearly. Connect genuinely. Build trust through language your clients actually understand.</p>
+    </header>
+
+    <!-- Core Principle -->
+    <div class="principle-banner">
+        <div class="principle-content">
+            <p class="principle-quote">"If you can't explain it simply, you don't understand it well enough."</p>
+            <p class="principle-attribution">- Albert Einstein (and the ScaleUp Ventures philosophy)</p>
+        </div>
+    </div>
+
+    <!-- Search Section -->
+    <div class="search-section">
+        <div class="search-container">
+            <div class="search-wrapper">
+                <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="M21 21l-4.35-4.35"></path>
+                </svg>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search for jargon terms, plain alternatives, or categories...">
+            </div>
+            <div class="search-stats">
+                <span class="search-stat"><span class="stat-number" id="jargonCount">75+</span> Jargon Terms Audited</span>
+                <span class="search-stat"><span class="stat-number" id="categoryCount">8</span> Categories Covered</span>
+                <span class="search-stat"><span class="stat-number" id="exampleCount">20+</span> Before/After Examples</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-scroll">
+            <button class="nav-btn active" data-section="tech-jargon">Tech Jargon</button>
+            <button class="nav-btn" data-section="marketing-jargon">Marketing Speak</button>
+            <button class="nav-btn" data-section="industry-terms">Industry Terms</button>
+            <button class="nav-btn" data-section="acronyms">Acronyms</button>
+            <button class="nav-btn" data-section="approved-terms">Approved Terms</button>
+            <button class="nav-btn" data-section="before-after">Before/After</button>
+            <button class="nav-btn" data-section="technical-handling">Technical Terms</button>
+            <button class="nav-btn" data-section="checklist">Audit Checklist</button>
+            <button class="nav-btn" data-section="internal-glossary">Internal Glossary</button>
+            <button class="nav-btn" data-section="client-glossary">Client Glossary</button>
+            <button class="nav-btn" data-section="training">Training Guide</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Section 1: Tech Jargon to Avoid -->
+        <section id="tech-jargon" class="section">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2 class="section-title">Technology Jargon to Avoid</h2>
+            </div>
+
+            <div class="section-intro">
+                <p><strong>Why this matters:</strong> Our clients are successful business owners aged 50-65. They built their businesses with sharp instincts and hard work, not by memorizing tech buzzwords. Using jargon can make them feel excluded or, worse, that we're trying to impress rather than help.</p>
+            </div>
+
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Terms</button>
+                <button class="filter-btn" data-filter="digital">Digital</button>
+                <button class="filter-btn" data-filter="software">Software</button>
+                <button class="filter-btn" data-filter="data">Data</button>
+                <button class="filter-btn" data-filter="ai">AI/Automation</button>
+            </div>
+
+            <table class="jargon-table">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">Avoid This</th>
+                        <th style="width: 25%;">Say This Instead</th>
+                        <th style="width: 40%;">Why It Matters</th>
+                        <th style="width: 15%;">Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="searchable" data-category="digital">
+                        <td><span class="jargon-word">Leverage</span></td>
+                        <td><span class="plain-word">Use</span></td>
+                        <td>"Leverage" sounds like we're trying too hard. "Use" is clear and direct.
+                            <div class="context-note">Exception: When discussing actual financial leverage, use the term with explanation.</div>
+                        </td>
+                        <td><span class="category-tag">Digital</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="digital">
+                        <td><span class="jargon-word">Optimize</span></td>
+                        <td><span class="plain-word">Improve, Make better, Fine-tune</span></td>
+                        <td>Our clients know what "improve" means. They may pause at "optimize" and wonder if they're missing something.</td>
+                        <td><span class="category-tag">Digital</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="software">
+                        <td><span class="jargon-word">Cloud-based</span></td>
+                        <td><span class="plain-word">Online, Accessible from anywhere, Stored online</span></td>
+                        <td>Many business owners understand "online" intuitively. "Cloud" can feel abstract.
+                            <div class="context-note">If needed, explain: "Your data is stored securely online, so you can access it from any computer or phone."</div>
+                        </td>
+                        <td><span class="category-tag">Software</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="software">
+                        <td><span class="jargon-word">SaaS</span></td>
+                        <td><span class="plain-word">Online software, Subscription software</span></td>
+                        <td>"You pay monthly for the software, and it's always up-to-date." That's all they need to know.</td>
+                        <td><span class="category-tag">Software</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="digital">
+                        <td><span class="jargon-word">Digital transformation</span></td>
+                        <td><span class="plain-word">Updating your systems, Moving online, Modernizing</span></td>
+                        <td>This phrase has been overused to the point of meaninglessness. Be specific about what's actually changing.</td>
+                        <td><span class="category-tag">Digital</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="ai">
+                        <td><span class="jargon-word">AI-powered</span></td>
+                        <td><span class="plain-word">Smart, Automated, Computer-assisted</span></td>
+                        <td>Unless AI is truly central to the solution, don't lead with it. Many of our clients associate AI with job replacement or complexity.</td>
+                        <td><span class="category-tag">AI/Automation</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="ai">
+                        <td><span class="jargon-word">Machine learning</span></td>
+                        <td><span class="plain-word">The system learns from experience, Gets smarter over time</span></td>
+                        <td>Focus on the benefit (it improves) rather than the technical mechanism (how it improves).</td>
+                        <td><span class="category-tag">AI/Automation</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="data">
+                        <td><span class="jargon-word">Big data</span></td>
+                        <td><span class="plain-word">Detailed information, Complete picture, All your numbers</span></td>
+                        <td>Focus on what the data lets them do: "We'll look at all your sales history to spot patterns."</td>
+                        <td><span class="category-tag">Data</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="data">
+                        <td><span class="jargon-word">Analytics</span></td>
+                        <td><span class="plain-word">Reports, Numbers, Insights, What your data shows</span></td>
+                        <td>"Analytics" sounds like something requiring a specialist. "Reports that show how your business is doing" is clearer.</td>
+                        <td><span class="category-tag">Data</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="data">
+                        <td><span class="jargon-word">Metrics</span></td>
+                        <td><span class="plain-word">Numbers, Measurements, Results</span></td>
+                        <td>Business owners track "numbers." They may not relate to "metrics."</td>
+                        <td><span class="category-tag">Data</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="software">
+                        <td><span class="jargon-word">Integration</span></td>
+                        <td><span class="plain-word">Connection, Works together with, Talks to</span></td>
+                        <td>"Your accounting software will talk to your inventory system automatically."</td>
+                        <td><span class="category-tag">Software</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="software">
+                        <td><span class="jargon-word">Scalable</span></td>
+                        <td><span class="plain-word">Grows with you, Handles more business, Expands easily</span></td>
+                        <td>"This system will handle twice the orders without slowing down."</td>
+                        <td><span class="category-tag">Software</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="ai">
+                        <td><span class="jargon-word">Automation</span></td>
+                        <td><span class="plain-word">Happens automatically, Runs on its own, No manual work needed</span></td>
+                        <td>Be specific: "Invoices go out automatically when jobs are marked complete."</td>
+                        <td><span class="category-tag">AI/Automation</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="digital">
+                        <td><span class="jargon-word">Ecosystem</span></td>
+                        <td><span class="plain-word">Tools, System, Network of services</span></td>
+                        <td>"Ecosystem" sounds like we're describing a rainforest, not their business tools.</td>
+                        <td><span class="category-tag">Digital</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="software">
+                        <td><span class="jargon-word">Platform</span></td>
+                        <td><span class="plain-word">System, Software, Tool, Service</span></td>
+                        <td>When possible, name the specific thing: "QuickBooks" rather than "your accounting platform."</td>
+                        <td><span class="category-tag">Software</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 2: Marketing Jargon to Avoid -->
+        <section id="marketing-jargon" class="section">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2 class="section-title">Marketing Speak to Avoid</h2>
+            </div>
+
+            <div class="section-intro">
+                <p><strong>The problem with marketing jargon:</strong> After 30+ years in business, our clients have heard every buzzword. They're skeptical of hype and can smell insincerity immediately. Our job is to communicate value clearly, not dress up ordinary things in fancy language.</p>
+            </div>
+
+            <table class="jargon-table">
+                <thead>
+                    <tr>
+                        <th style="width: 22%;">Avoid This</th>
+                        <th style="width: 25%;">Say This Instead</th>
+                        <th style="width: 38%;">Why It Matters</th>
+                        <th style="width: 15%;">Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="searchable" data-category="marketing">
+                        <td><span class="jargon-word">Synergy</span></td>
+                        <td><span class="plain-word">Work well together, Combined strength</span></td>
+                        <td>This word has been mocked for decades. Using it unironically damages credibility.</td>
+                        <td><span class="category-tag">Marketing</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="marketing">
+                        <td><span class="jargon-word">Paradigm shift</span></td>
+                        <td><span class="plain-word">Major change, New way of doing things</span></td>
+                        <td>If something is truly revolutionary, describe what actually changed.</td>
+                        <td><span class="category-tag">Marketing</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="marketing">
+                        <td><span class="jargon-word">Disruptive</span></td>
+                        <td><span class="plain-word">New approach, Different, Changes how things work</span></td>
+                        <td>Every startup claims to be "disruptive." The word has lost all meaning.</td>
+                        <td><span class="category-tag">Marketing</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="marketing">
+                        <td><span class="jargon-word">Best-in-class</span></td>
+                        <td><span class="plain-word">Top-quality, Excellent, [Specific proof point]</span></td>
+                        <td>Empty claim without evidence. Instead: "Rated #1 by [Source]" or describe the specific advantage.</td>
+                        <td><span class="category-tag">Marketing</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="marketing">
+                        <td><span class="jargon-word">World-class</span></td>
+                        <td><span class="plain-word">Excellent, Outstanding, [Specific proof]</span></td>
+                        <td>Same issue as "best-in-class." Prove it with specifics or don't claim it.</td>
+                        <td><span class="category-tag">Marketing</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="marketing">
+                        <td><span class="jargon-word">Solutions</span></td>
+                        <td><span class="plain-word">[Name the specific thing], Services, Help</span></td>
+                        <td>"Solutions" is vague. Say what you actually provide: "accounting help," "marketing services," "business coaching."</td>
+                        <td><span class="category-tag">Marketing</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="marketing">
+                        <td><span class="jargon-word">Value proposition</span></td>
+                        <td><span class="plain-word">What you get, The benefit, Why it matters</span></td>
+                        <td>Internal planning term, not client-facing language. Just explain the value.</td>
+                        <td><span class="category-tag">Marketing</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="marketing">
+                        <td><span class="jargon-word">Touch base</span></td>
+                        <td><span class="plain-word">Talk, Meet, Check in, Catch up</span></td>
+                        <td>Corporate-speak that feels impersonal. "Let's talk next week" is warmer.</td>
+                        <td><span class="category-tag">Marketing</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="marketing">
+                        <td><span class="jargon-word">Circle back</span></td>
+                        <td><span class="plain-word">Get back to you, Follow up, Discuss later</span></td>
+                        <td>Another corporate cliche. Be direct about what happens next.</td>
+                        <td><span class="category-tag">Marketing</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="marketing">
+                        <td><span class="jargon-word">Move the needle</span></td>
+                        <td><span class="plain-word">Make a real difference, Get results</span></td>
+                        <td>Be specific: "Increase sales by 15%" rather than "move the needle on sales."</td>
+                        <td><span class="category-tag">Marketing</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="marketing">
+                        <td><span class="jargon-word">Low-hanging fruit</span></td>
+                        <td><span class="plain-word">Quick wins, Easy improvements, Good first step</span></td>
+                        <td>This metaphor is overused. Name the actual opportunity.</td>
+                        <td><span class="category-tag">Marketing</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="marketing">
+                        <td><span class="jargon-word">Game-changer</span></td>
+                        <td><span class="plain-word">Major improvement, Big difference</span></td>
+                        <td>Overused to the point of meaninglessness. Describe the actual impact.</td>
+                        <td><span class="category-tag">Marketing</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="marketing">
+                        <td><span class="jargon-word">Thought leader</span></td>
+                        <td><span class="plain-word">Expert, Authority, Experienced professional</span></td>
+                        <td>Self-applying this term sounds arrogant. Let credentials and work speak.</td>
+                        <td><span class="category-tag">Marketing</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="marketing">
+                        <td><span class="jargon-word">Bandwidth</span></td>
+                        <td><span class="plain-word">Time, Capacity, Availability</span></td>
+                        <td>"Do you have time for this?" not "Do you have bandwidth?"</td>
+                        <td><span class="category-tag">Marketing</span></td>
+                    </tr>
+                    <tr class="searchable" data-category="marketing">
+                        <td><span class="jargon-word">Pivot</span></td>
+                        <td><span class="plain-word">Change direction, Adjust, Shift focus</span></td>
+                        <td>Startup buzzword. For established businesses: "We're shifting our focus to..."</td>
+                        <td><span class="category-tag">Marketing</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 3: Industry-Specific Terms -->
+        <section id="industry-terms" class="section">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2 class="section-title">Industry-Specific Jargon Translations</h2>
+            </div>
+
+            <div class="section-intro">
+                <p><strong>Our clients come from many industries.</strong> While they know their own industry deeply, they may not understand consulting, finance, or tech terminology. Here's how to translate specialized language into everyday English.</p>
+            </div>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem; font-size: 1.25rem;">Financial & Accounting Terms</h3>
+            <table class="jargon-table">
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Plain English</th>
+                        <th>Context for Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="searchable" data-category="finance">
+                        <td><span class="jargon-word">EBITDA</span></td>
+                        <td><span class="plain-word">Earnings before major expenses</span></td>
+                        <td>"The money your business makes before paying for loans, taxes, or major equipment costs."</td>
+                    </tr>
+                    <tr class="searchable" data-category="finance">
+                        <td><span class="jargon-word">Cash runway</span></td>
+                        <td><span class="plain-word">How long your cash will last</span></td>
+                        <td>"At current spending, you have enough cash to run for 8 months."</td>
+                    </tr>
+                    <tr class="searchable" data-category="finance">
+                        <td><span class="jargon-word">Working capital</span></td>
+                        <td><span class="plain-word">Day-to-day operating money</span></td>
+                        <td>"The cash available for paying bills and running operations."</td>
+                    </tr>
+                    <tr class="searchable" data-category="finance">
+                        <td><span class="jargon-word">Liquidity</span></td>
+                        <td><span class="plain-word">Cash on hand, Available funds</span></td>
+                        <td>"How quickly you can turn assets into cash if needed."</td>
+                    </tr>
+                    <tr class="searchable" data-category="finance">
+                        <td><span class="jargon-word">Burn rate</span></td>
+                        <td><span class="plain-word">Monthly spending, How fast money goes out</span></td>
+                        <td>"You're spending about $50,000 per month more than you bring in."</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem; font-size: 1.25rem;">Strategy & Consulting Terms</h3>
+            <table class="jargon-table">
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Plain English</th>
+                        <th>Context for Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="searchable" data-category="strategy">
+                        <td><span class="jargon-word">KPIs</span></td>
+                        <td><span class="plain-word">Key numbers to watch, Success measures</span></td>
+                        <td>"The 5 numbers that tell you if your business is healthy."</td>
+                    </tr>
+                    <tr class="searchable" data-category="strategy">
+                        <td><span class="jargon-word">ROI</span></td>
+                        <td><span class="plain-word">Return on your investment, What you get back</span></td>
+                        <td>"For every dollar spent, you'll get three back."</td>
+                    </tr>
+                    <tr class="searchable" data-category="strategy">
+                        <td><span class="jargon-word">Due diligence</span></td>
+                        <td><span class="plain-word">Thorough review, Research, Investigation</span></td>
+                        <td>"We'll dig into all the details before making a decision."</td>
+                    </tr>
+                    <tr class="searchable" data-category="strategy">
+                        <td><span class="jargon-word">Stakeholders</span></td>
+                        <td><span class="plain-word">Everyone involved, Key people</span></td>
+                        <td>"All the people who have a stake in this decision."</td>
+                    </tr>
+                    <tr class="searchable" data-category="strategy">
+                        <td><span class="jargon-word">Deliverables</span></td>
+                        <td><span class="plain-word">What you'll get, The finished work</span></td>
+                        <td>"Here's what we'll hand over when the project is done."</td>
+                    </tr>
+                    <tr class="searchable" data-category="strategy">
+                        <td><span class="jargon-word">Value-add</span></td>
+                        <td><span class="plain-word">Extra benefit, Bonus, What's included</span></td>
+                        <td>Just describe the additional value: "We also provide monthly check-ins."</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem; font-size: 1.25rem;">Marketing & Sales Terms</h3>
+            <table class="jargon-table">
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Plain English</th>
+                        <th>Context for Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="searchable" data-category="sales">
+                        <td><span class="jargon-word">Lead generation</span></td>
+                        <td><span class="plain-word">Finding new customers, Getting inquiries</span></td>
+                        <td>"Ways to get potential customers to contact you."</td>
+                    </tr>
+                    <tr class="searchable" data-category="sales">
+                        <td><span class="jargon-word">Conversion rate</span></td>
+                        <td><span class="plain-word">Percentage who buy, How many become customers</span></td>
+                        <td>"Out of 100 people who visit your website, 5 become customers."</td>
+                    </tr>
+                    <tr class="searchable" data-category="sales">
+                        <td><span class="jargon-word">Sales funnel</span></td>
+                        <td><span class="plain-word">The buying journey, Steps to becoming a customer</span></td>
+                        <td>"From first hearing about you to actually buying."</td>
+                    </tr>
+                    <tr class="searchable" data-category="sales">
+                        <td><span class="jargon-word">CRM</span></td>
+                        <td><span class="plain-word">Customer tracking system, Customer database</span></td>
+                        <td>"Software that keeps track of all your customers and conversations."</td>
+                    </tr>
+                    <tr class="searchable" data-category="sales">
+                        <td><span class="jargon-word">Customer acquisition cost</span></td>
+                        <td><span class="plain-word">Cost to get a new customer</span></td>
+                        <td>"You spend $200 in marketing to get each new customer."</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 4: Acronyms -->
+        <section id="acronyms" class="section">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2 class="section-title">Acronyms That Need Explanation</h2>
+            </div>
+
+            <div class="section-intro">
+                <p><strong>The rule for acronyms:</strong> Spell it out the first time, every time. Even if you think they know it, define it. Our clients will never feel embarrassed to ask, but they might feel excluded if we assume knowledge they don't have.</p>
+            </div>
+
+            <div class="glossary-grid">
+                <div class="glossary-card searchable" data-category="acronym">
+                    <div class="glossary-term">
+                        API
+                        <span class="glossary-category">Tech</span>
+                    </div>
+                    <div class="glossary-definition">
+                        <strong>Application Programming Interface</strong> - A way for different software programs to talk to each other.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">Say this instead</div>
+                        "Your systems can share information automatically."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="acronym">
+                    <div class="glossary-term">
+                        B2B / B2C
+                        <span class="glossary-category">Business</span>
+                    </div>
+                    <div class="glossary-definition">
+                        <strong>Business-to-Business / Business-to-Consumer</strong> - Who you sell to: other businesses or individual customers.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">Say this instead</div>
+                        "Businesses that sell to other businesses" or "Businesses that sell directly to customers."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="acronym">
+                    <div class="glossary-term">
+                        CPA
+                        <span class="glossary-category">Marketing</span>
+                    </div>
+                    <div class="glossary-definition">
+                        <strong>Cost Per Acquisition</strong> - How much you spend to get one new customer. (Not to be confused with Certified Public Accountant!)
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">Say this instead</div>
+                        "It costs you $50 to acquire each new customer."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="acronym">
+                    <div class="glossary-term">
+                        SEO
+                        <span class="glossary-category">Digital</span>
+                    </div>
+                    <div class="glossary-definition">
+                        <strong>Search Engine Optimization</strong> - Making your website easier for Google to find and show to searchers.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">Say this instead</div>
+                        "Helping your website show up when people search Google for what you offer."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="acronym">
+                    <div class="glossary-term">
+                        SOP
+                        <span class="glossary-category">Operations</span>
+                    </div>
+                    <div class="glossary-definition">
+                        <strong>Standard Operating Procedure</strong> - Written instructions for how to do recurring tasks.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">Say this instead</div>
+                        "Step-by-step instructions that anyone can follow."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="acronym">
+                    <div class="glossary-term">
+                        P&L
+                        <span class="glossary-category">Finance</span>
+                    </div>
+                    <div class="glossary-definition">
+                        <strong>Profit & Loss Statement</strong> - A report showing what you earned and spent over a period.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">Say this instead</div>
+                        "Your income and expense report" (Most business owners know this one, but define it anyway.)
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="acronym">
+                    <div class="glossary-term">
+                        ERP
+                        <span class="glossary-category">Software</span>
+                    </div>
+                    <div class="glossary-definition">
+                        <strong>Enterprise Resource Planning</strong> - Big software that manages many parts of a business (inventory, accounting, HR, etc.).
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">Say this instead</div>
+                        "All-in-one business software" or name the specific system (SAP, Oracle, etc.).
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="acronym">
+                    <div class="glossary-term">
+                        UX / UI
+                        <span class="glossary-category">Design</span>
+                    </div>
+                    <div class="glossary-definition">
+                        <strong>User Experience / User Interface</strong> - How easy software is to use (UX) and what it looks like (UI).
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">Say this instead</div>
+                        "How easy it is to use" or "The look and feel."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="acronym">
+                    <div class="glossary-term">
+                        MRR / ARR
+                        <span class="glossary-category">Finance</span>
+                    </div>
+                    <div class="glossary-definition">
+                        <strong>Monthly/Annual Recurring Revenue</strong> - Predictable income from subscriptions or contracts.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">Say this instead</div>
+                        "Money that comes in every month (or year) on autopilot."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="acronym">
+                    <div class="glossary-term">
+                        CAC
+                        <span class="glossary-category">Marketing</span>
+                    </div>
+                    <div class="glossary-definition">
+                        <strong>Customer Acquisition Cost</strong> - Total cost to acquire a new customer, including marketing and sales.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">Say this instead</div>
+                        "What it costs you to get a new customer."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="acronym">
+                    <div class="glossary-term">
+                        LTV
+                        <span class="glossary-category">Business</span>
+                    </div>
+                    <div class="glossary-definition">
+                        <strong>Lifetime Value</strong> - Total money a customer will spend with you over the entire relationship.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">Say this instead</div>
+                        "What a customer is worth to you over time."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="acronym">
+                    <div class="glossary-term">
+                        YoY
+                        <span class="glossary-category">Finance</span>
+                    </div>
+                    <div class="glossary-definition">
+                        <strong>Year over Year</strong> - Comparing this year's numbers to the same period last year.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">Say this instead</div>
+                        "Compared to the same time last year."
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Approved Terms -->
+        <section id="approved-terms" class="section">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2 class="section-title">Terms That Can Stay (Familiar to Audience)</h2>
+            </div>
+
+            <div class="section-intro">
+                <p><strong>Not all technical terms need translation.</strong> Our clients are experienced business owners. They know their fundamentals. These terms are widely understood by our audience and can be used without explanation.</p>
+            </div>
+
+            <div class="approved-grid">
+                <div class="approved-term">
+                    <div class="approved-term-word">Revenue</div>
+                    <div class="approved-term-reason">Universal business term</div>
+                </div>
+                <div class="approved-term">
+                    <div class="approved-term-word">Profit</div>
+                    <div class="approved-term-reason">Core business concept</div>
+                </div>
+                <div class="approved-term">
+                    <div class="approved-term-word">Overhead</div>
+                    <div class="approved-term-reason">Well-established term</div>
+                </div>
+                <div class="approved-term">
+                    <div class="approved-term-word">Cash flow</div>
+                    <div class="approved-term-reason">Fundamental to business owners</div>
+                </div>
+                <div class="approved-term">
+                    <div class="approved-term-word">Break-even</div>
+                    <div class="approved-term-reason">Common business milestone</div>
+                </div>
+                <div class="approved-term">
+                    <div class="approved-term-word">Margin</div>
+                    <div class="approved-term-reason">Pricing fundamental</div>
+                </div>
+                <div class="approved-term">
+                    <div class="approved-term-word">Inventory</div>
+                    <div class="approved-term-reason">Basic business term</div>
+                </div>
+                <div class="approved-term">
+                    <div class="approved-term-word">Accounts receivable</div>
+                    <div class="approved-term-reason">Standard accounting term</div>
+                </div>
+                <div class="approved-term">
+                    <div class="approved-term-word">Accounts payable</div>
+                    <div class="approved-term-reason">Standard accounting term</div>
+                </div>
+                <div class="approved-term">
+                    <div class="approved-term-word">Payroll</div>
+                    <div class="approved-term-reason">Universal employer term</div>
+                </div>
+                <div class="approved-term">
+                    <div class="approved-term-word">Website</div>
+                    <div class="approved-term-reason">Now mainstream</div>
+                </div>
+                <div class="approved-term">
+                    <div class="approved-term-word">Email</div>
+                    <div class="approved-term-reason">Universal digital term</div>
+                </div>
+                <div class="approved-term">
+                    <div class="approved-term-word">Online</div>
+                    <div class="approved-term-reason">Mainstream understanding</div>
+                </div>
+                <div class="approved-term">
+                    <div class="approved-term-word">Contract</div>
+                    <div class="approved-term-reason">Fundamental business term</div>
+                </div>
+                <div class="approved-term">
+                    <div class="approved-term-word">Budget</div>
+                    <div class="approved-term-reason">Universal planning term</div>
+                </div>
+                <div class="approved-term">
+                    <div class="approved-term-word">Partnership</div>
+                    <div class="approved-term-reason">Common relationship term</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem; padding: 1.5rem; background: var(--gold-light); border-radius: 0.5rem;">
+                <h4 style="color: var(--navy); margin-bottom: 0.75rem;">The Litmus Test for Keeping a Term</h4>
+                <p>Ask yourself: "Would my 60-year-old client who runs a plumbing company understand this without hesitation?" If yes, keep it. If there's any doubt, translate it.</p>
+            </div>
+        </section>
+
+        <!-- Section 6: Before/After Examples -->
+        <section id="before-after" class="section">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2 class="section-title">Before/After Examples of Jargon Removal</h2>
+            </div>
+
+            <div class="section-intro">
+                <p><strong>Learning by example:</strong> These real-world transformations show how to maintain professionalism while speaking clearly. Notice how the "after" versions are often shorter, more specific, and more actionable.</p>
+            </div>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem;">Email Communication</h3>
+            <div class="example-container">
+                <div class="example-box example-before">
+                    <div class="example-label">Before</div>
+                    <div class="example-text">
+                        "I wanted to <span class="highlight-jargon">touch base</span> regarding our <span class="highlight-jargon">strategic alignment</span> on the <span class="highlight-jargon">digital transformation initiative</span>. We should <span class="highlight-jargon">circle back</span> on the <span class="highlight-jargon">key learnings</span> from last quarter and <span class="highlight-jargon">ideate</span> on ways to <span class="highlight-jargon">move the needle</span> on our <span class="highlight-jargon">KPIs</span>."
+                    </div>
+                </div>
+                <div class="example-box example-after">
+                    <div class="example-label">After</div>
+                    <div class="example-text">
+                        "I wanted to <span class="highlight-plain">talk with you</span> about <span class="highlight-plain">updating your accounting and inventory systems</span>. Let's <span class="highlight-plain">review what worked well last quarter</span> and <span class="highlight-plain">come up with ideas</span> to <span class="highlight-plain">improve your numbers</span>."
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem;">Service Description</h3>
+            <div class="example-container">
+                <div class="example-box example-before">
+                    <div class="example-label">Before</div>
+                    <div class="example-text">
+                        "ScaleUp Ventures provides <span class="highlight-jargon">end-to-end business solutions</span> that <span class="highlight-jargon">leverage cutting-edge technology</span> to <span class="highlight-jargon">drive digital transformation</span>. Our <span class="highlight-jargon">holistic approach</span> ensures <span class="highlight-jargon">seamless integration</span> across your <span class="highlight-jargon">ecosystem</span>."
+                    </div>
+                </div>
+                <div class="example-box example-after">
+                    <div class="example-label">After</div>
+                    <div class="example-text">
+                        "ScaleUp Ventures helps you <span class="highlight-plain">get your business ready for what's next</span>. We <span class="highlight-plain">update your systems</span>, <span class="highlight-plain">train your team</span>, and <span class="highlight-plain">make sure everything works together</span>. Think of us as your <span class="highlight-plain">guide through growth</span>."
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem;">Proposal Text</h3>
+            <div class="example-container">
+                <div class="example-box example-before">
+                    <div class="example-label">Before</div>
+                    <div class="example-text">
+                        "Phase 1 deliverables include a <span class="highlight-jargon">comprehensive audit</span> of your <span class="highlight-jargon">tech stack</span>, <span class="highlight-jargon">stakeholder alignment sessions</span>, and a <span class="highlight-jargon">roadmap</span> for <span class="highlight-jargon">optimizing operational efficiency</span>. <span class="highlight-jargon">ROI projections</span> indicate <span class="highlight-jargon">significant value creation</span> within 18 months."
+                    </div>
+                </div>
+                <div class="example-box example-after">
+                    <div class="example-label">After</div>
+                    <div class="example-text">
+                        "In the first phase, we'll <span class="highlight-plain">review all your software and systems</span>, <span class="highlight-plain">meet with your key people to understand priorities</span>, and <span class="highlight-plain">create a step-by-step plan</span> for <span class="highlight-plain">running things more smoothly</span>. Based on similar projects, you can <span class="highlight-plain">expect to save $75,000 or more</span> within 18 months."
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem;">Website Copy</h3>
+            <div class="example-container">
+                <div class="example-box example-before">
+                    <div class="example-label">Before</div>
+                    <div class="example-text">
+                        "Unlock <span class="highlight-jargon">synergies</span> and <span class="highlight-jargon">scale</span> your business with our <span class="highlight-jargon">best-in-class platform</span>. Our <span class="highlight-jargon">AI-powered solutions</span> <span class="highlight-jargon">disrupt</span> traditional business models while <span class="highlight-jargon">maximizing your value proposition</span>."
+                    </div>
+                </div>
+                <div class="example-box example-after">
+                    <div class="example-label">After</div>
+                    <div class="example-text">
+                        "<span class="highlight-plain">Grow your business</span> with <span class="highlight-plain">proven strategies</span> that <span class="highlight-plain">work for companies like yours</span>. We use <span class="highlight-plain">smart technology to save you time</span> and help you <span class="highlight-plain">stay ahead of competitors</span> without the headaches."
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem;">Explaining Technology</h3>
+            <div class="example-container">
+                <div class="example-box example-before">
+                    <div class="example-label">Before</div>
+                    <div class="example-text">
+                        "We'll implement a <span class="highlight-jargon">cloud-based CRM</span> with <span class="highlight-jargon">API integrations</span> to your existing <span class="highlight-jargon">ERP</span>. This enables <span class="highlight-jargon">real-time data synchronization</span> and <span class="highlight-jargon">automated workflows</span> that <span class="highlight-jargon">scale with your business</span>."
+                    </div>
+                </div>
+                <div class="example-box example-after">
+                    <div class="example-label">After</div>
+                    <div class="example-text">
+                        "We'll set up a <span class="highlight-plain">customer tracking system</span> (like Salesforce) that <span class="highlight-plain">connects to your accounting software</span>. When a sale happens, your <span class="highlight-plain">inventory updates automatically</span>. No more double-entry. And the system <span class="highlight-plain">handles more business as you grow</span>."
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Handling Technical Terms -->
+        <section id="technical-handling" class="section">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2 class="section-title">How to Handle Unavoidable Technical Terms</h2>
+            </div>
+
+            <div class="section-intro">
+                <p><strong>Sometimes technical terms are necessary.</strong> When a concept genuinely requires specific terminology, use these techniques to introduce it clearly without talking down to your client.</p>
+            </div>
+
+            <div class="technique-card">
+                <h3 class="technique-title">The 4-Step Translation Framework</h3>
+                <ol class="technique-steps">
+                    <li>
+                        <div>
+                            <strong>Lead with the benefit or outcome</strong><br>
+                            Start with what they care about, not what the thing is called. "This will let your customers pay online 24/7."
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Introduce the term naturally</strong><br>
+                            Give it a name if needed: "This is called a payment gateway - it's what connects your website to the bank."
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Use a relatable comparison</strong><br>
+                            Connect to something they know: "Think of it like a cash register, but for online sales."
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Circle back to their world</strong><br>
+                            Connect back to their business: "So when someone orders from your website at midnight, the money still ends up in your account."
+                        </div>
+                    </li>
+                </ol>
+            </div>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem; font-size: 1.25rem;">Techniques for Explaining Complex Concepts</h3>
+
+            <table class="jargon-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Technique</th>
+                        <th style="width: 35%;">How It Works</th>
+                        <th style="width: 40%;">Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="searchable">
+                        <td><strong>The Analogy Bridge</strong></td>
+                        <td>Connect new concepts to familiar experiences from their industry or daily life.</td>
+                        <td>"A database is like a very organized filing cabinet that finds any file instantly."</td>
+                    </tr>
+                    <tr class="searchable">
+                        <td><strong>The "Which Means" Connector</strong></td>
+                        <td>Follow every technical term with its practical implication.</td>
+                        <td>"We'll set up automated backups, which means if anything goes wrong, we can restore your data from yesterday."</td>
+                    </tr>
+                    <tr class="searchable">
+                        <td><strong>The Cost/Benefit Translation</strong></td>
+                        <td>Express technical features in terms of money or time saved.</td>
+                        <td>"Integration saves your bookkeeper about 3 hours per week of manual entry."</td>
+                    </tr>
+                    <tr class="searchable">
+                        <td><strong>The "In Other Words" Pause</strong></td>
+                        <td>Introduce the technical term, then immediately translate.</td>
+                        <td>"We'll implement two-factor authentication - in other words, a second security step to make sure it's really you logging in."</td>
+                    </tr>
+                    <tr class="searchable">
+                        <td><strong>The Specific Example</strong></td>
+                        <td>Replace abstract concepts with concrete scenarios.</td>
+                        <td>Instead of "scalable infrastructure," say "When you have 50 orders a day instead of 10, the system handles it without slowing down."</td>
+                    </tr>
+                    <tr class="searchable">
+                        <td><strong>The Question Check</strong></td>
+                        <td>Pause and invite clarification without condescension.</td>
+                        <td>"Does that make sense, or would it help if I walked through a specific example?"</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="quick-ref">
+                <h3 class="quick-ref-title">Quick Reference: When Technical Terms Are Necessary</h3>
+                <div class="quick-ref-grid">
+                    <div class="quick-ref-item">
+                        <div class="quick-ref-icon">YES</div>
+                        <div class="quick-ref-text"><strong>Legal/Compliance terms</strong><br>When regulations require specific terminology</div>
+                    </div>
+                    <div class="quick-ref-item">
+                        <div class="quick-ref-icon">YES</div>
+                        <div class="quick-ref-text"><strong>Product names</strong><br>When referring to specific software (QuickBooks, Salesforce)</div>
+                    </div>
+                    <div class="quick-ref-item">
+                        <div class="quick-ref-icon">YES</div>
+                        <div class="quick-ref-text"><strong>Industry standards</strong><br>When they'll encounter the term elsewhere</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Audit Checklist -->
+        <section id="checklist" class="section">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <h2 class="section-title">Copy Audit Checklist</h2>
+            </div>
+
+            <div class="section-intro">
+                <p><strong>Use this checklist before publishing any client-facing content.</strong> Every email, proposal, website page, and presentation should pass this jargon audit. Print it out. Keep it visible. Make it habit.</p>
+            </div>
+
+            <h3 style="color: var(--navy); margin: 1.5rem 0 1rem;">Pre-Publication Jargon Audit</h3>
+            <ul class="checklist">
+                <li class="checklist-item">
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-text">
+                        <div class="checklist-main">Read aloud test</div>
+                        <div class="checklist-sub">Read the content aloud. Does it sound like how you'd explain this to a neighbor at a barbecue?</div>
+                    </div>
+                </li>
+                <li class="checklist-item">
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-text">
+                        <div class="checklist-main">Acronym check</div>
+                        <div class="checklist-sub">Are all acronyms spelled out on first use? Would someone unfamiliar with our industry understand them?</div>
+                    </div>
+                </li>
+                <li class="checklist-item">
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-text">
+                        <div class="checklist-main">Buzzword sweep</div>
+                        <div class="checklist-sub">Scan for: leverage, optimize, synergy, paradigm, disrupt, ecosystem, holistic, scalable, robust, cutting-edge</div>
+                    </div>
+                </li>
+                <li class="checklist-item">
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-text">
+                        <div class="checklist-main">Corporate-speak elimination</div>
+                        <div class="checklist-sub">Remove: circle back, touch base, move the needle, low-hanging fruit, value-add, bandwidth, deliverables</div>
+                    </div>
+                </li>
+                <li class="checklist-item">
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-text">
+                        <div class="checklist-main">Tech jargon translation</div>
+                        <div class="checklist-sub">Replace or explain: cloud, API, integration, platform, SaaS, AI-powered, machine learning, automation</div>
+                    </div>
+                </li>
+                <li class="checklist-item">
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-text">
+                        <div class="checklist-main">Specific over vague</div>
+                        <div class="checklist-sub">Replace vague claims with specifics: "significant improvement" becomes "15% increase" or "saves 3 hours weekly"</div>
+                    </div>
+                </li>
+                <li class="checklist-item">
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-text">
+                        <div class="checklist-main">Client perspective check</div>
+                        <div class="checklist-sub">Imagine a 60-year-old business owner reading this. Would they feel respected? Informed? Or confused and talked-down-to?</div>
+                    </div>
+                </li>
+                <li class="checklist-item">
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-text">
+                        <div class="checklist-main">Benefit vs. feature balance</div>
+                        <div class="checklist-sub">For every feature mentioned, is there a clear "which means..." benefit the client cares about?</div>
+                    </div>
+                </li>
+                <li class="checklist-item">
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-text">
+                        <div class="checklist-main">Action clarity</div>
+                        <div class="checklist-sub">Is it clear what the client should do next? Are instructions in simple, numbered steps?</div>
+                    </div>
+                </li>
+                <li class="checklist-item">
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-text">
+                        <div class="checklist-main">Second reader test</div>
+                        <div class="checklist-sub">Have someone outside the project read it. Can they summarize the main point in one sentence?</div>
+                    </div>
+                </li>
+            </ul>
+
+            <div style="margin-top: 2rem; background: var(--navy); color: var(--white); padding: 2rem; border-radius: 0.75rem;">
+                <h4 style="color: var(--gold); margin-bottom: 1rem;">The Ultimate Test</h4>
+                <p style="font-size: 1.125rem;">Ask yourself: "Am I using this word because it's the clearest way to explain this, or because it makes me sound smart?"</p>
+                <p style="margin-top: 1rem; opacity: 0.8;">If it's the latter, find a simpler word. Our clients don't need to be impressed by our vocabulary. They need to understand how we can help them.</p>
+            </div>
+        </section>
+
+        <!-- Section 9: Internal Glossary -->
+        <section id="internal-glossary" class="section">
+            <div class="section-header">
+                <div class="section-number">9</div>
+                <h2 class="section-title">Internal Team Glossary</h2>
+            </div>
+
+            <div class="section-intro">
+                <p><strong>For internal use only.</strong> This glossary helps our team understand industry terms so we can translate them for clients. Knowing what something means is the first step to explaining it simply.</p>
+            </div>
+
+            <div class="glossary-grid">
+                <div class="glossary-card searchable" data-category="internal">
+                    <div class="glossary-term">
+                        Churn Rate
+                        <span class="glossary-category">Business</span>
+                    </div>
+                    <div class="glossary-definition">
+                        The percentage of customers who stop using a service over a given period. High churn means customers are leaving faster than you can replace them.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">For clients</div>
+                        "The percentage of customers who don't come back each month."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="internal">
+                    <div class="glossary-term">
+                        Gross Margin
+                        <span class="glossary-category">Finance</span>
+                    </div>
+                    <div class="glossary-definition">
+                        Revenue minus cost of goods sold, expressed as a percentage. Measures profitability before overhead expenses.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">For clients</div>
+                        "How much you keep from each sale after paying for the product itself."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="internal">
+                    <div class="glossary-term">
+                        Unit Economics
+                        <span class="glossary-category">Strategy</span>
+                    </div>
+                    <div class="glossary-definition">
+                        The direct revenues and costs associated with a single unit (customer, product, or transaction). Fundamental for understanding profitability.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">For clients</div>
+                        "How much you make (or lose) on each sale or customer."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="internal">
+                    <div class="glossary-term">
+                        COGS
+                        <span class="glossary-category">Finance</span>
+                    </div>
+                    <div class="glossary-definition">
+                        Cost of Goods Sold - direct costs attributable to producing the goods sold by a company.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">For clients</div>
+                        "What you pay to buy or make the products you sell."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="internal">
+                    <div class="glossary-term">
+                        Pipeline
+                        <span class="glossary-category">Sales</span>
+                    </div>
+                    <div class="glossary-definition">
+                        The total value of potential sales opportunities at various stages of the sales process.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">For clients</div>
+                        "All the potential sales you're working on, from first conversation to almost-closed."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="internal">
+                    <div class="glossary-term">
+                        Sprint
+                        <span class="glossary-category">Project</span>
+                    </div>
+                    <div class="glossary-definition">
+                        A fixed time period (usually 1-4 weeks) during which specific work must be completed and ready for review.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">For clients</div>
+                        "A focused work period - usually 2 weeks - where we complete a specific set of tasks."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="internal">
+                    <div class="glossary-term">
+                        MVP
+                        <span class="glossary-category">Product</span>
+                    </div>
+                    <div class="glossary-definition">
+                        Minimum Viable Product - the simplest version of a product that can be released to test a market hypothesis.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">For clients</div>
+                        "The simplest version we can build first, to test if customers want it before investing more."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="internal">
+                    <div class="glossary-term">
+                        Scope Creep
+                        <span class="glossary-category">Project</span>
+                    </div>
+                    <div class="glossary-definition">
+                        Uncontrolled changes or continuous growth in a project's scope, often leading to delays and budget overruns.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">For clients</div>
+                        "When a project keeps growing as we add 'just one more thing' - which is why we're careful about defining what's included upfront."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="internal">
+                    <div class="glossary-term">
+                        Technical Debt
+                        <span class="glossary-category">Tech</span>
+                    </div>
+                    <div class="glossary-definition">
+                        The implied cost of additional work caused by choosing an easy (limited) solution now instead of a better approach that would take longer.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">For clients</div>
+                        "Quick fixes that work now but create extra work later - like patching a roof instead of replacing it."
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="internal">
+                    <div class="glossary-term">
+                        Onboarding
+                        <span class="glossary-category">Customer</span>
+                    </div>
+                    <div class="glossary-definition">
+                        The process of integrating a new customer or employee and giving them the tools, knowledge, and access they need.
+                    </div>
+                    <div class="glossary-plain">
+                        <div class="glossary-plain-label">For clients</div>
+                        "Getting you set up and comfortable with how we work together."
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Client-Facing Glossary -->
+        <section id="client-glossary" class="section">
+            <div class="section-header">
+                <div class="section-number">10</div>
+                <h2 class="section-title">Client-Facing Glossary</h2>
+            </div>
+
+            <div class="section-intro">
+                <p><strong>Optional resource for clients.</strong> This simplified glossary can be shared with clients who want a reference for terms they might encounter. It's written in their language, not ours.</p>
+            </div>
+
+            <div style="background: var(--gold-light); border: 2px solid var(--gold); border-radius: 0.75rem; padding: 2rem; margin-bottom: 2rem;">
+                <h4 style="color: var(--navy); margin-bottom: 1rem;">A Note for Our Clients</h4>
+                <p>Business is full of jargon. Here's a quick reference for terms you might hear from us, other consultants, software vendors, or industry publications. If you ever encounter a word we use that's not on this list - or that still doesn't make sense - please ask. We'd rather explain something twice than have you feel uncertain.</p>
+            </div>
+
+            <div class="glossary-grid">
+                <div class="glossary-card searchable" data-category="client">
+                    <div class="glossary-term">
+                        Backup
+                        <span class="glossary-category">Technology</span>
+                    </div>
+                    <div class="glossary-definition">
+                        A copy of your important files stored separately, so if something goes wrong with your computer or system, you don't lose everything. Like having a spare key for your house.
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="client">
+                    <div class="glossary-term">
+                        Dashboard
+                        <span class="glossary-category">Reports</span>
+                    </div>
+                    <div class="glossary-definition">
+                        A screen that shows your most important numbers at a glance - like the dashboard in your car shows speed and fuel level. Helps you check on your business quickly.
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="client">
+                    <div class="glossary-term">
+                        Login / Password
+                        <span class="glossary-category">Security</span>
+                    </div>
+                    <div class="glossary-definition">
+                        Your personal "key" to enter an online system. Your login is usually your email address; your password is a secret code only you should know.
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="client">
+                    <div class="glossary-term">
+                        Subscription
+                        <span class="glossary-category">Payments</span>
+                    </div>
+                    <div class="glossary-definition">
+                        Paying monthly or yearly for something instead of buying it once. Like a magazine subscription, but for software or services. Cancel anytime (usually).
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="client">
+                    <div class="glossary-term">
+                        Update / Upgrade
+                        <span class="glossary-category">Software</span>
+                    </div>
+                    <div class="glossary-definition">
+                        <strong>Update:</strong> Fixes and small improvements (usually free).<br>
+                        <strong>Upgrade:</strong> A major new version with new features (may cost extra).
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="client">
+                    <div class="glossary-term">
+                        Download / Upload
+                        <span class="glossary-category">Internet</span>
+                    </div>
+                    <div class="glossary-definition">
+                        <strong>Download:</strong> Getting something from the internet to your computer (like receiving a package).<br>
+                        <strong>Upload:</strong> Sending something from your computer to the internet (like mailing a package).
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="client">
+                    <div class="glossary-term">
+                        App
+                        <span class="glossary-category">Technology</span>
+                    </div>
+                    <div class="glossary-definition">
+                        Short for "application" - a program that does something specific. Like the apps on your phone (Facebook, Weather, Maps), but also includes software on computers.
+                    </div>
+                </div>
+
+                <div class="glossary-card searchable" data-category="client">
+                    <div class="glossary-term">
+                        Invoice
+                        <span class="glossary-category">Business</span>
+                    </div>
+                    <div class="glossary-definition">
+                        A bill you send to customers telling them what they owe and when to pay. Includes details of what was provided and the total amount due.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 11: Training Guide -->
+        <section id="training" class="section">
+            <div class="section-header">
+                <div class="section-number">11</div>
+                <h2 class="section-title">Training Guide for New Team Members</h2>
+            </div>
+
+            <div class="section-intro">
+                <p><strong>Welcome to ScaleUp Ventures.</strong> One of the most important skills you'll develop here is communicating complex ideas simply. This training will help you speak like us: clearly, warmly, and without jargon.</p>
+            </div>
+
+            <div class="training-module">
+                <div class="training-header">
+                    <span>Module 1:</span> Why Plain Language Matters Here
+                </div>
+                <div class="training-content">
+                    <p>Our clients are successful business owners aged 50-65. They've built companies through grit, instinct, and experience - not by memorizing buzzwords. Many feel intimidated by technology and marketing speak, though they'd never admit it.</p>
+                    <p style="margin-top: 1rem;"><strong>Our job is to be their trusted guide, not to impress them with our vocabulary.</strong></p>
+                    <p style="margin-top: 1rem;">Using jargon creates distance. Using plain language builds trust. Every word choice is either bringing us closer to our clients or pushing them away.</p>
+
+                    <div class="training-exercise">
+                        <div class="exercise-label">Exercise 1</div>
+                        <p>Find a piece of content you wrote at a previous job. Highlight every word that a 60-year-old plumber might not immediately understand. Then rewrite the whole piece using only words they would know.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="training-module">
+                <div class="training-header">
+                    <span>Module 2:</span> The "Neighbor Test"
+                </div>
+                <div class="training-content">
+                    <p>Before sending any client communication, apply the "Neighbor Test":</p>
+                    <p style="margin-top: 1rem;"><em>Imagine you're explaining this to your neighbor at a weekend barbecue. They're smart, but they don't work in your industry. How would you explain it to them?</em></p>
+                    <p style="margin-top: 1rem;">If your written version sounds different from that conversation, rewrite it.</p>
+
+                    <div class="training-exercise">
+                        <div class="exercise-label">Exercise 2</div>
+                        <p>Take this sentence and rewrite it for the neighbor test:</p>
+                        <p style="margin-top: 0.5rem; padding: 1rem; background: var(--white); border-radius: 0.25rem; border: 1px solid var(--gray-200);">
+                            "We'll leverage our proprietary methodology to optimize your go-to-market strategy and drive sustainable revenue growth through enhanced customer acquisition frameworks."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="training-module">
+                <div class="training-header">
+                    <span>Module 3:</span> Translating On The Fly
+                </div>
+                <div class="training-content">
+                    <p>In meetings, you'll sometimes hear colleagues, vendors, or clients themselves use jargon. When a client uses a term, don't assume they know what it means - they may have heard it from someone else.</p>
+                    <p style="margin-top: 1rem;"><strong>Safe ways to check understanding:</strong></p>
+                    <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                        <li>"Just to make sure we're on the same page, when you say [term], you mean...?"</li>
+                        <li>"That's a great point. So in practical terms, that would mean...?"</li>
+                        <li>"Let me make sure I understand what you're looking for..."</li>
+                    </ul>
+
+                    <div class="training-exercise">
+                        <div class="exercise-label">Exercise 3</div>
+                        <p>Role-play: A client says "We need better SEO and maybe some kind of CRM that integrates with our ERP." Practice responding in a way that clarifies what they actually need without making them feel uninformed.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="training-module">
+                <div class="training-header">
+                    <span>Module 4:</span> Words to Eliminate From Your Vocabulary
+                </div>
+                <div class="training-content">
+                    <p>Commit these to memory. When you catch yourself writing or saying these, stop and find a simpler alternative:</p>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin-top: 1rem;">
+                        <span style="background: var(--red-light); padding: 0.5rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">leverage</span>
+                        <span style="background: var(--red-light); padding: 0.5rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">optimize</span>
+                        <span style="background: var(--red-light); padding: 0.5rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">synergy</span>
+                        <span style="background: var(--red-light); padding: 0.5rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">ecosystem</span>
+                        <span style="background: var(--red-light); padding: 0.5rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">scalable</span>
+                        <span style="background: var(--red-light); padding: 0.5rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">holistic</span>
+                        <span style="background: var(--red-light); padding: 0.5rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">robust</span>
+                        <span style="background: var(--red-light); padding: 0.5rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">solutions</span>
+                        <span style="background: var(--red-light); padding: 0.5rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">paradigm</span>
+                        <span style="background: var(--red-light); padding: 0.5rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">disruptive</span>
+                        <span style="background: var(--red-light); padding: 0.5rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">touch base</span>
+                        <span style="background: var(--red-light); padding: 0.5rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">circle back</span>
+                    </div>
+
+                    <div class="training-exercise">
+                        <div class="exercise-label">Exercise 4</div>
+                        <p>Review the last 10 emails you've sent. Count how many of these words you used. Set a goal to use zero in your next 10 emails.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="training-module">
+                <div class="training-header">
+                    <span>Module 5:</span> Ongoing Practice
+                </div>
+                <div class="training-content">
+                    <p><strong>Weekly habit:</strong> Pick one piece of external content (competitor website, industry article, vendor proposal) and "translate" it into ScaleUp Ventures language.</p>
+                    <p style="margin-top: 1rem;"><strong>Monthly review:</strong> Have a colleague read your recent client communications and flag any jargon that slipped through.</p>
+                    <p style="margin-top: 1rem;"><strong>Quarterly audit:</strong> Review this entire document and refresh your awareness of terms to avoid.</p>
+
+                    <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--navy); color: var(--white); border-radius: 0.5rem;">
+                        <h4 style="color: var(--gold); margin-bottom: 0.75rem;">Final Thought</h4>
+                        <p>The mark of true expertise is the ability to explain complex things simply. When you find yourself reaching for jargon, pause and ask: "Do I actually understand this well enough to explain it to my neighbor?" If not, keep learning until you do.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Summary Section -->
+        <section class="section" style="background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%); color: var(--white);">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2 style="color: var(--gold); font-size: 2rem; margin-bottom: 1.5rem;">The ScaleUp Ventures Language Commitment</h2>
+                <p style="font-size: 1.25rem; margin-bottom: 2rem;">We never use jargon to impress. We use clear language to connect.</p>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
+                    <div>
+                        <div style="font-size: 3rem; color: var(--gold); font-weight: 700;">75+</div>
+                        <div style="opacity: 0.8;">Jargon Terms Identified</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 3rem; color: var(--gold); font-weight: 700;">100%</div>
+                        <div style="opacity: 0.8;">Have Plain Alternatives</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 3rem; color: var(--gold); font-weight: 700;">1</div>
+                        <div style="opacity: 0.8;">Simple Standard: Clarity</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: var(--navy); color: var(--white); padding: 2rem; text-align: center;">
+        <p style="opacity: 0.8; margin-bottom: 0.5rem;">ScaleUp Ventures Jargon Audit & Plain English Glossary</p>
+        <p style="font-size: 0.875rem; opacity: 0.6;">Version 1.0 | December 2025 | For Internal & Client Use</p>
+    </footer>
+
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchableItems = document.querySelectorAll('.searchable');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+
+            searchableItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                const category = item.dataset.category?.toLowerCase() || '';
+
+                if (query === '' || text.includes(query) || category.includes(query)) {
+                    item.style.display = '';
+                    item.style.opacity = '1';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Navigation buttons
+        const navBtns = document.querySelectorAll('.nav-btn');
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all
+                navBtns.forEach(b => b.classList.remove('active'));
+                // Add to clicked
+                this.classList.add('active');
+                // Scroll to section
+                const sectionId = this.dataset.section;
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Filter buttons for tech jargon section
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filter = this.dataset.filter;
+                const tableRows = this.closest('.section').querySelectorAll('tbody tr');
+
+                // Update active state
+                this.closest('.filter-container').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter rows
+                tableRows.forEach(row => {
+                    const category = row.dataset.category;
+                    if (filter === 'all' || category === filter) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Intersection Observer for navigation highlighting
+        const sections = document.querySelectorAll('.section[id]');
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    navBtns.forEach(btn => {
+                        btn.classList.toggle('active', btn.dataset.section === id);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>

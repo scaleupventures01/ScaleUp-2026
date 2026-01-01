@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures Service One-Pagers</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --gold-light: rgba(212, 168, 83, 0.15);
+            --white: #FFFFFF;
+            --gray-50: #F8F9FA;
+            --gray-100: #F1F3F5;
+            --gray-600: #6B7280;
+            --gray-800: #1F2937;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.5;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .screen-header,
+            .page-break-indicator {
+                display: none !important;
+            }
+
+            .one-pager {
+                page-break-after: always;
+                box-shadow: none !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+            }
+
+            .one-pager:last-child {
+                page-break-after: avoid;
+            }
+        }
+
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+
+        /* Screen Header */
+        .screen-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .screen-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .screen-header p {
+            color: var(--gold);
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .page-break-indicator {
+            background: var(--gold-light);
+            border: 2px dashed var(--gold);
+            padding: 16px;
+            text-align: center;
+            margin: 40px auto;
+            max-width: 600px;
+            border-radius: 8px;
+        }
+
+        .page-break-indicator span {
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* One-Pager Layout */
+        .one-pager {
+            width: 8.5in;
+            min-height: 11in;
+            max-height: 11in;
+            background: var(--white);
+            margin: 40px auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Section */
+        .op-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 28px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .op-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .op-logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .op-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .op-tagline {
+            color: var(--gold);
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* Content Area */
+        .op-content {
+            padding: 32px 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Headline */
+        .op-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+
+        .op-subheadline {
+            font-size: 18px;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        /* Value Proposition */
+        .op-value-prop {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--gray-800);
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        /* Two Column Layout */
+        .op-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 20px;
+        }
+
+        .op-section-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .op-list {
+            list-style: none;
+        }
+
+        .op-list li {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+            color: var(--gray-800);
+        }
+
+        .op-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        /* Results Section */
+        .op-results {
+            background: var(--gold-light);
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .op-results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .op-metric {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .op-metric-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        .op-metric-label {
+            font-size: 11px;
+            color: var(--gray-600);
+            margin-top: 4px;
+            line-height: 1.3;
+        }
+
+        /* Quote Section */
+        .op-quote {
+            background: var(--gray-50);
+            padding: 20px 24px;
+            border-left: 4px solid var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .op-quote-text {
+            font-size: 14px;
+            font-style: italic;
+            color: var(--gray-800);
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .op-quote-author {
+            font-size: 12px;
+            color: var(--gray-600);
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .op-cta {
+            background: var(--navy);
+            padding: 20px 24px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .op-cta-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .op-cta-text p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .op-cta-button {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        /* Footer */
+        .op-footer {
+            background: var(--gray-50);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .op-contact {
+            display: flex;
+            gap: 24px;
+        }
+
+        .op-contact-item {
+            font-size: 12px;
+            color: var(--gray-600);
+        }
+
+        .op-contact-item strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .op-footer-tagline {
+            font-size: 11px;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Print Instructions */
+        .print-instructions {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 24px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .print-instructions h3 {
+            font-size: 16px;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .print-instructions ul {
+            font-size: 14px;
+            color: var(--gray-600);
+            padding-left: 20px;
+        }
+
+        .print-instructions li {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Screen Header -->
+    <div class="screen-header">
+        <h1>ScaleUp Ventures</h1>
+        <p>Service One-Pagers | Print-Ready</p>
+    </div>
+
+    <div class="print-instructions">
+        <h3>Print Instructions</h3>
+        <ul>
+            <li>Use File > Print or Ctrl/Cmd + P</li>
+            <li>Set paper size to Letter (8.5" x 11")</li>
+            <li>Set margins to 0.5 inches</li>
+            <li>Enable "Background graphics" for colors</li>
+            <li>Each one-pager will print on its own page</li>
+        </ul>
+    </div>
+
+    <!-- ONE-PAGER 1: DEVELOPMENT -->
+    <div class="one-pager">
+        <header class="op-header">
+            <div class="op-logo">
+                <svg class="op-logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" stroke="#D4A853" stroke-width="3" fill="none"/>
+                    <path d="M30 65 L50 35 L70 65" stroke="#D4A853" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <circle cx="50" cy="50" r="8" fill="#D4A853"/>
+                </svg>
+                <span class="op-logo-text">ScaleUp Ventures</span>
+            </div>
+            <span class="op-tagline">Certainty First</span>
+        </header>
+
+        <div class="op-content">
+            <h1 class="op-headline">Websites That Drive Revenue,</h1>
+            <p class="op-subheadline">Not Just Traffic</p>
+
+            <p class="op-value-prop">
+                Your website should be your hardest-working salesperson, converting visitors into customers 24/7. We build custom web solutions engineered for measurable business outcomes, with ROI projections before you invest a dollar.
+            </p>
+
+            <div class="op-columns">
+                <div>
+                    <h4 class="op-section-title">What's Included</h4>
+                    <ul class="op-list">
+                        <li>Custom website design and development tailored to your conversion goals</li>
+                        <li>Pre-project ROI model showing your projected return on investment</li>
+                        <li>Mobile-first responsive design optimized for all devices</li>
+                        <li>Performance optimization for sub-3-second load times</li>
+                        <li>SEO foundation with technical best practices built in</li>
+                        <li>90-day post-launch support and performance monitoring</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="op-section-title">Who This Is For</h4>
+                    <ul class="op-list">
+                        <li>Growing businesses ready to invest $20K+ in a website that actually performs</li>
+                        <li>Companies whose current site fails to convert visitors into leads or sales</li>
+                        <li>Business owners who want accountability and measurable results, not just a pretty design</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="op-results">
+                <h4 class="op-section-title" style="margin-bottom: 16px; text-align: center;">Sample Client Results</h4>
+                <div class="op-results-grid">
+                    <div class="op-metric">
+                        <span class="op-metric-value">47%</span>
+                        <span class="op-metric-label">Increase in Lead<br>Conversion Rate</span>
+                    </div>
+                    <div class="op-metric">
+                        <span class="op-metric-value">3.2x</span>
+                        <span class="op-metric-label">Return on Investment<br>Within 12 Months</span>
+                    </div>
+                    <div class="op-metric">
+                        <span class="op-metric-value">68%</span>
+                        <span class="op-metric-label">Reduction in<br>Bounce Rate</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="op-quote">
+                <p class="op-quote-text">"Before ScaleUp, our website was a digital brochure. Now it generates qualified leads while we sleep. The ROI model they built showed us exactly what to expect, and they delivered."</p>
+                <p class="op-quote-author">-- Director of Operations, Regional Healthcare Services</p>
+            </div>
+
+            <div class="op-cta">
+                <div class="op-cta-text">
+                    <h3>See Your Projected ROI Before You Commit</h3>
+                    <p>Schedule a 30-minute discovery call. No obligation, no pressure.</p>
+                </div>
+                <a href="#" class="op-cta-button">Book Your Call</a>
+            </div>
+        </div>
+
+        <footer class="op-footer">
+            <div class="op-contact">
+                <span class="op-contact-item"><strong>Web:</strong> scaleupventures.com</span>
+                <span class="op-contact-item"><strong>Email:</strong> hello@scaleupventures.com</span>
+                <span class="op-contact-item"><strong>Phone:</strong> (555) 123-4567</span>
+            </div>
+            <span class="op-footer-tagline">CERTAINTY FIRST</span>
+        </footer>
+    </div>
+
+    <div class="page-break-indicator">
+        <span>--- Page Break (Development | Growth Marketing) ---</span>
+    </div>
+
+    <!-- ONE-PAGER 2: GROWTH MARKETING -->
+    <div class="one-pager">
+        <header class="op-header">
+            <div class="op-logo">
+                <svg class="op-logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" stroke="#D4A853" stroke-width="3" fill="none"/>
+                    <path d="M30 65 L50 35 L70 65" stroke="#D4A853" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <circle cx="50" cy="50" r="8" fill="#D4A853"/>
+                </svg>
+                <span class="op-logo-text">ScaleUp Ventures</span>
+            </div>
+            <span class="op-tagline">Certainty First</span>
+        </header>
+
+        <div class="op-content">
+            <h1 class="op-headline">Growth Marketing That Pays</h1>
+            <p class="op-subheadline">For Itself, Then Pays You</p>
+
+            <p class="op-value-prop">
+                Stop burning budget on marketing that feels like gambling. Our data-driven growth strategies come with ROI projections upfront, so you know what to expect before you spend. We turn marketing from a cost center into your most predictable revenue engine.
+            </p>
+
+            <div class="op-columns">
+                <div>
+                    <h4 class="op-section-title">What's Included</h4>
+                    <ul class="op-list">
+                        <li>Comprehensive growth audit identifying your highest-ROI opportunities</li>
+                        <li>Custom ROI model projecting returns before campaign launch</li>
+                        <li>Paid advertising strategy and management (Google, Meta, LinkedIn)</li>
+                        <li>Conversion rate optimization to maximize every marketing dollar</li>
+                        <li>Monthly performance reporting with clear attribution to revenue</li>
+                        <li>Ongoing optimization based on real performance data, not hunches</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="op-section-title">Who This Is For</h4>
+                    <ul class="op-list">
+                        <li>Businesses spending $5K+/month on marketing without clear ROI visibility</li>
+                        <li>Companies ready to scale but need predictable customer acquisition costs</li>
+                        <li>Leaders tired of agencies promising "awareness" instead of revenue</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="op-results">
+                <h4 class="op-section-title" style="margin-bottom: 16px; text-align: center;">Sample Client Results</h4>
+                <div class="op-results-grid">
+                    <div class="op-metric">
+                        <span class="op-metric-value">4.7x</span>
+                        <span class="op-metric-label">Average Return on<br>Ad Spend (ROAS)</span>
+                    </div>
+                    <div class="op-metric">
+                        <span class="op-metric-value">-38%</span>
+                        <span class="op-metric-label">Reduction in Customer<br>Acquisition Cost</span>
+                    </div>
+                    <div class="op-metric">
+                        <span class="op-metric-value">156%</span>
+                        <span class="op-metric-label">Increase in Qualified<br>Lead Volume</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="op-quote">
+                <p class="op-quote-text">"Our previous agency gave us impressions and clicks. ScaleUp gave us a model showing exactly when our campaign would break even. We hit profitability in month two."</p>
+                <p class="op-quote-author">-- CEO, B2B Professional Services Firm</p>
+            </div>
+
+            <div class="op-cta">
+                <div class="op-cta-text">
+                    <h3>Get Your Custom Growth Roadmap</h3>
+                    <p>Free 30-minute strategy session with ROI projections for your business.</p>
+                </div>
+                <a href="#" class="op-cta-button">Claim Your Session</a>
+            </div>
+        </div>
+
+        <footer class="op-footer">
+            <div class="op-contact">
+                <span class="op-contact-item"><strong>Web:</strong> scaleupventures.com</span>
+                <span class="op-contact-item"><strong>Email:</strong> hello@scaleupventures.com</span>
+                <span class="op-contact-item"><strong>Phone:</strong> (555) 123-4567</span>
+            </div>
+            <span class="op-footer-tagline">CERTAINTY FIRST</span>
+        </footer>
+    </div>
+
+    <div class="page-break-indicator">
+        <span>--- Page Break (Growth Marketing | AI Automation) ---</span>
+    </div>
+
+    <!-- ONE-PAGER 3: AI AUTOMATION -->
+    <div class="one-pager">
+        <header class="op-header">
+            <div class="op-logo">
+                <svg class="op-logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" stroke="#D4A853" stroke-width="3" fill="none"/>
+                    <path d="M30 65 L50 35 L70 65" stroke="#D4A853" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <circle cx="50" cy="50" r="8" fill="#D4A853"/>
+                </svg>
+                <span class="op-logo-text">ScaleUp Ventures</span>
+            </div>
+            <span class="op-tagline">Certainty First</span>
+        </header>
+
+        <div class="op-content">
+            <h1 class="op-headline">AI Automation That Multiplies</h1>
+            <p class="op-subheadline">Your Team Without Adding Headcount</p>
+
+            <p class="op-value-prop">
+                Your competitors are already using AI to do more with less. We implement practical AI solutions that automate repetitive work, eliminate bottlenecks, and free your team to focus on high-value activities. Every implementation comes with a clear ROI projection.
+            </p>
+
+            <div class="op-columns">
+                <div>
+                    <h4 class="op-section-title">What's Included</h4>
+                    <ul class="op-list">
+                        <li>Process audit to identify your highest-impact automation opportunities</li>
+                        <li>Custom ROI model showing projected time and cost savings</li>
+                        <li>AI agent development for customer service, data processing, or operations</li>
+                        <li>Workflow automation connecting your existing tools and systems</li>
+                        <li>Team training so your staff can manage and optimize automations</li>
+                        <li>90-day optimization period to maximize real-world performance</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="op-section-title">Who This Is For</h4>
+                    <ul class="op-list">
+                        <li>Companies where staff spend 10+ hours weekly on repetitive manual tasks</li>
+                        <li>Businesses hitting growth ceilings due to operational bottlenecks</li>
+                        <li>Leaders who want AI advantages without the risk of unproven technology</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="op-results">
+                <h4 class="op-section-title" style="margin-bottom: 16px; text-align: center;">Sample Client Results</h4>
+                <div class="op-results-grid">
+                    <div class="op-metric">
+                        <span class="op-metric-value">22 hrs</span>
+                        <span class="op-metric-label">Weekly Time Saved<br>Per Team Member</span>
+                    </div>
+                    <div class="op-metric">
+                        <span class="op-metric-value">$127K</span>
+                        <span class="op-metric-label">Annual Operational<br>Cost Reduction</span>
+                    </div>
+                    <div class="op-metric">
+                        <span class="op-metric-value">94%</span>
+                        <span class="op-metric-label">Reduction in Manual<br>Data Entry Errors</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="op-quote">
+                <p class="op-quote-text">"We were skeptical about AI hype. ScaleUp showed us exactly how much we'd save before we started. Three months later, we've eliminated two FTE worth of manual work with no layoffs."</p>
+                <p class="op-quote-author">-- COO, Regional Staffing Agency</p>
+            </div>
+
+            <div class="op-cta">
+                <div class="op-cta-text">
+                    <h3>Discover Your Automation Potential</h3>
+                    <p>Free process audit identifies your biggest time-saving opportunities.</p>
+                </div>
+                <a href="#" class="op-cta-button">Request Your Audit</a>
+            </div>
+        </div>
+
+        <footer class="op-footer">
+            <div class="op-contact">
+                <span class="op-contact-item"><strong>Web:</strong> scaleupventures.com</span>
+                <span class="op-contact-item"><strong>Email:</strong> hello@scaleupventures.com</span>
+                <span class="op-contact-item"><strong>Phone:</strong> (555) 123-4567</span>
+            </div>
+            <span class="op-footer-tagline">CERTAINTY FIRST</span>
+        </footer>
+    </div>
+
+</body>
+</html>

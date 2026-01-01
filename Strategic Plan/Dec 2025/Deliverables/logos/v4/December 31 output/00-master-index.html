@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures - December 31 Brand Deliverables</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --white: #FFFFFF;
+            --light-gray: #f8f9fa;
+            --mid-gray: #e9ecef;
+            --dark-gray: #6c757d;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--light-gray);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .header .tagline {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .header .subtitle {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .header .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .header .stat {
+            text-align: center;
+        }
+
+        .header .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .header .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .nav {
+            background: var(--white);
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav a {
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            border: 1px solid var(--mid-gray);
+        }
+
+        .nav a:hover, .nav a.active {
+            background: var(--gold);
+            color: var(--navy);
+            border-color: var(--gold);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .section-header h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+        }
+
+        .section-header .count {
+            margin-left: auto;
+            background: var(--navy);
+            color: var(--gold);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: var(--gold);
+        }
+
+        .card-number {
+            display: inline-block;
+            background: var(--navy);
+            color: var(--gold);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--navy);
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            line-height: 1.5;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: var(--light-gray);
+            color: var(--navy);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .card .tag.critical { background: #ffe5e5; color: #dc3545; }
+        .card .tag.high { background: #fff3cd; color: #856404; }
+        .card .tag.framework { background: #e7f5ff; color: #0c5460; }
+        .card .tag.template { background: #d4edda; color: #155724; }
+
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 40px;
+            margin-top: 40px;
+        }
+
+        .footer .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .quick-wins-link {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 20px 10px;
+            transition: all 0.3s;
+        }
+
+        .quick-wins-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(212, 168, 83, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .container { padding: 20px; }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>ScaleUp Ventures</h1>
+        <div class="tagline">Certainty First.</div>
+        <div class="subtitle">Complete Brand Deliverables - December 31, 2025</div>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">51</div>
+                <div class="stat-label">Deliverables</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Categories</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">51</div>
+                <div class="stat-label">Agents Deployed</div>
+            </div>
+        </div>
+        <div style="margin-top: 30px;">
+            <a href="../brand-quick-wins.html" class="quick-wins-link">View Quick Wins (10 Completed)</a>
+            <a href="../brand-audit-report.html" class="quick-wins-link">View Full Audit Report</a>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <a href="#proof">Proof & Credibility</a>
+        <a href="#cta">CTAs & Conversion</a>
+        <a href="#voice">Voice & Messaging</a>
+        <a href="#frameworks">Frameworks & Methods</a>
+        <a href="#industry">Industry Pages</a>
+        <a href="#sales">Sales Enablement</a>
+        <a href="#story">Story & Narrative</a>
+        <a href="#operations">Operations</a>
+        <a href="#testing">Testing & Optimization</a>
+        <a href="#design">Design & Accessibility</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- PROOF & CREDIBILITY -->
+        <section id="proof" class="section">
+            <div class="section-header">
+                <div class="section-icon">1</div>
+                <h2>Proof & Credibility</h2>
+                <span class="count">8 Documents</span>
+            </div>
+            <div class="cards-grid">
+                <a href="01-testimonial-collection-guide.html" class="card">
+                    <div class="card-number">01</div>
+                    <h3>Testimonial Collection Guide</h3>
+                    <p>Email templates, interview questions, and legal releases for collecting client testimonials.</p>
+                    <span class="tag critical">Critical</span>
+                </a>
+                <a href="02-case-study-framework.html" class="card">
+                    <div class="card-number">02</div>
+                    <h3>Case Study Framework & Templates</h3>
+                    <p>Challenge > Approach > Results structure with industry-specific templates.</p>
+                    <span class="tag critical">Critical</span>
+                </a>
+                <a href="10-proof-point-library.html" class="card">
+                    <div class="card-number">10</div>
+                    <h3>Proof Point Library</h3>
+                    <p>Organized collection of statistics, social proof, and credibility markers.</p>
+                    <span class="tag framework">Framework</span>
+                </a>
+                <a href="12-client-retention-metrics.html" class="card">
+                    <div class="card-number">12</div>
+                    <h3>Client Retention Metrics Framework</h3>
+                    <p>Tracking retention, expansion, and LTV with dashboard mockups.</p>
+                    <span class="tag framework">Framework</span>
+                </a>
+                <a href="23-tertiary-proof-points.html" class="card">
+                    <div class="card-number">23</div>
+                    <h3>Tertiary Proof Points - Industry Stats</h3>
+                    <p>Industry-specific statistics for Staffing, Veterinary, Trades, Insurance, Pest Control.</p>
+                    <span class="tag high">High Priority</span>
+                </a>
+                <a href="28-proof-library-section.html" class="card">
+                    <div class="card-number">28</div>
+                    <h3>Proof Library Section for Guidelines</h3>
+                    <p>Organization system for managing all proof assets.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="29-client-logo-collection.html" class="card">
+                    <div class="card-number">29</div>
+                    <h3>Client Logo Collection Guide</h3>
+                    <p>Process for requesting, organizing, and displaying client logos.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="42-video-testimonial-strategy.html" class="card">
+                    <div class="card-number">42</div>
+                    <h3>Video Testimonial Strategy</h3>
+                    <p>Complete video testimonial collection and distribution plan.</p>
+                    <span class="tag template">Template</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- CTAs & CONVERSION -->
+        <section id="cta" class="section">
+            <div class="section-header">
+                <div class="section-icon">2</div>
+                <h2>CTAs & Conversion</h2>
+                <span class="count">8 Documents</span>
+            </div>
+            <div class="cards-grid">
+                <a href="03-homepage-hero-cta.html" class="card">
+                    <div class="card-number">03</div>
+                    <h3>Homepage Hero CTA Messaging</h3>
+                    <p>Hero headlines, subheadlines, and proof-based CTA button copy.</p>
+                    <span class="tag high">High Priority</span>
+                </a>
+                <a href="04-landing-page-cta-library.html" class="card">
+                    <div class="card-number">04</div>
+                    <h3>Landing Page CTA Library</h3>
+                    <p>CTAs for all landing pages: services, industry, about, contact.</p>
+                    <span class="tag high">High Priority</span>
+                </a>
+                <a href="05-graduated-cta-sequence.html" class="card">
+                    <div class="card-number">05</div>
+                    <h3>Graduated CTA Sequence</h3>
+                    <p>CTA progression from awareness through decision for skeptical buyers.</p>
+                    <span class="tag framework">Framework</span>
+                </a>
+                <a href="22-proposal-footer-ctas.html" class="card">
+                    <div class="card-number">22</div>
+                    <h3>Proposal Footer CTAs & Closing</h3>
+                    <p>Proposal footer CTAs and closing section templates.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="40-internal-materials-ctas.html" class="card">
+                    <div class="card-number">40</div>
+                    <h3>Internal Materials CTA Update</h3>
+                    <p>Stronger CTAs for internal brand materials and documentation.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="48-service-page-ctas.html" class="card">
+                    <div class="card-number">48</div>
+                    <h3>Service Page CTAs with ROI Preview</h3>
+                    <p>CTAs for Development, Growth Marketing, AI Automation services.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="49-case-study-ctas.html" class="card">
+                    <div class="card-number">49</div>
+                    <h3>Case Study CTAs</h3>
+                    <p>CTAs that connect case study results to prospect's business.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="47-cta-ab-testing-framework.html" class="card">
+                    <div class="card-number">47</div>
+                    <h3>CTA A/B Testing Framework</h3>
+                    <p>Testing methodology and documentation for CTA optimization.</p>
+                    <span class="tag framework">Framework</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- VOICE & MESSAGING -->
+        <section id="voice" class="section">
+            <div class="section-header">
+                <div class="section-icon">3</div>
+                <h2>Voice & Messaging</h2>
+                <span class="count">9 Documents</span>
+            </div>
+            <div class="cards-grid">
+                <a href="06-channel-messaging-matrix.html" class="card">
+                    <div class="card-number">06</div>
+                    <h3>Channel-Specific Messaging Matrix</h3>
+                    <p>Tone, length, and style for website, email, LinkedIn, proposals, print, ads.</p>
+                    <span class="tag high">High Priority</span>
+                </a>
+                <a href="07-complete-voice-guidelines.html" class="card">
+                    <div class="card-number">07</div>
+                    <h3>Complete Brand Voice Guidelines</h3>
+                    <p>Comprehensive voice document: Watchful, Measured, Decisive with examples.</p>
+                    <span class="tag high">High Priority</span>
+                </a>
+                <a href="08-voice-spectrum-by-context.html" class="card">
+                    <div class="card-number">08</div>
+                    <h3>Voice Spectrum by Context</h3>
+                    <p>Voice intensity and formality dial for each communication context.</p>
+                    <span class="tag framework">Framework</span>
+                </a>
+                <a href="24-objection-response-mapping.html" class="card">
+                    <div class="card-number">24</div>
+                    <h3>Objection-to-Message Mapping</h3>
+                    <p>Top 20 objections with responses, proof points, and scripts.</p>
+                    <span class="tag high">High Priority</span>
+                </a>
+                <a href="25-before-after-examples.html" class="card">
+                    <div class="card-number">25</div>
+                    <h3>Before/After Copy Examples</h3>
+                    <p>20+ off-brand to on-brand copy transformations.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="32-jargon-audit-glossary.html" class="card">
+                    <div class="card-number">32</div>
+                    <h3>Jargon Audit & Plain English Glossary</h3>
+                    <p>Tech/marketing jargon translations for 50-65 audience.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="36-positive-emotional-vocabulary.html" class="card">
+                    <div class="card-number">36</div>
+                    <h3>Positive Emotional Vocabulary</h3>
+                    <p>Pride, vindication, calm - emotional language beyond fear.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="50-formal-voice-guidelines.html" class="card">
+                    <div class="card-number">50</div>
+                    <h3>Formal Voice Guidelines Document</h3>
+                    <p>Comprehensive formal voice guidelines for team use.</p>
+                    <span class="tag framework">Framework</span>
+                </a>
+                <a href="34-fear-opportunity-balance.html" class="card">
+                    <div class="card-number">34</div>
+                    <h3>Fear-to-Opportunity Rebalance</h3>
+                    <p>Balancing fear-based messaging with opportunity/empowerment.</p>
+                    <span class="tag template">Template</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- FRAMEWORKS & METHODS -->
+        <section id="frameworks" class="section">
+            <div class="section-header">
+                <div class="section-icon">4</div>
+                <h2>Frameworks & Methodologies</h2>
+                <span class="count">7 Documents</span>
+            </div>
+            <div class="cards-grid">
+                <a href="09-the-proof-test-framework.html" class="card">
+                    <div class="card-number">09</div>
+                    <h3>The Proof Test Framework</h3>
+                    <p>Named, proprietary methodology for pre-engagement ROI modeling.</p>
+                    <span class="tag high">High Priority</span>
+                </a>
+                <a href="11-sample-roi-model-guide.html" class="card">
+                    <div class="card-number">11</div>
+                    <h3>Sample ROI Model Guide</h3>
+                    <p>Anonymized sample ROI model format for website display.</p>
+                    <span class="tag high">High Priority</span>
+                </a>
+                <a href="19-roi-model-deliverable-format.html" class="card">
+                    <div class="card-number">19</div>
+                    <h3>ROI Model Deliverable Format</h3>
+                    <p>Complete specification for the ROI model deliverable.</p>
+                    <span class="tag high">High Priority</span>
+                </a>
+                <a href="35-scaleup-method.html" class="card">
+                    <div class="card-number">35</div>
+                    <h3>The ScaleUp Method</h3>
+                    <p>Named methodology with process steps and visual diagram.</p>
+                    <span class="tag framework">Framework</span>
+                </a>
+                <a href="39-value-proposition-canvas.html" class="card">
+                    <div class="card-number">39</div>
+                    <h3>Value Proposition Canvas</h3>
+                    <p>Jobs, pains, gains mapped to products and services.</p>
+                    <span class="tag framework">Framework</span>
+                </a>
+                <a href="51-sample-roi-model-display.html" class="card">
+                    <div class="card-number">51</div>
+                    <h3>Sample ROI Model Display</h3>
+                    <p>Visual sample model for website with calculations displayed.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="21-time-to-value-benchmarks.html" class="card">
+                    <div class="card-number">21</div>
+                    <h3>Time-to-Value Benchmarks</h3>
+                    <p>Timeline expectations for each service line.</p>
+                    <span class="tag framework">Framework</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- INDUSTRY PAGES -->
+        <section id="industry" class="section">
+            <div class="section-header">
+                <div class="section-icon">5</div>
+                <h2>Industry-Specific Pages</h2>
+                <span class="count">2 Documents</span>
+            </div>
+            <div class="cards-grid">
+                <a href="13-staffing-agency-landing-page.html" class="card">
+                    <div class="card-number">13</div>
+                    <h3>Staffing Agency Landing Page</h3>
+                    <p>Complete industry-specific landing page for staffing agencies (67/80 fit).</p>
+                    <span class="tag high">High Priority</span>
+                </a>
+                <a href="43-veterinary-trades-landing-pages.html" class="card">
+                    <div class="card-number">43</div>
+                    <h3>Veterinary & Trades Landing Pages</h3>
+                    <p>Two industry-specific landing pages for Veterinary and Trades.</p>
+                    <span class="tag template">Template</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- SALES ENABLEMENT -->
+        <section id="sales" class="section">
+            <div class="section-header">
+                <div class="section-icon">6</div>
+                <h2>Sales Enablement</h2>
+                <span class="count">7 Documents</span>
+            </div>
+            <div class="cards-grid">
+                <a href="14-client-reference-program.html" class="card">
+                    <div class="card-number">14</div>
+                    <h3>Client Reference Program</h3>
+                    <p>"Talk to Our Clients" formal reference program with templates.</p>
+                    <span class="tag high">High Priority</span>
+                </a>
+                <a href="20-risk-sharing-policy.html" class="card">
+                    <div class="card-number">20</div>
+                    <h3>Risk-Sharing & Guarantee Policy</h3>
+                    <p>Guarantee policy with legal considerations and marketing language.</p>
+                    <span class="tag high">High Priority</span>
+                </a>
+                <a href="30-not-typical-agency-one-pager.html" class="card">
+                    <div class="card-number">30</div>
+                    <h3>"Not a Typical Agency" One-Pager</h3>
+                    <p>Competitive differentiation one-pager for sales meetings.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="31-hiring-consultant-checklist.html" class="card">
+                    <div class="card-number">31</div>
+                    <h3>Hiring Consultant Checklist</h3>
+                    <p>Lead magnet: "What to Ask Before Hiring Any Consultant"</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="38-integrated-services-benefit.html" class="card">
+                    <div class="card-number">38</div>
+                    <h3>Integrated Services Benefit</h3>
+                    <p>Quantified benefit of one partner vs multiple vendors.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="41-competitor-comparison.html" class="card">
+                    <div class="card-number">41</div>
+                    <h3>Competitor Comparison Messaging</h3>
+                    <p>ScaleUp vs traditional agencies, freelancers, offshore, DIY.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="37-why-now-messaging.html" class="card">
+                    <div class="card-number">37</div>
+                    <h3>"Why Now?" Urgency Messaging</h3>
+                    <p>Market conditions and urgency drivers for action.</p>
+                    <span class="tag template">Template</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- STORY & NARRATIVE -->
+        <section id="story" class="section">
+            <div class="section-header">
+                <div class="section-icon">7</div>
+                <h2>Story & Narrative</h2>
+                <span class="count">5 Documents</span>
+            </div>
+            <div class="cards-grid">
+                <a href="16-founder-origin-story.html" class="card">
+                    <div class="card-number">16</div>
+                    <h3>Founder Origin Story Framework</h3>
+                    <p>Template and interview guide for founder narrative.</p>
+                    <span class="tag high">High Priority</span>
+                </a>
+                <a href="17-transformation-story-templates.html" class="card">
+                    <div class="card-number">17</div>
+                    <h3>Transformation Story Templates</h3>
+                    <p>Three signature story types: Skeptic, Almost Erred, Partnership.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="18-end-of-doubt-manifesto.html" class="card">
+                    <div class="card-number">18</div>
+                    <h3>"The End of Doubt" Manifesto</h3>
+                    <p>Single-page emotional transformation document.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="33-exit-planning-messaging.html" class="card">
+                    <div class="card-number">33</div>
+                    <h3>Exit Planning Messaging</h3>
+                    <p>Messaging for business owners planning to sell within 5-10 years.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="46-heron-imagery-guidelines.html" class="card">
+                    <div class="card-number">46</div>
+                    <h3>Heron Imagery Language Guidelines</h3>
+                    <p>How to use heron symbolism in storytelling.</p>
+                    <span class="tag template">Template</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- OPERATIONS -->
+        <section id="operations" class="section">
+            <div class="section-header">
+                <div class="section-icon">8</div>
+                <h2>Operations & Rollout</h2>
+                <span class="count">3 Documents</span>
+            </div>
+            <div class="cards-grid">
+                <a href="15-print-collateral-specs.html" class="card">
+                    <div class="card-number">15</div>
+                    <h3>Print Collateral Specifications</h3>
+                    <p>Business cards, letterhead, proposals, one-pagers specs.</p>
+                    <span class="tag high">High Priority</span>
+                </a>
+                <a href="26-tagline-rollout-guide.html" class="card">
+                    <div class="card-number">26</div>
+                    <h3>Tagline Rollout Guide</h3>
+                    <p>Transition from old to new tagline across all materials.</p>
+                    <span class="tag template">Template</span>
+                </a>
+                <a href="44-executive-brand-summary.html" class="card">
+                    <div class="card-number">44</div>
+                    <h3>1-Page Executive Brand Summary</h3>
+                    <p>Quick-reference brand summary for leadership.</p>
+                    <span class="tag template">Template</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- TESTING & OPTIMIZATION -->
+        <section id="testing" class="section">
+            <div class="section-header">
+                <div class="section-icon">9</div>
+                <h2>Testing & Optimization</h2>
+                <span class="count">1 Document</span>
+            </div>
+            <div class="cards-grid">
+                <a href="27-tagline-testing-framework.html" class="card">
+                    <div class="card-number">27</div>
+                    <h3>Tagline Testing Framework</h3>
+                    <p>A/B testing methodology for tagline validation.</p>
+                    <span class="tag framework">Framework</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- DESIGN & ACCESSIBILITY -->
+        <section id="design" class="section">
+            <div class="section-header">
+                <div class="section-icon">10</div>
+                <h2>Design & Accessibility</h2>
+                <span class="count">1 Document</span>
+            </div>
+            <div class="cards-grid">
+                <a href="45-accessibility-guide-55-plus.html" class="card">
+                    <div class="card-number">45</div>
+                    <h3>55+ Accessibility Design Guide</h3>
+                    <p>Font sizes, contrast, and design for 50-65 year old audience.</p>
+                    <span class="tag template">Template</span>
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <div class="logo">ScaleUp Ventures</div>
+        <p style="color: var(--gold); margin-bottom: 10px;">Certainty First.</p>
+        <p>December 31, 2025 | 51 Brand Deliverables</p>
+        <p style="opacity: 0.7; margin-top: 10px;">Generated by 51-Agent Brand Strategy Team</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('.nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Active nav state on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

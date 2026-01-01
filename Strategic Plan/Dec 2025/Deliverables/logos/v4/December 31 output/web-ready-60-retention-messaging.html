@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Retention & Expansion Messaging | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #0F1729;
+            color: #E8E8E8;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Crimson Pro', serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 64px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .brand-mark {
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: #D4A853;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 300;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+        }
+
+        h1 span {
+            color: #D4A853;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #8A8F98;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 64px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.1) 0%, rgba(15, 23, 41, 0.8) 100%);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 56px;
+            font-weight: 700;
+            color: #D4A853;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #8A8F98;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-detail {
+            font-size: 13px;
+            color: #6B7280;
+            margin-top: 12px;
+        }
+
+        section {
+            margin-bottom: 64px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .section-number {
+            width: 48px;
+            height: 48px;
+            background: #D4A853;
+            color: #0F1729;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 400;
+            color: #FFFFFF;
+        }
+
+        .email-template {
+            background: #1A2332;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .email-header {
+            background: rgba(212, 168, 83, 0.1);
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .email-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #D4A853;
+        }
+
+        .email-timing {
+            font-size: 13px;
+            color: #8A8F98;
+            background: rgba(15, 23, 41, 0.5);
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .email-meta {
+            padding: 16px 24px;
+            background: rgba(15, 23, 41, 0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .meta-row {
+            display: flex;
+            margin-bottom: 8px;
+        }
+
+        .meta-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .meta-label {
+            width: 80px;
+            color: #6B7280;
+            font-size: 13px;
+        }
+
+        .meta-value {
+            color: #E8E8E8;
+            font-size: 14px;
+        }
+
+        .email-body {
+            padding: 24px;
+        }
+
+        .email-content {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #C8C8C8;
+        }
+
+        .email-content p {
+            margin-bottom: 16px;
+        }
+
+        .email-content .greeting {
+            color: #D4A853;
+        }
+
+        .email-content .signature {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .email-content ul {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        .email-content li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: rgba(212, 168, 83, 0.1);
+            border-left: 3px solid #D4A853;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #D4A853;
+            color: #0F1729;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 16px 0;
+        }
+
+        .copy-button {
+            background: transparent;
+            border: 1px solid #D4A853;
+            color: #D4A853;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .copy-button:hover {
+            background: #D4A853;
+            color: #0F1729;
+        }
+
+        .script-card {
+            background: #1A2332;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .script-title {
+            color: #D4A853;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .script-title::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: #D4A853;
+            border-radius: 50%;
+        }
+
+        .script-content {
+            font-size: 15px;
+            color: #C8C8C8;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .tip-card {
+            background: rgba(212, 168, 83, 0.05);
+            border: 1px solid rgba(212, 168, 83, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .tip-title {
+            color: #D4A853;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .tip-text {
+            color: #8A8F98;
+            font-size: 14px;
+        }
+
+        .timing-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(34, 197, 94, 0.1);
+            color: #22C55E;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 16px;
+        }
+
+        .timing-indicator.caution {
+            background: rgba(234, 179, 8, 0.1);
+            color: #EAB308;
+        }
+
+        .messaging-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #1A2332;
+            border-radius: 12px;
+            padding: 32px;
+            margin: 32px 0;
+            position: relative;
+        }
+
+        .flow-step {
+            text-align: center;
+            flex: 1;
+        }
+
+        .flow-step::after {
+            content: "→";
+            position: absolute;
+            color: #D4A853;
+            font-size: 24px;
+        }
+
+        .flow-step:last-child::after {
+            display: none;
+        }
+
+        .flow-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(212, 168, 83, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 20px;
+        }
+
+        .flow-label {
+            font-size: 14px;
+            color: #D4A853;
+            font-weight: 600;
+        }
+
+        .flow-detail {
+            font-size: 12px;
+            color: #6B7280;
+            margin-top: 4px;
+        }
+
+        .tabbed-content {
+            margin-top: 24px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            background: transparent;
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            color: #8A8F98;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+
+        .tab:hover, .tab.active {
+            background: #D4A853;
+            color: #0F1729;
+            border-color: #D4A853;
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .best-practices {
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.1) 0%, rgba(15, 23, 41, 0.9) 100%);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            border-radius: 12px;
+            padding: 32px;
+            margin-top: 48px;
+        }
+
+        .bp-title {
+            color: #D4A853;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .bp-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .bp-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .bp-icon {
+            color: #22C55E;
+            font-size: 18px;
+            margin-top: 2px;
+        }
+
+        .bp-text {
+            font-size: 14px;
+            color: #C8C8C8;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bp-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #D4A853;
+            color: #0F1729;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(212, 168, 83, 0.3);
+        }
+
+        @media print {
+            .print-btn, .copy-button, .tabs {
+                display: none;
+            }
+
+            body {
+                background: white;
+                color: #0F1729;
+            }
+
+            .email-template, .script-card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;"><a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Index</a><span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span><div style="display:flex;gap:12px;"><a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a><a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a><a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a><a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a><a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a></div></nav>
+    <div class="container">
+        <header>
+            <div class="brand-mark">ScaleUp Ventures</div>
+            <h1>Client Retention & <span>Expansion Messaging</span></h1>
+            <p class="subtitle">Honest templates for building genuine client relationships through trust, transparency, and delivered value</p>
+        </header>
+
+        <!-- Our Approach to Retention -->
+        <section id="approach">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2>Our Approach to Client Relationships</h2>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" style="font-size: 36px;">Trust</div>
+                    <div class="stat-label">Foundation</div>
+                    <div class="stat-detail">Honest advice, even when it means less revenue</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" style="font-size: 36px;">Value</div>
+                    <div class="stat-label">Delivery</div>
+                    <div class="stat-detail">Measurable outcomes over busy work</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" style="font-size: 36px;">Growth</div>
+                    <div class="stat-label">Together</div>
+                    <div class="stat-detail">Client success drives our success</div>
+                </div>
+            </div>
+
+            <div class="best-practices">
+                <div class="bp-title">What We Actually Do</div>
+                <div class="bp-grid">
+                    <div class="bp-item">
+                        <span class="bp-icon">✓</span>
+                        <span class="bp-text">Saved $150K+ with a single No-Build Decision</span>
+                    </div>
+                    <div class="bp-item">
+                        <span class="bp-icon">✓</span>
+                        <span class="bp-text">Early-stage startup support: architecture to investor intros</span>
+                    </div>
+                    <div class="bp-item">
+                        <span class="bp-icon">✓</span>
+                        <span class="bp-text">Regulated industry POC development</span>
+                    </div>
+                    <div class="bp-item">
+                        <span class="bp-icon">✓</span>
+                        <span class="bp-text">AI-enabled PM infrastructure consulting</span>
+                    </div>
+                    <div class="bp-item">
+                        <span class="bp-icon">✓</span>
+                        <span class="bp-text">Proactive communication and honest timelines</span>
+                    </div>
+                    <div class="bp-item">
+                        <span class="bp-icon">✓</span>
+                        <span class="bp-text">We tell you if something is not worth building</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Check-in Email Templates -->
+        <section id="checkins">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2>Check-in Email Templates</h2>
+            </div>
+
+            <!-- 30-Day Check-in -->
+            <div class="email-template">
+                <div class="email-header">
+                    <div class="email-title">30-Day Check-in</div>
+                    <div class="email-timing">Send: Day 30 of engagement</div>
+                </div>
+                <div class="email-meta">
+                    <div class="meta-row">
+                        <span class="meta-label">Subject:</span>
+                        <span class="meta-value">Quick check-in: How's your first month going?</span>
+                    </div>
+                    <div class="meta-row">
+                        <span class="meta-label">Purpose:</span>
+                        <span class="meta-value">Surface concerns early, reinforce value, build relationship</span>
+                    </div>
+                </div>
+                <div class="email-body">
+                    <div class="email-content">
+                        <p class="greeting">Hi [First Name],</p>
+
+                        <p>Hard to believe it's already been a month since we kicked off together. I wanted to reach out personally to see how things are going from your perspective.</p>
+
+                        <div class="highlight-box">
+                            <strong>Quick wins so far:</strong><br>
+                            • [Specific accomplishment #1]<br>
+                            • [Specific accomplishment #2]<br>
+                            • [Metric or milestone reached]
+                        </div>
+
+                        <p>A few quick questions for you:</p>
+                        <ul>
+                            <li>Is our communication frequency working for you? Too much, too little, just right?</li>
+                            <li>Any questions that haven't been addressed yet?</li>
+                            <li>Anything you'd like us to prioritize differently?</li>
+                        </ul>
+
+                        <p>No formal meeting needed—a quick reply works perfectly. Though if you'd prefer a 15-minute call, I'm happy to set that up.</p>
+
+                        <div class="signature">
+                            <p>Looking forward to hearing from you,</p>
+                            <p><strong>[Your Name]</strong><br>
+                            [Title], ScaleUp Ventures<br>
+                            [Phone] | [Email]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 90-Day Review -->
+            <div class="email-template">
+                <div class="email-header">
+                    <div class="email-title">90-Day Review</div>
+                    <div class="email-timing">Send: Day 88 of engagement</div>
+                </div>
+                <div class="email-meta">
+                    <div class="meta-row">
+                        <span class="meta-label">Subject:</span>
+                        <span class="meta-value">Your 90-Day Results: Let's Review What's Working</span>
+                    </div>
+                    <div class="meta-row">
+                        <span class="meta-label">Purpose:</span>
+                        <span class="meta-value">Demonstrate ROI, identify expansion opportunities, lock in renewal</span>
+                    </div>
+                </div>
+                <div class="email-body">
+                    <div class="email-content">
+                        <p class="greeting">Hi [First Name],</p>
+
+                        <p>We've hit the 90-day mark together, and I wanted to share a snapshot of what we've accomplished—along with where I see opportunities ahead.</p>
+
+                        <div class="highlight-box">
+                            <strong>90-Day Progress:</strong><br><br>
+                            <strong>What we delivered:</strong> [Specific deliverables completed]<br>
+                            <strong>Decisions made:</strong> [Key decisions enabled by our work]<br>
+                            <strong>Next steps identified:</strong> [Clear path forward]<br><br>
+                            <em>Note: Only include metrics if they are real and verifiable</em>
+                        </div>
+
+                        <p><strong>What's working particularly well:</strong></p>
+                        <ul>
+                            <li>[Strategy or initiative that's performing]</li>
+                            <li>[Process improvement that's yielding results]</li>
+                            <li>[Team collaboration that's adding value]</li>
+                        </ul>
+
+                        <p><strong>Areas of opportunity I've identified:</strong></p>
+                        <ul>
+                            <li>[Growth opportunity #1]—I have some specific ideas here</li>
+                            <li>[Efficiency opportunity]—worth a 15-minute discussion</li>
+                        </ul>
+
+                        <p>I'd love to schedule a 30-minute strategy call to walk through these numbers together and discuss priorities for the next quarter. Would [Date/Time Option 1] or [Date/Time Option 2] work for you?</p>
+
+                        <div class="signature">
+                            <p>Looking forward to the conversation,</p>
+                            <p><strong>[Your Name]</strong><br>
+                            [Title], ScaleUp Ventures</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6-Month Milestone -->
+            <div class="email-template">
+                <div class="email-header">
+                    <div class="email-title">6-Month Milestone</div>
+                    <div class="email-timing">Send: Day 175 (5 days before 6 months)</div>
+                </div>
+                <div class="email-meta">
+                    <div class="meta-row">
+                        <span class="meta-label">Subject:</span>
+                        <span class="meta-value">6 Months In: Your Journey with ScaleUp Ventures</span>
+                    </div>
+                    <div class="meta-row">
+                        <span class="meta-label">Purpose:</span>
+                        <span class="meta-value">Celebrate partnership, prep for renewal/expansion, request testimonial</span>
+                    </div>
+                </div>
+                <div class="email-body">
+                    <div class="email-content">
+                        <p class="greeting">Hi [First Name],</p>
+
+                        <p>Six months ago, you trusted ScaleUp Ventures to help [original goal/challenge]. I want to take a moment to reflect on how far [Company Name] has come.</p>
+
+                        <div class="highlight-box">
+                            <strong>Our 6-Month Journey:</strong><br><br>
+                            <strong>Where you started:</strong> [Their original challenge or need]<br><br>
+                            <strong>What we built together:</strong> [Concrete deliverables and outcomes]<br><br>
+                            <strong>Decisions we helped clarify:</strong><br>
+                            - [Decision 1 - e.g., build vs. buy analysis]<br>
+                            - [Decision 2 - e.g., architecture direction]<br>
+                            - [Decision 3 - e.g., go-to-market approach]
+                        </div>
+
+                        <p>What I'm most proud of is [specific achievement or transformation]. Your team's commitment to [specific action they took] made this possible.</p>
+
+                        <p><strong>Looking ahead to the next 6 months:</strong></p>
+                        <p>Based on our work together, I see [2-3 opportunities]. I've put together a brief proposal for Phase 2 that I'd love to walk you through.</p>
+
+                        <p>Also—would you be open to sharing your experience? A brief testimonial or case study would mean a lot to us, and I think [Company Name]'s story could inspire other leaders facing similar challenges.</p>
+
+                        <p>Let's find 45 minutes to celebrate this milestone and plan what's next. How does your calendar look next week?</p>
+
+                        <div class="signature">
+                            <p>With gratitude for your partnership,</p>
+                            <p><strong>[Your Name]</strong><br>
+                            [Title], ScaleUp Ventures</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anniversary Email -->
+            <div class="email-template">
+                <div class="email-header">
+                    <div class="email-title">1-Year Anniversary</div>
+                    <div class="email-timing">Send: Day 360 (5 days before anniversary)</div>
+                </div>
+                <div class="email-meta">
+                    <div class="meta-row">
+                        <span class="meta-label">Subject:</span>
+                        <span class="meta-value">One Year Together, [Company Name]</span>
+                    </div>
+                    <div class="meta-row">
+                        <span class="meta-label">Purpose:</span>
+                        <span class="meta-value">Deepen relationship, discuss long-term vision, loyalty acknowledgment</span>
+                    </div>
+                </div>
+                <div class="email-body">
+                    <div class="email-content">
+                        <p class="greeting">Hi [First Name],</p>
+
+                        <p>One year ago this week, we shook hands (virtually or otherwise) and began our journey together. I still remember our first conversation about [original pain point or goal].</p>
+
+                        <p>A lot has changed since then.</p>
+
+                        <div class="highlight-box">
+                            <strong>A Year of Working Together:</strong><br><br>
+                            <strong>Projects delivered:</strong> [List actual projects completed]<br>
+                            <strong>Key decisions supported:</strong> [Decisions we helped them make]<br>
+                            <strong>What we learned together:</strong> [Insights gained from the work]<br>
+                            <strong>The highlight:</strong> [One specific meaningful moment or win]
+                        </div>
+
+                        <p>What I value most is the relationship we've built. Working with you and the [Company Name] team has been genuinely rewarding—and I hope the feeling is mutual.</p>
+
+                        <p>To mark the occasion, I'd like to:</p>
+                        <ul>
+                            <li>Schedule our annual strategy session (complimentary deep-dive, my treat)</li>
+                            <li>Introduce you to [Senior Partner/CEO] for a relationship-building conversation</li>
+                            <li>Discuss our roadmap for Year 2—I have some exciting ideas</li>
+                        </ul>
+
+                        <p>Thank you for your trust this past year. Here's to many more.</p>
+
+                        <div class="signature">
+                            <p>With appreciation,</p>
+                            <p><strong>[Your Name]</strong><br>
+                            [Title], ScaleUp Ventures<br><br>
+                            <em>P.S. A small anniversary gift is on its way to your office. Keep an eye out!</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expansion Messaging -->
+        <section id="expansion">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2>Expansion Messaging</h2>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('upsell')">Upsell Templates</button>
+                <button class="tab" onclick="showTab('crosssell')">Cross-sell</button>
+                <button class="tab" onclick="showTab('whatsnext')">What's Next Conversations</button>
+            </div>
+
+            <div class="tabbed-content">
+                <!-- Upsell -->
+                <div id="upsell" class="tab-panel active">
+                    <div class="email-template">
+                        <div class="email-header">
+                            <div class="email-title">Upsell: Enhanced Service Tier</div>
+                            <div class="email-timing">Trigger: 90 days + strong engagement</div>
+                        </div>
+                        <div class="email-meta">
+                            <div class="meta-row">
+                                <span class="meta-label">Subject:</span>
+                                <span class="meta-value">Idea: How to accelerate your results</span>
+                            </div>
+                        </div>
+                        <div class="email-body">
+                            <div class="email-content">
+                                <p class="greeting">Hi [First Name],</p>
+
+                                <p>I've been reviewing [Company Name]'s progress, and I'm genuinely impressed. You've [specific achievement] faster than most clients at this stage.</p>
+
+                                <p>Which got me thinking—you might be ready for more.</p>
+
+                                <p>Specifically, I've noticed [observation about their business or results] that suggests you could benefit from [enhanced service offering]. Based on what we've seen with similar clients, this could help you:</p>
+
+                                <ul>
+                                    <li>[Specific benefit #1 with projected outcome]</li>
+                                    <li>[Specific benefit #2]</li>
+                                    <li>[Specific benefit #3]</li>
+                                </ul>
+
+                                <div class="highlight-box">
+                                    <strong>What this could look like:</strong><br>
+                                    Current: [Current engagement scope]<br>
+                                    Expanded: [Additional services we could provide]<br>
+                                    Investment: [Be transparent about costs]<br>
+                                    Honest take: [Why we think this makes sense - or doesn't]
+                                </div>
+
+                                <p>This isn't a sales pitch—I genuinely think you're leaving opportunity on the table. Would you be open to a 20-minute call to explore whether this makes sense for you right now?</p>
+
+                                <div class="signature">
+                                    <p>Let me know what you think,</p>
+                                    <p><strong>[Your Name]</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cross-sell -->
+                <div id="crosssell" class="tab-panel">
+                    <div class="email-template">
+                        <div class="email-header">
+                            <div class="email-title">Cross-sell: Complementary Service</div>
+                            <div class="email-timing">Trigger: Client mentions adjacent need</div>
+                        </div>
+                        <div class="email-meta">
+                            <div class="meta-row">
+                                <span class="meta-label">Subject:</span>
+                                <span class="meta-value">Following up on what you mentioned about [topic]</span>
+                            </div>
+                        </div>
+                        <div class="email-body">
+                            <div class="email-content">
+                                <p class="greeting">Hi [First Name],</p>
+
+                                <p>In our last call, you mentioned [challenge or goal in adjacent area]. I've been thinking about it since, and I wanted to share something that might help.</p>
+
+                                <p>While we've been focused on [current service area], we also help clients with [complementary service]. Given where you are with [current project], the timing could be perfect to address [adjacent challenge] in parallel.</p>
+
+                                <p><strong>How it works together:</strong></p>
+                                <ul>
+                                    <li>Your [current work] creates [foundation/data/momentum]</li>
+                                    <li>This feeds directly into [complementary service]</li>
+                                    <li>Combined, you get [synergistic benefit] vs. doing them separately</li>
+                                </ul>
+
+                                <p><strong>Why we're mentioning this:</strong> We only suggest additional services when we genuinely believe they'll help. If we didn't think this was a good fit, we wouldn't bring it up.</p>
+
+                                <p>I put together a one-pager showing what this could look like for [Company Name]. Worth a 15-minute discussion?</p>
+
+                                <div class="signature">
+                                    <p>Happy to share more,</p>
+                                    <p><strong>[Your Name]</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- What's Next -->
+                <div id="whatsnext" class="tab-panel">
+                    <div class="script-card">
+                        <div class="script-title">Phone/Video Call Script: The "What's Next" Conversation</div>
+                        <div class="script-content">
+                            <p><strong>Opening (30 seconds):</strong></p>
+                            <p>"[First Name], thanks for making time today. Before we dive into the regular update, I wanted to step back and have a bigger-picture conversation. You've accomplished [summary of wins]. I'm curious—when you look at the next 6-12 months, what's keeping you up at night? What would make you say 'this was a breakthrough year' for [Company Name]?"</p>
+
+                            <p style="margin-top: 20px;"><strong>Listen and probe (2-3 minutes):</strong></p>
+                            <p>Let them talk. Take notes. Ask: "Tell me more about that." and "What would success look like specifically?"</p>
+
+                            <p style="margin-top: 20px;"><strong>Bridge to expanded engagement (1 minute):</strong></p>
+                            <p>"That's interesting—[paraphrase their goal]. We're actually helping [similar client or 'several clients'] with exactly that right now. The work we're doing together on [current project] positions you well to tackle [their stated goal]. Would you be open to me putting together a brief proposal on how we could support that initiative? No pressure—just want to show you what's possible."</p>
+
+                            <p style="margin-top: 20px;"><strong>Close (30 seconds):</strong></p>
+                            <p>"I'll send something over by [specific date]. We can review it together next time and you can tell me if it's even worth discussing further. Sound fair?"</p>
+                        </div>
+                    </div>
+
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <div class="tip-title">Best Time to Ask</div>
+                            <div class="tip-text">After delivering a win, during quarterly reviews, or when client mentions future challenges</div>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-title">Red Flags to Avoid</div>
+                            <div class="tip-text">Don't pitch expansion when current deliverables are late, quality is questioned, or client is stressed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Referral Request Messaging -->
+        <section id="referrals">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2>Referral Request Messaging</h2>
+            </div>
+
+            <div class="messaging-flow">
+                <div class="flow-step">
+                    <div class="flow-icon">1</div>
+                    <div class="flow-label">Deliver Value</div>
+                    <div class="flow-detail">Complete meaningful work first</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">2</div>
+                    <div class="flow-label">Confirm Fit</div>
+                    <div class="flow-detail">"Is this working for you?"</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">3</div>
+                    <div class="flow-label">Ask Honestly</div>
+                    <div class="flow-detail">Only if genuinely earned</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">4</div>
+                    <div class="flow-label">Accept the Answer</div>
+                    <div class="flow-detail">No pressure either way</div>
+                </div>
+            </div>
+
+            <div class="email-template">
+                <div class="email-header">
+                    <div class="email-title">Referral Ask: Direct Approach</div>
+                    <div class="email-timing">Trigger: After significant win + positive feedback</div>
+                </div>
+                <div class="email-meta">
+                    <div class="meta-row">
+                        <span class="meta-label">Subject:</span>
+                        <span class="meta-value">Quick favor to ask</span>
+                    </div>
+                </div>
+                <div class="email-body">
+                    <div class="email-content">
+                        <p class="greeting">Hi [First Name],</p>
+
+                        <p>I really appreciated what you said about [specific positive feedback they gave]. It means a lot coming from you.</p>
+
+                        <p>I have a favor to ask.</p>
+
+                        <p>We're looking to work with more companies like [Company Name]—specifically [industry/stage/challenge type]. Do you know anyone who might benefit from the kind of work we've done together?</p>
+
+                        <p><strong>Specifically, I'm looking for:</strong></p>
+                        <ul>
+                            <li>[Ideal client profile point 1]</li>
+                            <li>[Ideal client profile point 2]</li>
+                            <li>Someone who values [key trait] like you do</li>
+                        </ul>
+
+                        <p>If anyone comes to mind, a simple introduction email works great. I'd handle it from there with zero awkwardness.</p>
+
+                        <p>And if no one comes to mind right now—totally fine. Just wanted to plant the seed.</p>
+
+                        <div class="signature">
+                            <p>Thanks for considering it,</p>
+                            <p><strong>[Your Name]</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="email-template">
+                <div class="email-header">
+                    <div class="email-title">Referral Ask: Soft Approach</div>
+                    <div class="email-timing">Use: When relationship is newer or ask feels premature</div>
+                </div>
+                <div class="email-meta">
+                    <div class="meta-row">
+                        <span class="meta-label">Subject:</span>
+                        <span class="meta-value">A quick question for you</span>
+                    </div>
+                </div>
+                <div class="email-body">
+                    <div class="email-content">
+                        <p class="greeting">Hi [First Name],</p>
+
+                        <p>Random question: If a peer asked you about working with ScaleUp Ventures, what would you tell them?</p>
+
+                        <p>I ask because I'm always looking to improve how we serve clients like you, and your honest perspective helps.</p>
+
+                        <p>And if there's anyone you think could genuinely benefit from what we do, I'd love an introduction. No pressure at all—just planting the seed.</p>
+
+                        <div class="signature">
+                            <p>Thanks either way,</p>
+                            <p><strong>[Your Name]</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="script-card">
+                <div class="script-title">Phone Script: Asking for a Referral Live</div>
+                <div class="script-content">
+                    <p><strong>After a positive meeting/call:</strong></p>
+                    <p>"[First Name], I'm really glad to hear that [positive thing they mentioned]. Quick question before we wrap up—we're always looking to work with more great companies like [Company Name]. Is there anyone in your network who's dealing with [similar challenge] that might benefit from a conversation with us? No pressure, just curious if anyone comes to mind."</p>
+
+                    <p style="margin-top: 20px;"><strong>If they say yes:</strong></p>
+                    <p>"That's great. What's the best way to connect—would you be comfortable making an introduction, or would you prefer I reach out directly and mention you?"</p>
+
+                    <p style="margin-top: 20px;"><strong>If they hesitate:</strong></p>
+                    <p>"No worries at all. If anyone comes to mind later, just shoot me an email. I'll follow up with them personally and make sure it's not awkward."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Study Request -->
+        <section id="casestudy">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2>Case Study & Testimonial Requests</h2>
+            </div>
+
+            <div class="timing-indicator">
+                Best timing: After major milestone, 6+ months into engagement, after renewal
+            </div>
+
+            <div class="email-template">
+                <div class="email-header">
+                    <div class="email-title">Testimonial Request (Written)</div>
+                    <div class="email-timing">Low effort, quick win</div>
+                </div>
+                <div class="email-meta">
+                    <div class="meta-row">
+                        <span class="meta-label">Subject:</span>
+                        <span class="meta-value">Would you share a few words about working together?</span>
+                    </div>
+                </div>
+                <div class="email-body">
+                    <div class="email-content">
+                        <p class="greeting">Hi [First Name],</p>
+
+                        <p>I have a request that would really help us—and hopefully takes less than 5 minutes.</p>
+
+                        <p>We're updating our website/marketing materials, and I'd love to feature [Company Name]'s success. Would you be willing to share a brief testimonial about your experience working with us?</p>
+
+                        <p><strong>It can be as simple as answering:</strong></p>
+                        <ul>
+                            <li>What challenge were you facing before we worked together?</li>
+                            <li>What results have you seen?</li>
+                            <li>Would you recommend ScaleUp Ventures to others? Why?</li>
+                        </ul>
+
+                        <p>A few sentences is perfect. I can even draft something based on our conversations and send it for your approval—whichever is easier for you.</p>
+
+                        <p>Let me know what works best.</p>
+
+                        <div class="signature">
+                            <p>Thanks so much,</p>
+                            <p><strong>[Your Name]</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="email-template">
+                <div class="email-header">
+                    <div class="email-title">Case Study Interview Request</div>
+                    <div class="email-timing">For in-depth success stories</div>
+                </div>
+                <div class="email-meta">
+                    <div class="meta-row">
+                        <span class="meta-label">Subject:</span>
+                        <span class="meta-value">[Company Name]'s story deserves to be told</span>
+                    </div>
+                </div>
+                <div class="email-body">
+                    <div class="email-content">
+                        <p class="greeting">Hi [First Name],</p>
+
+                        <p>I've been thinking about [Company Name]'s journey—from [where they started] to [where they are now]. It's genuinely one of our standout success stories.</p>
+
+                        <p>Would you be open to being featured in a case study?</p>
+
+                        <p><strong>Here's what it involves:</strong></p>
+                        <ul>
+                            <li>A 30-minute interview (I'll ask the questions, you just share your story)</li>
+                            <li>We write the case study—you just review and approve</li>
+                            <li>It gets featured on our website, and we share it on LinkedIn (great exposure for [Company Name] too)</li>
+                        </ul>
+
+                        <p><strong>What you get out of it:</strong></p>
+                        <ul>
+                            <li>Professional content you can use for your own marketing</li>
+                            <li>Exposure to our audience of [description of audience]</li>
+                            <li>A polished way to showcase your team's accomplishments</li>
+                        </ul>
+
+                        <p>I think your story could really resonate with [type of potential clients]. And selfishly, it would help us tremendously.</p>
+
+                        <p>Would you be open to a quick 30-minute interview in the next couple weeks?</p>
+
+                        <div class="signature">
+                            <p>Let me know,</p>
+                            <p><strong>[Your Name]</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-title">Making It Easy</div>
+                    <div class="tip-text">Offer to draft testimonials for approval. Most clients prefer editing your words over writing from scratch.</div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-title">Getting Approval</div>
+                    <div class="tip-text">For larger companies, ask: "Is there a marketing or legal review process I should be aware of?" Plan accordingly.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Re-engagement Messaging -->
+        <section id="reengagement">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2>Re-engagement & Win-back Messaging</h2>
+            </div>
+
+            <div class="timing-indicator caution">
+                Wait at least 30 days after pause/end before first re-engagement attempt
+            </div>
+
+            <div class="email-template">
+                <div class="email-header">
+                    <div class="email-title">Pause Re-engagement: The Check-in</div>
+                    <div class="email-timing">Send: 30-45 days after pause begins</div>
+                </div>
+                <div class="email-meta">
+                    <div class="meta-row">
+                        <span class="meta-label">Subject:</span>
+                        <span class="meta-value">Checking in—how are things going?</span>
+                    </div>
+                </div>
+                <div class="email-body">
+                    <div class="email-content">
+                        <p class="greeting">Hi [First Name],</p>
+
+                        <p>I hope this finds you well. I know it's been [timeframe] since we paused our engagement, and I wanted to check in.</p>
+
+                        <p>First—no agenda here. I'm genuinely curious how you and the team are doing, and whether [issue that caused the pause] has resolved.</p>
+
+                        <p>Second—if things have shifted and you're thinking about picking back up, I'd love to chat about how we can make that seamless. We've kept your files and context intact.</p>
+
+                        <p>Either way, I'm around if you ever want to grab a virtual coffee and catch up.</p>
+
+                        <div class="signature">
+                            <p>Hope to hear from you,</p>
+                            <p><strong>[Your Name]</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="email-template">
+                <div class="email-header">
+                    <div class="email-title">Win-back: Value-First Approach</div>
+                    <div class="email-timing">Send: 60-90 days after engagement ended</div>
+                </div>
+                <div class="email-meta">
+                    <div class="meta-row">
+                        <span class="meta-label">Subject:</span>
+                        <span class="meta-value">Thought of you—new [resource/insight/case study]</span>
+                    </div>
+                </div>
+                <div class="email-body">
+                    <div class="email-content">
+                        <p class="greeting">Hi [First Name],</p>
+
+                        <p>I came across something that made me think of [Company Name].</p>
+
+                        <p>We recently [published a case study / developed a new methodology / worked with a client on] that's directly relevant to [challenge they were facing]. I thought you might find it valuable, regardless of whether we work together again.</p>
+
+                        <div class="highlight-box">
+                            <strong>[Resource title or description]</strong><br>
+                            [Brief summary of what it is and why it's relevant to them]<br><br>
+                            <a href="#" class="cta-button">View Resource</a>
+                        </div>
+
+                        <p>How's everything going on your end? I'd love to hear an update on [specific project or initiative they were working on].</p>
+
+                        <div class="signature">
+                            <p>Cheers,</p>
+                            <p><strong>[Your Name]</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="email-template">
+                <div class="email-header">
+                    <div class="email-title">Win-back: The "What's Changed" Email</div>
+                    <div class="email-timing">Send: 6+ months after ended, when you have something new</div>
+                </div>
+                <div class="email-meta">
+                    <div class="meta-row">
+                        <span class="meta-label">Subject:</span>
+                        <span class="meta-value">Things are different now</span>
+                    </div>
+                </div>
+                <div class="email-body">
+                    <div class="email-content">
+                        <p class="greeting">Hi [First Name],</p>
+
+                        <p>It's been a while, and I wanted to share an update.</p>
+
+                        <p>Since we last worked together, we've made some significant changes to [how we deliver / our service offering / our team]. Specifically:</p>
+
+                        <ul>
+                            <li>[Change #1 that addresses why they might have left]</li>
+                            <li>[Change #2 that adds new value]</li>
+                            <li>[Change #3 that's relevant to their business]</li>
+                        </ul>
+
+                        <p>I'm not assuming things are any different on your end—but if [their original challenge] is still something you're working on, the experience might be meaningfully better now.</p>
+
+                        <p>Would you be open to a quick call to catch up? No pitch—I'm genuinely curious how things are going and wanted to let you know we're here if needed.</p>
+
+                        <div class="signature">
+                            <p>Hope you're well,</p>
+                            <p><strong>[Your Name]</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="email-template">
+                <div class="email-header">
+                    <div class="email-title">Win-back: The Direct Ask</div>
+                    <div class="email-timing">Last attempt—use when others haven't worked</div>
+                </div>
+                <div class="email-meta">
+                    <div class="meta-row">
+                        <span class="meta-label">Subject:</span>
+                        <span class="meta-value">Ready when you are</span>
+                    </div>
+                </div>
+                <div class="email-body">
+                    <div class="email-content">
+                        <p class="greeting">Hi [First Name],</p>
+
+                        <p>I'm reaching out one more time.</p>
+
+                        <p>I know our engagement ended [timeframe] ago, and I've respected your space since then. But I wanted you to know: if you're ever ready to pick things back up, we'd welcome you back.</p>
+
+                        <p>Your account is still set up. We still have context on [Company Name]. And we've genuinely missed working with you.</p>
+
+                        <p>If the timing isn't right, I completely understand. This is the last you'll hear from me unless you reach out. But if there's even a small part of you considering it, reply to this email and let's talk.</p>
+
+                        <div class="signature">
+                            <p>Either way, I wish you and the team all the best,</p>
+                            <p><strong>[Your Name]</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="best-practices">
+                <div class="bp-title">Win-back Best Practices</div>
+                <div class="bp-grid">
+                    <div class="bp-item">
+                        <span class="bp-icon">✓</span>
+                        <span class="bp-text">Lead with value, not sales</span>
+                    </div>
+                    <div class="bp-item">
+                        <span class="bp-icon">✓</span>
+                        <span class="bp-text">Acknowledge time passed without guilt</span>
+                    </div>
+                    <div class="bp-item">
+                        <span class="bp-icon">✓</span>
+                        <span class="bp-text">Reference specific context from relationship</span>
+                    </div>
+                    <div class="bp-item">
+                        <span class="bp-icon">✓</span>
+                        <span class="bp-text">Make it easy to say yes OR no</span>
+                    </div>
+                    <div class="bp-item">
+                        <span class="bp-icon">✓</span>
+                        <span class="bp-text">Space attempts 30-60 days apart</span>
+                    </div>
+                    <div class="bp-item">
+                        <span class="bp-icon">✓</span>
+                        <span class="bp-text">Know when to stop (3-4 attempts max)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">Export PDF</button>
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;"><a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Content Index</a><p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p></footer>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all panels
+            document.querySelectorAll('.tab-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+
+            // Deactivate all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected panel
+            document.getElementById(tabId).classList.add('active');
+
+            // Activate clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Copy functionality for templates
+        document.querySelectorAll('.email-template').forEach(template => {
+            const header = template.querySelector('.email-header');
+            const copyBtn = document.createElement('button');
+            copyBtn.className = 'copy-button';
+            copyBtn.textContent = 'Copy Template';
+            copyBtn.onclick = function() {
+                const content = template.querySelector('.email-content').innerText;
+                const subject = template.querySelector('.meta-value').innerText;
+                const fullContent = `Subject: ${subject}\n\n${content}`;
+
+                navigator.clipboard.writeText(fullContent).then(() => {
+                    copyBtn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyBtn.textContent = 'Copy Template';
+                    }, 2000);
+                });
+            };
+            header.appendChild(copyBtn);
+        });
+    </script>
+</body>
+</html>

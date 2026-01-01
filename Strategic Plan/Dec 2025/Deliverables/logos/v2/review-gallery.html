@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures - God-Level Logo Review v2</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --muted-gold: #B8956E;
+            --cream: #FAF8F5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--navy);
+            color: var(--cream);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .version {
+            color: var(--gold);
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .header .tagline {
+            margin-top: 1rem;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .improvement-note {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--muted-gold) 100%);
+            color: var(--navy);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .improvement-note h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .improvement-note p {
+            font-size: 0.95rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            color: var(--navy);
+        }
+
+        .section-title .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 1rem auto;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .logo-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(15, 23, 41, 0.12);
+        }
+
+        .logo-card.recommended {
+            border: 3px solid var(--gold);
+        }
+
+        .logo-card.recommended .card-header {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--muted-gold) 100%);
+            color: var(--navy);
+        }
+
+        .card-header {
+            background: var(--navy);
+            color: var(--cream);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .card-header .score {
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .logo-card.recommended .card-header .score {
+            background: var(--navy);
+            color: var(--gold);
+        }
+
+        .logo-display {
+            padding: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            background: var(--cream);
+        }
+
+        .logo-display img {
+            max-width: 280px;
+            max-height: 280px;
+            object-fit: contain;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .concept-name {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .concept-desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .oh-moment {
+            background: rgba(212, 168, 83, 0.1);
+            border-left: 3px solid var(--gold);
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .oh-moment strong {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted-gold);
+            margin-bottom: 0.3rem;
+        }
+
+        .oh-moment p {
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .approval-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .approval-buttons button {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-approve {
+            background: var(--navy);
+            color: var(--cream);
+        }
+
+        .btn-approve:hover {
+            background: #1a2640;
+        }
+
+        .btn-maybe {
+            background: var(--muted-gold);
+            color: white;
+        }
+
+        .btn-maybe:hover {
+            background: var(--gold);
+        }
+
+        .btn-reject {
+            background: #e5e5e5;
+            color: #666;
+        }
+
+        .btn-reject:hover {
+            background: #d0d0d0;
+        }
+
+        .btn-approve.selected { background: #2d5016; color: white; }
+        .btn-maybe.selected { background: var(--gold); color: var(--navy); }
+        .btn-reject.selected { background: #8b0000; color: white; }
+
+        .comparison-section {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: white;
+            border-radius: 12px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .comparison-col h3 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .comparison-col.before h3 { color: #999; border-color: #ddd; }
+        .comparison-col.after h3 { color: var(--navy); }
+
+        .mini-logos {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .mini-logo {
+            width: 100px;
+            height: 100px;
+            background: var(--cream);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+
+        .mini-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .mini-logo.bad {
+            opacity: 0.5;
+            filter: grayscale(0.5);
+        }
+
+        .final-section {
+            margin-top: 4rem;
+            text-align: center;
+            padding: 3rem;
+            background: var(--navy);
+            border-radius: 12px;
+            color: var(--cream);
+        }
+
+        .final-section h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        .signature-area {
+            max-width: 400px;
+            margin: 2rem auto 0;
+            text-align: left;
+        }
+
+        .signature-area label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .signature-area input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            background: rgba(255,255,255,0.05);
+            color: var(--cream);
+            font-size: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .signature-area input::placeholder {
+            color: rgba(250, 248, 245, 0.4);
+        }
+
+        .submit-btn {
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--muted-gold);
+            transform: scale(1.02);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #999;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="version">Version 2.0 - Creative Ideation Layer Applied</div>
+        <h1>SCALEUP VENTURES</h1>
+        <p class="tagline">"We Prove It Before You Buy"</p>
+    </header>
+
+    <div class="improvement-note">
+        <h2>What Changed in V2</h2>
+        <p>5 Whys root cause analysis revealed the missing creative ideation layer. V1 translated requirements directly into clichés (bar charts, chevrons, seals). V2 applies unexpected visual metaphors that create genuine discovery moments.</p>
+    </div>
+
+    <div class="container">
+        <div class="section-title">
+            <h2>God-Level Logo Concepts</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="logo-grid">
+            <!-- Logo 1: Lever Point -->
+            <div class="logo-card" data-logo="lever-point">
+                <div class="card-header">
+                    <h3>#1 The Lever Point</h3>
+                    <span class="score">6/10</span>
+                </div>
+                <div class="logo-display">
+                    <img src="01-lever-point.png" alt="The Lever Point">
+                </div>
+                <div class="card-content">
+                    <div class="concept-name">Archimedes' Leverage</div>
+                    <p class="concept-desc">Golden pivot point at the intersection where small force creates massive movement. The geometry captures potential energy frozen in form.</p>
+                    <div class="oh-moment">
+                        <strong>The "Oh!" Moment</strong>
+                        <p>First: elegant abstract mark. Second: "That's a lever about to move something." Third: "The gold point is where everything pivots."</p>
+                    </div>
+                    <div class="approval-buttons">
+                        <button class="btn-approve" onclick="vote('lever-point', 'approve', this)">Approve</button>
+                        <button class="btn-maybe" onclick="vote('lever-point', 'maybe', this)">Maybe</button>
+                        <button class="btn-reject" onclick="vote('lever-point', 'reject', this)">Reject</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logo 2: Proof Mark -->
+            <div class="logo-card recommended" data-logo="proof-mark">
+                <div class="card-header">
+                    <h3>#2 The Proof Mark ⭐</h3>
+                    <span class="score">8/10</span>
+                </div>
+                <div class="logo-display">
+                    <img src="02-proof-mark.png" alt="The Proof Mark">
+                </div>
+                <div class="card-content">
+                    <div class="concept-name">Maker's Mark in Progress</div>
+                    <p class="concept-desc">Half solid, half outline - literally showing proof being made in real-time. The hallmark notch evokes authenticity marks from goldsmiths and craftsmen.</p>
+                    <div class="oh-moment">
+                        <strong>The "Oh!" Moment</strong>
+                        <p>The incomplete mark IS the brand promise - "We prove it BEFORE you buy" captured in a single image. Proof in progress.</p>
+                    </div>
+                    <div class="approval-buttons">
+                        <button class="btn-approve" onclick="vote('proof-mark', 'approve', this)">Approve</button>
+                        <button class="btn-maybe" onclick="vote('proof-mark', 'maybe', this)">Maybe</button>
+                        <button class="btn-reject" onclick="vote('proof-mark', 'reject', this)">Reject</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logo 3: Threshold -->
+            <div class="logo-card recommended" data-logo="threshold">
+                <div class="card-header">
+                    <h3>#3 The Threshold ⭐</h3>
+                    <span class="score">8/10</span>
+                </div>
+                <div class="logo-display">
+                    <img src="03-threshold.png" alt="The Threshold">
+                </div>
+                <div class="card-content">
+                    <div class="concept-name">Negative Space Portal</div>
+                    <p class="concept-desc">Two solid forms create a doorway in negative space. The gold sight line represents the moment of seeing clearly before stepping through.</p>
+                    <div class="oh-moment">
+                        <strong>The "Oh!" Moment</strong>
+                        <p>The viewer discovers the doorway rather than being shown it. Mirrors the proof-of-concept discovery - seeing for yourself.</p>
+                    </div>
+                    <div class="approval-buttons">
+                        <button class="btn-approve" onclick="vote('threshold', 'approve', this)">Approve</button>
+                        <button class="btn-maybe" onclick="vote('threshold', 'maybe', this)">Maybe</button>
+                        <button class="btn-reject" onclick="vote('threshold', 'reject', this)">Reject</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logo 4: Keystone -->
+            <div class="logo-card recommended" data-logo="keystone">
+                <div class="card-header">
+                    <h3>#4 The Keystone ⭐ TOP PICK</h3>
+                    <span class="score">9/10</span>
+                </div>
+                <div class="logo-display">
+                    <img src="04-keystone.png" alt="The Keystone">
+                </div>
+                <div class="card-content">
+                    <div class="concept-name">The Critical Element</div>
+                    <p class="concept-desc">The single stone that locks the entire arch together. Gold trapezoid with implied arch. The "V" for Ventures visible in the flanking lines.</p>
+                    <div class="oh-moment">
+                        <strong>The "Oh!" Moment</strong>
+                        <p>Three layers: 1) Golden wedge shape. 2) "Those lines would complete an arch..." 3) "Is that an S and V built in?"</p>
+                    </div>
+                    <div class="approval-buttons">
+                        <button class="btn-approve" onclick="vote('keystone', 'approve', this)">Approve</button>
+                        <button class="btn-maybe" onclick="vote('keystone', 'maybe', this)">Maybe</button>
+                        <button class="btn-reject" onclick="vote('keystone', 'reject', this)">Reject</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logo 5: Pivot -->
+            <div class="logo-card" data-logo="pivot">
+                <div class="card-header">
+                    <h3>#5 The Pivot</h3>
+                    <span class="score">7/10</span>
+                </div>
+                <div class="logo-display">
+                    <img src="05-pivot.png" alt="The Pivot">
+                </div>
+                <div class="card-content">
+                    <div class="concept-name">Transformation Frozen</div>
+                    <p class="concept-desc">Same element in two states - before (left) and after (right). The gold center point is where transformation occurs. Orbital lines show the rotation.</p>
+                    <div class="oh-moment">
+                        <strong>The "Oh!" Moment</strong>
+                        <p>"The left and right are the same shape, but one rotated upward... The gold point is where they did their work."</p>
+                    </div>
+                    <div class="approval-buttons">
+                        <button class="btn-approve" onclick="vote('pivot', 'approve', this)">Approve</button>
+                        <button class="btn-maybe" onclick="vote('pivot', 'maybe', this)">Maybe</button>
+                        <button class="btn-reject" onclick="vote('pivot', 'reject', this)">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Section -->
+        <div class="comparison-section">
+            <div class="section-title">
+                <h2>V1 vs V2 Comparison</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="comparison-grid">
+                <div class="comparison-col before">
+                    <h3>V1 - Generic Clichés</h3>
+                    <p style="margin-bottom: 1rem; color: #999;">Bar charts, chevrons, certificate seals - the most predictable business logo concepts.</p>
+                    <div class="mini-logos">
+                        <div class="mini-logo bad"><img src="../bars-1.png" alt="Generic bars"></div>
+                        <div class="mini-logo bad"><img src="../chevrons-1.png" alt="Generic chevrons"></div>
+                        <div class="mini-logo bad"><img src="../seal-1.png" alt="Generic seal"></div>
+                    </div>
+                </div>
+                <div class="comparison-col after">
+                    <h3>V2 - Creative Transformation</h3>
+                    <p style="margin-bottom: 1rem;">Unexpected metaphors with discovery moments - Keystone, Threshold, Proof Mark.</p>
+                    <div class="mini-logos">
+                        <div class="mini-logo"><img src="04-keystone.png" alt="Keystone"></div>
+                        <div class="mini-logo"><img src="03-threshold.png" alt="Threshold"></div>
+                        <div class="mini-logo"><img src="02-proof-mark.png" alt="Proof Mark"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Approval Section -->
+        <div class="final-section">
+            <h2>CEO Final Approval</h2>
+            <p style="max-width: 500px; margin: 0 auto; opacity: 0.8;">Select your approved logo(s) above, then sign below to finalize the selection.</p>
+            <div class="signature-area">
+                <label>Selected Logo(s)</label>
+                <input type="text" id="selected-logos" placeholder="None selected" readonly>
+                <label>CEO Signature</label>
+                <input type="text" id="signature" placeholder="Type your name to sign">
+                <label>Date</label>
+                <input type="text" id="sign-date" value="December 31, 2025" readonly>
+            </div>
+            <button class="submit-btn" onclick="submitApproval()">Submit Final Approval</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>ScaleUp Ventures Logo Review v2.0 | Generated December 31, 2025</p>
+        <p>Creative Brief + Brand Strategy + God-Level Execution</p>
+    </footer>
+
+    <script>
+        const votes = {};
+
+        function vote(logo, decision, btn) {
+            // Clear previous selection for this logo
+            const card = btn.closest('.logo-card');
+            card.querySelectorAll('.approval-buttons button').forEach(b => {
+                b.classList.remove('selected');
+            });
+
+            // Set new selection
+            btn.classList.add('selected');
+            votes[logo] = decision;
+
+            // Update selected logos display
+            updateSelectedLogos();
+        }
+
+        function updateSelectedLogos() {
+            const approved = Object.entries(votes)
+                .filter(([logo, decision]) => decision === 'approve')
+                .map(([logo]) => logo.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '));
+
+            const input = document.getElementById('selected-logos');
+            input.value = approved.length > 0 ? approved.join(', ') : 'None selected';
+        }
+
+        function submitApproval() {
+            const signature = document.getElementById('signature').value;
+            const selected = document.getElementById('selected-logos').value;
+
+            if (!signature) {
+                alert('Please sign your name to approve.');
+                return;
+            }
+
+            if (selected === 'None selected') {
+                alert('Please approve at least one logo before submitting.');
+                return;
+            }
+
+            alert(`✓ Approval submitted!\n\nSelected: ${selected}\nSigned by: ${signature}\nDate: December 31, 2025\n\nThe approved logo(s) will move to final production.`);
+        }
+    </script>
+</body>
+</html>

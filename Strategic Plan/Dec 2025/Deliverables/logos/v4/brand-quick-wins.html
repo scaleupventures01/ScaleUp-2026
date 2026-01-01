@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures - Brand Quick Wins Review</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --white: #FFFFFF;
+            --light-gray: #f8f9fa;
+            --mid-gray: #e9ecef;
+            --dark-gray: #6c757d;
+            --success: #28a745;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--light-gray);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .header .subtitle { color: var(--gold); font-size: 1.3rem; }
+        .header .date { opacity: 0.8; margin-top: 15px; }
+        .header .badge {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .nav {
+            background: var(--white);
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .nav a {
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .nav a:hover { background: var(--gold); }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .summary-section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        .summary-card {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid var(--success);
+        }
+        .summary-card h4 {
+            font-family: 'Crimson Pro', serif;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .summary-card .status {
+            background: var(--success);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .summary-card p { color: var(--dark-gray); font-size: 0.9rem; }
+
+        .section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--gold);
+        }
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .section-header h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.6rem;
+            flex: 1;
+        }
+        .copy-btn {
+            background: var(--navy);
+            color: var(--white);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+        .copy-btn:hover { background: var(--gold); color: var(--navy); }
+        .copy-btn.copied { background: var(--success); }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fffef5 0%, #fff 100%);
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        .highlight-box .tagline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .highlight-box .subtitle {
+            text-align: center;
+            color: var(--dark-gray);
+        }
+
+        .content-block {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            position: relative;
+        }
+        .content-block h4 {
+            font-family: 'Crimson Pro', serif;
+            margin-bottom: 15px;
+            color: var(--navy);
+        }
+        .content-block blockquote {
+            background: var(--white);
+            border-left: 4px solid var(--gold);
+            padding: 15px 20px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .content-block ul, .content-block ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        .content-block li { margin-bottom: 8px; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--mid-gray);
+        }
+        th {
+            background: var(--navy);
+            color: var(--white);
+            font-weight: 600;
+        }
+        tr:hover { background: var(--light-gray); }
+
+        .tag {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+        .tag.use { background: #d4edda; color: #155724; }
+        .tag.avoid { background: #f8d7da; color: #721c24; }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        @media (max-width: 900px) {
+            .two-column { grid-template-columns: 1fr; }
+        }
+
+        .signature-block {
+            background: var(--white);
+            border: 1px solid var(--mid-gray);
+            border-radius: 8px;
+            padding: 20px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            white-space: pre-line;
+            margin: 15px 0;
+        }
+
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 40px;
+            margin-top: 40px;
+        }
+        .footer .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .container { padding: 20px; }
+            .section { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ScaleUp Ventures</h1>
+        <div class="subtitle">Brand Quick Wins - Review Document</div>
+        <div class="date">December 31, 2025 | 10 Agents x 10 Deliverables</div>
+        <div class="badge">10/10 COMPLETE</div>
+    </div>
+
+    <nav class="nav">
+        <a href="#summary">Summary</a>
+        <a href="#tagline">1. Tagline</a>
+        <a href="#metaphor">2. Metaphor</a>
+        <a href="#words">3. Words</a>
+        <a href="#voice">4. Voice</a>
+        <a href="#heron">5. Heron Bridge</a>
+        <a href="#vocabulary">6. Vocabulary</a>
+        <a href="#email">7. Email CTAs</a>
+        <a href="#linkedin">8. LinkedIn</a>
+        <a href="#repetition">9. Repetition</a>
+        <a href="#anti">10. Anti-Positioning</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- Summary Section -->
+        <section id="summary" class="summary-section">
+            <h2 style="font-family: 'Crimson Pro', serif; font-size: 1.8rem; margin-bottom: 20px;">Executive Summary</h2>
+            <p>All 10 brand quick-win tasks have been completed by parallel agents. Each deliverable is ready for your review and approval. Click any section below to review the content, then use "Copy Content" to grab text for immediate use.</p>
+
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h4>1. Tagline Recommendation <span class="status">DONE</span></h4>
+                    <p>Final: "Certainty First." with usage guide for all contexts</p>
+                </div>
+                <div class="summary-card">
+                    <h4>2. Metaphor Hierarchy <span class="status">DONE</span></h4>
+                    <p>Heron = PRIMARY. Sherpa, Atlas, Guide = RETIRED</p>
+                </div>
+                <div class="summary-card">
+                    <h4>3. Words We Use/Avoid <span class="status">DONE</span></h4>
+                    <p>20 words to use, 20 to avoid, with before/after examples</p>
+                </div>
+                <div class="summary-card">
+                    <h4>4. Voice & Pronoun Guidelines <span class="status">DONE</span></h4>
+                    <p>Active voice rules, pronoun usage, tone by channel</p>
+                </div>
+                <div class="summary-card">
+                    <h4>5. Heron Narrative Bridge <span class="status">DONE</span></h4>
+                    <p>Primary, short, and extended statements connecting symbol to promise</p>
+                </div>
+                <div class="summary-card">
+                    <h4>6. Proof Vocabulary Palette <span class="status">DONE</span></h4>
+                    <p>6 categories: Certainty, Evidence, Process, Outcome, Trust, Action</p>
+                </div>
+                <div class="summary-card">
+                    <h4>7. Email Signature CTAs <span class="status">DONE</span></h4>
+                    <p>5 options with full signature blocks for all 3 founders</p>
+                </div>
+                <div class="summary-card">
+                    <h4>8. LinkedIn CTA Messaging <span class="status">DONE</span></h4>
+                    <p>Headlines, About sections, Featured descriptions, Company page</p>
+                </div>
+                <div class="summary-card">
+                    <h4>9. Message Repetition Guidelines <span class="status">DONE</span></h4>
+                    <p>Frequency rules by asset type, Rule of 3 application</p>
+                </div>
+                <div class="summary-card">
+                    <h4>10. Anti-Positioning Statements <span class="status">DONE</span></h4>
+                    <p>7 "We Are NOT" statements + "Burned Before" empathy messaging</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1. Tagline Recommendation -->
+        <section id="tagline" class="section">
+            <div class="section-header">
+                <div class="section-icon">1</div>
+                <h2>Tagline Recommendation</h2>
+                <button class="copy-btn" onclick="copySection('tagline-content')">Copy Content</button>
+            </div>
+
+            <div class="highlight-box">
+                <div class="tagline">"Certainty First."</div>
+                <div class="subtitle">Score: 19/20 | 2 Words | Primary Tagline</div>
+            </div>
+
+            <div id="tagline-content" class="content-block">
+                <h4>Why "Certainty First." Over "Proof First."</h4>
+                <table>
+                    <tr>
+                        <th>Factor</th>
+                        <th>"Certainty First."</th>
+                        <th>"Proof First."</th>
+                    </tr>
+                    <tr>
+                        <td>Emotional resonance</td>
+                        <td>Speaks to what they WANT</td>
+                        <td>Describes what we DO</td>
+                    </tr>
+                    <tr>
+                        <td>Audience psychology</td>
+                        <td>Skeptical owners crave certainty</td>
+                        <td>Proof is mechanism, not outcome</td>
+                    </tr>
+                    <tr>
+                        <td>Brand positioning</td>
+                        <td>Premium, outcome-focused</td>
+                        <td>Process-focused, technical</td>
+                    </tr>
+                </table>
+
+                <h4 style="margin-top: 25px;">Usage by Context</h4>
+                <table>
+                    <tr>
+                        <th>Context</th>
+                        <th>Application</th>
+                    </tr>
+                    <tr>
+                        <td>Logo lockup</td>
+                        <td>ScaleUp Ventures | Certainty First.</td>
+                    </tr>
+                    <tr>
+                        <td>Website hero</td>
+                        <td>"Certainty First. We prove the ROI before you spend a dollar."</td>
+                    </tr>
+                    <tr>
+                        <td>Ads</td>
+                        <td>"Been burned before? Certainty First."</td>
+                    </tr>
+                    <tr>
+                        <td>Proposals</td>
+                        <td>"Certainty First. That is how we work."</td>
+                    </tr>
+                    <tr>
+                        <td>Email signature</td>
+                        <td>Certainty First. | scaleupventures.co</td>
+                    </tr>
+                </table>
+
+                <h4 style="margin-top: 25px;">Supporting Copy Pairings</h4>
+                <blockquote>"Certainty First. We prove the ROI before you spend a dollar."</blockquote>
+                <blockquote>"Certainty First. Because you have been burned before."</blockquote>
+                <blockquote>"Certainty First. Your data. Your proof. Before you commit."</blockquote>
+            </div>
+        </section>
+
+        <!-- 2. Metaphor Hierarchy -->
+        <section id="metaphor" class="section">
+            <div class="section-header">
+                <div class="section-icon">2</div>
+                <h2>Metaphor Hierarchy</h2>
+                <button class="copy-btn" onclick="copySection('metaphor-content')">Copy Content</button>
+            </div>
+
+            <div id="metaphor-content" class="content-block">
+                <div class="highlight-box" style="margin-bottom: 25px;">
+                    <div style="font-family: 'Crimson Pro', serif; font-size: 1.8rem; color: var(--navy); text-align: center;">"Patience before precision"</div>
+                    <div style="text-align: center; color: var(--dark-gray); margin-top: 10px;">The heron watches carefully, then strikes decisively.</div>
+                </div>
+
+                <h4>PRIMARY: The Heron</h4>
+                <table>
+                    <tr>
+                        <th>Brand Attribute</th>
+                        <th>Heron Behavior</th>
+                        <th>Connection</th>
+                    </tr>
+                    <tr>
+                        <td>Proof-first approach</td>
+                        <td>Observes before acting</td>
+                        <td>We analyze and model before recommending</td>
+                    </tr>
+                    <tr>
+                        <td>Patience with clients</td>
+                        <td>Stands motionless for extended periods</td>
+                        <td>We meet technology laggards where they are</td>
+                    </tr>
+                    <tr>
+                        <td>Decisive expertise</td>
+                        <td>Strikes with precision when ready</td>
+                        <td>When we recommend, we're confident</td>
+                    </tr>
+                </table>
+
+                <h4 style="margin-top: 25px;">RETIRED Metaphors (Do Not Use)</h4>
+                <table>
+                    <tr>
+                        <th>Metaphor</th>
+                        <th>Why Retired</th>
+                    </tr>
+                    <tr>
+                        <td><span class="tag avoid">Sherpa</span></td>
+                        <td>Cultural appropriation risk, implies struggle, overused cliche</td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag avoid">Atlas</span></td>
+                        <td>Burden-focused, already claimed by Atlassian, static imagery</td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag avoid">Guide</span></td>
+                        <td>Too generic, no visual identity, no differentiation value</td>
+                    </tr>
+                </table>
+
+                <h4 style="margin-top: 25px;">Approved Heron Language</h4>
+                <ul>
+                    <li><strong>"Patience before precision"</strong> - tagline option, methodology</li>
+                    <li><strong>"We watch. We prove. We act."</strong> - process summary</li>
+                    <li><strong>"No rush. Just results."</strong> - objection handling</li>
+                    <li><strong>"When we act, we act decisively."</strong> - confidence statements</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 3. Words We Use/Avoid -->
+        <section id="words" class="section">
+            <div class="section-header">
+                <div class="section-icon">3</div>
+                <h2>Words We Use / Words We Avoid</h2>
+                <button class="copy-btn" onclick="copySection('words-content')">Copy Content</button>
+            </div>
+
+            <div id="words-content">
+                <div class="two-column">
+                    <div class="content-block">
+                        <h4><span class="tag use">USE</span> Proof and Trust Language</h4>
+                        <ul>
+                            <li><strong>Model</strong> - "We build a model showing your ROI"</li>
+                            <li><strong>Documented</strong> - "Documented results from real clients"</li>
+                            <li><strong>Based on your numbers</strong> - Personal, concrete</li>
+                            <li><strong>Measurable</strong> - "Measurable outcomes, not promises"</li>
+                            <li><strong>Talk to our clients</strong> - Confidence signal</li>
+                            <li><strong>Honest assessment</strong> - Even if it's not what you want to hear</li>
+                            <li><strong>Accountable</strong> - "We're accountable to these numbers"</li>
+                            <li><strong>The math shows</strong> - Evidence over opinion</li>
+                            <li><strong>Payback period</strong> - Concrete timeline</li>
+                            <li><strong>We recommend against</strong> - Willing to say no</li>
+                        </ul>
+                    </div>
+                    <div class="content-block">
+                        <h4><span class="tag avoid">AVOID</span> Hype and Consultant-Speak</h4>
+                        <ul>
+                            <li><strong>Leverage</strong> - Corporate jargon, meaningless</li>
+                            <li><strong>Synergy</strong> - Red flag for skeptical owners</li>
+                            <li><strong>Holistic</strong> - Vague, overused</li>
+                            <li><strong>Revolutionary</strong> - Instant credibility killer</li>
+                            <li><strong>Game-changing</strong> - Empty superlative</li>
+                            <li><strong>Transform your business</strong> - Overpromising</li>
+                            <li><strong>Solutions</strong> - Generic, means nothing</li>
+                            <li><strong>Cutting-edge</strong> - Tech hype signal</li>
+                            <li><strong>Trust us</strong> - The words burned owners hate most</li>
+                            <li><strong>Act now</strong> - Pressure tactics backfire</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-block" style="margin-top: 25px;">
+                    <h4>Before/After Examples</h4>
+                    <table>
+                        <tr>
+                            <th>Before (Generic)</th>
+                            <th>After (On-Brand)</th>
+                        </tr>
+                        <tr>
+                            <td>"We leverage cutting-edge solutions to transform your business"</td>
+                            <td>"We show you the numbers before you spend a dollar"</td>
+                        </tr>
+                        <tr>
+                            <td>"Our holistic approach delivers synergies"</td>
+                            <td>"Your project, your timeline, your payback period"</td>
+                        </tr>
+                        <tr>
+                            <td>"Trust us - we've done this before"</td>
+                            <td>"Talk to three of our current clients. They'll tell you."</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Voice & Pronoun Guidelines -->
+        <section id="voice" class="section">
+            <div class="section-header">
+                <div class="section-icon">4</div>
+                <h2>Voice & Pronoun Guidelines</h2>
+                <button class="copy-btn" onclick="copySection('voice-content')">Copy Content</button>
+            </div>
+
+            <div id="voice-content">
+                <div class="content-block">
+                    <h4>Active Voice Preference</h4>
+                    <table>
+                        <tr>
+                            <th>Passive (Avoid)</th>
+                            <th>Active (Use)</th>
+                        </tr>
+                        <tr>
+                            <td>"Results are delivered by our team"</td>
+                            <td>"We deliver results"</td>
+                        </tr>
+                        <tr>
+                            <td>"Your ROI will be modeled"</td>
+                            <td>"We model your ROI"</td>
+                        </tr>
+                        <tr>
+                            <td>"Recommendations are provided based on data"</td>
+                            <td>"We recommend based on your data"</td>
+                        </tr>
+                        <tr>
+                            <td>"Projects are managed with care"</td>
+                            <td>"We manage your project with care"</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="content-block" style="margin-top: 20px;">
+                    <h4>Pronoun Usage Rules</h4>
+                    <table>
+                        <tr>
+                            <th>Pronoun</th>
+                            <th>When to Use</th>
+                            <th>Example</th>
+                        </tr>
+                        <tr>
+                            <td><strong>We</strong></td>
+                            <td>Establishing accountability, commitments</td>
+                            <td>"We prove the ROI before you invest"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>You</strong></td>
+                            <td>Empathy, addressing pain points</td>
+                            <td>"You've been burned before"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>They</strong></td>
+                            <td>Competitors, previous agencies</td>
+                            <td>"They promised results. We prove them."</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="content-block" style="margin-top: 20px;">
+                    <h4>Tone by Channel</h4>
+                    <table>
+                        <tr>
+                            <th>Channel</th>
+                            <th>Watchful</th>
+                            <th>Measured</th>
+                            <th>Decisive</th>
+                        </tr>
+                        <tr>
+                            <td>Website</td>
+                            <td>40%</td>
+                            <td>30%</td>
+                            <td>30%</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>30%</td>
+                            <td>40%</td>
+                            <td>30%</td>
+                        </tr>
+                        <tr>
+                            <td>Proposals</td>
+                            <td>25%</td>
+                            <td>35%</td>
+                            <td>40%</td>
+                        </tr>
+                        <tr>
+                            <td>Social Media</td>
+                            <td>45%</td>
+                            <td>25%</td>
+                            <td>30%</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Heron Narrative Bridge -->
+        <section id="heron" class="section">
+            <div class="section-header">
+                <div class="section-icon">5</div>
+                <h2>Heron Narrative Bridge Statement</h2>
+                <button class="copy-btn" onclick="copySection('heron-content')">Copy Content</button>
+            </div>
+
+            <div id="heron-content">
+                <div class="content-block">
+                    <h4>Primary Bridge Statement (For About Page)</h4>
+                    <blockquote>Like the heron that stands patient in the shallows - watching, waiting, understanding every ripple before it strikes - ScaleUp Ventures does the work before you spend a dollar. We study your business, model your ROI, and prove our value before you commit. Because precision follows patience, and results follow proof.</blockquote>
+                </div>
+
+                <div class="content-block">
+                    <h4>Short Version (For Various Uses)</h4>
+                    <blockquote>The heron waits, watches, then strikes with precision - we prove your ROI before you invest a dollar.</blockquote>
+                </div>
+
+                <div class="content-block">
+                    <h4>Extended Version (For Brand Story)</h4>
+                    <blockquote>
+                        There is a reason we chose the heron as our symbol.<br><br>
+                        Watch a heron hunt and you will witness something remarkable: absolute stillness followed by flawless action. The heron does not chase. It does not guess. It stands motionless in the shallows - sometimes for hours - reading the water, tracking the light, understanding every pattern and possibility. Only when conditions align does it strike. And when it does, it rarely misses.<br><br>
+                        This is not passivity. This is preparation. This is the difference between hoping something works and knowing it will.<br><br>
+                        ScaleUp Ventures operates the same way. We do not rush to sell you a solution. We observe your business. We analyze your market. We model your ROI using real data. Before you invest a dollar, you see exactly how you make your money back.<br><br>
+                        Most agencies strike first and hope. We prove first and deliver.<br><br>
+                        That is the heron's way. That is our promise.
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Proof Vocabulary Palette -->
+        <section id="vocabulary" class="section">
+            <div class="section-header">
+                <div class="section-icon">6</div>
+                <h2>Proof Vocabulary Palette</h2>
+                <button class="copy-btn" onclick="copySection('vocab-content')">Copy Content</button>
+            </div>
+
+            <div id="vocab-content">
+                <div class="two-column">
+                    <div class="content-block">
+                        <h4>Certainty Words</h4>
+                        <p>Guaranteed, Assured, Confirmed, Reliable, Solid, Dependable, Ironclad, Certain, Definite, Verified, Proven, Validated</p>
+                    </div>
+                    <div class="content-block">
+                        <h4>Evidence Words</h4>
+                        <p>Proof, Data, Metrics, Facts, Documented, Verified, Measured, Tracked, Recorded, Demonstrated, Shown, Quantified</p>
+                    </div>
+                    <div class="content-block">
+                        <h4>Process Words</h4>
+                        <p>Analyze, Model, Validate, Calculate, Project, Assess, Map, Diagnose, Evaluate, Examine, Review, Investigate</p>
+                    </div>
+                    <div class="content-block">
+                        <h4>Outcome Words</h4>
+                        <p>Results, Returns, Gains, Growth, Profit, Revenue, Savings, Payback, Impact, Value, Benefit, Improvement</p>
+                    </div>
+                    <div class="content-block">
+                        <h4>Trust Words</h4>
+                        <p>Transparent, Accountable, Honest, Straightforward, Upfront, Candid, Genuine, Reliable, Consistent, Trustworthy, Credible, Dependable</p>
+                    </div>
+                    <div class="content-block">
+                        <h4>Action Words (Heron "Strike")</h4>
+                        <p>Execute, Deliver, Launch, Capture, Secure, Achieve, Win, Claim, Complete, Accomplish, Realize, Attain</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Email Signature CTAs -->
+        <section id="email" class="section">
+            <div class="section-header">
+                <div class="section-icon">7</div>
+                <h2>Email Signature CTAs</h2>
+                <button class="copy-btn" onclick="copySection('email-content')">Copy Content</button>
+            </div>
+
+            <div id="email-content">
+                <div class="highlight-box">
+                    <div style="font-size: 1.3rem; text-align: center; font-weight: 600;">Recommended: "Proof First. Always."</div>
+                    <div style="text-align: center; color: var(--dark-gray); margin-top: 5px;">Aligns with tagline | 3 words | Maximum memorability</div>
+                </div>
+
+                <div class="content-block">
+                    <h4>5 CTA Options</h4>
+                    <table>
+                        <tr>
+                            <th>#</th>
+                            <th>CTA</th>
+                            <th>Best For</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>See the ROI before you spend</td>
+                            <td>Cold outreach</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td><strong>Proof First. Always.</strong></td>
+                            <td><strong>Standard signature (Primary)</strong></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>We prove it before you buy.</td>
+                            <td>Prospect follow-up</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Your numbers. Your decision.</td>
+                            <td>Executive communication</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Results you can measure before you invest.</td>
+                            <td>Formal correspondence</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="content-block">
+                    <h4>Founder Signature Templates</h4>
+                    <div class="signature-block">Calvin Williams Jr.
+Founder and Managing Partner
+ScaleUp Ventures
+
+Phone: [Phone Number]
+Email: calvin@scaleupventures.co
+
+Proof First. Always. | scaleupventures.co</div>
+
+                    <div class="signature-block">Ray Addison II
+Partner, Growth Strategy and Operations
+ScaleUp Ventures
+
+Phone: [Phone Number]
+Email: ray@scaleupventures.co
+
+Proof First. Always. | scaleupventures.co</div>
+
+                    <div class="signature-block">Aaron Mitchell
+Partner, Technology and Development
+ScaleUp Ventures
+
+Phone: [Phone Number]
+Email: aaron@scaleupventures.co
+
+Proof First. Always. | scaleupventures.co</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. LinkedIn CTA Messaging -->
+        <section id="linkedin" class="section">
+            <div class="section-header">
+                <div class="section-icon">8</div>
+                <h2>LinkedIn CTA Messaging</h2>
+                <button class="copy-btn" onclick="copySection('linkedin-content')">Copy Content</button>
+            </div>
+
+            <div id="linkedin-content">
+                <div class="content-block">
+                    <h4>Headline Options (under 120 chars)</h4>
+                    <table>
+                        <tr>
+                            <th>Option</th>
+                            <th>Headline</th>
+                            <th>Chars</th>
+                        </tr>
+                        <tr>
+                            <td>A</td>
+                            <td>We prove ROI before you spend a dollar | Helping $1M-$15M businesses modernize without the gamble</td>
+                            <td>98</td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>Growth Partner for Technology Laggard Businesses | Dev + Marketing + AI Under One Roof</td>
+                            <td>88</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>I help business owners see the numbers before they commit | Co-Founder, ScaleUp Ventures</td>
+                            <td>93</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="content-block">
+                    <h4>Company Page</h4>
+                    <p><strong>Primary Tagline:</strong></p>
+                    <blockquote>Proof First. We show business owners the ROI before they invest.</blockquote>
+
+                    <p><strong>About Section Opening:</strong></p>
+                    <blockquote>Business owners aged 50 and older have earned their skepticism. You have seen agencies promise transformation and deliver invoices. You have watched consultants disappear after cashing the check. You have learned - the hard way - that smooth talk and fancy proposals mean nothing without results.<br><br>ScaleUp Ventures is the antidote.</blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Message Repetition Guidelines -->
+        <section id="repetition" class="section">
+            <div class="section-header">
+                <div class="section-icon">9</div>
+                <h2>Message Repetition Guidelines</h2>
+                <button class="copy-btn" onclick="copySection('repetition-content')">Copy Content</button>
+            </div>
+
+            <div id="repetition-content">
+                <div class="content-block">
+                    <h4>Primary Message Frequency by Asset</h4>
+                    <table>
+                        <tr>
+                            <th>Asset Type</th>
+                            <th>Max Instances</th>
+                            <th>Placement</th>
+                        </tr>
+                        <tr>
+                            <td>Homepage</td>
+                            <td>2</td>
+                            <td>Hero + footer (or CTA section)</td>
+                        </tr>
+                        <tr>
+                            <td>Landing Page</td>
+                            <td>2</td>
+                            <td>Hero + above-the-fold CTA</td>
+                        </tr>
+                        <tr>
+                            <td>Proposal</td>
+                            <td>3</td>
+                            <td>Cover, intro, closing</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>1</td>
+                            <td>Never in consecutive emails</td>
+                        </tr>
+                        <tr>
+                            <td>LinkedIn Posts</td>
+                            <td>1 in 4 posts</td>
+                            <td>Sign-off or hook</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="content-block">
+                    <h4>The 3-3-3 Content Check</h4>
+                    <ul>
+                        <li><strong>3 Message Tiers:</strong> Primary appears, secondary supports, tertiary proves</li>
+                        <li><strong>3 Secondary Max:</strong> Never more than 3 secondary messages per page</li>
+                        <li><strong>3 Proof Points:</strong> Support claims with 3 evidence items per section</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Anti-Positioning Statements -->
+        <section id="anti" class="section">
+            <div class="section-header">
+                <div class="section-icon">10</div>
+                <h2>Anti-Positioning Statements</h2>
+                <button class="copy-btn" onclick="copySection('anti-content')">Copy Content</button>
+            </div>
+
+            <div id="anti-content">
+                <div class="content-block">
+                    <h4>The Seven "We Are NOT" Statements</h4>
+                    <table>
+                        <tr>
+                            <th>#</th>
+                            <th>Statement</th>
+                            <th>What We Do Instead</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>We Are NOT a "Trust Us" Agency</td>
+                            <td>We show you the ROI model before you spend</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>We Are NOT Slick Marketers</td>
+                            <td>We offer direct client references, not slide decks</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>We Are NOT Cheap Offshore Work in Disguise</td>
+                            <td>Domestic team, direct communication, AI-augmented</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>We Are NOT Tech Evangelists Who Talk Down</td>
+                            <td>We translate tech to business outcomes</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>We Are NOT Generalists Who Take Any Project</td>
+                            <td>$15K minimum, selective, will say no</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>We Are NOT a One-and-Done Vendor</td>
+                            <td>Ongoing partnership, 90-day reviews</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>We Are NOT Promising Overnight Transformation</td>
+                            <td>Realistic timelines, honest expectations</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="content-block">
+                    <h4>"Burned Before" Empathy Messaging</h4>
+                    <blockquote>
+                        <strong>Version A - Direct Acknowledgment:</strong><br>
+                        You have probably hired a marketing agency before. Maybe more than one. And if you are like most business owners we work with, at least one of those experiences ended badly - money spent, promises broken, nothing to show for it.<br><br>
+                        We get it. That is exactly why we do things differently.<br><br>
+                        Before you invest a dollar with us, you will see a custom model showing exactly how you make your money back. Not vague projections - real math based on your business. If the numbers do not work, we will tell you.
+                    </blockquote>
+
+                    <blockquote style="margin-top: 20px;">
+                        <strong>Version F - Pattern Interrupt:</strong><br>
+                        Here is what we are NOT going to say:<br>
+                        "Trust us."<br>
+                        "It takes time to see results."<br>
+                        "We need more budget to really make an impact."<br><br>
+                        You have heard all of that before. It did not end well.<br><br>
+                        Here is what we ARE going to say: You will see exactly how you make your money back before you spend anything. If the math works, we move forward. If not, we part as friends.
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <div class="logo">ScaleUp Ventures</div>
+        <p>Brand Quick Wins Review | December 31, 2025</p>
+        <p style="opacity: 0.7; margin-top: 10px;">Generated by 10 Parallel Brand Strategist Agents</p>
+    </footer>
+
+    <script>
+        function copySection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const text = section.innerText;
+
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = section.closest('.section').querySelector('.copy-btn');
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy Content';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('.nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

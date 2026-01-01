@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page Copy | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --slate: #334155;
+            --slate-light: #64748b;
+            --gold: #D4A853;
+            --gold-muted: #b8956e;
+            --cream: #faf8f5;
+            --cream-dark: #f1ede6;
+            --white: #ffffff;
+            --success: #059669;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--navy);
+            color: var(--white);
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--gold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Section Styles */
+        .section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .section-label {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.15);
+            color: var(--gold-muted);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        /* Hero Preview */
+        .hero-preview {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 12px;
+            padding: 4rem 3rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a853' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+
+        .hero-headline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subheadline {
+            font-size: 1.35rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-intro {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+        }
+
+        /* Copy Block */
+        .copy-block {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .copy-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .copy-text {
+            color: var(--navy);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .copy-text.large {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        /* Form Preview */
+        .form-preview {
+            background: var(--cream);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .form-header {
+            margin-bottom: 2rem;
+        }
+
+        .form-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-intro {
+            color: var(--slate);
+            font-size: 0.95rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--cream-dark);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background: var(--white);
+            color: var(--slate-light);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--gold-muted);
+        }
+
+        /* Contact Cards */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-card {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 3px solid var(--gold);
+        }
+
+        .contact-card-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--slate-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Steps */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--cream);
+            border-radius: 8px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-desc {
+            font-size: 0.85rem;
+            color: var(--slate);
+        }
+
+        /* Reassurance */
+        .reassurance-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .reassurance-item {
+            padding: 1.5rem;
+            background: var(--cream);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .reassurance-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(212, 168, 83, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--gold);
+            font-size: 1.25rem;
+        }
+
+        .reassurance-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .reassurance-text {
+            font-size: 0.9rem;
+            color: var(--slate);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .final-cta-text {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--white);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        .final-cta-subtext {
+            color: rgba(255,255,255,0.7);
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+
+        /* Dropdown Preview */
+        .dropdown-options {
+            background: var(--white);
+            border: 1px solid var(--cream-dark);
+            border-radius: 6px;
+            padding: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown-options ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dropdown-options li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--cream);
+            color: var(--slate);
+            font-size: 0.9rem;
+        }
+
+        .dropdown-options li:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            .contact-grid,
+            .steps-grid,
+            .reassurance-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-headline {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <h1>Contact Page Copy</h1>
+        <p>ScaleUp Ventures | Ready to Post</p>
+    </header>
+
+    <div class="container">
+
+        <!-- ========================================
+             SECTION 1: HERO
+        ======================================== -->
+        <div class="section">
+            <span class="section-label">Section 1</span>
+            <h2 class="section-title">Hero Section</h2>
+
+            <div class="hero-preview">
+                <div class="hero-content">
+                    <h1 class="hero-headline">Ready to See the Math Before You Spend a Dollar?</h1>
+                    <p class="hero-subheadline">Certainty First. Then Results.</p>
+                    <p class="hero-intro">Every conversation starts the same way: you tell us what you need, and we show you exactly how we get there. No vague promises. No hoping for the best. Just a clear ROI model that proves the investment makes sense before you commit.</p>
+                </div>
+            </div>
+
+            <div class="copy-block">
+                <div class="copy-label">Headline</div>
+                <div class="copy-text large">Ready to See the Math Before You Spend a Dollar?</div>
+            </div>
+
+            <div class="copy-block">
+                <div class="copy-label">Subheadline</div>
+                <div class="copy-text">Certainty First. Then Results.</div>
+            </div>
+
+            <div class="copy-block">
+                <div class="copy-label">Intro Paragraph</div>
+                <div class="copy-text">Every conversation starts the same way: you tell us what you need, and we show you exactly how we get there. No vague promises. No hoping for the best. Just a clear ROI model that proves the investment makes sense before you commit.</div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             SECTION 2: FORM SECTION
+        ======================================== -->
+        <div class="section">
+            <span class="section-label">Section 2</span>
+            <h2 class="section-title">Contact Form</h2>
+
+            <div class="form-preview">
+                <div class="form-header">
+                    <h3 class="form-title">Tell Us About Your Business</h3>
+                    <p class="form-intro">Complete the form below and we will reach out within one business day with a personalized response. Not a template. Not an auto-reply. A real assessment of how we might help.</p>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Your Name *</label>
+                        <input type="text" class="form-input" placeholder="John Smith">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email Address *</label>
+                        <input type="email" class="form-input" placeholder="john@yourcompany.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-input" placeholder="(555) 123-4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Company Name *</label>
+                        <input type="text" class="form-input" placeholder="Your Company, Inc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Industry *</label>
+                        <select class="form-select">
+                            <option>Select your industry</option>
+                        </select>
+                        <div class="dropdown-options">
+                            <ul>
+                                <li>Professional Services (Legal, Accounting, Consulting)</li>
+                                <li>Home Services (HVAC, Plumbing, Electrical, Roofing)</li>
+                                <li>Healthcare (Medical Practices, Dental, Specialty Care)</li>
+                                <li>Staffing and Recruiting</li>
+                                <li>Manufacturing and Distribution</li>
+                                <li>Financial Services</li>
+                                <li>Real Estate and Property Management</li>
+                                <li>Retail and E-commerce</li>
+                                <li>Construction and Trades</li>
+                                <li>Other (please describe in message)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Annual Revenue *</label>
+                        <select class="form-select">
+                            <option>Select your revenue range</option>
+                        </select>
+                        <div class="dropdown-options">
+                            <ul>
+                                <li>Under $500,000</li>
+                                <li>$500,000 - $1 million</li>
+                                <li>$1 million - $3 million</li>
+                                <li>$3 million - $5 million</li>
+                                <li>$5 million - $10 million</li>
+                                <li>$10 million - $25 million</li>
+                                <li>$25 million+</li>
+                                <li>Prefer not to say</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label">How Did You Hear About Us?</label>
+                        <input type="text" class="form-input" placeholder="Referral, LinkedIn, Google, etc.">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label">What Are You Looking to Accomplish? *</label>
+                        <textarea class="form-textarea" placeholder="Tell us about your current challenge and what success looks like. The more specific you are, the more useful our initial response will be."></textarea>
+                    </div>
+                </div>
+
+                <button class="submit-btn">Show Me the ROI Model</button>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h4 style="font-family: 'Crimson Pro', serif; color: var(--navy); margin-bottom: 1rem;">Form Copy Summary</h4>
+
+                <div class="copy-block">
+                    <div class="copy-label">Form Headline</div>
+                    <div class="copy-text">Tell Us About Your Business</div>
+                </div>
+
+                <div class="copy-block">
+                    <div class="copy-label">Form Introduction</div>
+                    <div class="copy-text">Complete the form below and we will reach out within one business day with a personalized response. Not a template. Not an auto-reply. A real assessment of how we might help.</div>
+                </div>
+
+                <div class="copy-block">
+                    <div class="copy-label">Submit Button Text</div>
+                    <div class="copy-text">Show Me the ROI Model</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h4 style="font-family: 'Crimson Pro', serif; color: var(--navy); margin-bottom: 1rem;">Field Labels and Placeholders</h4>
+
+                <table style="width: 100%; border-collapse: collapse; background: var(--cream); border-radius: 8px; overflow: hidden;">
+                    <thead>
+                        <tr style="background: var(--navy); color: var(--white);">
+                            <th style="padding: 1rem; text-align: left; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;">Field</th>
+                            <th style="padding: 1rem; text-align: left; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;">Label</th>
+                            <th style="padding: 1rem; text-align: left; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;">Placeholder</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--cream-dark);">
+                            <td style="padding: 1rem; color: var(--navy); font-weight: 600;">Name</td>
+                            <td style="padding: 1rem; color: var(--slate);">Your Name *</td>
+                            <td style="padding: 1rem; color: var(--slate-light); font-style: italic;">John Smith</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--cream-dark);">
+                            <td style="padding: 1rem; color: var(--navy); font-weight: 600;">Email</td>
+                            <td style="padding: 1rem; color: var(--slate);">Email Address *</td>
+                            <td style="padding: 1rem; color: var(--slate-light); font-style: italic;">john@yourcompany.com</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--cream-dark);">
+                            <td style="padding: 1rem; color: var(--navy); font-weight: 600;">Phone</td>
+                            <td style="padding: 1rem; color: var(--slate);">Phone Number</td>
+                            <td style="padding: 1rem; color: var(--slate-light); font-style: italic;">(555) 123-4567</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--cream-dark);">
+                            <td style="padding: 1rem; color: var(--navy); font-weight: 600;">Company</td>
+                            <td style="padding: 1rem; color: var(--slate);">Company Name *</td>
+                            <td style="padding: 1rem; color: var(--slate-light); font-style: italic;">Your Company, Inc.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--cream-dark);">
+                            <td style="padding: 1rem; color: var(--navy); font-weight: 600;">Industry</td>
+                            <td style="padding: 1rem; color: var(--slate);">Industry *</td>
+                            <td style="padding: 1rem; color: var(--slate-light); font-style: italic;">Select your industry</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--cream-dark);">
+                            <td style="padding: 1rem; color: var(--navy); font-weight: 600;">Revenue</td>
+                            <td style="padding: 1rem; color: var(--slate);">Annual Revenue *</td>
+                            <td style="padding: 1rem; color: var(--slate-light); font-style: italic;">Select your revenue range</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--cream-dark);">
+                            <td style="padding: 1rem; color: var(--navy); font-weight: 600;">Source</td>
+                            <td style="padding: 1rem; color: var(--slate);">How Did You Hear About Us?</td>
+                            <td style="padding: 1rem; color: var(--slate-light); font-style: italic;">Referral, LinkedIn, Google, etc.</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; color: var(--navy); font-weight: 600;">Message</td>
+                            <td style="padding: 1rem; color: var(--slate);">What Are You Looking to Accomplish? *</td>
+                            <td style="padding: 1rem; color: var(--slate-light); font-style: italic;">Tell us about your current challenge and what success looks like. The more specific you are, the more useful our initial response will be.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ========================================
+             SECTION 3: ALTERNATIVE CONTACT
+        ======================================== -->
+        <div class="section">
+            <span class="section-label">Section 3</span>
+            <h2 class="section-title">Alternative Contact Methods</h2>
+
+            <div class="copy-block">
+                <div class="copy-label">Section Introduction</div>
+                <div class="copy-text">Prefer a different way to connect? Reach out directly. We respond to every inquiry personally.</div>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-card-label">Email</div>
+                    <div class="contact-card-value">hello@scaleupventures.com</div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-card-label">Phone</div>
+                    <div class="contact-card-value">(555) 123-4567</div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-card-label">LinkedIn</div>
+                    <div class="contact-card-value">linkedin.com/company/scaleupventures</div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-card-label">Office</div>
+                    <div class="contact-card-value">123 Business Center Drive, Suite 400<br>City, State 12345</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(212, 168, 83, 0.1); border-radius: 8px; border-left: 3px solid var(--gold);">
+                <p style="color: var(--slate); font-size: 0.9rem;"><strong style="color: var(--navy);">Note:</strong> Update placeholder values with actual contact information before publishing.</p>
+            </div>
+        </div>
+
+        <!-- ========================================
+             SECTION 4: WHAT TO EXPECT
+        ======================================== -->
+        <div class="section">
+            <span class="section-label">Section 4</span>
+            <h2 class="section-title">What to Expect</h2>
+
+            <div class="copy-block">
+                <div class="copy-label">Section Headline</div>
+                <div class="copy-text large">What Happens After You Reach Out</div>
+            </div>
+
+            <div class="copy-block">
+                <div class="copy-label">Section Introduction</div>
+                <div class="copy-text">We do not waste your time with sales pitches. Here is exactly how our process works:</div>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">We Review Your Submission</div>
+                    <div class="step-desc">We read what you sent. Actually read it. Then we research your business and industry before we respond.</div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Personal Response Within 24 Hours</div>
+                    <div class="step-desc">You will hear back from a real person with initial thoughts on your situation. No templates. No automation.</div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">20-Minute Discovery Call</div>
+                    <div class="step-desc">If there is a fit, we schedule a brief call to understand your goals, challenges, and what success looks like for you.</div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-title">ROI Model Presentation</div>
+                    <div class="step-desc">We build a custom model showing projected results and ROI. You see the math before you spend a dollar.</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <h4 style="font-family: 'Crimson Pro', serif; color: var(--navy); margin-bottom: 1rem;">Step Copy (Plain Text)</h4>
+
+                <div class="copy-block">
+                    <div class="copy-label">Step 1</div>
+                    <div class="copy-text"><strong>We Review Your Submission</strong> - We read what you sent. Actually read it. Then we research your business and industry before we respond.</div>
+                </div>
+
+                <div class="copy-block">
+                    <div class="copy-label">Step 2</div>
+                    <div class="copy-text"><strong>Personal Response Within 24 Hours</strong> - You will hear back from a real person with initial thoughts on your situation. No templates. No automation.</div>
+                </div>
+
+                <div class="copy-block">
+                    <div class="copy-label">Step 3</div>
+                    <div class="copy-text"><strong>20-Minute Discovery Call</strong> - If there is a fit, we schedule a brief call to understand your goals, challenges, and what success looks like for you.</div>
+                </div>
+
+                <div class="copy-block">
+                    <div class="copy-label">Step 4</div>
+                    <div class="copy-text"><strong>ROI Model Presentation</strong> - We build a custom model showing projected results and ROI. You see the math before you spend a dollar.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             SECTION 5: REASSURANCE
+        ======================================== -->
+        <div class="section">
+            <span class="section-label">Section 5</span>
+            <h2 class="section-title">Reassurance Section</h2>
+
+            <div class="reassurance-grid">
+                <div class="reassurance-item">
+                    <div class="reassurance-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <div class="reassurance-title">No Obligation</div>
+                    <div class="reassurance-text">This is a conversation, not a commitment. We will only recommend working together if we genuinely believe we can deliver results.</div>
+                </div>
+
+                <div class="reassurance-item">
+                    <div class="reassurance-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <div class="reassurance-title">Response Within 24 Hours</div>
+                    <div class="reassurance-text">We respond to every inquiry within one business day. Most hear back within a few hours.</div>
+                </div>
+
+                <div class="reassurance-item">
+                    <div class="reassurance-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                    <div class="reassurance-title">Your Information is Safe</div>
+                    <div class="reassurance-text">We never share your data with third parties. Your information is used only to respond to your inquiry.</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h4 style="font-family: 'Crimson Pro', serif; color: var(--navy); margin-bottom: 1rem;">Reassurance Copy (Plain Text)</h4>
+
+                <div class="copy-block">
+                    <div class="copy-label">No Obligation Statement</div>
+                    <div class="copy-text"><strong>No Obligation</strong> - This is a conversation, not a commitment. We will only recommend working together if we genuinely believe we can deliver results.</div>
+                </div>
+
+                <div class="copy-block">
+                    <div class="copy-label">Response Time Commitment</div>
+                    <div class="copy-text"><strong>Response Within 24 Hours</strong> - We respond to every inquiry within one business day. Most hear back within a few hours.</div>
+                </div>
+
+                <div class="copy-block">
+                    <div class="copy-label">Privacy Assurance</div>
+                    <div class="copy-text"><strong>Your Information is Safe</strong> - We never share your data with third parties. Your information is used only to respond to your inquiry.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             SECTION 6: FINAL CTA
+        ======================================== -->
+        <div class="section">
+            <span class="section-label">Section 6</span>
+            <h2 class="section-title">Final CTA</h2>
+
+            <div class="final-cta">
+                <p class="final-cta-text">You have built something worth protecting. Let us show you how to grow it with certainty.</p>
+                <p class="final-cta-subtext">Complete the form above, or call us directly at (555) 123-4567.</p>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <div class="copy-block">
+                    <div class="copy-label">Primary CTA Statement</div>
+                    <div class="copy-text large">You have built something worth protecting. Let us show you how to grow it with certainty.</div>
+                </div>
+
+                <div class="copy-block">
+                    <div class="copy-label">Supporting CTA</div>
+                    <div class="copy-text">Complete the form above, or call us directly at (555) 123-4567.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             COMPLETE COPY REFERENCE
+        ======================================== -->
+        <div class="section" style="background: var(--navy); color: var(--white);">
+            <span class="section-label" style="background: rgba(212, 168, 83, 0.3); color: var(--gold);">Reference</span>
+            <h2 class="section-title" style="color: var(--white); border-bottom-color: rgba(255,255,255,0.1);">Complete Copy - Ready to Post</h2>
+
+            <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 2rem; margin-bottom: 1.5rem;">
+                <h4 style="color: var(--gold); margin-bottom: 1rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Hero Section</h4>
+                <p style="color: var(--white); font-family: 'Crimson Pro', serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Ready to See the Math Before You Spend a Dollar?</p>
+                <p style="color: var(--gold); margin-bottom: 1rem;">Certainty First. Then Results.</p>
+                <p style="color: rgba(255,255,255,0.8);">Every conversation starts the same way: you tell us what you need, and we show you exactly how we get there. No vague promises. No hoping for the best. Just a clear ROI model that proves the investment makes sense before you commit.</p>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 2rem; margin-bottom: 1.5rem;">
+                <h4 style="color: var(--gold); margin-bottom: 1rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Form Section</h4>
+                <p style="color: var(--white); font-family: 'Crimson Pro', serif; font-size: 1.25rem; margin-bottom: 0.5rem;">Tell Us About Your Business</p>
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 1rem;">Complete the form below and we will reach out within one business day with a personalized response. Not a template. Not an auto-reply. A real assessment of how we might help.</p>
+                <p style="color: var(--gold);"><strong>Button:</strong> Show Me the ROI Model</p>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 2rem; margin-bottom: 1.5rem;">
+                <h4 style="color: var(--gold); margin-bottom: 1rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">What to Expect</h4>
+                <p style="color: var(--white); font-family: 'Crimson Pro', serif; font-size: 1.25rem; margin-bottom: 0.5rem;">What Happens After You Reach Out</p>
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 1rem;">We do not waste your time with sales pitches. Here is exactly how our process works:</p>
+                <ol style="color: rgba(255,255,255,0.8); padding-left: 1.5rem;">
+                    <li style="margin-bottom: 0.75rem;"><strong style="color: var(--white);">We Review Your Submission</strong> - We read what you sent. Actually read it. Then we research your business and industry before we respond.</li>
+                    <li style="margin-bottom: 0.75rem;"><strong style="color: var(--white);">Personal Response Within 24 Hours</strong> - You will hear back from a real person with initial thoughts on your situation. No templates. No automation.</li>
+                    <li style="margin-bottom: 0.75rem;"><strong style="color: var(--white);">20-Minute Discovery Call</strong> - If there is a fit, we schedule a brief call to understand your goals, challenges, and what success looks like for you.</li>
+                    <li><strong style="color: var(--white);">ROI Model Presentation</strong> - We build a custom model showing projected results and ROI. You see the math before you spend a dollar.</li>
+                </ol>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 2rem; margin-bottom: 1.5rem;">
+                <h4 style="color: var(--gold); margin-bottom: 1rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Reassurance Points</h4>
+                <ul style="color: rgba(255,255,255,0.8); list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.75rem;"><strong style="color: var(--white);">No Obligation</strong> - This is a conversation, not a commitment. We will only recommend working together if we genuinely believe we can deliver results.</li>
+                    <li style="margin-bottom: 0.75rem;"><strong style="color: var(--white);">Response Within 24 Hours</strong> - We respond to every inquiry within one business day. Most hear back within a few hours.</li>
+                    <li><strong style="color: var(--white);">Your Information is Safe</strong> - We never share your data with third parties. Your information is used only to respond to your inquiry.</li>
+                </ul>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 2rem;">
+                <h4 style="color: var(--gold); margin-bottom: 1rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Final CTA</h4>
+                <p style="color: var(--white); font-family: 'Crimson Pro', serif; font-size: 1.25rem; margin-bottom: 0.5rem;">You have built something worth protecting. Let us show you how to grow it with certainty.</p>
+                <p style="color: rgba(255,255,255,0.7);">Complete the form above, or call us directly at (555) 123-4567.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 2rem; color: var(--slate-light); font-size: 0.875rem;">
+            <p>ScaleUp Ventures | Contact Page Copy</p>
+            <p style="margin-top: 0.5rem;">December 31, 2025</p>
+        </div>
+
+    </div>
+</body>
+</html>

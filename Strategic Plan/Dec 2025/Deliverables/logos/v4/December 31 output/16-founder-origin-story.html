@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Founder Origin Story Framework | ScaleUp Ventures</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --navy-light: #1a2540;
+            --navy-dark: #0a0f1a;
+            --gold-light: #e5c77a;
+            --gold-muted: rgba(212, 168, 83, 0.15);
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --text-muted: #718096;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--navy);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+            padding: 4rem 0;
+            border-bottom: 3px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--gold-muted) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .company-name {
+            font-size: 1rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h1 strong {
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .tagline span {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        .doc-nav {
+            background: var(--navy-dark);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .nav-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+            list-style: none;
+            justify-content: center;
+        }
+
+        .nav-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+            padding: 0.25rem 0;
+        }
+
+        .nav-list a:hover {
+            color: var(--gold);
+        }
+
+        /* Main Content */
+        main {
+            padding: 4rem 0;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        .section-number {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 2.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--gold);
+        }
+
+        h4 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--text-secondary);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--navy-light);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(212, 168, 83, 0.1);
+        }
+
+        .card-gold {
+            border-left: 4px solid var(--gold);
+        }
+
+        .card-highlight {
+            background: linear-gradient(135deg, var(--navy-light) 0%, rgba(212, 168, 83, 0.08) 100%);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+        }
+
+        /* Why It Matters Section */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .impact-card {
+            background: var(--navy-light);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(212, 168, 83, 0.1);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .impact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .impact-stat {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Template Framework */
+        .framework-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .framework-step {
+            background: var(--navy-light);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .framework-step .step-icon {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .framework-step .step-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .framework-arrow {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        /* Interview Questions */
+        .interview-section {
+            background: var(--navy-light);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .interview-section h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 0;
+        }
+
+        .interview-section h4::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .question-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .question-list li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .question-list li::before {
+            content: 'Q';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .question-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Founder Profiles */
+        .founder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .founder-card {
+            background: var(--navy-light);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 168, 83, 0.1);
+        }
+
+        .founder-header {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-light) 100%);
+            padding: 1.5rem;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .founder-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .founder-role {
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        .founder-credentials {
+            padding: 1.5rem;
+        }
+
+        .credential-tag {
+            display: inline-block;
+            background: var(--gold-muted);
+            color: var(--gold);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 0.25rem;
+        }
+
+        /* Story Drafts */
+        .draft-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid rgba(212, 168, 83, 0.2);
+            padding-bottom: 1rem;
+        }
+
+        .draft-tab {
+            background: var(--navy-light);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            color: var(--text-secondary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .draft-tab:hover,
+        .draft-tab.active {
+            background: var(--gold);
+            color: var(--navy);
+            border-color: var(--gold);
+        }
+
+        .story-draft {
+            background: var(--navy-light);
+            border-radius: 12px;
+            padding: 2.5rem;
+            border-left: 4px solid var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .draft-label {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .story-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-primary);
+            font-style: italic;
+        }
+
+        .story-content p {
+            color: var(--text-primary);
+        }
+
+        /* Usage Matrix */
+        .usage-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .usage-table th,
+        .usage-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(212, 168, 83, 0.1);
+        }
+
+        .usage-table th {
+            background: var(--navy-light);
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .usage-table td {
+            color: var(--text-secondary);
+        }
+
+        .usage-table tr:hover td {
+            background: rgba(212, 168, 83, 0.05);
+        }
+
+        .check-icon {
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* Version Formats */
+        .version-box {
+            background: var(--navy-light);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .version-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .version-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .word-count {
+            background: var(--navy-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .version-content {
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .version-content p {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .version-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Video Script */
+        .video-script {
+            background: var(--navy-dark);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .script-header {
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--navy);
+            padding: 1rem 2rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .script-duration {
+            background: var(--navy);
+            color: var(--gold);
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .script-body {
+            padding: 2rem;
+        }
+
+        .script-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed rgba(212, 168, 83, 0.2);
+        }
+
+        .script-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .script-label {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .script-timing {
+            float: right;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .script-text {
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .script-direction {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Credibility Connection */
+        .connection-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .connection-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .connection-box {
+            flex: 1;
+            background: var(--navy-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .connection-box.founder {
+            border: 2px solid var(--gold);
+        }
+
+        .connection-box.brand {
+            border: 2px solid #4299e1;
+        }
+
+        .connection-arrow {
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .connection-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .connection-value {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Burned Before Integration */
+        .messaging-bridge {
+            background: linear-gradient(135deg, var(--navy-light) 0%, rgba(212, 168, 83, 0.1) 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(212, 168, 83, 0.3);
+        }
+
+        .bridge-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1.5rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .bridge-left {
+            text-align: right;
+            color: var(--text-secondary);
+        }
+
+        .bridge-connector {
+            color: var(--gold);
+            font-size: 1.25rem;
+        }
+
+        .bridge-right {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Quote Callout */
+        .quote-callout {
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.1) 0%, var(--navy-light) 100%);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--gold);
+            position: relative;
+        }
+
+        .quote-callout::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .quote-text {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text-primary);
+            margin-left: 2rem;
+        }
+
+        .quote-attribution {
+            margin-top: 1rem;
+            margin-left: 2rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Print Styles */
+        .print-section {
+            background: var(--navy-light);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .print-notice {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .print-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .checklist li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .checklist li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--gold);
+            border-radius: 4px;
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy-dark);
+            border-top: 2px solid var(--gold);
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-brand {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .footer-tagline {
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .framework-visual {
+                flex-direction: column;
+            }
+
+            .framework-arrow {
+                transform: rotate(90deg);
+            }
+
+            .bridge-row {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .bridge-left {
+                text-align: center;
+            }
+
+            .connection-row {
+                flex-direction: column;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: #1a1a1a;
+            }
+
+            .doc-nav {
+                display: none;
+            }
+
+            .card,
+            .version-box,
+            .interview-section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="company-name">ScaleUp Ventures</div>
+            <h1>Founder <strong>Origin Story</strong> Framework</h1>
+            <p class="tagline">Authentic Narratives that Build Trust | <span>"Certainty First."</span></p>
+        </div>
+    </header>
+
+    <nav class="doc-nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#why-stories">Why Stories Matter</a></li>
+                <li><a href="#template">Story Template</a></li>
+                <li><a href="#interview">Interview Questions</a></li>
+                <li><a href="#structure">P-P-P Structure</a></li>
+                <li><a href="#drafts">Sample Drafts</a></li>
+                <li><a href="#usage">Where to Use</a></li>
+                <li><a href="#versions">Story Versions</a></li>
+                <li><a href="#video">Video Script</a></li>
+                <li><a href="#credibility">Credibility Connection</a></li>
+                <li><a href="#burned-before">Burned Before</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Section 1: Why Origin Stories Matter -->
+        <section id="why-stories">
+            <span class="section-number">1</span>
+            <h2>Why Origin Stories Matter for B2B Trust</h2>
+
+            <p>In B2B services, especially consulting and strategic advisory, clients don't just buy deliverables--they buy the people behind them. Your origin story is the bridge between "we offer services" and "we understand your challenges because we've lived them."</p>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-stat">63%</div>
+                    <div class="impact-label">of B2B buyers say founder credibility influences purchase decisions</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-stat">4.2x</div>
+                    <div class="impact-label">higher engagement on About pages with compelling founder narratives</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-stat">78%</div>
+                    <div class="impact-label">of enterprise clients research founders before signing contracts</div>
+                </div>
+            </div>
+
+            <div class="card card-highlight" style="margin-top: 2rem;">
+                <h4>The Psychology of Origin Stories in B2B</h4>
+                <p><strong>Pattern Matching:</strong> Prospects look for founders who've faced similar challenges. Your story signals: "We've been where you are."</p>
+                <p><strong>Risk Reduction:</strong> Past exits and achievements reduce perceived risk. Track record = predictability.</p>
+                <p><strong>Values Alignment:</strong> Story reveals character. Clients want partners whose values match their own.</p>
+                <p style="margin-bottom: 0;"><strong>Differentiation:</strong> Anyone can claim expertise. Only you have your specific journey.</p>
+            </div>
+
+            <div class="quote-callout">
+                <p class="quote-text">People don't buy what you do; they buy why you do it. And what you do simply proves what you believe.</p>
+                <p class="quote-attribution">- Simon Sinek</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Story Template -->
+        <section id="template">
+            <span class="section-number">2</span>
+            <h2>Template for Founder Narrative</h2>
+
+            <p>Every compelling origin story follows a three-part arc: Catalyst, Journey, and Mission. This structure creates emotional resonance while maintaining professional credibility.</p>
+
+            <div class="framework-visual">
+                <div class="framework-step">
+                    <div class="step-icon">&#x26A1;</div>
+                    <div class="step-label">Catalyst Moment</div>
+                </div>
+                <span class="framework-arrow">&#x2192;</span>
+                <div class="framework-step">
+                    <div class="step-icon">&#x1F6E4;</div>
+                    <div class="step-label">The Journey</div>
+                </div>
+                <span class="framework-arrow">&#x2192;</span>
+                <div class="framework-step">
+                    <div class="step-icon">&#x1F3AF;</div>
+                    <div class="step-label">The Mission</div>
+                </div>
+            </div>
+
+            <div class="card card-gold">
+                <h4>Part 1: The Catalyst Moment</h4>
+                <p>The inciting incident that set everything in motion. This should be specific, emotional, and relatable.</p>
+                <ul class="checklist">
+                    <li>What specific moment made you realize something had to change?</li>
+                    <li>What pain or frustration triggered action?</li>
+                    <li>What did you see that others missed?</li>
+                    <li>What was the cost of staying on the current path?</li>
+                </ul>
+            </div>
+
+            <div class="card card-gold">
+                <h4>Part 2: The Journey</h4>
+                <p>The path from catalyst to expertise. Include struggles, learnings, and pivotal achievements.</p>
+                <ul class="checklist">
+                    <li>What obstacles did you face along the way?</li>
+                    <li>What hard lessons did you learn?</li>
+                    <li>What credentials/achievements did you earn?</li>
+                    <li>What sacrifices did you make?</li>
+                </ul>
+            </div>
+
+            <div class="card card-gold">
+                <h4>Part 3: The Mission</h4>
+                <p>Why you do what you do now. This connects your past to your client's future.</p>
+                <ul class="checklist">
+                    <li>What drives you to help others today?</li>
+                    <li>What change do you want to create in the world?</li>
+                    <li>How does your journey uniquely qualify you?</li>
+                    <li>What promise do you make to clients?</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 3: Interview Questions -->
+        <section id="interview">
+            <span class="section-number">3</span>
+            <h2>Interview Questions to Uncover the Story</h2>
+
+            <p>Use these questions in founder interviews. Record responses and mine for authentic, specific details that bring the story to life.</p>
+
+            <div class="interview-section">
+                <h4>Early Career & Background</h4>
+                <ul class="question-list">
+                    <li>What was your first job or business venture? What did it teach you?</li>
+                    <li>When did you first realize you were entrepreneurial?</li>
+                    <li>What did your family/upbringing teach you about work and success?</li>
+                    <li>Who were your early mentors and what did they instill in you?</li>
+                    <li>What's a failure from early in your career that shaped who you are today?</li>
+                </ul>
+            </div>
+
+            <div class="interview-section">
+                <h4>The Turning Point</h4>
+                <ul class="question-list">
+                    <li>Describe a specific moment when you knew you needed to start this venture.</li>
+                    <li>What frustration or problem kept you up at night?</li>
+                    <li>What did you see in the market that others were missing?</li>
+                    <li>Who was the first person you told about this idea, and what did they say?</li>
+                    <li>What was the riskiest decision you made to get started?</li>
+                </ul>
+            </div>
+
+            <div class="interview-section">
+                <h4>Building Credibility</h4>
+                <ul class="question-list">
+                    <li>Walk me through your biggest achievement and why it matters.</li>
+                    <li>What's a challenge you faced that most people don't know about?</li>
+                    <li>Describe a moment when you earned the trust of a skeptical client.</li>
+                    <li>What metric or outcome are you most proud of?</li>
+                    <li>What have you sacrificed to build what you've built?</li>
+                </ul>
+            </div>
+
+            <div class="interview-section">
+                <h4>Mission & Purpose</h4>
+                <ul class="question-list">
+                    <li>Why does this work matter to you beyond making money?</li>
+                    <li>What change do you want to see in your industry?</li>
+                    <li>How do you want clients to feel after working with you?</li>
+                    <li>What would you tell your younger self about this journey?</li>
+                    <li>What's the legacy you want to leave?</li>
+                </ul>
+            </div>
+
+            <div class="interview-section">
+                <h4>Collaboration Questions (For Multi-Founder Teams)</h4>
+                <ul class="question-list">
+                    <li>How did you [founders] meet, and what made you decide to partner?</li>
+                    <li>What does each founder bring that the others don't?</li>
+                    <li>Describe a moment when your partnership was tested.</li>
+                    <li>What shared values or vision unites you?</li>
+                    <li>How do you make decisions as a founding team?</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 4: P-P-P Structure -->
+        <section id="structure">
+            <span class="section-number">4</span>
+            <h2>Structure: Personal > Professional > Purpose</h2>
+
+            <p>The P-P-P framework ensures your story moves from emotional connection to credibility to call-to-action. Each layer builds on the last.</p>
+
+            <div class="card" style="margin-top: 2rem;">
+                <h3 style="margin-top: 0;">Layer 1: Personal (The Human)</h3>
+                <p>Start with the human element. What makes you relatable? What's your origin?</p>
+
+                <div style="background: rgba(0,0,0,0.2); padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                    <p style="margin-bottom: 0.5rem;"><strong>Elements to Include:</strong></p>
+                    <ul style="color: var(--text-secondary); margin-left: 1.5rem;">
+                        <li>Where you come from (background, values)</li>
+                        <li>A defining personal experience</li>
+                        <li>Character traits that drive you</li>
+                        <li>What you believe (philosophy, worldview)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-top: 0;">Layer 2: Professional (The Proof)</h3>
+                <p>Now establish credibility. What have you achieved? What qualifies you?</p>
+
+                <div style="background: rgba(0,0,0,0.2); padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                    <p style="margin-bottom: 0.5rem;"><strong>Elements to Include:</strong></p>
+                    <ul style="color: var(--text-secondary); margin-left: 1.5rem;">
+                        <li>Track record (numbers, outcomes, exits)</li>
+                        <li>Experience in relevant domains</li>
+                        <li>Unique expertise or methodology</li>
+                        <li>Recognition, credentials, accomplishments</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-top: 0;">Layer 3: Purpose (The Promise)</h3>
+                <p>Connect your story to the client's story. Why does this matter to them?</p>
+
+                <div style="background: rgba(0,0,0,0.2); padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                    <p style="margin-bottom: 0.5rem;"><strong>Elements to Include:</strong></p>
+                    <ul style="color: var(--text-secondary); margin-left: 1.5rem;">
+                        <li>The change you're committed to creating</li>
+                        <li>How your experience translates to client benefit</li>
+                        <li>The specific promise you make</li>
+                        <li>Why clients can trust you with their business</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ScaleUp Founders Profile -->
+            <h3>ScaleUp Ventures Founding Team</h3>
+            <div class="founder-grid">
+                <div class="founder-card">
+                    <div class="founder-header">
+                        <div class="founder-name">Calvin Williams Jr.</div>
+                        <div class="founder-role">CEO & Managing Partner</div>
+                    </div>
+                    <div class="founder-credentials">
+                        <span class="credential-tag">Freeman Capital Founder</span>
+                        <span class="credential-tag">~$4M Raised</span>
+                        <span class="credential-tag">2 Exits</span>
+                        <span class="credential-tag">Strategy</span>
+                        <span class="credential-tag">Capital Formation</span>
+                    </div>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-header">
+                        <div class="founder-name">Ray Addison II</div>
+                        <div class="founder-role">Co-Founder & Partner</div>
+                    </div>
+                    <div class="founder-credentials">
+                        <span class="credential-tag">Operations</span>
+                        <span class="credential-tag">Execution</span>
+                        <span class="credential-tag">Scaling</span>
+                    </div>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-header">
+                        <div class="founder-name">Aaron Mitchell</div>
+                        <div class="founder-role">Co-Founder & Partner</div>
+                    </div>
+                    <div class="founder-credentials">
+                        <span class="credential-tag">Technology</span>
+                        <span class="credential-tag">Product</span>
+                        <span class="credential-tag">Innovation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Sample Drafts -->
+        <section id="drafts">
+            <span class="section-number">5</span>
+            <h2>3 Sample Origin Story Drafts</h2>
+
+            <p>Below are three distinct approaches to telling the ScaleUp Ventures origin story. Each emphasizes different aspects while maintaining the core narrative. Choose the version that resonates most, or combine elements from each.</p>
+
+            <div class="story-draft">
+                <span class="draft-label">Draft A: The "Burned Before" Origin</span>
+                <div class="story-content">
+                    <p>We've seen what happens when founders bet everything on partners who don't deliver. The wasted months. The burned capital. The opportunities that slip away while you're cleaning up someone else's mess.</p>
+                    <p>That's why we built ScaleUp Ventures differently. Calvin Williams Jr. didn't just study entrepreneurship--he lived it. Through Freeman Capital, he raised nearly $4 million and navigated two exits. He knows what it feels like to depend on advisors who understand the stakes because he's been the one depending on them.</p>
+                    <p>Together with Ray Addison II and Aaron Mitchell, we created the firm we wished existed when we were building. One that delivers certainty instead of excuses. Execution instead of PowerPoints. Results instead of promises.</p>
+                    <p>Because we remember what it was like to need a partner we could actually count on. Now, we are that partner.</p>
+                </div>
+            </div>
+
+            <div class="story-draft">
+                <span class="draft-label">Draft B: The "Track Record" Origin</span>
+                <div class="story-content">
+                    <p>ScaleUp Ventures was born from a simple observation: most consulting firms have never actually built what they advise others to build.</p>
+                    <p>Our founding team is different. Calvin Williams Jr. founded Freeman Capital and led it through nearly $4 million in capital raised and two successful exits. He didn't learn scaling from case studies--he learned it from cap tables, board meetings, and the 3 AM decisions that determine whether a company survives.</p>
+                    <p>When Calvin connected with Ray Addison II and Aaron Mitchell, they recognized a shared frustration: too many founders were working with advisors who couldn't survive a single quarter in an operator's seat. ScaleUp Ventures exists to change that equation.</p>
+                    <p>We bring founder experience to founder challenges. Not theory--practice. Not potential--proof. "Certainty First" isn't a tagline; it's the standard we held ourselves to as operators, and now hold ourselves to as partners.</p>
+                </div>
+            </div>
+
+            <div class="story-draft">
+                <span class="draft-label">Draft C: The "Mission" Origin</span>
+                <div class="story-content">
+                    <p>Every founder deserves a partner who understands that their business isn't a case study--it's their life's work.</p>
+                    <p>That belief brought three entrepreneurs together. Calvin Williams Jr. had built Freeman Capital from the ground up, raising nearly $4 million and achieving two exits. Ray Addison II and Aaron Mitchell brought their own battle scars from years of building in the trenches. What united them wasn't just experience--it was a shared conviction that founders deserve better.</p>
+                    <p>Better than advisors who disappear when things get hard. Better than strategies that look good on slides but fail in execution. Better than the uncertainty that keeps founders up at night.</p>
+                    <p>ScaleUp Ventures is our answer to that conviction. We put "Certainty First" because we remember what uncertainty cost us. And we're committed to making sure our clients never have to pay that price.</p>
+                </div>
+            </div>
+
+            <div class="card card-highlight" style="margin-top: 2rem;">
+                <h4>Choosing Your Draft</h4>
+                <table class="usage-table">
+                    <tr>
+                        <th>Draft</th>
+                        <th>Best For</th>
+                        <th>Emphasis</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Draft A</strong></td>
+                        <td>Clients who've had bad consulting experiences</td>
+                        <td>Empathy, understanding pain</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Draft B</strong></td>
+                        <td>Clients who prioritize credentials and proof</td>
+                        <td>Track record, credibility</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Draft C</strong></td>
+                        <td>Clients seeking values alignment</td>
+                        <td>Mission, partnership, care</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 6: Where to Use -->
+        <section id="usage">
+            <span class="section-number">6</span>
+            <h2>Where to Use the Origin Story</h2>
+
+            <p>Different contexts call for different versions and depths of your origin story. Here's a strategic guide for deployment across channels.</p>
+
+            <table class="usage-table">
+                <thead>
+                    <tr>
+                        <th>Channel</th>
+                        <th>Version</th>
+                        <th>Primary Goal</th>
+                        <th>Key Elements</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Website About Page</strong></td>
+                        <td>Long-form + Video</td>
+                        <td>Build comprehensive trust</td>
+                        <td>Full story, all founders, credentials</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Proposals</strong></td>
+                        <td>Medium-form</td>
+                        <td>Establish credibility quickly</td>
+                        <td>Track record, relevant experience</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conference Speaking</strong></td>
+                        <td>Short-form + anecdotes</td>
+                        <td>Connect emotionally, establish authority</td>
+                        <td>Personal moment, mission</td>
+                    </tr>
+                    <tr>
+                        <td><strong>LinkedIn Profiles</strong></td>
+                        <td>Short-form</td>
+                        <td>Quick credibility check</td>
+                        <td>Key numbers, mission statement</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sales Conversations</strong></td>
+                        <td>Modular (adapt to prospect)</td>
+                        <td>Build rapport, show understanding</td>
+                        <td>Relevant experience to their challenge</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Podcast Interviews</strong></td>
+                        <td>Long-form + stories</td>
+                        <td>Deep connection, thought leadership</td>
+                        <td>Full arc with specific anecdotes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email Signatures</strong></td>
+                        <td>One-liner</td>
+                        <td>Credibility reinforcement</td>
+                        <td>Key credential or tagline</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Investor Updates</strong></td>
+                        <td>Context-dependent</td>
+                        <td>Reinforce conviction</td>
+                        <td>Mission, progress, vision</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="card" style="margin-top: 2rem;">
+                <h4>Best Practices by Context</h4>
+
+                <h4>About Page</h4>
+                <p>Lead with the mission, then support with founder stories. Include photos. Make the connection to client benefits explicit. Use video to bring personality to life.</p>
+
+                <h4>Proposals</h4>
+                <p>Place origin story in "About Our Team" section. Focus on experience directly relevant to the engagement. Use numbers (capital raised, exits, years) for quick credibility.</p>
+
+                <h4>Speaking Engagements</h4>
+                <p>Open with a hook from your story, not your bio. Use the catalyst moment to draw audience in. End by connecting your journey to the audience's challenges.</p>
+
+                <h4>First Sales Meetings</h4>
+                <p>Don't recite your story--let it emerge naturally. Ask about their journey first, then share relevant parts of yours. Match story elements to their expressed pain points.</p>
+            </div>
+        </section>
+
+        <!-- Section 7, 8, 9: Story Versions -->
+        <section id="versions">
+            <span class="section-number">7-9</span>
+            <h2>Story Versions: Short, Medium, Long</h2>
+
+            <div class="version-box">
+                <div class="version-header">
+                    <span class="version-title">Short-Form Version</span>
+                    <span class="word-count">~60 words | 15 seconds</span>
+                </div>
+                <div class="version-content">
+                    <p>ScaleUp Ventures was founded by operators, not just advisors. Our CEO Calvin Williams Jr. raised nearly $4 million and led two exits at Freeman Capital. Together with co-founders Ray Addison II and Aaron Mitchell, we built the firm we wished existed--one that delivers certainty instead of promises. That's why we put "Certainty First."</p>
+                </div>
+            </div>
+
+            <div class="version-box">
+                <div class="version-header">
+                    <span class="version-title">Medium-Form Version</span>
+                    <span class="word-count">~150 words | 45 seconds</span>
+                </div>
+                <div class="version-content">
+                    <p>We started ScaleUp Ventures because we lived the problem we solve. Our CEO, Calvin Williams Jr., didn't learn about fundraising and exits from textbooks. He experienced them firsthand at Freeman Capital, where he raised nearly $4 million and navigated two successful exits. He knows what founders need because he's needed it himself.</p>
+
+                    <p>When Calvin connected with Ray Addison II and Aaron Mitchell, they recognized a shared frustration: too many consultants talk a great game but can't execute when it matters. Too many founders get burned by partners who don't deliver.</p>
+
+                    <p>ScaleUp Ventures exists to change that. We bring operator experience to strategic advisory. We don't just advise--we've done. That's not a pitch; it's our track record. And that's why "Certainty First" isn't just our tagline. It's our standard.</p>
+                </div>
+            </div>
+
+            <div class="version-box">
+                <div class="version-header">
+                    <span class="version-title">Long-Form Version</span>
+                    <span class="word-count">~350 words | 2 minutes</span>
+                </div>
+                <div class="version-content">
+                    <p>Every founder remembers the moment they realized they needed help. For Calvin Williams Jr., it came in the middle of building Freeman Capital. He was knee-deep in fundraising, operations, and strategic decisions that would determine whether the company survived. What he needed was a partner who understood what he was facing--not just theoretically, but viscerally.</p>
+
+                    <p>What he found instead were advisors who delivered polished presentations and disappeared when execution got hard. Consultants who'd never sat in a founder's seat. Partners who couldn't be counted on when the stakes were highest.</p>
+
+                    <p>Calvin built Freeman Capital anyway. He raised nearly $4 million. He led the company through two successful exits. And through every sleepless night and hard-won victory, he remembered what it felt like to need a partner who truly understood.</p>
+
+                    <p>That memory became the foundation for ScaleUp Ventures.</p>
+
+                    <p>When Calvin connected with Ray Addison II and Aaron Mitchell--both operators in their own right, with their own battle scars and hard-won wisdom--they discovered a shared conviction. The consulting industry was broken. Founders deserved better than advice from people who'd never built anything. They deserved partners who'd been in the arena.</p>
+
+                    <p>ScaleUp Ventures is the firm they wished existed when they were building. A team that leads with execution, not excuses. That backs strategy with experience. That understands the weight of what founders carry because we've carried it ourselves.</p>
+
+                    <p>Our tagline--"Certainty First"--isn't marketing. It's the standard we held ourselves to as operators, and now hold ourselves to as partners. It's a promise that when you work with ScaleUp Ventures, you're working with people who don't just understand your challenges intellectually. We've lived them.</p>
+
+                    <p>We remember what uncertainty costs. And we're committed to making sure our clients don't have to pay that price.</p>
+
+                    <p>That's why we built ScaleUp Ventures. That's why we do what we do. And that's why founders trust us with what matters most.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Video Script -->
+        <section id="video">
+            <span class="section-number">10</span>
+            <h2>Video Script: About Page Origin Story</h2>
+
+            <p>This script is designed for a 2-minute About page video featuring Calvin Williams Jr. as primary speaker, with potential cuts to Ray and Aaron.</p>
+
+            <div class="video-script">
+                <div class="script-header">
+                    <span>VIDEO SCRIPT: "Why We Built ScaleUp Ventures"</span>
+                    <span class="script-duration">Duration: 2:00</span>
+                </div>
+                <div class="script-body">
+                    <div class="script-section">
+                        <div class="script-label">Opening Hook <span class="script-timing">0:00 - 0:15</span></div>
+                        <p class="script-text">"I remember the exact moment I realized most advisors had never built what they advise others to build. I was in the middle of fundraising, running on fumes, and the consultant we'd hired sent over a beautiful deck. Great theory. Zero understanding of what we were actually going through."</p>
+                        <p class="script-direction">[Visual: Calvin in office setting, authentic and direct to camera]</p>
+                    </div>
+
+                    <div class="script-section">
+                        <div class="script-label">The Journey <span class="script-timing">0:15 - 0:45</span></div>
+                        <p class="script-text">"At Freeman Capital, we raised nearly four million dollars. We went through two exits. And every step of the way, I felt the gap between what founders need and what most advisors offer. We needed partners who'd been in the trenches. What we got was people who'd studied the trenches from a distance."</p>
+                        <p class="script-direction">[Visual: B-roll of startup environments, then back to Calvin]</p>
+                    </div>
+
+                    <div class="script-section">
+                        <div class="script-label">The Founding <span class="script-timing">0:45 - 1:15</span></div>
+                        <p class="script-text">"When I connected with Ray and Aaron, we realized we'd all had the same experience. And we had the same frustration. So we asked ourselves: what if we built the firm we wished existed when we were building? What if we brought real operator experience to strategic advisory?"</p>
+                        <p class="script-direction">[Visual: Quick cuts to Ray Addison II and Aaron Mitchell, then team shot]</p>
+                        <p class="script-text">[Ray]: "We'd all been burned before. And we knew our clients had been too."</p>
+                        <p class="script-text">[Aaron]: "We wanted to be the partners we never had."</p>
+                    </div>
+
+                    <div class="script-section">
+                        <div class="script-label">The Mission <span class="script-timing">1:15 - 1:45</span></div>
+                        <p class="script-text">"That's why our tagline is 'Certainty First.' Not because we have all the answers--nobody does. But because we've lived what you're building. We know what's at stake. And when you work with us, you're getting partners who don't just understand your challenges intellectually. We've been there."</p>
+                        <p class="script-direction">[Visual: Calvin, more intimate framing]</p>
+                    </div>
+
+                    <div class="script-section">
+                        <div class="script-label">Closing <span class="script-timing">1:45 - 2:00</span></div>
+                        <p class="script-text">"ScaleUp Ventures exists because founders deserve better. You deserve partners who deliver certainty instead of excuses. Execution instead of slide decks. That's what we built. And that's what we deliver. Every time."</p>
+                        <p class="script-direction">[Visual: Wide shot of team, then logo with tagline]</p>
+                        <p class="script-direction">[Super: ScaleUp Ventures | Certainty First.]</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+                <h4>Video Production Notes</h4>
+                <ul style="color: var(--text-secondary); margin-left: 1.5rem;">
+                    <li>Shoot in professional but authentic setting (office, not studio)</li>
+                    <li>Natural lighting preferred--avoid overly polished corporate look</li>
+                    <li>Calvin as primary speaker; Ray and Aaron for supporting cuts</li>
+                    <li>Include B-roll of team working, casual interactions</li>
+                    <li>Music: subtle, inspiring, not corporate-generic</li>
+                    <li>Color grade: warm, approachable, professional (avoid cold corporate blue)</li>
+                    <li>End screen: 5 seconds on logo with clear CTA</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 11: Credibility Connection -->
+        <section id="credibility">
+            <span class="section-number">11</span>
+            <h2>Connecting Founder Credibility to Brand Promise</h2>
+
+            <p>Your origin story must directly connect to your brand promise. Every element of founder credibility should reinforce "Certainty First."</p>
+
+            <h3>The Credibility-to-Promise Bridge</h3>
+
+            <div class="messaging-bridge">
+                <div class="bridge-row">
+                    <div class="bridge-left">Calvin raised ~$4M</div>
+                    <div class="bridge-connector">&#x2192;</div>
+                    <div class="bridge-right">"We know what it takes to secure capital"</div>
+                </div>
+                <div class="bridge-row">
+                    <div class="bridge-left">2 successful exits</div>
+                    <div class="bridge-connector">&#x2192;</div>
+                    <div class="bridge-right">"We've been through the full journey"</div>
+                </div>
+                <div class="bridge-row">
+                    <div class="bridge-left">Freeman Capital experience</div>
+                    <div class="bridge-connector">&#x2192;</div>
+                    <div class="bridge-right">"We've operated, not just advised"</div>
+                </div>
+                <div class="bridge-row">
+                    <div class="bridge-left">Three-founder team</div>
+                    <div class="bridge-connector">&#x2192;</div>
+                    <div class="bridge-right">"Comprehensive expertise across domains"</div>
+                </div>
+                <div class="bridge-row">
+                    <div class="bridge-left">"Burned before" empathy</div>
+                    <div class="bridge-connector">&#x2192;</div>
+                    <div class="bridge-right">"We understand and won't repeat the pattern"</div>
+                </div>
+            </div>
+
+            <h3>Credibility Proof Points</h3>
+
+            <div class="card">
+                <h4>Hard Credentials (Numbers & Facts)</h4>
+                <ul style="color: var(--text-secondary); margin-left: 1.5rem;">
+                    <li><strong>~$4 million raised</strong> - Demonstrates capital formation capability</li>
+                    <li><strong>2 exits</strong> - Proves end-to-end execution ability</li>
+                    <li><strong>Freeman Capital founder</strong> - Shows entrepreneurial track record</li>
+                    <li><strong>Three complementary founders</strong> - Indicates comprehensive capability</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>Soft Credentials (Experience & Insight)</h4>
+                <ul style="color: var(--text-secondary); margin-left: 1.5rem;">
+                    <li><strong>Operator perspective</strong> - "We've sat in your seat"</li>
+                    <li><strong>Hard-won lessons</strong> - "We learned the expensive way so you don't have to"</li>
+                    <li><strong>Pattern recognition</strong> - "We've seen what works and what doesn't"</li>
+                    <li><strong>Founder empathy</strong> - "We know what keeps you up at night"</li>
+                </ul>
+            </div>
+
+            <h3>How to Weave Credibility into Conversations</h3>
+
+            <table class="usage-table">
+                <tr>
+                    <th>When They Say</th>
+                    <th>You Can Bridge With</th>
+                </tr>
+                <tr>
+                    <td>"How do you understand our challenges?"</td>
+                    <td>"Because we've lived them. Calvin raised $4M at Freeman Capital--we know what you're facing."</td>
+                </tr>
+                <tr>
+                    <td>"What makes you different?"</td>
+                    <td>"Two exits and years of operator experience. We've done what we advise."</td>
+                </tr>
+                <tr>
+                    <td>"We've been burned before."</td>
+                    <td>"So have we. That's exactly why we built ScaleUp the way we did."</td>
+                </tr>
+                <tr>
+                    <td>"Can you actually execute?"</td>
+                    <td>"We didn't advise on exits--we led them. Execution is our foundation."</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Section 12: Burned Before Integration -->
+        <section id="burned-before">
+            <span class="section-number">12</span>
+            <h2>Integration with "Burned Before" Messaging</h2>
+
+            <p>The "burned before" insight is central to ScaleUp's positioning. Your origin story should validate and address this pain point directly.</p>
+
+            <div class="card card-highlight">
+                <h4>The Core Insight</h4>
+                <p style="font-size: 1.1rem; margin-bottom: 0;">Many successful founders have been burned by consultants, agencies, or advisors who over-promised and under-delivered. This creates skepticism that must be addressed, not avoided. Your origin story transforms this objection into connection.</p>
+            </div>
+
+            <h3>Messaging Bridge: From Skepticism to Trust</h3>
+
+            <div class="messaging-bridge">
+                <div class="bridge-row">
+                    <div class="bridge-left">"I've been burned by consultants"</div>
+                    <div class="bridge-connector">&#x2192;</div>
+                    <div class="bridge-right">"We've been burned too. That's why we exist."</div>
+                </div>
+                <div class="bridge-row">
+                    <div class="bridge-left">"Advisors don't understand operations"</div>
+                    <div class="bridge-connector">&#x2192;</div>
+                    <div class="bridge-right">"We've operated. 2 exits, $4M raised."</div>
+                </div>
+                <div class="bridge-row">
+                    <div class="bridge-left">"Nice decks, no execution"</div>
+                    <div class="bridge-connector">&#x2192;</div>
+                    <div class="bridge-right">"We don't deliver decks. We deliver outcomes."</div>
+                </div>
+                <div class="bridge-row">
+                    <div class="bridge-left">"They disappeared when things got hard"</div>
+                    <div class="bridge-connector">&#x2192;</div>
+                    <div class="bridge-right">"Hard is when we show up. That's our lane."</div>
+                </div>
+            </div>
+
+            <h3>Story Elements That Address "Burned Before"</h3>
+
+            <div class="card card-gold">
+                <h4>1. Acknowledge the Pain</h4>
+                <p>"We've seen what happens when founders bet everything on partners who don't deliver. The wasted months. The burned capital."</p>
+                <p style="margin-bottom: 0;"><strong>Why it works:</strong> Shows you understand the specific pain, not just abstractly but viscerally.</p>
+            </div>
+
+            <div class="card card-gold">
+                <h4>2. Share Your Own Experience</h4>
+                <p>"When I was building Freeman Capital, I needed partners who understood what I was facing. What I found were consultants who'd never built anything."</p>
+                <p style="margin-bottom: 0;"><strong>Why it works:</strong> Positions you as someone who's been on the client side of bad advisory.</p>
+            </div>
+
+            <div class="card card-gold">
+                <h4>3. Explain Your Response</h4>
+                <p>"That experience is exactly why we built ScaleUp Ventures. We're the firm we wished existed."</p>
+                <p style="margin-bottom: 0;"><strong>Why it works:</strong> Transforms pain into purpose, showing causality between experience and solution.</p>
+            </div>
+
+            <div class="card card-gold">
+                <h4>4. Make the Commitment</h4>
+                <p>"Certainty First isn't a tagline. It's the standard we held ourselves to as operators, and now hold ourselves to as partners."</p>
+                <p style="margin-bottom: 0;"><strong>Why it works:</strong> Connects tagline to origin, making it credible rather than aspirational.</p>
+            </div>
+
+            <h3>Conversation Framework: Handling "Burned Before" Objections</h3>
+
+            <div class="card">
+                <h4>Step 1: Validate</h4>
+                <p style="color: var(--text-secondary);">"I hear that. A lot of the founders we work with have had that experience. Can I share something?"</p>
+
+                <h4>Step 2: Connect</h4>
+                <p style="color: var(--text-secondary);">"We started ScaleUp because we had the same experience. Calvin spent years building Freeman Capital, and the advisors we worked with... let's just say we learned what not to do."</p>
+
+                <h4>Step 3: Differentiate</h4>
+                <p style="color: var(--text-secondary);">"That's why our team is all operators. $4M raised, two exits. We've done what we advise on. We're not guessing."</p>
+
+                <h4>Step 4: Reassure</h4>
+                <p style="color: var(--text-secondary);">"Our whole model is built around preventing exactly what you experienced. 'Certainty First' isn't marketing--it's how we hold ourselves accountable."</p>
+            </div>
+
+            <div class="quote-callout" style="margin-top: 2rem;">
+                <p class="quote-text">The best way to handle skepticism isn't to argue against it. It's to show that you share it, and that's exactly why you built what you built.</p>
+                <p class="quote-attribution">- Brand Strategy Principle</p>
+            </div>
+        </section>
+
+        <!-- Implementation Checklist -->
+        <section>
+            <h2>Implementation Checklist</h2>
+
+            <div class="card">
+                <h4>Before Launch</h4>
+                <ul class="checklist">
+                    <li>Conduct formal interviews with all three founders</li>
+                    <li>Select and refine preferred story draft</li>
+                    <li>Create all three length versions (short, medium, long)</li>
+                    <li>Write and refine video script</li>
+                    <li>Develop founder headshots and team photos</li>
+                    <li>Create speaker bio versions for each context</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>Website Implementation</h4>
+                <ul class="checklist">
+                    <li>Update About page with long-form story</li>
+                    <li>Add founder profiles with credentials</li>
+                    <li>Produce and embed origin story video</li>
+                    <li>Ensure "Certainty First" tagline is prominently featured</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>Sales Enablement</h4>
+                <ul class="checklist">
+                    <li>Add medium-form story to proposal template</li>
+                    <li>Create "About Our Team" slide for pitch deck</li>
+                    <li>Develop "burned before" response talking points</li>
+                    <li>Train team on story delivery and customization</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>Ongoing</h4>
+                <ul class="checklist">
+                    <li>Update LinkedIn profiles with short-form story</li>
+                    <li>Prepare speaking engagement versions</li>
+                    <li>Collect new proof points and achievements to add</li>
+                    <li>Review and refresh story annually</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div>
+                <div class="footer-brand">ScaleUp Ventures</div>
+                <div class="footer-tagline">Founder Origin Story Framework</div>
+            </div>
+            <div class="footer-tagline">"Certainty First."</div>
+        </div>
+    </footer>
+</body>
+</html>

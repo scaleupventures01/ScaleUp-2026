@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Proof | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1A2744;
+            --gold: #D4A853;
+            --gold-muted: #B8956E;
+            --gold-light: #E5C88A;
+            --cream: #FAF8F5;
+            --cream-dark: #F1EDE6;
+            --white: #FFFFFF;
+            --slate: #334155;
+            --slate-light: #64748B;
+            --font-headline: 'Crimson Pro', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--cream);
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        /* Sticky Header */
+        .header {
+            background: var(--navy);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--white);
+            font-family: var(--font-headline);
+            font-size: 24px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover {
+            color: var(--gold);
+        }
+
+        .tagline {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 100px 40px 120px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to bottom right, transparent 49%, var(--cream) 50%);
+        }
+
+        .hero h1 {
+            font-family: var(--font-headline);
+            font-size: 64px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: var(--gold-light);
+            max-width: 700px;
+            margin: 0 auto 32px;
+            font-weight: 400;
+        }
+
+        .hero-intro {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Section Container */
+        .section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: var(--font-headline);
+            font-size: 42px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 24px;
+        }
+
+        .section-intro {
+            font-size: 18px;
+            color: var(--slate-light);
+            max-width: 700px;
+            line-height: 1.8;
+            margin-bottom: 48px;
+        }
+
+        /* Featured Case Study - The No-Build */
+        .featured-case {
+            background: var(--white);
+            padding: 80px 40px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .featured-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .featured-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--navy);
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            margin-bottom: 32px;
+        }
+
+        .featured-badge svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--gold);
+        }
+
+        .featured-title {
+            font-family: var(--font-headline);
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .featured-subtitle {
+            font-size: 22px;
+            color: var(--gold-muted);
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            margin-bottom: 48px;
+        }
+
+        .featured-narrative h3 {
+            font-family: var(--font-headline);
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .featured-narrative p {
+            font-size: 17px;
+            color: var(--slate);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .featured-metrics {
+            background: var(--navy);
+            padding: 40px;
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .metric-item {
+            text-align: center;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric-item:last-child {
+            border-bottom: none;
+        }
+
+        .metric-number {
+            font-family: var(--font-headline);
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 40px;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .insight-box h4 {
+            font-family: var(--font-headline);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .insight-box p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        /* Case Studies Section */
+        .case-studies {
+            background: var(--cream-dark);
+            padding: 80px 40px;
+        }
+
+        .case-studies-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .case-card {
+            background: var(--white);
+            padding: 48px;
+            margin-bottom: 32px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .case-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(15, 23, 41, 0.1);
+        }
+
+        .case-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+            gap: 24px;
+        }
+
+        .case-type {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gold-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .case-title {
+            font-family: var(--font-headline);
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .case-domain {
+            font-size: 15px;
+            color: var(--slate-light);
+        }
+
+        .case-engagement {
+            background: var(--cream);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--slate);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .case-description {
+            font-size: 16px;
+            color: var(--slate);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .case-outcomes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .outcome-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--navy);
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        .outcome-tag svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* Built By Us Section */
+        .built-by-us {
+            background: var(--white);
+            padding: 80px 40px;
+        }
+
+        .built-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .product-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .product-info h3 {
+            font-family: var(--font-headline);
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .product-tagline {
+            font-size: 18px;
+            color: var(--gold-muted);
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .product-info p {
+            font-size: 16px;
+            color: var(--slate);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .product-visual {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 48px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .product-logo {
+            font-family: var(--font-headline);
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .product-logo span {
+            color: var(--gold);
+        }
+
+        .product-desc {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Methodology Section */
+        .methodology {
+            background: var(--navy);
+            color: var(--white);
+            padding: 80px 40px;
+        }
+
+        .methodology-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .methodology h2 {
+            font-family: var(--font-headline);
+            font-size: 42px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .methodology-subtitle {
+            font-size: 18px;
+            color: var(--gold-light);
+            margin-bottom: 48px;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .approach-item {
+            padding: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+
+        .approach-item:hover {
+            border-color: var(--gold);
+        }
+
+        .approach-number {
+            font-family: var(--font-headline);
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        .approach-item h3 {
+            font-family: var(--font-headline);
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--gold-light);
+            margin-bottom: 12px;
+        }
+
+        .approach-item p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+
+        /* Future Testimonials Section */
+        .future-testimonials {
+            background: var(--cream-dark);
+            padding: 80px 40px;
+        }
+
+        .future-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .future-testimonials h2 {
+            font-family: var(--font-headline);
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 24px;
+        }
+
+        .future-message {
+            background: var(--white);
+            padding: 48px;
+            border-radius: 8px;
+            border: 2px dashed rgba(15, 23, 41, 0.15);
+        }
+
+        .future-message p {
+            font-size: 17px;
+            color: var(--slate);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .future-message p:last-child {
+            margin-bottom: 0;
+        }
+
+        .honest-note {
+            font-style: italic;
+            color: var(--slate-light);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .cta-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-headline);
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 18px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 168, 83, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            color: var(--white);
+            padding: 18px 40px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* Footer */
+        .footer {
+            background: #0a0f1a;
+            padding: 48px 40px;
+            text-align: center;
+        }
+
+        .footer-tagline {
+            font-family: var(--font-headline);
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .featured-title {
+                font-size: 32px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .case-header {
+                flex-direction: column;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">Scale<span>Up</span> Ventures</a>
+            <nav class="nav">
+                <a href="#">Services</a>
+                <a href="#">About</a>
+                <a href="#">The Proof</a>
+                <a href="#">Contact</a>
+            </nav>
+            <span class="tagline">Certainty First.</span>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>The <span>Proof</span></h1>
+        <p class="hero-subtitle">We believe in evidence over promises. Here is ours.</p>
+        <p class="hero-intro">We are intentionally selective about the work we take on. That means we will not fill this page with vague testimonials or inflated metrics. Instead, we show you real engagements with real outcomes. The kind of transparency that earned your skepticism also earns our respect.</p>
+    </section>
+
+    <!-- Featured Case: The No-Build Decision -->
+    <section class="featured-case">
+        <div class="featured-inner">
+            <div class="featured-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z M2 17l10 5 10-5 M2 12l10 5 10-5"/></svg>
+                Featured Engagement
+            </div>
+
+            <h2 class="featured-title">The No-Build Decision</h2>
+            <p class="featured-subtitle">When "Certainty First" means telling you not to build.</p>
+
+            <div class="featured-grid">
+                <div class="featured-narrative">
+                    <h3>The Situation</h3>
+                    <p>A client came to us with a vision for a custom web application. They had budgeted $150,000 or more for development and were ready to commit 12-18 months to the project. They wanted us to build it.</p>
+
+                    <p>Instead, we proposed a $5,000 discovery and feasibility analysis. We spent four weeks examining their market, their assumptions, their competitive landscape, and the technical requirements they had outlined.</p>
+
+                    <h3>What We Found</h3>
+                    <p>Our analysis revealed that the market they wanted to enter was more saturated than they realized. The technical approach they envisioned would require ongoing maintenance costs they had not budgeted for. And critically, there were existing solutions that could accomplish 80% of their goals at a fraction of the cost.</p>
+
+                    <h3>Our Recommendation</h3>
+                    <p>We told them not to build. We provided a detailed report explaining why, alternative approaches they could take with significantly less investment, and a clear-eyed assessment of what it would actually take to succeed if they still wanted to proceed.</p>
+
+                    <p>They thanked us. They did not build. And they saved at least $150,000 and 12 months of effort that would have been misdirected.</p>
+                </div>
+
+                <div class="featured-metrics">
+                    <div class="metric-item">
+                        <div class="metric-number">$5K</div>
+                        <div class="metric-label">Discovery Investment</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-number">$150K+</div>
+                        <div class="metric-label">Avoided Misdirected Spend</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-number">12+ mo</div>
+                        <div class="metric-label">Time Saved</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h4>Why This Matters</h4>
+                <p>"Certainty First" is not a marketing slogan. It means we would rather earn $5,000 telling you the truth than $150,000 building something that will not serve you. Your skepticism about agencies who always say yes is well-founded. We are not that agency.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Case Studies -->
+    <section class="case-studies">
+        <div class="case-studies-inner">
+            <span class="section-label">Engagements</span>
+            <h2 class="section-title">Real Work, Real Outcomes</h2>
+            <p class="section-intro">These are actual engagements we have completed. We protect client confidentiality where appropriate, but the work and results are real.</p>
+
+            <!-- Case Study: Startup Concept to Fundable -->
+            <article class="case-card">
+                <div class="case-header">
+                    <div>
+                        <div class="case-type">Startup Advisory + Development</div>
+                        <h3 class="case-title">Concept to Fundable</h3>
+                        <p class="case-domain">Technology Startup</p>
+                    </div>
+                    <span class="case-engagement">Full Lifecycle</span>
+                </div>
+                <p class="case-description">
+                    A first-time founder came to us with a concept but no technical background. They needed help figuring out if their idea was viable, how to build it in a way that could scale, and what it would take to get investor attention.
+                </p>
+                <p class="case-description">
+                    We worked with them to define a scalable application architecture, built a working prototype that demonstrated the core value proposition, and developed a business model with clear unit economics. We then made strategic introductions to funders in our network who focus on early-stage opportunities.
+                </p>
+                <div class="case-outcomes">
+                    <span class="outcome-tag">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        Scalable Architecture Defined
+                    </span>
+                    <span class="outcome-tag">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        Working Prototype Built
+                    </span>
+                    <span class="outcome-tag">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        Unit Economics Modeled
+                    </span>
+                    <span class="outcome-tag">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        Funder Introductions Made
+                    </span>
+                </div>
+            </article>
+
+            <!-- Case Study: Financial Trading App -->
+            <article class="case-card">
+                <div class="case-header">
+                    <div>
+                        <div class="case-type">Proof of Concept Development</div>
+                        <h3 class="case-title">Financial Trading Application</h3>
+                        <p class="case-domain">Financial Services / Med Tech</p>
+                    </div>
+                    <span class="case-engagement">Proof of Concept</span>
+                </div>
+                <p class="case-description">
+                    We were engaged to build a proof-of-concept application spanning financial services and medical technology domains. This required navigating regulated industries with complex compliance requirements and enterprise-grade security considerations.
+                </p>
+                <p class="case-description">
+                    The engagement demonstrated our ability to work in domains where getting it wrong carries significant consequences. We delivered a functional proof-of-concept that addressed the technical feasibility questions the client needed answered before committing to a larger build.
+                </p>
+                <div class="case-outcomes">
+                    <span class="outcome-tag">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        Regulated Domain Experience
+                    </span>
+                    <span class="outcome-tag">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        Enterprise Security Standards
+                    </span>
+                    <span class="outcome-tag">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        Technical Feasibility Validated
+                    </span>
+                </div>
+            </article>
+
+            <!-- Case Study: Enterprise PM Infrastructure -->
+            <article class="case-card">
+                <div class="case-header">
+                    <div>
+                        <div class="case-type">Systems + Process Design</div>
+                        <h3 class="case-title">Enterprise PM Infrastructure</h3>
+                        <p class="case-domain">Solutions Consulting Firm</p>
+                    </div>
+                    <span class="case-engagement">Contract Engagement</span>
+                </div>
+                <p class="case-description">
+                    We worked as a contractor for an established solutions firm that needed to modernize their project management infrastructure. The engagement involved implementing AI-enhanced workflows and technology systems that improved operational visibility and team coordination.
+                </p>
+                <p class="case-description">
+                    This engagement demonstrates operational sophistication beyond pure development work. We understand that technology investments only pay off when they integrate with how organizations actually operate.
+                </p>
+                <div class="case-outcomes">
+                    <span class="outcome-tag">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        PM Infrastructure Deployed
+                    </span>
+                    <span class="outcome-tag">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        AI-Enhanced Workflows
+                    </span>
+                    <span class="outcome-tag">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        Operational Visibility Improved
+                    </span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Built By Us Section -->
+    <section class="built-by-us">
+        <div class="built-inner">
+            <span class="section-label">Built By Us</span>
+            <h2 class="section-title">We Do Not Just Advise. We Build.</h2>
+            <p class="section-intro">The best way to prove we understand the full product lifecycle is to have built products ourselves. OfferPath is proof that we practice what we preach.</p>
+
+            <div class="product-showcase">
+                <div class="product-info">
+                    <h3>OfferPath</h3>
+                    <p class="product-tagline">Our own product, built from scratch.</p>
+                    <p>OfferPath is a product we conceived, designed, built, and brought to market. We went through the same process we take our clients through: validating the concept, defining the architecture, building iteratively, and learning from real users.</p>
+                    <p>This is not a side project or a demo. It is a functioning product that we operate. When we advise clients on product strategy, development decisions, or go-to-market planning, we speak from direct experience. We have made the hard calls. We have shipped.</p>
+                    <p>You are not hiring people who only know theory. You are hiring practitioners.</p>
+                </div>
+                <div class="product-visual">
+                    <div class="product-logo">Offer<span>Path</span></div>
+                    <p class="product-desc">Built. Shipped. Operated.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="methodology">
+        <div class="methodology-inner">
+            <span class="section-label" style="background: var(--gold); color: var(--navy);">Our Approach</span>
+            <h2>How We Earn Your Trust</h2>
+            <p class="methodology-subtitle">Transparency is not a marketing angle. It is how we operate.</p>
+
+            <div class="approach-grid">
+                <div class="approach-item">
+                    <div class="approach-number">01</div>
+                    <h3>Know Before You Spend</h3>
+                    <p>We front-load discovery and analysis. Before you commit significant resources, you understand the opportunity, the risks, and the realistic outcomes. Sometimes that means telling you not to proceed.</p>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-number">02</div>
+                    <h3>Proof Over Promises</h3>
+                    <p>We would rather show you a working prototype than a polished presentation. Small investments that validate assumptions protect you from large investments that miss the mark.</p>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-number">03</div>
+                    <h3>Aligned Incentives</h3>
+                    <p>We succeed when you succeed. That means we will tell you hard truths, recommend against engagements that will not serve you, and measure our work by your outcomes, not our billable hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Testimonials Section -->
+    <section class="future-testimonials">
+        <div class="future-inner">
+            <h2>What Clients Will Say</h2>
+            <div class="future-message">
+                <p>We are intentionally early in our journey as a firm. That means we do not yet have a library of testimonials from dozens of clients.</p>
+                <p>We refuse to populate this page with fabricated quotes or vague praise from unnamed sources. When our clients are ready to speak publicly about their experience working with us, their words will appear here.</p>
+                <p class="honest-note">Until then, we let our work speak for itself. The case studies above are real. The outcomes are documented. The approach is consistent.</p>
+                <p>Your skepticism is reasonable. Earning your trust is our job.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-inner">
+            <h2>Ready for Certainty?</h2>
+            <p>A conversation costs you nothing. We will listen to what you are trying to accomplish, tell you honestly whether we can help, and if we can, show you exactly what working together would look like.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn-primary">Schedule a Conversation</a>
+                <a href="#" class="btn-secondary">See How We Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-tagline">Certainty First.</p>
+        <p class="footer-text">ScaleUp Ventures | Development. Growth Marketing. AI Automation.</p>
+    </footer>
+
+</body>
+</html>

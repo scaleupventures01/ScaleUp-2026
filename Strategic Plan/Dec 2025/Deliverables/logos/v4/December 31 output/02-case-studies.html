@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --light-gold: #F5EBD7;
+            --white: #FFFFFF;
+            --gray-100: #F8F9FA;
+            --gray-200: #E9ECEF;
+            --gray-600: #6C757D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--navy);
+            line-height: 1.7;
+            background: var(--white);
+        }
+
+        /* Header */
+        .header {
+            background: var(--navy);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .tagline {
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%);
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: var(--gray-200);
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Case Study Container */
+        .case-studies {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        /* Individual Case Study */
+        .case-study {
+            margin-bottom: 100px;
+            padding-bottom: 100px;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .case-study:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        /* Case Study Header */
+        .case-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .case-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--light-gold);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .case-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .case-title h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .case-title .industry {
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Results Grid */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+            padding: 30px;
+            background: var(--navy);
+            border-radius: 16px;
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+        }
+
+        .result-label {
+            font-size: 13px;
+            color: var(--gray-200);
+            margin-top: 8px;
+            display: block;
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 32px;
+        }
+
+        .content-section h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+        }
+
+        .content-section p {
+            color: var(--gray-600);
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-section li {
+            color: var(--gray-600);
+            font-size: 16px;
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .content-section li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background: var(--light-gold);
+            padding: 40px;
+            border-radius: 16px;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .quote-mark {
+            font-size: 80px;
+            color: var(--gold);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .quote-text {
+            font-size: 20px;
+            font-style: italic;
+            color: var(--navy);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-author {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .quote-title {
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        /* ROI Badge */
+        .roi-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--navy);
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: var(--gray-200);
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 168, 83, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .case-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .result-number {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">Scale<span>Up</span> Ventures</a>
+            <span class="tagline">CERTAINTY FIRST</span>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Client Success Stories</h1>
+        <p>Real results from businesses that chose certainty over guesswork. Every engagement starts with an ROI model.</p>
+    </section>
+
+    <!-- Case Studies -->
+    <div class="case-studies">
+
+        <!-- CASE STUDY 1: APEX TALENT SOLUTIONS -->
+        <article class="case-study">
+            <div class="case-header">
+                <div class="case-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <div class="case-title">
+                    <span class="industry">Staffing &amp; Recruiting</span>
+                    <h2>Apex Talent Solutions</h2>
+                </div>
+            </div>
+
+            <!-- Results Grid -->
+            <div class="results-grid">
+                <div class="result-item">
+                    <span class="result-number">459%</span>
+                    <span class="result-label">Increase in Monthly Leads</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-number">76%</span>
+                    <span class="result-label">Lower Cost Per Lead</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-number">34%</span>
+                    <span class="result-label">Faster Time to Fill</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-number">312%</span>
+                    <span class="result-label">First Year ROI</span>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>The Client</h3>
+                <p>Apex Talent Solutions is a regional staffing agency based in Charlotte, North Carolina, specializing in light industrial, administrative, and skilled trades placements. Founded in 2016 by Mike Patterson, the agency had grown to 15 employees and was generating $2.5 million in annual revenue when they reached out to ScaleUp Ventures.</p>
+                <p>Like many staffing agencies of their size, Apex had built their business primarily through relationships, referrals, and a scrappy sales approach. They had loyal clients who valued their personalized service, but they were struggling to compete in an increasingly digital marketplace dominated by Indeed, ZipRecruiter, and large national staffing firms with massive marketing budgets.</p>
+            </div>
+
+            <div class="content-section">
+                <h3>The Challenge</h3>
+                <p>When Mike first contacted us, he was frustrated and skeptical. He had already spent over $36,000 on digital marketing the previous year with almost nothing to show for it. His specific challenges included:</p>
+                <ul>
+                    <li><strong>Invisible online presence:</strong> Their website was built in 2018 and looked dated. It ranked on page 4 of Google for even basic local searches like "staffing agency Charlotte." Candidates and clients alike were finding competitors first.</li>
+                    <li><strong>Wasted advertising spend:</strong> Apex was spending $3,000 per month on Google Ads managed by a generalist marketing agency. They had no conversion tracking, no lead attribution, and no way to know which ads were working. When we audited their account, we found 67% of their budget was going to irrelevant search terms.</li>
+                    <li><strong>No lead management system:</strong> Incoming leads were tracked in a shared spreadsheet. Follow-up was inconsistent. They estimated they were losing 30-40% of leads simply due to slow response times or lost contact information.</li>
+                    <li><strong>Commodity positioning:</strong> Their messaging was generic. "Quality candidates. Quality service." They had no clear differentiation from the 47 other staffing agencies in the Charlotte metro area.</li>
+                </ul>
+                <p>Mike's previous agency had promised "more leads" without ever defining what success looked like or how they would measure it. He was done with vague promises.</p>
+            </div>
+
+            <div class="content-section">
+                <h3>The ScaleUp Approach</h3>
+                <p>We started where we always start: with the numbers. Before discussing tactics, we built a comprehensive ROI model for Apex. We analyzed their average placement fee ($2,400), their close rate on qualified leads (23%), their customer lifetime value, and their current marketing costs. This gave us a clear picture: if we could deliver qualified leads at $60 or less, Apex would see a 4:1 return on their investment with us.</p>
+                <p>With the model approved, we executed a phased implementation:</p>
+                <ul>
+                    <li><strong>Phase 1 - Foundation (Weeks 1-4):</strong> We rebuilt their website from the ground up with conversion-optimized landing pages for each service vertical. We implemented proper tracking with Google Analytics 4, call tracking, and form attribution so every lead could be traced back to its source.</li>
+                    <li><strong>Phase 2 - CRM Integration (Weeks 3-6):</strong> We deployed a CRM system with automated lead routing, ensuring every inquiry received a response within 5 minutes during business hours. We built nurture sequences for candidates and separate workflows for employer prospects.</li>
+                    <li><strong>Phase 3 - Growth Marketing (Weeks 4-12):</strong> We rebuilt their Google Ads account from scratch with proper negative keywords, geographic targeting, and conversion tracking. We launched targeted campaigns for high-margin verticals (skilled trades, CDL drivers) and added LinkedIn advertising to reach HR decision-makers directly.</li>
+                    <li><strong>Phase 4 - Differentiation (Ongoing):</strong> We developed a new positioning around their 48-hour placement guarantee for pre-screened candidates, something their larger competitors could not match. This became the centerpiece of all marketing messaging.</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>The Results</h3>
+                <p>Within 90 days, the transformation was measurable. Within 12 months, it was remarkable:</p>
+                <ul>
+                    <li><strong>Website leads increased from 12 to 67 per month</strong> - a 459% improvement. More importantly, lead quality improved because we were targeting specific job categories rather than generic "staffing" searches.</li>
+                    <li><strong>Cost per qualified lead dropped from $180 to $43</strong> - a 76% reduction. By eliminating wasted spend and improving targeting, we got more from less.</li>
+                    <li><strong>Time to fill positions decreased by 34%</strong> - The combination of more candidate flow, better CRM processes, and automated screening meant Apex could deliver candidates faster than ever.</li>
+                    <li><strong>First-year ROI of 312%</strong> - For every dollar invested in ScaleUp Ventures, Apex generated $3.12 in attributable gross profit.</li>
+                </ul>
+                <p>Perhaps most importantly, Apex is no longer invisible. They now rank on page 1 for 23 relevant local search terms, and their Google Business profile generates an additional 15-20 calls per month.</p>
+            </div>
+
+            <div class="quote-section">
+                <span class="quote-mark">"</span>
+                <p class="quote-text">I had given up on digital marketing. I thought it was just a money pit for agencies like ours. ScaleUp showed me exactly what I would get before I spent a dime, and then they delivered more than they promised. For the first time, I can see exactly where my leads come from and what they cost. That certainty has changed how I run this business.</p>
+                <p class="quote-author">Mike Patterson</p>
+                <p class="quote-title">Owner, Apex Talent Solutions</p>
+            </div>
+
+            <div class="roi-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                    <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+                312% First-Year ROI
+            </div>
+        </article>
+
+        <!-- CASE STUDY 2: RIVERSIDE ANIMAL HOSPITAL -->
+        <article class="case-study">
+            <div class="case-header">
+                <div class="case-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
+                <div class="case-title">
+                    <span class="industry">Veterinary Medicine</span>
+                    <h2>Riverside Animal Hospital</h2>
+                </div>
+            </div>
+
+            <!-- Results Grid -->
+            <div class="results-grid">
+                <div class="result-item">
+                    <span class="result-number">78%</span>
+                    <span class="result-label">Reduction in No-Shows</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-number">23 hrs</span>
+                    <span class="result-label">Weekly Staff Time Saved</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-number">$147K</span>
+                    <span class="result-label">Added Revenue Year 1</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-number">31%</span>
+                    <span class="result-label">Higher Satisfaction Scores</span>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>The Client</h3>
+                <p>Riverside Animal Hospital is a full-service veterinary practice in suburban Denver, Colorado. Founded in 2009 by Dr. Sarah Chen, the practice had grown to include three veterinarians, four veterinary technicians, and five support staff. With annual revenue of $1.8 million, Riverside had established itself as a trusted neighborhood practice known for compassionate care and thorough diagnostics.</p>
+                <p>Dr. Chen had built her practice the old-fashioned way: exceptional medical care, strong word-of-mouth, and genuine relationships with pet owners. But as the practice grew, the administrative burden was overwhelming her team and cutting into the quality of care she was determined to maintain.</p>
+            </div>
+
+            <div class="content-section">
+                <h3>The Challenge</h3>
+                <p>When Dr. Chen contacted ScaleUp Ventures, she was considering hiring another full-time receptionist just to handle the phone volume. But she sensed there had to be a better way. Her specific pain points included:</p>
+                <ul>
+                    <li><strong>Chronic no-show problem:</strong> Riverside was experiencing an 18% no-show rate for appointments. At an average appointment value of $127, they were losing over $8,000 per month in missed revenue. Worse, those empty slots meant other sick pets had to wait longer to be seen.</li>
+                    <li><strong>Endless phone tag:</strong> The front desk was spending 3-4 hours daily just playing phone tag with clients. Confirming appointments, rescheduling, answering basic questions about hours and services. The staff was exhausted and actual patient care was suffering.</li>
+                    <li><strong>Manual reminder chaos:</strong> Appointment reminders were done manually. A staff member would spend Friday afternoons calling Monday patients, Tuesday mornings calling Wednesday patients. It was inefficient, inconsistent, and increasingly unsustainable as the practice grew.</li>
+                    <li><strong>Vaccination and wellness gaps:</strong> Riverside had thousands of patients overdue for vaccinations and wellness exams, but no systematic way to reach out to them. They were leaving significant recurring revenue on the table while those pets went without preventive care.</li>
+                </ul>
+                <p>Dr. Chen was clear about her priorities: she wanted solutions that would make her clients' lives easier, not just the practice more profitable. She refused to implement anything that felt impersonal or that would compromise the warm, relationship-driven experience Riverside was known for.</p>
+            </div>
+
+            <div class="content-section">
+                <h3>The ScaleUp Approach</h3>
+                <p>We began with a detailed operational analysis, mapping every client touchpoint and quantifying the time and revenue impact of each inefficiency. Our ROI model showed that reducing no-shows by just 50% and automating routine communications would generate over $120,000 in annual value through recovered revenue and labor savings.</p>
+                <p>Our implementation focused on intelligent automation that enhanced rather than replaced the human touch:</p>
+                <ul>
+                    <li><strong>Smart Appointment Reminders:</strong> We implemented a multi-channel reminder system that sends text messages 72 hours before appointments, followed by a second text 24 hours before with easy one-tap confirmation or rescheduling. For clients who prefer calls, the system automatically triggers a staff callback. No more manual Friday afternoon phone marathons.</li>
+                    <li><strong>AI-Powered Phone Handling:</strong> We deployed a conversational AI system that handles routine calls: confirming hours, providing directions, answering FAQs about services and pricing, and even booking straightforward appointments. The AI sounds natural, identifies itself appropriately, and seamlessly transfers complex calls to human staff. It operates 24/7, capturing after-hours inquiries that previously went to voicemail.</li>
+                    <li><strong>Automated Wellness Campaigns:</strong> We built smart campaigns that automatically identify patients due for vaccinations, dental cleanings, or annual exams and send personalized reminders. Messages reference the pet by name, the specific services due, and make booking effortless.</li>
+                    <li><strong>Online Booking Integration:</strong> We implemented an online scheduling system that syncs with their practice management software. Clients can now book, reschedule, or cancel appointments at 2 AM if that's when they remember. Requests go into a confirmation queue that staff processes in batches rather than reactively.</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>The Results</h3>
+                <p>The transformation happened faster than even we anticipated. Within the first month, the front desk team noticed the difference. Within a year, the numbers told a compelling story:</p>
+                <ul>
+                    <li><strong>No-show rate dropped from 18% to 4%</strong> - a 78% improvement. The multi-touch reminder system with easy rescheduling options meant clients either showed up or freed the slot for someone else. Monthly recovered revenue exceeded $6,400.</li>
+                    <li><strong>23 hours of staff time saved weekly</strong> - Time previously spent on phone tag, manual reminders, and routine inquiries was redirected to patient care, client education, and follow-up calls that actually required a human touch.</li>
+                    <li><strong>$147,000 in additional revenue in Year 1</strong> - This came from three sources: recovered no-show revenue ($77K), reactivated wellness visits from automated campaigns ($52K), and new patients from improved phone availability and online booking ($18K).</li>
+                    <li><strong>Patient satisfaction scores increased 31%</strong> - As measured by post-visit surveys. Clients appreciated the convenient reminders, the ability to book online, and the fact that staff now had more time to answer their questions without seeming rushed.</li>
+                </ul>
+                <p>The receptionist position Dr. Chen was planning to hire? She invested those funds in a part-time veterinary technician instead, directly improving patient care capacity.</p>
+            </div>
+
+            <div class="quote-section">
+                <span class="quote-mark">"</span>
+                <p class="quote-text">I was terrified of automation. I built this practice on personal relationships, and I thought technology would make us feel cold and corporate. ScaleUp showed me the opposite is true. By automating the routine stuff, my team has more time for what matters: connecting with our clients and caring for their pets. Our clients love the convenience, and my team is happier than they've been in years.</p>
+                <p class="quote-author">Dr. Sarah Chen, DVM</p>
+                <p class="quote-title">Owner, Riverside Animal Hospital</p>
+            </div>
+
+            <div class="roi-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                    <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+                $147K Additional First-Year Revenue
+            </div>
+        </article>
+
+        <!-- CASE STUDY 3: COMFORTPRO HVAC -->
+        <article class="case-study">
+            <div class="case-header">
+                <div class="case-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="12" y1="11" x2="12" y2="17"></line>
+                        <line x1="9" y1="14" x2="15" y2="14"></line>
+                    </svg>
+                </div>
+                <div class="case-title">
+                    <span class="industry">HVAC &amp; Trades</span>
+                    <h2>ComfortPro HVAC</h2>
+                </div>
+            </div>
+
+            <!-- Results Grid -->
+            <div class="results-grid">
+                <div class="result-item">
+                    <span class="result-number">34</span>
+                    <span class="result-label">After-Hours Leads/Month</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-number">47%</span>
+                    <span class="result-label">Increase in Service Calls</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-number">62%</span>
+                    <span class="result-label">Shoulder Season Growth</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-number">287%</span>
+                    <span class="result-label">First Year ROI</span>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>The Client</h3>
+                <p>ComfortPro HVAC is a family-owned heating and cooling company serving the greater Indianapolis area. Tom Rodriguez started the company in 2012 after spending 15 years as a technician for a national HVAC chain. Frustrated by the impersonal service and aggressive upselling he was forced to do, he struck out on his own with a simple promise: honest work at fair prices.</p>
+                <p>A decade later, ComfortPro had grown to eight technicians, two office staff, and a fleet of service vehicles, generating $1.2 million in annual revenue. Tom had built something he was proud of. But he was also stuck, watching competitors with inferior service but superior marketing steal business right out from under him.</p>
+            </div>
+
+            <div class="content-section">
+                <h3>The Challenge</h3>
+                <p>Tom's frustration boiled over during our first conversation. He knew his team provided better service than the "big box" HVAC companies flooding the market with advertising. But he couldn't figure out how to compete. His specific challenges included:</p>
+                <ul>
+                    <li><strong>Feast or famine seasonality:</strong> Like most HVAC companies, ComfortPro was slammed during summer and winter peaks but struggled during spring and fall shoulder seasons. During slow months, Tom sometimes had technicians sitting idle, eating into already thin margins.</li>
+                    <li><strong>Invisible online presence:</strong> ComfortPro had no real website, just a one-page placeholder someone had thrown together five years ago. They weren't showing up in Google searches. They had 12 Google reviews compared to 400+ for the largest competitor. For a business dependent on local search, this was devastating.</li>
+                    <li><strong>Missed after-hours calls:</strong> HVAC emergencies don't happen during business hours. Furnaces fail at midnight. AC units die on Saturday afternoons. ComfortPro's after-hours calls went to voicemail, and by the time they called back, customers had already found someone else. Tom estimated he was losing 40-50 potential jobs per month to competitors who simply answered the phone.</li>
+                    <li><strong>No marketing system:</strong> Tom's marketing strategy was "hope the phone rings." He had tried Facebook ads once, spent $500, got nothing, and swore off digital marketing entirely. He had no way to stay in touch with past customers, no referral system, nothing.</li>
+                </ul>
+                <p>Tom was skeptical of marketing agencies. He had been burned before. He wanted proof that any investment would pay off before he committed.</p>
+            </div>
+
+            <div class="content-section">
+                <h3>The ScaleUp Approach</h3>
+                <p>We built a detailed ROI model for ComfortPro. Based on their average service ticket ($340), their equipment installation revenue ($4,200 average), and realistic lead conversion rates, we showed Tom that capturing even half of his missed after-hours calls would pay for our entire engagement. He was in.</p>
+                <p>Our strategy addressed all three pillars: online presence, lead capture, and customer retention:</p>
+                <ul>
+                    <li><strong>Professional Website with SEO Foundation:</strong> We built a conversion-focused website optimized for local search. Service pages for every offering. Location pages for every service area. A blog with helpful content answering common HVAC questions. Proper technical SEO so Google could find and index everything.</li>
+                    <li><strong>Google Business Profile Optimization:</strong> We completely rebuilt their Google Business listing with professional photos, complete service descriptions, and a systematic approach to generating reviews. We implemented a post-service text message that made leaving a review easy and natural.</li>
+                    <li><strong>AI-Powered Call Handling:</strong> This was the game-changer. We deployed a conversational AI system that answers every call, 24/7/365. For routine scheduling requests, it books appointments directly into their system. For emergencies, it captures the customer's information, assesses urgency, and immediately texts the on-call technician while reassuring the customer that help is on the way.</li>
+                    <li><strong>Strategic Google Ads:</strong> We launched targeted campaigns for high-value services (equipment installation, emergency repair) with proper conversion tracking. We focused budget on shoulder seasons to smooth out the revenue curve.</li>
+                    <li><strong>Customer Retention System:</strong> We implemented seasonal maintenance reminders and a referral program that rewarded loyal customers for sending friends and family. Past customers now receive helpful tips before extreme weather and special offers for loyalty members.</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>The Results</h3>
+                <p>The AI call system started paying dividends within the first week. The broader marketing strategy built momentum over the following months. By year's end, the numbers exceeded our projections:</p>
+                <ul>
+                    <li><strong>34 after-hours leads captured per month</strong> - These were calls that previously went to voicemail and were never returned. At a 60% conversion rate on emergency calls, this represented approximately 20 additional jobs monthly that would have gone to competitors.</li>
+                    <li><strong>Service calls increased 47%</strong> - The combination of improved online visibility, better call handling, and strategic advertising generated a steady stream of new customers while retention efforts kept existing customers coming back.</li>
+                    <li><strong>Shoulder season revenue increased 62%</strong> - This was transformative for the business. By focusing marketing spend during traditionally slow months and promoting maintenance agreements and system tune-ups, we smoothed out the revenue curve. Tom's technicians stayed busy year-round.</li>
+                    <li><strong>First-year ROI of 287%</strong> - For every dollar invested with ScaleUp Ventures, ComfortPro generated $2.87 in attributable gross profit. And that doesn't count the long-term value of improved online presence and customer database growth.</li>
+                </ul>
+                <p>ComfortPro now has 127 Google reviews with a 4.9-star average. They rank on page 1 for 31 local search terms. And Tom hasn't missed an emergency call in over eight months.</p>
+            </div>
+
+            <div class="quote-section">
+                <span class="quote-mark">"</span>
+                <p class="quote-text">I was losing jobs every single night to companies with worse technicians, just because they answered the phone and I didn't. Now I never miss a call. Ever. That alone has transformed my business. Add in the website, the reviews, the marketing that actually works, and I'm finally competing on a level playing field. Actually, I'm winning. ScaleUp gave me certainty in a business where I used to just cross my fingers and hope.</p>
+                <p class="quote-author">Tom Rodriguez</p>
+                <p class="quote-title">Owner, ComfortPro HVAC</p>
+            </div>
+
+            <div class="roi-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                    <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+                287% First-Year ROI
+            </div>
+        </article>
+
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready for Your Own Success Story?</h2>
+        <p>Every engagement starts with an ROI model. We'll show you the numbers before you spend a dime.</p>
+        <a href="#" class="cta-button">Schedule Your ROI Analysis</a>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,2376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample ROI Model Guide | ScaleUp Ventures</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2540;
+            --navy-dark: #0a0f1a;
+            --gold: #D4A853;
+            --gold-light: #e6c88a;
+            --gold-dark: #b8923f;
+            --white: #ffffff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-600: #6c757d;
+            --green: #28a745;
+            --green-light: #d4edda;
+            --red: #dc3545;
+            --red-light: #f8d7da;
+            --blue: #007bff;
+            --blue-light: #cce5ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--gray-100);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.2);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .header-tagline {
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 15px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-300);
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .nav-link {
+            background: var(--gray-100);
+            color: var(--navy);
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* Section Styles */
+        .section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-number {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 12px;
+        }
+
+        .section h2 {
+            font-size: 1.6rem;
+            color: var(--navy);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section h3 {
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin: 25px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .section h4 {
+            font-size: 1rem;
+            color: var(--navy);
+            margin: 20px 0 10px 0;
+        }
+
+        .section p {
+            color: var(--gray-600);
+            margin-bottom: 15px;
+        }
+
+        /* ROI Model Preview */
+        .roi-model-preview {
+            background: var(--navy);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            color: var(--white);
+        }
+
+        .roi-model-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .roi-model-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .roi-model-title {
+            text-align: right;
+        }
+
+        .roi-model-title h3 {
+            color: var(--white);
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .roi-model-title span {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .roi-metric-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .roi-metric-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .roi-metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .roi-metric-unit {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 5px;
+        }
+
+        .roi-projection-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .roi-projection-table th,
+        .roi-projection-table td {
+            padding: 15px;
+            text-align: right;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .roi-projection-table th {
+            text-align: left;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .roi-projection-table td:first-child {
+            text-align: left;
+            color: var(--white);
+        }
+
+        .roi-projection-table .positive {
+            color: #4ade80;
+        }
+
+        .roi-projection-table .highlight-row {
+            background: rgba(212, 168, 83, 0.1);
+        }
+
+        .roi-projection-table .highlight-row td {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Components Grid */
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .component-card {
+            background: var(--gray-100);
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .component-card h4 {
+            color: var(--navy);
+            margin: 0 0 15px 0;
+            font-size: 1.1rem;
+        }
+
+        .component-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .component-card li {
+            padding: 8px 0;
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .component-card li:last-child {
+            border-bottom: none;
+        }
+
+        .component-card li::before {
+            content: ">";
+            color: var(--gold);
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        /* Before/After Visualization */
+        .before-after-container {
+            display: grid;
+            grid-template-columns: 1fr 80px 1fr;
+            gap: 20px;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .before-state, .after-state {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            border: 2px solid var(--gray-200);
+        }
+
+        .before-state {
+            border-color: var(--red);
+        }
+
+        .after-state {
+            border-color: var(--green);
+        }
+
+        .state-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .state-badge {
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .before-state .state-badge {
+            background: var(--red-light);
+            color: var(--red);
+        }
+
+        .after-state .state-badge {
+            background: var(--green-light);
+            color: var(--green);
+        }
+
+        .state-metric {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .state-metric:last-child {
+            border-bottom: none;
+        }
+
+        .state-metric-label {
+            color: var(--gray-600);
+        }
+
+        .state-metric-value {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .before-state .state-metric-value.negative {
+            color: var(--red);
+        }
+
+        .after-state .state-metric-value.positive {
+            color: var(--green);
+        }
+
+        .arrow-connector {
+            text-align: center;
+        }
+
+        .arrow-connector svg {
+            width: 50px;
+            height: 50px;
+            fill: var(--gold);
+        }
+
+        /* Payback Period Visualization */
+        .payback-timeline {
+            background: var(--navy);
+            border-radius: 12px;
+            padding: 40px;
+            margin: 30px 0;
+        }
+
+        .payback-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .payback-header h4 {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .payback-header p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .timeline-bar {
+            position: relative;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+
+        .timeline-progress {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--red) 0%, var(--gold) 45%, var(--green) 100%);
+            border-radius: 30px;
+            width: 100%;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            top: -30px;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .timeline-marker.breakeven {
+            left: 45%;
+        }
+
+        .timeline-marker-label {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .timeline-marker-value {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+        }
+
+        .timeline-months {
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+
+        .payback-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .payback-stat {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+
+        .payback-stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .payback-stat-label {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* Formula Box */
+        .formula-box {
+            background: var(--gray-100);
+            border: 2px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .formula-title {
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .formula {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            color: var(--navy);
+            background: var(--white);
+            padding: 15px 30px;
+            border-radius: 8px;
+            display: inline-block;
+            border: 1px solid var(--gray-300);
+        }
+
+        .formula-explanation {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        /* Risk Factors Table */
+        .risk-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .risk-table th,
+        .risk-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .risk-table th {
+            background: var(--navy);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .risk-table th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+
+        .risk-table th:last-child {
+            border-radius: 0 8px 0 0;
+        }
+
+        .risk-level {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .risk-low {
+            background: var(--green-light);
+            color: var(--green);
+        }
+
+        .risk-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .risk-high {
+            background: var(--red-light);
+            color: var(--red);
+        }
+
+        /* Industry Customization */
+        .industry-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .industry-tab {
+            padding: 10px 20px;
+            background: var(--gray-100);
+            border: 2px solid var(--gray-200);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .industry-tab:hover,
+        .industry-tab.active {
+            background: var(--navy);
+            color: var(--white);
+            border-color: var(--navy);
+        }
+
+        .industry-content {
+            background: var(--gray-100);
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .industry-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .industry-metric {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .industry-metric-label {
+            color: var(--gray-600);
+        }
+
+        .industry-metric-value {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Talking Points */
+        .talking-point {
+            background: var(--gray-100);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .talking-point::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gold);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .talking-point-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .talking-point-title {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .talking-point-timing {
+            background: var(--navy);
+            color: var(--gold);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .talking-point-script {
+            color: var(--gray-600);
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: var(--gray-100);
+            padding: 20px;
+            font-weight: 600;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .faq-question::before {
+            content: "Q";
+            background: var(--gold);
+            color: var(--navy);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .faq-answer {
+            padding: 20px;
+            color: var(--gray-600);
+            border-top: 1px solid var(--gray-200);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .comparison-table th {
+            background: var(--gray-100);
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .comparison-table td:nth-child(2) {
+            color: var(--gray-600);
+        }
+
+        .comparison-table td:nth-child(3) {
+            background: rgba(212, 168, 83, 0.1);
+            color: var(--navy);
+            font-weight: 500;
+        }
+
+        .comparison-table .check {
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .comparison-table .cross {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        /* Model Format Mockup */
+        .model-mockup {
+            border: 2px solid var(--gray-300);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 30px 0;
+        }
+
+        .mockup-toolbar {
+            background: var(--gray-200);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mockup-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .mockup-dot.red { background: #ff5f56; }
+        .mockup-dot.yellow { background: #ffbd2e; }
+        .mockup-dot.green { background: #27ca40; }
+
+        .mockup-title {
+            margin-left: 20px;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        .mockup-content {
+            padding: 30px;
+            background: var(--white);
+        }
+
+        .mockup-section {
+            margin-bottom: 25px;
+        }
+
+        .mockup-section-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .mockup-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .mockup-label {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+
+        .mockup-input {
+            padding: 10px;
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            font-size: 1rem;
+            color: var(--navy);
+        }
+
+        .mockup-output {
+            background: rgba(212, 168, 83, 0.15);
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: var(--navy);
+            border-left: 3px solid var(--gold);
+        }
+
+        /* Info Box */
+        .info-box {
+            background: var(--blue-light);
+            border-left: 4px solid var(--blue);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        .info-box p {
+            color: var(--navy);
+            margin: 0;
+        }
+
+        /* Callout Box */
+        .callout {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .callout h4 {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .callout p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+        }
+
+        /* List Styles */
+        ul.styled-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.styled-list li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        ul.styled-list li:last-child {
+            border-bottom: none;
+        }
+
+        ul.styled-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 15px;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        ol.numbered-list {
+            counter-reset: item;
+            list-style: none;
+            padding: 0;
+        }
+
+        ol.numbered-list li {
+            counter-increment: item;
+            padding: 15px 0 15px 50px;
+            position: relative;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        ol.numbered-list li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 30px;
+            height: 30px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        /* Assumptions Section */
+        .assumption-category {
+            margin-bottom: 25px;
+        }
+
+        .assumption-category h4 {
+            background: var(--gray-100);
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .assumption-list {
+            list-style: none;
+            padding-left: 15px;
+        }
+
+        .assumption-list li {
+            padding: 8px 0;
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .assumption-list li::before {
+            content: "-";
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .footer-tagline {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .components-grid,
+            .roi-grid,
+            .two-column {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .components-grid,
+            .roi-grid,
+            .payback-stats,
+            .two-column,
+            .mockup-grid,
+            .industry-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .before-after-container {
+                grid-template-columns: 1fr;
+            }
+
+            .arrow-connector {
+                transform: rotate(90deg);
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media print {
+            .nav-container {
+                display: none;
+            }
+
+            .section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-badge">Internal Sales Resource</div>
+        <h1>Sample ROI Model Guide</h1>
+        <div class="header-tagline">Certainty First.</div>
+        <p class="header-subtitle">
+            Complete guidance for presenting, customizing, and discussing our pre-engagement
+            ROI model with prospects. This document includes templates, talking points, and FAQs.
+        </p>
+    </header>
+
+    <nav class="nav-container">
+        <div class="nav-title">Quick Navigation</div>
+        <div class="nav-links">
+            <a href="#model-overview" class="nav-link">Model Overview</a>
+            <a href="#key-components" class="nav-link">Key Components</a>
+            <a href="#presentation" class="nav-link">Presentation Guide</a>
+            <a href="#sample-model" class="nav-link">Sample Model</a>
+            <a href="#before-after" class="nav-link">Before/After</a>
+            <a href="#payback" class="nav-link">Payback Period</a>
+            <a href="#risk-factors" class="nav-link">Risk Factors</a>
+            <a href="#industry" class="nav-link">Industry Customization</a>
+            <a href="#talking-points" class="nav-link">Talking Points</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+            <a href="#competitive" class="nav-link">Competitive Diff</a>
+            <a href="#mockup" class="nav-link">Visual Mockup</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Section 1: Model Overview -->
+        <section id="model-overview" class="section">
+            <h2><span class="section-number">1</span>What the ROI Model Deliverable Looks Like</h2>
+
+            <p>
+                Our ROI Model is a comprehensive, interactive financial projection tool that we deliver
+                to every prospect <strong>before</strong> they commit to an engagement. This is our key
+                differentiator: we prove value before asking for investment.
+            </p>
+
+            <div class="roi-model-preview">
+                <div class="roi-model-header">
+                    <div class="roi-model-logo">ScaleUp Ventures</div>
+                    <div class="roi-model-title">
+                        <h3>ROI Projection Model</h3>
+                        <span>Prepared for: [Client Company] | Date: [Month Year]</span>
+                    </div>
+                </div>
+
+                <div class="roi-grid">
+                    <div class="roi-metric-card">
+                        <div class="roi-metric-label">Projected ROI</div>
+                        <div class="roi-metric-value">340%</div>
+                        <div class="roi-metric-unit">Year 1</div>
+                    </div>
+                    <div class="roi-metric-card">
+                        <div class="roi-metric-label">Payback Period</div>
+                        <div class="roi-metric-value">4.2</div>
+                        <div class="roi-metric-unit">Months</div>
+                    </div>
+                    <div class="roi-metric-card">
+                        <div class="roi-metric-label">Net Benefit</div>
+                        <div class="roi-metric-value">$847K</div>
+                        <div class="roi-metric-unit">Year 1</div>
+                    </div>
+                    <div class="roi-metric-card">
+                        <div class="roi-metric-label">Confidence</div>
+                        <div class="roi-metric-value">85%</div>
+                        <div class="roi-metric-unit">Level</div>
+                    </div>
+                </div>
+
+                <table class="roi-projection-table">
+                    <thead>
+                        <tr>
+                            <th>Projection Timeline</th>
+                            <th>Q1</th>
+                            <th>Q2</th>
+                            <th>Q3</th>
+                            <th>Q4</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Investment</td>
+                            <td>($150,000)</td>
+                            <td>($50,000)</td>
+                            <td>($25,000)</td>
+                            <td>($25,000)</td>
+                            <td>($250,000)</td>
+                        </tr>
+                        <tr>
+                            <td>Efficiency Gains</td>
+                            <td class="positive">$45,000</td>
+                            <td class="positive">$180,000</td>
+                            <td class="positive">$225,000</td>
+                            <td class="positive">$240,000</td>
+                            <td class="positive">$690,000</td>
+                        </tr>
+                        <tr>
+                            <td>Revenue Impact</td>
+                            <td class="positive">$0</td>
+                            <td class="positive">$85,000</td>
+                            <td class="positive">$160,000</td>
+                            <td class="positive">$162,000</td>
+                            <td class="positive">$407,000</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td>Cumulative Net Benefit</td>
+                            <td>($105,000)</td>
+                            <td>$110,000</td>
+                            <td>$470,000</td>
+                            <td>$847,000</td>
+                            <td>$847,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Deliverable Components</h3>
+            <ul class="styled-list">
+                <li><strong>Executive Summary:</strong> One-page overview with key metrics and recommendations</li>
+                <li><strong>Interactive Model:</strong> Spreadsheet with adjustable inputs and automatic recalculation</li>
+                <li><strong>Methodology Document:</strong> Detailed explanation of all calculations and data sources</li>
+                <li><strong>Sensitivity Analysis:</strong> Best-case, base-case, and conservative scenarios</li>
+                <li><strong>Risk Assessment:</strong> Identified risks with mitigation strategies</li>
+                <li><strong>Implementation Timeline:</strong> Phased approach with milestone markers</li>
+            </ul>
+        </section>
+
+        <!-- Section 2: Key Components -->
+        <section id="key-components" class="section">
+            <h2><span class="section-number">2</span>Key Components of the Model</h2>
+
+            <p>
+                Our ROI model is structured into three core areas: Inputs, Calculations, and Outputs.
+                Understanding each component helps you customize and explain the model effectively.
+            </p>
+
+            <div class="components-grid">
+                <div class="component-card">
+                    <h4>INPUTS</h4>
+                    <ul>
+                        <li>Current annual revenue</li>
+                        <li>Operating margin percentage</li>
+                        <li>Employee count by function</li>
+                        <li>Current technology stack costs</li>
+                        <li>Process cycle times</li>
+                        <li>Error/rework rates</li>
+                        <li>Customer acquisition cost</li>
+                        <li>Customer lifetime value</li>
+                        <li>Growth rate targets</li>
+                    </ul>
+                </div>
+
+                <div class="component-card">
+                    <h4>CALCULATIONS</h4>
+                    <ul>
+                        <li>Efficiency gain multipliers</li>
+                        <li>Time-to-value curves</li>
+                        <li>Adoption rate modeling</li>
+                        <li>Compound benefit calculations</li>
+                        <li>Risk-adjusted projections</li>
+                        <li>Payback period analysis</li>
+                        <li>NPV and IRR calculations</li>
+                        <li>Sensitivity coefficients</li>
+                        <li>Scenario modeling</li>
+                    </ul>
+                </div>
+
+                <div class="component-card">
+                    <h4>OUTPUTS</h4>
+                    <ul>
+                        <li>Projected ROI percentage</li>
+                        <li>Payback period (months)</li>
+                        <li>Net present value</li>
+                        <li>Internal rate of return</li>
+                        <li>Year 1/2/3 benefits</li>
+                        <li>Break-even analysis</li>
+                        <li>Confidence intervals</li>
+                        <li>Risk-adjusted returns</li>
+                        <li>Sensitivity charts</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Data Collection Process</h3>
+            <div class="two-column">
+                <div>
+                    <h4>Discovery Call Questions</h4>
+                    <ol class="numbered-list">
+                        <li>What are your top 3 operational pain points?</li>
+                        <li>How do you currently measure success in these areas?</li>
+                        <li>What has prevented solving these issues before?</li>
+                        <li>What would success look like in 12 months?</li>
+                    </ol>
+                </div>
+                <div>
+                    <h4>Data Request Items</h4>
+                    <ol class="numbered-list">
+                        <li>Last 12 months of financial statements (P&L preferred)</li>
+                        <li>Organizational chart with headcount by department</li>
+                        <li>Current technology spending breakdown</li>
+                        <li>Key process metrics and KPIs</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <p>
+                    <strong>Privacy Note:</strong> We work with anonymized and aggregated data whenever possible.
+                    Clients maintain full control over what data they share, and we sign NDAs before any
+                    detailed data exchange.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 3: Presentation Guide -->
+        <section id="presentation" class="section">
+            <h2><span class="section-number">3</span>How to Present the Model to Prospects</h2>
+
+            <p>
+                The ROI model presentation is a pivotal moment in our sales process. Follow this
+                structured approach to maximize impact and build trust.
+            </p>
+
+            <h3>Presentation Structure (45-60 minutes)</h3>
+            <ol class="numbered-list">
+                <li>
+                    <strong>Context Setting (5 min):</strong> Recap their challenges and goals from discovery.
+                    Confirm nothing has changed since data collection.
+                </li>
+                <li>
+                    <strong>Methodology Overview (10 min):</strong> Explain how we built the model, what data
+                    we used, and our calculation approach. Build credibility through transparency.
+                </li>
+                <li>
+                    <strong>Key Findings (15 min):</strong> Present the headline numbers: ROI, payback period,
+                    net benefit. Use visuals and walk through the logic.
+                </li>
+                <li>
+                    <strong>Sensitivity Analysis (10 min):</strong> Show best-case, base-case, and conservative
+                    scenarios. Demonstrate that even conservative projections show positive returns.
+                </li>
+                <li>
+                    <strong>Risk Discussion (10 min):</strong> Proactively address risks and assumptions.
+                    Show mitigation strategies. This builds trust through honesty.
+                </li>
+                <li>
+                    <strong>Q&A and Next Steps (10 min):</strong> Answer questions, confirm understanding,
+                    and propose clear next steps.
+                </li>
+            </ol>
+
+            <h3>Presentation Best Practices</h3>
+            <div class="two-column">
+                <div>
+                    <h4>Do:</h4>
+                    <ul class="styled-list">
+                        <li>Start with their goals, not our solution</li>
+                        <li>Use their actual numbers in examples</li>
+                        <li>Acknowledge uncertainty transparently</li>
+                        <li>Let them adjust inputs live to see impact</li>
+                        <li>Connect every benefit to their stated pain points</li>
+                        <li>Leave time for questions throughout</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Don't:</h4>
+                    <ul class="styled-list">
+                        <li>Oversell or use aggressive projections</li>
+                        <li>Rush through the methodology section</li>
+                        <li>Dismiss concerns or skip risk discussion</li>
+                        <li>Use jargon without explanation</li>
+                        <li>Present without decision-makers present</li>
+                        <li>Leave without clear next steps</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Sample Model -->
+        <section id="sample-model" class="section">
+            <h2><span class="section-number">4</span>Sample Anonymized Model for Website Display</h2>
+
+            <p>
+                This anonymized sample demonstrates our ROI modeling approach without revealing
+                specific client data. Use this version for website display and marketing materials.
+            </p>
+
+            <div class="roi-model-preview">
+                <div class="roi-model-header">
+                    <div class="roi-model-logo">ScaleUp Ventures</div>
+                    <div class="roi-model-title">
+                        <h3>Sample ROI Analysis</h3>
+                        <span>Mid-Market Technology Company | $25M Revenue</span>
+                    </div>
+                </div>
+
+                <div class="roi-grid">
+                    <div class="roi-metric-card">
+                        <div class="roi-metric-label">Investment</div>
+                        <div class="roi-metric-value">$200K</div>
+                        <div class="roi-metric-unit">Total Engagement</div>
+                    </div>
+                    <div class="roi-metric-card">
+                        <div class="roi-metric-label">Year 1 Return</div>
+                        <div class="roi-metric-value">$720K</div>
+                        <div class="roi-metric-unit">Documented Benefits</div>
+                    </div>
+                    <div class="roi-metric-card">
+                        <div class="roi-metric-label">ROI</div>
+                        <div class="roi-metric-value">260%</div>
+                        <div class="roi-metric-unit">First Year</div>
+                    </div>
+                    <div class="roi-metric-card">
+                        <div class="roi-metric-label">Payback</div>
+                        <div class="roi-metric-value">3.3</div>
+                        <div class="roi-metric-unit">Months</div>
+                    </div>
+                </div>
+
+                <table class="roi-projection-table">
+                    <thead>
+                        <tr>
+                            <th>Benefit Category</th>
+                            <th>Annual Value</th>
+                            <th>Calculation Method</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Labor Efficiency</td>
+                            <td class="positive">$320,000</td>
+                            <td>40% time savings x 8 FTEs x $100K avg cost</td>
+                        </tr>
+                        <tr>
+                            <td>Error Reduction</td>
+                            <td class="positive">$85,000</td>
+                            <td>Rework cost elimination + customer retention</td>
+                        </tr>
+                        <tr>
+                            <td>Revenue Acceleration</td>
+                            <td class="positive">$215,000</td>
+                            <td>30% faster sales cycle x pipeline value</td>
+                        </tr>
+                        <tr>
+                            <td>Technology Consolidation</td>
+                            <td class="positive">$100,000</td>
+                            <td>Elimination of 4 legacy tools</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td>Total Annual Benefit</td>
+                            <td>$720,000</td>
+                            <td>Conservative estimate (excludes intangibles)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout">
+                <h4>This Model is Built on Real Data</h4>
+                <p>
+                    Every projection in our ROI models is derived from actual client data and validated
+                    industry benchmarks. We stand behind our numbers because we've seen them achieved.
+                </p>
+            </div>
+
+            <h3>Website Display Guidelines</h3>
+            <ul class="styled-list">
+                <li>Always include the "Sample" or "Illustrative" label prominently</li>
+                <li>Use generic company descriptors (industry + revenue range)</li>
+                <li>Round numbers to avoid appearing too specific</li>
+                <li>Include methodology notes to build credibility</li>
+                <li>Add disclaimer about actual results varying by situation</li>
+            </ul>
+        </section>
+
+        <!-- Section 5: Before/After -->
+        <section id="before-after" class="section">
+            <h2><span class="section-number">5</span>Before/After Projections Visualization</h2>
+
+            <p>
+                Visual before/after comparisons are powerful tools for demonstrating impact.
+                Use these templates to show the transformation our engagement delivers.
+            </p>
+
+            <div class="before-after-container">
+                <div class="before-state">
+                    <div class="state-header">
+                        <span class="state-badge">Current State</span>
+                    </div>
+                    <div class="state-metric">
+                        <span class="state-metric-label">Monthly Close Time</span>
+                        <span class="state-metric-value negative">15 days</span>
+                    </div>
+                    <div class="state-metric">
+                        <span class="state-metric-label">Manual Data Entry</span>
+                        <span class="state-metric-value negative">120 hours/month</span>
+                    </div>
+                    <div class="state-metric">
+                        <span class="state-metric-label">Error Rate</span>
+                        <span class="state-metric-value negative">8.5%</span>
+                    </div>
+                    <div class="state-metric">
+                        <span class="state-metric-label">Customer Response Time</span>
+                        <span class="state-metric-value negative">48 hours</span>
+                    </div>
+                    <div class="state-metric">
+                        <span class="state-metric-label">Technology Spend</span>
+                        <span class="state-metric-value negative">$180K/year</span>
+                    </div>
+                </div>
+
+                <div class="arrow-connector">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+
+                <div class="after-state">
+                    <div class="state-header">
+                        <span class="state-badge">Future State (Year 1)</span>
+                    </div>
+                    <div class="state-metric">
+                        <span class="state-metric-label">Monthly Close Time</span>
+                        <span class="state-metric-value positive">5 days</span>
+                    </div>
+                    <div class="state-metric">
+                        <span class="state-metric-label">Manual Data Entry</span>
+                        <span class="state-metric-value positive">20 hours/month</span>
+                    </div>
+                    <div class="state-metric">
+                        <span class="state-metric-label">Error Rate</span>
+                        <span class="state-metric-value positive">1.2%</span>
+                    </div>
+                    <div class="state-metric">
+                        <span class="state-metric-label">Customer Response Time</span>
+                        <span class="state-metric-value positive">4 hours</span>
+                    </div>
+                    <div class="state-metric">
+                        <span class="state-metric-label">Technology Spend</span>
+                        <span class="state-metric-value positive">$95K/year</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Impact Summary</h3>
+            <div class="components-grid">
+                <div class="component-card">
+                    <h4>Time Savings</h4>
+                    <ul>
+                        <li>67% faster monthly close</li>
+                        <li>83% reduction in manual work</li>
+                        <li>92% faster customer response</li>
+                    </ul>
+                </div>
+                <div class="component-card">
+                    <h4>Quality Improvements</h4>
+                    <ul>
+                        <li>86% reduction in errors</li>
+                        <li>Improved data accuracy</li>
+                        <li>Better decision confidence</li>
+                    </ul>
+                </div>
+                <div class="component-card">
+                    <h4>Cost Reduction</h4>
+                    <ul>
+                        <li>47% lower tech spend</li>
+                        <li>Fewer rework costs</li>
+                        <li>Optimized headcount</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Payback Period -->
+        <section id="payback" class="section">
+            <h2><span class="section-number">6</span>Payback Period Calculation Methodology</h2>
+
+            <p>
+                Payback period is one of the most intuitive ROI metrics for decision-makers.
+                Here is how we calculate and present it.
+            </p>
+
+            <div class="formula-box">
+                <div class="formula-title">Standard Payback Period Formula</div>
+                <div class="formula">
+                    Payback Period = Total Investment / Monthly Net Benefit
+                </div>
+                <div class="formula-explanation">
+                    Where Monthly Net Benefit = (Gross Monthly Benefit - Ongoing Monthly Costs) x Adoption Rate
+                </div>
+            </div>
+
+            <div class="payback-timeline">
+                <div class="payback-header">
+                    <h4>Payback Period Visualization</h4>
+                    <p>Visual representation of investment recovery timeline</p>
+                </div>
+
+                <div class="timeline-bar">
+                    <div class="timeline-progress"></div>
+                    <div class="timeline-marker breakeven">
+                        <div class="timeline-marker-label">BREAK-EVEN</div>
+                        <div class="timeline-marker-value">Month 4.2</div>
+                    </div>
+                </div>
+
+                <div class="timeline-months">
+                    <span>Month 0</span>
+                    <span>Month 3</span>
+                    <span>Month 6</span>
+                    <span>Month 9</span>
+                    <span>Month 12</span>
+                </div>
+
+                <div class="payback-stats">
+                    <div class="payback-stat">
+                        <div class="payback-stat-value">$200K</div>
+                        <div class="payback-stat-label">Initial Investment</div>
+                    </div>
+                    <div class="payback-stat">
+                        <div class="payback-stat-value">$48K</div>
+                        <div class="payback-stat-label">Monthly Benefit (at scale)</div>
+                    </div>
+                    <div class="payback-stat">
+                        <div class="payback-stat-value">$520K</div>
+                        <div class="payback-stat-label">Net Gain by Month 12</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Calculation Components</h3>
+            <div class="two-column">
+                <div>
+                    <h4>Investment Components</h4>
+                    <ul class="styled-list">
+                        <li><strong>Professional Services:</strong> Implementation, training, change management</li>
+                        <li><strong>Technology:</strong> Software, licenses, infrastructure</li>
+                        <li><strong>Internal Time:</strong> Staff hours during implementation</li>
+                        <li><strong>Transition Costs:</strong> Parallel running, migration</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Benefit Components</h4>
+                    <ul class="styled-list">
+                        <li><strong>Hard Savings:</strong> Direct cost reductions, eliminated expenses</li>
+                        <li><strong>Soft Savings:</strong> Time savings, productivity gains</li>
+                        <li><strong>Revenue Impact:</strong> Growth, retention, pricing power</li>
+                        <li><strong>Risk Avoidance:</strong> Compliance, error prevention</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Adoption Rate Curve</h3>
+            <p>
+                We apply a realistic adoption curve to benefit projections, acknowledging that
+                full benefits are not immediate:
+            </p>
+            <table class="risk-table">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Adoption Rate</th>
+                        <th>Benefit Realization</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1-2</td>
+                        <td>25%</td>
+                        <td>25% of projected</td>
+                        <td>Implementation phase</td>
+                    </tr>
+                    <tr>
+                        <td>3-4</td>
+                        <td>60%</td>
+                        <td>60% of projected</td>
+                        <td>Early adoption phase</td>
+                    </tr>
+                    <tr>
+                        <td>5-6</td>
+                        <td>85%</td>
+                        <td>85% of projected</td>
+                        <td>Scaling phase</td>
+                    </tr>
+                    <tr>
+                        <td>7+</td>
+                        <td>100%</td>
+                        <td>100% of projected</td>
+                        <td>Full adoption</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 7: Risk Factors -->
+        <section id="risk-factors" class="section">
+            <h2><span class="section-number">7</span>Risk Factors and Assumptions Section</h2>
+
+            <p>
+                Every ROI model includes explicit assumptions and identified risks.
+                This transparency builds trust and sets realistic expectations.
+            </p>
+
+            <h3>Standard Risk Assessment</h3>
+            <table class="risk-table">
+                <thead>
+                    <tr>
+                        <th>Risk Factor</th>
+                        <th>Impact Level</th>
+                        <th>Mitigation Strategy</th>
+                        <th>Owner</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Adoption resistance from staff</td>
+                        <td><span class="risk-level risk-medium">Medium</span></td>
+                        <td>Change management program, executive sponsorship</td>
+                        <td>Client + SVU</td>
+                    </tr>
+                    <tr>
+                        <td>Integration complexity exceeds estimate</td>
+                        <td><span class="risk-level risk-medium">Medium</span></td>
+                        <td>Technical discovery phase, buffer in timeline</td>
+                        <td>SVU</td>
+                    </tr>
+                    <tr>
+                        <td>Key stakeholder departure</td>
+                        <td><span class="risk-level risk-high">High</span></td>
+                        <td>Multi-stakeholder buy-in, documentation</td>
+                        <td>Client</td>
+                    </tr>
+                    <tr>
+                        <td>Market conditions change</td>
+                        <td><span class="risk-level risk-low">Low</span></td>
+                        <td>Quarterly review and model updates</td>
+                        <td>Joint</td>
+                    </tr>
+                    <tr>
+                        <td>Data quality issues discovered</td>
+                        <td><span class="risk-level risk-medium">Medium</span></td>
+                        <td>Data audit phase, remediation budget</td>
+                        <td>Joint</td>
+                    </tr>
+                    <tr>
+                        <td>Scope creep during implementation</td>
+                        <td><span class="risk-level risk-low">Low</span></td>
+                        <td>Clear SOW, change control process</td>
+                        <td>Joint</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Key Assumptions</h3>
+            <div class="two-column">
+                <div class="assumption-category">
+                    <h4>Business Environment Assumptions</h4>
+                    <ul class="assumption-list">
+                        <li>No major organizational restructuring during implementation</li>
+                        <li>Key decision-makers remain in place for project duration</li>
+                        <li>Budget remains allocated as approved</li>
+                        <li>Market conditions remain within normal variance</li>
+                        <li>Regulatory environment does not fundamentally change</li>
+                    </ul>
+                </div>
+                <div class="assumption-category">
+                    <h4>Technical Assumptions</h4>
+                    <ul class="assumption-list">
+                        <li>Existing systems can integrate via documented APIs</li>
+                        <li>Data quality is sufficient for migration</li>
+                        <li>Infrastructure can support new workloads</li>
+                        <li>Security requirements are as documented</li>
+                        <li>No legacy system lock-in prevents changes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="assumption-category">
+                <h4>Benefit Realization Assumptions</h4>
+                <ul class="assumption-list">
+                    <li>Staff will be redeployed to value-add work (not headcount reduction)</li>
+                    <li>Training will be completed within planned timeline</li>
+                    <li>Adoption curve follows industry benchmarks (conservative)</li>
+                    <li>Benefits are measured and tracked as defined</li>
+                    <li>Only quantifiable benefits are included (qualitative benefits are bonus)</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <p>
+                    <strong>Sensitivity Range:</strong> Our base-case projections assume all assumptions hold.
+                    Conservative scenarios assume 2-3 risks materialize. Even in conservative scenarios,
+                    we target minimum 150% ROI for project approval.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 8: Industry Customization -->
+        <section id="industry" class="section">
+            <h2><span class="section-number">8</span>How to Customize for Each Industry</h2>
+
+            <p>
+                While our core ROI methodology is consistent, the specific metrics, benchmarks,
+                and value drivers vary by industry. Here is how to customize:
+            </p>
+
+            <div class="industry-tabs">
+                <div class="industry-tab active">Technology/SaaS</div>
+                <div class="industry-tab">Financial Services</div>
+                <div class="industry-tab">Healthcare</div>
+                <div class="industry-tab">Manufacturing</div>
+                <div class="industry-tab">Professional Services</div>
+            </div>
+
+            <div class="industry-content">
+                <h4>Technology/SaaS Industry Focus</h4>
+                <div class="industry-metrics">
+                    <div class="industry-metric">
+                        <span class="industry-metric-label">Primary Value Driver</span>
+                        <span class="industry-metric-value">Customer Acquisition Efficiency</span>
+                    </div>
+                    <div class="industry-metric">
+                        <span class="industry-metric-label">Key Metric</span>
+                        <span class="industry-metric-value">CAC/LTV Ratio</span>
+                    </div>
+                    <div class="industry-metric">
+                        <span class="industry-metric-label">Typical Payback</span>
+                        <span class="industry-metric-value">3-6 months</span>
+                    </div>
+                    <div class="industry-metric">
+                        <span class="industry-metric-label">Benchmark ROI</span>
+                        <span class="industry-metric-value">300-500%</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Industry-Specific Customization Checklist</h3>
+            <table class="risk-table">
+                <thead>
+                    <tr>
+                        <th>Industry</th>
+                        <th>Key Metrics to Include</th>
+                        <th>Typical Pain Points</th>
+                        <th>Benchmark Sources</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Technology/SaaS</strong></td>
+                        <td>ARR, NRR, CAC, LTV, Churn</td>
+                        <td>Scale efficiency, customer success</td>
+                        <td>SaaS Capital, KeyBanc</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Financial Services</strong></td>
+                        <td>Cost/income ratio, AUM, compliance costs</td>
+                        <td>Regulatory burden, legacy systems</td>
+                        <td>McKinsey, Deloitte FSI</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Healthcare</strong></td>
+                        <td>Revenue cycle, patient throughput, denials</td>
+                        <td>Administrative burden, interoperability</td>
+                        <td>HFMA, MGMA benchmarks</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Manufacturing</strong></td>
+                        <td>OEE, inventory turns, quality metrics</td>
+                        <td>Supply chain, equipment efficiency</td>
+                        <td>IndustryWeek, MPI Group</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Professional Services</strong></td>
+                        <td>Utilization, realization, leverage ratio</td>
+                        <td>Resource allocation, billing leakage</td>
+                        <td>SPI Research, Deltek</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Customization Process</h3>
+            <ol class="numbered-list">
+                <li>
+                    <strong>Identify Industry:</strong> Determine primary industry classification and
+                    any sub-sector specifics (e.g., "SaaS" vs "Enterprise SaaS" vs "PLG SaaS").
+                </li>
+                <li>
+                    <strong>Select Relevant Metrics:</strong> Choose 5-8 industry-specific KPIs that
+                    resonate with the prospect's priorities.
+                </li>
+                <li>
+                    <strong>Apply Industry Benchmarks:</strong> Use appropriate benchmark data for
+                    efficiency ratios, growth rates, and improvement potential.
+                </li>
+                <li>
+                    <strong>Adjust Language:</strong> Use industry terminology throughout the model
+                    and presentation to demonstrate domain expertise.
+                </li>
+                <li>
+                    <strong>Reference Case Studies:</strong> Include anonymized examples from similar
+                    companies in the same industry.
+                </li>
+            </ol>
+        </section>
+
+        <!-- Section 9: Talking Points -->
+        <section id="talking-points" class="section">
+            <h2><span class="section-number">9</span>Presentation Talking Points</h2>
+
+            <p>
+                Use these scripted talking points during ROI model presentations. Each is designed
+                to build credibility, address objections, and move the conversation forward.
+            </p>
+
+            <div class="talking-point">
+                <div class="talking-point-header">
+                    <span class="talking-point-title">Opening: Setting the Stage</span>
+                    <span class="talking-point-timing">First 2 minutes</span>
+                </div>
+                <p class="talking-point-script">
+                    "What we're about to share is different from what you may have seen from other
+                    consultants. We've taken the time to understand your specific situation and
+                    build a custom ROI model using your actual data. This isn't a generic template -
+                    it's a projection built specifically for [Company Name]. Our goal today is to
+                    show you exactly what success looks like and give you confidence in the investment
+                    decision."
+                </p>
+            </div>
+
+            <div class="talking-point">
+                <div class="talking-point-header">
+                    <span class="talking-point-title">Methodology: Building Credibility</span>
+                    <span class="talking-point-timing">Minute 5-10</span>
+                </div>
+                <p class="talking-point-script">
+                    "Let me walk you through how we built this model. We started with the financial
+                    and operational data you shared with us. We then applied our proprietary
+                    calculation framework, which is based on outcomes from over 100 similar
+                    engagements. Every assumption is documented, every calculation is transparent,
+                    and you can adjust any input to see how it affects the outputs. We believe in
+                    certainty first - you should know exactly what you're buying before you buy it."
+                </p>
+            </div>
+
+            <div class="talking-point">
+                <div class="talking-point-header">
+                    <span class="talking-point-title">Key Numbers: The Headline</span>
+                    <span class="talking-point-timing">Minute 10-15</span>
+                </div>
+                <p class="talking-point-script">
+                    "Here's the bottom line: For an investment of [X], you'll see returns of [Y]
+                    in the first year alone. That's a [Z]% ROI. More importantly, you'll break
+                    even in just [N] months, meaning the project pays for itself before Q2 ends.
+                    But these aren't just projections - they're based on real benchmarks from
+                    companies very similar to yours."
+                </p>
+            </div>
+
+            <div class="talking-point">
+                <div class="talking-point-header">
+                    <span class="talking-point-title">Handling Skepticism</span>
+                    <span class="talking-point-timing">When objections arise</span>
+                </div>
+                <p class="talking-point-script">
+                    "I appreciate that healthy skepticism - it tells me you're taking this seriously.
+                    Let's dig into that concern. Which specific assumption feels aggressive to you?
+                    [PAUSE] Great, let me show you where that number comes from. [Show source]
+                    And here's the best part - even if we reduce that assumption by 30%, the model
+                    still shows positive returns. We've stress-tested this."
+                </p>
+            </div>
+
+            <div class="talking-point">
+                <div class="talking-point-header">
+                    <span class="talking-point-title">Risk Discussion: Building Trust</span>
+                    <span class="talking-point-timing">Minute 30-35</span>
+                </div>
+                <p class="talking-point-script">
+                    "Now, let's talk about what could go wrong - because that's just as important
+                    as what could go right. We've identified [N] key risks, and for each one, we
+                    have a specific mitigation strategy. We're not selling you a dream; we're
+                    showing you a realistic path to results. The risks are manageable, and we've
+                    successfully navigated similar challenges many times."
+                </p>
+            </div>
+
+            <div class="talking-point">
+                <div class="talking-point-header">
+                    <span class="talking-point-title">Closing: The Ask</span>
+                    <span class="talking-point-timing">Final 5 minutes</span>
+                </div>
+                <p class="talking-point-script">
+                    "You've seen the model, the methodology, and the risks. The numbers speak for
+                    themselves: [X]% ROI with payback in [Y] months. The question isn't whether
+                    this will work - we've shown you the data. The question is: how quickly do
+                    you want to start capturing these benefits? What would be helpful for your
+                    next steps?"
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 10: FAQ -->
+        <section id="faq" class="section">
+            <h2><span class="section-number">10</span>FAQ About the ROI Model</h2>
+
+            <p>
+                Common questions prospects ask about our ROI modeling approach, with recommended
+                responses.
+            </p>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Why should I trust these projections? Aren't all consultants' projections optimistic?
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        It's a fair question, and honestly, many firms do over-promise. Here's why we're
+                        different: First, we build ROI models before you pay us anything - we're investing
+                        our time to prove value. If we weren't confident in our projections, that would be
+                        a terrible business model. Second, every number is documented with its source and
+                        methodology - there's nothing hidden. Third, we include a conservative scenario
+                        that assumes some things go wrong, and even that shows positive returns. Finally,
+                        we tie our fees to outcomes - if we don't deliver, we don't get paid in full.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How accurate are these projections compared to actual results?
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Across our client base, 85% of engagements meet or exceed the base-case projections
+                        within the first 18 months. About 10% land between the conservative and base case -
+                        still positive, but lower than projected. Only 5% underperform the conservative
+                        scenario, and in most of those cases, there were major business disruptions
+                        (acquisitions, leadership changes) that we couldn't have anticipated. We publish
+                        anonymized case studies with actual results, and we're happy to share references
+                        from clients in your industry.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What data do you need from us to build this model?
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        We need three categories of data: Financial (last 12 months P&L, ideally by
+                        department or function), Operational (headcount, process metrics, technology
+                        spending), and Strategic (growth targets, key initiatives, pain points you've
+                        identified). We can work with whatever level of detail you're comfortable sharing -
+                        we sign NDAs, and we've built models with as little as a summary P&L and a 30-minute
+                        interview. More data means more precision, but we can start with less.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What if our situation changes after we start?
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        The model is a living document. We update it quarterly during engagements as we
+                        learn more and as your situation evolves. If there's a major change (acquisition,
+                        new leadership, market shift), we'll rerun the model with new assumptions and
+                        discuss whether to adjust scope, timeline, or approach. The goal is always
+                        positive ROI - we're partners in achieving that, not just contractors delivering
+                        a spec.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How long does it take to build our custom ROI model?
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Typically 1-2 weeks from receiving your data to presenting the model. The
+                        timeline depends on data availability and stakeholder access for interviews.
+                        We've done it in as little as 3 business days for urgent situations, but we
+                        prefer 2 weeks to ensure thoroughness. This is our gift to you - there's no
+                        charge for the ROI model, so there's no reason to rush it at the expense of
+                        quality.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What if the model shows negative ROI?
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Then we tell you that, and we don't proceed. This has happened - about 1 in 10
+                        prospects we model aren't a fit for an engagement with us. Maybe the timing is
+                        wrong, maybe the problem is different than assumed, maybe the investment doesn't
+                        make sense for your situation. When that happens, we share the model anyway,
+                        explain why we think it's not a fit, and often suggest alternative approaches
+                        that might work better. Our reputation depends on honest assessment, not on
+                        closing every deal.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can we share this model with our board/investors?
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Absolutely - in fact, we encourage it. The model is designed to be presentation-ready
+                        for any stakeholder audience. We can also join calls with your board or investors
+                        to walk through the methodology and answer questions directly. We've found that
+                        having a third-party ROI analysis actually accelerates internal approval processes.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 11: Competitive Differentiation -->
+        <section id="competitive" class="section">
+            <h2><span class="section-number">11</span>How This Differs From Competitor Proposals</h2>
+
+            <p>
+                Our ROI modeling approach is a key differentiator. Here's how it compares to
+                what prospects typically see from competitors:
+            </p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Typical Competitor Approach</th>
+                        <th>ScaleUp Ventures Approach</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>When ROI is Discussed</strong></td>
+                        <td>Vague promises in proposal; detailed only after contract</td>
+                        <td>Detailed custom model delivered before any commitment</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Used</strong></td>
+                        <td>Generic industry benchmarks and assumptions</td>
+                        <td>Client's actual financial and operational data</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Transparency</strong></td>
+                        <td>Black-box calculations; "trust us" approach</td>
+                        <td>Every formula visible; clients can audit every assumption</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Risk Discussion</strong></td>
+                        <td>Risks minimized or glossed over</td>
+                        <td>Explicit risk assessment with mitigation strategies</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Scenario Analysis</strong></td>
+                        <td>Single "best case" projection <span class="cross">x</span></td>
+                        <td>Conservative, base, and optimistic scenarios <span class="check">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interactive Model</strong></td>
+                        <td>Static PDF or slide deck <span class="cross">x</span></td>
+                        <td>Adjustable spreadsheet client owns forever <span class="check">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cost of Model</strong></td>
+                        <td>Paid discovery phase required first</td>
+                        <td>Completely free; delivered before any payment</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Outcome Alignment</strong></td>
+                        <td>Fixed fees regardless of results</td>
+                        <td>Fees tied to achieving projected outcomes</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout">
+                <h4>"Certainty First" in Practice</h4>
+                <p>
+                    While competitors ask you to trust them and pay first, we prove value before
+                    you invest. The ROI model is our commitment to transparency and confidence-building.
+                    If we can't demonstrate compelling returns, we won't ask for your business.
+                </p>
+            </div>
+
+            <h3>Competitive Objection Handling</h3>
+            <div class="two-column">
+                <div class="talking-point">
+                    <div class="talking-point-header">
+                        <span class="talking-point-title">"Competitor X is cheaper"</span>
+                    </div>
+                    <p class="talking-point-script">
+                        "They may be cheaper upfront, but have they shown you a detailed ROI model
+                        proving their value? We can show you exactly what you'll get for your
+                        investment. Let's compare the projected returns, not just the costs."
+                    </p>
+                </div>
+                <div class="talking-point">
+                    <div class="talking-point-header">
+                        <span class="talking-point-title">"We've seen ROI projections before"</span>
+                    </div>
+                    <p class="talking-point-script">
+                        "I understand the skepticism. But ask yourself: did those projections use
+                        your actual data? Were the assumptions transparent? Could you adjust inputs
+                        and see impact? Our approach is fundamentally different because it's built
+                        on your reality, not generic benchmarks."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 12: Visual Mockup -->
+        <section id="mockup" class="section">
+            <h2><span class="section-number">12</span>Visual Mockup of the Model Format</h2>
+
+            <p>
+                This mockup shows the actual structure and format of our ROI model deliverable.
+                Each section is interactive in the actual Excel workbook.
+            </p>
+
+            <div class="model-mockup">
+                <div class="mockup-toolbar">
+                    <span class="mockup-dot red"></span>
+                    <span class="mockup-dot yellow"></span>
+                    <span class="mockup-dot green"></span>
+                    <span class="mockup-title">ScaleUp_Ventures_ROI_Model_[ClientName]_v1.xlsx</span>
+                </div>
+                <div class="mockup-content">
+                    <div class="mockup-section">
+                        <div class="mockup-section-title">1. INPUT PARAMETERS</div>
+                        <div class="mockup-grid">
+                            <div class="mockup-input-group">
+                                <span class="mockup-label">Annual Revenue</span>
+                                <div class="mockup-input">$25,000,000</div>
+                            </div>
+                            <div class="mockup-input-group">
+                                <span class="mockup-label">Operating Margin</span>
+                                <div class="mockup-input">15%</div>
+                            </div>
+                            <div class="mockup-input-group">
+                                <span class="mockup-label">Employee Count</span>
+                                <div class="mockup-input">125</div>
+                            </div>
+                            <div class="mockup-input-group">
+                                <span class="mockup-label">Avg Salary Cost</span>
+                                <div class="mockup-input">$95,000</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mockup-section">
+                        <div class="mockup-section-title">2. EFFICIENCY ANALYSIS</div>
+                        <div class="mockup-grid">
+                            <div class="mockup-input-group">
+                                <span class="mockup-label">Current Process Hours/Month</span>
+                                <div class="mockup-input">2,400</div>
+                            </div>
+                            <div class="mockup-input-group">
+                                <span class="mockup-label">Projected Reduction</span>
+                                <div class="mockup-input">40%</div>
+                            </div>
+                            <div class="mockup-input-group">
+                                <span class="mockup-label">Hours Saved Monthly</span>
+                                <div class="mockup-output">960 hours</div>
+                            </div>
+                            <div class="mockup-input-group">
+                                <span class="mockup-label">Annual Value of Time Saved</span>
+                                <div class="mockup-output">$547,200</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mockup-section">
+                        <div class="mockup-section-title">3. INVESTMENT REQUIREMENTS</div>
+                        <div class="mockup-grid">
+                            <div class="mockup-input-group">
+                                <span class="mockup-label">Professional Services</span>
+                                <div class="mockup-input">$150,000</div>
+                            </div>
+                            <div class="mockup-input-group">
+                                <span class="mockup-label">Technology/Licenses</span>
+                                <div class="mockup-input">$35,000</div>
+                            </div>
+                            <div class="mockup-input-group">
+                                <span class="mockup-label">Internal Time (valued)</span>
+                                <div class="mockup-input">$15,000</div>
+                            </div>
+                            <div class="mockup-input-group">
+                                <span class="mockup-label">Total Investment</span>
+                                <div class="mockup-output">$200,000</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mockup-section">
+                        <div class="mockup-section-title">4. ROI CALCULATIONS</div>
+                        <div class="mockup-grid">
+                            <div class="mockup-input-group">
+                                <span class="mockup-label">Year 1 Net Benefit</span>
+                                <div class="mockup-output">$520,000</div>
+                            </div>
+                            <div class="mockup-input-group">
+                                <span class="mockup-label">ROI Percentage</span>
+                                <div class="mockup-output">260%</div>
+                            </div>
+                            <div class="mockup-input-group">
+                                <span class="mockup-label">Payback Period</span>
+                                <div class="mockup-output">4.6 months</div>
+                            </div>
+                            <div class="mockup-input-group">
+                                <span class="mockup-label">NPV (3 years, 10% discount)</span>
+                                <div class="mockup-output">$1,287,000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Workbook Tab Structure</h3>
+            <ol class="numbered-list">
+                <li>
+                    <strong>Executive Summary:</strong> One-page visual dashboard with key metrics
+                    and recommendation. Print-ready for board presentations.
+                </li>
+                <li>
+                    <strong>Input Parameters:</strong> All adjustable inputs in one place. Yellow
+                    cells indicate user-modifiable fields.
+                </li>
+                <li>
+                    <strong>Calculation Engine:</strong> Detailed calculations with formula
+                    explanations. Fully transparent methodology.
+                </li>
+                <li>
+                    <strong>Scenario Analysis:</strong> Toggle between Conservative, Base, and
+                    Optimistic scenarios. See impact instantly.
+                </li>
+                <li>
+                    <strong>Monthly Projections:</strong> Month-by-month breakdown of investment
+                    and returns for first 24 months.
+                </li>
+                <li>
+                    <strong>Risk Register:</strong> Documented risks, probability, impact, and
+                    mitigation strategies.
+                </li>
+                <li>
+                    <strong>Assumptions Log:</strong> Every assumption documented with source
+                    and rationale.
+                </li>
+                <li>
+                    <strong>Benchmark Data:</strong> Industry benchmarks used in calculations
+                    with source citations.
+                </li>
+            </ol>
+
+            <div class="info-box">
+                <p>
+                    <strong>Delivery Format:</strong> The model is delivered as an Excel workbook (.xlsx)
+                    that clients own permanently. We also provide a PDF export of the Executive Summary
+                    for easy sharing, and a methodology document explaining the approach.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-logo">ScaleUp Ventures</div>
+        <div class="footer-tagline">Certainty First.</div>
+        <p class="footer-copyright">
+            Internal Sales Resource | Sample ROI Model Guide<br>
+            For ScaleUp Ventures team use only
+        </p>
+    </footer>
+</body>
+</html>

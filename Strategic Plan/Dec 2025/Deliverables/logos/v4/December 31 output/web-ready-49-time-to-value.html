@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time-to-Value Benchmarks | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --navy-lighter: #243352;
+            --gold: #D4A853;
+            --gold-dim: rgba(212, 168, 83, 0.3);
+            --white: #ffffff;
+            --gray: #94a3b8;
+            --gray-light: #cbd5e1;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--navy);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .header-label {
+            display: inline-block;
+            background: var(--gold-dim);
+            color: var(--gold);
+            padding: 8px 20px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+        }
+
+        .header h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+        }
+
+        .header-subtitle {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 32px;
+        }
+
+        .honesty-note {
+            background: var(--navy-light);
+            border-left: 4px solid var(--gold);
+            padding: 20px 24px;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .honesty-note strong {
+            color: var(--gold);
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 64px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 32px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        /* Overall Benchmarks */
+        .benchmark-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .benchmark-card {
+            background: var(--navy-light);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            border: 1px solid var(--navy-lighter);
+        }
+
+        .benchmark-card.highlight {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, var(--navy-light) 0%, rgba(212, 168, 83, 0.1) 100%);
+        }
+
+        .benchmark-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gold-dim);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .benchmark-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--gold);
+        }
+
+        .benchmark-timeline {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .benchmark-label {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .benchmark-desc {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        /* Service Timelines */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--navy-light);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .service-header {
+            background: var(--navy-lighter);
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gold-dim);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--gold);
+        }
+
+        .service-name {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .service-body {
+            padding: 24px;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--navy-lighter);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-weeks {
+            min-width: 80px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .timeline-weeks span {
+            font-size: 14px;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .timeline-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .timeline-content p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        /* Engagement Types */
+        .engagement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .engagement-card {
+            background: var(--navy-light);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .engagement-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .engagement-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .engagement-metric {
+            background: var(--navy);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .engagement-metric-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .engagement-metric-label {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        /* Factors */
+        .factors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .factor-card {
+            background: var(--navy-light);
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .factor-card.accelerators {
+            border-top: 4px solid #22c55e;
+        }
+
+        .factor-card.decelerators {
+            border-top: 4px solid #ef4444;
+        }
+
+        .factor-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .factor-title svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .accelerators .factor-title svg {
+            color: #22c55e;
+        }
+
+        .decelerators .factor-title svg {
+            color: #ef4444;
+        }
+
+        .factor-list {
+            list-style: none;
+        }
+
+        .factor-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--navy-lighter);
+        }
+
+        .factor-list li:last-child {
+            border-bottom: none;
+        }
+
+        .factor-list li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+
+        .accelerators .factor-list li::before {
+            background: #22c55e;
+        }
+
+        .decelerators .factor-list li::before {
+            background: #ef4444;
+        }
+
+        .factor-impact {
+            display: block;
+            font-size: 12px;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+
+        /* Case Studies */
+        .case-studies {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .case-study {
+            background: var(--navy-light);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .case-study-header {
+            background: var(--navy-lighter);
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .case-study-title {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .case-study-industry {
+            background: var(--gold-dim);
+            color: var(--gold);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .case-study-body {
+            padding: 32px;
+        }
+
+        .case-study-timeline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .case-milestone {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            padding: 16px;
+            background: var(--navy);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .case-milestone::after {
+            content: '';
+            position: absolute;
+            right: -14px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 6px solid transparent;
+            border-left-color: var(--gold);
+        }
+
+        .case-milestone:last-child::after {
+            display: none;
+        }
+
+        .milestone-date {
+            font-size: 12px;
+            color: var(--gray);
+            margin-bottom: 8px;
+        }
+
+        .milestone-event {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .milestone-metric {
+            font-size: 14px;
+            color: var(--gold);
+        }
+
+        .case-study-result {
+            background: linear-gradient(135deg, var(--navy) 0%, rgba(212, 168, 83, 0.1) 100%);
+            border: 1px solid var(--gold-dim);
+            border-radius: 12px;
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .result-label {
+            font-weight: 600;
+        }
+
+        .result-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        /* Expectation Setter */
+        .expectation-box {
+            background: linear-gradient(135deg, var(--navy-light) 0%, rgba(212, 168, 83, 0.05) 100%);
+            border: 2px solid var(--gold);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 64px;
+        }
+
+        .expectation-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .expectation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .expectation-item {
+            background: var(--navy);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .expectation-item h4 {
+            font-size: 16px;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .expectation-item p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--navy-lighter);
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-text {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 32px 16px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-milestone::after {
+                display: none;
+            }
+
+            .case-study-timeline {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Index</a>
+  <span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span>
+  <div style="display:flex;gap:12px;">
+    <a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a>
+    <a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a>
+    <a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a>
+    <a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a>
+    <a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a>
+  </div>
+</nav>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-label">REALISTIC EXPECTATIONS</div>
+            <h1>Time-to-Value <span>Benchmarks</span></h1>
+            <p class="header-subtitle">
+                Honest timelines based on our actual engagement types. Every project is different, so we set realistic expectations upfront.
+            </p>
+            <div class="honesty-note">
+                <strong>Our approach:</strong> As an early-stage consultancy, we focus on high-impact strategic work rather than volume. These benchmarks reflect what we actually deliver, not inflated marketing claims. Your specific timeline depends on project complexity and your team's availability.
+            </div>
+        </header>
+
+        <!-- Our Engagement Types -->
+        <section class="section">
+            <h2 class="section-title">Typical Engagement Timelines</h2>
+            <div class="engagement-grid">
+                <div class="engagement-card">
+                    <div class="engagement-name">Strategic Advisory</div>
+                    <div class="engagement-timeline">
+                        <div class="engagement-metric">
+                            <div class="engagement-metric-value">1-2 weeks</div>
+                            <div class="engagement-metric-label">Discovery + Analysis</div>
+                        </div>
+                        <div class="engagement-metric">
+                            <div class="engagement-metric-value">Immediate</div>
+                            <div class="engagement-metric-label">Actionable Recommendation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="engagement-card">
+                    <div class="engagement-name">POC Development</div>
+                    <div class="engagement-timeline">
+                        <div class="engagement-metric">
+                            <div class="engagement-metric-value">4-8 weeks</div>
+                            <div class="engagement-metric-label">Working Prototype</div>
+                        </div>
+                        <div class="engagement-metric">
+                            <div class="engagement-metric-value">Varies</div>
+                            <div class="engagement-metric-label">Based on Complexity</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="engagement-card">
+                    <div class="engagement-name">Architecture Design</div>
+                    <div class="engagement-timeline">
+                        <div class="engagement-metric">
+                            <div class="engagement-metric-value">2-4 weeks</div>
+                            <div class="engagement-metric-label">Complete Blueprint</div>
+                        </div>
+                        <div class="engagement-metric">
+                            <div class="engagement-metric-value">Ongoing</div>
+                            <div class="engagement-metric-label">Implementation Support</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="engagement-card">
+                    <div class="engagement-name">AI-Enabled PM</div>
+                    <div class="engagement-timeline">
+                        <div class="engagement-metric">
+                            <div class="engagement-metric-value">Week 1</div>
+                            <div class="engagement-metric-label">Workflow Setup</div>
+                        </div>
+                        <div class="engagement-metric">
+                            <div class="engagement-metric-value">Continuous</div>
+                            <div class="engagement-metric-label">Ongoing Support</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="engagement-card">
+                    <div class="engagement-name">Startup Support</div>
+                    <div class="engagement-timeline">
+                        <div class="engagement-metric">
+                            <div class="engagement-metric-value">2-6 weeks</div>
+                            <div class="engagement-metric-label">Initial Deliverables</div>
+                        </div>
+                        <div class="engagement-metric">
+                            <div class="engagement-metric-value">Milestone-based</div>
+                            <div class="engagement-metric-label">Full Engagement</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Timelines -->
+        <section class="section">
+            <h2 class="section-title">Detailed Service Timelines</h2>
+            <div class="service-grid">
+                <!-- Strategic Advisory -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <div class="service-name">Strategic Advisory</div>
+                    </div>
+                    <div class="service-body">
+                        <div class="timeline-item">
+                            <div class="timeline-weeks">Day 1 <span></span></div>
+                            <div class="timeline-content">
+                                <h4>Discovery Call</h4>
+                                <p>Understand your situation, constraints, and goals</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-weeks">1-2 <span>wks</span></div>
+                            <div class="timeline-content">
+                                <h4>Analysis + Research</h4>
+                                <p>Deep dive into your specific challenge</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-weeks">Delivery <span></span></div>
+                            <div class="timeline-content">
+                                <h4>Clear Recommendation</h4>
+                                <p>Go/no-go decision with supporting rationale</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-weeks">Value <span></span></div>
+                            <div class="timeline-content">
+                                <h4>Immediate Clarity</h4>
+                                <p>Avoid costly mistakes, save months of wasted effort</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- POC/Prototype Development -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                            </svg>
+                        </div>
+                        <div class="service-name">POC Development</div>
+                    </div>
+                    <div class="service-body">
+                        <div class="timeline-item">
+                            <div class="timeline-weeks">1-2 <span>wks</span></div>
+                            <div class="timeline-content">
+                                <h4>Requirements + Architecture</h4>
+                                <p>Define scope, technical approach, success criteria</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-weeks">2-4 <span>wks</span></div>
+                            <div class="timeline-content">
+                                <h4>Core Build</h4>
+                                <p>Develop working prototype of key functionality</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-weeks">1-2 <span>wks</span></div>
+                            <div class="timeline-content">
+                                <h4>Testing + Refinement</h4>
+                                <p>Validate assumptions, iterate based on feedback</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-weeks">Varies <span></span></div>
+                            <div class="timeline-content">
+                                <h4>Complexity Factor</h4>
+                                <p>Regulated industries add compliance review time</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Startup Support -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <div class="service-name">Startup Support</div>
+                    </div>
+                    <div class="service-body">
+                        <div class="timeline-item">
+                            <div class="timeline-weeks">1-2 <span>wks</span></div>
+                            <div class="timeline-content">
+                                <h4>Business Model Review</h4>
+                                <p>Validate assumptions, identify gaps</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-weeks">2-4 <span>wks</span></div>
+                            <div class="timeline-content">
+                                <h4>Architecture + Prototype</h4>
+                                <p>Technical foundation for your MVP</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-weeks">Ongoing <span></span></div>
+                            <div class="timeline-content">
+                                <h4>Investor Preparation</h4>
+                                <p>Pitch refinement, warm introductions</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-weeks">3-6 <span>mo</span></div>
+                            <div class="timeline-content">
+                                <h4>Typical Full Engagement</h4>
+                                <p>From concept to investor-ready</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Factors -->
+        <section class="section">
+            <h2 class="section-title">Factors That Affect Timeline</h2>
+            <div class="factors-grid">
+                <div class="factor-card accelerators">
+                    <h3 class="factor-title">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                        What Speeds Things Up
+                    </h3>
+                    <ul class="factor-list">
+                        <li>
+                            <div>
+                                <strong>Clear problem definition</strong>
+                                <span class="factor-impact">Reduces discovery time significantly</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Single decision-maker</strong>
+                                <span class="factor-impact">Eliminates approval bottlenecks</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Available for collaboration</strong>
+                                <span class="factor-impact">Faster feedback loops</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Existing documentation</strong>
+                                <span class="factor-impact">Less time spent on discovery</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Flexible on non-essential features</strong>
+                                <span class="factor-impact">Focus on what matters most</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="factor-card decelerators">
+                    <h3 class="factor-title">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/>
+                        </svg>
+                        What Extends Timeline
+                    </h3>
+                    <ul class="factor-list">
+                        <li>
+                            <div>
+                                <strong>Regulated industries</strong>
+                                <span class="factor-impact">Compliance review adds weeks (financial, healthcare)</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Multiple stakeholders</strong>
+                                <span class="factor-impact">Each approval layer adds delay</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Scope changes mid-project</strong>
+                                <span class="factor-impact">Requires re-planning and re-estimation</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Integration complexity</strong>
+                                <span class="factor-impact">Legacy systems require more careful handling</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Unclear success criteria</strong>
+                                <span class="factor-impact">Hard to know when you are done</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real Engagement Examples -->
+        <section class="section">
+            <h2 class="section-title">Real Engagement Examples</h2>
+            <div class="case-studies">
+                <!-- Example 1: No-Build Decision -->
+                <div class="case-study">
+                    <div class="case-study-header">
+                        <div class="case-study-title">Strategic No-Build Decision</div>
+                        <div class="case-study-industry">Advisory</div>
+                    </div>
+                    <div class="case-study-body">
+                        <div class="case-study-timeline">
+                            <div class="case-milestone">
+                                <div class="milestone-date">Week 1</div>
+                                <div class="milestone-event">Discovery</div>
+                                <div class="milestone-metric">Understood scope</div>
+                            </div>
+                            <div class="case-milestone">
+                                <div class="milestone-date">Week 2</div>
+                                <div class="milestone-event">Analysis</div>
+                                <div class="milestone-metric">Market + tech review</div>
+                            </div>
+                            <div class="case-milestone">
+                                <div class="milestone-date">Week 2</div>
+                                <div class="milestone-event">Recommendation</div>
+                                <div class="milestone-metric">Do not build</div>
+                            </div>
+                        </div>
+                        <div class="case-study-result">
+                            <div class="result-label">Value Delivered:</div>
+                            <div class="result-value">$150K+ Saved</div>
+                        </div>
+                        <p style="margin-top: 16px; color: var(--gray); font-size: 14px;">
+                            Client was about to invest $150K+ in custom development. Our analysis showed existing solutions would meet their needs. $5K engagement prevented a costly mistake.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Example 2: Financial Trading App POC -->
+                <div class="case-study">
+                    <div class="case-study-header">
+                        <div class="case-study-title">Financial Trading App POC</div>
+                        <div class="case-study-industry">Regulated Industry</div>
+                    </div>
+                    <div class="case-study-body">
+                        <div class="case-study-timeline">
+                            <div class="case-milestone">
+                                <div class="milestone-date">Weeks 1-2</div>
+                                <div class="milestone-event">Requirements</div>
+                                <div class="milestone-metric">Compliance mapping</div>
+                            </div>
+                            <div class="case-milestone">
+                                <div class="milestone-date">Weeks 3-6</div>
+                                <div class="milestone-event">Core Build</div>
+                                <div class="milestone-metric">Trading logic POC</div>
+                            </div>
+                            <div class="case-milestone">
+                                <div class="milestone-date">Weeks 7-8</div>
+                                <div class="milestone-event">Validation</div>
+                                <div class="milestone-metric">Stakeholder review</div>
+                            </div>
+                        </div>
+                        <div class="case-study-result">
+                            <div class="result-label">Timeline:</div>
+                            <div class="result-value">8 Weeks to POC</div>
+                        </div>
+                        <p style="margin-top: 16px; color: var(--gray); font-size: 14px;">
+                            Regulated industry requires extra care. Compliance considerations added time but ensured the POC was viable for the real regulatory environment.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Example 3: Startup Support -->
+                <div class="case-study">
+                    <div class="case-study-header">
+                        <div class="case-study-title">Early-Stage Startup</div>
+                        <div class="case-study-industry">Startup Support</div>
+                    </div>
+                    <div class="case-study-body">
+                        <div class="case-study-timeline">
+                            <div class="case-milestone">
+                                <div class="milestone-date">Week 1</div>
+                                <div class="milestone-event">Business Model</div>
+                                <div class="milestone-metric">Validation + gaps</div>
+                            </div>
+                            <div class="case-milestone">
+                                <div class="milestone-date">Weeks 2-4</div>
+                                <div class="milestone-event">Architecture</div>
+                                <div class="milestone-metric">Technical blueprint</div>
+                            </div>
+                            <div class="case-milestone">
+                                <div class="milestone-date">Weeks 4-8</div>
+                                <div class="milestone-event">Prototype</div>
+                                <div class="milestone-metric">Demo-ready MVP</div>
+                            </div>
+                            <div class="case-milestone">
+                                <div class="milestone-date">Ongoing</div>
+                                <div class="milestone-event">Investor Support</div>
+                                <div class="milestone-metric">Warm intros</div>
+                            </div>
+                        </div>
+                        <div class="case-study-result">
+                            <div class="result-label">Full Engagement:</div>
+                            <div class="result-value">3-6 Months</div>
+                        </div>
+                        <p style="margin-top: 16px; color: var(--gray); font-size: 14px;">
+                            Comprehensive support from idea validation through investor-ready. Timeline varies based on founder availability and pivot requirements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expectation Setter -->
+        <div class="expectation-box">
+            <h3 class="expectation-title">Setting Honest Expectations</h3>
+            <p style="color: var(--gray); max-width: 700px; margin: 0 auto;">
+                We are a boutique consultancy, not a volume shop. Our value is in strategic clarity and quality execution, not speed at all costs.
+            </p>
+            <div class="expectation-grid">
+                <div class="expectation-item">
+                    <h4>Quick Wins</h4>
+                    <p>Strategic decisions can deliver immediate value. A well-timed "don't build this" saves months of wasted effort and significant capital.</p>
+                </div>
+                <div class="expectation-item">
+                    <h4>POC Reality</h4>
+                    <p>A working prototype typically takes 4-8 weeks. Add time for regulated industries or complex integrations. Rushing leads to rework.</p>
+                </div>
+                <div class="expectation-item">
+                    <h4>Quality Over Speed</h4>
+                    <p>We would rather take an extra week to get it right than deliver something that needs to be redone. Your timeline should reflect reality.</p>
+                </div>
+                <div class="expectation-item">
+                    <h4>Your Involvement Matters</h4>
+                    <p>Projects move fastest when you are available for feedback. Delays usually come from waiting on decisions, not from our side.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-logo">ScaleUp <span>Ventures</span></div>
+            <p class="footer-text">Realistic timelines. Quality outcomes. No overpromising.</p>
+        </footer>
+    </div>
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Content Index</a>
+  <p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p>
+</footer>
+</body>
+</html>

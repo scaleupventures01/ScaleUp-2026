@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures - Logo Comparison Gallery</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', serif;
+            background: #f8f9fa;
+            color: #0F1729;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0F1729 0%, #1a2744 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .header .tagline { color: #D4A853; font-size: 1.3rem; }
+        .header .subtitle { margin-top: 15px; opacity: 0.8; }
+
+        .section {
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #D4A853;
+        }
+        .section-header .icon {
+            width: 50px;
+            height: 50px;
+            background: #0F1729;
+            color: #D4A853;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .section-header h2 { font-size: 2rem; }
+        .section-header .count {
+            background: #D4A853;
+            color: #0F1729;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .logo-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .logo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .logo-image {
+            width: 100%;
+            height: 280px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .logo-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-info {
+            padding: 20px;
+        }
+        .logo-info h3 {
+            color: #0F1729;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        .logo-info .description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        .logo-info .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: #f0f0f0;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            color: #555;
+        }
+        .tag.abstract { background: #e3f2fd; color: #1565c0; }
+        .tag.detailed { background: #fff3e0; color: #e65100; }
+        .tag.dynamic { background: #fce4ec; color: #c2185b; }
+
+        .vote-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #0F1729;
+            color: white;
+            border: none;
+            font-family: inherit;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .vote-btn:hover { background: #D4A853; color: #0F1729; }
+        .vote-btn.selected { background: #D4A853; color: #0F1729; }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+        }
+
+        .summary-bar {
+            background: #0F1729;
+            color: white;
+            padding: 20px 40px;
+            position: sticky;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .summary-bar .selected-count {
+            color: #D4A853;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .logo-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ScaleUp Ventures</h1>
+        <div class="tagline">"We Prove It Before You Buy"</div>
+        <div class="subtitle">Logo Comparison Gallery - Generated with Gemini 3.0 Pro Preview</div>
+    </div>
+
+    <!-- HERON SECTION -->
+    <div class="section">
+        <div class="section-header">
+            <div class="icon">H</div>
+            <h2>THE HERON</h2>
+            <span class="count">8 Concepts</span>
+        </div>
+        <p style="margin-bottom: 25px; color: #666;">
+            <strong>Symbol Meaning:</strong> "Patience before precision" - The heron watches carefully, then strikes with perfect timing.
+            Represents methodical analysis followed by decisive action.
+        </p>
+
+        <div class="logo-grid">
+            <div class="logo-card" onclick="openLightbox('concepts/heron/heron-01-minimal-geometric.png')">
+                <div class="logo-image">
+                    <img src="concepts/heron/heron-01-minimal-geometric.png" alt="Heron Minimal Geometric">
+                </div>
+                <div class="logo-info">
+                    <h3>01 - Minimal Geometric</h3>
+                    <p class="description">Pure essence - S-curve abstraction with gold eye accent. Maximum simplicity.</p>
+                    <div class="tags">
+                        <span class="tag abstract">Abstract</span>
+                        <span class="tag">Favicon-Ready</span>
+                    </div>
+                </div>
+                <button class="vote-btn" onclick="event.stopPropagation(); toggleVote(this)">Select This Logo</button>
+            </div>
+
+            <div class="logo-card" onclick="openLightbox('concepts/heron/heron-02-elegant-standing.png')">
+                <div class="logo-image">
+                    <img src="concepts/heron/heron-02-elegant-standing.png" alt="Heron Elegant Standing">
+                </div>
+                <div class="logo-info">
+                    <h3>02 - Elegant Standing</h3>
+                    <p class="description">Classic left-facing profile with S-curve neck. Heritage brand aesthetic.</p>
+                    <div class="tags">
+                        <span class="tag">Classic</span>
+                        <span class="tag">Heritage</span>
+                    </div>
+                </div>
+                <button class="vote-btn" onclick="event.stopPropagation(); toggleVote(this)">Select This Logo</button>
+            </div>
+
+            <div class="logo-card" onclick="openLightbox('concepts/heron/heron-02-single-stroke.png')">
+                <div class="logo-image">
+                    <img src="concepts/heron/heron-02-single-stroke.png" alt="Heron Single Stroke">
+                </div>
+                <div class="logo-info">
+                    <h3>02B - Single Stroke</h3>
+                    <p class="description">Japanese calligraphy influence - continuous flowing line capturing the full bird.</p>
+                    <div class="tags">
+                        <span class="tag abstract">Abstract</span>
+                        <span class="tag">Calligraphic</span>
+                    </div>
+                </div>
+                <button class="vote-btn" onclick="event.stopPropagation(); toggleVote(this)">Select This Logo</button>
+            </div>
+
+            <div class="logo-card" onclick="openLightbox('concepts/heron/heron-03-strike-pose.png')">
+                <div class="logo-image">
+                    <img src="concepts/heron/heron-03-strike-pose.png" alt="Heron Strike Pose">
+                </div>
+                <div class="logo-info">
+                    <h3>03 - Strike Pose</h3>
+                    <p class="description">Dynamic strike moment with gold fish - the ROI captured. Decisive action.</p>
+                    <div class="tags">
+                        <span class="tag dynamic">Dynamic</span>
+                        <span class="tag detailed">Detailed</span>
+                    </div>
+                </div>
+                <button class="vote-btn" onclick="event.stopPropagation(); toggleVote(this)">Select This Logo</button>
+            </div>
+
+            <div class="logo-card" onclick="openLightbox('concepts/heron/heron-03-geometric-silhouette.png')">
+                <div class="logo-image">
+                    <img src="concepts/heron/heron-03-geometric-silhouette.png" alt="Heron Geometric Silhouette">
+                </div>
+                <div class="logo-info">
+                    <h3>03B - Geometric Silhouette</h3>
+                    <p class="description">Bold angular interpretation with gold beak - architectural and modern.</p>
+                    <div class="tags">
+                        <span class="tag">Architectural</span>
+                        <span class="tag">Modern</span>
+                    </div>
+                </div>
+                <button class="vote-btn" onclick="event.stopPropagation(); toggleVote(this)">Select This Logo</button>
+            </div>
+
+            <div class="logo-card" onclick="openLightbox('concepts/heron/heron-04-elegant-abstraction.png')">
+                <div class="logo-image">
+                    <img src="concepts/heron/heron-04-elegant-abstraction.png" alt="Heron Elegant Abstraction">
+                </div>
+                <div class="logo-info">
+                    <h3>04 - Elegant Abstraction</h3>
+                    <p class="description">Fluid curves with gold eye - sophisticated S-curve with tagline.</p>
+                    <div class="tags">
+                        <span class="tag abstract">Abstract</span>
+                        <span class="tag">Refined</span>
+                    </div>
+                </div>
+                <button class="vote-btn" onclick="event.stopPropagation(); toggleVote(this)">Select This Logo</button>
+            </div>
+
+            <div class="logo-card" onclick="openLightbox('concepts/heron/heron-05-circular-frame.png')">
+                <div class="logo-image">
+                    <img src="concepts/heron/heron-05-circular-frame.png" alt="Heron Circular Frame">
+                </div>
+                <div class="logo-info">
+                    <h3>05 - Circular Frame</h3>
+                    <p class="description">Contained within circle - perfect for seals, icons, and social avatars.</p>
+                    <div class="tags">
+                        <span class="tag">Icon-Ready</span>
+                        <span class="tag">Seal</span>
+                    </div>
+                </div>
+                <button class="vote-btn" onclick="event.stopPropagation(); toggleVote(this)">Select This Logo</button>
+            </div>
+
+            <div class="logo-card" onclick="openLightbox('concepts/heron/heron-06-dynamic-stance.png')">
+                <div class="logo-image">
+                    <img src="concepts/heron/heron-06-dynamic-stance.png" alt="Heron Dynamic Stance">
+                </div>
+                <div class="logo-info">
+                    <h3>06 - Dynamic Stance</h3>
+                    <p class="description">Angular forward-leaning pose with gold diamond eye - poised for action.</p>
+                    <div class="tags">
+                        <span class="tag dynamic">Dynamic</span>
+                        <span class="tag">Distinctive</span>
+                    </div>
+                </div>
+                <button class="vote-btn" onclick="event.stopPropagation(); toggleVote(this)">Select This Logo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LYNX SECTION -->
+    <div class="section" style="background: #fafafa;">
+        <div class="section-header">
+            <div class="icon">L</div>
+            <h2>THE LYNX</h2>
+            <span class="count">3 Concepts</span>
+        </div>
+        <p style="margin-bottom: 25px; color: #666;">
+            <strong>Symbol Meaning:</strong> "The Keeper of Secrets" - In mythology, the lynx could see through solid earth.
+            Represents piercing insight that reveals hidden truths.
+        </p>
+
+        <div class="logo-grid">
+            <div class="logo-card" onclick="openLightbox('concepts/lynx/lynx-01-minimal-eyes.png')">
+                <div class="logo-image">
+                    <img src="concepts/lynx/lynx-01-minimal-eyes.png" alt="Lynx Minimal Eyes">
+                </div>
+                <div class="logo-info">
+                    <h3>01 - Minimal Eyes</h3>
+                    <p class="description">Just the piercing eyes - gold irises that see through pretense. Maximum impact.</p>
+                    <div class="tags">
+                        <span class="tag abstract">Abstract</span>
+                        <span class="tag">Favicon-Ready</span>
+                    </div>
+                </div>
+                <button class="vote-btn" onclick="event.stopPropagation(); toggleVote(this)">Select This Logo</button>
+            </div>
+
+            <div class="logo-card" onclick="openLightbox('concepts/lynx/lynx-02-profile-tufted.png')">
+                <div class="logo-image">
+                    <img src="concepts/lynx/lynx-02-profile-tufted.png" alt="Lynx Profile Tufted">
+                </div>
+                <div class="logo-info">
+                    <h3>02 - Profile with Tufted Ears</h3>
+                    <p class="description">Left-facing profile with iconic ear tufts - the signature lynx feature.</p>
+                    <div class="tags">
+                        <span class="tag">Classic</span>
+                        <span class="tag">Distinctive</span>
+                    </div>
+                </div>
+                <button class="vote-btn" onclick="event.stopPropagation(); toggleVote(this)">Select This Logo</button>
+            </div>
+
+            <div class="logo-card" onclick="openLightbox('concepts/lynx/lynx-03-frontal-intense.png')">
+                <div class="logo-image">
+                    <img src="concepts/lynx/lynx-03-frontal-intense.png" alt="Lynx Frontal Intense">
+                </div>
+                <div class="logo-info">
+                    <h3>03 - Frontal Intense</h3>
+                    <p class="description">Full front-facing gaze - the confrontation. Gold eyes demand truth.</p>
+                    <div class="tags">
+                        <span class="tag detailed">Detailed</span>
+                        <span class="tag">Powerful</span>
+                    </div>
+                </div>
+                <button class="vote-btn" onclick="event.stopPropagation(); toggleVote(this)">Select This Logo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Logo Preview">
+    </div>
+
+    <!-- Summary Bar -->
+    <div class="summary-bar">
+        <div>
+            <strong>Selected:</strong> <span class="selected-count" id="selected-count">0 logos</span>
+        </div>
+        <div style="color: #D4A853;">
+            Click any logo to view full size | Click "Select" to mark favorites
+        </div>
+    </div>
+
+    <script>
+        let selectedLogos = [];
+
+        function toggleVote(btn) {
+            btn.classList.toggle('selected');
+            if (btn.classList.contains('selected')) {
+                btn.textContent = 'Selected';
+                selectedLogos.push(btn.closest('.logo-card').querySelector('h3').textContent);
+            } else {
+                btn.textContent = 'Select This Logo';
+                const name = btn.closest('.logo-card').querySelector('h3').textContent;
+                selectedLogos = selectedLogos.filter(n => n !== name);
+            }
+            document.getElementById('selected-count').textContent = selectedLogos.length + ' logos';
+        }
+
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>

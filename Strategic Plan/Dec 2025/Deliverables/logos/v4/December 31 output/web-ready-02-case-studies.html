@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Case Studies | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2540;
+            --navy-lighter: #243156;
+            --gold: #D4A853;
+            --gold-light: #e4c178;
+            --gold-dark: #b8923f;
+            --white: #ffffff;
+            --gray-100: #f7f8fa;
+            --gray-200: #e9ecf2;
+            --gray-300: #d1d7e3;
+            --gray-600: #6b7894;
+            --success: #22c55e;
+            --success-bg: rgba(34, 197, 94, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--gray-100);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Header */
+        .site-header {
+            background: var(--navy);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .tagline {
+            color: var(--gold);
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .principles-bar {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            padding-top: 40px;
+            border-top: 1px solid var(--navy-lighter);
+        }
+
+        .principle {
+            text-align: center;
+        }
+
+        .principle-icon {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .principle-label {
+            color: var(--gray-300);
+            font-size: 0.9rem;
+        }
+
+        /* Case Studies Container */
+        .case-studies {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        /* Individual Case Study */
+        .case-study {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(15, 23, 41, 0.08);
+            margin-bottom: 48px;
+            overflow: hidden;
+        }
+
+        .case-header {
+            background: var(--navy);
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .case-header-left {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .industry-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .case-header h2 {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .company-meta {
+            color: var(--gray-300);
+            font-size: 0.95rem;
+        }
+
+        .case-header-right {
+            text-align: right;
+        }
+
+        .outcome-highlight {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .outcome-label {
+            color: var(--gray-300);
+            font-size: 0.875rem;
+        }
+
+        .case-body {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold-dark);
+            margin-bottom: 12px;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .section p {
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        .section p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* Results Grid */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .result-card {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+        }
+
+        .result-card.highlight {
+            background: var(--success-bg);
+            border-color: var(--success);
+        }
+
+        .result-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .result-card.highlight .result-value {
+            color: var(--success);
+        }
+
+        .result-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 12px;
+            padding: 32px;
+            position: relative;
+        }
+
+        .quote-mark {
+            font-family: 'Crimson Pro', serif;
+            font-size: 6rem;
+            color: var(--gold);
+            opacity: 0.3;
+            position: absolute;
+            top: 0;
+            left: 24px;
+            line-height: 1;
+        }
+
+        .quote-text {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            color: var(--white);
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-author {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .quote-title {
+            color: var(--gray-300);
+            font-size: 0.875rem;
+        }
+
+        /* Approach List */
+        .approach-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .approach-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: var(--gray-600);
+        }
+
+        .approach-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 0.75rem;
+            margin-top: 2px;
+        }
+
+        /* Featured Case */
+        .featured-case {
+            border: 3px solid var(--gold);
+        }
+
+        .featured-badge {
+            background: var(--gold);
+            color: var(--navy);
+            text-align: center;
+            padding: 12px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--navy);
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .cta-section h2 span {
+            color: var(--gold);
+        }
+
+        .cta-section p {
+            color: var(--gray-300);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 168, 83, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            border-top: 1px solid var(--navy-lighter);
+            padding: 40px 24px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-tagline {
+            color: var(--gold);
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-copy {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">Back to Index</a>
+  <span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span>
+  <div style="display:flex;gap:12px;">
+    <a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a>
+    <a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a>
+    <a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a>
+    <a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a>
+    <a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a>
+  </div>
+</nav>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <div>
+                <div class="logo">Scale<span>Up</span> Ventures</div>
+            </div>
+            <div class="tagline">Certainty First.</div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Real Work. <span>Real Results.</span></h1>
+        <p>These are actual engagements from our portfolio. No fabricated metrics. No invented clients. Just honest examples of how we approach complex problems.</p>
+
+        <div class="principles-bar">
+            <div class="principle">
+                <div class="principle-icon">Truth</div>
+                <div class="principle-label">Honest Assessment</div>
+            </div>
+            <div class="principle">
+                <div class="principle-icon">Clarity</div>
+                <div class="principle-label">Before Commitment</div>
+            </div>
+            <div class="principle">
+                <div class="principle-icon">Results</div>
+                <div class="principle-label">That Matter</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <main class="case-studies">
+
+        <!-- Case Study 1: The No-Build Decision (FEATURED) -->
+        <article class="case-study featured-case">
+            <div class="featured-badge">Featured: Certainty First in Action</div>
+            <div class="case-header">
+                <div class="case-header-left">
+                    <span class="industry-badge">Discovery / Feasibility</span>
+                    <h2>The No-Build Decision</h2>
+                    <p class="company-meta">$5K Discovery Engagement | Web Application Feasibility</p>
+                </div>
+                <div class="case-header-right">
+                    <div class="outcome-highlight">$150K+</div>
+                    <div class="outcome-label">Client Savings</div>
+                </div>
+            </div>
+
+            <div class="case-body">
+                <div class="section">
+                    <div class="section-label">The Situation</div>
+                    <h3>A Client Ready to Invest Six Figures in the Wrong Direction</h3>
+                    <p>A business owner came to us with a vision for a custom web application. They had budget allocated, a rough feature list, and were ready to start development. They hired ScaleUp for a $5,000 discovery engagement to validate the approach and create a development roadmap.</p>
+                    <p>Most consultancies would have happily taken the project. The client was eager, funded, and asking for exactly what we offer. But "Certainty First" means telling the truth, even when the truth costs us a larger engagement.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Discovery</div>
+                    <h3>When the Right Answer Is "Don't Build This"</h3>
+                    <p>Our discovery process revealed fundamental issues with the proposed application. The market assumptions underlying the product were flawed. The technical requirements would have required ongoing infrastructure costs the client hadn't anticipated. Most critically, existing off-the-shelf solutions could solve the core problem at a fraction of the cost.</p>
+                    <p>We presented our findings honestly: building this application would be a mistake. The client would likely spend $150,000 or more and 12+ months only to discover what we found in two weeks of focused analysis.</p>
+                    <ul class="approach-list">
+                        <li><span class="check-icon">1</span><strong>Market Analysis:</strong> Evaluated competitive landscape and demand signals</li>
+                        <li><span class="check-icon">2</span><strong>Technical Assessment:</strong> Mapped architecture requirements and ongoing costs</li>
+                        <li><span class="check-icon">3</span><strong>Alternative Identification:</strong> Found existing solutions that addressed core needs</li>
+                        <li><span class="check-icon">4</span><strong>Honest Recommendation:</strong> Advised against the build despite losing larger project</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Outcome</div>
+                    <h3>The Most Valuable "No" We've Ever Delivered</h3>
+
+                    <div class="results-grid">
+                        <div class="result-card highlight">
+                            <div class="result-value">$150K+</div>
+                            <div class="result-label">Development Cost Avoided</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">12+ mo</div>
+                            <div class="result-label">Misdirected Effort Saved</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">$5K</div>
+                            <div class="result-label">Discovery Investment</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="quote-section">
+                        <span class="quote-mark">"</span>
+                        <p class="quote-text">This engagement represents everything we stand for. We could have taken the build project and collected fees for months. Instead, we told the truth. The client avoided a costly mistake, and we proved that "Certainty First" isn't just a tagline. When someone asks what makes us different, this is the story we tell.</p>
+                        <p class="quote-author">ScaleUp Ventures</p>
+                        <p class="quote-title">Our Most Important Case Study</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Case Study 2: Startup Concept to Fundable -->
+        <article class="case-study">
+            <div class="case-header">
+                <div class="case-header-left">
+                    <span class="industry-badge">Startup / Fundraising</span>
+                    <h2>Concept to Fundable</h2>
+                    <p class="company-meta">Early-Stage Startup | Architecture + Prototype + Business Model</p>
+                </div>
+                <div class="case-header-right">
+                    <div class="outcome-highlight">Investor Ready</div>
+                    <div class="outcome-label">Outcome</div>
+                </div>
+            </div>
+
+            <div class="case-body">
+                <div class="section">
+                    <div class="section-label">The Situation</div>
+                    <h3>A Founder with Vision but No Technical Foundation</h3>
+                    <p>An early-stage founder approached us with a compelling idea but critical gaps: no technical architecture, no working prototype, and no clear business model with unit economics. They needed to become credible enough to raise funding, but didn't know where to start.</p>
+                    <p>Many founders in this position waste months talking to investors before they're ready. We helped this founder build the foundation first, then approach funders from a position of strength.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Engagement</div>
+                    <h3>Building the Complete Fundraising Package</h3>
+                    <p>We worked across multiple domains to transform a concept into something investors could evaluate seriously. This wasn't about creating pitch decks or practicing delivery. It was about building the substance that makes a pitch credible.</p>
+                    <ul class="approach-list">
+                        <li><span class="check-icon">1</span><strong>Scalable Architecture:</strong> Designed app architecture that could grow with the business</li>
+                        <li><span class="check-icon">2</span><strong>Working Prototype:</strong> Built functional demo for investor presentations</li>
+                        <li><span class="check-icon">3</span><strong>Business Model:</strong> Developed unit economics and financial projections</li>
+                        <li><span class="check-icon">4</span><strong>Strategic Introductions:</strong> Connected founder with relevant funders in our network</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Outcome</div>
+                    <h3>Entered Fundraising with Credibility</h3>
+
+                    <div class="results-grid">
+                        <div class="result-card highlight">
+                            <div class="result-value">Fundable</div>
+                            <div class="result-label">Position Achieved</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">Working</div>
+                            <div class="result-label">Prototype Delivered</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">Complete</div>
+                            <div class="result-label">Business Model</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="quote-section">
+                        <span class="quote-mark">"</span>
+                        <p class="quote-text">Most consultants would have just helped with the pitch. ScaleUp understood that investors see through surface-level presentations. They helped me build something real, then connected me with people who could actually fund it. I walked into those meetings knowing I had substance behind me.</p>
+                        <p class="quote-author">Startup Founder</p>
+                        <p class="quote-title">Concept to Fundable Engagement</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Case Study 3: Financial Trading App POC -->
+        <article class="case-study">
+            <div class="case-header">
+                <div class="case-header-left">
+                    <span class="industry-badge">Financial Services / Med Tech</span>
+                    <h2>Financial Trading App</h2>
+                    <p class="company-meta">Proof of Concept | Regulated Industries | Enterprise Security</p>
+                </div>
+                <div class="case-header-right">
+                    <div class="outcome-highlight">POC Delivered</div>
+                    <div class="outcome-label">Outcome</div>
+                </div>
+            </div>
+
+            <div class="case-body">
+                <div class="section">
+                    <div class="section-label">The Challenge</div>
+                    <h3>Complex Domains Requiring Enterprise-Grade Thinking</h3>
+                    <p>This engagement required building a proof of concept that spanned financial services and medical technology, two of the most heavily regulated and complex domains in software development. The client needed to demonstrate feasibility before committing to a full build.</p>
+                    <p>Regulated industries demand a different approach. Security isn't an afterthought. Compliance isn't optional. Every architectural decision must account for audit trails, data protection, and regulatory requirements that most developers never encounter.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Approach</div>
+                    <h3>Enterprise Thinking from Day One</h3>
+                    <p>We approached this POC with the rigor of a production system. The goal wasn't just to prove technical feasibility, but to demonstrate that the solution could operate in regulated environments with enterprise-grade security requirements.</p>
+                    <ul class="approach-list">
+                        <li><span class="check-icon">1</span><strong>Regulatory Mapping:</strong> Identified compliance requirements across both domains</li>
+                        <li><span class="check-icon">2</span><strong>Security Architecture:</strong> Designed with enterprise security considerations throughout</li>
+                        <li><span class="check-icon">3</span><strong>Technical Validation:</strong> Proved core functionality could work within constraints</li>
+                        <li><span class="check-icon">4</span><strong>Path Forward:</strong> Documented requirements for production implementation</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Outcome</div>
+                    <h3>Proof of Capability in Complex Domains</h3>
+
+                    <div class="results-grid">
+                        <div class="result-card highlight">
+                            <div class="result-value">Validated</div>
+                            <div class="result-label">Technical Feasibility</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">Financial + Med Tech</div>
+                            <div class="result-label">Domains Covered</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">Enterprise</div>
+                            <div class="result-label">Security Standard</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="quote-section">
+                        <span class="quote-mark">"</span>
+                        <p class="quote-text">This engagement demonstrates our ability to work in regulated, complex domains where the stakes are high and the requirements are demanding. Not every consultancy can operate at this level. We built something that could actually function in the real world of financial services compliance.</p>
+                        <p class="quote-author">ScaleUp Ventures</p>
+                        <p class="quote-title">Complex Domain Capability</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Case Study 4: OfferPath -->
+        <article class="case-study">
+            <div class="case-header">
+                <div class="case-header-left">
+                    <span class="industry-badge">Our Own Product</span>
+                    <h2>OfferPath</h2>
+                    <p class="company-meta">Built from Scratch | Internal Product | Practitioner Credibility</p>
+                </div>
+                <div class="case-header-right">
+                    <div class="outcome-highlight">Shipped</div>
+                    <div class="outcome-label">Status</div>
+                </div>
+            </div>
+
+            <div class="case-body">
+                <div class="section">
+                    <div class="section-label">The Context</div>
+                    <h3>We Build What We Advise Others to Build</h3>
+                    <p>OfferPath is ScaleUp Ventures' own product, built from scratch using the same methodologies we apply to client work. It exists because we believe consultants should be practitioners, not just advisors.</p>
+                    <p>Too many consultancies give advice they've never tested themselves. They recommend architectures they've never built, suggest processes they've never followed, and prescribe solutions they've never shipped. OfferPath is our answer to that problem.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Significance</div>
+                    <h3>Practitioner Credibility, Not Just Theory</h3>
+                    <p>Building our own product means we encounter the same challenges our clients face. We deal with the same trade-offs, the same constraints, the same moments where theory meets reality. When we advise clients, we speak from recent, direct experience.</p>
+                    <ul class="approach-list">
+                        <li><span class="check-icon">1</span><strong>Real Constraints:</strong> Built with actual budget, timeline, and resource limitations</li>
+                        <li><span class="check-icon">2</span><strong>Shipped Product:</strong> Not a demo or prototype, but working software in production</li>
+                        <li><span class="check-icon">3</span><strong>Lessons Learned:</strong> Every challenge becomes knowledge we can share with clients</li>
+                        <li><span class="check-icon">4</span><strong>Ongoing Development:</strong> Continuous improvement keeps our skills current</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Proof</div>
+                    <h3">We Don't Just Talk About Building</h3>
+
+                    <div class="results-grid">
+                        <div class="result-card highlight">
+                            <div class="result-value">Production</div>
+                            <div class="result-label">Deployed and Running</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">Ground Up</div>
+                            <div class="result-label">Built From Scratch</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">Active</div>
+                            <div class="result-label">Ongoing Development</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="quote-section">
+                        <span class="quote-mark">"</span>
+                        <p class="quote-text">When a client asks if we understand what it takes to ship software, OfferPath is our answer. We're not theorists who've never faced the realities of production systems. We build, we ship, we maintain, we iterate. That experience informs everything we do for clients.</p>
+                        <p class="quote-author">ScaleUp Ventures</p>
+                        <p class="quote-title">Practitioners First</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Case Study 5: Enterprise PM Infrastructure -->
+        <article class="case-study">
+            <div class="case-header">
+                <div class="case-header-left">
+                    <span class="industry-badge">Enterprise / Contract</span>
+                    <h2>Enterprise PM Infrastructure</h2>
+                    <p class="company-meta">Solutions Firm Contract | AI-Enabled Project Management Systems</p>
+                </div>
+                <div class="case-header-right">
+                    <div class="outcome-highlight">Implemented</div>
+                    <div class="outcome-label">Outcome</div>
+                </div>
+            </div>
+
+            <div class="case-body">
+                <div class="section">
+                    <div class="section-label">The Engagement</div>
+                    <h3>Building Infrastructure for How Teams Actually Work</h3>
+                    <p>A solutions firm engaged ScaleUp to set up AI-enabled project management infrastructure. This wasn't about implementing off-the-shelf tools. It was about creating systems that would transform how their teams plan, execute, and deliver client work.</p>
+                    <p>Project management in professional services has unique challenges. Work is non-linear. Requirements change constantly. Teams need visibility without overhead. The infrastructure had to account for these realities.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Approach</div>
+                    <h3>AI-Enabled Systems for Modern Teams</h3>
+                    <p>We designed and implemented project management infrastructure that leverages AI to reduce administrative burden while improving visibility and coordination. The goal was systems that help rather than hinder the actual work.</p>
+                    <ul class="approach-list">
+                        <li><span class="check-icon">1</span><strong>Process Analysis:</strong> Mapped existing workflows and pain points</li>
+                        <li><span class="check-icon">2</span><strong>System Design:</strong> Architected infrastructure to support real work patterns</li>
+                        <li><span class="check-icon">3</span><strong>AI Integration:</strong> Implemented intelligent automation where it adds value</li>
+                        <li><span class="check-icon">4</span><strong>Team Enablement:</strong> Ensured systems would actually be adopted and used</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Outcome</div>
+                    <h3>Infrastructure That Enables Rather Than Constrains</h3>
+
+                    <div class="results-grid">
+                        <div class="result-card highlight">
+                            <div class="result-value">Deployed</div>
+                            <div class="result-label">Systems Live</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">AI-Enabled</div>
+                            <div class="result-label">Intelligent Automation</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">Adopted</div>
+                            <div class="result-label">Team Utilization</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="quote-section">
+                        <span class="quote-mark">"</span>
+                        <p class="quote-text">Enterprise work demonstrates our ability to operate in professional services environments where the bar is high and the requirements are complex. We didn't just install software. We built infrastructure that actually changes how teams work, with AI capabilities that make the systems smarter over time.</p>
+                        <p class="quote-author">ScaleUp Ventures</p>
+                        <p class="quote-title">Enterprise Capability</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready for <span>Honest Assessment?</span></h2>
+        <p>Every engagement starts with understanding your specific situation. Sometimes the answer is "build." Sometimes it's "don't build." Either way, you'll know before you commit.</p>
+        <a href="#" class="cta-button">Start a Conversation</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Scale<span>Up</span> Ventures</div>
+        <div class="footer-tagline">Certainty First.</div>
+        <p class="footer-copy">&copy; 2025 ScaleUp Ventures. All rights reserved.</p>
+    </footer>
+
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">Back to Content Index</a>
+  <p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p>
+</footer>
+</body>
+</html>

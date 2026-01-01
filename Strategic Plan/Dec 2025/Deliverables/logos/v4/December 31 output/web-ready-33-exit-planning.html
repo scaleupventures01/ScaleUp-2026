@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exit Planning for Business Owners | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --navy-lighter: #243352;
+            --gold: #D4A853;
+            --gold-light: #e4c078;
+            --gold-dark: #b8923f;
+            --cream: #faf8f5;
+            --gray-warm: #6b7280;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Header */
+        header {
+            background: var(--navy);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo svg {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-family: 'Crimson Pro', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-cta {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(ellipse at 70% 50%, rgba(212, 168, 83, 0.08) 0%, transparent 60%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212, 168, 83, 0.15);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge span {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 5vw, 56px);
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 .highlight {
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 8px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 18px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        .hero-cta svg {
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta:hover svg {
+            transform: translateX(4px);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .value-chart {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        .chart-title {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 32px;
+        }
+
+        .chart-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .chart-line {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .chart-label {
+            width: 100px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .chart-bar-wrapper {
+            flex: 1;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .chart-bar {
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: width 1s ease-out;
+        }
+
+        .chart-bar.without {
+            background: linear-gradient(90deg, #4a5568 0%, #718096 100%);
+            width: 45%;
+            color: white;
+        }
+
+        .chart-bar.with {
+            background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold) 100%);
+            width: 85%;
+            color: var(--navy);
+        }
+
+        .chart-note {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .chart-note-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .chart-note-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 4px;
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 120px 24px;
+            background: white;
+        }
+
+        .problem-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--gold-dark);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .problem h2 {
+            font-size: clamp(36px, 4vw, 48px);
+            color: var(--navy);
+            margin-bottom: 24px;
+            max-width: 700px;
+        }
+
+        .problem-intro {
+            font-size: 20px;
+            color: var(--gray-warm);
+            max-width: 600px;
+            margin-bottom: 64px;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .problem-card {
+            background: var(--cream);
+            padding: 40px 32px;
+            border-radius: 8px;
+            border: 1px solid rgba(15, 23, 41, 0.08);
+            position: relative;
+        }
+
+        .problem-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .problem-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--gold);
+        }
+
+        .problem-card h3 {
+            font-size: 24px;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .problem-card p {
+            color: var(--gray-warm);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .problem-stat {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(15, 23, 41, 0.1);
+        }
+
+        .problem-stat-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .problem-stat-label {
+            font-size: 14px;
+            color: var(--gray-warm);
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 120px 24px;
+            background: var(--navy);
+            position: relative;
+        }
+
+        .solution-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .solution .section-label {
+            color: var(--gold);
+        }
+
+        .solution h2 {
+            font-size: clamp(36px, 4vw, 48px);
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .solution-intro {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin-bottom: 64px;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .solution-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 32px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .solution-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(212, 168, 83, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .solution-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 24px;
+        }
+
+        .solution-card h3 {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .solution-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .solution-features {
+            list-style: none;
+        }
+
+        .solution-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .solution-features li svg {
+            width: 16px;
+            height: 16px;
+            color: var(--gold);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Case Study Section */
+        .case-study {
+            padding: 120px 24px;
+            background: var(--cream);
+        }
+
+        .case-study-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .case-study-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(15, 23, 41, 0.08);
+        }
+
+        .case-study-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 48px;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .case-study-avatar {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border: 3px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .case-study-avatar span {
+            font-family: 'Crimson Pro', serif;
+            font-size: 40px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .case-study-meta {
+            color: white;
+        }
+
+        .case-study-meta h3 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .case-study-meta p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+        }
+
+        .case-study-body {
+            padding: 48px;
+        }
+
+        .case-study-quote {
+            font-family: 'Crimson Pro', serif;
+            font-size: 28px;
+            color: var(--navy);
+            font-style: italic;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            padding-left: 24px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .case-study-results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(15, 23, 41, 0.1);
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray-warm);
+            margin-bottom: 8px;
+        }
+
+        .result-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 40px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .result-value.highlight {
+            color: var(--gold-dark);
+        }
+
+        .result-context {
+            font-size: 14px;
+            color: var(--gray-warm);
+            margin-top: 4px;
+        }
+
+        /* Checklist Section */
+        .checklist {
+            padding: 120px 24px;
+            background: white;
+        }
+
+        .checklist-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .checklist h2 {
+            font-size: clamp(36px, 4vw, 48px);
+            color: var(--navy);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .checklist-subtitle {
+            font-size: 20px;
+            color: var(--gray-warm);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 64px;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 28px;
+            background: var(--cream);
+            border-radius: 8px;
+            border: 1px solid rgba(15, 23, 41, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item:hover {
+            border-color: var(--gold);
+            transform: translateX(4px);
+        }
+
+        .checklist-number {
+            width: 40px;
+            height: 40px;
+            background: var(--navy);
+            color: var(--gold);
+            font-family: 'Crimson Pro', serif;
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .checklist-content h4 {
+            font-size: 20px;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .checklist-content p {
+            font-size: 15px;
+            color: var(--gray-warm);
+            line-height: 1.6;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            padding: 120px 24px;
+            background: var(--navy);
+        }
+
+        .timeline-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline .section-label {
+            color: var(--gold);
+            text-align: center;
+            display: block;
+        }
+
+        .timeline h2 {
+            font-size: clamp(36px, 4vw, 48px);
+            color: white;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .timeline-subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 80px;
+        }
+
+        .timeline-track {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .timeline-track::before {
+            content: '';
+            position: absolute;
+            top: 48px;
+            left: 15%;
+            right: 15%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
+        }
+
+        .timeline-phase {
+            position: relative;
+            text-align: center;
+        }
+
+        .timeline-marker {
+            width: 96px;
+            height: 96px;
+            background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy-lighter) 100%);
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-marker .years {
+            font-family: 'Crimson Pro', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .timeline-marker .label {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-phase h3 {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .timeline-tasks {
+            list-style: none;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .timeline-tasks li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .timeline-tasks li:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-tasks li svg {
+            width: 20px;
+            height: 20px;
+            color: var(--gold);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 120px 24px;
+            background: linear-gradient(135deg, var(--cream) 0%, white 100%);
+            text-align: center;
+        }
+
+        .cta-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: clamp(36px, 4vw, 52px);
+            color: var(--navy);
+            margin-bottom: 24px;
+        }
+
+        .cta-description {
+            font-size: 20px;
+            color: var(--gray-warm);
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-form {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .cta-form input {
+            padding: 18px 24px;
+            font-size: 16px;
+            border: 2px solid rgba(15, 23, 41, 0.15);
+            border-radius: 4px;
+            min-width: 280px;
+            background: white;
+            transition: border-color 0.3s ease;
+        }
+
+        .cta-form input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--navy);
+            color: white;
+            padding: 18px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--navy-light);
+            transform: translateY(-2px);
+        }
+
+        .cta-trust {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            color: var(--gray-warm);
+            font-size: 14px;
+        }
+
+        .cta-trust span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cta-trust svg {
+            width: 16px;
+            height: 16px;
+            color: var(--gold-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            padding: 48px 24px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .footer-logo svg {
+            height: 32px;
+        }
+
+        .footer-logo span {
+            font-family: 'Crimson Pro', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .problem-grid,
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-track {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .timeline-track::before {
+                display: none;
+            }
+
+            .case-study-results {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .checklist-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-study-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .case-study-avatar {
+                margin: 0 auto;
+            }
+
+            .cta-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-form input {
+                width: 100%;
+            }
+
+            .cta-trust {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Index</a>
+  <span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span>
+  <div style="display:flex;gap:12px;">
+    <a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a>
+    <a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a>
+    <a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a>
+    <a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a>
+    <a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a>
+  </div>
+</nav>
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4L44 14V34L24 44L4 34V14L24 4Z" fill="#0F1729" stroke="#D4A853" stroke-width="2"/>
+                    <path d="M24 14L34 19V29L24 34L14 29V19L24 14Z" fill="#D4A853"/>
+                    <path d="M24 4V14M24 34V44M4 14L14 19M34 19L44 14M4 34L14 29M34 29L44 34" stroke="#D4A853" stroke-width="1.5"/>
+                </svg>
+                <span class="logo-text">ScaleUp Ventures</span>
+            </div>
+            <a href="#assessment" class="nav-cta">Get Your Assessment</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#D4A853" stroke="#D4A853"/>
+                    </svg>
+                    <span>Exit Planning Advisory</span>
+                </div>
+                <h1>Planning Your Exit? <span class="highlight">Your Business Value Starts with Growth</span></h1>
+                <p class="hero-subtitle">The legacy you've built deserves a worthy transition. We help business owners maximize valuation through documented, scalable growth systems that buyers actively seek.</p>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">18mo</div>
+                        <div class="stat-label">Recommended prep time</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">$150K+</div>
+                        <div class="stat-label">Saved one client from wrong path</div>
+                    </div>
+                </div>
+
+                <a href="#assessment" class="hero-cta">
+                    Get Your Exit-Ready Assessment
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="hero-visual">
+                <div class="value-chart">
+                    <div class="chart-title">Our Exit Planning Approach</div>
+                    <div class="chart-lines">
+                        <div class="chart-line">
+                            <span class="chart-label">Documentation</span>
+                            <div class="chart-bar-wrapper">
+                                <div class="chart-bar with">Scalable Systems</div>
+                            </div>
+                        </div>
+                        <div class="chart-line">
+                            <span class="chart-label">Growth Proof</span>
+                            <div class="chart-bar-wrapper">
+                                <div class="chart-bar with">Tracked ROI</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-note">
+                        <div class="chart-note-value">Strategic</div>
+                        <div class="chart-note-label">Build the evidence buyers look for</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="problem-inner">
+            <span class="section-label">The Challenge</span>
+            <h2>Most Owners Wait Too Long to Prepare for Exit</h2>
+            <p class="problem-intro">After decades building your business, the way you exit defines your legacy. Yet most owners make critical mistakes that cost them millions.</p>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3>The Timing Trap</h3>
+                    <p>Most owners start thinking about exit 6-12 months before they want to sell. By then, it's too late to implement the changes that dramatically increase valuation. Buyers can see the rush.</p>
+                    <div class="problem-stat">
+                        <div class="problem-stat-value">Key</div>
+                        <div class="problem-stat-label">Preparation takes longer than expected</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3v18h18"/>
+                            <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                        </svg>
+                    </div>
+                    <h3>The Valuation Reality</h3>
+                    <p>Business value isn't based on past performance alone - it's based on demonstrable future growth potential. Without proof of scalable systems, buyers discount heavily or walk away entirely.</p>
+                    <div class="problem-stat">
+                        <div class="problem-stat-value">Key</div>
+                        <div class="problem-stat-label">Documentation drives buyer confidence</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </div>
+                    <h3>The Proof Problem</h3>
+                    <p>Sophisticated buyers want evidence: documented processes, repeatable customer acquisition, proven ROI on growth initiatives. Most owner-operators have this knowledge in their heads - not on paper.</p>
+                    <div class="problem-stat">
+                        <div class="problem-stat-value">Key</div>
+                        <div class="problem-stat-label">Written systems enable ownership transfer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="solution-inner">
+            <span class="section-label">How We Help</span>
+            <h2>Building Exit-Ready Growth Systems</h2>
+            <p class="solution-intro">We partner with owners 2-5 years before their target exit to build the documented, repeatable systems that command premium valuations.</p>
+
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="solution-number">01</div>
+                    <h3>Documented Growth Systems</h3>
+                    <p>Transform tribal knowledge into transferable assets. Every process that drives revenue gets documented, standardized, and proven.</p>
+                    <ul class="solution-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Sales playbooks with conversion metrics
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Marketing systems with attributed ROI
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Operations manuals for key functions
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-number">02</div>
+                    <h3>Proven Lead Generation</h3>
+                    <p>Buyers pay premiums for predictable customer acquisition. We build and document lead generation engines that work without you.</p>
+                    <ul class="solution-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Multi-channel acquisition funnels
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            12+ months of performance data
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Customer lifetime value analysis
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-number">03</div>
+                    <h3>Track Record of ROI</h3>
+                    <p>Every initiative we implement creates documented proof of return. This evidence becomes your negotiating leverage at exit.</p>
+                    <ul class="solution-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Campaign-level attribution
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Growth investment analysis
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Quarterly performance reviews
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work Section -->
+    <section class="case-study">
+        <div class="case-study-inner">
+            <span class="section-label" style="display: block; text-align: center;">Our Approach</span>
+
+            <div class="case-study-card">
+                <div class="case-study-header">
+                    <div class="case-study-avatar">
+                        <span>SV</span>
+                    </div>
+                    <div class="case-study-meta">
+                        <h3>Honest Strategic Assessment</h3>
+                        <p>We tell you what you need to hear, not what you want to hear</p>
+                    </div>
+                </div>
+
+                <div class="case-study-body">
+                    <blockquote class="case-study-quote">
+                        "Sometimes the best advice is knowing when not to proceed. We've helped clients avoid costly mistakes by providing honest assessments of their readiness. One client saved $150K+ by choosing the right path forward instead of rushing into development that wouldn't have achieved their goals."
+                    </blockquote>
+
+                    <div class="case-study-results">
+                        <div class="result-item">
+                            <div class="result-label">Our Role</div>
+                            <div class="result-value">Guide</div>
+                            <div class="result-context">Strategic advisory partner</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Key Value</div>
+                            <div class="result-value highlight">Clarity</div>
+                            <div class="result-context">Honest, actionable direction</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Example Outcome</div>
+                            <div class="result-value">$150K+</div>
+                            <div class="result-context">Saved from wrong path</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checklist Section -->
+    <section class="checklist">
+        <div class="checklist-inner">
+            <span class="section-label" style="display: block; text-align: center;">Exit Readiness</span>
+            <h2>The Exit-Ready Checklist</h2>
+            <p class="checklist-subtitle">Ten factors that sophisticated buyers evaluate - and that directly impact your valuation multiple.</p>
+
+            <div class="checklist-grid">
+                <div class="checklist-item">
+                    <span class="checklist-number">1</span>
+                    <div class="checklist-content">
+                        <h4>Documented Revenue Systems</h4>
+                        <p>Written sales processes, scripts, and playbooks that any competent team could execute.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <span class="checklist-number">2</span>
+                    <div class="checklist-content">
+                        <h4>Diversified Customer Base</h4>
+                        <p>No single customer represents more than 10% of revenue. Concentration is a major red flag.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <span class="checklist-number">3</span>
+                    <div class="checklist-content">
+                        <h4>Recurring Revenue Streams</h4>
+                        <p>Predictable monthly or annual contracts command 2-3x higher multiples than project-based work.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <span class="checklist-number">4</span>
+                    <div class="checklist-content">
+                        <h4>Management Independence</h4>
+                        <p>A leadership team that can run operations without daily owner involvement.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <span class="checklist-number">5</span>
+                    <div class="checklist-content">
+                        <h4>Proven Growth Trajectory</h4>
+                        <p>3+ years of consistent revenue growth with documented strategies that drove results.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <span class="checklist-number">6</span>
+                    <div class="checklist-content">
+                        <h4>Clean Financial Records</h4>
+                        <p>GAAP-compliant financials, separated personal expenses, clear add-back documentation.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <span class="checklist-number">7</span>
+                    <div class="checklist-content">
+                        <h4>Scalable Operations</h4>
+                        <p>Systems that can handle 2-3x current volume without proportional cost increases.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <span class="checklist-number">8</span>
+                    <div class="checklist-content">
+                        <h4>Protected Intellectual Property</h4>
+                        <p>Trademarks, patents, proprietary processes, and documented trade secrets.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <span class="checklist-number">9</span>
+                    <div class="checklist-content">
+                        <h4>Strong Digital Presence</h4>
+                        <p>Consistent lead flow from owned channels - website, email list, search rankings.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <span class="checklist-number">10</span>
+                    <div class="checklist-content">
+                        <h4>Customer Retention Metrics</h4>
+                        <p>Documented retention rates, NPS scores, and proof of customer satisfaction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <div class="timeline-inner">
+            <span class="section-label">Your Exit Timeline</span>
+            <h2>The 3-Year Exit Preparation Plan</h2>
+            <p class="timeline-subtitle">Start early. The businesses that command premium valuations begin preparing years before going to market.</p>
+
+            <div class="timeline-track">
+                <div class="timeline-phase">
+                    <div class="timeline-marker">
+                        <span class="years">3</span>
+                        <span class="label">Years Out</span>
+                    </div>
+                    <h3>Build the Foundation</h3>
+                    <ul class="timeline-tasks">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Document all core business processes and systems
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Begin transitioning key relationships to team members
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Implement growth tracking and ROI measurement
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Clean up financials and separate personal expenses
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="timeline-phase">
+                    <div class="timeline-marker">
+                        <span class="years">2</span>
+                        <span class="label">Years Out</span>
+                    </div>
+                    <h3>Accelerate Growth</h3>
+                    <ul class="timeline-tasks">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Launch documented lead generation campaigns
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Diversify customer base and reduce concentration risk
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Develop recurring revenue streams where possible
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Strengthen management team capabilities
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="timeline-phase">
+                    <div class="timeline-marker">
+                        <span class="years">1</span>
+                        <span class="label">Year Out</span>
+                    </div>
+                    <h3>Prepare for Market</h3>
+                    <ul class="timeline-tasks">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Compile proof of all growth initiatives and ROI
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Test business operations without daily owner involvement
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Prepare Confidential Information Memorandum
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Engage M&A advisor and begin buyer outreach
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="assessment">
+        <div class="cta-inner">
+            <span class="section-label">Take the First Step</span>
+            <h2>Get Your Exit-Ready Assessment</h2>
+            <p class="cta-description">A confidential 30-minute conversation to evaluate your current exit readiness and identify the highest-impact opportunities to increase your business valuation.</p>
+
+            <form class="cta-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit" class="cta-button">
+                    Request Your Assessment
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </form>
+
+            <div class="cta-trust">
+                <span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    100% Confidential
+                </span>
+                <span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    30-Minute Conversation
+                </span>
+                <span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    No Obligation
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 4L44 14V34L24 44L4 34V14L24 4Z" fill="#0F1729" stroke="#D4A853" stroke-width="2"/>
+                <path d="M24 14L34 19V29L24 34L14 29V19L24 14Z" fill="#D4A853"/>
+            </svg>
+            <span>ScaleUp Ventures</span>
+        </div>
+        <p class="footer-text">Early-stage consultancy helping founders build with certainty.</p>
+    </footer>
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Content Index</a>
+  <p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p>
+</footer>
+</body>
+</html>

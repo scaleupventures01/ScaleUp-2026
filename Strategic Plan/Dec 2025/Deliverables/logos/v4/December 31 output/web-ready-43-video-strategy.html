@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Content Strategy | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --navy-lighter: #243352;
+            --gold: #D4A853;
+            --gold-light: #e6c17a;
+            --gold-dark: #b8923f;
+            --white: #ffffff;
+            --gray-100: #f7f8fa;
+            --gray-200: #e8ebf0;
+            --gray-400: #9ca3af;
+            --gray-600: #4b5563;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-100);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 168, 83, 0.08) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+        }
+
+        .header p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--navy);
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--gold);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .section-number {
+            width: 56px;
+            height: 56px;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 24px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.08);
+            margin-bottom: 24px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-title svg {
+            width: 24px;
+            height: 24px;
+            color: var(--gold);
+        }
+
+        /* Why Video Section */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .why-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.08);
+            border-top: 4px solid var(--gold);
+        }
+
+        .why-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .why-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--white);
+        }
+
+        .why-stat {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .why-label {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        /* Questions Section */
+        .question-category {
+            background: var(--white);
+            border-radius: 16px;
+            margin-bottom: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.08);
+        }
+
+        .category-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 20px 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-icon svg {
+            width: 20px;
+            height: 20px;
+            color: var(--navy);
+        }
+
+        .category-title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .category-count {
+            margin-left: auto;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .questions-list {
+            padding: 24px 32px;
+        }
+
+        .question-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .question-item:last-child {
+            border-bottom: none;
+        }
+
+        .question-number {
+            width: 28px;
+            height: 28px;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .question-text {
+            font-size: 16px;
+            color: var(--navy);
+            flex: 1;
+        }
+
+        .question-tip {
+            font-size: 13px;
+            color: var(--gray-600);
+            font-style: italic;
+            margin-top: 4px;
+        }
+
+        /* Production Grid */
+        .production-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .production-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.08);
+        }
+
+        .production-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 24px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .production-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gold);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .production-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--navy);
+        }
+
+        .production-title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .production-body {
+            padding: 24px;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .check-icon svg {
+            width: 12px;
+            height: 12px;
+            color: var(--navy);
+        }
+
+        .checklist-text {
+            flex: 1;
+        }
+
+        .checklist-primary {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .checklist-secondary {
+            font-size: 13px;
+            color: var(--gray-600);
+            margin-top: 2px;
+        }
+
+        /* Editing Framework */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--gold) 0%, var(--navy) 100%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 24px 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -33px;
+            top: 28px;
+            width: 24px;
+            height: 24px;
+            background: var(--gold);
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .timeline-content {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 16px rgba(15, 23, 41, 0.08);
+        }
+
+        .timeline-time {
+            display: inline-block;
+            background: var(--navy);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        /* Distribution Section */
+        .distribution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .distribution-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .distribution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold);
+        }
+
+        .dist-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .dist-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--gold);
+        }
+
+        .dist-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .dist-list {
+            list-style: none;
+        }
+
+        .dist-list li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            color: var(--gray-600);
+        }
+
+        .dist-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 16px;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        /* Email Template */
+        .email-template {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.08);
+        }
+
+        .email-header {
+            background: var(--navy);
+            padding: 24px 32px;
+            color: var(--white);
+        }
+
+        .email-subject {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .email-meta {
+            font-size: 13px;
+            opacity: 0.7;
+            margin-top: 8px;
+        }
+
+        .email-body {
+            padding: 32px;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .email-body p {
+            margin-bottom: 16px;
+        }
+
+        .email-highlight {
+            background: rgba(212, 168, 83, 0.15);
+            border-left: 4px solid var(--gold);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .email-highlight h4 {
+            color: var(--navy);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .email-highlight ul {
+            list-style: disc;
+            padding-left: 20px;
+            color: var(--gray-600);
+        }
+
+        .email-highlight li {
+            margin-bottom: 4px;
+        }
+
+        .email-signature {
+            border-top: 1px solid var(--gray-200);
+            padding-top: 24px;
+            margin-top: 24px;
+        }
+
+        .signature-name {
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .signature-title {
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        /* B-Roll Grid */
+        .broll-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .broll-item {
+            background: var(--navy);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .broll-item svg {
+            width: 32px;
+            height: 32px;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        /* Specs Table */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .specs-table th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .specs-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .specs-table tr:nth-child(even) {
+            background: var(--gray-100);
+        }
+
+        .specs-table .spec-label {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .specs-table .spec-value {
+            color: var(--gray-600);
+        }
+
+        .specs-table .spec-value strong {
+            color: var(--gold-dark);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer p {
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        /* Print Styles */
+        @media print {
+            .header {
+                padding: 40px;
+            }
+            .card, .question-category, .production-card {
+                break-inside: avoid;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 48px 24px;
+            }
+            .header h1 {
+                font-size: 32px;
+            }
+            .stats-bar {
+                gap: 40px;
+            }
+            .main {
+                padding: 40px 20px;
+            }
+            .section-title {
+                font-size: 24px;
+            }
+            .production-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Index</a>
+  <span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span>
+  <div style="display:flex;gap:12px;">
+    <a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a>
+    <a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a>
+    <a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a>
+    <a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a>
+    <a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a>
+  </div>
+</nav>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="badge">Complete Playbook</div>
+            <h1>Video <span>Content</span> Strategy</h1>
+            <p>A comprehensive guide to building authentic video content that showcases real consulting impact and drives trust.</p>
+        </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stat">
+            <span class="stat-number">5</span>
+            <span class="stat-label">Real Client Projects</span>
+        </div>
+        <div class="stat">
+            <span class="stat-number">$150K+</span>
+            <span class="stat-label">Client Savings Documented</span>
+        </div>
+        <div class="stat">
+            <span class="stat-number">2025</span>
+            <span class="stat-label">Testimonial Library Launch</span>
+        </div>
+        <div class="stat">
+            <span class="stat-number">Q1</span>
+            <span class="stat-label">First Video Target</span>
+        </div>
+    </div>
+
+    <main class="main">
+
+        <!-- Section 1: Current State & Strategy -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2 class="section-title">Current State & Video Strategy</h2>
+            </div>
+
+            <!-- Early Stage Reality Card -->
+            <div class="card" style="border-left: 4px solid var(--gold); margin-bottom: 32px;">
+                <h3 class="card-title">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    ScaleUp Ventures: Building Our Testimonial Library
+                </h3>
+                <p style="color: var(--gray-600); margin-bottom: 16px;">As an early-stage consultancy with founder Calvin Williams Jr., we're building our video testimonial library from authentic client relationships. This playbook guides our systematic approach to capturing and sharing real impact stories.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 20px;">
+                    <div style="background: var(--gray-100); padding: 16px; border-radius: 8px;">
+                        <strong style="color: var(--navy);">Real Work, Real Stories</strong>
+                        <p style="color: var(--gray-600); font-size: 14px; margin-top: 4px;">No fabricated testimonials - every story comes from actual client engagements</p>
+                    </div>
+                    <div style="background: var(--gray-100); padding: 16px; border-radius: 8px;">
+                        <strong style="color: var(--navy);">Permission-Based</strong>
+                        <p style="color: var(--gray-600); font-size: 14px; margin-top: 4px;">All video content requires explicit client approval and consent</p>
+                    </div>
+                    <div style="background: var(--gray-100); padding: 16px; border-radius: 8px;">
+                        <strong style="color: var(--navy);">Quality Over Quantity</strong>
+                        <p style="color: var(--gray-600); font-size: 14px; margin-top: 4px;">Focus on 2-3 strong testimonials rather than volume</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <div class="why-stat">$150K+</div>
+                    <div class="why-label">Client savings from No-Build Decision</div>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <div class="why-stat">5</div>
+                    <div class="why-label">Active engagement types to document</div>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="why-stat">Q1 2025</div>
+                    <div class="why-label">Target for first client video</div>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div class="why-stat">3</div>
+                    <div class="why-label">Video types planned for launch</div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 32px;">
+                <h3 class="card-title">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Video Content Types Based on Real Work
+                </h3>
+                <p style="color: var(--gray-600); margin-bottom: 16px;">Our video strategy centers on authentic stories from actual client engagements:</p>
+                <ul style="list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <span style="color: var(--gold); font-weight: bold;">1.</span>
+                        <span><strong>No-Build Decision Story</strong> - How a $5K engagement saved $150K+ in unnecessary development</span>
+                    </li>
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <span style="color: var(--gold); font-weight: bold;">2.</span>
+                        <span><strong>Startup Launch Support</strong> - Architecture, prototyping, business model, investor introductions</span>
+                    </li>
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <span style="color: var(--gold); font-weight: bold;">3.</span>
+                        <span><strong>Regulated Industry POC</strong> - Financial trading app proof-of-concept development</span>
+                    </li>
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <span style="color: var(--gold); font-weight: bold;">4.</span>
+                        <span><strong>Product Development</strong> - OfferPath and internal product work</span>
+                    </li>
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <span style="color: var(--gold); font-weight: bold;">5.</span>
+                        <span><strong>PM Infrastructure</strong> - AI-enabled project management consulting</span>
+                    </li>
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <span style="color: var(--gold); font-weight: bold;">6.</span>
+                        <span><strong>Founder Journey</strong> - Calvin's perspective on building ScaleUp Ventures</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 2: Interview Questions -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2 class="section-title">Interview Questions (25 Total)</h2>
+            </div>
+
+            <!-- Opening Questions -->
+            <div class="question-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                    </div>
+                    <span class="category-title">Opening Questions - Build Rapport</span>
+                    <span class="category-count">5 Questions</span>
+                </div>
+                <div class="questions-list">
+                    <div class="question-item">
+                        <div class="question-number">1</div>
+                        <div>
+                            <div class="question-text">"Tell me about yourself and your business in a sentence or two."</div>
+                            <div class="question-tip">Gets them comfortable on camera; provides context for viewers</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">2</div>
+                        <div>
+                            <div class="question-text">"What does your company do, and who do you primarily serve?"</div>
+                            <div class="question-tip">Establishes credibility and relatability for similar prospects</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">3</div>
+                        <div>
+                            <div class="question-text">"How long have you been in business, and what's your current stage of growth?"</div>
+                            <div class="question-tip">Helps prospects identify if they're at similar stages</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">4</div>
+                        <div>
+                            <div class="question-text">"What's the most exciting part of running your business right now?"</div>
+                            <div class="question-tip">Gets positive energy flowing before discussing challenges</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">5</div>
+                        <div>
+                            <div class="question-text">"What initially drew you to consider outside advisory support?"</div>
+                            <div class="question-tip">Soft transition into discussing their journey with ScaleUp</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Challenge Questions -->
+            <div class="question-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                    </div>
+                    <span class="category-title">Challenge Questions - Identify Pain Points</span>
+                    <span class="category-count">5 Questions</span>
+                </div>
+                <div class="questions-list">
+                    <div class="question-item">
+                        <div class="question-number">6</div>
+                        <div>
+                            <div class="question-text">"What was the biggest challenge you were facing before working with ScaleUp Ventures?"</div>
+                            <div class="question-tip">Creates "before" contrast; prospects relate to shared struggles</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">7</div>
+                        <div>
+                            <div class="question-text">"How was that challenge affecting your business day-to-day?"</div>
+                            <div class="question-tip">Deepens the pain point; shows real impact</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">8</div>
+                        <div>
+                            <div class="question-text">"What had you tried before that didn't work?"</div>
+                            <div class="question-tip">Shows ScaleUp as the solution that finally worked</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">9</div>
+                        <div>
+                            <div class="question-text">"What was the cost of not solving this problem - financially or otherwise?"</div>
+                            <div class="question-tip">Quantifies the stakes; creates urgency for viewers</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">10</div>
+                        <div>
+                            <div class="question-text">"Was there a breaking point that made you decide you needed help?"</div>
+                            <div class="question-tip">Captures emotional turning point; highly relatable moment</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Solution Questions -->
+            <div class="question-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <span class="category-title">Solution Questions - Highlight Experience</span>
+                    <span class="category-count">5 Questions</span>
+                </div>
+                <div class="questions-list">
+                    <div class="question-item">
+                        <div class="question-number">11</div>
+                        <div>
+                            <div class="question-text">"How did you first hear about ScaleUp Ventures, and what made you reach out?"</div>
+                            <div class="question-tip">Shows discovery path; validates marketing channels</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">12</div>
+                        <div>
+                            <div class="question-text">"What was your first impression when you started working with Calvin?"</div>
+                            <div class="question-tip">Personalizes the experience; builds trust in the relationship</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">13</div>
+                        <div>
+                            <div class="question-text">"Can you describe a specific strategy or insight that made a real difference?"</div>
+                            <div class="question-tip">Provides concrete examples of value; not vague praise</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">14</div>
+                        <div>
+                            <div class="question-text">"How would you describe the advisory relationship compared to other services you've used?"</div>
+                            <div class="question-tip">Differentiates ScaleUp from competitors</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">15</div>
+                        <div>
+                            <div class="question-text">"Was there an 'aha moment' where everything started clicking?"</div>
+                            <div class="question-tip">Captures transformation moment; emotionally compelling</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Questions -->
+            <div class="question-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <span class="category-title">Results Questions - Quantify Success</span>
+                    <span class="category-count">5 Questions</span>
+                </div>
+                <div class="questions-list">
+                    <div class="question-item">
+                        <div class="question-number">16</div>
+                        <div>
+                            <div class="question-text">"What specific results have you achieved since working with ScaleUp Ventures?"</div>
+                            <div class="question-tip">Get numbers if possible - revenue, growth %, time saved</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">17</div>
+                        <div>
+                            <div class="question-text">"How has your business changed in the last 6-12 months?"</div>
+                            <div class="question-tip">Shows trajectory and ongoing value</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">18</div>
+                        <div>
+                            <div class="question-text">"What's possible now that wasn't possible before?"</div>
+                            <div class="question-tip">Forward-looking; shows expanded capabilities</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">19</div>
+                        <div>
+                            <div class="question-text">"How has this impacted you personally - not just the business?"</div>
+                            <div class="question-tip">Emotional payoff; work-life balance, confidence, clarity</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">20</div>
+                        <div>
+                            <div class="question-text">"If you could put a dollar value on what you've gained, what would it be?"</div>
+                            <div class="question-tip">ROI statement; powerful for prospects evaluating investment</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommendation Questions -->
+            <div class="question-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                        </svg>
+                    </div>
+                    <span class="category-title">Recommendation Questions - Close Strong</span>
+                    <span class="category-count">5 Questions</span>
+                </div>
+                <div class="questions-list">
+                    <div class="question-item">
+                        <div class="question-number">21</div>
+                        <div>
+                            <div class="question-text">"Who would you recommend ScaleUp Ventures to?"</div>
+                            <div class="question-tip">Helps prospects self-identify as ideal clients</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">22</div>
+                        <div>
+                            <div class="question-text">"What would you say to someone who's on the fence about working with an advisory firm?"</div>
+                            <div class="question-tip">Addresses objections directly; peer-to-peer persuasion</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">23</div>
+                        <div>
+                            <div class="question-text">"If you could go back, would you have started sooner? Why?"</div>
+                            <div class="question-tip">Creates urgency; addresses "not the right time" objection</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">24</div>
+                        <div>
+                            <div class="question-text">"In three words, how would you describe working with ScaleUp Ventures?"</div>
+                            <div class="question-tip">Creates quotable soundbite; easy to use in marketing</div>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <div class="question-number">25</div>
+                        <div>
+                            <div class="question-text">"Is there anything else you'd want a potential client to know?"</div>
+                            <div class="question-tip">Often captures the most authentic, unscripted moments</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Production Guidelines -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2 class="section-title">Production Guidelines</h2>
+            </div>
+
+            <div class="production-grid">
+                <!-- Equipment -->
+                <div class="production-card">
+                    <div class="production-header">
+                        <div class="production-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <span class="production-title">Camera Equipment</span>
+                    </div>
+                    <div class="production-body">
+                        <ul class="checklist">
+                            <li>
+                                <span class="check-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                </span>
+                                <div class="checklist-text">
+                                    <div class="checklist-primary">Primary Camera</div>
+                                    <div class="checklist-secondary">Sony A7IV or equivalent mirrorless (4K, 60fps)</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                </span>
+                                <div class="checklist-text">
+                                    <div class="checklist-primary">Lens</div>
+                                    <div class="checklist-secondary">35mm or 50mm f/1.8 for shallow depth of field</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                </span>
+                                <div class="checklist-text">
+                                    <div class="checklist-primary">Tripod</div>
+                                    <div class="checklist-secondary">Fluid head tripod for smooth adjustments</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                </span>
+                                <div class="checklist-text">
+                                    <div class="checklist-primary">Backup Option</div>
+                                    <div class="checklist-secondary">iPhone 15 Pro in Cinematic Mode (remote interviews)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Lighting -->
+                <div class="production-card">
+                    <div class="production-header">
+                        <div class="production-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <span class="production-title">Lighting Setup</span>
+                    </div>
+                    <div class="production-body">
+                        <ul class="checklist">
+                            <li>
+                                <span class="check-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                </span>
+                                <div class="checklist-text">
+                                    <div class="checklist-primary">Key Light</div>
+                                    <div class="checklist-secondary">Softbox at 45-degree angle, slightly above eye level</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                </span>
+                                <div class="checklist-text">
+                                    <div class="checklist-primary">Fill Light</div>
+                                    <div class="checklist-secondary">Reflector or soft LED opposite the key light</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                </span>
+                                <div class="checklist-text">
+                                    <div class="checklist-primary">Hair/Rim Light</div>
+                                    <div class="checklist-secondary">Subtle backlight to separate subject from background</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                </span>
+                                <div class="checklist-text">
+                                    <div class="checklist-primary">Color Temperature</div>
+                                    <div class="checklist-secondary">5600K (daylight balanced) for natural look</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Audio -->
+                <div class="production-card">
+                    <div class="production-header">
+                        <div class="production-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                            </svg>
+                        </div>
+                        <span class="production-title">Audio Requirements</span>
+                    </div>
+                    <div class="production-body">
+                        <ul class="checklist">
+                            <li>
+                                <span class="check-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                </span>
+                                <div class="checklist-text">
+                                    <div class="checklist-primary">Lavalier Microphone</div>
+                                    <div class="checklist-secondary">Rode Wireless GO II or Sennheiser AVX</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                </span>
+                                <div class="checklist-text">
+                                    <div class="checklist-primary">Backup Audio</div>
+                                    <div class="checklist-secondary">Shotgun mic on camera as secondary track</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                </span>
+                                <div class="checklist-text">
+                                    <div class="checklist-primary">Audio Levels</div>
+                                    <div class="checklist-secondary">Peak at -12dB to -6dB, never clip</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                </span>
+                                <div class="checklist-text">
+                                    <div class="checklist-primary">Environment</div>
+                                    <div class="checklist-secondary">Quiet room, no HVAC noise, no echo</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Background -->
+                <div class="production-card">
+                    <div class="production-header">
+                        <div class="production-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <span class="production-title">Background Options</span>
+                    </div>
+                    <div class="production-body">
+                        <ul class="checklist">
+                            <li>
+                                <span class="check-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                </span>
+                                <div class="checklist-text">
+                                    <div class="checklist-primary">Office Setting (Preferred)</div>
+                                    <div class="checklist-secondary">Subject's actual workspace with depth</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                </span>
+                                <div class="checklist-text">
+                                    <div class="checklist-primary">Neutral Studio</div>
+                                    <div class="checklist-secondary">Navy backdrop matches brand, clean look</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                </span>
+                                <div class="checklist-text">
+                                    <div class="checklist-primary">Depth of Field</div>
+                                    <div class="checklist-secondary">Blur background (f/2.8 or wider) to focus on face</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                </span>
+                                <div class="checklist-text">
+                                    <div class="checklist-primary">Avoid</div>
+                                    <div class="checklist-secondary">Blank walls, cluttered spaces, windows behind</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Specs Table -->
+            <div class="card">
+                <h3 class="card-title">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    Technical Specifications
+                </h3>
+                <table class="specs-table">
+                    <thead>
+                        <tr>
+                            <th>Specification</th>
+                            <th>Requirement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="spec-label">Resolution</td>
+                            <td class="spec-value">4K (3840 x 2160) minimum, record in <strong>LOG</strong> for flexibility</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-label">Frame Rate</td>
+                            <td class="spec-value"><strong>24fps</strong> for cinematic feel, 60fps for slow-motion B-roll</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-label">Aspect Ratio</td>
+                            <td class="spec-value"><strong>16:9</strong> master, crop to 9:16 and 1:1 for social</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-label">Target Length</td>
+                            <td class="spec-value"><strong>60-90 seconds</strong> final edit (capture 15-20 mins raw)</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-label">Audio Format</td>
+                            <td class="spec-value"><strong>48kHz, 24-bit</strong> uncompressed WAV</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-label">Export Codec</td>
+                            <td class="spec-value"><strong>H.265/HEVC</strong> for quality, H.264 for compatibility</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 4: Editing Framework -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2 class="section-title">Editing Framework</h2>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Video Structure Timeline (60-90 Seconds)
+                </h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-time">0:00 - 0:05</span>
+                            <h4 class="timeline-title">Hook Statement</h4>
+                            <div class="timeline-desc">Open with the most powerful soundbite. Example hook types: "They saved me from a $150K mistake" or "Calvin helped me see what I was missing." Use real client quotes only.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-time">0:05 - 0:10</span>
+                            <h4 class="timeline-title">Intro + Name Lower Third</h4>
+                            <div class="timeline-desc">Brief introduction: Name, title, company. Add branded lower third with gold accent. Establish credibility.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-time">0:10 - 0:25</span>
+                            <h4 class="timeline-title">The Challenge</h4>
+                            <div class="timeline-desc">What problem were they facing? What was at stake? Create relatable tension that prospects identify with.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-time">0:25 - 0:45</span>
+                            <h4 class="timeline-title">The Solution + Experience</h4>
+                            <div class="timeline-desc">How did ScaleUp help? What was the experience like? Include specific strategies or moments that made a difference.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-time">0:45 - 1:10</span>
+                            <h4 class="timeline-title">The Results</h4>
+                            <div class="timeline-desc">Quantifiable outcomes and emotional impact. Include on-screen text overlays for key metrics. Show transformation.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-time">1:10 - 1:25</span>
+                            <h4 class="timeline-title">Recommendation + CTA</h4>
+                            <div class="timeline-desc">Who should work with ScaleUp? End with their strongest endorsement. Add branded end card with website/contact.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- B-Roll Suggestions -->
+            <div class="card">
+                <h3 class="card-title">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"/>
+                    </svg>
+                    B-Roll Shot List
+                </h3>
+                <div class="broll-grid">
+                    <div class="broll-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        Working at desk
+                    </div>
+                    <div class="broll-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                        Team collaboration
+                    </div>
+                    <div class="broll-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                        Office exterior
+                    </div>
+                    <div class="broll-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
+                        Product/app screens
+                    </div>
+                    <div class="broll-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+                        </svg>
+                        Writing/planning
+                    </div>
+                    <div class="broll-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Candid reactions
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Elements -->
+            <div class="card">
+                <h3 class="card-title">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                    </svg>
+                    Brand Overlay Elements
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 20px;">
+                    <div style="background: var(--gray-100); padding: 24px; border-radius: 12px;">
+                        <h4 style="color: var(--navy); margin-bottom: 12px; font-weight: 700;">Lower Third Template</h4>
+                        <div style="background: var(--navy); padding: 16px 24px; border-left: 4px solid var(--gold); color: white; border-radius: 0 8px 8px 0;">
+                            <div style="font-weight: 700;">[Client Name]</div>
+                            <div style="font-size: 13px; opacity: 0.8;">[Title], [Company] | Client Since [Year]</div>
+                        </div>
+                        <p style="font-size: 12px; color: var(--gray-600); margin-top: 8px; font-style: italic;">Template - use with real client data only</p>
+                    </div>
+                    <div style="background: var(--gray-100); padding: 24px; border-radius: 12px;">
+                        <h4 style="color: var(--navy); margin-bottom: 12px; font-weight: 700;">Stat Overlay Template</h4>
+                        <div style="background: var(--navy); padding: 20px 24px; text-align: center; border-radius: 8px; color: white;">
+                            <div style="font-size: 32px; font-weight: 800; color: var(--gold);">$150K+</div>
+                            <div style="font-size: 13px; opacity: 0.8;">Saved with No-Build Decision</div>
+                        </div>
+                        <p style="font-size: 12px; color: var(--gray-600); margin-top: 8px; font-style: italic;">Real metric from actual engagement</p>
+                    </div>
+                    <div style="background: var(--gray-100); padding: 24px; border-radius: 12px;">
+                        <h4 style="color: var(--navy); margin-bottom: 12px; font-weight: 700;">End Card Template</h4>
+                        <div style="background: var(--navy); padding: 24px; text-align: center; border-radius: 8px; color: white;">
+                            <div style="font-size: 20px; font-weight: 800;">Scale<span style="color: var(--gold);">Up</span> Ventures</div>
+                            <div style="font-size: 14px; margin-top: 8px; opacity: 0.8;">scaleupventures.com</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Distribution Plan -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2 class="section-title">Distribution Plan</h2>
+            </div>
+
+            <div class="distribution-grid">
+                <div class="distribution-card">
+                    <div class="dist-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                        </svg>
+                    </div>
+                    <h4 class="dist-title">Website Placement</h4>
+                    <ul class="dist-list">
+                        <li>Homepage hero section (auto-play muted)</li>
+                        <li>Dedicated testimonials page</li>
+                        <li>Case study pages</li>
+                        <li>Pricing page (near CTA)</li>
+                        <li>About page (team credibility)</li>
+                        <li>Landing pages for campaigns</li>
+                    </ul>
+                </div>
+
+                <div class="distribution-card">
+                    <div class="dist-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"/>
+                        </svg>
+                    </div>
+                    <h4 class="dist-title">LinkedIn Strategy</h4>
+                    <ul class="dist-list">
+                        <li>Full testimonial as native video post</li>
+                        <li>30-second highlight clips weekly</li>
+                        <li>Quote card + video combo</li>
+                        <li>Tag the client (with permission)</li>
+                        <li>Embed in LinkedIn articles</li>
+                        <li>Use in LinkedIn Ads</li>
+                    </ul>
+                </div>
+
+                <div class="distribution-card">
+                    <div class="dist-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h4 class="dist-title">YouTube Channel</h4>
+                    <ul class="dist-list">
+                        <li>Full testimonials playlist</li>
+                        <li>Client success stories series</li>
+                        <li>Embed in blog posts</li>
+                        <li>Link in email signatures</li>
+                        <li>SEO-optimized titles/descriptions</li>
+                        <li>Use as YouTube Ads</li>
+                    </ul>
+                </div>
+
+                <div class="distribution-card">
+                    <div class="dist-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h4 class="dist-title">Email Marketing</h4>
+                    <ul class="dist-list">
+                        <li>Welcome sequence (build trust early)</li>
+                        <li>Sales follow-up emails</li>
+                        <li>Newsletter features</li>
+                        <li>Re-engagement campaigns</li>
+                        <li>GIF preview + link to full video</li>
+                        <li>Proposal attachments</li>
+                    </ul>
+                </div>
+
+                <div class="distribution-card">
+                    <div class="dist-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+                        </svg>
+                    </div>
+                    <h4 class="dist-title">Social Cuts (Short-Form)</h4>
+                    <ul class="dist-list">
+                        <li>Instagram Reels (9:16, 30 sec)</li>
+                        <li>TikTok (if relevant to audience)</li>
+                        <li>Twitter/X video posts</li>
+                        <li>Facebook short clips</li>
+                        <li>Stories with swipe-up links</li>
+                        <li>Audiograms for podcasts</li>
+                    </ul>
+                </div>
+
+                <div class="distribution-card">
+                    <div class="dist-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h4 class="dist-title">Sales Enablement</h4>
+                    <ul class="dist-list">
+                        <li>Proposal decks (embedded)</li>
+                        <li>Discovery call follow-ups</li>
+                        <li>Objection handling library</li>
+                        <li>Close-stage reinforcement</li>
+                        <li>Internal training materials</li>
+                        <li>Partner/referral materials</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Video Format Specifications -->
+            <div class="card" style="margin-top: 32px;">
+                <h3 class="card-title">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                    </svg>
+                    Export Specifications by Platform
+                </h3>
+                <table class="specs-table">
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>Aspect Ratio</th>
+                            <th>Max Length</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="spec-label">Website/YouTube</td>
+                            <td class="spec-value"><strong>16:9</strong></td>
+                            <td class="spec-value">60-90 sec</td>
+                            <td class="spec-value">Full version, captions embedded</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-label">LinkedIn Feed</td>
+                            <td class="spec-value"><strong>16:9 or 1:1</strong></td>
+                            <td class="spec-value">60 sec ideal</td>
+                            <td class="spec-value">Captions required, native upload</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-label">Instagram Reels</td>
+                            <td class="spec-value"><strong>9:16</strong></td>
+                            <td class="spec-value">30-60 sec</td>
+                            <td class="spec-value">Hook in first 3 seconds</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-label">Instagram Feed</td>
+                            <td class="spec-value"><strong>1:1 or 4:5</strong></td>
+                            <td class="spec-value">60 sec max</td>
+                            <td class="spec-value">Thumbnail optimization</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-label">Twitter/X</td>
+                            <td class="spec-value"><strong>16:9</strong></td>
+                            <td class="spec-value">2:20 max</td>
+                            <td class="spec-value">Keep under 60 sec for engagement</td>
+                        </tr>
+                        <tr>
+                            <td class="spec-label">Stories</td>
+                            <td class="spec-value"><strong>9:16</strong></td>
+                            <td class="spec-value">15 sec per slide</td>
+                            <td class="spec-value">Split into multiple segments</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 6: Client Outreach Template -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2 class="section-title">Client Outreach Templates</h2>
+            </div>
+
+            <div class="email-template">
+                <div class="email-header">
+                    <div>
+                        <div class="email-subject">Subject: Quick favor - share your story? (Takes 20 min)</div>
+                        <div class="email-meta">To: [Client Name] | From: Calvin Williams, ScaleUp Ventures</div>
+                    </div>
+                </div>
+                <div class="email-body">
+                    <p>Hi [First Name],</p>
+
+                    <p>I hope this finds you well. I've been reflecting on our work together over the past [X months], and I'm genuinely proud of what you've accomplished - [specific achievement: e.g., "avoiding a costly development path" or "getting your MVP launched" or "clarifying your go-to-market strategy"].</p>
+
+                    <p>I have a quick favor to ask:</p>
+
+                    <p><strong>Would you be open to sharing your experience in a short video testimonial?</strong></p>
+
+                    <p>It would mean a lot to me personally, and honestly, your story could help other founders who are facing the same challenges you were when we started.</p>
+
+                    <div class="email-highlight">
+                        <h4>What's involved:</h4>
+                        <ul>
+                            <li>20-30 minute conversation (I'll guide you through it)</li>
+                            <li>Can be done via Zoom or in person</li>
+                            <li>No prep required - just be yourself</li>
+                            <li>You'll approve the final edit before we use it</li>
+                        </ul>
+                    </div>
+
+                    <div class="email-highlight">
+                        <h4>What you get in return:</h4>
+                        <ul>
+                            <li>Professional video you can use for your own marketing</li>
+                            <li>Feature on our website and social channels (exposure to our audience)</li>
+                            <li>A $200 Amazon gift card as a thank-you</li>
+                            <li>My eternal gratitude</li>
+                        </ul>
+                    </div>
+
+                    <p>I completely understand if you're not comfortable on camera or if timing doesn't work - no pressure at all. But if you're open to it, just reply "I'm in" and I'll send over a few time options.</p>
+
+                    <p>Either way, thanks for being such a great partner to work with.</p>
+
+                    <div class="email-signature">
+                        <div class="signature-name">Calvin Williams</div>
+                        <div class="signature-title">Founder, ScaleUp Ventures</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Follow-up Template -->
+            <div class="email-template" style="margin-top: 32px;">
+                <div class="email-header">
+                    <div>
+                        <div class="email-subject">Subject: Re: Quick favor - share your story? (Takes 20 min)</div>
+                        <div class="email-meta">Follow-up email (send 5 days after no response)</div>
+                    </div>
+                </div>
+                <div class="email-body">
+                    <p>Hi [First Name],</p>
+
+                    <p>Just bumping this to the top of your inbox in case it got buried.</p>
+
+                    <p>Totally understand if you're slammed or if this isn't your thing - just let me know either way so I can plan accordingly.</p>
+
+                    <p>If you're interested but timing is the issue, I'm flexible. We could even do it in [specific month] if that works better.</p>
+
+                    <p>Thanks again!</p>
+
+                    <div class="email-signature">
+                        <div class="signature-name">Calvin</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pre-Interview Prep Email -->
+            <div class="email-template" style="margin-top: 32px;">
+                <div class="email-header">
+                    <div>
+                        <div class="email-subject">Subject: Testimonial prep for [Date] - you're all set!</div>
+                        <div class="email-meta">Send 2 days before scheduled recording</div>
+                    </div>
+                </div>
+                <div class="email-body">
+                    <p>Hi [First Name],</p>
+
+                    <p>Excited for our testimonial recording on [Day, Date at Time]!</p>
+
+                    <p>Here's everything you need to know:</p>
+
+                    <div class="email-highlight">
+                        <h4>Quick tips for a great video:</h4>
+                        <ul>
+                            <li><strong>Location:</strong> Quiet space with good lighting (near a window is perfect)</li>
+                            <li><strong>Background:</strong> Your office or a clean, professional setting</li>
+                            <li><strong>Attire:</strong> Solid colors work best (avoid busy patterns or pure white)</li>
+                            <li><strong>Tech:</strong> Good internet connection, camera at eye level</li>
+                        </ul>
+                    </div>
+
+                    <div class="email-highlight">
+                        <h4>What we'll cover (no prep needed):</h4>
+                        <ul>
+                            <li>Brief intro about you and your business</li>
+                            <li>The challenges you were facing before we worked together</li>
+                            <li>What it's been like working with ScaleUp</li>
+                            <li>The results you've achieved</li>
+                            <li>Who you'd recommend us to</li>
+                        </ul>
+                    </div>
+
+                    <p>This is meant to be a natural conversation - not scripted. Just speak from the heart and share your genuine experience. There are no wrong answers!</p>
+
+                    <p>The whole thing takes about 20-30 minutes. I'll guide you through each question.</p>
+
+                    <p>See you [Day]!</p>
+
+                    <div class="email-signature">
+                        <div class="signature-name">Calvin</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thank You Email -->
+            <div class="email-template" style="margin-top: 32px;">
+                <div class="email-header">
+                    <div>
+                        <div class="email-subject">Subject: You were amazing - thank you!</div>
+                        <div class="email-meta">Send within 24 hours after recording</div>
+                    </div>
+                </div>
+                <div class="email-body">
+                    <p>Hi [First Name],</p>
+
+                    <p>Thank you so much for taking the time to share your story today. You were an absolute natural on camera, and I know this is going to resonate with so many founders.</p>
+
+                    <p><strong>What happens next:</strong></p>
+                    <ul style="margin-left: 20px; margin-bottom: 16px;">
+                        <li>Our team will edit the video over the next 1-2 weeks</li>
+                        <li>I'll send you the final cut for your approval before we publish</li>
+                        <li>Once approved, we'll share it on our channels and send you a copy for your use</li>
+                    </ul>
+
+                    <p>As promised, your $200 Amazon gift card is on the way - you should receive it via email within 24 hours.</p>
+
+                    <p>Again, I can't thank you enough. Your success story is exactly why I do this work.</p>
+
+                    <p>Talk soon!</p>
+
+                    <div class="email-signature">
+                        <div class="signature-name">Calvin</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bonus: Metrics to Track -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number" style="background: var(--navy); color: var(--gold);">+</div>
+                <h2 class="section-title">Bonus: Success Metrics</h2>
+            </div>
+
+            <div class="card">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; text-align: center;">
+                    <div>
+                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: 8px;">View-Through Rate</div>
+                        <div style="font-size: 32px; font-weight: 800; color: var(--navy);">Target: 50%+</div>
+                        <div style="font-size: 12px; color: var(--gray-400);">% who watch to end</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: 8px;">Page Conversion Lift</div>
+                        <div style="font-size: 32px; font-weight: 800; color: var(--navy);">Target: 25%+</div>
+                        <div style="font-size: 12px; color: var(--gray-400);">Before vs after adding video</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: 8px;">Email Click Rate</div>
+                        <div style="font-size: 32px; font-weight: 800; color: var(--navy);">Target: 3x</div>
+                        <div style="font-size: 12px; color: var(--gray-400);">Vs emails without video</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: 8px;">Social Engagement</div>
+                        <div style="font-size: 32px; font-weight: 800; color: var(--navy);">Target: 5x</div>
+                        <div style="font-size: 12px; color: var(--gray-400);">Vs image-only posts</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">Scale<span>Up</span> Ventures</div>
+        <p>Video Testimonial Strategy Playbook | Confidential</p>
+        <p style="margin-top: 8px;">Last Updated: January 2026 | Early-Stage Strategy</p>
+    </footer>
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Content Index</a>
+  <p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p>
+</footer>
+
+</body>
+</html>

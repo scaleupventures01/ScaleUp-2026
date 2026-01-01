@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures - Brand Strategy Audit Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --white: #FFFFFF;
+            --light-gray: #f8f9fa;
+            --mid-gray: #e9ecef;
+            --dark-gray: #6c757d;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --critical: #ff4757;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--light-gray);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .header .subtitle {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        .header .date {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        .header .badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--white);
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .nav a {
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        .nav a:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Main content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* Section styling */
+        .section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--gold);
+        }
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .section-header h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            flex: 1;
+        }
+        .section-header .score {
+            background: var(--navy);
+            color: var(--gold);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        /* Executive Summary */
+        .exec-summary {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%);
+            color: var(--white);
+        }
+        .exec-summary h2 { color: var(--gold); border-color: var(--gold); }
+        .exec-summary .section-icon { background: var(--gold); color: var(--navy); }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        .summary-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+        }
+        .summary-card .number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .summary-card .label {
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .verdict-box {
+            background: rgba(220, 53, 69, 0.2);
+            border: 2px solid var(--danger);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+        .verdict-box.warning {
+            background: rgba(255, 193, 7, 0.15);
+            border-color: var(--warning);
+        }
+        .verdict-box h3 {
+            color: var(--danger);
+            margin-bottom: 10px;
+        }
+        .verdict-box.warning h3 { color: var(--warning); }
+
+        /* Tagline Section */
+        .tagline-highlight {
+            background: linear-gradient(135deg, #fffef5 0%, #fff 100%);
+            border: 2px solid var(--gold);
+        }
+        .tagline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        .tagline-card {
+            background: var(--white);
+            border: 2px solid var(--mid-gray);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .tagline-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+        .tagline-card.recommended {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, #fffef5 0%, #fff 100%);
+        }
+        .tagline-card .rank {
+            display: inline-block;
+            background: var(--navy);
+            color: var(--gold);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            line-height: 30px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .tagline-card .tagline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.6rem;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+        .tagline-card .words {
+            color: var(--dark-gray);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+        .tagline-card .score-bar {
+            background: var(--mid-gray);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+        .tagline-card .score-fill {
+            background: var(--gold);
+            height: 100%;
+        }
+        .tagline-card .score-text {
+            font-size: 0.85rem;
+            color: var(--dark-gray);
+            margin-top: 8px;
+        }
+
+        /* Agent Cards */
+        .agent-card {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .agent-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .agent-number {
+            width: 40px;
+            height: 40px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        .agent-header h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.3rem;
+            flex: 1;
+        }
+        .agent-score {
+            background: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        .agent-score.good { color: var(--success); }
+        .agent-score.warning { color: var(--warning); }
+        .agent-score.danger { color: var(--danger); }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--mid-gray);
+        }
+        th {
+            background: var(--navy);
+            color: var(--white);
+            font-weight: 600;
+        }
+        tr:hover { background: var(--light-gray); }
+
+        /* Priority badges */
+        .priority {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .priority.critical { background: #ffe5e5; color: var(--critical); }
+        .priority.urgent { background: #ffe5e5; color: var(--danger); }
+        .priority.high { background: #fff3cd; color: #856404; }
+        .priority.medium { background: #e7f5ff; color: #0c5460; }
+        .priority.low { background: var(--mid-gray); color: var(--dark-gray); }
+
+        /* Gap cards */
+        .gap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gap-card {
+            background: var(--white);
+            border-left: 4px solid var(--danger);
+            border-radius: 0 12px 12px 0;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .gap-card.critical { border-color: var(--critical); background: #fff5f5; }
+        .gap-card h4 {
+            font-family: 'Crimson Pro', serif;
+            margin-bottom: 10px;
+            color: var(--navy);
+        }
+        .gap-card p {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Collapsible sections */
+        .collapsible {
+            cursor: pointer;
+        }
+        .collapsible:after {
+            content: ' ▼';
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+        .collapsible.active:after {
+            content: ' ▲';
+        }
+        .collapse-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .collapse-content.show {
+            max-height: 5000px;
+        }
+
+        /* Quotes */
+        .quote-box {
+            background: linear-gradient(135deg, #fffef5 0%, #fff 100%);
+            border-left: 4px solid var(--gold);
+            padding: 20px 25px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        .quote-box .attribution {
+            font-style: normal;
+            font-weight: 600;
+            margin-top: 10px;
+            color: var(--navy);
+        }
+
+        /* Lists */
+        ul.findings {
+            list-style: none;
+            padding: 0;
+        }
+        ul.findings li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            border-bottom: 1px solid var(--mid-gray);
+        }
+        ul.findings li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+        ul.findings li:last-child { border-bottom: none; }
+
+        /* Task counter */
+        .task-counter {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        .task-counter .count {
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+        .task-counter .critical { background: #ffe5e5; color: var(--critical); }
+        .task-counter .high { background: #fff3cd; color: #856404; }
+        .task-counter .medium { background: #e7f5ff; color: #0c5460; }
+        .task-counter .low { background: var(--mid-gray); color: var(--dark-gray); }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 40px;
+            margin-top: 40px;
+        }
+        .footer .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        /* Filter Controls */
+        .filter-controls {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: var(--light-gray);
+            border-radius: 12px;
+        }
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .filter-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--navy);
+        }
+        .filter-group select {
+            padding: 8px 12px;
+            border: 2px solid var(--mid-gray);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            background: var(--white);
+            cursor: pointer;
+            min-width: 150px;
+        }
+        .filter-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        .reset-btn {
+            padding: 8px 20px;
+            background: var(--navy);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .reset-btn:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+        .count-display {
+            margin-left: auto;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Task Table */
+        .task-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .task-table th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 60px;
+            z-index: 10;
+        }
+        .task-table th.sortable {
+            cursor: pointer;
+            user-select: none;
+        }
+        .task-table th.sortable:hover {
+            background: #1a2744;
+        }
+        .sort-icon {
+            opacity: 0.5;
+            margin-left: 5px;
+        }
+        .task-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--mid-gray);
+            vertical-align: top;
+        }
+        .task-table tr:hover {
+            background: var(--light-gray);
+        }
+        .task-table tr.hidden {
+            display: none;
+        }
+
+        /* Status badges */
+        .status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .status.pending { background: #fff3cd; color: #856404; }
+        .status.in-progress { background: #cce5ff; color: #004085; }
+        .status.complete { background: #d4edda; color: #155724; }
+
+        /* Print styles */
+        @media print {
+            .nav { display: none; }
+            .section { break-inside: avoid; }
+            .filter-controls { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .container { padding: 20px; }
+            .section { padding: 25px; }
+            .nav { padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ScaleUp Ventures</h1>
+        <div class="subtitle">Brand Strategy Audit Report</div>
+        <div class="date">December 31, 2025 | 10 Agent Team Analysis</div>
+        <div class="badge">Comprehensive Brand Review</div>
+    </div>
+
+    <nav class="nav">
+        <a href="#executive">Executive Summary</a>
+        <a href="#taglines">Tagline Options</a>
+        <a href="#agents">Agent Findings</a>
+        <a href="#gaps">Critical Gaps</a>
+        <a href="#tasks">Task List</a>
+        <a href="#recommendations">Recommendations</a>
+        <a href="December 31 output/master-index.html" style="background: var(--gold); color: var(--navy); font-weight: 600;">View 63 Content Files →</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- Executive Summary -->
+        <section id="executive" class="section exec-summary">
+            <div class="section-header">
+                <div class="section-icon">E</div>
+                <h2>Executive Summary</h2>
+            </div>
+
+            <div style="background: rgba(40, 167, 69, 0.2); border: 2px solid #28a745; border-radius: 12px; padding: 20px; margin-bottom: 25px;">
+                <h3 style="color: #28a745; margin-bottom: 10px;">✓ 63 CONTENT FILES GENERATED - AWAITING YOUR REVIEW</h3>
+                <p>All 63 brand audit tasks have been converted into web-ready content files. Click the gold "View 63 Content Files" button above to review, approve, or request revisions.</p>
+                <p style="margin-top: 10px;"><strong>Status:</strong> All tasks marked <span style="background: #cce5ff; color: #004085; padding: 2px 8px; border-radius: 10px; font-size: 0.85rem;">In Progress</span> pending your approval.</p>
+            </div>
+
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="number">10</div>
+                    <div class="label">Brand Areas Audited</div>
+                </div>
+                <div class="summary-card">
+                    <div class="number">52</div>
+                    <div class="label">Gaps Identified</div>
+                </div>
+                <div class="summary-card">
+                    <div class="number">63</div>
+                    <div class="label">Content Files Ready</div>
+                </div>
+                <div class="summary-card">
+                    <div class="number">7.5</div>
+                    <div class="label">Overall Score /10</div>
+                </div>
+            </div>
+
+            <div class="verdict-box">
+                <h3>CRITICAL FINDING: Proof-to-Claim Mismatch</h3>
+                <p>The brand promises <strong>"We Prove It Before You Buy"</strong> but lacks proof of its own ability to deliver. Zero client testimonials, zero case studies, and no documented founder credentials exist. This is a fundamental credibility gap that skeptical 50-65 year old business owners will immediately recognize.</p>
+                <p style="margin-top: 15px;"><strong>Recommendation:</strong> Do NOT launch brand without 2-3 testimonials and 1-2 case studies.</p>
+            </div>
+
+            <div class="verdict-box warning" style="margin-top: 20px;">
+                <h3>TAGLINE DECISION REQUIRED</h3>
+                <p>Current tagline "We Prove It Before You Buy" is <strong>7 words</strong> - too long for maximum impact. Top recommended alternatives are <strong>2-4 words</strong> for better memorability. See tagline section for options.</p>
+            </div>
+        </section>
+
+        <!-- Tagline Section -->
+        <section id="taglines" class="section tagline-highlight">
+            <div class="section-header">
+                <div class="section-icon">T</div>
+                <h2>Tagline Alternatives</h2>
+                <span class="score">Top 5 Options</span>
+            </div>
+
+            <p style="margin-bottom: 20px;">Your current tagline "We Prove It Before You Buy" (7 words) is effective but too long. The best taglines are 2-4 words. Here are the top scoring alternatives:</p>
+
+            <div class="tagline-grid">
+                <div class="tagline-card recommended">
+                    <div class="rank">1</div>
+                    <div class="tagline">"Certainty First."</div>
+                    <div class="words">2 words</div>
+                    <p style="font-size: 0.9rem; color: #666;">Speaks to core desire. Ultra-memorable. Slightly abstract - may need supporting copy.</p>
+                    <div class="score-bar"><div class="score-fill" style="width: 95%;"></div></div>
+                    <div class="score-text">19/20</div>
+                </div>
+
+                <div class="tagline-card recommended">
+                    <div class="rank">2</div>
+                    <div class="tagline">"Proof First."</div>
+                    <div class="words">2 words</div>
+                    <p style="font-size: 0.9rem; color: #666;">Most direct distillation. Clean, confident, commanding. No significant risks.</p>
+                    <div class="score-bar"><div class="score-fill" style="width: 90%;"></div></div>
+                    <div class="score-text">18/20</div>
+                </div>
+
+                <div class="tagline-card">
+                    <div class="rank">3</div>
+                    <div class="tagline">"Numbers Before Promises."</div>
+                    <div class="words">3 words</div>
+                    <p style="font-size: 0.9rem; color: #666;">Creates tension. Implies competitors make empty promises.</p>
+                    <div class="score-bar"><div class="score-fill" style="width: 90%;"></div></div>
+                    <div class="score-text">18/20</div>
+                </div>
+
+                <div class="tagline-card">
+                    <div class="rank">4</div>
+                    <div class="tagline">"Watch. Then Strike."</div>
+                    <div class="words">3 words</div>
+                    <p style="font-size: 0.9rem; color: #666;">Connects to Heron symbol. Memorable, evocative. Best when logo is visible.</p>
+                    <div class="score-bar"><div class="score-fill" style="width: 90%;"></div></div>
+                    <div class="score-text">18/20</div>
+                </div>
+
+                <div class="tagline-card">
+                    <div class="rank">5</div>
+                    <div class="tagline">"See Before You Spend."</div>
+                    <div class="words">4 words</div>
+                    <p style="font-size: 0.9rem; color: #666;">Preserves current structure but tighter. Clear CTA embedded.</p>
+                    <div class="score-bar"><div class="score-fill" style="width: 90%;"></div></div>
+                    <div class="score-text">18/20</div>
+                </div>
+            </div>
+
+            <div class="quote-box" style="margin-top: 30px;">
+                <strong>Strategic Recommendation:</strong><br>
+                <strong>PRIMARY:</strong> "Proof First." or "Certainty First." (2 words, for logo lockup)<br>
+                <strong>SECONDARY:</strong> "See Before You Spend." (4 words, for explanatory contexts)<br>
+                <strong>HERON-SPECIFIC:</strong> "Watch. Then Strike." (3 words, when symbol is prominent)
+            </div>
+        </section>
+
+        <!-- Agent Findings -->
+        <section id="agents" class="section">
+            <div class="section-header">
+                <div class="section-icon">A</div>
+                <h2>Agent Findings Summary</h2>
+            </div>
+
+            <!-- Agent 1 -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-number">1</div>
+                    <h3>Tagline Alternatives</h3>
+                    <span class="agent-score good">Complete</span>
+                </div>
+                <ul class="findings">
+                    <li><strong>18 alternatives evaluated</strong> across 4 categories (Proof-focused, Certainty-focused, Heron-inspired, Trust-focused)</li>
+                    <li><strong>Top recommendation:</strong> "Certainty First." (2 words, 19/20 score)</li>
+                    <li><strong>Key gap:</strong> No tiered tagline system exists - need primary, secondary, and context-specific options</li>
+                    <li><strong>Disqualified:</strong> "Try Before You Buy" (too retail), "ROI Guaranteed" (legally problematic)</li>
+                </ul>
+            </div>
+
+            <!-- Agent 2 -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-number">2</div>
+                    <h3>Brand Voice Audit</h3>
+                    <span class="agent-score warning">7/10</span>
+                </div>
+                <ul class="findings">
+                    <li><strong>Voice archetype:</strong> "The Patient Observer" - Watchful, Measured, Decisive</li>
+                    <li><strong>Inconsistencies found:</strong> Emotional temperature shifts, active/passive voice mixing, competing metaphors</li>
+                    <li><strong>Missing:</strong> Formal voice guidelines, pronoun usage rules, "Don't" examples</li>
+                    <li><strong>Strength:</strong> Heron symbolism aligns well with voice attributes</li>
+                </ul>
+            </div>
+
+            <!-- Agent 3 -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-number">3</div>
+                    <h3>Messaging Hierarchy</h3>
+                    <span class="agent-score warning">7.5/10</span>
+                </div>
+                <ul class="findings">
+                    <li><strong>Primary message clear:</strong> "We Prove It Before You Buy" - validated as &lt;5% of agencies</li>
+                    <li><strong>4 secondary messages</strong> well-defined with usage contexts</li>
+                    <li><strong>Gaps:</strong> No message repetition guidelines, no channel-specific hierarchy, weak tertiary layer</li>
+                    <li><strong>Missing:</strong> Objection-response mapping, competitor comparison messaging</li>
+                </ul>
+            </div>
+
+            <!-- Agent 4 -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-number">4</div>
+                    <h3>Value Proposition Clarity</h3>
+                    <span class="agent-score warning">7.3/10</span>
+                </div>
+                <ul class="findings">
+                    <li><strong>Core differentiator is unique:</strong> Pre-engagement ROI modeling (&lt;5% of agencies offer)</li>
+                    <li><strong>Addresses primary fear:</strong> "I've been burned before" - structural solution, not reassurance</li>
+                    <li><strong>Gaps:</strong> ROI model deliverable not specified, no risk-sharing policy, timeline expectations missing</li>
+                    <li><strong>Critical:</strong> Proof points insufficient to make claims credible</li>
+                </ul>
+            </div>
+
+            <!-- Agent 5 -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-number">5</div>
+                    <h3>Competitive Differentiation</h3>
+                    <span class="agent-score warning">6/10</span>
+                </div>
+                <ul class="findings">
+                    <li><strong>5 stated differentiators:</strong> ROI modeling, integrated services, laggard specialization, AI delivery, founder stability</li>
+                    <li><strong>Clarity:</strong> 8/10 - Tagline is direct | <strong>Believability:</strong> 5/10 - No case studies</li>
+                    <li><strong>Recommended:</strong> Create "The Proof Test" Framework (named methodology)</li>
+                    <li><strong>Gap:</strong> Industry-specific messaging not deployed despite strong research</li>
+                </ul>
+            </div>
+
+            <!-- Agent 6 -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-number">6</div>
+                    <h3>Target Audience Alignment</h3>
+                    <span class="agent-score warning">7/10</span>
+                </div>
+                <ul class="findings">
+                    <li><strong>Target:</strong> 50-65 skeptical business owners, $1M-$15M revenue, burned by agencies</li>
+                    <li><strong>Tagline fit:</strong> 9/10 - Directly addresses #1 objection</li>
+                    <li><strong>Critical gap:</strong> 97% trust case studies, yet ZERO exist</li>
+                    <li><strong>Missing:</strong> Print-ready collateral, exit planning messaging, formalized reference program</li>
+                </ul>
+            </div>
+
+            <!-- Agent 7 -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-number">7</div>
+                    <h3>Visual-Verbal Consistency</h3>
+                    <span class="agent-score good">8.5/10</span>
+                </div>
+                <ul class="findings">
+                    <li><strong>Strong alignment:</strong> Heron symbolism, Navy/Gold palette, and typography work in concert</li>
+                    <li><strong>Heron-tagline match:</strong> Excellent - "Prove it before you buy" = patient observation + precise action</li>
+                    <li><strong>Gaps:</strong> Heron narrative not explicit in customer-facing copy, no Proof Vocabulary Palette</li>
+                    <li><strong>Opportunity:</strong> Bridge visual stillness with "strike" language</li>
+                </ul>
+            </div>
+
+            <!-- Agent 8 -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-number">8</div>
+                    <h3>Proof Points Inventory</h3>
+                    <span class="agent-score danger">3/10</span>
+                </div>
+                <ul class="findings">
+                    <li><strong style="color: var(--danger);">CRITICAL:</strong> Zero social proof documented - no testimonials, no case studies</li>
+                    <li><strong style="color: var(--danger);">CRITICAL:</strong> No founder bio or credentials documented</li>
+                    <li><strong>Performance claims unverified:</strong> 40% faster, 80% expansion rate (claimed, not proven)</li>
+                    <li><strong>Verdict:</strong> Do NOT launch without 2-3 testimonials and 1-2 case studies</li>
+                </ul>
+            </div>
+
+            <!-- Agent 9 -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-number">9</div>
+                    <h3>Brand Story Coherence</h3>
+                    <span class="agent-score good">8.5/10</span>
+                </div>
+                <ul class="findings">
+                    <li><strong>Strength:</strong> Symbol-Story Fusion - Heron directly embodies methodology (rare coherence)</li>
+                    <li><strong>Hero identified:</strong> Skeptical 50-65 business owner | <strong>Guide:</strong> ScaleUp (patient advisor)</li>
+                    <li><strong>Gap:</strong> Missing founder origin story, transformation narratives, "Why Now?" messaging</li>
+                    <li><strong>Opportunity:</strong> Emotional enrichment - speaks to head but needs to speak to heart</li>
+                </ul>
+            </div>
+
+            <!-- Agent 10 -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-number">10</div>
+                    <h3>Call-to-Action Messaging</h3>
+                    <span class="agent-score danger">4/10</span>
+                </div>
+                <ul class="findings">
+                    <li><strong style="color: var(--danger);">CRITICAL:</strong> No external-facing CTAs exist - all materials are internal</li>
+                    <li><strong>Current CTAs generic:</strong> "See," "Select," "View" - no proof-based language</li>
+                    <li><strong>Missing:</strong> Graduated CTA strategy for skeptical audience (zero-risk to high-commitment)</li>
+                    <li><strong>Recommended:</strong> "See How We Prove ROI Before You Spend" (homepage hero CTA)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Critical Gaps -->
+        <section id="gaps" class="section">
+            <div class="section-header">
+                <div class="section-icon">!</div>
+                <h2>Critical Gaps (Blocking Launch)</h2>
+            </div>
+
+            <div class="gap-grid">
+                <div class="gap-card critical">
+                    <h4>Zero Social Proof</h4>
+                    <p>No client testimonials, no case studies, no named references despite brand positioning being "We Prove It Before You Buy." 97% of target audience trusts case studies most.</p>
+                </div>
+                <div class="gap-card critical">
+                    <h4>No Founder Credentials</h4>
+                    <p>Missing founder bio, experience documentation, credentials. Skeptical 50-65 audience will vet the person before the company.</p>
+                </div>
+                <div class="gap-card critical">
+                    <h4>No External CTAs</h4>
+                    <p>All brand materials are internal/presentational. No client acquisition CTAs for website, proposals, or marketing materials.</p>
+                </div>
+                <div class="gap-card critical">
+                    <h4>Proof-Claim Mismatch</h4>
+                    <p>Brand claims "proof-first" but lacks proof of its own ability to deliver. This fundamental contradiction will be spotted immediately by skeptical buyers.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px; margin-bottom: 20px; font-family: 'Crimson Pro', serif;">High Priority Gaps (Within 90 Days)</h3>
+
+            <div class="gap-grid">
+                <div class="gap-card">
+                    <h4>Tagline Too Long</h4>
+                    <p>Current 7-word tagline exceeds 2-4 word ideal. Need to select shorter primary tagline from recommended options.</p>
+                </div>
+                <div class="gap-card">
+                    <h4>No Voice Guidelines</h4>
+                    <p>Missing formal brand voice document with attributes, examples, and context-specific guidance.</p>
+                </div>
+                <div class="gap-card">
+                    <h4>No Print Collateral</h4>
+                    <p>Target audience (50-65, technology laggard) values tangible materials. All brand assets are digital-only.</p>
+                </div>
+                <div class="gap-card">
+                    <h4>ROI Model Undefined</h4>
+                    <p>Core differentiator (pre-engagement ROI modeling) has no client-facing documentation or sample prospects can see.</p>
+                </div>
+                <div class="gap-card">
+                    <h4>Industry Messaging Generic</h4>
+                    <p>Strong research on Staffing (67/80), Veterinary (65/80), Trades (63/80) but messaging remains generalized.</p>
+                </div>
+                <div class="gap-card">
+                    <h4>Missing Founder Story</h4>
+                    <p>No personal origin story or catalyst moment documented. Brand story needs human narrative depth.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task List -->
+        <section id="tasks" class="section">
+            <div class="section-header">
+                <div class="section-icon">T</div>
+                <h2>Task List (Action Items)</h2>
+                <span class="score">63 Tasks</span>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label>Priority:</label>
+                    <select id="filterPriority" onchange="filterTasks()">
+                        <option value="">All Priorities</option>
+                        <option value="CRITICAL">Critical (4)</option>
+                        <option value="HIGH">High (24)</option>
+                        <option value="MEDIUM">Medium (27)</option>
+                        <option value="LOW">Low (8)</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Owner:</label>
+                    <select id="filterOwner" onchange="filterTasks()">
+                        <option value="">All Owners</option>
+                        <option value="Founder">Founder</option>
+                        <option value="Brand Team">Brand Team</option>
+                        <option value="Leadership">Leadership</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Design">Design</option>
+                        <option value="Sales">Sales</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Agent:</label>
+                    <select id="filterAgent" onchange="filterTasks()">
+                        <option value="">All Agents</option>
+                        <option value="1">Agent 1 - Tagline</option>
+                        <option value="2">Agent 2 - Voice</option>
+                        <option value="3">Agent 3 - Messaging</option>
+                        <option value="4">Agent 4 - Value Prop</option>
+                        <option value="5">Agent 5 - Differentiation</option>
+                        <option value="6">Agent 6 - Audience</option>
+                        <option value="7">Agent 7 - Visual-Verbal</option>
+                        <option value="8">Agent 8 - Proof Points</option>
+                        <option value="9">Agent 9 - Story</option>
+                        <option value="10">Agent 10 - CTAs</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Status:</label>
+                    <select id="filterStatus" onchange="filterTasks()">
+                        <option value="">All Status</option>
+                        <option value="Pending">Pending</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Complete">Complete</option>
+                    </select>
+                </div>
+                <button class="reset-btn" onclick="resetFilters()">Reset Filters</button>
+            </div>
+
+            <div class="task-counter">
+                <div class="count critical" data-priority="CRITICAL">4 Critical</div>
+                <div class="count high" data-priority="HIGH">24 High</div>
+                <div class="count medium" data-priority="MEDIUM">27 Medium</div>
+                <div class="count low" data-priority="LOW">8 Low</div>
+                <div class="count-display">Showing: <span id="taskCount">63</span> of 63</div>
+            </div>
+
+            <table class="task-table" id="taskTable">
+                <thead>
+                    <tr>
+                        <th class="sortable" onclick="sortTable(0)">Priority <span class="sort-icon">↕</span></th>
+                        <th class="sortable" onclick="sortTable(1)">Task <span class="sort-icon">↕</span></th>
+                        <th class="sortable" onclick="sortTable(2)">Owner <span class="sort-icon">↕</span></th>
+                        <th class="sortable" onclick="sortTable(3)">Agent <span class="sort-icon">↕</span></th>
+                        <th class="sortable" onclick="sortTable(4)">Status <span class="sort-icon">↕</span></th>
+                    </tr>
+                </thead>
+                <tbody id="taskBody">
+                    <!-- CRITICAL TASKS -->
+                    <tr data-priority="CRITICAL" data-owner="Founder" data-agent="8" data-status="In Progress">
+                        <td><span class="priority critical">CRITICAL</span></td>
+                        <td>Collect 3-5 client testimonials from existing clients before brand launch</td>
+                        <td>Founder</td>
+                        <td>Agent 8</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="CRITICAL" data-owner="Founder" data-agent="8" data-status="In Progress">
+                        <td><span class="priority critical">CRITICAL</span></td>
+                        <td>Create 2-3 case studies with specific ROI metrics from past engagements</td>
+                        <td>Founder</td>
+                        <td>Agent 8</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="CRITICAL" data-owner="Founder" data-agent="8" data-status="Complete">
+                        <td><span class="priority critical">CRITICAL</span></td>
+                        <td>Document founder bio with relevant experience and credentials</td>
+                        <td>Founder</td>
+                        <td>Agent 8</td>
+                        <td><span class="status complete">Complete</span></td>
+                    </tr>
+                    <tr data-priority="CRITICAL" data-owner="Brand Team" data-agent="6" data-status="In Progress">
+                        <td><span class="priority critical">CRITICAL</span></td>
+                        <td>Create 3-5 case studies with specific metrics (Challenge > Approach > Results)</td>
+                        <td>Brand Team</td>
+                        <td>Agent 6</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <!-- HIGH PRIORITY TASKS -->
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="10" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Develop homepage hero CTA with proof-based language ("See How We Prove ROI Before You Spend")</td>
+                        <td>Brand Team</td>
+                        <td>Agent 10</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="10" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Create primary CTA button copy for all key landing pages</td>
+                        <td>Brand Team</td>
+                        <td>Agent 10</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="10" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Build graduated CTA sequence document for sales funnel (awareness through decision)</td>
+                        <td>Brand Team</td>
+                        <td>Agent 10</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="10" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Define CTAs for service pages that incorporate ROI preview offer</td>
+                        <td>Brand Team</td>
+                        <td>Agent 10</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="10" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Create case study CTAs that connect results to prospect's business</td>
+                        <td>Brand Team</td>
+                        <td>Agent 10</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="3" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Create message repetition guidelines (primary 3x, secondary 1-2x per page)</td>
+                        <td>Brand Team</td>
+                        <td>Agent 3</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="3" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Develop channel-specific messaging matrix (website, social, proposals, email)</td>
+                        <td>Brand Team</td>
+                        <td>Agent 3</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="2" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Create formal Brand Voice Guidelines document with 3 primary attributes (Watchful, Measured, Decisive)</td>
+                        <td>Brand Team</td>
+                        <td>Agent 2</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="2" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Develop Voice Spectrum by Context matrix (marketing, website, reports, thought leadership)</td>
+                        <td>Brand Team</td>
+                        <td>Agent 2</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="2" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Document active voice preference and pronoun usage guidelines</td>
+                        <td>Brand Team</td>
+                        <td>Agent 2</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Leadership" data-agent="1" data-status="Completed">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Select primary tagline from top 5 recommendations (Certainty First / Proof First)</td>
+                        <td>Leadership</td>
+                        <td>Agent 1</td>
+                        <td><span class="status complete">✓ Completed</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="1" data-status="Completed">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Develop tagline/supporting copy pairings for each context</td>
+                        <td>Brand Team</td>
+                        <td>Agent 1</td>
+                        <td><span class="status complete">✓ Completed</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="5" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Create "The Proof Test" Framework - named methodology for ROI modeling process</td>
+                        <td>Brand Team</td>
+                        <td>Agent 5</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="5" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Build proof point library with case study template (projected ROI vs. actual ROI)</td>
+                        <td>Brand Team</td>
+                        <td>Agent 5</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Founder" data-agent="8" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Create anonymized visual ROI model sample for website</td>
+                        <td>Founder</td>
+                        <td>Agent 8</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Founder" data-agent="8" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Document client retention/expansion metrics with evidence</td>
+                        <td>Founder</td>
+                        <td>Agent 8</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="5" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Develop industry-specific landing page for Staffing Agencies (67/80 score)</td>
+                        <td>Brand Team</td>
+                        <td>Agent 5</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Sales" data-agent="6" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Formalize "Talk to Our Clients" reference program with 5+ client contacts</td>
+                        <td>Sales</td>
+                        <td>Agent 6</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Design" data-agent="6" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Develop print-ready collateral: business cards, letterhead, proposal template, one-pager</td>
+                        <td>Design</td>
+                        <td>Agent 6</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Founder" data-agent="9" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Craft founder origin story (1-2 paragraphs with personal catalyst moment)</td>
+                        <td>Founder</td>
+                        <td>Agent 9</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="9" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Create 3 signature transformation story templates (Skeptic Who Believed, Business That Almost Erred, Partnership That Proved Itself)</td>
+                        <td>Brand Team</td>
+                        <td>Agent 9</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="9" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Develop "The End of Doubt" manifesto (single page emotional transformation document)</td>
+                        <td>Brand Team</td>
+                        <td>Agent 9</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Founder" data-agent="4" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Define and document ROI model deliverable format (what prospects actually receive)</td>
+                        <td>Founder</td>
+                        <td>Agent 4</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Founder" data-agent="4" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Develop risk-sharing/guarantee policy and document in brand messaging</td>
+                        <td>Founder</td>
+                        <td>Agent 4</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Brand Team" data-agent="4" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Establish time-to-value benchmarks and add to value proposition messaging</td>
+                        <td>Brand Team</td>
+                        <td>Agent 4</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="HIGH" data-owner="Founder" data-agent="4" data-status="In Progress">
+                        <td><span class="priority high">HIGH</span></td>
+                        <td>Create sample/anonymized ROI model for prospects to preview "the proof"</td>
+                        <td>Founder</td>
+                        <td>Agent 4</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <!-- MEDIUM PRIORITY TASKS -->
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="10" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Develop proposal footer CTA ("Review Your ROI Model Before Deciding")</td>
+                        <td>Brand Team</td>
+                        <td>Agent 10</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="10" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Update email signature with proof-forward CTA link</td>
+                        <td>Brand Team</td>
+                        <td>Agent 10</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="10" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Create LinkedIn profile CTA messaging</td>
+                        <td>Brand Team</td>
+                        <td>Agent 10</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="3" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Expand tertiary proof points with 3-5 additional industry-specific statistics</td>
+                        <td>Brand Team</td>
+                        <td>Agent 3</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="3" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Create objection-to-message mapping table</td>
+                        <td>Brand Team</td>
+                        <td>Agent 3</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="2" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Create Before/After examples library (10+ off-brand to on-brand transformations)</td>
+                        <td>Brand Team</td>
+                        <td>Agent 2</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="2" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Establish metaphor hierarchy (Heron = primary; Sherpa/Atlas = secondary/deprecated)</td>
+                        <td>Brand Team</td>
+                        <td>Agent 2</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="2" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Develop "Words We Use / Words We Avoid" reference list with context</td>
+                        <td>Brand Team</td>
+                        <td>Agent 2</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="1" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Update all brand materials with new shortened tagline</td>
+                        <td>Brand Team</td>
+                        <td>Agent 1</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Marketing" data-agent="1" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Test top 3 tagline options with target audience segment</td>
+                        <td>Marketing</td>
+                        <td>Agent 1</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="8" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Develop "Proof Library" section in brand guidelines</td>
+                        <td>Brand Team</td>
+                        <td>Agent 8</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Founder" data-agent="8" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Collect client logos for website trust signals</td>
+                        <td>Founder</td>
+                        <td>Agent 8</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="5" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Create "Why We're Not a Typical Agency" one-pager for competitive differentiation</td>
+                        <td>Brand Team</td>
+                        <td>Agent 5</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="5" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Develop "What to Ask Before Hiring Any Consultant" checklist</td>
+                        <td>Brand Team</td>
+                        <td>Agent 5</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="5" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Add explicit "We are NOT" anti-positioning statements to website and sales materials</td>
+                        <td>Brand Team</td>
+                        <td>Agent 5</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="5" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Create "Burned Before" messaging track acknowledging prospect past disappointments</td>
+                        <td>Brand Team</td>
+                        <td>Agent 5</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="6" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Conduct jargon audit across all brand materials; create "plain English" glossary</td>
+                        <td>Brand Team</td>
+                        <td>Agent 6</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="6" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Add exit planning messaging to secondary message framework ("Increase business value for sale")</td>
+                        <td>Brand Team</td>
+                        <td>Agent 6</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="6" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Rebalance fear-based messaging with opportunity/empowerment language</td>
+                        <td>Brand Team</td>
+                        <td>Agent 6</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="9" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Document and name the "We Prove It" methodology process</td>
+                        <td>Brand Team</td>
+                        <td>Agent 9</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="9" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Add positive emotional vocabulary to brand voice guidelines (pride, vindication, calm)</td>
+                        <td>Brand Team</td>
+                        <td>Agent 9</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="9" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Create "Why Now?" messaging connecting proof-first approach to current market conditions</td>
+                        <td>Brand Team</td>
+                        <td>Agent 9</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Founder" data-agent="4" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Quantify integrated services benefit (hours saved, vendors eliminated, etc.)</td>
+                        <td>Founder</td>
+                        <td>Agent 4</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="4" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Create value proposition one-pager with full Value Proposition Canvas visualization</td>
+                        <td>Brand Team</td>
+                        <td>Agent 4</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="7" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Create Heron Narrative Bridge Statement for customer-facing copy</td>
+                        <td>Brand Team</td>
+                        <td>Agent 7</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="MEDIUM" data-owner="Brand Team" data-agent="7" data-status="In Progress">
+                        <td><span class="priority medium">MEDIUM</span></td>
+                        <td>Develop Proof Vocabulary Palette (words to use vs. avoid by context)</td>
+                        <td>Brand Team</td>
+                        <td>Agent 7</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <!-- LOW PRIORITY TASKS -->
+                    <tr data-priority="LOW" data-owner="Brand Team" data-agent="10" data-status="In Progress">
+                        <td><span class="priority low">LOW</span></td>
+                        <td>Update internal brand materials (logo selection, briefs) with stronger CTAs</td>
+                        <td>Brand Team</td>
+                        <td>Agent 10</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="LOW" data-owner="Brand Team" data-agent="3" data-status="In Progress">
+                        <td><span class="priority low">LOW</span></td>
+                        <td>Develop "Why ScaleUp vs. X" competitor comparison messaging</td>
+                        <td>Brand Team</td>
+                        <td>Agent 3</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="LOW" data-owner="Marketing" data-agent="8" data-status="In Progress">
+                        <td><span class="priority low">LOW</span></td>
+                        <td>Create video testimonial strategy and begin collection</td>
+                        <td>Marketing</td>
+                        <td>Agent 8</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="LOW" data-owner="Brand Team" data-agent="5" data-status="In Progress">
+                        <td><span class="priority low">LOW</span></td>
+                        <td>Develop industry-specific landing pages for Veterinary and Trades verticals</td>
+                        <td>Brand Team</td>
+                        <td>Agent 5</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="LOW" data-owner="Brand Team" data-agent="6" data-status="In Progress">
+                        <td><span class="priority low">LOW</span></td>
+                        <td>Create 1-page executive brand summary for quick reference</td>
+                        <td>Brand Team</td>
+                        <td>Agent 6</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="LOW" data-owner="Design" data-agent="6" data-status="In Progress">
+                        <td><span class="priority low">LOW</span></td>
+                        <td>Test all digital materials for 55+ accessibility (font size, line height, contrast)</td>
+                        <td>Design</td>
+                        <td>Agent 6</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="LOW" data-owner="Brand Team" data-agent="9" data-status="In Progress">
+                        <td><span class="priority low">LOW</span></td>
+                        <td>Develop heron imagery language guidelines for storytelling use</td>
+                        <td>Brand Team</td>
+                        <td>Agent 9</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                    <tr data-priority="LOW" data-owner="Marketing" data-agent="10" data-status="In Progress">
+                        <td><span class="priority low">LOW</span></td>
+                        <td>A/B test CTA variants with target persona (50-65, skeptical business owners)</td>
+                        <td>Marketing</td>
+                        <td>Agent 10</td>
+                        <td><span class="status in-progress">In Progress</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Recommendations -->
+        <section id="recommendations" class="section">
+            <div class="section-header">
+                <div class="section-icon">R</div>
+                <h2>Final Recommendations</h2>
+            </div>
+
+            <div class="quote-box">
+                <strong>Bottom Line:</strong> The brand strategy is sound. The core differentiation ("Proof First") is validated, unique (&lt;5% of competitors), and aligned with target audience psychology. The execution - particularly proof points, specificity, and credibility documentation - needs significant strengthening before launch.
+            </div>
+
+            <h3 style="margin: 30px 0 15px; font-family: 'Crimson Pro', serif;">Immediate Actions (This Week)</h3>
+            <ol style="padding-left: 25px; line-height: 2;">
+                <li><strong>Select a shorter tagline</strong> - "Proof First." or "Certainty First." (2 words)</li>
+                <li><strong>Collect testimonials</strong> - Contact existing 4-5 clients immediately</li>
+                <li><strong>Write founder bio</strong> - 2-3 paragraphs with relevant experience</li>
+                <li><strong>Define ROI model deliverable</strong> - What do prospects actually receive?</li>
+            </ol>
+
+            <h3 style="margin: 30px 0 15px; font-family: 'Crimson Pro', serif;">Before Brand Launch</h3>
+            <ol style="padding-left: 25px; line-height: 2;">
+                <li><strong>2-3 case studies</strong> with Challenge > Approach > Results structure</li>
+                <li><strong>3-5 testimonials</strong> from real clients with names/companies</li>
+                <li><strong>Founder credentials</strong> documented and visible</li>
+                <li><strong>External CTAs</strong> deployed on website and materials</li>
+                <li><strong>Voice guidelines</strong> formalized for team consistency</li>
+            </ol>
+
+            <h3 style="margin: 30px 0 15px; font-family: 'Crimson Pro', serif;">Tagline System Recommendation</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Tagline</th>
+                        <th>Usage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Primary</strong></td>
+                        <td>"Proof First." or "Certainty First."</td>
+                        <td>Logo lockup, business cards, short contexts</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Secondary</strong></td>
+                        <td>"See Before You Spend."</td>
+                        <td>Ads, landing pages, explanatory contexts</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Heron-Specific</strong></td>
+                        <td>"Watch. Then Strike."</td>
+                        <td>When logo is prominently displayed</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="background: var(--light-gray); border-radius: 12px; padding: 25px; margin-top: 30px;">
+                <h4 style="margin-bottom: 10px;">Key Contradiction to Resolve</h4>
+                <p>The brand promises <strong>"We Prove It Before You Buy"</strong> but the brand materials themselves lack proof of ScaleUp's ability to deliver. This creates a credibility gap that skeptical 50-65 year old business owners will immediately recognize.</p>
+                <p style="margin-top: 15px;"><strong>Solution:</strong> Before any external launch, the proof inventory must be populated with real testimonials, case studies, and founder credentials. The brand must practice what it preaches.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <div class="logo">ScaleUp Ventures</div>
+        <p>Brand Strategy Audit Report | December 31, 2025</p>
+        <p style="opacity: 0.7; margin-top: 10px;">Generated by 10-Agent Brand Strategist Team</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('.nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Collapsible sections
+        document.querySelectorAll('.collapsible').forEach(el => {
+            el.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                content.classList.toggle('show');
+            });
+        });
+
+        // ==========================================
+        // TASK FILTERING AND SORTING FUNCTIONALITY
+        // ==========================================
+
+        // Filter tasks based on dropdown selections
+        function filterTasks() {
+            const priorityFilter = document.getElementById('filterPriority').value;
+            const ownerFilter = document.getElementById('filterOwner').value;
+            const agentFilter = document.getElementById('filterAgent').value;
+            const statusFilter = document.getElementById('filterStatus').value;
+
+            const rows = document.querySelectorAll('#taskBody tr');
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                const priority = row.dataset.priority;
+                const owner = row.dataset.owner;
+                const agent = row.dataset.agent;
+                const status = row.dataset.status;
+
+                const matchesPriority = !priorityFilter || priority === priorityFilter;
+                const matchesOwner = !ownerFilter || owner === ownerFilter;
+                const matchesAgent = !agentFilter || agent === agentFilter;
+                const matchesStatus = !statusFilter || status === statusFilter;
+
+                if (matchesPriority && matchesOwner && matchesAgent && matchesStatus) {
+                    row.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    row.classList.add('hidden');
+                }
+            });
+
+            // Update count display
+            document.getElementById('taskCount').textContent = visibleCount;
+        }
+
+        // Sort table by column
+        let sortDirection = {};  // Track sort direction for each column
+
+        function sortTable(columnIndex) {
+            const table = document.getElementById('taskTable');
+            const tbody = document.getElementById('taskBody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+
+            // Toggle sort direction
+            sortDirection[columnIndex] = sortDirection[columnIndex] === 'asc' ? 'desc' : 'asc';
+            const isAsc = sortDirection[columnIndex] === 'asc';
+
+            // Define priority order for sorting
+            const priorityOrder = { 'CRITICAL': 1, 'HIGH': 2, 'MEDIUM': 3, 'LOW': 4 };
+            const statusOrder = { 'Pending': 1, 'In Progress': 2, 'Complete': 3 };
+
+            rows.sort((a, b) => {
+                let aValue, bValue;
+
+                switch(columnIndex) {
+                    case 0: // Priority
+                        aValue = priorityOrder[a.dataset.priority] || 5;
+                        bValue = priorityOrder[b.dataset.priority] || 5;
+                        break;
+                    case 1: // Task (text content)
+                        aValue = a.cells[1].textContent.toLowerCase();
+                        bValue = b.cells[1].textContent.toLowerCase();
+                        break;
+                    case 2: // Owner
+                        aValue = a.dataset.owner.toLowerCase();
+                        bValue = b.dataset.owner.toLowerCase();
+                        break;
+                    case 3: // Agent
+                        aValue = parseInt(a.dataset.agent) || 0;
+                        bValue = parseInt(b.dataset.agent) || 0;
+                        break;
+                    case 4: // Status
+                        aValue = statusOrder[a.dataset.status] || 4;
+                        bValue = statusOrder[b.dataset.status] || 4;
+                        break;
+                    default:
+                        aValue = a.cells[columnIndex].textContent.toLowerCase();
+                        bValue = b.cells[columnIndex].textContent.toLowerCase();
+                }
+
+                if (typeof aValue === 'string') {
+                    return isAsc ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+                } else {
+                    return isAsc ? aValue - bValue : bValue - aValue;
+                }
+            });
+
+            // Re-append rows in sorted order
+            rows.forEach(row => tbody.appendChild(row));
+
+            // Update sort icons
+            document.querySelectorAll('.task-table th .sort-icon').forEach((icon, idx) => {
+                if (idx === columnIndex) {
+                    icon.textContent = isAsc ? '↑' : '↓';
+                    icon.style.opacity = '1';
+                } else {
+                    icon.textContent = '↕';
+                    icon.style.opacity = '0.5';
+                }
+            });
+        }
+
+        // Reset all filters
+        function resetFilters() {
+            document.getElementById('filterPriority').value = '';
+            document.getElementById('filterOwner').value = '';
+            document.getElementById('filterAgent').value = '';
+            document.getElementById('filterStatus').value = '';
+
+            // Show all rows
+            document.querySelectorAll('#taskBody tr').forEach(row => {
+                row.classList.remove('hidden');
+            });
+
+            // Reset count
+            document.getElementById('taskCount').textContent = '63';
+
+            // Reset sort icons
+            document.querySelectorAll('.task-table th .sort-icon').forEach(icon => {
+                icon.textContent = '↕';
+                icon.style.opacity = '0.5';
+            });
+
+            // Reset sort direction tracking
+            sortDirection = {};
+        }
+
+        // Click on priority counter badges to filter
+        document.querySelectorAll('.task-counter .count').forEach(badge => {
+            badge.style.cursor = 'pointer';
+            badge.addEventListener('click', function() {
+                const priority = this.dataset.priority;
+                if (priority) {
+                    document.getElementById('filterPriority').value = priority;
+                    filterTasks();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

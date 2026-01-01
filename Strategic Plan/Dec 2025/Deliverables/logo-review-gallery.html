@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures Logo Review - CEO Approval</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --muted-gold: #B8956E;
+            --cream: #FAF8F5;
+            --white: #FFFFFF;
+            --success: #22C55E;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        .stats-bar {
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            border-bottom: 3px solid var(--gold);
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--navy);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--muted-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: var(--navy);
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .concept-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .concept-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .concept-name {
+            font-size: 1.5rem;
+            color: var(--navy);
+        }
+
+        .concept-description {
+            color: var(--muted-gold);
+            font-size: 0.95rem;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .logo-card {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .logo-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .logo-card.selected {
+            border-color: var(--success);
+            background: rgba(34, 197, 94, 0.05);
+        }
+
+        .logo-card.rejected {
+            border-color: var(--danger);
+            opacity: 0.6;
+        }
+
+        .logo-image-container {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-image-container img {
+            max-width: 100%;
+            max-height: 180px;
+            object-fit: contain;
+        }
+
+        .logo-variation {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .creativity-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .creativity-conservative {
+            background: #E0E7FF;
+            color: #3730A3;
+        }
+
+        .creativity-distinctive {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .creativity-maximum {
+            background: #FCE7F3;
+            color: #9D174D;
+        }
+
+        .persona-feedback {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .persona-quote {
+            font-style: italic;
+            font-size: 0.875rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--gold);
+        }
+
+        .persona-name {
+            font-weight: 600;
+            color: var(--muted-gold);
+            font-size: 0.8rem;
+        }
+
+        .score-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .score-high {
+            background: rgba(34, 197, 94, 0.1);
+            color: #166534;
+        }
+
+        .score-medium {
+            background: rgba(245, 158, 11, 0.1);
+            color: #92400E;
+        }
+
+        .score-low {
+            background: rgba(239, 68, 68, 0.1);
+            color: #991B1B;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        .btn-approve {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-approve:hover {
+            background: #16A34A;
+        }
+
+        .btn-reject {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-reject:hover {
+            background: #DC2626;
+        }
+
+        .btn-maybe {
+            background: var(--warning);
+            color: white;
+        }
+
+        .btn-maybe:hover {
+            background: #D97706;
+        }
+
+        .top-picks {
+            background: linear-gradient(135deg, var(--navy), #1a2a4a);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .top-picks h2 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .top-pick-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+        }
+
+        .top-pick-rank {
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .top-pick-info h4 {
+            margin-bottom: 0.25rem;
+        }
+
+        .top-pick-info p {
+            opacity: 0.8;
+            font-size: 0.875rem;
+        }
+
+        .approval-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            border: 2px solid var(--gold);
+        }
+
+        .approval-section h2 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .signature-area {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .signature-box {
+            border: 1px dashed var(--muted-gold);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .signature-box label {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--muted-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .signature-box input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .submit-approval {
+            margin-top: 1.5rem;
+            padding: 1rem 2rem;
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .submit-approval:hover {
+            background: var(--muted-gold);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--muted-gold);
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--cream);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--muted-gold);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .stats-bar {
+                gap: 1.5rem;
+            }
+
+            .logo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>ScaleUp Ventures Logo Review</h1>
+        <p>CEO Approval Dashboard - 18 Logo Concepts for Final Selection</p>
+    </header>
+
+    <div class="stats-bar">
+        <div class="stat">
+            <div class="stat-number">6</div>
+            <div class="stat-label">Concepts</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">18</div>
+            <div class="stat-label">Logo Variations</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Personas Evaluated</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number" id="approved-count">0</div>
+            <div class="stat-label">Approved</div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- TOP PICKS SECTION - Will be populated with persona evaluation data -->
+        <div class="top-picks" id="top-picks">
+            <h2>Top Recommended Logos (Based on Persona Feedback)</h2>
+            <p style="opacity: 0.8; margin-bottom: 1rem;">These logos scored highest with our target audience of 50-65+ technology-hesitant business owners.</p>
+            <div id="top-picks-list">
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading persona evaluations...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONCEPT 1: FULCRUM -->
+        <section class="concept-section">
+            <div class="concept-header">
+                <div>
+                    <h2 class="concept-name">1. The Fulcrum Mark</h2>
+                    <p class="concept-description">The precise pivot point where leverage transforms small force into significant movement</p>
+                </div>
+            </div>
+            <div class="logo-grid">
+                <div class="logo-card" data-logo="fulcrum-1">
+                    <div class="logo-image-container">
+                        <img src="logos/fulcrum-1.png" alt="Fulcrum Conservative">
+                    </div>
+                    <div class="logo-variation">Conservative</div>
+                    <span class="creativity-badge creativity-conservative">Conservative</span>
+                    <div class="persona-feedback" id="feedback-fulcrum-1"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('fulcrum-1', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('fulcrum-1', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('fulcrum-1', 'rejected')">Reject</button>
+                    </div>
+                </div>
+                <div class="logo-card" data-logo="fulcrum-2">
+                    <div class="logo-image-container">
+                        <img src="logos/fulcrum-2.png" alt="Fulcrum Distinctive">
+                    </div>
+                    <div class="logo-variation">Distinctive</div>
+                    <span class="creativity-badge creativity-distinctive">Distinctive</span>
+                    <div class="persona-feedback" id="feedback-fulcrum-2"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('fulcrum-2', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('fulcrum-2', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('fulcrum-2', 'rejected')">Reject</button>
+                    </div>
+                </div>
+                <div class="logo-card" data-logo="fulcrum-3">
+                    <div class="logo-image-container">
+                        <img src="logos/fulcrum-3.png" alt="Fulcrum Maximum">
+                    </div>
+                    <div class="logo-variation">Maximum Creativity</div>
+                    <span class="creativity-badge creativity-maximum">Maximum</span>
+                    <div class="persona-feedback" id="feedback-fulcrum-3"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('fulcrum-3', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('fulcrum-3', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('fulcrum-3', 'rejected')">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONCEPT 2: PROOF SEAL -->
+        <section class="concept-section">
+            <div class="concept-header">
+                <div>
+                    <h2 class="concept-name">2. The Proof Seal</h2>
+                    <p class="concept-description">A notary's embossed seal representing verification, trust, and certification</p>
+                </div>
+            </div>
+            <div class="logo-grid">
+                <div class="logo-card" data-logo="seal-1">
+                    <div class="logo-image-container">
+                        <img src="logos/seal-1.png" alt="Seal Conservative">
+                    </div>
+                    <div class="logo-variation">Conservative</div>
+                    <span class="creativity-badge creativity-conservative">Conservative</span>
+                    <div class="persona-feedback" id="feedback-seal-1"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('seal-1', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('seal-1', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('seal-1', 'rejected')">Reject</button>
+                    </div>
+                </div>
+                <div class="logo-card" data-logo="seal-2">
+                    <div class="logo-image-container">
+                        <img src="logos/seal-2.png" alt="Seal Distinctive">
+                    </div>
+                    <div class="logo-variation">Distinctive</div>
+                    <span class="creativity-badge creativity-distinctive">Distinctive</span>
+                    <div class="persona-feedback" id="feedback-seal-2"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('seal-2', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('seal-2', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('seal-2', 'rejected')">Reject</button>
+                    </div>
+                </div>
+                <div class="logo-card" data-logo="seal-3">
+                    <div class="logo-image-container">
+                        <img src="logos/seal-3.png" alt="Seal Maximum">
+                    </div>
+                    <div class="logo-variation">Maximum Creativity</div>
+                    <span class="creativity-badge creativity-maximum">Maximum</span>
+                    <div class="persona-feedback" id="feedback-seal-3"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('seal-3', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('seal-3', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('seal-3', 'rejected')">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONCEPT 3: WATERSHED -->
+        <section class="concept-section">
+            <div class="concept-header">
+                <div>
+                    <h2 class="concept-name">3. The Watershed Mark</h2>
+                    <p class="concept-description">The tipping point where everything changes - the continental divide moment</p>
+                </div>
+            </div>
+            <div class="logo-grid">
+                <div class="logo-card" data-logo="watershed-1">
+                    <div class="logo-image-container">
+                        <img src="logos/watershed-1.png" alt="Watershed Conservative">
+                    </div>
+                    <div class="logo-variation">Conservative</div>
+                    <span class="creativity-badge creativity-conservative">Conservative</span>
+                    <div class="persona-feedback" id="feedback-watershed-1"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('watershed-1', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('watershed-1', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('watershed-1', 'rejected')">Reject</button>
+                    </div>
+                </div>
+                <div class="logo-card" data-logo="watershed-2">
+                    <div class="logo-image-container">
+                        <img src="logos/watershed-2.png" alt="Watershed Distinctive">
+                    </div>
+                    <div class="logo-variation">Distinctive</div>
+                    <span class="creativity-badge creativity-distinctive">Distinctive</span>
+                    <div class="persona-feedback" id="feedback-watershed-2"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('watershed-2', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('watershed-2', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('watershed-2', 'rejected')">Reject</button>
+                    </div>
+                </div>
+                <div class="logo-card" data-logo="watershed-3">
+                    <div class="logo-image-container">
+                        <img src="logos/watershed-3.png" alt="Watershed Maximum">
+                    </div>
+                    <div class="logo-variation">Maximum Creativity</div>
+                    <span class="creativity-badge creativity-maximum">Maximum</span>
+                    <div class="persona-feedback" id="feedback-watershed-3"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('watershed-3', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('watershed-3', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('watershed-3', 'rejected')">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONCEPT 4: ASCENDING BARS -->
+        <section class="concept-section">
+            <div class="concept-header">
+                <div>
+                    <h2 class="concept-name">4. Ascending Bars</h2>
+                    <p class="concept-description">Progressive growth and upward trajectory - methodical, proven advancement</p>
+                </div>
+            </div>
+            <div class="logo-grid">
+                <div class="logo-card" data-logo="bars-1">
+                    <div class="logo-image-container">
+                        <img src="logos/bars-1.png" alt="Bars Conservative">
+                    </div>
+                    <div class="logo-variation">Conservative</div>
+                    <span class="creativity-badge creativity-conservative">Conservative</span>
+                    <div class="persona-feedback" id="feedback-bars-1"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('bars-1', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('bars-1', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('bars-1', 'rejected')">Reject</button>
+                    </div>
+                </div>
+                <div class="logo-card" data-logo="bars-2">
+                    <div class="logo-image-container">
+                        <img src="logos/bars-2.png" alt="Bars Distinctive">
+                    </div>
+                    <div class="logo-variation">Distinctive</div>
+                    <span class="creativity-badge creativity-distinctive">Distinctive</span>
+                    <div class="persona-feedback" id="feedback-bars-2"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('bars-2', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('bars-2', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('bars-2', 'rejected')">Reject</button>
+                    </div>
+                </div>
+                <div class="logo-card" data-logo="bars-3">
+                    <div class="logo-image-container">
+                        <img src="logos/bars-3.png" alt="Bars Maximum">
+                    </div>
+                    <div class="logo-variation">Maximum Creativity</div>
+                    <span class="creativity-badge creativity-maximum">Maximum</span>
+                    <div class="persona-feedback" id="feedback-bars-3"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('bars-3', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('bars-3', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('bars-3', 'rejected')">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONCEPT 5: NESTED CHEVRONS -->
+        <section class="concept-section">
+            <div class="concept-header">
+                <div>
+                    <h2 class="concept-name">5. Nested Chevrons</h2>
+                    <p class="concept-description">Upward momentum and layered growth - arrows pointing up within each other</p>
+                </div>
+            </div>
+            <div class="logo-grid">
+                <div class="logo-card" data-logo="chevrons-1">
+                    <div class="logo-image-container">
+                        <img src="logos/chevrons-1.png" alt="Chevrons Conservative">
+                    </div>
+                    <div class="logo-variation">Conservative</div>
+                    <span class="creativity-badge creativity-conservative">Conservative</span>
+                    <div class="persona-feedback" id="feedback-chevrons-1"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('chevrons-1', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('chevrons-1', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('chevrons-1', 'rejected')">Reject</button>
+                    </div>
+                </div>
+                <div class="logo-card" data-logo="chevrons-2">
+                    <div class="logo-image-container">
+                        <img src="logos/chevrons-2.png" alt="Chevrons Distinctive">
+                    </div>
+                    <div class="logo-variation">Distinctive</div>
+                    <span class="creativity-badge creativity-distinctive">Distinctive</span>
+                    <div class="persona-feedback" id="feedback-chevrons-2"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('chevrons-2', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('chevrons-2', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('chevrons-2', 'rejected')">Reject</button>
+                    </div>
+                </div>
+                <div class="logo-card" data-logo="chevrons-3">
+                    <div class="logo-image-container">
+                        <img src="logos/chevrons-3.png" alt="Chevrons Maximum">
+                    </div>
+                    <div class="logo-variation">Maximum Creativity</div>
+                    <span class="creativity-badge creativity-maximum">Maximum</span>
+                    <div class="persona-feedback" id="feedback-chevrons-3"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('chevrons-3', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('chevrons-3', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('chevrons-3', 'rejected')">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONCEPT 6: BUILDING BLOCKS -->
+        <section class="concept-section">
+            <div class="concept-header">
+                <div>
+                    <h2 class="concept-name">6. Building Blocks</h2>
+                    <p class="concept-description">Interlocking geometric blocks forming a stable foundation - systematic building</p>
+                </div>
+            </div>
+            <div class="logo-grid">
+                <div class="logo-card" data-logo="blocks-1">
+                    <div class="logo-image-container">
+                        <img src="logos/blocks-1.png" alt="Blocks Conservative">
+                    </div>
+                    <div class="logo-variation">Conservative</div>
+                    <span class="creativity-badge creativity-conservative">Conservative</span>
+                    <div class="persona-feedback" id="feedback-blocks-1"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('blocks-1', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('blocks-1', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('blocks-1', 'rejected')">Reject</button>
+                    </div>
+                </div>
+                <div class="logo-card" data-logo="blocks-2">
+                    <div class="logo-image-container">
+                        <img src="logos/blocks-2.png" alt="Blocks Distinctive">
+                    </div>
+                    <div class="logo-variation">Distinctive</div>
+                    <span class="creativity-badge creativity-distinctive">Distinctive</span>
+                    <div class="persona-feedback" id="feedback-blocks-2"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('blocks-2', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('blocks-2', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('blocks-2', 'rejected')">Reject</button>
+                    </div>
+                </div>
+                <div class="logo-card" data-logo="blocks-3">
+                    <div class="logo-image-container">
+                        <img src="logos/blocks-3.png" alt="Blocks Maximum">
+                    </div>
+                    <div class="logo-variation">Maximum Creativity</div>
+                    <span class="creativity-badge creativity-maximum">Maximum</span>
+                    <div class="persona-feedback" id="feedback-blocks-3"></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve" onclick="setStatus('blocks-3', 'approved')">Approve</button>
+                        <button class="btn btn-maybe" onclick="setStatus('blocks-3', 'maybe')">Maybe</button>
+                        <button class="btn btn-reject" onclick="setStatus('blocks-3', 'rejected')">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CEO APPROVAL SECTION -->
+        <section class="approval-section">
+            <h2>Executive Approval</h2>
+            <p>Please review all logos above, mark your selections, and sign below to approve your final choices.</p>
+
+            <div id="selected-summary" style="margin-top: 1rem; padding: 1rem; background: var(--cream); border-radius: 8px;">
+                <strong>Selected Logos:</strong> <span id="selected-list">None selected yet</span>
+            </div>
+
+            <div class="signature-area">
+                <div class="signature-box">
+                    <label>CEO Name</label>
+                    <input type="text" id="ceo-name" placeholder="Enter your full name">
+                </div>
+                <div class="signature-box">
+                    <label>Date</label>
+                    <input type="date" id="approval-date" value="">
+                </div>
+                <div class="signature-box">
+                    <label>Comments (Optional)</label>
+                    <input type="text" id="ceo-comments" placeholder="Any additional notes...">
+                </div>
+            </div>
+
+            <button class="submit-approval" onclick="submitApproval()">Submit Final Approval</button>
+        </section>
+    </div>
+
+    <footer>
+        <p>ScaleUp Ventures Logo Review - Generated December 31, 2025</p>
+        <p>Target Audience: 50-65+ Technology-Hesitant Business Owners</p>
+    </footer>
+
+    <script>
+        // Logo status tracking
+        const logoStatus = {};
+
+        function setStatus(logoId, status) {
+            const card = document.querySelector(`[data-logo="${logoId}"]`);
+
+            // Remove previous status
+            card.classList.remove('selected', 'rejected', 'maybe');
+
+            // Set new status
+            if (status === 'approved') {
+                card.classList.add('selected');
+                logoStatus[logoId] = 'approved';
+            } else if (status === 'rejected') {
+                card.classList.add('rejected');
+                logoStatus[logoId] = 'rejected';
+            } else {
+                logoStatus[logoId] = 'maybe';
+            }
+
+            updateCounts();
+            updateSelectedList();
+        }
+
+        function updateCounts() {
+            const approved = Object.values(logoStatus).filter(s => s === 'approved').length;
+            document.getElementById('approved-count').textContent = approved;
+        }
+
+        function updateSelectedList() {
+            const approved = Object.entries(logoStatus)
+                .filter(([id, status]) => status === 'approved')
+                .map(([id]) => id);
+
+            document.getElementById('selected-list').textContent =
+                approved.length > 0 ? approved.join(', ') : 'None selected yet';
+        }
+
+        function submitApproval() {
+            const name = document.getElementById('ceo-name').value;
+            const date = document.getElementById('approval-date').value;
+            const comments = document.getElementById('ceo-comments').value;
+            const approved = Object.entries(logoStatus)
+                .filter(([id, status]) => status === 'approved')
+                .map(([id]) => id);
+
+            if (!name) {
+                alert('Please enter your name to approve.');
+                return;
+            }
+
+            if (approved.length === 0) {
+                alert('Please select at least one logo to approve.');
+                return;
+            }
+
+            const approval = {
+                ceoName: name,
+                approvalDate: date || new Date().toISOString().split('T')[0],
+                comments: comments,
+                approvedLogos: approved,
+                rejectedLogos: Object.entries(logoStatus)
+                    .filter(([id, status]) => status === 'rejected')
+                    .map(([id]) => id),
+                timestamp: new Date().toISOString()
+            };
+
+            console.log('Approval submitted:', approval);
+            alert(`Thank you, ${name}!\n\nApproved logos: ${approved.join(', ')}\n\nYour selection has been recorded.`);
+        }
+
+        // Set today's date
+        document.getElementById('approval-date').value = new Date().toISOString().split('T')[0];
+
+        // Load persona evaluations (placeholder - will be populated by the evaluation agent)
+        async function loadPersonaEvaluations() {
+            try {
+                const response = await fetch('logos/persona-evaluations.json');
+                if (response.ok) {
+                    const data = await response.json();
+                    populateEvaluations(data);
+                }
+            } catch (e) {
+                console.log('Persona evaluations not yet available');
+            }
+        }
+
+        function populateEvaluations(data) {
+            // Populate individual feedback
+            if (data.evaluations) {
+                data.evaluations.forEach(eval => {
+                    const feedbackEl = document.getElementById(`feedback-${eval.logoId}`);
+                    if (feedbackEl && eval.personaReactions) {
+                        const reaction = eval.personaReactions[0]; // Show first persona reaction
+                        feedbackEl.innerHTML = `
+                            <div class="persona-quote">"${reaction.quote}"</div>
+                            <div class="persona-name">- ${reaction.persona}</div>
+                            <span class="score-badge ${eval.score >= 7 ? 'score-high' : eval.score >= 5 ? 'score-medium' : 'score-low'}">
+                                Score: ${eval.score}/10
+                            </span>
+                        `;
+                    }
+                });
+            }
+
+            // Populate top picks
+            if (data.topPicks) {
+                const topPicksList = document.getElementById('top-picks-list');
+                topPicksList.innerHTML = data.topPicks.map((pick, index) => `
+                    <div class="top-pick-item">
+                        <div class="top-pick-rank">${index + 1}</div>
+                        <div class="top-pick-info">
+                            <h4>${pick.logoId}</h4>
+                            <p>${pick.reason}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Load evaluations on page load
+        loadPersonaEvaluations();
+    </script>
+</body>
+</html>

@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | ScaleUp Ventures</title>
+    <meta name="description" content="Connect with Calvin Williams Jr., founder of ScaleUp Ventures. Let's discuss how strategic technology leadership can drive your business forward.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2540;
+            --navy-lighter: #243052;
+            --gold: #D4A853;
+            --gold-light: #e4c078;
+            --gold-dark: #b8923f;
+            --white: #FFFFFF;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-400: #94a3b8;
+            --gray-600: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--navy);
+            color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 41, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 168, 83, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-text {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .logo-text span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 40px 80px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212, 168, 83, 0.1);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--gold);
+            margin-bottom: 32px;
+        }
+
+        .hero h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero-sub {
+            font-size: 1.25rem;
+            color: var(--gray-400);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px 100px;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 80px;
+        }
+
+        /* Contact Form */
+        .form-section {
+            background: var(--navy-light);
+            border-radius: 16px;
+            padding: 48px;
+            border: 1px solid rgba(212, 168, 83, 0.1);
+        }
+
+        .form-section h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            margin-bottom: 8px;
+        }
+
+        .form-section .form-intro {
+            color: var(--gray-400);
+            margin-bottom: 32px;
+            font-size: 0.95rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gray-200);
+        }
+
+        .form-group label .required {
+            color: var(--gold);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            background: var(--navy);
+            border: 1px solid var(--navy-lighter);
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-size: 1rem;
+            color: var(--white);
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--gray-600);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 168, 83, 0.1);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 44px;
+        }
+
+        .form-group select option {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            grid-column: 1 / -1;
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            padding: 18px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .submit-btn:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 168, 83, 0.3);
+        }
+
+        .submit-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .form-footer {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-600);
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+
+        .form-footer svg {
+            width: 16px;
+            height: 16px;
+            color: var(--gold);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .sidebar-card {
+            background: var(--navy-light);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid rgba(212, 168, 83, 0.1);
+        }
+
+        .sidebar-card h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sidebar-card h3 svg {
+            width: 24px;
+            height: 24px;
+            color: var(--gold);
+        }
+
+        /* What Happens Next */
+        .next-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .next-step {
+            display: flex;
+            gap: 16px;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: rgba(212, 168, 83, 0.1);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            color: var(--gray-400);
+            line-height: 1.5;
+        }
+
+        /* Direct Contact */
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            background: var(--navy);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--white);
+            transition: all 0.2s;
+        }
+
+        .contact-method:hover {
+            background: var(--navy-lighter);
+            transform: translateX(4px);
+        }
+
+        .contact-method svg {
+            width: 20px;
+            height: 20px;
+            color: var(--gold);
+        }
+
+        .contact-method-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-method-label {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+        }
+
+        .contact-method-value {
+            font-weight: 500;
+        }
+
+        /* Office Location */
+        .office-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .office-address {
+            color: var(--gray-400);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .office-hours {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            padding-top: 12px;
+            border-top: 1px solid var(--navy-lighter);
+        }
+
+        .office-hours strong {
+            color: var(--gray-400);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 40px;
+            background: var(--navy-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .faq-header h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .faq-header p {
+            color: var(--gray-400);
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--navy);
+            border-radius: 12px;
+            padding: 28px 32px;
+            border: 1px solid rgba(212, 168, 83, 0.1);
+            transition: border-color 0.2s;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(212, 168, 83, 0.3);
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .faq-question::before {
+            content: 'Q';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: rgba(212, 168, 83, 0.1);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .faq-answer {
+            color: var(--gray-400);
+            line-height: 1.7;
+            padding-left: 40px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 48px 40px;
+            border-top: 1px solid rgba(212, 168, 83, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .footer-tagline {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            padding-left: 24px;
+            border-left: 1px solid var(--navy-lighter);
+        }
+
+        .footer-right {
+            color: var(--gray-600);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .sidebar {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .sidebar-card:first-child {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 16px 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 24px 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-sub {
+                font-size: 1.1rem;
+            }
+
+            .main-content {
+                padding: 0 24px 60px;
+            }
+
+            .form-section {
+                padding: 32px 24px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar-card:first-child {
+                grid-column: 1;
+            }
+
+            .faq-section {
+                padding: 60px 24px;
+            }
+
+            .faq-item {
+                padding: 24px;
+            }
+
+            .footer {
+                padding: 32px 24px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .footer-left {
+                flex-direction: column;
+            }
+
+            .footer-tagline {
+                border-left: none;
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Index</a>
+  <span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span>
+  <div style="display:flex;gap:12px;">
+    <a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a>
+    <a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a>
+    <a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a>
+    <a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a>
+    <a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a>
+  </div>
+</nav>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="/" class="logo">
+            <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="8" fill="#D4A853"/>
+                <path d="M12 28L20 12L28 28" stroke="#0F1729" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M15 22H25" stroke="#0F1729" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span class="logo-text">Scale<span>Up</span></span>
+        </a>
+        <div class="nav-links">
+            <a href="#">Services</a>
+            <a href="#">Case Studies</a>
+            <a href="#">About</a>
+            <a href="#" class="active">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+            </svg>
+            Certainty First.
+        </div>
+        <h1>Let's <span>Connect</span></h1>
+        <p class="hero-sub">I'm Calvin Williams Jr., founder of ScaleUp Ventures. Whether you need fractional technology leadership, strategic consulting, or help deciding if a build makes sense at all, I'd love to hear about your challenges.</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Contact Form -->
+        <div class="form-section">
+            <h2>Start a Conversation</h2>
+            <p class="form-intro">Tell me about your business and the challenges you're facing. I'll respond personally within 24 hours.</p>
+
+            <form class="form-grid" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" placeholder="John Smith" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company Name <span class="required">*</span></label>
+                    <input type="text" id="company" name="company" placeholder="Acme Corp" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Work Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="john@acmecorp.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                </div>
+
+                <div class="form-group">
+                    <label for="interest">What are you interested in? <span class="required">*</span></label>
+                    <select id="interest" name="interest" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="fractional-cto">Fractional CTO / Technology Leadership</option>
+                        <option value="pm-infrastructure">PM Infrastructure & Process Consulting</option>
+                        <option value="build-decision">Build vs. Buy Decision Analysis</option>
+                        <option value="poc-development">Proof of Concept Development</option>
+                        <option value="startup-advisory">Startup Advisory & Support</option>
+                        <option value="other">Other / Just want to connect</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="stage">Company Stage</label>
+                    <select id="stage" name="stage">
+                        <option value="" disabled selected>Select your stage</option>
+                        <option value="idea">Idea / Pre-revenue</option>
+                        <option value="early">Early-stage startup</option>
+                        <option value="growth">Growth stage</option>
+                        <option value="established">Established business</option>
+                        <option value="enterprise">Enterprise</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="challenge">What's your biggest challenge right now? <span class="required">*</span></label>
+                    <textarea id="challenge" name="challenge" placeholder="Tell me about your situation. Are you weighing a build vs. buy decision? Need help structuring your PM processes? Looking for fractional tech leadership? The more context, the better I can help." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Send Message
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+
+                <div class="form-footer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M9 12l2 2 4-4"/>
+                    </svg>
+                    Your information is confidential and will never be shared.
+                </div>
+            </form>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- What Happens Next -->
+            <div class="sidebar-card">
+                <h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    What Happens Next
+                </h3>
+                <div class="next-steps">
+                    <div class="next-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Personal Response</h4>
+                            <p>I'll personally review your message and respond within 24 hours.</p>
+                        </div>
+                    </div>
+                    <div class="next-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Discovery Call</h4>
+                            <p>If it's a good fit, we'll schedule a 30-minute call to discuss your situation in depth.</p>
+                        </div>
+                    </div>
+                    <div class="next-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Clear Next Steps</h4>
+                            <p>I'll provide honest recommendations - even if that means suggesting you don't need my help.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direct Contact -->
+            <div class="sidebar-card">
+                <h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                    </svg>
+                    Connect Directly
+                </h3>
+                <div class="contact-methods">
+                    <a href="mailto:calvin@scaleupventures.com" class="contact-method">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <div class="contact-method-text">
+                            <span class="contact-method-label">Email</span>
+                            <span class="contact-method-value">calvin@scaleupventures.com</span>
+                        </div>
+                    </a>
+                    <a href="https://linkedin.com/in/calvinwilliamsjr" class="contact-method" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                        <div class="contact-method-text">
+                            <span class="contact-method-label">LinkedIn</span>
+                            <span class="contact-method-value">Calvin Williams Jr.</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- About the Founder -->
+            <div class="sidebar-card">
+                <h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    About Calvin
+                </h3>
+                <div class="office-info">
+                    <p class="office-address">
+                        ScaleUp Ventures is a boutique consultancy founded by Calvin Williams Jr. I work directly with every client - no handoffs, no junior associates.
+                    </p>
+                    <div class="office-hours">
+                        <strong>Recent work:</strong> No-Build Decision (saved $150K+), Financial Trading App POC, PM Infrastructure consulting
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header">
+                <h2>Questions Before We Talk?</h2>
+                <p>Here's what business owners typically want to know.</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">What makes ScaleUp Ventures different?</div>
+                    <p class="faq-answer">I'm a single founder who works directly with every client. No account managers, no handoffs, no junior consultants doing the actual work. When you hire ScaleUp Ventures, you get me - and I'll be honest about what you actually need, even if that means telling you not to build something.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What kind of clients do you work with?</div>
+                    <p class="faq-answer">I work best with startups and growing companies that need strategic technology leadership without the cost of a full-time executive. Whether it's helping decide if a custom build makes sense, setting up PM infrastructure, or providing fractional CTO services, I focus on delivering real value for your specific situation.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What's your approach to engagements?</div>
+                    <p class="faq-answer">I believe in the "Certainty First" philosophy. Before recommending any path forward, I'll help you understand the full picture - including when the right answer is not to build something. I've saved clients over $150K by helping them avoid unnecessary custom development. The right answer isn't always the most exciting one.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <a href="/" class="logo">
+                    <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="8" fill="#D4A853"/>
+                        <path d="M12 28L20 12L28 28" stroke="#0F1729" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15 22H25" stroke="#0F1729" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                    <span class="logo-text">Scale<span>Up</span></span>
+                </a>
+                <span class="footer-tagline">Certainty First.</span>
+            </div>
+            <div class="footer-right">
+                &copy; 2025 ScaleUp Ventures. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const btn = document.querySelector('.submit-btn');
+            const originalText = btn.innerHTML;
+
+            btn.innerHTML = `
+                <svg class="animate-spin" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12a9 9 0 11-6.219-8.56"/>
+                </svg>
+                Submitting...
+            `;
+            btn.disabled = true;
+
+            // Simulate form submission
+            setTimeout(() => {
+                btn.innerHTML = `
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    Message Sent!
+                `;
+                btn.style.background = '#22c55e';
+
+                // In production, redirect to thank you page or show success message
+            }, 1500);
+        });
+
+        // Add smooth scroll behavior
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Content Index</a>
+  <p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p>
+</footer>
+</body>
+</html>

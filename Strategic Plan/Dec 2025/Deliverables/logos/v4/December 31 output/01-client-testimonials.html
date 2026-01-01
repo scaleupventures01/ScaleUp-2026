@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Testimonials | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1A2744;
+            --gold: #D4A853;
+            --gold-muted: #B8956E;
+            --gold-light: #E5C88A;
+            --cream: #FAF8F5;
+            --cream-dark: #F1EDE6;
+            --white: #FFFFFF;
+            --slate: #334155;
+            --slate-light: #64748B;
+            --font-headline: 'Crimson Pro', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--cream);
+            color: var(--slate);
+            line-height: 1.6;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: var(--font-headline);
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .header p {
+            font-size: 20px;
+            color: var(--gold);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Testimonials Container */
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* Testimonial Card */
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 24px rgba(15, 23, 41, 0.08);
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 32px;
+            align-items: start;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(15, 23, 41, 0.12);
+        }
+
+        /* Photo placeholder */
+        .photo-placeholder {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .photo-placeholder .initials {
+            font-family: var(--font-headline);
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        /* Testimonial Content */
+        .testimonial-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quote-mark {
+            font-family: var(--font-headline);
+            font-size: 64px;
+            color: var(--gold);
+            line-height: 0.8;
+            margin-bottom: 8px;
+        }
+
+        .testimonial-text {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--navy);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-text strong {
+            color: var(--gold-muted);
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .client-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .client-name {
+            font-family: var(--font-headline);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .client-title {
+            font-size: 14px;
+            color: var(--slate-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .client-company {
+            font-size: 16px;
+            color: var(--gold-muted);
+            font-weight: 500;
+        }
+
+        /* Industry Tag */
+        .industry-tag {
+            display: inline-block;
+            background: var(--cream);
+            color: var(--slate);
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+
+        /* Result Highlight */
+        .result-highlight {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .result-highlight .metric {
+            font-family: var(--font-headline);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .result-highlight .metric-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .footer-tagline {
+            font-family: var(--font-headline);
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .testimonial-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .photo-placeholder {
+                margin: 0 auto;
+            }
+
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .result-highlight {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Embed-ready styles */
+        .embed-section {
+            background: var(--cream-dark);
+            border: 2px dashed var(--slate-light);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 40px;
+            text-align: center;
+        }
+
+        .embed-section h3 {
+            font-family: var(--font-headline);
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .embed-section code {
+            background: var(--white);
+            padding: 12px 20px;
+            border-radius: 4px;
+            display: inline-block;
+            font-size: 14px;
+            color: var(--slate);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>What Our Clients Say</h1>
+        <p>Real results from real business owners who chose certainty over guesswork.</p>
+    </header>
+
+    <main class="testimonials-container">
+
+        <!-- Testimonial 1: Mike Patterson -->
+        <article class="testimonial-card">
+            <div class="photo-placeholder">
+                <span class="initials">MP</span>
+            </div>
+            <div class="testimonial-content">
+                <span class="quote-mark">"</span>
+                <p class="testimonial-text">
+                    I've been in staffing for 28 years, and I've seen plenty of marketing promises that don't pan out. ScaleUp showed me a detailed ROI model before I spent a dime. They predicted we'd see <strong>47 new qualified leads per month</strong> from the website redesign. Three months in, we're averaging 52. First time I've ever had a marketing partner who underpromised and overdelivered.
+                </p>
+                <div class="client-info">
+                    <span class="client-name">Mike Patterson</span>
+                    <span class="client-title">Owner</span>
+                    <span class="client-company">Apex Talent Solutions</span>
+                    <span class="industry-tag">Staffing Agency</span>
+                </div>
+                <div class="result-highlight">
+                    <span class="metric">52</span>
+                    <span class="metric-label">Qualified Leads Per Month (vs. 47 projected)</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Testimonial 2: Dr. Sarah Chen -->
+        <article class="testimonial-card">
+            <div class="photo-placeholder">
+                <span class="initials">SC</span>
+            </div>
+            <div class="testimonial-content">
+                <span class="quote-mark">"</span>
+                <p class="testimonial-text">
+                    My front desk staff was drowning in appointment calls and prescription refill requests. ScaleUp set up an AI system that handles <strong>routine communications automatically</strong>--appointment confirmations, vaccine reminders, even basic triage questions. My team now spends their time on patients, not phones. We saved about <strong>22 hours per week</strong> in staff time. That's not a guess--we tracked it.
+                </p>
+                <div class="client-info">
+                    <span class="client-name">Dr. Sarah Chen</span>
+                    <span class="client-title">Owner</span>
+                    <span class="client-company">Riverside Animal Hospital</span>
+                    <span class="industry-tag">Veterinary</span>
+                </div>
+                <div class="result-highlight">
+                    <span class="metric">22 hrs</span>
+                    <span class="metric-label">Staff Time Saved Weekly Through AI Automation</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Testimonial 3: Tom Rodriguez -->
+        <article class="testimonial-card">
+            <div class="photo-placeholder">
+                <span class="initials">TR</span>
+            </div>
+            <div class="testimonial-content">
+                <span class="quote-mark">"</span>
+                <p class="testimonial-text">
+                    In HVAC, you lose the job if you don't answer the phone. Period. We were missing <strong>40% of after-hours calls</strong>--that's money walking out the door. ScaleUp set up an AI call system that books appointments 24/7. Now every call gets answered. Our January revenue was up 31% over last year, and I can actually sleep through the night without worrying about missed calls.
+                </p>
+                <div class="client-info">
+                    <span class="client-name">Tom Rodriguez</span>
+                    <span class="client-title">President</span>
+                    <span class="client-company">ComfortPro HVAC</span>
+                    <span class="industry-tag">HVAC Services</span>
+                </div>
+                <div class="result-highlight">
+                    <span class="metric">+31%</span>
+                    <span class="metric-label">Revenue Increase with 24/7 Call Handling</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Testimonial 4: Linda Foster -->
+        <article class="testimonial-card">
+            <div class="photo-placeholder">
+                <span class="initials">LF</span>
+            </div>
+            <div class="testimonial-content">
+                <span class="quote-mark">"</span>
+                <p class="testimonial-text">
+                    Let me be honest: I didn't believe them at first. In insurance, we see a lot of slick vendors. But ScaleUp did something different--they <strong>proved the ROI before asking for a contract</strong>. They ran a small pilot, showed me the numbers, and only then discussed a larger engagement. That's how you earn trust from someone who's been in business for 32 years.
+                </p>
+                <div class="client-info">
+                    <span class="client-name">Linda Foster</span>
+                    <span class="client-title">CEO</span>
+                    <span class="client-company">SecureFirst Insurance</span>
+                    <span class="industry-tag">Insurance Agency</span>
+                </div>
+                <div class="result-highlight">
+                    <span class="metric">Proof First</span>
+                    <span class="metric-label">ROI Demonstrated Before Contract Signed</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Testimonial 5: James Walker -->
+        <article class="testimonial-card">
+            <div class="photo-placeholder">
+                <span class="initials">JW</span>
+            </div>
+            <div class="testimonial-content">
+                <span class="quote-mark">"</span>
+                <p class="testimonial-text">
+                    I'm a pest control guy--I'm not a marketing guy. ScaleUp took over our growth marketing and actually delivered what they promised. <strong>Cost per lead dropped from $85 to $34</strong>. Monthly qualified leads went from 18 to 61. They projected 3.2x ROI on the first campaign; we hit 3.7x. These aren't my numbers--these are from our own tracking. They work.
+                </p>
+                <div class="client-info">
+                    <span class="client-name">James Walker</span>
+                    <span class="client-title">Owner</span>
+                    <span class="client-company">Walker Pest Control</span>
+                    <span class="industry-tag">Pest Control</span>
+                </div>
+                <div class="result-highlight">
+                    <span class="metric">3.7x</span>
+                    <span class="metric-label">ROI on Marketing Campaign (vs. 3.2x projected)</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Testimonial 6: Karen Mitchell -->
+        <article class="testimonial-card">
+            <div class="photo-placeholder">
+                <span class="initials">KM</span>
+            </div>
+            <div class="testimonial-content">
+                <span class="quote-mark">"</span>
+                <p class="testimonial-text">
+                    Before ScaleUp, I had a web developer, an SEO agency, a marketing consultant, and an IT contractor for automation. <strong>Four vendors, four invoices, and nobody talking to each other</strong>. Now I have one partner who handles development, marketing, and AI automation--and they actually integrate. Our systems work together. I spend less time managing vendors and more time running my business.
+                </p>
+                <div class="client-info">
+                    <span class="client-name">Karen Mitchell</span>
+                    <span class="client-title">Managing Partner</span>
+                    <span class="client-company">Elite Staffing Group</span>
+                    <span class="industry-tag">Staffing Agency</span>
+                </div>
+                <div class="result-highlight">
+                    <span class="metric">4 to 1</span>
+                    <span class="metric-label">Vendors Consolidated Into One Partner</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Testimonial 7: Dr. Robert Hayes -->
+        <article class="testimonial-card">
+            <div class="photo-placeholder">
+                <span class="initials">RH</span>
+            </div>
+            <div class="testimonial-content">
+                <span class="quote-mark">"</span>
+                <p class="testimonial-text">
+                    Running a veterinary clinic means constant communication--appointment reminders, post-surgery check-ins, vaccination schedules, lab results. We were calling and texting manually, and things slipped through the cracks. ScaleUp automated our patient communication. <strong>No-show rate dropped from 18% to 6%</strong>. Pet owners get the information they need, and my staff focuses on care instead of phone tag.
+                </p>
+                <div class="client-info">
+                    <span class="client-name">Dr. Robert Hayes</span>
+                    <span class="client-title">Owner</span>
+                    <span class="client-company">Lakeside Veterinary Clinic</span>
+                    <span class="industry-tag">Veterinary</span>
+                </div>
+                <div class="result-highlight">
+                    <span class="metric">-67%</span>
+                    <span class="metric-label">Reduction in Appointment No-Shows</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Testimonial 8: Steve Martinez -->
+        <article class="testimonial-card">
+            <div class="photo-placeholder">
+                <span class="initials">SM</span>
+            </div>
+            <div class="testimonial-content">
+                <span class="quote-mark">"</span>
+                <p class="testimonial-text">
+                    Our old website looked like it was built in 2005--because it was. We were getting leads, but they were mostly tire-kickers and lowballers. ScaleUp rebuilt the site to attract the <strong>right customers</strong>--homeowners who value quality over the cheapest price. Average job value went from $380 to $720. We're doing fewer jobs for better money. That's the kind of growth I wanted.
+                </p>
+                <div class="client-info">
+                    <span class="client-name">Steve Martinez</span>
+                    <span class="client-title">Owner</span>
+                    <span class="client-company">Martinez Plumbing & Electric</span>
+                    <span class="industry-tag">Plumbing & Electrical</span>
+                </div>
+                <div class="result-highlight">
+                    <span class="metric">+89%</span>
+                    <span class="metric-label">Increase in Average Job Value</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Testimonial 9: Patricia Newman -->
+        <article class="testimonial-card">
+            <div class="photo-placeholder">
+                <span class="initials">PN</span>
+            </div>
+            <div class="testimonial-content">
+                <span class="quote-mark">"</span>
+                <p class="testimonial-text">
+                    I've been burned before. Spent $40,000 on a website redesign that didn't move the needle. Paid a marketing agency for six months with nothing to show for it. When ScaleUp approached me, I was ready to say no. But they offered to <strong>prove results on a small test first</strong>. No big commitment. No promises without evidence. That's different. That's why I'm still working with them two years later.
+                </p>
+                <div class="client-info">
+                    <span class="client-name">Patricia Newman</span>
+                    <span class="client-title">Agency Owner</span>
+                    <span class="client-company">Premier Staffing Solutions</span>
+                    <span class="industry-tag">Staffing Agency</span>
+                </div>
+                <div class="result-highlight">
+                    <span class="metric">2 Years</span>
+                    <span class="metric-label">Ongoing Partnership Built on Proven Results</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Testimonial 10: David Chen -->
+        <article class="testimonial-card">
+            <div class="photo-placeholder">
+                <span class="initials">DC</span>
+            </div>
+            <div class="testimonial-content">
+                <span class="quote-mark">"</span>
+                <p class="testimonial-text">
+                    They call it the 'Proof Test'--before you invest anything significant, they show you exactly what the ROI will be. Not a guess, not a projection pulled out of thin air. <strong>Real data from a real pilot</strong>. I saw the numbers work for my business before I signed a long-term contract. After 30 years in HVAC, I've learned to trust evidence, not promises. ScaleUp gets that.
+                </p>
+                <div class="client-info">
+                    <span class="client-name">David Chen</span>
+                    <span class="client-title">Owner</span>
+                    <span class="client-company">Chen's HVAC Services</span>
+                    <span class="industry-tag">HVAC Services</span>
+                </div>
+                <div class="result-highlight">
+                    <span class="metric">Certainty First</span>
+                    <span class="metric-label">ROI Proven Before Major Investment</span>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline">Certainty First.</p>
+        <p class="footer-text">ScaleUp Ventures | Development. Growth Marketing. AI Automation.</p>
+    </footer>
+
+    <!-- Embed Instructions -->
+    <section class="embed-section">
+        <h3>Embedding Instructions</h3>
+        <p>Copy individual testimonial cards to embed on your website. Each <code>&lt;article class="testimonial-card"&gt;</code> block is self-contained and ready to use.</p>
+    </section>
+
+</body>
+</html>
