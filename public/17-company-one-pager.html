@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures | Company Overview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --cream: #FAF8F5;
+            --warm-gray: #6B6B6B;
+            --light-gold: rgba(212, 168, 83, 0.15);
+            --border-subtle: rgba(15, 23, 41, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.5;
+            font-size: 11px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            width: 8.5in;
+            min-height: 11in;
+            max-height: 11in;
+            margin: 0 auto;
+            background: white;
+            padding: 0.5in;
+            overflow: hidden;
+        }
+
+        @media screen {
+            .page {
+                box-shadow: 0 4px 20px rgba(15, 23, 41, 0.15);
+                margin: 20px auto;
+            }
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            border-bottom: 3px solid var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .brand-identity {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .heron-symbol {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .heron-symbol svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .brand-text h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+
+        .tagline-primary {
+            font-family: 'Crimson Pro', serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--gold);
+            font-style: italic;
+            margin-top: 2px;
+        }
+
+        .header-accent {
+            width: 60px;
+            height: 4px;
+            background: var(--gold);
+            margin-top: 8px;
+        }
+
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .section-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-content {
+            font-size: 11px;
+            line-height: 1.6;
+            color: var(--navy);
+        }
+
+        /* Who We Are - Full Width */
+        .who-we-are {
+            grid-column: 1 / -1;
+            background: var(--navy);
+            color: white;
+            padding: 20px 24px;
+            border-radius: 6px;
+        }
+
+        .who-we-are .section-title {
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .who-we-are p {
+            font-size: 12px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .who-we-are .highlight {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* What We Do */
+        .what-we-do {
+            background: white;
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 16px;
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-item {
+            display: flex;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .service-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--light-gold);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .service-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--gold);
+        }
+
+        .service-content h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+
+        .service-content p {
+            font-size: 10px;
+            color: var(--warm-gray);
+            line-height: 1.4;
+        }
+
+        /* Who We Serve */
+        .who-we-serve {
+            background: white;
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 16px;
+        }
+
+        .target-profile {
+            background: var(--cream);
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+
+        .target-profile h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .target-profile p {
+            font-size: 10px;
+            color: var(--warm-gray);
+            line-height: 1.5;
+        }
+
+        .industries-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .industry-tag {
+            background: var(--navy);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 9px;
+            font-weight: 500;
+        }
+
+        /* Our Difference - Full Width */
+        .our-difference {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--gold) 0%, #c49a47 100%);
+            color: var(--navy);
+            padding: 18px 24px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .difference-label {
+            font-family: 'Crimson Pro', serif;
+            font-size: 18px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .difference-divider {
+            width: 2px;
+            height: 40px;
+            background: rgba(15, 23, 41, 0.3);
+        }
+
+        .difference-text {
+            font-size: 12px;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .difference-text strong {
+            font-weight: 700;
+        }
+
+        /* Proof Points */
+        .proof-points {
+            background: white;
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 16px;
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .proof-item {
+            background: var(--cream);
+            padding: 10px 12px;
+            border-radius: 4px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .proof-stat {
+            font-family: 'Crimson Pro', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .proof-label {
+            font-size: 9px;
+            color: var(--warm-gray);
+            line-height: 1.3;
+            margin-top: 2px;
+        }
+
+        /* Leadership */
+        .leadership {
+            background: white;
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 16px;
+        }
+
+        .leader-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .leader-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .leader-avatar {
+            width: 36px;
+            height: 36px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-family: 'Crimson Pro', serif;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .leader-info h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .leader-info p {
+            font-size: 9px;
+            color: var(--warm-gray);
+        }
+
+        /* Contact - Full Width */
+        .contact-section {
+            grid-column: 1 / -1;
+            background: var(--navy);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 32px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(212, 168, 83, 0.2);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-icon svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--gold);
+        }
+
+        .contact-text {
+            font-size: 11px;
+        }
+
+        .contact-text .label {
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 1px;
+        }
+
+        .contact-text .value {
+            color: white;
+            font-weight: 500;
+        }
+
+        .contact-cta {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-family: 'Crimson Pro', serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 8px;
+            color: var(--warm-gray);
+        }
+
+        .footer-tagline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .page {
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <header class="header">
+            <div class="brand-identity">
+                <div class="heron-symbol">
+                    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Elegant Standing Heron Silhouette -->
+                        <path d="M30 8 C28 8 26 10 26 13 C26 15 27 16 28 17 L28 22 C28 24 27 26 26 28 L24 32 C23 34 22 36 22 38 L22 48 C22 50 23 52 25 52 C27 52 28 50 28 48 L28 42 L30 42 L30 48 C30 50 31 52 33 52 C35 52 36 50 36 48 L36 38 C36 36 35 34 34 32 L32 28 C31 26 30 24 30 22 L30 17 C31 16 32 15 32 13 C32 10 30 8 30 8 Z M29 11 C29.5 11 30 11.5 30 12 C30 12.5 29.5 13 29 13 C28.5 13 28 12.5 28 12 C28 11.5 28.5 11 29 11 Z" fill="#0F1729"/>
+                        <!-- Beak -->
+                        <path d="M32 12 L40 10 L32 13 Z" fill="#0F1729"/>
+                        <!-- Gold Eye -->
+                        <circle cx="29" cy="12" r="1" fill="#D4A853"/>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <h1>ScaleUp Ventures</h1>
+                    <div class="tagline-primary">Certainty First.</div>
+                    <div class="header-accent"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="main-grid">
+            <!-- Who We Are - Full Width -->
+            <div class="who-we-are section">
+                <div class="section-title">Who We Are</div>
+                <p>
+                    ScaleUp Ventures is a <span class="highlight">business consulting firm with development capabilities</span> that helps established business owners modernize and grow with confidence. We combine strategic business consulting with hands-on execution in web development, marketing, and AI-powered process improvement. Unlike traditional agencies that deliver projects and move on, we operate as <span class="highlight">accountable growth partners</span> who prove the ROI before you invest. Founded by experienced operators who have raised capital, executed exits, and built systems that scale, we bring the discipline of investors to the work of consultants.
+                </p>
+            </div>
+
+            <!-- What We Do -->
+            <div class="what-we-do section">
+                <div class="section-header">
+                    <div class="section-icon">1</div>
+                    <div class="section-title">What We Do</div>
+                </div>
+                <ul class="service-list">
+                    <li class="service-item">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+                        </div>
+                        <div class="service-content">
+                            <h4>Development</h4>
+                            <p>Websites and web applications built for performance, designed to convert visitors into customers.</p>
+                        </div>
+                    </li>
+                    <li class="service-item">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+                        </div>
+                        <div class="service-content">
+                            <h4>Growth Services</h4>
+                            <p>Marketing and branding strategies that generate qualified leads and drive measurable revenue growth.</p>
+                        </div>
+                    </li>
+                    <li class="service-item">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+                        </div>
+                        <div class="service-content">
+                            <h4>Process Improvement</h4>
+                            <p>AI and automation solutions that increase scalability, reduce costs, and free up your time.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Who We Serve -->
+            <div class="who-we-serve section">
+                <div class="section-header">
+                    <div class="section-icon">2</div>
+                    <div class="section-title">Who We Serve</div>
+                </div>
+                <div class="target-profile">
+                    <h4>Target Profile</h4>
+                    <p>Established business owners (typically 45-65) with $1M-$15M in revenue who built successful companies through hard work and sound judgment. Decision-makers with $20K+ investment capacity who are serious about growth but skeptical of agencies that overpromise.</p>
+                </div>
+                <div class="industries-list">
+                    <span class="industry-tag">Staffing Agencies</span>
+                    <span class="industry-tag">Veterinary Practices</span>
+                    <span class="industry-tag">Trades & Contractors</span>
+                    <span class="industry-tag">Professional Services</span>
+                    <span class="industry-tag">Healthcare</span>
+                </div>
+            </div>
+
+            <!-- Our Difference - Full Width -->
+            <div class="our-difference">
+                <div class="difference-label">Certainty First.</div>
+                <div class="difference-divider"></div>
+                <div class="difference-text">
+                    <strong>We build a model showing how you make your money back before you spend a dollar.</strong> Unlike agencies that sell deliverables and hope, we prove the value first through pre-engagement ROI models built on your actual business numbers. You see exactly what you are investing in and exactly what you will get back.
+                </div>
+            </div>
+
+            <!-- Proof Points -->
+            <div class="proof-points section">
+                <div class="section-header">
+                    <div class="section-icon">3</div>
+                    <div class="section-title">Proof Points</div>
+                </div>
+                <div class="proof-grid">
+                    <div class="proof-item">
+                        <div class="proof-stat">$4M+</div>
+                        <div class="proof-label">Raised by founding team across ventures</div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-stat">2</div>
+                        <div class="proof-label">Successful exits (private sale + PE acquisition)</div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-stat">$2.2B</div>
+                        <div class="proof-label">Revenue impact from partner marketing work</div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-stat">100%</div>
+                        <div class="proof-label">Client satisfaction rate</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leadership -->
+            <div class="leadership section">
+                <div class="section-header">
+                    <div class="section-icon">4</div>
+                    <div class="section-title">Leadership</div>
+                </div>
+                <div class="leader-list">
+                    <div class="leader-item">
+                        <div class="leader-avatar">CW</div>
+                        <div class="leader-info">
+                            <h4>Calvin Williams Jr.</h4>
+                            <p>Founder & Managing Partner | Investment, Strategy & Execution</p>
+                        </div>
+                    </div>
+                    <div class="leader-item">
+                        <div class="leader-avatar">RA</div>
+                        <div class="leader-info">
+                            <h4>Ray Addison II</h4>
+                            <p>Partner | Growth Strategy & Operations</p>
+                        </div>
+                    </div>
+                    <div class="leader-item">
+                        <div class="leader-avatar">AM</div>
+                        <div class="leader-info">
+                            <h4>Aaron Mitchell</h4>
+                            <p>Partner | Technology & Development</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact - Full Width -->
+            <div class="contact-section">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        </div>
+                        <div class="contact-text">
+                            <div class="label">Website</div>
+                            <div class="value">scaleupventures.co</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <div class="contact-text">
+                            <div class="label">Email</div>
+                            <div class="value">hello@scaleupventures.co</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        </div>
+                        <div class="contact-text">
+                            <div class="label">Phone</div>
+                            <div class="value">(919) 555-0100</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://scaleupventures.co" class="contact-cta">Request ROI Model</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div>ScaleUp Ventures | Company Overview | 2025</div>
+            <div class="footer-tagline">Certainty First.</div>
+            <div>Raleigh-Durham, NC</div>
+        </footer>
+    </div>
+</body>
+</html>

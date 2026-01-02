@@ -1,0 +1,2177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fear-to-Opportunity Messaging Rebalance | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1A2640;
+            --navy-medium: #2A3654;
+            --gold: #D4A853;
+            --gold-light: #E8C97A;
+            --gold-pale: #F5EBD7;
+            --cream: #F8F6F1;
+            --warm-white: #FDFCFA;
+            --fear-red: #8B3A3A;
+            --fear-red-bg: #FDF2F2;
+            --opportunity-green: #2D5A4A;
+            --opportunity-green-bg: #F0F7F4;
+            --neutral-gray: #6B7280;
+            --light-gray: #E5E7EB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--warm-white);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 60px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(212, 168, 83, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(212, 168, 83, 0.06) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .document-type {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            color: var(--warm-white);
+            margin-bottom: 15px;
+            letter-spacing: 0.02em;
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(212, 168, 83, 0.3);
+        }
+
+        .meta-item {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 0.1em;
+        }
+
+        .meta-item span {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        .nav-strip {
+            background: var(--navy);
+            padding: 0 80px;
+            display: flex;
+            gap: 0;
+            border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+            overflow-x: auto;
+        }
+
+        .nav-item {
+            padding: 18px 25px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 80px;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 70px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .section-number {
+            width: 50px;
+            height: 50px;
+            background: var(--navy);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .section-intro {
+            font-size: 1rem;
+            color: var(--navy-medium);
+            margin-bottom: 30px;
+            max-width: 900px;
+            line-height: 1.8;
+        }
+
+        /* Executive Summary Box */
+        .executive-summary {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 50px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .executive-summary::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 1px solid rgba(212, 168, 83, 0.2);
+            pointer-events: none;
+        }
+
+        .executive-summary h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--gold);
+            margin-bottom: 25px;
+            letter-spacing: 0.05em;
+        }
+
+        .executive-summary p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 35px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(212, 168, 83, 0.3);
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 5px;
+        }
+
+        /* Fear Messages Table */
+        .fear-messages-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .fear-messages-table th {
+            background: var(--fear-red);
+            color: white;
+            padding: 15px 20px;
+            text-align: left;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .fear-messages-table td {
+            padding: 20px;
+            border-bottom: 1px solid var(--light-gray);
+            vertical-align: top;
+            font-size: 0.9rem;
+        }
+
+        .fear-messages-table tr:hover {
+            background: var(--fear-red-bg);
+        }
+
+        .fear-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: var(--fear-red);
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .fear-phrase {
+            font-weight: 600;
+            color: var(--fear-red);
+        }
+
+        .fear-type {
+            font-size: 0.7rem;
+            background: var(--fear-red-bg);
+            color: var(--fear-red);
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Balance Rationale */
+        .balance-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .balance-side {
+            padding: 40px;
+        }
+
+        .balance-side.fear {
+            background: var(--fear-red-bg);
+            border-right: 3px solid var(--fear-red);
+        }
+
+        .balance-side.opportunity {
+            background: var(--opportunity-green-bg);
+            border-left: 3px solid var(--opportunity-green);
+        }
+
+        .balance-side h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .balance-side.fear h4 {
+            color: var(--fear-red);
+        }
+
+        .balance-side.opportunity h4 {
+            color: var(--opportunity-green);
+        }
+
+        .balance-side ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .balance-side li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .balance-side.fear li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 18px;
+            width: 12px;
+            height: 2px;
+            background: var(--fear-red);
+        }
+
+        .balance-side.opportunity li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 18px;
+            width: 12px;
+            height: 2px;
+            background: var(--opportunity-green);
+        }
+
+        /* Side-by-Side Transformation */
+        .transformation-grid {
+            display: grid;
+            grid-template-columns: 1fr 60px 1fr;
+            gap: 0;
+            align-items: stretch;
+            margin-bottom: 30px;
+        }
+
+        .transformation-before,
+        .transformation-after {
+            padding: 30px;
+            border-radius: 4px;
+        }
+
+        .transformation-before {
+            background: var(--fear-red-bg);
+            border-left: 4px solid var(--fear-red);
+        }
+
+        .transformation-after {
+            background: var(--opportunity-green-bg);
+            border-left: 4px solid var(--opportunity-green);
+        }
+
+        .transformation-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .transformation-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .transformation-before .transformation-label {
+            color: var(--fear-red);
+        }
+
+        .transformation-after .transformation-label {
+            color: var(--opportunity-green);
+        }
+
+        .transformation-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .transformation-before .transformation-text {
+            color: var(--fear-red);
+        }
+
+        .transformation-after .transformation-text {
+            color: var(--opportunity-green);
+        }
+
+        .transformation-analysis {
+            font-size: 0.8rem;
+            color: var(--neutral-gray);
+            margin-top: 15px;
+            font-style: normal;
+        }
+
+        /* Emotional Vocabulary Grid */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .vocab-category {
+            background: white;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .vocab-header {
+            padding: 20px 25px;
+            background: var(--navy);
+        }
+
+        .vocab-header h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--gold);
+        }
+
+        .vocab-header p {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 5px;
+        }
+
+        .vocab-list {
+            padding: 25px;
+        }
+
+        .vocab-word {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .vocab-word:last-child {
+            border-bottom: none;
+        }
+
+        .vocab-term {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .vocab-context {
+            font-size: 0.75rem;
+            color: var(--neutral-gray);
+        }
+
+        /* Funnel Stage Mapping */
+        .funnel-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 30px;
+        }
+
+        .funnel-stage {
+            display: grid;
+            grid-template-columns: 200px 1fr 1fr 150px;
+            gap: 0;
+            border: 1px solid var(--light-gray);
+            border-bottom: none;
+        }
+
+        .funnel-stage:last-child {
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .funnel-stage-name {
+            background: var(--navy);
+            color: white;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        .funnel-fear,
+        .funnel-opportunity {
+            padding: 25px;
+        }
+
+        .funnel-fear {
+            background: rgba(139, 58, 58, 0.05);
+        }
+
+        .funnel-opportunity {
+            background: rgba(45, 90, 74, 0.05);
+        }
+
+        .funnel-ratio {
+            background: var(--cream);
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .funnel-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .funnel-fear .funnel-label {
+            color: var(--fear-red);
+        }
+
+        .funnel-opportunity .funnel-label {
+            color: var(--opportunity-green);
+        }
+
+        .funnel-message {
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .ratio-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(to right, var(--fear-red) var(--fear-pct), var(--opportunity-green) var(--fear-pct));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .ratio-inner {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        /* Industry Cards */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .industry-card {
+            background: white;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .industry-header {
+            background: var(--gold-pale);
+            padding: 20px 25px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .industry-header h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .industry-body {
+            padding: 25px;
+        }
+
+        .industry-fear,
+        .industry-opportunity {
+            margin-bottom: 20px;
+        }
+
+        .industry-fear:last-child,
+        .industry-opportunity:last-child {
+            margin-bottom: 0;
+        }
+
+        .industry-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .industry-fear .industry-label {
+            color: var(--fear-red);
+        }
+
+        .industry-opportunity .industry-label {
+            color: var(--opportunity-green);
+        }
+
+        .industry-message {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .industry-fear .industry-message {
+            background: var(--fear-red-bg);
+            border-left: 3px solid var(--fear-red);
+        }
+
+        .industry-opportunity .industry-message {
+            background: var(--opportunity-green-bg);
+            border-left: 3px solid var(--opportunity-green);
+        }
+
+        /* Success Story Format */
+        .story-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .story-card {
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .story-header {
+            padding: 20px 25px;
+        }
+
+        .story-card.warning .story-header {
+            background: var(--fear-red-bg);
+            border-bottom: 2px solid var(--fear-red);
+        }
+
+        .story-card.inspiration .story-header {
+            background: var(--opportunity-green-bg);
+            border-bottom: 2px solid var(--opportunity-green);
+        }
+
+        .story-type {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .story-card.warning .story-type {
+            color: var(--fear-red);
+        }
+
+        .story-card.inspiration .story-type {
+            color: var(--opportunity-green);
+        }
+
+        .story-headline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-top: 10px;
+            color: var(--navy);
+        }
+
+        .story-body {
+            padding: 25px;
+        }
+
+        .story-content {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--navy-medium);
+            margin-bottom: 20px;
+        }
+
+        .story-result {
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .story-card.warning .story-result {
+            background: var(--fear-red-bg);
+            color: var(--fear-red);
+        }
+
+        .story-card.inspiration .story-result {
+            background: var(--opportunity-green-bg);
+            color: var(--opportunity-green);
+        }
+
+        /* Voice Integration */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .voice-card {
+            background: var(--navy);
+            padding: 30px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .voice-card::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(212, 168, 83, 0.2);
+            pointer-events: none;
+        }
+
+        .voice-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+
+        .voice-definition {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .voice-section {
+            margin-bottom: 20px;
+        }
+
+        .voice-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .voice-section-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .voice-fear-label {
+            color: #E57373;
+        }
+
+        .voice-opportunity-label {
+            color: #81C784;
+        }
+
+        .voice-message {
+            font-size: 0.85rem;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* Testing Methodology */
+        .testing-framework {
+            background: var(--cream);
+            padding: 40px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .testing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .test-step {
+            background: white;
+            padding: 25px;
+            border-radius: 4px;
+            border: 1px solid var(--light-gray);
+            text-align: center;
+        }
+
+        .test-number {
+            width: 40px;
+            height: 40px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 15px;
+        }
+
+        .test-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .test-description {
+            font-size: 0.8rem;
+            color: var(--neutral-gray);
+            line-height: 1.6;
+        }
+
+        /* Outcome Visualization */
+        .visualization-card {
+            background: linear-gradient(135deg, var(--opportunity-green) 0%, #1E4A3A 100%);
+            padding: 50px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visualization-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(ellipse at 80% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .visualization-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .visualization-context {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+        }
+
+        .visualization-outcomes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .outcome-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .outcome-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .outcome-headline {
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .outcome-description {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+        }
+
+        /* Decision Framework */
+        .decision-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .decision-table th {
+            background: var(--navy);
+            color: white;
+            padding: 18px 20px;
+            text-align: left;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .decision-table td {
+            padding: 20px;
+            border-bottom: 1px solid var(--light-gray);
+            font-size: 0.9rem;
+            vertical-align: top;
+        }
+
+        .decision-table tr:nth-child(even) {
+            background: var(--cream);
+        }
+
+        .recommendation {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .recommendation.fear {
+            background: var(--fear-red-bg);
+            color: var(--fear-red);
+        }
+
+        .recommendation.opportunity {
+            background: var(--opportunity-green-bg);
+            color: var(--opportunity-green);
+        }
+
+        .recommendation.balanced {
+            background: var(--gold-pale);
+            color: var(--navy);
+        }
+
+        /* Callout Box */
+        .callout {
+            padding: 30px 35px;
+            border-radius: 4px;
+            margin: 30px 0;
+        }
+
+        .callout.warning {
+            background: var(--fear-red-bg);
+            border-left: 4px solid var(--fear-red);
+        }
+
+        .callout.success {
+            background: var(--opportunity-green-bg);
+            border-left: 4px solid var(--opportunity-green);
+        }
+
+        .callout.insight {
+            background: var(--gold-pale);
+            border-left: 4px solid var(--gold);
+        }
+
+        .callout-title {
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .callout.warning .callout-title {
+            color: var(--fear-red);
+        }
+
+        .callout.success .callout-title {
+            color: var(--opportunity-green);
+        }
+
+        .callout.insight .callout-title {
+            color: var(--navy);
+        }
+
+        .callout p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            padding: 40px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        .footer-brand span {
+            color: var(--gold);
+        }
+
+        .footer-meta {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                max-width: 100%;
+            }
+            .nav-strip {
+                display: none;
+            }
+            .section {
+                break-inside: avoid;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .header,
+            .main-content,
+            .footer {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+
+            .nav-strip {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+
+            .vocab-grid,
+            .voice-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .industry-grid,
+            .story-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .balance-card {
+                grid-template-columns: 1fr;
+            }
+
+            .funnel-stage {
+                grid-template-columns: 1fr;
+            }
+
+            .transformation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .transformation-arrow {
+                padding: 15px;
+                transform: rotate(90deg);
+            }
+
+            .summary-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .testing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .visualization-outcomes {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="document-type">Messaging Strategy Guide</div>
+                <h1>Fear-to-Opportunity Messaging Rebalance</h1>
+                <p class="header-subtitle">Moving from cautionary messaging to empowerment-focused communications while maintaining urgency and conversion effectiveness</p>
+                <div class="header-meta">
+                    <div class="meta-item">Prepared for <span>ScaleUp Ventures</span></div>
+                    <div class="meta-item">Version <span>1.0</span></div>
+                    <div class="meta-item">Date <span>December 31, 2025</span></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-strip">
+            <div class="nav-item active">Current Fear Messages</div>
+            <div class="nav-item">Why Balance Matters</div>
+            <div class="nav-item">Opportunity Alternatives</div>
+            <div class="nav-item">Emotional Vocabulary</div>
+            <div class="nav-item">Transformations</div>
+            <div class="nav-item">Funnel Mapping</div>
+            <div class="nav-item">Industry Messages</div>
+            <div class="nav-item">Success Stories</div>
+            <div class="nav-item">Voice Integration</div>
+            <div class="nav-item">Testing</div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Executive Summary -->
+            <div class="executive-summary">
+                <h2>Executive Summary</h2>
+                <p>ScaleUp Ventures' current messaging effectively leverages fear-based motivators (being left behind, burned by agencies, losing to competitors). While these messages resonate with the pain points of technology laggard business owners, over-reliance on fear can lead to negativity fatigue and missed opportunities to inspire action through aspiration.</p>
+                <p>This guide provides a strategic framework for rebalancing messaging from 70% fear / 30% opportunity to approximately 40% fear / 60% opportunity across the customer journey, while preserving the authentic urgency that drives conversion.</p>
+                <div class="summary-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">70:30</div>
+                        <div class="stat-label">Current Fear:Opportunity Ratio</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">40:60</div>
+                        <div class="stat-label">Target Fear:Opportunity Ratio</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Key Messages to Transform</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 1: Current Fear-Based Messages Identified -->
+            <section class="section" id="fear-messages">
+                <div class="section-header">
+                    <div class="section-number">1</div>
+                    <h2 class="section-title">Current Fear-Based Messages Identified</h2>
+                </div>
+                <p class="section-intro">Analysis of ScaleUp Ventures' messaging architecture reveals several categories of fear-based messaging. While effective at capturing attention, these messages require strategic balancing with opportunity-focused alternatives.</p>
+
+                <table class="fear-messages-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 35%;">Current Fear Message</th>
+                            <th style="width: 20%;">Fear Type</th>
+                            <th style="width: 25%;">Target Emotion</th>
+                            <th style="width: 20%;">Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="fear-indicator"></span><span class="fear-phrase">"Your Competitors Are Already Digital. It's Time to Catch Up."</span></td>
+                            <td><span class="fear-type">FOMO / Obsolescence</span></td>
+                            <td>Fear of being left behind</td>
+                            <td>Homepage Hero</td>
+                        </tr>
+                        <tr>
+                            <td><span class="fear-indicator"></span><span class="fear-phrase">"Modernize or be left behind"</span></td>
+                            <td><span class="fear-type">Existential Threat</span></td>
+                            <td>Survival anxiety</td>
+                            <td>Messaging Architecture</td>
+                        </tr>
+                        <tr>
+                            <td><span class="fear-indicator"></span><span class="fear-phrase">"AI is coming for your industry"</span></td>
+                            <td><span class="fear-type">Disruption Fear</span></td>
+                            <td>Technological displacement</td>
+                            <td>Staffing Messaging</td>
+                        </tr>
+                        <tr>
+                            <td><span class="fear-indicator"></span><span class="fear-phrase">"You've been burned by agencies before"</span></td>
+                            <td><span class="fear-type">Trust Wound</span></td>
+                            <td>Past pain / betrayal</td>
+                            <td>About Page</td>
+                        </tr>
+                        <tr>
+                            <td><span class="fear-indicator"></span><span class="fear-phrase">"Terminix has apps, you don't"</span></td>
+                            <td><span class="fear-type">Competitive Threat</span></td>
+                            <td>Inferiority / inadequacy</td>
+                            <td>Pest Control Messaging</td>
+                        </tr>
+                        <tr>
+                            <td><span class="fear-indicator"></span><span class="fear-phrase">"Your website from 2005 is telling prospects you're outdated"</span></td>
+                            <td><span class="fear-type">Shame / Embarrassment</span></td>
+                            <td>Professional inadequacy</td>
+                            <td>Insurance Messaging</td>
+                        </tr>
+                        <tr>
+                            <td><span class="fear-indicator"></span><span class="fear-phrase">"PE consolidation is coming"</span></td>
+                            <td><span class="fear-type">Market Force Threat</span></td>
+                            <td>Loss of independence</td>
+                            <td>Veterinary Messaging</td>
+                        </tr>
+                        <tr>
+                            <td><span class="fear-indicator"></span><span class="fear-phrase">"70% are unhappy with marketing"</span></td>
+                            <td><span class="fear-type">Validation of Pain</span></td>
+                            <td>Shared suffering</td>
+                            <td>Trades Messaging</td>
+                        </tr>
+                        <tr>
+                            <td><span class="fear-indicator"></span><span class="fear-phrase">"81% can't prove ROI"</span></td>
+                            <td><span class="fear-type">Industry Failure</span></td>
+                            <td>Distrust / cynicism</td>
+                            <td>Social Media</td>
+                        </tr>
+                        <tr>
+                            <td><span class="fear-indicator"></span><span class="fear-phrase">"HomeAdvisor is charging you $50+ per lead"</span></td>
+                            <td><span class="fear-type">Financial Exploitation</span></td>
+                            <td>Being taken advantage of</td>
+                            <td>Trades Ads</td>
+                        </tr>
+                        <tr>
+                            <td><span class="fear-indicator"></span><span class="fear-phrase">"Getting ripped off by marketers"</span></td>
+                            <td><span class="fear-type">Victim Identification</span></td>
+                            <td>Anger / resentment</td>
+                            <td>Persona Research</td>
+                        </tr>
+                        <tr>
+                            <td><span class="fear-indicator"></span><span class="fear-phrase">"Exit valuation depends on digital capability - 2-3x multiple reduction"</span></td>
+                            <td><span class="fear-type">Financial Loss</span></td>
+                            <td>Retirement anxiety</td>
+                            <td>Insurance Messaging</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="callout warning">
+                    <div class="callout-title">Risk Assessment</div>
+                    <p>While fear-based messaging can be highly effective for initial engagement, research indicates that prolonged exposure to fear messaging can lead to <strong>defensive avoidance</strong> rather than action. Prospects may disengage entirely rather than confront threatening information repeatedly.</p>
+                </div>
+            </section>
+
+            <!-- Section 2: Why Balance Matters -->
+            <section class="section" id="balance">
+                <div class="section-header">
+                    <div class="section-number">2</div>
+                    <h2 class="section-title">Why Balance Matters: Avoiding Negativity Fatigue</h2>
+                </div>
+                <p class="section-intro">The psychology of persuasion reveals that while fear captures attention, aspiration drives sustained action. Understanding this balance is critical for long-term brand health and conversion optimization.</p>
+
+                <div class="balance-card">
+                    <div class="balance-side fear">
+                        <h4>Risks of Fear-Heavy Messaging</h4>
+                        <ul>
+                            <li><strong>Negativity fatigue:</strong> Repeated exposure to threat messaging leads to emotional exhaustion and disengagement</li>
+                            <li><strong>Defensive avoidance:</strong> Prospects avoid the message source rather than address the underlying problem</li>
+                            <li><strong>Brand association:</strong> ScaleUp becomes associated with problems rather than solutions</li>
+                            <li><strong>Decision paralysis:</strong> Overwhelming fear can freeze decision-making rather than accelerate it</li>
+                            <li><strong>Reduced referral motivation:</strong> Clients less likely to enthusiastically refer when their introduction to the brand was pain-focused</li>
+                            <li><strong>Lower lifetime value:</strong> Fear-acquired customers may have more transactional, less loyal relationships</li>
+                        </ul>
+                    </div>
+                    <div class="balance-side opportunity">
+                        <h4>Benefits of Opportunity Messaging</h4>
+                        <ul>
+                            <li><strong>Aspirational motivation:</strong> People are drawn toward positive futures, not just away from negative ones</li>
+                            <li><strong>Brand elevation:</strong> ScaleUp becomes associated with success, growth, and transformation</li>
+                            <li><strong>Emotional resonance:</strong> Pride, excitement, and confidence create stronger brand bonds</li>
+                            <li><strong>Word-of-mouth amplification:</strong> People share stories of success more readily than stories of avoided disaster</li>
+                            <li><strong>Decision acceleration:</strong> Excitement creates urgency that feels good rather than stressful</li>
+                            <li><strong>Partnership framing:</strong> Positions ScaleUp as a growth partner rather than a problem-solver</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="callout insight">
+                    <div class="callout-title">Strategic Insight</div>
+                    <p>The goal is not to eliminate fear messaging entirely. Fear is effective for <strong>problem recognition</strong> in early funnel stages. The goal is to transition prospects from fear (problem awareness) to opportunity (solution excitement) as they move through the funnel. This mirrors the natural psychological journey from "I have a problem" to "I see a better future."</p>
+                </div>
+            </section>
+
+            <!-- Section 3: Opportunity/Empowerment Alternatives -->
+            <section class="section" id="alternatives">
+                <div class="section-header">
+                    <div class="section-number">3</div>
+                    <h2 class="section-title">Opportunity and Empowerment Alternatives</h2>
+                </div>
+                <p class="section-intro">For each fear-based message, we provide a reframed alternative that maintains urgency while shifting the emotional register from anxiety to aspiration.</p>
+
+                <div class="transformation-grid">
+                    <div class="transformation-before">
+                        <div class="transformation-label">Fear-Based</div>
+                        <div class="transformation-text">"Your Competitors Are Already Digital. It's Time to Catch Up."</div>
+                        <div class="transformation-analysis">Positions prospect as behind, inferior, playing catch-up</div>
+                    </div>
+                    <div class="transformation-arrow">&#10140;</div>
+                    <div class="transformation-after">
+                        <div class="transformation-label">Opportunity-Based</div>
+                        <div class="transformation-text">"Your Next Chapter Starts With Digital. Lead It on Your Terms."</div>
+                        <div class="transformation-analysis">Positions prospect as author of their future, in control</div>
+                    </div>
+                </div>
+
+                <div class="transformation-grid">
+                    <div class="transformation-before">
+                        <div class="transformation-label">Fear-Based</div>
+                        <div class="transformation-text">"Modernize or be left behind"</div>
+                        <div class="transformation-analysis">Binary threat with negative consequence</div>
+                    </div>
+                    <div class="transformation-arrow">&#10140;</div>
+                    <div class="transformation-after">
+                        <div class="transformation-label">Opportunity-Based</div>
+                        <div class="transformation-text">"Modernize and lead your market into the next decade"</div>
+                        <div class="transformation-analysis">Positive vision of market leadership</div>
+                    </div>
+                </div>
+
+                <div class="transformation-grid">
+                    <div class="transformation-before">
+                        <div class="transformation-label">Fear-Based</div>
+                        <div class="transformation-text">"AI is coming for your industry"</div>
+                        <div class="transformation-analysis">AI as threat, external force, out of control</div>
+                    </div>
+                    <div class="transformation-arrow">&#10140;</div>
+                    <div class="transformation-after">
+                        <div class="transformation-label">Opportunity-Based</div>
+                        <div class="transformation-text">"AI is your unfair advantage. Let's capture it before your competition does."</div>
+                        <div class="transformation-analysis">AI as tool, opportunity, competitive edge</div>
+                    </div>
+                </div>
+
+                <div class="transformation-grid">
+                    <div class="transformation-before">
+                        <div class="transformation-label">Fear-Based</div>
+                        <div class="transformation-text">"You've been burned by agencies before"</div>
+                        <div class="transformation-analysis">Reinforces past pain and victimhood</div>
+                    </div>
+                    <div class="transformation-arrow">&#10140;</div>
+                    <div class="transformation-after">
+                        <div class="transformation-label">Opportunity-Based</div>
+                        <div class="transformation-text">"Experience what a true growth partnership feels like."</div>
+                        <div class="transformation-analysis">Focus on positive future experience</div>
+                    </div>
+                </div>
+
+                <div class="transformation-grid">
+                    <div class="transformation-before">
+                        <div class="transformation-label">Fear-Based</div>
+                        <div class="transformation-text">"Your website from 2005 is telling prospects you're outdated"</div>
+                        <div class="transformation-analysis">Shame-based, accusatory</div>
+                    </div>
+                    <div class="transformation-arrow">&#10140;</div>
+                    <div class="transformation-after">
+                        <div class="transformation-label">Opportunity-Based</div>
+                        <div class="transformation-text">"Your new website will win clients before they even call."</div>
+                        <div class="transformation-analysis">Vision of success, automatic wins</div>
+                    </div>
+                </div>
+
+                <div class="transformation-grid">
+                    <div class="transformation-before">
+                        <div class="transformation-label">Fear-Based</div>
+                        <div class="transformation-text">"HomeAdvisor is charging you $50+ per lead"</div>
+                        <div class="transformation-analysis">Focus on being exploited</div>
+                    </div>
+                    <div class="transformation-arrow">&#10140;</div>
+                    <div class="transformation-after">
+                        <div class="transformation-label">Opportunity-Based</div>
+                        <div class="transformation-text">"Generate your own leads for a fraction of the cost. Keep the profits."</div>
+                        <div class="transformation-analysis">Focus on ownership and profit retention</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Emotional Vocabulary -->
+            <section class="section" id="vocabulary">
+                <div class="section-header">
+                    <div class="section-number">4</div>
+                    <h2 class="section-title">Pride, Vindication, and Calm: Emotional Vocabulary</h2>
+                </div>
+                <p class="section-intro">Shifting messaging requires a new emotional vocabulary. These words and phrases evoke positive, empowering emotions that inspire action without triggering defensive responses.</p>
+
+                <div class="vocab-grid">
+                    <div class="vocab-category">
+                        <div class="vocab-header">
+                            <h4>Pride Vocabulary</h4>
+                            <p>Words that evoke accomplishment and self-respect</p>
+                        </div>
+                        <div class="vocab-list">
+                            <div class="vocab-word">
+                                <span class="vocab-term">Earned</span>
+                                <span class="vocab-context">"You've earned this growth"</span>
+                            </div>
+                            <div class="vocab-word">
+                                <span class="vocab-term">Built</span>
+                                <span class="vocab-context">"What you've built deserves..."</span>
+                            </div>
+                            <div class="vocab-word">
+                                <span class="vocab-term">Proven</span>
+                                <span class="vocab-context">"Your proven track record..."</span>
+                            </div>
+                            <div class="vocab-word">
+                                <span class="vocab-term">Legacy</span>
+                                <span class="vocab-context">"Protect your legacy"</span>
+                            </div>
+                            <div class="vocab-word">
+                                <span class="vocab-term">Mastery</span>
+                                <span class="vocab-context">"Decades of mastery"</span>
+                            </div>
+                            <div class="vocab-word">
+                                <span class="vocab-term">Achievement</span>
+                                <span class="vocab-context">"Celebrate this achievement"</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vocab-category">
+                        <div class="vocab-header">
+                            <h4>Vindication Vocabulary</h4>
+                            <p>Words that validate their skepticism and prove them right</p>
+                        </div>
+                        <div class="vocab-list">
+                            <div class="vocab-word">
+                                <span class="vocab-term">Finally</span>
+                                <span class="vocab-context">"Finally, an agency that..."</span>
+                            </div>
+                            <div class="vocab-word">
+                                <span class="vocab-term">Deserve</span>
+                                <span class="vocab-context">"You deserve proof first"</span>
+                            </div>
+                            <div class="vocab-word">
+                                <span class="vocab-term">Right</span>
+                                <span class="vocab-context">"You were right to wait"</span>
+                            </div>
+                            <div class="vocab-word">
+                                <span class="vocab-term">Justified</span>
+                                <span class="vocab-context">"Your skepticism is justified"</span>
+                            </div>
+                            <div class="vocab-word">
+                                <span class="vocab-term">Validation</span>
+                                <span class="vocab-context">"See the validation in your ROI"</span>
+                            </div>
+                            <div class="vocab-word">
+                                <span class="vocab-term">Wisdom</span>
+                                <span class="vocab-context">"Your caution shows wisdom"</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vocab-category">
+                        <div class="vocab-header">
+                            <h4>Calm Vocabulary</h4>
+                            <p>Words that reduce anxiety and create peaceful confidence</p>
+                        </div>
+                        <div class="vocab-list">
+                            <div class="vocab-word">
+                                <span class="vocab-term">Certainty</span>
+                                <span class="vocab-context">"Move with certainty"</span>
+                            </div>
+                            <div class="vocab-word">
+                                <span class="vocab-term">Clarity</span>
+                                <span class="vocab-context">"Gain clarity before investing"</span>
+                            </div>
+                            <div class="vocab-word">
+                                <span class="vocab-term">Confidence</span>
+                                <span class="vocab-context">"Invest with confidence"</span>
+                            </div>
+                            <div class="vocab-word">
+                                <span class="vocab-term">Steady</span>
+                                <span class="vocab-context">"Steady, measured growth"</span>
+                            </div>
+                            <div class="vocab-word">
+                                <span class="vocab-term">Assured</span>
+                                <span class="vocab-context">"Rest assured the numbers work"</span>
+                            </div>
+                            <div class="vocab-word">
+                                <span class="vocab-term">Peace of mind</span>
+                                <span class="vocab-context">"Sleep soundly knowing..."</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout success">
+                    <div class="callout-title">Vocabulary Integration</div>
+                    <p>These emotional vocabularies should be layered throughout communications. <strong>Pride</strong> vocabulary honors their past. <strong>Vindication</strong> vocabulary validates their skepticism. <strong>Calm</strong> vocabulary promises a less stressful future. Together, they create an emotional arc from "I see you" to "You were right" to "Here's peace."</p>
+                </div>
+            </section>
+
+            <!-- Section 5: Before/After Transformations -->
+            <section class="section" id="transformations">
+                <div class="section-header">
+                    <div class="section-number">5</div>
+                    <h2 class="section-title">Before/After Transformations: Complete Examples</h2>
+                </div>
+                <p class="section-intro">Full copy examples showing how fear-based messaging can be transformed while maintaining persuasive power and urgency.</p>
+
+                <h4 style="margin-bottom: 20px; color: var(--navy);">Homepage Hero Section</h4>
+                <div class="transformation-grid">
+                    <div class="transformation-before">
+                        <div class="transformation-label">Before (Fear)</div>
+                        <div class="transformation-text">"Stop losing business to competitors with better websites. You built your business on relationships. But when prospects Google you, your 2015 website tells them you're stuck in the past."</div>
+                    </div>
+                    <div class="transformation-arrow">&#10140;</div>
+                    <div class="transformation-after">
+                        <div class="transformation-label">After (Opportunity)</div>
+                        <div class="transformation-text">"Turn your digital presence into your strongest salesperson. You built something valuable through relationships. Now let your website work as hard as you do, bringing in clients while you sleep."</div>
+                    </div>
+                </div>
+
+                <h4 style="margin: 40px 0 20px; color: var(--navy);">LinkedIn Post</h4>
+                <div class="transformation-grid">
+                    <div class="transformation-before">
+                        <div class="transformation-label">Before (Fear)</div>
+                        <div class="transformation-text">"81% of business owners can't prove they're getting ROI from their marketing agencies. That's not a marketing problem. That's an accountability problem."</div>
+                    </div>
+                    <div class="transformation-arrow">&#10140;</div>
+                    <div class="transformation-after">
+                        <div class="transformation-label">After (Opportunity)</div>
+                        <div class="transformation-text">"Imagine seeing exactly how your marketing investment will pay off before you spend a dollar. That's not wishful thinking. That's how we work. ROI modeling that turns marketing from a gamble into a calculated decision."</div>
+                    </div>
+                </div>
+
+                <h4 style="margin: 40px 0 20px; color: var(--navy);">Staffing Agency Headline</h4>
+                <div class="transformation-grid">
+                    <div class="transformation-before">
+                        <div class="transformation-label">Before (Fear)</div>
+                        <div class="transformation-text">"Your Competitors Are Already Using AI. Are You?"</div>
+                    </div>
+                    <div class="transformation-arrow">&#10140;</div>
+                    <div class="transformation-after">
+                        <div class="transformation-label">After (Opportunity)</div>
+                        <div class="transformation-text">"Fill Placements Faster. Win More Clients. AI-Powered Recruiting for Agencies Ready to Lead."</div>
+                    </div>
+                </div>
+
+                <h4 style="margin: 40px 0 20px; color: var(--navy);">Insurance Agency Messaging</h4>
+                <div class="transformation-grid">
+                    <div class="transformation-before">
+                        <div class="transformation-label">Before (Fear)</div>
+                        <div class="transformation-text">"High-Digital Agencies Grow 70% Faster. Where Does Yours Stand? GEICO and Progressive are winning with instant quotes and digital experiences. Your website from 2005 is telling prospects you're outdated before they ever call."</div>
+                    </div>
+                    <div class="transformation-arrow">&#10140;</div>
+                    <div class="transformation-after">
+                        <div class="transformation-label">After (Opportunity)</div>
+                        <div class="transformation-text">"High-Digital Agencies Grow 70% Faster. Join Them. Give your clients the modern experience they expect, keep the personal touch that makes you irreplaceable. The best of both worlds is possible."</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: When to Use Fear vs Opportunity -->
+            <section class="section" id="when-to-use">
+                <div class="section-header">
+                    <div class="section-number">6</div>
+                    <h2 class="section-title">When to Use Fear vs. Opportunity Messaging</h2>
+                </div>
+                <p class="section-intro">Fear and opportunity messaging serve different strategic purposes. This decision framework guides when each approach is most effective.</p>
+
+                <table class="decision-table">
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Recommended Approach</th>
+                            <th>Rationale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Prospect is unaware they have a problem</td>
+                            <td><span class="recommendation fear">Fear-Lean</span></td>
+                            <td>Problem recognition requires acknowledging pain; fear effectively creates awareness</td>
+                        </tr>
+                        <tr>
+                            <td>Prospect knows they have a problem but hasn't acted</td>
+                            <td><span class="recommendation balanced">Balanced</span></td>
+                            <td>Combine urgency (fear) with positive vision (opportunity) to overcome inertia</td>
+                        </tr>
+                        <tr>
+                            <td>Prospect is actively evaluating solutions</td>
+                            <td><span class="recommendation opportunity">Opportunity-Lean</span></td>
+                            <td>At this stage, they need to see the positive future with you, not more problems</td>
+                        </tr>
+                        <tr>
+                            <td>Prospect has been burned by previous agencies</td>
+                            <td><span class="recommendation opportunity">Opportunity-Lean</span></td>
+                            <td>They already feel fear; acknowledge it briefly, then pivot to vindication and hope</td>
+                        </tr>
+                        <tr>
+                            <td>Cold outreach / first touch</td>
+                            <td><span class="recommendation fear">Fear-Lean</span></td>
+                            <td>Attention-grabbing requires pattern interruption; fear cuts through noise</td>
+                        </tr>
+                        <tr>
+                            <td>Retargeting / nurture sequence</td>
+                            <td><span class="recommendation opportunity">Opportunity-Lean</span></td>
+                            <td>They've already seen the fear message; now show them the positive alternative</td>
+                        </tr>
+                        <tr>
+                            <td>Sales conversation / discovery call</td>
+                            <td><span class="recommendation balanced">Balanced</span></td>
+                            <td>Mirror their emotional state while guiding toward positive resolution</td>
+                        </tr>
+                        <tr>
+                            <td>Proposal / close stage</td>
+                            <td><span class="recommendation opportunity">Opportunity-Lean</span></td>
+                            <td>They need to envision the partnership and outcome, not rehash problems</td>
+                        </tr>
+                        <tr>
+                            <td>Client onboarding</td>
+                            <td><span class="recommendation opportunity">Opportunity-Heavy</span></td>
+                            <td>Celebrate their decision, reinforce positive choice, build excitement</td>
+                        </tr>
+                        <tr>
+                            <td>Referral requests</td>
+                            <td><span class="recommendation opportunity">Opportunity-Heavy</span></td>
+                            <td>People refer based on positive experiences, not avoided disasters</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Section 7: Funnel Stage Mapping -->
+            <section class="section" id="funnel">
+                <div class="section-header">
+                    <div class="section-number">7</div>
+                    <h2 class="section-title">Funnel Stage Mapping: Fear Early, Opportunity Late</h2>
+                </div>
+                <p class="section-intro">The emotional journey through the funnel should mirror the psychological journey from problem awareness to solution excitement. Fear captures attention; opportunity drives action.</p>
+
+                <div class="funnel-diagram">
+                    <div class="funnel-stage">
+                        <div class="funnel-stage-name">AWARENESS</div>
+                        <div class="funnel-fear">
+                            <div class="funnel-label">Fear (60%)</div>
+                            <div class="funnel-message">"Your competitors are already digital." / "70% of owners are unhappy with marketing." / "AI is disrupting your industry."</div>
+                        </div>
+                        <div class="funnel-opportunity">
+                            <div class="funnel-label">Opportunity (40%)</div>
+                            <div class="funnel-message">"There's a better way." / "Imagine knowing your ROI before you invest."</div>
+                        </div>
+                        <div class="funnel-ratio">
+                            <div class="ratio-circle" style="--fear-pct: 60%;">
+                                <div class="ratio-inner">60:40</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="funnel-stage">
+                        <div class="funnel-stage-name">CONSIDERATION</div>
+                        <div class="funnel-fear">
+                            <div class="funnel-label">Fear (40%)</div>
+                            <div class="funnel-message">"Without action, the gap widens." / "81% can't prove ROI from current providers."</div>
+                        </div>
+                        <div class="funnel-opportunity">
+                            <div class="funnel-label">Opportunity (60%)</div>
+                            <div class="funnel-message">"We prove ROI before you invest." / "One partner for complete modernization." / "See your personalized growth model."</div>
+                        </div>
+                        <div class="funnel-ratio">
+                            <div class="ratio-circle" style="--fear-pct: 40%;">
+                                <div class="ratio-inner">40:60</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="funnel-stage">
+                        <div class="funnel-stage-name">DECISION</div>
+                        <div class="funnel-fear">
+                            <div class="funnel-label">Fear (20%)</div>
+                            <div class="funnel-message">"The window for action is now." / Gentle urgency only</div>
+                        </div>
+                        <div class="funnel-opportunity">
+                            <div class="funnel-label">Opportunity (80%)</div>
+                            <div class="funnel-message">"Your growth plan is ready." / "Join other owners who made the leap." / "This is your moment of certainty."</div>
+                        </div>
+                        <div class="funnel-ratio">
+                            <div class="ratio-circle" style="--fear-pct: 20%;">
+                                <div class="ratio-inner">20:80</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="funnel-stage">
+                        <div class="funnel-stage-name">RETENTION</div>
+                        <div class="funnel-fear">
+                            <div class="funnel-label">Fear (10%)</div>
+                            <div class="funnel-message">Minimal; only for genuine strategic urgency</div>
+                        </div>
+                        <div class="funnel-opportunity">
+                            <div class="funnel-label">Opportunity (90%)</div>
+                            <div class="funnel-message">"Look at what you've achieved." / "Here's what's possible next." / "Your success story continues."</div>
+                        </div>
+                        <div class="funnel-ratio">
+                            <div class="ratio-circle" style="--fear-pct: 10%;">
+                                <div class="ratio-inner">10:90</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout insight">
+                    <div class="callout-title">Funnel Principle</div>
+                    <p>Think of fear as the <strong>match</strong> that lights the fire of awareness, and opportunity as the <strong>fuel</strong> that sustains momentum through decision and beyond. Without fear, there's no initial spark. Without opportunity, the fire burns out before action occurs.</p>
+                </div>
+            </section>
+
+            <!-- Section 8: Industry-Specific Opportunity Messaging -->
+            <section class="section" id="industry">
+                <div class="section-header">
+                    <div class="section-number">8</div>
+                    <h2 class="section-title">Industry-Specific Opportunity Messaging</h2>
+                </div>
+                <p class="section-intro">Each target industry has unique aspirations and opportunities. These reframed messages speak to industry-specific positive outcomes.</p>
+
+                <div class="industry-grid">
+                    <div class="industry-card">
+                        <div class="industry-header">
+                            <h4>Staffing Agencies</h4>
+                        </div>
+                        <div class="industry-body">
+                            <div class="industry-fear">
+                                <div class="industry-label">Original Fear Message</div>
+                                <div class="industry-message">"While you're posting jobs manually, AI-enabled agencies are filling placements in half the time at half the cost."</div>
+                            </div>
+                            <div class="industry-opportunity">
+                                <div class="industry-label">Opportunity Alternative</div>
+                                <div class="industry-message">"Fill placements twice as fast with AI-powered matching. Your relationships plus smart automation equals unstoppable growth."</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industry-card">
+                        <div class="industry-header">
+                            <h4>Veterinary Practices</h4>
+                        </div>
+                        <div class="industry-body">
+                            <div class="industry-fear">
+                                <div class="industry-label">Original Fear Message</div>
+                                <div class="industry-message">"Mars and VCA are buying up every practice in town. Your paper schedule is costing you clients."</div>
+                            </div>
+                            <div class="industry-opportunity">
+                                <div class="industry-label">Opportunity Alternative</div>
+                                <div class="industry-message">"Give pet parents the convenience of corporate while keeping the heart of independent care. Stay local, compete global."</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industry-card">
+                        <div class="industry-header">
+                            <h4>Pest Control</h4>
+                        </div>
+                        <div class="industry-body">
+                            <div class="industry-fear">
+                                <div class="industry-label">Original Fear Message</div>
+                                <div class="industry-message">"National chains are winning with apps and same-day booking. Your customers are calling them instead."</div>
+                            </div>
+                            <div class="industry-opportunity">
+                                <div class="industry-label">Opportunity Alternative</div>
+                                <div class="industry-message">"Same-day booking. Optimized routes. Happy technicians. The efficiency of a national chain with the service of a local owner."</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industry-card">
+                        <div class="industry-header">
+                            <h4>Home Services Trades</h4>
+                        </div>
+                        <div class="industry-body">
+                            <div class="industry-fear">
+                                <div class="industry-label">Original Fear Message</div>
+                                <div class="industry-message">"25 years on referrals, now crushed by HomeAdvisor and Angi charging $50+ per lead."</div>
+                            </div>
+                            <div class="industry-opportunity">
+                                <div class="industry-label">Opportunity Alternative</div>
+                                <div class="industry-message">"Own your lead flow. Stop renting customers from aggregators. Your reputation deserves a website that works as hard as you do."</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industry-card">
+                        <div class="industry-header">
+                            <h4>Insurance Agencies</h4>
+                        </div>
+                        <div class="industry-body">
+                            <div class="industry-fear">
+                                <div class="industry-label">Original Fear Message</div>
+                                <div class="industry-message">"GEICO and Progressive are winning with instant quotes. Your website from 2005 tells prospects you're outdated."</div>
+                            </div>
+                            <div class="industry-opportunity">
+                                <div class="industry-label">Opportunity Alternative</div>
+                                <div class="industry-message">"Combine the personal touch that made you successful with the digital convenience clients expect. Be the agency that has it all."</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industry-card">
+                        <div class="industry-header">
+                            <h4>Professional Services</h4>
+                        </div>
+                        <div class="industry-body">
+                            <div class="industry-fear">
+                                <div class="industry-label">Original Fear Message</div>
+                                <div class="industry-message">"Your outdated website hurts credibility, costing you 10-20% in close rate."</div>
+                            </div>
+                            <div class="industry-opportunity">
+                                <div class="industry-label">Opportunity Alternative</div>
+                                <div class="industry-message">"Let your digital presence do the credibility work before the first meeting. Walk into every pitch with the advantage of professionalism."</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 9: Positive Outcome Visualizations -->
+            <section class="section" id="visualizations">
+                <div class="section-header">
+                    <div class="section-number">9</div>
+                    <h2 class="section-title">Positive Outcome Visualizations</h2>
+                </div>
+                <p class="section-intro">Help prospects see and feel the positive future they're investing in. These visualization frameworks paint vivid pictures of success.</p>
+
+                <div class="visualization-card">
+                    <h3 class="visualization-title">"The Morning After" Visualization</h3>
+                    <p class="visualization-context">Use this framework to help prospects imagine life after modernization</p>
+                    <div class="visualization-outcomes">
+                        <div class="outcome-item">
+                            <div class="outcome-icon">&#9788;</div>
+                            <div class="outcome-headline">Wake Up to Leads</div>
+                            <div class="outcome-description">"Imagine checking your phone and seeing three qualified leads that came in overnight. Your website works while you sleep."</div>
+                        </div>
+                        <div class="outcome-item">
+                            <div class="outcome-icon">&#9993;</div>
+                            <div class="outcome-headline">Inbox Without Chaos</div>
+                            <div class="outcome-description">"Picture opening email to find automated follow-ups have already been sent, appointments scheduled, and nothing fell through the cracks."</div>
+                        </div>
+                        <div class="outcome-item">
+                            <div class="outcome-icon">&#9975;</div>
+                            <div class="outcome-headline">Coffee, Not Crisis</div>
+                            <div class="outcome-description">"Envision starting your day with strategy, not firefighting. Systems handle the routine; you handle the growth."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visualization-card" style="background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);">
+                    <h3 class="visualization-title">"The Year From Now" Visualization</h3>
+                    <p class="visualization-context">Use this framework for longer-term visioning conversations</p>
+                    <div class="visualization-outcomes">
+                        <div class="outcome-item">
+                            <div class="outcome-icon">&#9734;</div>
+                            <div class="outcome-headline">Market Position</div>
+                            <div class="outcome-description">"One year from now, you're the modern choice in your market. Competitors wonder how you moved so fast."</div>
+                        </div>
+                        <div class="outcome-item">
+                            <div class="outcome-icon">&#9670;</div>
+                            <div class="outcome-headline">Team Capacity</div>
+                            <div class="outcome-description">"Your team handles twice the volume with the same headcount. Automation multiplies their impact."</div>
+                        </div>
+                        <div class="outcome-item">
+                            <div class="outcome-icon">&#9829;</div>
+                            <div class="outcome-headline">Owner Freedom</div>
+                            <div class="outcome-description">"You take a vacation without checking email every hour. The business runs with or without your constant attention."</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 10: Success Stories That Inspire vs Warn -->
+            <section class="section" id="stories">
+                <div class="section-header">
+                    <div class="section-number">10</div>
+                    <h2 class="section-title">Success Stories: Inspire vs. Warn</h2>
+                </div>
+                <p class="section-intro">Case studies and testimonials can be framed either as cautionary tales or inspiration stories. The same facts, different emotional framing.</p>
+
+                <div class="story-comparison">
+                    <div class="story-card warning">
+                        <div class="story-header">
+                            <div class="story-type">Warning Story Frame</div>
+                            <h4 class="story-headline">"We Almost Lost Everything to Inaction"</h4>
+                        </div>
+                        <div class="story-body">
+                            <p class="story-content">"For three years, Robert watched his staffing agency fall behind. Competitors with AI matching tools were winning placements he used to own. By the time he called ScaleUp, he'd lost 40% of his client base. We helped him recover, but those years of inaction cost him significantly."</p>
+                            <div class="story-result">Emotional takeaway: Fear, regret, urgency driven by avoided disaster</div>
+                        </div>
+                    </div>
+
+                    <div class="story-card inspiration">
+                        <div class="story-header">
+                            <div class="story-type">Inspiration Story Frame</div>
+                            <h4 class="story-headline">"We Reclaimed Market Leadership in 18 Months"</h4>
+                        </div>
+                        <div class="story-body">
+                            <p class="story-content">"Robert knew his staffing agency needed to modernize. He partnered with ScaleUp to implement AI-powered matching while preserving the relationships that built his reputation. Within 18 months, he'd recovered lost clients and attracted new ones who valued his blend of technology and personal service."</p>
+                            <div class="story-result">Emotional takeaway: Pride, accomplishment, possibility, hope</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-comparison">
+                    <div class="story-card warning">
+                        <div class="story-header">
+                            <div class="story-type">Warning Story Frame</div>
+                            <h4 class="story-headline">"Don't Make the Mistake We Almost Made"</h4>
+                        </div>
+                        <div class="story-body">
+                            <p class="story-content">"Dr. Patricia almost sold her veterinary practice to a corporate buyer at a 30% discount. Why? Because her outdated systems made her practice look less valuable. ScaleUp helped her modernize before the sale, but she wishes she'd started years earlier."</p>
+                            <div class="story-result">Emotional takeaway: Near-miss anxiety, time pressure, missed opportunity</div>
+                        </div>
+                    </div>
+
+                    <div class="story-card inspiration">
+                        <div class="story-header">
+                            <div class="story-type">Inspiration Story Frame</div>
+                            <h4 class="story-headline">"We Added $500K to Our Practice Value"</h4>
+                        </div>
+                        <div class="story-body">
+                            <p class="story-content">"Dr. Patricia knew she wanted to exit in five years. She partnered with ScaleUp to modernize her veterinary practice with online booking, automated reminders, and a marketing system that attracted pet parents. When she was ready to sell, her practice commanded a premium valuation, adding $500K to her retirement."</p>
+                            <div class="story-result">Emotional takeaway: Smart planning, reward, wisdom, financial success</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout success">
+                    <div class="callout-title">Story Selection Guide</div>
+                    <p><strong>Use Warning Stories (20% of portfolio):</strong> For awareness-stage content, prospects who are highly complacent, or as a pattern interrupt when opportunity messaging isn't cutting through.</p>
+                    <p style="margin-top: 10px;"><strong>Use Inspiration Stories (80% of portfolio):</strong> For consideration/decision stage, referral-focused content, retention communications, and whenever prospects have already acknowledged their problem.</p>
+                </div>
+            </section>
+
+            <!-- Section 11: Brand Voice Integration -->
+            <section class="section" id="voice">
+                <div class="section-header">
+                    <div class="section-number">11</div>
+                    <h2 class="section-title">Brand Voice Integration: Watchful, Measured, Decisive</h2>
+                </div>
+                <p class="section-intro">ScaleUp's three voice attributes - Watchful, Measured, and Decisive - each express differently in fear vs. opportunity messaging contexts.</p>
+
+                <div class="voice-grid">
+                    <div class="voice-card">
+                        <h4 class="voice-name">Watchful</h4>
+                        <p class="voice-definition">"We observe the market carefully before acting"</p>
+                        <div class="voice-section">
+                            <div class="voice-section-label voice-fear-label">In Fear Context</div>
+                            <p class="voice-message">"We've watched agencies fail their clients for years. We've seen the patterns. We know what breaks."</p>
+                        </div>
+                        <div class="voice-section">
+                            <div class="voice-section-label voice-opportunity-label">In Opportunity Context</div>
+                            <p class="voice-message">"We've studied what makes businesses like yours thrive. We see the patterns of success. We know what works."</p>
+                        </div>
+                    </div>
+
+                    <div class="voice-card">
+                        <h4 class="voice-name">Measured</h4>
+                        <p class="voice-definition">"We calculate before we commit"</p>
+                        <div class="voice-section">
+                            <div class="voice-section-label voice-fear-label">In Fear Context</div>
+                            <p class="voice-message">"Most agencies skip the math. That's why 81% of clients can't prove ROI. We measure first so you don't regret later."</p>
+                        </div>
+                        <div class="voice-section">
+                            <div class="voice-section-label voice-opportunity-label">In Opportunity Context</div>
+                            <p class="voice-message">"We model your growth before you invest. Real numbers. Your market. Your potential. Certainty before commitment."</p>
+                        </div>
+                    </div>
+
+                    <div class="voice-card">
+                        <h4 class="voice-name">Decisive</h4>
+                        <p class="voice-definition">"When we act, we act with certainty"</p>
+                        <div class="voice-section">
+                            <div class="voice-section-label voice-fear-label">In Fear Context</div>
+                            <p class="voice-message">"Indecision is costing you market share every day. The time for waiting is over. The numbers are clear."</p>
+                        </div>
+                        <div class="voice-section">
+                            <div class="voice-section-label voice-opportunity-label">In Opportunity Context</div>
+                            <p class="voice-message">"Once you see the model, the path forward becomes obvious. Clarity leads to confidence. Confidence leads to action."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 12: Testing Methodology -->
+            <section class="section" id="testing">
+                <div class="section-header">
+                    <div class="section-number">12</div>
+                    <h2 class="section-title">Testing Methodology for Message Tone</h2>
+                </div>
+                <p class="section-intro">A systematic approach to testing fear vs. opportunity messaging ensures data-driven optimization rather than subjective preference.</p>
+
+                <div class="testing-framework">
+                    <div class="testing-grid">
+                        <div class="test-step">
+                            <div class="test-number">1</div>
+                            <h5 class="test-title">Identify Test Variable</h5>
+                            <p class="test-description">Choose a single touchpoint (headline, email subject, ad copy) where fear and opportunity versions can be compared.</p>
+                        </div>
+                        <div class="test-step">
+                            <div class="test-number">2</div>
+                            <h5 class="test-title">Create Matched Pairs</h5>
+                            <p class="test-description">Write fear and opportunity versions that address the same proposition with identical length and structure.</p>
+                        </div>
+                        <div class="test-step">
+                            <div class="test-number">3</div>
+                            <h5 class="test-title">Split Test Equally</h5>
+                            <p class="test-description">Run both versions simultaneously to equal audience segments, controlling for timing and targeting variables.</p>
+                        </div>
+                        <div class="test-step">
+                            <div class="test-number">4</div>
+                            <h5 class="test-title">Measure Multi-Stage</h5>
+                            <p class="test-description">Track not just clicks but downstream metrics: demo requests, qualified leads, close rates, customer satisfaction.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 style="margin: 30px 0 20px; color: var(--navy);">Key Metrics by Funnel Stage</h4>
+                <table class="decision-table">
+                    <thead>
+                        <tr>
+                            <th>Stage</th>
+                            <th>Primary Metric</th>
+                            <th>Secondary Metric</th>
+                            <th>Watch For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Awareness (Ads)</td>
+                            <td>Click-through rate</td>
+                            <td>Time on landing page</td>
+                            <td>Fear may win CTR but lose engagement</td>
+                        </tr>
+                        <tr>
+                            <td>Consideration (Emails)</td>
+                            <td>Open rate / Reply rate</td>
+                            <td>Link clicks, meeting bookings</td>
+                            <td>Opportunity may drive higher quality replies</td>
+                        </tr>
+                        <tr>
+                            <td>Decision (Sales Pages)</td>
+                            <td>Conversion rate</td>
+                            <td>Time to decision, objections raised</td>
+                            <td>Opportunity often reduces decision friction</td>
+                        </tr>
+                        <tr>
+                            <td>Retention (Client Comms)</td>
+                            <td>Satisfaction score</td>
+                            <td>Referral rate, expansion revenue</td>
+                            <td>Opportunity strongly correlated with referrals</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="callout insight">
+                    <div class="callout-title">Testing Principle</div>
+                    <p>Fear messaging often wins early-stage metrics (attention, clicks) but may underperform on downstream metrics (quality, conversion, satisfaction). Always measure the <strong>full funnel impact</strong> before declaring a winner. A headline that gets more clicks but fewer qualified leads is not a winning headline.</p>
+                </div>
+
+                <h4 style="margin: 40px 0 20px; color: var(--navy);">Recommended A/B Tests to Run</h4>
+                <table class="decision-table">
+                    <thead>
+                        <tr>
+                            <th>Test #</th>
+                            <th>Channel</th>
+                            <th>Fear Version</th>
+                            <th>Opportunity Version</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>LinkedIn Ad Headline</td>
+                            <td>"Your Competitors Are Already Digital"</td>
+                            <td>"Lead Your Market Into the Digital Age"</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Cold Email Subject</td>
+                            <td>"Is your marketing actually working?"</td>
+                            <td>"Your next 50 clients are waiting"</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Homepage Headline</td>
+                            <td>"Stop Losing Business to Digital Competitors"</td>
+                            <td>"Turn Your Digital Presence Into Growth"</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Retargeting Ad</td>
+                            <td>"The Longer You Wait, The Harder It Gets"</td>
+                            <td>"Ready to See Your Growth Model?"</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Case Study Title</td>
+                            <td>"How We Saved This Agency From Collapse"</td>
+                            <td>"How This Agency Doubled Revenue in 18 Months"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Implementation Summary -->
+            <div class="executive-summary" style="margin-top: 60px;">
+                <h2>Implementation Summary</h2>
+                <p>Rebalancing ScaleUp Ventures' messaging from fear to opportunity is not about abandoning what works. Fear messaging effectively captures attention and creates urgency. The goal is strategic deployment: use fear for problem recognition in early stages, then transition to opportunity messaging as prospects move toward decision and partnership.</p>
+                <p>Start with the highest-traffic touchpoints (homepage, LinkedIn, cold outreach) and A/B test fear vs. opportunity versions. Measure full-funnel impact, not just clicks. Gradually shift the portfolio toward the 40:60 fear:opportunity ratio as data confirms the transition drives equivalent or better conversion quality.</p>
+                <div class="summary-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">A/B Tests to Launch</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Messages to Transform</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">90</div>
+                        <div class="stat-label">Days for Full Transition</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-brand">Scale<span>Up</span> Ventures</div>
+            <div class="footer-meta">Fear-to-Opportunity Messaging Rebalance | December 2025</div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures | Channel-Specific Messaging Matrix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --gold-light: #E8C987;
+            --gold-dark: #B8923F;
+            --white: #FFFFFF;
+            --off-white: #F8F6F3;
+            --gray-light: #E5E5E5;
+            --gray-medium: #6B7280;
+            --gray-dark: #374151;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--off-white);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 3rem 0;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        header h1 {
+            font-size: 2.75rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        header .subtitle {
+            font-size: 1.25rem;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        header .tagline {
+            margin-top: 1rem;
+            font-style: italic;
+            color: var(--gray-light);
+        }
+
+        /* Overview Section */
+        .overview {
+            background: var(--white);
+            padding: 3rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 2px 8px rgba(15, 23, 41, 0.08);
+        }
+
+        .overview h2 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+
+        .overview p {
+            color: var(--gray-dark);
+            max-width: 900px;
+        }
+
+        .voice-reminder {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .voice-item {
+            background: var(--navy);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .voice-item span {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Channel Section */
+        .channel-section {
+            background: var(--white);
+            margin: 2rem 0;
+            box-shadow: 0 2px 12px rgba(15, 23, 41, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .channel-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .channel-header h2 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .channel-number {
+            background: var(--gold);
+            color: var(--navy);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .channel-body {
+            padding: 2rem;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        table th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-light);
+            vertical-align: top;
+        }
+
+        table tr:nth-child(even) {
+            background: var(--off-white);
+        }
+
+        table tr:hover {
+            background: rgba(212, 168, 83, 0.08);
+        }
+
+        .sub-table {
+            margin: 0;
+        }
+
+        .sub-table th {
+            background: var(--gray-dark);
+            font-size: 0.8rem;
+            padding: 0.75rem;
+        }
+
+        .sub-table td {
+            font-size: 0.9rem;
+            padding: 0.75rem;
+        }
+
+        /* Labels and Tags */
+        .label {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 0.125rem;
+        }
+
+        .label-tone {
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold-dark);
+        }
+
+        .label-length {
+            background: rgba(15, 23, 41, 0.1);
+            color: var(--navy);
+        }
+
+        .label-cta {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Example Boxes */
+        .example-box {
+            background: var(--off-white);
+            border-left: 3px solid var(--gold);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        .example-box strong {
+            color: var(--navy);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .example-box p {
+            color: var(--gray-dark);
+            font-style: italic;
+        }
+
+        /* Do's and Don'ts */
+        .dos-donts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .dos-donts {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .dos, .donts {
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .dos {
+            background: rgba(34, 139, 34, 0.08);
+            border: 1px solid rgba(34, 139, 34, 0.2);
+        }
+
+        .donts {
+            background: rgba(178, 34, 34, 0.08);
+            border: 1px solid rgba(178, 34, 34, 0.2);
+        }
+
+        .dos h4 {
+            color: #228B22;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .donts h4 {
+            color: #B22222;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .dos ul, .donts ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dos li, .donts li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .dos li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            color: #228B22;
+            font-weight: bold;
+        }
+
+        .donts li::before {
+            content: "\2717";
+            position: absolute;
+            left: 0;
+            color: #B22222;
+            font-weight: bold;
+        }
+
+        /* Key Phrases */
+        .key-phrases {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .phrase {
+            background: var(--navy);
+            color: var(--white);
+            padding: 0.375rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        /* Visual Requirements */
+        .visual-req {
+            background: var(--off-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .visual-req h4 {
+            color: var(--gold-dark);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .visual-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .visual-item {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid var(--gray-light);
+        }
+
+        .visual-item strong {
+            display: block;
+            color: var(--navy);
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .visual-item span {
+            color: var(--gray-medium);
+            font-size: 0.85rem;
+        }
+
+        /* Character Limits */
+        .char-limits {
+            background: var(--navy);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .char-limits h4 {
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .char-limits ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .char-limits li {
+            font-size: 0.9rem;
+        }
+
+        .char-limits span {
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        /* Subsection */
+        .subsection {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--off-white);
+            border-radius: 8px;
+        }
+
+        .subsection h3 {
+            color: var(--navy);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        /* Quick Reference */
+        .quick-ref {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%);
+            color: var(--white);
+            padding: 3rem;
+            margin: 3rem 0;
+            border-radius: 8px;
+        }
+
+        .quick-ref h2 {
+            color: var(--gold);
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+        }
+
+        .quick-ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .quick-ref-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 168, 83, 0.3);
+        }
+
+        .quick-ref-item h4 {
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .quick-ref-item p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: var(--gray-medium);
+        }
+
+        footer .brand {
+            color: var(--gold);
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .channel-section {
+                page-break-inside: avoid;
+            }
+            .quick-ref {
+                background: var(--navy) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            .overview {
+                padding: 1.5rem;
+            }
+            .channel-body {
+                padding: 1rem;
+            }
+            table {
+                font-size: 0.85rem;
+            }
+            table th, table td {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Channel-Specific Messaging Matrix</h1>
+        <p class="subtitle">ScaleUp Ventures Brand Communication Guide</p>
+        <p class="tagline">"Certainty First."</p>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- Overview -->
+    <section class="overview">
+        <h2>How to Use This Matrix</h2>
+        <p>This comprehensive guide ensures consistent, on-brand messaging across all ScaleUp Ventures communication channels. Each channel has specific tone adjustments, message lengths, key phrases, and visual requirements calibrated for our target audience: skeptical 50-65 year old business owners who value substance over flash and evidence over promises.</p>
+
+        <div class="voice-reminder">
+            <div class="voice-item"><span>Watchful:</span> Observant, thorough, nothing escapes notice</div>
+            <div class="voice-item"><span>Measured:</span> Deliberate, precise, no wasted words</div>
+            <div class="voice-item"><span>Decisive:</span> Clear direction, confident recommendations</div>
+        </div>
+    </section>
+
+    <!-- Channel 1: Website -->
+    <section class="channel-section">
+        <div class="channel-header">
+            <h2><span class="channel-number">1</span> Website</h2>
+        </div>
+        <div class="channel-body">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">Page</th>
+                        <th style="width: 15%;">Tone Adjustment</th>
+                        <th style="width: 15%;">Message Length</th>
+                        <th style="width: 30%;">Key Messages</th>
+                        <th style="width: 25%;">Primary CTA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Homepage</strong></td>
+                        <td><span class="label label-tone">Confident + Welcoming</span></td>
+                        <td><span class="label label-length">Concise (50-75 words hero)</span></td>
+                        <td>Lead with the problem we solve. Emphasize certainty and clarity. Reference decades of combined experience.</td>
+                        <td><span class="label label-cta">Schedule a Consultation</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Services</strong></td>
+                        <td><span class="label label-tone">Precise + Authoritative</span></td>
+                        <td><span class="label label-length">Detailed (150-200 words/service)</span></td>
+                        <td>Focus on outcomes, not activities. Include specific deliverables. Address common objections proactively.</td>
+                        <td><span class="label label-cta">Request Service Details</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>About</strong></td>
+                        <td><span class="label label-tone">Warm + Credible</span></td>
+                        <td><span class="label label-length">Moderate (300-400 words)</span></td>
+                        <td>Lead with philosophy, not biography. Explain why we serve this audience. Highlight relevant credentials without boasting.</td>
+                        <td><span class="label label-cta">Meet the Team</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Blog</strong></td>
+                        <td><span class="label label-tone">Educational + Direct</span></td>
+                        <td><span class="label label-length">Substantial (800-1500 words)</span></td>
+                        <td>Practical insights owners can use immediately. Data-backed observations. Contrarian viewpoints when warranted.</td>
+                        <td><span class="label label-cta">Subscribe for Insights</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="key-phrases">
+                <span class="phrase">Certainty First</span>
+                <span class="phrase">Evidence-based strategy</span>
+                <span class="phrase">Built on experience</span>
+                <span class="phrase">Clear path forward</span>
+                <span class="phrase">No guesswork</span>
+                <span class="phrase">Decades of insight</span>
+            </div>
+
+            <div class="example-box">
+                <strong>Example Homepage Hero Copy</strong>
+                <p>"Your business decisions shouldn't feel like gambles. ScaleUp Ventures brings clarity to growth strategy, helping established business owners navigate expansion with confidence and precision. Certainty first."</p>
+            </div>
+
+            <div class="visual-req">
+                <h4>Visual Requirements - Website</h4>
+                <div class="visual-grid">
+                    <div class="visual-item">
+                        <strong>Color Ratio</strong>
+                        <span>70% white/off-white, 20% navy, 10% gold accents</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>Typography</strong>
+                        <span>Crimson Pro for H1-H3, DM Sans for body and UI</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>Imagery</strong>
+                        <span>Professional, mature subjects. No stock-photo smiles.</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>White Space</strong>
+                        <span>Generous margins. Never crowded.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dos-donts">
+                <div class="dos">
+                    <h4>Do</h4>
+                    <ul>
+                        <li>Lead with outcomes and results</li>
+                        <li>Use specific numbers when available</li>
+                        <li>Address skepticism directly and honestly</li>
+                        <li>Keep sentences under 20 words</li>
+                        <li>Use active voice consistently</li>
+                        <li>Include clear navigation and logical flow</li>
+                    </ul>
+                </div>
+                <div class="donts">
+                    <h4>Don't</h4>
+                    <ul>
+                        <li>Use buzzwords like "synergy" or "disruption"</li>
+                        <li>Make claims without supporting evidence</li>
+                        <li>Use exclamation points</li>
+                        <li>Include stock photos of handshakes</li>
+                        <li>Bury the value proposition</li>
+                        <li>Use sliders or auto-playing elements</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Channel 2: Email -->
+    <section class="channel-section">
+        <div class="channel-header">
+            <h2><span class="channel-number">2</span> Email Communications</h2>
+        </div>
+        <div class="channel-body">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">Email Type</th>
+                        <th style="width: 15%;">Tone Adjustment</th>
+                        <th style="width: 15%;">Length Guidelines</th>
+                        <th style="width: 30%;">Key Messages</th>
+                        <th style="width: 25%;">CTA Approach</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cold Outreach</strong></td>
+                        <td><span class="label label-tone">Respectful + Relevant</span></td>
+                        <td><span class="label label-length">Brief (75-125 words)</span></td>
+                        <td>Reference specific trigger (event, news, mutual connection). One clear value proposition. Acknowledge their time is valuable.</td>
+                        <td><span class="label label-cta">Low-commitment (15-min call)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nurture Sequence</strong></td>
+                        <td><span class="label label-tone">Educational + Patient</span></td>
+                        <td><span class="label label-length">Moderate (150-250 words)</span></td>
+                        <td>Provide genuine value without selling. Share relevant insights. Build credibility through expertise.</td>
+                        <td><span class="label label-cta">Soft (read more, download guide)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Proposals</strong></td>
+                        <td><span class="label label-tone">Precise + Confident</span></td>
+                        <td><span class="label label-length">Comprehensive (as needed)</span></td>
+                        <td>Restate the problem clearly. Present methodology transparently. Detail deliverables, timeline, investment.</td>
+                        <td><span class="label label-cta">Direct (Let's proceed)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Follow-up</strong></td>
+                        <td><span class="label label-tone">Persistent + Graceful</span></td>
+                        <td><span class="label label-length">Brief (50-100 words)</span></td>
+                        <td>Add new value with each touch. Never guilt or pressure. Offer easy next step.</td>
+                        <td><span class="label label-cta">Single, clear ask</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="char-limits">
+                <h4>Character Limits</h4>
+                <ul>
+                    <li>Subject lines: <span>40-60 characters</span></li>
+                    <li>Preview text: <span>80-100 characters</span></li>
+                    <li>Cold email body: <span>Under 150 words</span></li>
+                    <li>Paragraphs: <span>2-3 sentences max</span></li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>Subject Line Templates</h3>
+                <table class="sub-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Template</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cold Outreach</td>
+                            <td>[Specific observation] + [Question/value]</td>
+                            <td>"Question about your Q2 expansion"</td>
+                        </tr>
+                        <tr>
+                            <td>Nurture</td>
+                            <td>[Insight] + [for/about] + [their situation]</td>
+                            <td>"3 signals that indicate growth readiness"</td>
+                        </tr>
+                        <tr>
+                            <td>Follow-up</td>
+                            <td>[Direct reference] + [new element]</td>
+                            <td>"Following up + relevant case study"</td>
+                        </tr>
+                        <tr>
+                            <td>Proposal</td>
+                            <td>[Company name] + [Engagement type]</td>
+                            <td>"ScaleUp Ventures - Growth Strategy Proposal"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="example-box">
+                <strong>Example Cold Outreach Email</strong>
+                <p>Subject: Question about your regional expansion<br><br>
+                [Name],<br><br>
+                I noticed your recent announcement about expanding into the Midwest market. That's a significant move for a 25-year-old business.<br><br>
+                Having guided similar manufacturers through regional expansion, I've observed that timing and sequence often matter more than capital. The businesses that struggle usually had the resources but moved on the wrong signals.<br><br>
+                If you're still mapping your approach, I'd value 15 minutes to share what I've seen work. No pitch, just perspective.<br><br>
+                Worth a conversation?<br><br>
+                [Signature]</p>
+            </div>
+
+            <div class="dos-donts">
+                <div class="dos">
+                    <h4>Do</h4>
+                    <ul>
+                        <li>Personalize beyond just the name</li>
+                        <li>Front-load the value</li>
+                        <li>Use simple, direct language</li>
+                        <li>Include one clear CTA per email</li>
+                        <li>Respect the 48-hour follow-up gap</li>
+                        <li>Sign with full name and title</li>
+                    </ul>
+                </div>
+                <div class="donts">
+                    <h4>Don't</h4>
+                    <ul>
+                        <li>Use "Just checking in" as an opener</li>
+                        <li>Send more than 3 follow-ups</li>
+                        <li>Use calendar scheduling links in cold emails</li>
+                        <li>Include multiple asks or CTAs</li>
+                        <li>Write paragraphs longer than 3 lines</li>
+                        <li>Use "Hope this finds you well"</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Channel 3: LinkedIn -->
+    <section class="channel-section">
+        <div class="channel-header">
+            <h2><span class="channel-number">3</span> LinkedIn</h2>
+        </div>
+        <div class="channel-body">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">Asset</th>
+                        <th style="width: 15%;">Tone Adjustment</th>
+                        <th style="width: 15%;">Length</th>
+                        <th style="width: 30%;">Key Messages</th>
+                        <th style="width: 25%;">Engagement Goal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Personal Profile</strong></td>
+                        <td><span class="label label-tone">Authoritative + Approachable</span></td>
+                        <td><span class="label label-length">Headline: 120 chars</span></td>
+                        <td>Lead with who you help, not what you do. Emphasize outcomes. Include specific expertise areas.</td>
+                        <td>Profile views + connection requests</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Posts</strong></td>
+                        <td><span class="label label-tone">Insightful + Conversational</span></td>
+                        <td><span class="label label-length">Optimal: 800-1200 chars</span></td>
+                        <td>Share observations from real experience. Offer contrarian but substantiated views. Ask thoughtful questions.</td>
+                        <td>Comments + Shares</td>
+                    </tr>
+                    <tr>
+                        <td><strong>InMail</strong></td>
+                        <td><span class="label label-tone">Personalized + Direct</span></td>
+                        <td><span class="label label-length">Under 300 characters</span></td>
+                        <td>Reference something specific. State clear purpose. Single, simple ask.</td>
+                        <td>Response rate</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Company Page</strong></td>
+                        <td><span class="label label-tone">Professional + Substantive</span></td>
+                        <td><span class="label label-length">About: 2000 chars max</span></td>
+                        <td>Mission-first messaging. Expertise areas. Client types served. Differentiation from typical consultants.</td>
+                        <td>Followers + Engagement</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="char-limits">
+                <h4>LinkedIn Character Limits</h4>
+                <ul>
+                    <li>Headline: <span>120 characters</span></li>
+                    <li>Summary: <span>2,600 characters</span></li>
+                    <li>Posts (visible without "see more"): <span>~140 characters</span></li>
+                    <li>Full posts: <span>3,000 characters</span></li>
+                    <li>InMail subject: <span>200 characters</span></li>
+                    <li>InMail body: <span>1,900 characters</span></li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>Post Format Templates</h3>
+                <table class="sub-table">
+                    <thead>
+                        <tr>
+                            <th>Format</th>
+                            <th>Structure</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Observation Post</td>
+                            <td>Hook > Context > Insight > Takeaway > Question</td>
+                            <td>Thought leadership, engagement</td>
+                        </tr>
+                        <tr>
+                            <td>Lesson Learned</td>
+                            <td>Situation > What went wrong/right > Lesson > Application</td>
+                            <td>Building credibility, relatability</td>
+                        </tr>
+                        <tr>
+                            <td>Contrarian Take</td>
+                            <td>Common belief > Why it's wrong > Evidence > Better approach</td>
+                            <td>Differentiation, discussion</td>
+                        </tr>
+                        <tr>
+                            <td>Question Post</td>
+                            <td>Context > Your perspective > Open question</td>
+                            <td>Engagement, market research</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="example-box">
+                <strong>Example LinkedIn Post</strong>
+                <p>Most business owners I meet are solving the wrong problem.<br><br>
+                They say: "I need to grow revenue."<br><br>
+                But when we examine the situation carefully, the real constraint is often capacity, not demand. They're already at 85% utilization. Adding revenue without addressing that creates chaos, not growth.<br><br>
+                The question isn't "how do we sell more?"<br><br>
+                It's "what must be true before we can handle more?"<br><br>
+                Sequence matters. Growth without readiness is just expensive learning.<br><br>
+                What's the constraint your business is actually facing right now?</p>
+            </div>
+
+            <div class="dos-donts">
+                <div class="dos">
+                    <h4>Do</h4>
+                    <ul>
+                        <li>Use line breaks for readability</li>
+                        <li>Start with a compelling first line (the hook)</li>
+                        <li>Share genuine insights from experience</li>
+                        <li>Engage thoughtfully on others' posts first</li>
+                        <li>Post consistently (2-3x per week)</li>
+                        <li>Respond to every comment within 24 hours</li>
+                    </ul>
+                </div>
+                <div class="donts">
+                    <h4>Don't</h4>
+                    <ul>
+                        <li>Use hashtags excessively (max 3-5)</li>
+                        <li>Post motivational quotes without substance</li>
+                        <li>Pitch in InMail without building rapport</li>
+                        <li>Use engagement bait ("Comment YES if...")</li>
+                        <li>Tag people who haven't consented</li>
+                        <li>Share only company content</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Channel 4: Proposals and Sales Decks -->
+    <section class="channel-section">
+        <div class="channel-header">
+            <h2><span class="channel-number">4</span> Proposals and Sales Decks</h2>
+        </div>
+        <div class="channel-body">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">Section</th>
+                        <th style="width: 15%;">Tone</th>
+                        <th style="width: 40%;">Content Guidelines</th>
+                        <th style="width: 25%;">Length</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Executive Summary</strong></td>
+                        <td><span class="label label-tone">Confident + Concise</span></td>
+                        <td>Problem statement, proposed solution, expected outcomes, investment summary. Decision-maker should get full picture from this page alone.</td>
+                        <td><span class="label label-length">1 page max</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Situation Analysis</strong></td>
+                        <td><span class="label label-tone">Precise + Observant</span></td>
+                        <td>Demonstrate understanding of their specific situation. Reference discovery conversations. Show you've done the work.</td>
+                        <td><span class="label label-length">1-2 pages</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Recommended Approach</strong></td>
+                        <td><span class="label label-tone">Authoritative + Clear</span></td>
+                        <td>Phase-by-phase methodology. Specific deliverables per phase. Timeline with milestones. Rationale for approach.</td>
+                        <td><span class="label label-length">2-3 pages</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Investment</strong></td>
+                        <td><span class="label label-tone">Direct + Transparent</span></td>
+                        <td>Clear pricing structure. What's included/excluded. Payment terms. Value justification (ROI framing).</td>
+                        <td><span class="label label-length">1 page</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Credentials</strong></td>
+                        <td><span class="label label-tone">Relevant + Restrained</span></td>
+                        <td>Case studies similar to their situation. Specific outcomes achieved. Relevant experience only.</td>
+                        <td><span class="label label-length">1-2 pages</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Next Steps</strong></td>
+                        <td><span class="label label-tone">Decisive + Simple</span></td>
+                        <td>Clear path to engagement. What happens when they say yes. Timeline to start. Contact information.</td>
+                        <td><span class="label label-length">Half page</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="visual-req">
+                <h4>Visual Requirements - Proposals and Decks</h4>
+                <div class="visual-grid">
+                    <div class="visual-item">
+                        <strong>Layout</strong>
+                        <span>Clean, ample white space. One idea per slide.</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>Color Usage</strong>
+                        <span>Navy for headers, Gold for accents and key data</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>Typography</strong>
+                        <span>Min 14pt body, 24pt+ headers. Never justify text.</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>Charts</strong>
+                        <span>Simple, labeled clearly. No 3D effects.</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>Branding</strong>
+                        <span>Logo on cover and footer. Consistent throughout.</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>Page Count</strong>
+                        <span>Proposals: 8-12 pages. Decks: 10-15 slides.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <strong>Example Executive Summary Opening</strong>
+                <p>"Meridian Manufacturing has built a $12M regional business through operational excellence and customer loyalty. The question now is how to replicate that success in two new markets without overextending the core business.<br><br>
+                Based on our discovery conversations and analysis, we recommend a phased approach that sequences market entry to match capacity development. This protects the foundation while building new revenue streams."</p>
+            </div>
+
+            <div class="dos-donts">
+                <div class="dos">
+                    <h4>Do</h4>
+                    <ul>
+                        <li>Customize every proposal (no templates)</li>
+                        <li>Lead with their situation, not your services</li>
+                        <li>Include specific deliverables with timelines</li>
+                        <li>Make pricing clear and defensible</li>
+                        <li>Provide a printed and digital version</li>
+                        <li>Follow up with a brief summary email</li>
+                    </ul>
+                </div>
+                <div class="donts">
+                    <h4>Don't</h4>
+                    <ul>
+                        <li>Lead with company history or credentials</li>
+                        <li>Use jargon or consultant-speak</li>
+                        <li>Include testimonials from unrelated industries</li>
+                        <li>Bury the investment section</li>
+                        <li>Send without a scheduled review call</li>
+                        <li>Use complex animations or transitions</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Channel 5: Print Collateral -->
+    <section class="channel-section">
+        <div class="channel-header">
+            <h2><span class="channel-number">5</span> Print Collateral</h2>
+        </div>
+        <div class="channel-body">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">Asset</th>
+                        <th style="width: 15%;">Tone</th>
+                        <th style="width: 25%;">Content Focus</th>
+                        <th style="width: 25%;">Specifications</th>
+                        <th style="width: 20%;">Key CTA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Business Cards</strong></td>
+                        <td><span class="label label-tone">Premium + Understated</span></td>
+                        <td>Name, title, contact info. Tagline on back. No extensive services list.</td>
+                        <td>3.5" x 2", heavy stock (16pt+), matte finish</td>
+                        <td>Website URL</td>
+                    </tr>
+                    <tr>
+                        <td><strong>One-Pagers</strong></td>
+                        <td><span class="label label-tone">Scannable + Value-focused</span></td>
+                        <td>Single service or topic. Problem > Solution > Outcomes. Quick facts.</td>
+                        <td>8.5" x 11", single-sided preferred, quality paper</td>
+                        <td>Schedule consultation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Brochures</strong></td>
+                        <td><span class="label label-tone">Comprehensive + Credible</span></td>
+                        <td>Company overview, services, approach, case studies, team. Leave-behind quality.</td>
+                        <td>Tri-fold or 8-page booklet, coated stock</td>
+                        <td>Multiple soft CTAs</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Folders/Presentation Materials</strong></td>
+                        <td><span class="label label-tone">Polished + Professional</span></td>
+                        <td>Brand statement, contact. Houses proposal and supporting materials.</td>
+                        <td>9" x 12" pocket folder, embossed or foil optional</td>
+                        <td>Implicit quality signal</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="visual-req">
+                <h4>Print Specifications</h4>
+                <div class="visual-grid">
+                    <div class="visual-item">
+                        <strong>Paper Stock</strong>
+                        <span>Minimum 100lb cover, uncoated or soft-touch matte</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>Color Mode</strong>
+                        <span>CMYK: Navy C:95 M:85 Y:45 K:60, Gold C:15 M:30 Y:75 K:0</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>Bleed</strong>
+                        <span>0.125" minimum on all sides</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>Typography</strong>
+                        <span>Min 9pt body, 6pt legal/footnotes</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <strong>Example One-Pager Headline and Subhead</strong>
+                <p><strong style="font-size: 1.2rem;">Growth Strategy for Established Businesses</strong><br><br>
+                For business owners who've built something worth protecting, expansion requires more than ambition. It requires a clear-eyed view of capacity, timing, and sequence.</p>
+            </div>
+
+            <div class="dos-donts">
+                <div class="dos">
+                    <h4>Do</h4>
+                    <ul>
+                        <li>Invest in premium paper and printing</li>
+                        <li>Include QR codes linking to relevant pages</li>
+                        <li>Use generous margins and white space</li>
+                        <li>Ensure readability (adequate font size)</li>
+                        <li>Keep content evergreen (avoid dates)</li>
+                        <li>Proof carefully - print errors are permanent</li>
+                    </ul>
+                </div>
+                <div class="donts">
+                    <h4>Don't</h4>
+                    <ul>
+                        <li>Print on standard office paper</li>
+                        <li>Include dated pricing or offers</li>
+                        <li>Use glossy finishes (too flashy for brand)</li>
+                        <li>Crowd the layout with too much text</li>
+                        <li>Include every service offering</li>
+                        <li>Use stock photos of generic business scenes</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Channel 6: Advertising -->
+    <section class="channel-section">
+        <div class="channel-header">
+            <h2><span class="channel-number">6</span> Advertising</h2>
+        </div>
+        <div class="channel-body">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">Platform</th>
+                        <th style="width: 15%;">Tone</th>
+                        <th style="width: 30%;">Message Focus</th>
+                        <th style="width: 20%;">Character Limits</th>
+                        <th style="width: 20%;">CTA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Google Search</strong></td>
+                        <td><span class="label label-tone">Direct + Problem-aware</span></td>
+                        <td>Lead with the problem they're searching. Offer specific solution. Emphasize experience and credibility.</td>
+                        <td>Headlines: 30 chars<br>Descriptions: 90 chars</td>
+                        <td><span class="label label-cta">Get Assessment</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>LinkedIn Ads</strong></td>
+                        <td><span class="label label-tone">Professional + Targeted</span></td>
+                        <td>Speak to specific role/industry. Offer valuable content. Position as peer, not vendor.</td>
+                        <td>Intro text: 150 chars<br>Headlines: 70 chars</td>
+                        <td><span class="label label-cta">Download Guide</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Display/Retargeting</strong></td>
+                        <td><span class="label label-tone">Reinforcing + Subtle</span></td>
+                        <td>Brand awareness. Simple message. Remind of value proposition. Stay top-of-mind.</td>
+                        <td>Minimal text (20% rule)</td>
+                        <td><span class="label label-cta">Learn More</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="char-limits">
+                <h4>Platform-Specific Limits</h4>
+                <ul>
+                    <li>Google Headlines: <span>30 characters each (up to 15)</span></li>
+                    <li>Google Descriptions: <span>90 characters each (up to 4)</span></li>
+                    <li>LinkedIn Sponsored Content: <span>150 char intro, 70 char headline</span></li>
+                    <li>LinkedIn Text Ads: <span>25 char headline, 75 char description</span></li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>Ad Copy Examples</h3>
+                <table class="sub-table">
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>Headline</th>
+                            <th>Description/Body</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Google Search</td>
+                            <td>"Growth Strategy for Owners"</td>
+                            <td>"Clear, evidence-based strategy for business owners ready to expand. 20+ years experience. Free assessment."</td>
+                        </tr>
+                        <tr>
+                            <td>LinkedIn Sponsored</td>
+                            <td>"Before You Expand: 5 Questions"</td>
+                            <td>"Most expansion failures aren't about capital. They're about timing. Get the assessment framework successful owners use."</td>
+                        </tr>
+                        <tr>
+                            <td>Display Retargeting</td>
+                            <td>"Certainty First"</td>
+                            <td>"Growth strategy for business owners who don't gamble."</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="visual-req">
+                <h4>Visual Requirements - Advertising</h4>
+                <div class="visual-grid">
+                    <div class="visual-item">
+                        <strong>Display Sizes</strong>
+                        <span>300x250, 728x90, 160x600, 320x50 (mobile)</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>LinkedIn Image</strong>
+                        <span>1200x627px for sponsored content</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>Color</strong>
+                        <span>Navy backgrounds, Gold CTAs, White text</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>Logo Placement</strong>
+                        <span>Bottom right corner, 15-20% of ad area</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dos-donts">
+                <div class="dos">
+                    <h4>Do</h4>
+                    <ul>
+                        <li>Target precisely (owner titles, company size, industry)</li>
+                        <li>Offer value before asking for commitment</li>
+                        <li>A/B test headlines and descriptions</li>
+                        <li>Use clear, benefit-focused CTAs</li>
+                        <li>Align landing pages with ad messaging</li>
+                        <li>Set frequency caps on retargeting</li>
+                    </ul>
+                </div>
+                <div class="donts">
+                    <h4>Don't</h4>
+                    <ul>
+                        <li>Use aggressive or hype-driven language</li>
+                        <li>Make promises we can't back up</li>
+                        <li>Target too broadly (waste of budget)</li>
+                        <li>Use stock photos of young tech workers</li>
+                        <li>Include too much text in display ads</li>
+                        <li>Run ads to homepage (use dedicated landing pages)</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Channel 7: Social Media -->
+    <section class="channel-section">
+        <div class="channel-header">
+            <h2><span class="channel-number">7</span> Social Media</h2>
+        </div>
+        <div class="channel-body">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">Platform</th>
+                        <th style="width: 15%;">Tone Adjustment</th>
+                        <th style="width: 15%;">Post Frequency</th>
+                        <th style="width: 30%;">Content Types</th>
+                        <th style="width: 25%;">Engagement Approach</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>LinkedIn (Primary)</strong></td>
+                        <td><span class="label label-tone">Thoughtful + Professional</span></td>
+                        <td><span class="label label-length">3-4 posts/week</span></td>
+                        <td>Observations, insights, questions, occasional case studies, industry commentary</td>
+                        <td>Respond to all comments. Engage on others' posts daily. Build relationships.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Facebook (Secondary)</strong></td>
+                        <td><span class="label label-tone">Warmer + Personal</span></td>
+                        <td><span class="label label-length">1-2 posts/week</span></td>
+                        <td>Community content, milestone celebrations, behind-the-scenes, local business focus</td>
+                        <td>Reply warmly to comments. Share relevant local business news. Keep it human.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="char-limits">
+                <h4>Character Guidelines</h4>
+                <ul>
+                    <li>LinkedIn optimal: <span>800-1200 characters</span></li>
+                    <li>LinkedIn max: <span>3,000 characters</span></li>
+                    <li>Facebook optimal: <span>40-80 characters for max engagement</span></li>
+                    <li>Facebook max: <span>63,206 characters (but don't)</span></li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>Content Pillars</h3>
+                <table class="sub-table">
+                    <thead>
+                        <tr>
+                            <th>Pillar</th>
+                            <th>Description</th>
+                            <th>Frequency</th>
+                            <th>Example Topics</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Observations</strong></td>
+                            <td>Patterns noticed working with owners</td>
+                            <td>40%</td>
+                            <td>Growth timing, common mistakes, market signals</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Frameworks</strong></td>
+                            <td>Practical tools and thinking models</td>
+                            <td>25%</td>
+                            <td>Decision frameworks, assessment criteria, checklists</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Questions</strong></td>
+                            <td>Thought-provoking prompts for discussion</td>
+                            <td>20%</td>
+                            <td>Industry debates, strategy dilemmas, priority setting</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Credibility</strong></td>
+                            <td>Case studies, achievements, recognition</td>
+                            <td>15%</td>
+                            <td>Client wins (with permission), speaking, media</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="visual-req">
+                <h4>Visual Requirements - Social Media</h4>
+                <div class="visual-grid">
+                    <div class="visual-item">
+                        <strong>LinkedIn Banner</strong>
+                        <span>1584 x 396 px, brand-aligned design</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>LinkedIn Post Images</strong>
+                        <span>1200 x 628 px (horizontal), 1080 x 1080 px (square)</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>Facebook Cover</strong>
+                        <span>820 x 312 px (desktop), safe zone 640 x 312 px</span>
+                    </div>
+                    <div class="visual-item">
+                        <strong>Profile Photos</strong>
+                        <span>Professional headshot, navy/neutral background</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <strong>Example LinkedIn Content Calendar (One Week)</strong>
+                <p><strong>Monday:</strong> Observation post about a pattern in client work<br>
+                <strong>Wednesday:</strong> Framework or practical tool (carousel or text)<br>
+                <strong>Thursday:</strong> Industry commentary or contrarian take<br>
+                <strong>Friday:</strong> Question post inviting discussion</p>
+            </div>
+
+            <div class="dos-donts">
+                <div class="dos">
+                    <h4>Do</h4>
+                    <ul>
+                        <li>Post at consistent times (M-F, 7-9 AM or 12 PM)</li>
+                        <li>Share genuine insights from real experience</li>
+                        <li>Engage meaningfully on others' content</li>
+                        <li>Use native content (not just links)</li>
+                        <li>Include a visual when relevant</li>
+                        <li>Build community, not just audience</li>
+                    </ul>
+                </div>
+                <div class="donts">
+                    <h4>Don't</h4>
+                    <ul>
+                        <li>Automate posting or engagement</li>
+                        <li>Share only promotional content</li>
+                        <li>Use trending hashtags unrelated to content</li>
+                        <li>Post on weekends (audience is offline)</li>
+                        <li>Neglect responding to comments</li>
+                        <li>Cross-post identical content to all platforms</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Quick Reference Summary -->
+    <section class="quick-ref">
+        <h2>Quick Reference: Channel Summary</h2>
+        <div class="quick-ref-grid">
+            <div class="quick-ref-item">
+                <h4>Website</h4>
+                <p>Confident + Welcoming. Lead with outcomes. Clear navigation. Generous white space. CTA: Schedule consultation.</p>
+            </div>
+            <div class="quick-ref-item">
+                <h4>Email</h4>
+                <p>Respectful + Relevant. Under 150 words for cold. Personalize beyond name. One CTA per email. No "checking in."</p>
+            </div>
+            <div class="quick-ref-item">
+                <h4>LinkedIn</h4>
+                <p>Insightful + Conversational. 800-1200 char posts. Share real observations. Engage on others' content first. 3-4x weekly.</p>
+            </div>
+            <div class="quick-ref-item">
+                <h4>Proposals</h4>
+                <p>Precise + Confident. Lead with their situation. Specific deliverables. Clear investment section. Always customize.</p>
+            </div>
+            <div class="quick-ref-item">
+                <h4>Print</h4>
+                <p>Premium + Understated. Heavy paper stock. Generous margins. QR codes to digital. No dated content.</p>
+            </div>
+            <div class="quick-ref-item">
+                <h4>Advertising</h4>
+                <p>Direct + Targeted. Problem-aware headlines. Value-first offers. Precise targeting. Dedicated landing pages.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Universal Guidelines -->
+    <section class="channel-section">
+        <div class="channel-header">
+            <h2><span class="channel-number">+</span> Universal Guidelines</h2>
+        </div>
+        <div class="channel-body">
+
+            <div class="subsection">
+                <h3>Core Voice Across All Channels</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Voice Attribute</th>
+                            <th>What It Means</th>
+                            <th>What It Doesn't Mean</th>
+                            <th>Consistent Across Channels</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Watchful</strong></td>
+                            <td>Observant, thorough, sees what others miss</td>
+                            <td>Paranoid, suspicious, negative</td>
+                            <td>Always demonstrate that we've noticed the details others overlook</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Measured</strong></td>
+                            <td>Deliberate, precise, no wasted words</td>
+                            <td>Slow, hesitant, indecisive</td>
+                            <td>Every word earns its place. Cut unnecessary qualifiers.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Decisive</strong></td>
+                            <td>Clear direction, confident recommendations</td>
+                            <td>Pushy, arrogant, inflexible</td>
+                            <td>Take clear positions. Avoid hedge words like "maybe" or "perhaps."</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="subsection">
+                <h3>Universal Phrases to Use</h3>
+                <div class="key-phrases">
+                    <span class="phrase">Certainty First</span>
+                    <span class="phrase">Evidence-based</span>
+                    <span class="phrase">Clear-eyed view</span>
+                    <span class="phrase">Worth protecting</span>
+                    <span class="phrase">Sequence matters</span>
+                    <span class="phrase">Built on experience</span>
+                    <span class="phrase">Capacity before demand</span>
+                    <span class="phrase">The right signals</span>
+                    <span class="phrase">Prepared, not just ambitious</span>
+                    <span class="phrase">Sustainable growth</span>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Universal Phrases to Avoid</h3>
+                <div class="key-phrases" style="opacity: 0.7;">
+                    <span class="phrase" style="text-decoration: line-through;">Synergy</span>
+                    <span class="phrase" style="text-decoration: line-through;">Disruptive</span>
+                    <span class="phrase" style="text-decoration: line-through;">Game-changing</span>
+                    <span class="phrase" style="text-decoration: line-through;">Leverage</span>
+                    <span class="phrase" style="text-decoration: line-through;">Best-in-class</span>
+                    <span class="phrase" style="text-decoration: line-through;">Cutting-edge</span>
+                    <span class="phrase" style="text-decoration: line-through;">Revolutionary</span>
+                    <span class="phrase" style="text-decoration: line-through;">Just checking in</span>
+                    <span class="phrase" style="text-decoration: line-through;">Hope this helps</span>
+                    <span class="phrase" style="text-decoration: line-through;">Circle back</span>
+                </div>
+            </div>
+
+            <div class="dos-donts">
+                <div class="dos">
+                    <h4>Always (Every Channel)</h4>
+                    <ul>
+                        <li>Lead with the audience's concern, not our capabilities</li>
+                        <li>Use specific language over generic claims</li>
+                        <li>Back assertions with evidence when possible</li>
+                        <li>Write at a 10th-grade reading level</li>
+                        <li>Use active voice and strong verbs</li>
+                        <li>Proofread everything twice</li>
+                        <li>Include a clear next step</li>
+                    </ul>
+                </div>
+                <div class="donts">
+                    <h4>Never (Every Channel)</h4>
+                    <ul>
+                        <li>Use exclamation points</li>
+                        <li>Make unsubstantiated claims</li>
+                        <li>Use jargon our audience wouldn't use</li>
+                        <li>Talk about ourselves more than them</li>
+                        <li>Pressure or create false urgency</li>
+                        <li>Publish without brand review for new assets</li>
+                        <li>Forget the fundamental: Certainty First</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p class="brand">ScaleUp Ventures</p>
+        <p>Channel-Specific Messaging Matrix | Brand Communications Guide</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">Document Version 1.0 | December 2025</p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positive Emotional Vocabulary Guide | ScaleUp Ventures</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --navy-light: #1a2540;
+            --navy-dark: #0a0f1a;
+            --gold-light: #e6c17a;
+            --gold-muted: rgba(212, 168, 83, 0.15);
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --pride: #9B59B6;
+            --vindication: #27AE60;
+            --calm: #3498DB;
+            --confidence: #E67E22;
+            --relief: #1ABC9C;
+            --accomplishment: #F39C12;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--navy);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+            padding: 80px 0;
+            border-bottom: 3px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at top right, rgba(212, 168, 83, 0.1) 0%, transparent 50%);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--gold-muted);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        h1 span {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+        }
+
+        /* Emotional Spectrum Visual */
+        .spectrum-section {
+            padding: 60px 0;
+            background: var(--navy-dark);
+        }
+
+        .spectrum-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 40px;
+            background: var(--navy);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .spectrum-emotion {
+            text-align: center;
+            flex: 1;
+        }
+
+        .spectrum-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .spectrum-emotion h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .spectrum-emotion p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .spectrum-arrow {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--navy-dark);
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        h2 span {
+            color: var(--gold);
+        }
+
+        .section-intro {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* Audit Table */
+        .audit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .audit-card {
+            background: var(--navy-light);
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 4px solid;
+        }
+
+        .audit-card.current {
+            border-left-color: var(--text-secondary);
+        }
+
+        .audit-card.missing {
+            border-left-color: #e74c3c;
+        }
+
+        .audit-card.adding {
+            border-left-color: var(--gold);
+        }
+
+        .audit-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .audit-card.current .audit-label { color: var(--text-secondary); }
+        .audit-card.missing .audit-label { color: #e74c3c; }
+        .audit-card.adding .audit-label { color: var(--gold); }
+
+        .audit-words {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .audit-word {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Emotion Vocabulary Cards */
+        .emotion-section {
+            margin-bottom: 60px;
+        }
+
+        .emotion-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .emotion-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .emotion-title h3 {
+            margin-bottom: 5px;
+            font-size: 1.6rem;
+        }
+
+        .emotion-title p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .vocabulary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .vocab-category {
+            background: var(--navy-light);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .vocab-category h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .vocab-list {
+            list-style: none;
+        }
+
+        .vocab-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+        }
+
+        .vocab-list li:last-child {
+            border-bottom: none;
+        }
+
+        .word-emphasis {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* Phrase Examples */
+        .phrase-examples {
+            background: var(--navy-dark);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .phrase-examples h4 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .phrase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .phrase-item {
+            background: var(--navy);
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-style: italic;
+            border-left: 3px solid;
+        }
+
+        /* Context Mapping */
+        .context-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        .context-table th,
+        .context-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .context-table th {
+            background: var(--navy-light);
+            color: var(--gold);
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .context-table td:first-child {
+            font-weight: 500;
+        }
+
+        .emotion-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            margin: 2px;
+            font-weight: 500;
+        }
+
+        .tag-pride { background: rgba(155, 89, 182, 0.2); color: #bb8fce; }
+        .tag-vindication { background: rgba(39, 174, 96, 0.2); color: #58d68d; }
+        .tag-calm { background: rgba(52, 152, 219, 0.2); color: #7fb3d5; }
+        .tag-confidence { background: rgba(230, 126, 34, 0.2); color: #f5b041; }
+        .tag-relief { background: rgba(26, 188, 156, 0.2); color: #48c9b0; }
+        .tag-accomplishment { background: rgba(243, 156, 18, 0.2); color: #f9e79f; }
+
+        /* Industry Language */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .industry-card {
+            background: var(--navy-light);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .industry-header {
+            background: rgba(212, 168, 83, 0.1);
+            padding: 20px 25px;
+            border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .industry-header h4 {
+            color: var(--gold);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .industry-content {
+            padding: 25px;
+        }
+
+        .industry-emotion {
+            margin-bottom: 20px;
+        }
+
+        .industry-emotion:last-child {
+            margin-bottom: 0;
+        }
+
+        .industry-emotion h5 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .industry-phrases {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .industry-phrase {
+            background: var(--navy);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        /* Before/After Examples */
+        .transformation-grid {
+            display: grid;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .transformation-card {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 30px;
+            align-items: stretch;
+            background: var(--navy-light);
+            border-radius: 16px;
+            padding: 30px;
+        }
+
+        .before-block,
+        .after-block {
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .before-block {
+            background: rgba(231, 76, 60, 0.1);
+            border: 1px solid rgba(231, 76, 60, 0.3);
+        }
+
+        .after-block {
+            background: rgba(39, 174, 96, 0.1);
+            border: 1px solid rgba(39, 174, 96, 0.3);
+        }
+
+        .block-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .before-block .block-label { color: #e74c3c; }
+        .after-block .block-label { color: #27ae60; }
+
+        .block-text {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .arrow-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .transform-arrow {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+            font-size: 1.5rem;
+        }
+
+        .emotional-shift {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            grid-column: 1 / -1;
+        }
+
+        .shift-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .shift-emotions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .shift-from,
+        .shift-to {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .shift-from {
+            background: rgba(231, 76, 60, 0.15);
+            color: #e74c3c;
+        }
+
+        .shift-to {
+            background: rgba(39, 174, 96, 0.15);
+            color: #27ae60;
+        }
+
+        .shift-arrow {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* Rational + Emotional Framework */
+        .framework-container {
+            display: grid;
+            grid-template-columns: 1fr 100px 1fr;
+            gap: 30px;
+            margin-top: 40px;
+            align-items: start;
+        }
+
+        .framework-column {
+            background: var(--navy-light);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .framework-column h4 {
+            text-align: center;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .framework-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .framework-item:last-child {
+            border-bottom: none;
+        }
+
+        .framework-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .framework-text h5 {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .framework-text p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .plus-symbol {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--gold);
+            font-weight: 300;
+        }
+
+        .synergy-examples {
+            margin-top: 50px;
+        }
+
+        .synergy-card {
+            background: var(--navy-light);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .synergy-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .synergy-rational {
+            background: var(--navy);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .synergy-emotional {
+            background: rgba(212, 168, 83, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .synergy-combined {
+            background: linear-gradient(135deg, var(--navy) 0%, rgba(212, 168, 83, 0.15) 100%);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--gold);
+        }
+
+        /* Heron Integration */
+        .heron-section {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+            border-radius: 16px;
+            padding: 50px;
+            margin-top: 40px;
+            border: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .heron-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .heron-symbol {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold) 0%, rgba(212, 168, 83, 0.5) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .heron-intro h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .heron-intro p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .heron-emotions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .heron-emotion {
+            background: var(--navy);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .heron-emotion h4 {
+            color: var(--gold);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .heron-emotion p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .heron-words {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .heron-word {
+            background: rgba(212, 168, 83, 0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: var(--gold-light);
+        }
+
+        /* Quick Reference */
+        .quick-ref {
+            background: var(--navy-light);
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+        .quick-ref h3 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .quick-ref-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+        }
+
+        .quick-ref-item {
+            text-align: center;
+            padding: 20px 10px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .quick-ref-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .quick-ref-item.pride { background: rgba(155, 89, 182, 0.15); }
+        .quick-ref-item.vindication { background: rgba(39, 174, 96, 0.15); }
+        .quick-ref-item.calm { background: rgba(52, 152, 219, 0.15); }
+        .quick-ref-item.confidence { background: rgba(230, 126, 34, 0.15); }
+        .quick-ref-item.relief { background: rgba(26, 188, 156, 0.15); }
+        .quick-ref-item.accomplishment { background: rgba(243, 156, 18, 0.15); }
+
+        .quick-ref-icon {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .quick-ref-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .quick-ref-word {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy-dark);
+            padding: 50px 0;
+            border-top: 1px solid rgba(212, 168, 83, 0.2);
+            text-align: center;
+        }
+
+        .footer-brand {
+            color: var(--gold);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .vocabulary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .framework-container {
+                grid-template-columns: 1fr;
+            }
+
+            .plus-symbol {
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+
+            .audit-grid,
+            .industry-grid,
+            .phrase-grid,
+            .heron-emotions,
+            .quick-ref-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .transformation-card {
+                grid-template-columns: 1fr;
+            }
+
+            .arrow-container {
+                transform: rotate(90deg);
+            }
+
+            .synergy-card {
+                grid-template-columns: 1fr;
+            }
+
+            .spectrum-container {
+                flex-direction: column;
+            }
+
+            .spectrum-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="badge">Brand Voice Extension</div>
+                <h1>Positive <span>Emotional</span> Vocabulary</h1>
+                <p class="subtitle">A comprehensive guide to words that evoke pride, vindication, calm, and confidence - expanding ScaleUp Ventures' emotional palette beyond fear.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Emotional Spectrum Visual -->
+    <div class="spectrum-section">
+        <div class="container">
+            <div class="spectrum-container">
+                <div class="spectrum-emotion">
+                    <div class="spectrum-icon" style="background: rgba(155, 89, 182, 0.2);">&#128081;</div>
+                    <h4 style="color: var(--pride);">Pride</h4>
+                    <p>Smart decision</p>
+                </div>
+                <div class="spectrum-arrow">&#8594;</div>
+                <div class="spectrum-emotion">
+                    <div class="spectrum-icon" style="background: rgba(39, 174, 96, 0.2);">&#10003;</div>
+                    <h4 style="color: var(--vindication);">Vindication</h4>
+                    <p>I was right</p>
+                </div>
+                <div class="spectrum-arrow">&#8594;</div>
+                <div class="spectrum-emotion">
+                    <div class="spectrum-icon" style="background: rgba(52, 152, 219, 0.2);">&#127754;</div>
+                    <h4 style="color: var(--calm);">Calm</h4>
+                    <p>Anxiety soothed</p>
+                </div>
+                <div class="spectrum-arrow">&#8594;</div>
+                <div class="spectrum-emotion">
+                    <div class="spectrum-icon" style="background: rgba(230, 126, 34, 0.2);">&#128170;</div>
+                    <h4 style="color: var(--confidence);">Confidence</h4>
+                    <p>I can trust this</p>
+                </div>
+                <div class="spectrum-arrow">&#8594;</div>
+                <div class="spectrum-emotion">
+                    <div class="spectrum-icon" style="background: rgba(26, 188, 156, 0.2);">&#128524;</div>
+                    <h4 style="color: var(--relief);">Relief</h4>
+                    <p>Burden lifted</p>
+                </div>
+                <div class="spectrum-arrow">&#8594;</div>
+                <div class="spectrum-emotion">
+                    <div class="spectrum-icon" style="background: rgba(243, 156, 18, 0.2);">&#127942;</div>
+                    <h4 style="color: var(--accomplishment);">Accomplishment</h4>
+                    <p>Achievement earned</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 1: Current Emotional Vocabulary Audit -->
+    <section id="audit">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2>Current Emotional <span>Vocabulary Audit</span></h2>
+                <p class="section-intro">Understanding where we are before expanding where we go. Our current vocabulary centers on protection and vigilance - effective but incomplete.</p>
+            </div>
+
+            <div class="audit-grid">
+                <div class="audit-card current">
+                    <div class="audit-label">&#9679; Currently Strong In</div>
+                    <div class="audit-words">
+                        <span class="audit-word">Vigilance</span>
+                        <span class="audit-word">Protection</span>
+                        <span class="audit-word">Caution</span>
+                        <span class="audit-word">Scrutiny</span>
+                        <span class="audit-word">Patience</span>
+                        <span class="audit-word">Diligence</span>
+                        <span class="audit-word">Measured</span>
+                        <span class="audit-word">Watchful</span>
+                        <span class="audit-word">Discerning</span>
+                    </div>
+                </div>
+
+                <div class="audit-card missing">
+                    <div class="audit-label">&#9888; Currently Missing</div>
+                    <div class="audit-words">
+                        <span class="audit-word">Pride</span>
+                        <span class="audit-word">Joy</span>
+                        <span class="audit-word">Triumph</span>
+                        <span class="audit-word">Satisfaction</span>
+                        <span class="audit-word">Vindication</span>
+                        <span class="audit-word">Calm</span>
+                        <span class="audit-word">Assurance</span>
+                        <span class="audit-word">Relief</span>
+                        <span class="audit-word">Celebration</span>
+                    </div>
+                </div>
+
+                <div class="audit-card adding">
+                    <div class="audit-label">&#10022; Now Adding</div>
+                    <div class="audit-words">
+                        <span class="audit-word">Vindicated</span>
+                        <span class="audit-word">Rewarded</span>
+                        <span class="audit-word">Proven</span>
+                        <span class="audit-word">Settled</span>
+                        <span class="audit-word">Assured</span>
+                        <span class="audit-word">Accomplished</span>
+                        <span class="audit-word">Earned</span>
+                        <span class="audit-word">Trusted</span>
+                        <span class="audit-word">Realized</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Pride Vocabulary -->
+    <section id="pride">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2>Pride <span>Vocabulary</span></h2>
+                <p class="section-intro">Words that make clients feel smart about their decision. Pride in discernment, in choosing quality, in valuing substance over hype.</p>
+            </div>
+
+            <div class="emotion-section">
+                <div class="emotion-header">
+                    <div class="emotion-icon" style="background: rgba(155, 89, 182, 0.2);">&#128081;</div>
+                    <div class="emotion-title">
+                        <h3 style="color: var(--pride);">Pride in Decision</h3>
+                        <p>The satisfaction of making a smart, informed choice</p>
+                    </div>
+                </div>
+
+                <div class="vocabulary-grid">
+                    <div class="vocab-category">
+                        <h4 style="color: var(--pride);">Nouns</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Discernment</span></li>
+                            <li><span class="word-emphasis">Distinction</span></li>
+                            <li><span class="word-emphasis">Sophistication</span></li>
+                            <li><span class="word-emphasis">Acumen</span></li>
+                            <li><span class="word-emphasis">Wisdom</span></li>
+                            <li><span class="word-emphasis">Judgment</span></li>
+                            <li><span class="word-emphasis">Standard</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--pride);">Verbs</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Earned</span></li>
+                            <li><span class="word-emphasis">Merited</span></li>
+                            <li><span class="word-emphasis">Demonstrated</span></li>
+                            <li><span class="word-emphasis">Recognized</span></li>
+                            <li><span class="word-emphasis">Distinguished</span></li>
+                            <li><span class="word-emphasis">Selected</span></li>
+                            <li><span class="word-emphasis">Chose wisely</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--pride);">Adjectives</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Exceptional</span></li>
+                            <li><span class="word-emphasis">Discerning</span></li>
+                            <li><span class="word-emphasis">Refined</span></li>
+                            <li><span class="word-emphasis">Astute</span></li>
+                            <li><span class="word-emphasis">Perceptive</span></li>
+                            <li><span class="word-emphasis">Selective</span></li>
+                            <li><span class="word-emphasis">Intentional</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--pride);">Phrases</h4>
+                        <ul class="vocab-list">
+                            <li>"A smart move"</li>
+                            <li>"The right call"</li>
+                            <li>"Well-considered"</li>
+                            <li>"Thoughtfully chosen"</li>
+                            <li>"Wisely invested"</li>
+                            <li>"Earned recognition"</li>
+                            <li>"Distinct advantage"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="phrase-examples">
+                    <h4>Example Applications</h4>
+                    <div class="phrase-grid">
+                        <div class="phrase-item" style="border-left-color: var(--pride);">
+                            "Your discernment led you to partners who earn your trust, not just ask for it."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--pride);">
+                            "Exceptional leaders recognize exceptional preparation."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--pride);">
+                            "You chose a firm that reflects your standards, not just your timeline."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--pride);">
+                            "The wisdom to wait for quality. The judgment to recognize it when it arrives."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Vindication Vocabulary -->
+    <section id="vindication">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2>Vindication <span>Vocabulary</span></h2>
+                <p class="section-intro">Words for the "I was right to be skeptical" moment. Validating the client's caution and rewarding their discernment.</p>
+            </div>
+
+            <div class="emotion-section">
+                <div class="emotion-header">
+                    <div class="emotion-icon" style="background: rgba(39, 174, 96, 0.2);">&#10003;</div>
+                    <div class="emotion-title">
+                        <h3 style="color: var(--vindication);">I Was Right</h3>
+                        <p>Confirmation that skepticism was warranted - and now rewarded</p>
+                    </div>
+                </div>
+
+                <div class="vocabulary-grid">
+                    <div class="vocab-category">
+                        <h4 style="color: var(--vindication);">Nouns</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Vindication</span></li>
+                            <li><span class="word-emphasis">Confirmation</span></li>
+                            <li><span class="word-emphasis">Validation</span></li>
+                            <li><span class="word-emphasis">Proof</span></li>
+                            <li><span class="word-emphasis">Evidence</span></li>
+                            <li><span class="word-emphasis">Verification</span></li>
+                            <li><span class="word-emphasis">Justification</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--vindication);">Verbs</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Vindicated</span></li>
+                            <li><span class="word-emphasis">Proven</span></li>
+                            <li><span class="word-emphasis">Confirmed</span></li>
+                            <li><span class="word-emphasis">Validated</span></li>
+                            <li><span class="word-emphasis">Justified</span></li>
+                            <li><span class="word-emphasis">Rewarded</span></li>
+                            <li><span class="word-emphasis">Demonstrated</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--vindication);">Adjectives</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Right</span></li>
+                            <li><span class="word-emphasis">Correct</span></li>
+                            <li><span class="word-emphasis">Warranted</span></li>
+                            <li><span class="word-emphasis">Justified</span></li>
+                            <li><span class="word-emphasis">Sound</span></li>
+                            <li><span class="word-emphasis">Well-founded</span></li>
+                            <li><span class="word-emphasis">Merited</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--vindication);">Phrases</h4>
+                        <ul class="vocab-list">
+                            <li>"You were right to wait"</li>
+                            <li>"Your skepticism paid off"</li>
+                            <li>"Patience rewarded"</li>
+                            <li>"Instincts confirmed"</li>
+                            <li>"Caution vindicated"</li>
+                            <li>"Finally, proof"</li>
+                            <li>"Worth the scrutiny"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="phrase-examples">
+                    <h4>Example Applications</h4>
+                    <div class="phrase-grid">
+                        <div class="phrase-item" style="border-left-color: var(--vindication);">
+                            "Your instinct to demand proof first? Vindicated in every metric."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--vindication);">
+                            "The skepticism that made others impatient just protected your investment."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--vindication);">
+                            "You were right to ask harder questions. Here are the answers you earned."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--vindication);">
+                            "Your caution wasn't pessimism. It was precision. And it paid off."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Calm Vocabulary -->
+    <section id="calm">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2>Calm <span>Vocabulary</span></h2>
+                <p class="section-intro">Words that soothe anxiety without dismissing concerns. Creating emotional safety through measured reassurance.</p>
+            </div>
+
+            <div class="emotion-section">
+                <div class="emotion-header">
+                    <div class="emotion-icon" style="background: rgba(52, 152, 219, 0.2);">&#127754;</div>
+                    <div class="emotion-title">
+                        <h3 style="color: var(--calm);">Anxiety Soothed</h3>
+                        <p>The peace that comes from knowing you're in capable hands</p>
+                    </div>
+                </div>
+
+                <div class="vocabulary-grid">
+                    <div class="vocab-category">
+                        <h4 style="color: var(--calm);">Nouns</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Steadiness</span></li>
+                            <li><span class="word-emphasis">Stability</span></li>
+                            <li><span class="word-emphasis">Certainty</span></li>
+                            <li><span class="word-emphasis">Foundation</span></li>
+                            <li><span class="word-emphasis">Clarity</span></li>
+                            <li><span class="word-emphasis">Composure</span></li>
+                            <li><span class="word-emphasis">Equilibrium</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--calm);">Verbs</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Settle</span></li>
+                            <li><span class="word-emphasis">Ground</span></li>
+                            <li><span class="word-emphasis">Anchor</span></li>
+                            <li><span class="word-emphasis">Steady</span></li>
+                            <li><span class="word-emphasis">Center</span></li>
+                            <li><span class="word-emphasis">Clarify</span></li>
+                            <li><span class="word-emphasis">Resolve</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--calm);">Adjectives</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Steady</span></li>
+                            <li><span class="word-emphasis">Grounded</span></li>
+                            <li><span class="word-emphasis">Settled</span></li>
+                            <li><span class="word-emphasis">Clear</span></li>
+                            <li><span class="word-emphasis">Stable</span></li>
+                            <li><span class="word-emphasis">Measured</span></li>
+                            <li><span class="word-emphasis">Balanced</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--calm);">Phrases</h4>
+                        <ul class="vocab-list">
+                            <li>"No rushed decisions"</li>
+                            <li>"In good hands"</li>
+                            <li>"Clear path forward"</li>
+                            <li>"Solid ground"</li>
+                            <li>"Room to breathe"</li>
+                            <li>"Take your time"</li>
+                            <li>"We're here when ready"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="phrase-examples">
+                    <h4>Example Applications</h4>
+                    <div class="phrase-grid">
+                        <div class="phrase-item" style="border-left-color: var(--calm);">
+                            "No urgency manufactured. No pressure applied. Just clarity when you're ready."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--calm);">
+                            "We build on solid ground. Steady progress beats frantic pivots."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--calm);">
+                            "The anxiety of uncertainty replaced by the calm of clarity."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--calm);">
+                            "Take the time you need. We'll be here, prepared and ready."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Confidence Vocabulary -->
+    <section id="confidence">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2>Confidence <span>Vocabulary</span></h2>
+                <p class="section-intro">Words that build assurance through competence, not bravado. Confidence earned through preparation and proven through delivery.</p>
+            </div>
+
+            <div class="emotion-section">
+                <div class="emotion-header">
+                    <div class="emotion-icon" style="background: rgba(230, 126, 34, 0.2);">&#128170;</div>
+                    <div class="emotion-title">
+                        <h3 style="color: var(--confidence);">I Can Trust This</h3>
+                        <p>The assurance that comes from demonstrated capability</p>
+                    </div>
+                </div>
+
+                <div class="vocabulary-grid">
+                    <div class="vocab-category">
+                        <h4 style="color: var(--confidence);">Nouns</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Assurance</span></li>
+                            <li><span class="word-emphasis">Certainty</span></li>
+                            <li><span class="word-emphasis">Trust</span></li>
+                            <li><span class="word-emphasis">Competence</span></li>
+                            <li><span class="word-emphasis">Expertise</span></li>
+                            <li><span class="word-emphasis">Reliability</span></li>
+                            <li><span class="word-emphasis">Dependability</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--confidence);">Verbs</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Deliver</span></li>
+                            <li><span class="word-emphasis">Perform</span></li>
+                            <li><span class="word-emphasis">Execute</span></li>
+                            <li><span class="word-emphasis">Achieve</span></li>
+                            <li><span class="word-emphasis">Prove</span></li>
+                            <li><span class="word-emphasis">Demonstrate</span></li>
+                            <li><span class="word-emphasis">Secure</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--confidence);">Adjectives</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Capable</span></li>
+                            <li><span class="word-emphasis">Reliable</span></li>
+                            <li><span class="word-emphasis">Proven</span></li>
+                            <li><span class="word-emphasis">Dependable</span></li>
+                            <li><span class="word-emphasis">Competent</span></li>
+                            <li><span class="word-emphasis">Assured</span></li>
+                            <li><span class="word-emphasis">Consistent</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--confidence);">Phrases</h4>
+                        <ul class="vocab-list">
+                            <li>"Proven track record"</li>
+                            <li>"Demonstrated results"</li>
+                            <li>"We deliver"</li>
+                            <li>"Count on it"</li>
+                            <li>"Built to perform"</li>
+                            <li>"Reliability earned"</li>
+                            <li>"Confidence justified"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="phrase-examples">
+                    <h4>Example Applications</h4>
+                    <div class="phrase-grid">
+                        <div class="phrase-item" style="border-left-color: var(--confidence);">
+                            "Confidence built on capability. Assurance earned through delivery."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--confidence);">
+                            "We don't ask for trust. We demonstrate it deserves to be given."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--confidence);">
+                            "Every promise backed by performance. Every claim supported by evidence."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--confidence);">
+                            "Reliable execution, proven results, dependable partnership."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Relief Vocabulary -->
+    <section id="relief">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2>Relief <span>Vocabulary</span></h2>
+                <p class="section-intro">Words for the burden-lifted moment. The exhale after tension, the weight removed from shoulders.</p>
+            </div>
+
+            <div class="emotion-section">
+                <div class="emotion-header">
+                    <div class="emotion-icon" style="background: rgba(26, 188, 156, 0.2);">&#128524;</div>
+                    <div class="emotion-title">
+                        <h3 style="color: var(--relief);">Burden Lifted</h3>
+                        <p>The exhale when anxiety transforms into ease</p>
+                    </div>
+                </div>
+
+                <div class="vocabulary-grid">
+                    <div class="vocab-category">
+                        <h4 style="color: var(--relief);">Nouns</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Relief</span></li>
+                            <li><span class="word-emphasis">Ease</span></li>
+                            <li><span class="word-emphasis">Freedom</span></li>
+                            <li><span class="word-emphasis">Release</span></li>
+                            <li><span class="word-emphasis">Respite</span></li>
+                            <li><span class="word-emphasis">Unburdening</span></li>
+                            <li><span class="word-emphasis">Liberation</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--relief);">Verbs</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Relieved</span></li>
+                            <li><span class="word-emphasis">Lifted</span></li>
+                            <li><span class="word-emphasis">Freed</span></li>
+                            <li><span class="word-emphasis">Released</span></li>
+                            <li><span class="word-emphasis">Resolved</span></li>
+                            <li><span class="word-emphasis">Eased</span></li>
+                            <li><span class="word-emphasis">Unburdened</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--relief);">Adjectives</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Free</span></li>
+                            <li><span class="word-emphasis">Light</span></li>
+                            <li><span class="word-emphasis">Unburdened</span></li>
+                            <li><span class="word-emphasis">Resolved</span></li>
+                            <li><span class="word-emphasis">Settled</span></li>
+                            <li><span class="word-emphasis">Complete</span></li>
+                            <li><span class="word-emphasis">Clear</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--relief);">Phrases</h4>
+                        <ul class="vocab-list">
+                            <li>"Finally resolved"</li>
+                            <li>"Weight lifted"</li>
+                            <li>"Worry behind you"</li>
+                            <li>"Breathe easy"</li>
+                            <li>"Burden removed"</li>
+                            <li>"At last, clarity"</li>
+                            <li>"Crisis averted"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="phrase-examples">
+                    <h4>Example Applications</h4>
+                    <div class="phrase-grid">
+                        <div class="phrase-item" style="border-left-color: var(--relief);">
+                            "The weight of uncertainty, finally lifted. The path forward, finally clear."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--relief);">
+                            "You can breathe easy now. The hard part is behind you."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--relief);">
+                            "That knot of worry? Resolved. That anxiety? Replaced with certainty."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--relief);">
+                            "The burden of not knowing, finally unburdened by knowing for certain."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Accomplishment Vocabulary -->
+    <section id="accomplishment">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2>Accomplishment <span>Vocabulary</span></h2>
+                <p class="section-intro">Words for achievement earned, not given. Celebrating real progress and genuine success.</p>
+            </div>
+
+            <div class="emotion-section">
+                <div class="emotion-header">
+                    <div class="emotion-icon" style="background: rgba(243, 156, 18, 0.2);">&#127942;</div>
+                    <div class="emotion-title">
+                        <h3 style="color: var(--accomplishment);">Achievement Earned</h3>
+                        <p>The satisfaction of genuine progress and real results</p>
+                    </div>
+                </div>
+
+                <div class="vocabulary-grid">
+                    <div class="vocab-category">
+                        <h4 style="color: var(--accomplishment);">Nouns</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Achievement</span></li>
+                            <li><span class="word-emphasis">Milestone</span></li>
+                            <li><span class="word-emphasis">Success</span></li>
+                            <li><span class="word-emphasis">Victory</span></li>
+                            <li><span class="word-emphasis">Progress</span></li>
+                            <li><span class="word-emphasis">Breakthrough</span></li>
+                            <li><span class="word-emphasis">Triumph</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--accomplishment);">Verbs</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Accomplished</span></li>
+                            <li><span class="word-emphasis">Achieved</span></li>
+                            <li><span class="word-emphasis">Conquered</span></li>
+                            <li><span class="word-emphasis">Realized</span></li>
+                            <li><span class="word-emphasis">Attained</span></li>
+                            <li><span class="word-emphasis">Completed</span></li>
+                            <li><span class="word-emphasis">Succeeded</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--accomplishment);">Adjectives</h4>
+                        <ul class="vocab-list">
+                            <li><span class="word-emphasis">Successful</span></li>
+                            <li><span class="word-emphasis">Victorious</span></li>
+                            <li><span class="word-emphasis">Achieved</span></li>
+                            <li><span class="word-emphasis">Realized</span></li>
+                            <li><span class="word-emphasis">Complete</span></li>
+                            <li><span class="word-emphasis">Fulfilled</span></li>
+                            <li><span class="word-emphasis">Triumphant</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="vocab-category">
+                        <h4 style="color: var(--accomplishment);">Phrases</h4>
+                        <ul class="vocab-list">
+                            <li>"Mission accomplished"</li>
+                            <li>"Milestone reached"</li>
+                            <li>"Goal achieved"</li>
+                            <li>"Success realized"</li>
+                            <li>"Victory earned"</li>
+                            <li>"Progress made real"</li>
+                            <li>"Vision fulfilled"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="phrase-examples">
+                    <h4>Example Applications</h4>
+                    <div class="phrase-grid">
+                        <div class="phrase-item" style="border-left-color: var(--accomplishment);">
+                            "What started as vision is now reality. What was planned is now achieved."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--accomplishment);">
+                            "Another milestone conquered. Another goal transformed from aspiration to accomplishment."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--accomplishment);">
+                            "This success wasn't given. It was earned through preparation and patience."
+                        </div>
+                        <div class="phrase-item" style="border-left-color: var(--accomplishment);">
+                            "The triumph of doing it right, not just doing it fast."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Context Mapping -->
+    <section id="context">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <h2>Context <span>Mapping</span></h2>
+                <p class="section-intro">Which emotions serve which stage. Matching emotional vocabulary to the client's position in their journey.</p>
+            </div>
+
+            <table class="context-table">
+                <thead>
+                    <tr>
+                        <th>Journey Stage</th>
+                        <th>Client Emotional State</th>
+                        <th>Primary Emotions to Evoke</th>
+                        <th>Key Vocabulary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Initial Awareness</td>
+                        <td>Skeptical, Guarded</td>
+                        <td>
+                            <span class="emotion-tag tag-vindication">Vindication</span>
+                            <span class="emotion-tag tag-pride">Pride</span>
+                        </td>
+                        <td>"Right to question," "Discerning," "Smart skepticism"</td>
+                    </tr>
+                    <tr>
+                        <td>Research Phase</td>
+                        <td>Curious but Cautious</td>
+                        <td>
+                            <span class="emotion-tag tag-calm">Calm</span>
+                            <span class="emotion-tag tag-confidence">Confidence</span>
+                        </td>
+                        <td>"No pressure," "Clear evidence," "Proven results"</td>
+                    </tr>
+                    <tr>
+                        <td>Evaluation</td>
+                        <td>Comparing Options</td>
+                        <td>
+                            <span class="emotion-tag tag-pride">Pride</span>
+                            <span class="emotion-tag tag-confidence">Confidence</span>
+                        </td>
+                        <td>"Discernment," "Higher standard," "Exceptional"</td>
+                    </tr>
+                    <tr>
+                        <td>Decision Point</td>
+                        <td>Anxious, Uncertain</td>
+                        <td>
+                            <span class="emotion-tag tag-calm">Calm</span>
+                            <span class="emotion-tag tag-relief">Relief</span>
+                        </td>
+                        <td>"Steady," "Solid ground," "Clarity"</td>
+                    </tr>
+                    <tr>
+                        <td>Onboarding</td>
+                        <td>Hopeful but Nervous</td>
+                        <td>
+                            <span class="emotion-tag tag-confidence">Confidence</span>
+                            <span class="emotion-tag tag-calm">Calm</span>
+                        </td>
+                        <td>"Capable hands," "Reliable," "We deliver"</td>
+                    </tr>
+                    <tr>
+                        <td>Active Engagement</td>
+                        <td>Engaged, Invested</td>
+                        <td>
+                            <span class="emotion-tag tag-accomplishment">Accomplishment</span>
+                            <span class="emotion-tag tag-pride">Pride</span>
+                        </td>
+                        <td>"Progress," "Milestone," "Achievement"</td>
+                    </tr>
+                    <tr>
+                        <td>Results Delivery</td>
+                        <td>Anticipating Validation</td>
+                        <td>
+                            <span class="emotion-tag tag-vindication">Vindication</span>
+                            <span class="emotion-tag tag-accomplishment">Accomplishment</span>
+                        </td>
+                        <td>"Proven right," "Earned," "Realized"</td>
+                    </tr>
+                    <tr>
+                        <td>Long-term Partnership</td>
+                        <td>Loyal, Satisfied</td>
+                        <td>
+                            <span class="emotion-tag tag-pride">Pride</span>
+                            <span class="emotion-tag tag-relief">Relief</span>
+                        </td>
+                        <td>"Partnership," "Trust earned," "Success shared"</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Section 9: Industry-Specific Language -->
+    <section id="industry">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">9</div>
+                <h2>Industry-Specific <span>Emotional Language</span></h2>
+                <p class="section-intro">Tailoring emotional vocabulary to resonate with specific industry mindsets and concerns.</p>
+            </div>
+
+            <div class="industry-grid">
+                <div class="industry-card">
+                    <div class="industry-header">
+                        <h4>Technology / SaaS</h4>
+                    </div>
+                    <div class="industry-content">
+                        <div class="industry-emotion">
+                            <h5>Pride</h5>
+                            <div class="industry-phrases">
+                                <span class="industry-phrase">"Ahead of the curve"</span>
+                                <span class="industry-phrase">"Technical excellence"</span>
+                                <span class="industry-phrase">"Innovative edge"</span>
+                            </div>
+                        </div>
+                        <div class="industry-emotion">
+                            <h5>Vindication</h5>
+                            <div class="industry-phrases">
+                                <span class="industry-phrase">"Due diligence rewarded"</span>
+                                <span class="industry-phrase">"Scalability proven"</span>
+                                <span class="industry-phrase">"Right architecture"</span>
+                            </div>
+                        </div>
+                        <div class="industry-emotion">
+                            <h5>Accomplishment</h5>
+                            <div class="industry-phrases">
+                                <span class="industry-phrase">"Shipped and scaling"</span>
+                                <span class="industry-phrase">"Velocity achieved"</span>
+                                <span class="industry-phrase">"Market traction"</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-header">
+                        <h4>Healthcare / Biotech</h4>
+                    </div>
+                    <div class="industry-content">
+                        <div class="industry-emotion">
+                            <h5>Calm</h5>
+                            <div class="industry-phrases">
+                                <span class="industry-phrase">"Regulatory confidence"</span>
+                                <span class="industry-phrase">"Compliance assured"</span>
+                                <span class="industry-phrase">"Patient-safe"</span>
+                            </div>
+                        </div>
+                        <div class="industry-emotion">
+                            <h5>Confidence</h5>
+                            <div class="industry-phrases">
+                                <span class="industry-phrase">"Clinical validation"</span>
+                                <span class="industry-phrase">"Evidence-based"</span>
+                                <span class="industry-phrase">"Peer-reviewed"</span>
+                            </div>
+                        </div>
+                        <div class="industry-emotion">
+                            <h5>Relief</h5>
+                            <div class="industry-phrases">
+                                <span class="industry-phrase">"FDA pathway cleared"</span>
+                                <span class="industry-phrase">"Trial success"</span>
+                                <span class="industry-phrase">"Milestone achieved"</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-header">
+                        <h4>Financial Services</h4>
+                    </div>
+                    <div class="industry-content">
+                        <div class="industry-emotion">
+                            <h5>Pride</h5>
+                            <div class="industry-phrases">
+                                <span class="industry-phrase">"Alpha generated"</span>
+                                <span class="industry-phrase">"Outperformance"</span>
+                                <span class="industry-phrase">"Strategic allocation"</span>
+                            </div>
+                        </div>
+                        <div class="industry-emotion">
+                            <h5>Vindication</h5>
+                            <div class="industry-phrases">
+                                <span class="industry-phrase">"Thesis validated"</span>
+                                <span class="industry-phrase">"Returns realized"</span>
+                                <span class="industry-phrase">"Risk managed"</span>
+                            </div>
+                        </div>
+                        <div class="industry-emotion">
+                            <h5>Calm</h5>
+                            <div class="industry-phrases">
+                                <span class="industry-phrase">"Diversified protection"</span>
+                                <span class="industry-phrase">"Hedged exposure"</span>
+                                <span class="industry-phrase">"Downside limited"</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-header">
+                        <h4>Manufacturing / Industrial</h4>
+                    </div>
+                    <div class="industry-content">
+                        <div class="industry-emotion">
+                            <h5>Confidence</h5>
+                            <div class="industry-phrases">
+                                <span class="industry-phrase">"Quality certified"</span>
+                                <span class="industry-phrase">"Process validated"</span>
+                                <span class="industry-phrase">"Supply secured"</span>
+                            </div>
+                        </div>
+                        <div class="industry-emotion">
+                            <h5>Relief</h5>
+                            <div class="industry-phrases">
+                                <span class="industry-phrase">"On-time delivery"</span>
+                                <span class="industry-phrase">"Zero defects"</span>
+                                <span class="industry-phrase">"Capacity met"</span>
+                            </div>
+                        </div>
+                        <div class="industry-emotion">
+                            <h5>Accomplishment</h5>
+                            <div class="industry-phrases">
+                                <span class="industry-phrase">"Efficiency gained"</span>
+                                <span class="industry-phrase">"Output optimized"</span>
+                                <span class="industry-phrase">"Margins improved"</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 10: Before/After Examples -->
+    <section id="examples">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">10</div>
+                <h2>Before/After <span>Emotional Shifts</span></h2>
+                <p class="section-intro">Demonstrating how emotional vocabulary transforms messaging from purely rational to emotionally resonant.</p>
+            </div>
+
+            <div class="transformation-grid">
+                <div class="transformation-card">
+                    <div class="before-block">
+                        <div class="block-label">Before (Rational Only)</div>
+                        <div class="block-text">
+                            "Our investment process includes 47 due diligence checkpoints. We analyze market data, competitive positioning, and financial projections before making decisions."
+                        </div>
+                    </div>
+                    <div class="arrow-container">
+                        <div class="transform-arrow">&#8594;</div>
+                    </div>
+                    <div class="after-block">
+                        <div class="block-label">After (Rational + Emotional)</div>
+                        <div class="block-text">
+                            "Your <strong>instinct</strong> to demand thoroughness? We share it. Our 47-checkpoint process means you can feel <strong>confident</strong> knowing every angle has been examined. <strong>No surprises</strong>. Just the <strong>calm certainty</strong> that comes from truly understanding what you're investing in."
+                        </div>
+                    </div>
+                    <div class="emotional-shift">
+                        <div class="shift-label">Emotional Shift</div>
+                        <div class="shift-emotions">
+                            <span class="shift-from">Distant / Technical</span>
+                            <span class="shift-arrow">&#8594;</span>
+                            <span class="shift-to">Calm + Confidence</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="transformation-card">
+                    <div class="before-block">
+                        <div class="block-label">Before (Rational Only)</div>
+                        <div class="block-text">
+                            "We don't rush to deploy capital. Our average hold period is 7+ years, during which we work closely with portfolio companies on strategic initiatives."
+                        </div>
+                    </div>
+                    <div class="arrow-container">
+                        <div class="transform-arrow">&#8594;</div>
+                    </div>
+                    <div class="after-block">
+                        <div class="block-label">After (Rational + Emotional)</div>
+                        <div class="block-text">
+                            "You were <strong>right to be wary</strong> of quick-flip investors. Our 7+ year partnerships mean your <strong>patience is rewarded</strong>, not punished. The <strong>satisfaction</strong> of building something that lasts. The <strong>pride</strong> of choosing partners who think in decades, not quarters."
+                        </div>
+                    </div>
+                    <div class="emotional-shift">
+                        <div class="shift-label">Emotional Shift</div>
+                        <div class="shift-emotions">
+                            <span class="shift-from">Factual / Impersonal</span>
+                            <span class="shift-arrow">&#8594;</span>
+                            <span class="shift-to">Vindication + Pride</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="transformation-card">
+                    <div class="before-block">
+                        <div class="block-label">Before (Rational Only)</div>
+                        <div class="block-text">
+                            "Our portfolio has achieved consistent returns above market benchmarks. We maintain detailed documentation of all investment decisions and outcomes."
+                        </div>
+                    </div>
+                    <div class="arrow-container">
+                        <div class="transform-arrow">&#8594;</div>
+                    </div>
+                    <div class="after-block">
+                        <div class="block-label">After (Rational + Emotional)</div>
+                        <div class="block-text">
+                            "That <strong>weight of uncertainty</strong> you carry about investment decisions? Watch it <strong>lift</strong>. Our track record isn't just numbers - it's <strong>proof that patience pays</strong>. The <strong>relief</strong> of knowing your investment thesis was <strong>vindicated</strong>. The <strong>accomplishment</strong> of returns <strong>earned</strong>, not hoped for."
+                        </div>
+                    </div>
+                    <div class="emotional-shift">
+                        <div class="shift-label">Emotional Shift</div>
+                        <div class="shift-emotions">
+                            <span class="shift-from">Data / Generic</span>
+                            <span class="shift-arrow">&#8594;</span>
+                            <span class="shift-to">Relief + Accomplishment</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="transformation-card">
+                    <div class="before-block">
+                        <div class="block-label">Before (Rational Only)</div>
+                        <div class="block-text">
+                            "We provide strategic guidance and operational support. Our team has experience across multiple industries and market conditions."
+                        </div>
+                    </div>
+                    <div class="arrow-container">
+                        <div class="transform-arrow">&#8594;</div>
+                    </div>
+                    <div class="after-block">
+                        <div class="block-label">After (Rational + Emotional)</div>
+                        <div class="block-text">
+                            "Finally, partners you can <strong>actually count on</strong>. Not empty promises - <strong>demonstrated capability</strong> across market conditions that would shake lesser investors. The <strong>assurance</strong> of experience. The <strong>calm</strong> of knowing someone has seen this before - and navigated through."
+                        </div>
+                    </div>
+                    <div class="emotional-shift">
+                        <div class="shift-label">Emotional Shift</div>
+                        <div class="shift-emotions">
+                            <span class="shift-from">Vague / Credential</span>
+                            <span class="shift-arrow">&#8594;</span>
+                            <span class="shift-to">Confidence + Calm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 11: Rational + Emotional Framework -->
+    <section id="rational-emotional">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">11</div>
+                <h2>Rational Proof + <span>Emotional Vocabulary</span></h2>
+                <p class="section-intro">How emotional vocabulary complements (not replaces) rational evidence. The synergy of head and heart.</p>
+            </div>
+
+            <div class="framework-container">
+                <div class="framework-column">
+                    <h4>Rational Proof Elements</h4>
+                    <div class="framework-item">
+                        <div class="framework-icon" style="background: rgba(255, 255, 255, 0.1);">&#128202;</div>
+                        <div class="framework-text">
+                            <h5>Data & Metrics</h5>
+                            <p>Track record, returns, benchmarks, performance statistics</p>
+                        </div>
+                    </div>
+                    <div class="framework-item">
+                        <div class="framework-icon" style="background: rgba(255, 255, 255, 0.1);">&#128221;</div>
+                        <div class="framework-text">
+                            <h5>Process & Methodology</h5>
+                            <p>Due diligence steps, evaluation criteria, decision frameworks</p>
+                        </div>
+                    </div>
+                    <div class="framework-item">
+                        <div class="framework-icon" style="background: rgba(255, 255, 255, 0.1);">&#128101;</div>
+                        <div class="framework-text">
+                            <h5>Credentials & Experience</h5>
+                            <p>Team backgrounds, years in field, industry expertise</p>
+                        </div>
+                    </div>
+                    <div class="framework-item">
+                        <div class="framework-icon" style="background: rgba(255, 255, 255, 0.1);">&#128218;</div>
+                        <div class="framework-text">
+                            <h5>Case Studies & Examples</h5>
+                            <p>Specific portfolio companies, outcomes, success stories</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="plus-symbol">+</div>
+
+                <div class="framework-column">
+                    <h4>Emotional Vocabulary</h4>
+                    <div class="framework-item">
+                        <div class="framework-icon" style="background: rgba(212, 168, 83, 0.2);">&#128161;</div>
+                        <div class="framework-text">
+                            <h5>Feeling of Insight</h5>
+                            <p>"Now you see why" - Vindication, clarity, understanding</p>
+                        </div>
+                    </div>
+                    <div class="framework-item">
+                        <div class="framework-icon" style="background: rgba(212, 168, 83, 0.2);">&#128524;</div>
+                        <div class="framework-text">
+                            <h5>Feeling of Safety</h5>
+                            <p>"You're protected" - Calm, relief, security</p>
+                        </div>
+                    </div>
+                    <div class="framework-item">
+                        <div class="framework-icon" style="background: rgba(212, 168, 83, 0.2);">&#128081;</div>
+                        <div class="framework-text">
+                            <h5>Feeling of Wisdom</h5>
+                            <p>"Smart choice" - Pride, discernment, accomplishment</p>
+                        </div>
+                    </div>
+                    <div class="framework-item">
+                        <div class="framework-icon" style="background: rgba(212, 168, 83, 0.2);">&#128170;</div>
+                        <div class="framework-text">
+                            <h5>Feeling of Capability</h5>
+                            <p>"In good hands" - Confidence, assurance, trust</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="synergy-examples">
+                <h3>Synergy in Practice</h3>
+
+                <div class="synergy-card">
+                    <div class="synergy-rational">
+                        <div class="synergy-label">Rational Element</div>
+                        <p>"47-point due diligence process"</p>
+                    </div>
+                    <div class="synergy-emotional">
+                        <div class="synergy-label">Emotional Layer</div>
+                        <p>"The calm of certainty"</p>
+                    </div>
+                    <div class="synergy-combined">
+                        <div class="synergy-label">Combined Impact</div>
+                        <p>"Our 47-point process gives you the calm certainty of knowing nothing was overlooked."</p>
+                    </div>
+                </div>
+
+                <div class="synergy-card">
+                    <div class="synergy-rational">
+                        <div class="synergy-label">Rational Element</div>
+                        <p>"7+ year average hold period"</p>
+                    </div>
+                    <div class="synergy-emotional">
+                        <div class="synergy-label">Emotional Layer</div>
+                        <p>"Patience rewarded"</p>
+                    </div>
+                    <div class="synergy-combined">
+                        <div class="synergy-label">Combined Impact</div>
+                        <p>"Our 7+ year partnerships prove that your patience is rewarded, not punished."</p>
+                    </div>
+                </div>
+
+                <div class="synergy-card">
+                    <div class="synergy-rational">
+                        <div class="synergy-label">Rational Element</div>
+                        <p>"Above-benchmark returns"</p>
+                    </div>
+                    <div class="synergy-emotional">
+                        <div class="synergy-label">Emotional Layer</div>
+                        <p>"Vindication earned"</p>
+                    </div>
+                    <div class="synergy-combined">
+                        <div class="synergy-label">Combined Impact</div>
+                        <p>"Above-benchmark returns that vindicate every hour of due diligence you demanded."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 12: Heron Integration -->
+    <section id="heron">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">12</div>
+                <h2>Heron Narrative <span>Integration</span></h2>
+                <p class="section-intro">Connecting positive emotional vocabulary to the patient, successful heron archetype that defines our brand character.</p>
+            </div>
+
+            <div class="heron-section">
+                <div class="heron-header">
+                    <div class="heron-symbol">&#129717;</div>
+                    <div class="heron-intro">
+                        <h3>The Heron's Emotional Wisdom</h3>
+                        <p>Patient. Precise. Successful. The heron embodies the positive emotions we cultivate in our clients.</p>
+                    </div>
+                </div>
+
+                <div class="heron-emotions">
+                    <div class="heron-emotion">
+                        <h4>Patience as Pride</h4>
+                        <p>The heron's stillness isn't passive - it's strategic mastery. Clients feel pride in choosing deliberation over haste.</p>
+                        <div class="heron-words">
+                            <span class="heron-word">Deliberate</span>
+                            <span class="heron-word">Strategic</span>
+                            <span class="heron-word">Masterful</span>
+                            <span class="heron-word">Measured</span>
+                        </div>
+                    </div>
+
+                    <div class="heron-emotion">
+                        <h4>Stillness as Calm</h4>
+                        <p>The heron's composure in turbulent waters mirrors the calm we offer in volatile markets.</p>
+                        <div class="heron-words">
+                            <span class="heron-word">Composed</span>
+                            <span class="heron-word">Centered</span>
+                            <span class="heron-word">Steady</span>
+                            <span class="heron-word">Grounded</span>
+                        </div>
+                    </div>
+
+                    <div class="heron-emotion">
+                        <h4>Strike as Vindication</h4>
+                        <p>When the moment comes, the heron strikes with precision. Patience vindicated. Waiting rewarded.</p>
+                        <div class="heron-words">
+                            <span class="heron-word">Precise</span>
+                            <span class="heron-word">Decisive</span>
+                            <span class="heron-word">Rewarded</span>
+                            <span class="heron-word">Proven</span>
+                        </div>
+                    </div>
+
+                    <div class="heron-emotion">
+                        <h4>Success as Accomplishment</h4>
+                        <p>The fish caught is earned through preparation and timing. Success is the product of patience.</p>
+                        <div class="heron-words">
+                            <span class="heron-word">Earned</span>
+                            <span class="heron-word">Achieved</span>
+                            <span class="heron-word">Realized</span>
+                            <span class="heron-word">Triumphant</span>
+                        </div>
+                    </div>
+
+                    <div class="heron-emotion">
+                        <h4>Expertise as Confidence</h4>
+                        <p>Years of mastering the waters. Knowing exactly when to move. Expertise that inspires trust.</p>
+                        <div class="heron-words">
+                            <span class="heron-word">Mastery</span>
+                            <span class="heron-word">Expertise</span>
+                            <span class="heron-word">Proven</span>
+                            <span class="heron-word">Capable</span>
+                        </div>
+                    </div>
+
+                    <div class="heron-emotion">
+                        <h4>Feeding as Relief</h4>
+                        <p>The successful hunt brings nourishment and security. The burden of hunger lifted.</p>
+                        <div class="heron-words">
+                            <span class="heron-word">Secure</span>
+                            <span class="heron-word">Sustained</span>
+                            <span class="heron-word">Provided</span>
+                            <span class="heron-word">Protected</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Reference -->
+            <div class="quick-ref">
+                <h3>Quick Reference: Emotion Selection Guide</h3>
+                <div class="quick-ref-grid">
+                    <div class="quick-ref-item pride">
+                        <div class="quick-ref-icon">&#128081;</div>
+                        <div class="quick-ref-name">Pride</div>
+                        <div class="quick-ref-word">When they decide</div>
+                    </div>
+                    <div class="quick-ref-item vindication">
+                        <div class="quick-ref-icon">&#10003;</div>
+                        <div class="quick-ref-name">Vindication</div>
+                        <div class="quick-ref-word">When results prove</div>
+                    </div>
+                    <div class="quick-ref-item calm">
+                        <div class="quick-ref-icon">&#127754;</div>
+                        <div class="quick-ref-name">Calm</div>
+                        <div class="quick-ref-word">When they're anxious</div>
+                    </div>
+                    <div class="quick-ref-item confidence">
+                        <div class="quick-ref-icon">&#128170;</div>
+                        <div class="quick-ref-name">Confidence</div>
+                        <div class="quick-ref-word">When they need trust</div>
+                    </div>
+                    <div class="quick-ref-item relief">
+                        <div class="quick-ref-icon">&#128524;</div>
+                        <div class="quick-ref-name">Relief</div>
+                        <div class="quick-ref-word">When burden lifts</div>
+                    </div>
+                    <div class="quick-ref-item accomplishment">
+                        <div class="quick-ref-icon">&#127942;</div>
+                        <div class="quick-ref-name">Accomplishment</div>
+                        <div class="quick-ref-word">When goals achieved</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-brand">ScaleUp Ventures</div>
+            <p class="footer-text">Positive Emotional Vocabulary Guide | Watchful. Measured. Decisive.</p>
+            <p class="footer-text" style="margin-top: 10px; opacity: 0.6;">Brand Voice Extension Document | December 2025</p>
+        </div>
+    </footer>
+</body>
+</html>

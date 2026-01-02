@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Our Portfolio - ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           ScaleUp Ventures - PORTFOLIO & TRUST SIGNALS
+           Brand Colors: Navy #0F1729, Gold #D4A853
+           ============================================ */
+
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --navy-dark: #0a1018;
+            --gold: #D4A853;
+            --gold-light: #e6c57a;
+            --gold-dark: #b8923f;
+            --white: #FFFFFF;
+            --gray-100: #F8F9FA;
+            --gray-200: #E9ECEF;
+            --gray-400: #9CA3AF;
+            --gray-600: #6B7280;
+
+            --font-serif: 'Crimson Pro', Georgia, serif;
+            --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--gray-100);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        /* Demo Page Layout */
+        .demo-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        .demo-header {
+            text-align: center;
+            margin-bottom: 64px;
+            padding-bottom: 32px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .demo-header h1 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .demo-header p {
+            color: var(--gray-600);
+            font-size: 1.125rem;
+        }
+
+        .section-demo {
+            margin-bottom: 80px;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(15, 23, 41, 0.08);
+        }
+
+        .section-label {
+            background: var(--navy);
+            color: var(--gold);
+            padding: 16px 24px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .section-content {
+            padding: 0;
+        }
+
+        /* ============================================
+           EARLY STAGE PORTFOLIO SECTION
+           ============================================ */
+
+        .portfolio-section {
+            padding: 80px 24px;
+            background: var(--white);
+        }
+
+        .portfolio-section.navy-bg {
+            background: var(--navy);
+        }
+
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 48px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .portfolio-header h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .navy-bg .portfolio-header h2 {
+            color: var(--white);
+        }
+
+        .portfolio-header .subtitle {
+            color: var(--gray-600);
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+
+        .navy-bg .portfolio-header .subtitle {
+            color: var(--gray-400);
+        }
+
+        /* Work Highlights Grid */
+        .work-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .highlight-card {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 32px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .navy-bg .highlight-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(212, 168, 83, 0.2);
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(15, 23, 41, 0.12);
+        }
+
+        .navy-bg .highlight-card:hover {
+            border-color: var(--gold);
+        }
+
+        .highlight-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--navy);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .navy-bg .highlight-icon {
+            background: var(--gold);
+        }
+
+        .highlight-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .navy-bg .highlight-card h3 {
+            color: var(--white);
+        }
+
+        .highlight-card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .navy-bg .highlight-card p {
+            color: var(--gray-400);
+        }
+
+        .highlight-stat {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.15);
+            color: var(--gold-dark);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .navy-bg .highlight-stat {
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold);
+        }
+
+        /* Own Product Feature */
+        .product-feature {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 16px;
+            padding: 48px;
+            max-width: 800px;
+            margin: 48px auto 0;
+            text-align: center;
+            border: 2px solid var(--gold);
+        }
+
+        .product-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        .product-feature h3 {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .product-feature p {
+            color: var(--gray-400);
+            font-size: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           APPROACH SECTION
+           ============================================ */
+
+        .approach-section {
+            padding: 80px 24px;
+            background: var(--gray-100);
+        }
+
+        .approach-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .approach-header h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .approach-header p {
+            color: var(--gray-600);
+            font-size: 1.125rem;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .approach-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 32px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .approach-card h3 {
+            font-size: 1.125rem;
+            color: var(--navy);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .approach-card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
+           CONFIDENTIAL WORK NOTICE
+           ============================================ */
+
+        .confidential-notice {
+            padding: 64px 24px;
+            background: var(--navy);
+            text-align: center;
+        }
+
+        .notice-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .notice-icon {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            opacity: 0.8;
+        }
+
+        .notice-content h2 {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .notice-content p {
+            color: var(--gray-400);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .contact-cta {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-cta:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================
+           MINIMAL TRUST SIGNAL
+           ============================================ */
+
+        .minimal-trust-section {
+            padding: 56px 24px;
+            background: var(--white);
+            border-top: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .minimal-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .minimal-header span {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gray-600);
+            font-weight: 600;
+        }
+
+        .trust-stats {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 48px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .trust-stat {
+            text-align: center;
+        }
+
+        .trust-stat .number {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--gold-dark);
+            display: block;
+        }
+
+        .trust-stat .label {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ============================================
+           USAGE GUIDELINES SECTION
+           ============================================ */
+
+        .guidelines-section {
+            padding: 64px 24px;
+            background: var(--white);
+        }
+
+        .guidelines-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .guidelines-header {
+            margin-bottom: 48px;
+        }
+
+        .guidelines-header h2 {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .guidelines-header p {
+            color: var(--gray-600);
+        }
+
+        .guideline-block {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .guideline-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guideline-block h3 {
+            font-size: 1.125rem;
+            color: var(--navy);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .guideline-list {
+            list-style: none;
+        }
+
+        .guideline-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .guideline-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .guideline-do-dont {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 640px) {
+            .guideline-do-dont {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .do-box, .dont-box {
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .do-box {
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .dont-box {
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .do-box h4 {
+            color: #16a34a;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .dont-box h4 {
+            color: #dc2626;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .do-box ul, .dont-box ul {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .do-box li, .dont-box li {
+            margin-bottom: 8px;
+            color: var(--gray-600);
+        }
+
+        /* Code Snippets */
+        .code-block {
+            background: var(--navy);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 16px;
+            overflow-x: auto;
+        }
+
+        .code-block code {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.85rem;
+            color: var(--gray-200);
+            line-height: 1.6;
+        }
+
+        .code-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            margin-bottom: 12px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;"><a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">Back to Index</a><span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span><div style="display:flex;gap:12px;"><a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a><a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a><a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a><a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a><a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a></div></nav>
+
+    <div class="demo-container">
+        <header class="demo-header">
+            <h1>Building Our Portfolio</h1>
+            <p>ScaleUp Ventures - Trust Signal Components for Early-Stage Consultancy</p>
+        </header>
+
+        <!-- ============================================
+             VERSION 1: WORK HIGHLIGHTS (WHITE BG)
+             ============================================ -->
+        <section class="section-demo">
+            <div class="section-label">Version 1: Work Highlights - White Background</div>
+            <div class="section-content">
+                <div class="portfolio-section">
+                    <div class="portfolio-header">
+                        <h2>Delivering Real Results</h2>
+                        <p class="subtitle">We're a focused early-stage consultancy. While we can't share client names due to confidentiality, here's the impact we've delivered.</p>
+                    </div>
+                    <div class="work-highlights">
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <svg width="24" height="24" fill="none" stroke="#D4A853" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg>
+                            </div>
+                            <h3>Strategic No-Build Decision</h3>
+                            <p>Client had $150,000+ budget and 12-18 month commitment. ScaleUp proposed $5,000 discovery (4 weeks). Found market saturation, hidden costs, and 80% achievable with existing solutions. Saved $150,000+ and 12+ months. Philosophy: "'Certainty First' means we'd rather earn $5,000 telling the truth than $150,000 building something that won't serve you."</p>
+                            <span class="highlight-stat">$150K+ Saved | 12+ Months Recovered</span>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <svg width="24" height="24" fill="none" stroke="#D4A853" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            </div>
+                            <h3>Startup Support</h3>
+                            <p>Provided comprehensive support to a founder including market validation, business and financial model validation, application development, fundraising validation and plan, and investor/advisor introductions.</p>
+                            <span class="highlight-stat">Full-Stack Support</span>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <svg width="24" height="24" fill="none" stroke="#D4A853" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                            </div>
+                            <h3>Financial Trading Platform</h3>
+                            <p>Full product build from idea to SEC/NFA compliant application plus complete go-to-market execution: persona research, targeting, ad management, and lead generation.</p>
+                            <span class="highlight-stat">Full Product Launch + GTM</span>
+                        </div>
+                    </div>
+
+                    <!-- HR Automation Tool - Client Work -->
+                    <div class="highlight-card" style="max-width: 800px; margin: 48px auto 0; border: 2px solid var(--gold);">
+                        <div class="highlight-icon">
+                            <svg width="24" height="24" fill="none" stroke="#D4A853" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3>HR Automation Tool</h3>
+                        <p>Full product build from idea to market plus complete go-to-market execution: persona research, targeting, ad management, and lead generation. <strong>Ad Campaign ROI:</strong> We quantify projected ad spend AND projected leads BEFORE starting to ensure expected results meet client needs. Achieved $25-$33 lead costs, enabling validation of market, customer, and profitable customer acquisition.</p>
+                        <span class="highlight-stat">Full Product Launch + GTM | $25-$33 Leads</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             VERSION 2: WORK HIGHLIGHTS (NAVY BG)
+             ============================================ -->
+        <section class="section-demo">
+            <div class="section-label">Version 2: Work Highlights - Navy Background</div>
+            <div class="section-content">
+                <div class="portfolio-section navy-bg">
+                    <div class="portfolio-header">
+                        <h2>Focused Expertise, Real Impact</h2>
+                        <p class="subtitle">As an early-stage consultancy, we take on select engagements where we can deliver meaningful results.</p>
+                    </div>
+                    <div class="work-highlights">
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <svg width="24" height="24" fill="none" stroke="#0F1729" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg>
+                            </div>
+                            <h3>Strategic No-Build Decision</h3>
+                            <p>Client had $150,000+ budget and 12-18 month commitment. ScaleUp proposed $5,000 discovery (4 weeks). Found market saturation, hidden costs, and 80% achievable with existing solutions. "'Certainty First' means we'd rather earn $5,000 telling the truth than $150,000 building something that won't serve you."</p>
+                            <span class="highlight-stat">$150K+ Saved | 12+ Months Recovered</span>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <svg width="24" height="24" fill="none" stroke="#0F1729" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <h3>AI Automation Agents</h3>
+                            <p>Built AI agents using project management best practices to handle delegated operational work - team members now save 20-25 hours per month, and that number grows 10-20% each month as additional processes flow into the automated workflow.</p>
+                            <span class="highlight-stat">20-25 hrs/mo Saved (Growing 10-20%/mo)</span>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <svg width="24" height="24" fill="none" stroke="#0F1729" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                            </div>
+                            <h3>Full Product Launches + GTM</h3>
+                            <p>Delivering complete products from idea to market plus go-to-market execution (persona research, targeting, ad management, lead generation) including a SEC/NFA compliant financial trading platform and an HR automation tool with $25-$33 lead costs. <strong>Ad Campaign ROI:</strong> We quantify projected ad spend AND projected leads BEFORE starting to ensure expected results meet client needs.</p>
+                            <span class="highlight-stat">End-to-End Delivery + GTM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             VERSION 3: MINIMAL TRUST STATS
+             ============================================ -->
+        <section class="section-demo">
+            <div class="section-label">Version 3: Minimal Trust Stats</div>
+            <div class="section-content">
+                <div class="minimal-trust-section">
+                    <div class="minimal-header">
+                        <span>Early-Stage, High-Impact</span>
+                    </div>
+                    <div class="trust-stats">
+                        <div class="trust-stat">
+                            <span class="number">$150K+</span>
+                            <span class="label">Client Savings</span>
+                        </div>
+                        <div class="trust-stat">
+                            <span class="number">2</span>
+                            <span class="label">Full Product Launches</span>
+                        </div>
+                        <div class="trust-stat">
+                            <span class="number">100%</span>
+                            <span class="label">Confidential Work</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             VERSION 4: APPROACH CARDS
+             ============================================ -->
+        <section class="section-demo">
+            <div class="section-label">Version 4: Our Approach</div>
+            <div class="section-content">
+                <div class="approach-section">
+                    <div class="approach-header">
+                        <h2>Why Work With Us</h2>
+                        <p>We're selective about engagements because we're committed to delivering real value.</p>
+                    </div>
+                    <div class="approach-grid">
+                        <div class="approach-card">
+                            <h3>Honest Assessment</h3>
+                            <p>Client had $150,000+ budget and 12-18 month commitment. We proposed $5,000 discovery instead. Found market saturation, hidden costs, and 80% achievable with existing solutions. Saved them $150,000+ and 12+ months. "'Certainty First' means we'd rather earn $5,000 telling the truth than $150,000 building something that won't serve you."</p>
+                        </div>
+                        <div class="approach-card">
+                            <h3>Practitioner, Not Just Advisor</h3>
+                            <p>We've delivered full product launches for clients, so we understand the challenges you face firsthand.</p>
+                        </div>
+                        <div class="approach-card">
+                            <h3>Confidentiality First</h3>
+                            <p>Most of our client work is confidential. We protect your business details as we would want ours protected.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             VERSION 5: CONFIDENTIAL WORK NOTICE
+             ============================================ -->
+        <section class="section-demo">
+            <div class="section-label">Version 5: Confidential Work Notice</div>
+            <div class="section-content">
+                <div class="confidential-notice">
+                    <div class="notice-content">
+                        <div class="notice-icon">
+                            <svg width="48" height="48" fill="none" stroke="#D4A853" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                        </div>
+                        <h2>Client Work is Confidential</h2>
+                        <p>As an early-stage consultancy, most of our work involves sensitive business details that we cannot publicly share. We believe this discretion is a feature, not a limitation - your business deserves the same protection.</p>
+                        <p>If you'd like to learn more about our approach and past work, we're happy to discuss in a private conversation.</p>
+                        <a href="#contact" class="contact-cta">Let's Talk</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             USAGE GUIDELINES
+             ============================================ -->
+        <section class="section-demo">
+            <div class="section-label">Usage Guidelines</div>
+            <div class="section-content guidelines-section">
+                <div class="guidelines-container">
+                    <div class="guidelines-header">
+                        <h2>Implementation Guidelines</h2>
+                        <p>Best practices for an early-stage consultancy's trust signals</p>
+                    </div>
+
+                    <div class="guideline-block">
+                        <h3>Early-Stage Positioning</h3>
+                        <ul class="guideline-list">
+                            <li><strong>Be Honest:</strong> Don't pretend to have more clients than you do. Authenticity builds more trust than fake logos.</li>
+                            <li><strong>Lead with Impact:</strong> Focus on the results you've delivered, not the volume of clients.</li>
+                            <li><strong>Highlight Confidentiality:</strong> Turn the lack of public logos into a positive - you protect client information.</li>
+                            <li><strong>Feature Your Client Work:</strong> Full product launches like the HR Automation Tool demonstrate your end-to-end capabilities.</li>
+                            <li><strong>Be Specific:</strong> "$150K+ saved" is more credible than vague claims about "transforming businesses."</li>
+                        </ul>
+                    </div>
+
+                    <div class="guideline-block">
+                        <h3>What to Show vs. Hide</h3>
+                        <div class="guideline-do-dont">
+                            <div class="do-box">
+                                <h4>Do</h4>
+                                <ul>
+                                    <li>Share anonymized impact metrics</li>
+                                    <li>Highlight your full product launches</li>
+                                    <li>Explain why work is confidential</li>
+                                    <li>Offer private conversations for details</li>
+                                    <li>Be specific about types of work</li>
+                                    <li>Show your methodology/approach</li>
+                                </ul>
+                            </div>
+                            <div class="dont-box">
+                                <h4>Don't</h4>
+                                <ul>
+                                    <li>Use fake company names or logos</li>
+                                    <li>Claim clients you don't have</li>
+                                    <li>Make up statistics</li>
+                                    <li>Oversell your experience</li>
+                                    <li>Hide being early-stage</li>
+                                    <li>Copy enterprise-style logo bars</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guideline-block">
+                        <h3>Where to Use Each Version</h3>
+                        <ul class="guideline-list">
+                            <li><strong>Work Highlights (White):</strong> Main services page, about page. Use when you want to lead with specific impact.</li>
+                            <li><strong>Work Highlights (Navy):</strong> Homepage section, after hero. Creates premium feel while being honest.</li>
+                            <li><strong>Minimal Trust Stats:</strong> Above the fold, footer, anywhere space is limited. Quick credibility signal.</li>
+                            <li><strong>Approach Cards:</strong> Services page, "Why Us" section. Explains value without needing logos.</li>
+                            <li><strong>Confidential Notice:</strong> FAQ section, case studies page. Addresses the "where are your clients?" question directly.</li>
+                        </ul>
+                    </div>
+
+                    <div class="guideline-block">
+                        <h3>As You Grow</h3>
+                        <ul class="guideline-list">
+                            <li><strong>Get Permission:</strong> As you complete client work, ask if you can reference them publicly.</li>
+                            <li><strong>Build Case Studies:</strong> Even anonymized case studies with permission are valuable.</li>
+                            <li><strong>Collect Testimonials:</strong> Quotes don't require logos to be credible.</li>
+                            <li><strong>Track Your Impact:</strong> Keep records of results so you can share specific numbers.</li>
+                            <li><strong>Update Regularly:</strong> As you gain more clients, update these sections accordingly.</li>
+                        </ul>
+                    </div>
+
+                    <div class="guideline-block">
+                        <h3>Integration Code Snippet</h3>
+                        <div class="code-block">
+                            <span class="code-label">React/Next.js Component Structure</span>
+                            <code>
+// components/TrustSignals.tsx
+interface WorkHighlight {
+  title: string;
+  description: string;
+  stat: string;
+  icon: React.ReactNode;
+}
+
+const highlights: WorkHighlight[] = [
+  {
+    title: "Strategic No-Build Decision",
+    description: "Client had $150K+ budget, 12-18 month commitment. We proposed $5K discovery. Found market saturation, hidden costs, 80% achievable with existing solutions. 'Certainty First' means we'd rather earn $5K telling the truth than $150K building something that won't serve you.",
+    stat: "$150K+ Saved | 12+ Months Recovered",
+    icon: &lt;PlusIcon /&gt;
+  },
+  // ... more highlights
+];
+
+export function TrustSignals() {
+  return (
+    &lt;section className="py-20 bg-white"&gt;
+      &lt;div className="max-w-4xl mx-auto px-6 text-center"&gt;
+        &lt;h2 className="font-serif text-2xl text-navy mb-4"&gt;
+          Delivering Real Results
+        &lt;/h2&gt;
+        &lt;p className="text-gray-600 mb-12"&gt;
+          We're a focused early-stage consultancy. While we can't share
+          client names due to confidentiality, here's the impact we've delivered.
+        &lt;/p&gt;
+        &lt;div className="grid md:grid-cols-3 gap-8"&gt;
+          {highlights.map((item) =&gt; (
+            &lt;HighlightCard key={item.title} {...item} /&gt;
+          ))}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  );
+}
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;"><a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">Back to Content Index</a><p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p></footer>
+</body>
+</html>

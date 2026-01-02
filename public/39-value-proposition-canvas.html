@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Value Proposition Canvas | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2540;
+            --navy-dark: #0a1018;
+            --gold: #D4A853;
+            --gold-light: #e6c47a;
+            --gold-dark: #b8923f;
+            --cream: #FAF8F5;
+            --cream-dark: #f0ece6;
+            --white: #FFFFFF;
+            --gray-100: #f7f7f7;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 40px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(212, 168, 83, 0.1) 100%);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-section h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-section .tagline {
+            color: var(--gold);
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        .doc-title {
+            text-align: right;
+        }
+
+        .doc-title h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+        }
+
+        .doc-title .subtitle {
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 0 60px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .tabs-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0;
+        }
+
+        .tab-btn {
+            padding: 16px 24px;
+            background: none;
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            color: var(--navy);
+            background: var(--gray-100);
+        }
+
+        .tab-btn.active {
+            color: var(--navy);
+            border-bottom-color: var(--gold);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 60px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .section-number {
+            width: 36px;
+            height: 36px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Canvas Container */
+        .canvas-container {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 24px rgba(15, 23, 41, 0.08);
+        }
+
+        /* Value Proposition Canvas Layout */
+        .vpc-canvas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 32px;
+        }
+
+        .vpc-side {
+            position: relative;
+        }
+
+        .vpc-side-label {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--navy);
+            color: var(--white);
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            z-index: 10;
+        }
+
+        .vpc-customer {
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f7fa 100%);
+            border: 2px solid #9ecfdc;
+            border-radius: 50%;
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+            position: relative;
+        }
+
+        .vpc-value {
+            background: linear-gradient(135deg, #fef3e2 0%, #fdf8f0 100%);
+            border: 2px solid var(--gold);
+            border-radius: 16px;
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+            position: relative;
+        }
+
+        .vpc-segment {
+            flex: 1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 8px 0;
+        }
+
+        .vpc-segment h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .vpc-segment h4 .icon {
+            font-size: 1.2rem;
+        }
+
+        .vpc-segment ul {
+            list-style: none;
+            font-size: 0.85rem;
+            color: var(--gray-700);
+        }
+
+        .vpc-segment ul li {
+            padding: 4px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .vpc-segment ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .jobs-segment ul li::before { background: var(--navy); }
+        .pains-segment ul li::before { background: var(--danger); }
+        .gains-segment ul li::before { background: var(--success); }
+        .products-segment ul li::before { background: var(--gold); }
+        .relievers-segment ul li::before { background: #3b82f6; }
+        .creators-segment ul li::before { background: #8b5cf6; }
+
+        /* Fit Indicator */
+        .fit-indicator {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-align: center;
+            z-index: 20;
+            box-shadow: 0 8px 32px rgba(15, 23, 41, 0.3);
+        }
+
+        .fit-indicator .checkmark {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .cards-grid.two-col {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 2px 12px rgba(15, 23, 41, 0.06);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 32px rgba(15, 23, 41, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .card-icon.jobs { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); }
+        .card-icon.pains { background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); }
+        .card-icon.gains { background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); }
+        .card-icon.products { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); }
+        .card-icon.relievers { background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); }
+        .card-icon.creators { background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); }
+
+        .card h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .card .description {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        .card ul {
+            list-style: none;
+        }
+
+        .card ul li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .card ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .card.jobs-card ul li::before { background: var(--navy); }
+        .card.pains-card ul li::before { background: var(--danger); }
+        .card.gains-card ul li::before { background: var(--success); }
+        .card.products-card ul li::before { background: var(--gold); }
+        .card.relievers-card ul li::before { background: #3b82f6; }
+        .card.creators-card ul li::before { background: #8b5cf6; }
+
+        /* Industry Variations */
+        .industry-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .industry-tab {
+            padding: 10px 20px;
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .industry-tab:hover {
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+
+        .industry-tab.active {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: var(--white);
+        }
+
+        .industry-content {
+            display: none;
+        }
+
+        .industry-content.active {
+            display: block;
+        }
+
+        .industry-canvas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .industry-panel {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .industry-panel h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .industry-panel ul {
+            list-style: none;
+        }
+
+        .industry-panel ul li {
+            padding: 8px 0;
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .industry-panel ul li .bullet {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        /* Sales Process */
+        .sales-process {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .sales-step {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--gray-200);
+            position: relative;
+        }
+
+        .sales-step::after {
+            content: '';
+            position: absolute;
+            right: -14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid var(--gold);
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+        }
+
+        .sales-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+        }
+
+        .sales-step h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .sales-step p {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-bottom: 12px;
+        }
+
+        .sales-step .script {
+            background: var(--cream);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--gray-700);
+            font-style: italic;
+            border-left: 3px solid var(--gold);
+        }
+
+        /* PDF Layout Preview */
+        .pdf-preview {
+            background: var(--gray-600);
+            padding: 40px;
+            border-radius: 16px;
+        }
+
+        .pdf-page {
+            background: var(--white);
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+            aspect-ratio: 8.5 / 11;
+            padding: 48px;
+            box-shadow: 0 16px 64px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .pdf-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid var(--navy);
+        }
+
+        .pdf-logo h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            color: var(--navy);
+        }
+
+        .pdf-logo .tagline {
+            font-size: 0.75rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .pdf-doc-title {
+            text-align: right;
+        }
+
+        .pdf-doc-title h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            color: var(--navy);
+        }
+
+        .pdf-doc-title p {
+            font-size: 0.7rem;
+            color: var(--gray-500);
+        }
+
+        .pdf-canvas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .pdf-section {
+            padding: 12px;
+            border-radius: 8px;
+            background: var(--cream);
+            border: 1px solid var(--gray-200);
+        }
+
+        .pdf-section h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 0.85rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .pdf-section ul {
+            list-style: none;
+            font-size: 0.65rem;
+            color: var(--gray-700);
+        }
+
+        .pdf-section ul li {
+            padding: 2px 0;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .pdf-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        .pdf-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 1px solid var(--gray-200);
+            font-size: 0.65rem;
+            color: var(--gray-500);
+        }
+
+        /* Presentation Slide */
+        .presentation-preview {
+            background: var(--gray-600);
+            padding: 40px;
+            border-radius: 16px;
+        }
+
+        .presentation-slide {
+            background: var(--navy);
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9;
+            padding: 48px;
+            box-shadow: 0 16px 64px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .presentation-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(212, 168, 83, 0.05) 100%);
+        }
+
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-header h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            color: var(--white);
+        }
+
+        .slide-header .logo {
+            color: var(--gold);
+            font-family: 'Crimson Pro', serif;
+            font-weight: 700;
+        }
+
+        .slide-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-column {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .slide-column h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .slide-column ul {
+            list-style: none;
+            color: var(--white);
+            font-size: 0.85rem;
+        }
+
+        .slide-column ul li {
+            padding: 6px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .slide-column ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        /* Match Analysis */
+        .match-analysis {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .match-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .match-card h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .match-card h4 .arrow {
+            color: var(--gold);
+        }
+
+        .match-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .match-item:last-child {
+            border-bottom: none;
+        }
+
+        .match-item .pain-gain {
+            font-size: 0.9rem;
+            color: var(--gray-700);
+        }
+
+        .match-item .solution {
+            font-size: 0.85rem;
+            color: var(--gold-dark);
+            font-weight: 500;
+            text-align: right;
+            max-width: 50%;
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav-tabs,
+            .tab-btn {
+                display: none;
+            }
+
+            .tab-content {
+                display: block !important;
+                page-break-after: always;
+            }
+
+            .header {
+                background: var(--navy) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .vpc-canvas {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sales-process {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .sales-step::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 24px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+
+            .doc-title {
+                text-align: center;
+            }
+
+            .nav-tabs {
+                padding: 0 24px;
+                overflow-x: auto;
+            }
+
+            .main-content {
+                padding: 24px;
+            }
+
+            .industry-canvas,
+            .match-analysis {
+                grid-template-columns: 1fr;
+            }
+
+            .sales-process {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <h1>ScaleUp Ventures</h1>
+                <div class="tagline">Certainty First.</div>
+            </div>
+            <div class="doc-title">
+                <h2>Value Proposition Canvas</h2>
+                <div class="subtitle">Strategic Sales Tool | One-Pager</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+        <div class="tabs-container">
+            <button class="tab-btn active" data-tab="canvas">Visual Canvas</button>
+            <button class="tab-btn" data-tab="detail">Detailed Analysis</button>
+            <button class="tab-btn" data-tab="industry">Industry Variations</button>
+            <button class="tab-btn" data-tab="sales">Sales Process</button>
+            <button class="tab-btn" data-tab="pdf">PDF Layout</button>
+            <button class="tab-btn" data-tab="presentation">Presentation</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Tab 1: Visual Canvas -->
+        <div id="canvas" class="tab-content active">
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">1</div>
+                    <h2 class="section-title">Value Proposition Canvas</h2>
+                </div>
+
+                <div class="canvas-container">
+                    <p style="color: var(--gray-600); margin-bottom: 24px;">
+                        The Value Proposition Canvas maps how ScaleUp Ventures creates value for skeptical 50-65 year old business owners
+                        in technology laggard industries. The left side shows what we offer; the right side shows what our customers need.
+                    </p>
+
+                    <div class="vpc-canvas">
+                        <!-- Value Map (Left) -->
+                        <div class="vpc-side">
+                            <div class="vpc-side-label">Value Map</div>
+                            <div class="vpc-value">
+                                <div class="vpc-segment products-segment">
+                                    <h4><span class="icon">&#9733;</span> Products & Services</h4>
+                                    <ul>
+                                        <li>Website & web application development</li>
+                                        <li>Growth marketing & lead generation</li>
+                                        <li>AI & automation solutions</li>
+                                        <li>Pre-engagement ROI modeling</li>
+                                    </ul>
+                                </div>
+                                <div class="vpc-segment relievers-segment">
+                                    <h4><span class="icon">&#10003;</span> Pain Relievers</h4>
+                                    <ul>
+                                        <li>Prove value before investment</li>
+                                        <li>Transparent, fixed pricing</li>
+                                        <li>Industry-specific expertise</li>
+                                        <li>Full asset ownership transfer</li>
+                                    </ul>
+                                </div>
+                                <div class="vpc-segment creators-segment">
+                                    <h4><span class="icon">&#9650;</span> Gain Creators</h4>
+                                    <ul>
+                                        <li>Measurable ROI tracking</li>
+                                        <li>Compete with tech-native rivals</li>
+                                        <li>Increase business exit value</li>
+                                        <li>Hands-off implementation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Customer Profile (Right) -->
+                        <div class="vpc-side">
+                            <div class="vpc-side-label">Customer Profile</div>
+                            <div class="vpc-customer">
+                                <div class="vpc-segment jobs-segment">
+                                    <h4><span class="icon">&#9881;</span> Customer Jobs</h4>
+                                    <ul>
+                                        <li>Generate consistent leads</li>
+                                        <li>Compete with larger/digital competitors</li>
+                                        <li>Modernize operations without disruption</li>
+                                        <li>Prepare business for profitable exit</li>
+                                    </ul>
+                                </div>
+                                <div class="vpc-segment pains-segment">
+                                    <h4><span class="icon">&#9888;</span> Pains</h4>
+                                    <ul>
+                                        <li>Burned by agencies before</li>
+                                        <li>Technology overwhelm</li>
+                                        <li>Cannot prove marketing ROI</li>
+                                        <li>Fear of AI disruption</li>
+                                    </ul>
+                                </div>
+                                <div class="vpc-segment gains-segment">
+                                    <h4><span class="icon">&#9733;</span> Gains</h4>
+                                    <ul>
+                                        <li>Measurable business growth</li>
+                                        <li>Peace of mind with technology</li>
+                                        <li>Competitive digital presence</li>
+                                        <li>More time for core business</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fit Indicator -->
+                        <div class="fit-indicator" style="position: absolute; left: 50%; top: 50%;">
+                            <span class="checkmark">&#10003;</span>
+                            <span>FIT</span>
+                        </div>
+                    </div>
+
+                    <!-- Match Analysis -->
+                    <div class="match-analysis">
+                        <div class="match-card">
+                            <h4>Pain <span class="arrow">&#8594;</span> Relief Mapping</h4>
+                            <div class="match-item">
+                                <span class="pain-gain">"Burned by agencies before"</span>
+                                <span class="solution">Pre-engagement ROI model</span>
+                            </div>
+                            <div class="match-item">
+                                <span class="pain-gain">"Technology overwhelm"</span>
+                                <span class="solution">Done-for-you implementation</span>
+                            </div>
+                            <div class="match-item">
+                                <span class="pain-gain">"Cannot prove ROI"</span>
+                                <span class="solution">Measurable outcome tracking</span>
+                            </div>
+                            <div class="match-item">
+                                <span class="pain-gain">"Fear of AI disruption"</span>
+                                <span class="solution">AI as competitive tool</span>
+                            </div>
+                        </div>
+                        <div class="match-card">
+                            <h4>Gain <span class="arrow">&#8594;</span> Creator Mapping</h4>
+                            <div class="match-item">
+                                <span class="pain-gain">"Measurable growth"</span>
+                                <span class="solution">ROI reporting dashboard</span>
+                            </div>
+                            <div class="match-item">
+                                <span class="pain-gain">"Peace of mind"</span>
+                                <span class="solution">Full ownership transfer</span>
+                            </div>
+                            <div class="match-item">
+                                <span class="pain-gain">"Competitive presence"</span>
+                                <span class="solution">Modern digital platform</span>
+                            </div>
+                            <div class="match-item">
+                                <span class="pain-gain">"More time for core work"</span>
+                                <span class="solution">AI automation of tasks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Detailed Analysis -->
+        <div id="detail" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">2</div>
+                    <h2 class="section-title">Detailed Canvas Components</h2>
+                </div>
+
+                <!-- Customer Jobs -->
+                <div class="cards-grid" style="margin-bottom: 32px;">
+                    <div class="card jobs-card">
+                        <div class="card-icon jobs" style="color: var(--white);">&#9881;</div>
+                        <h3>Customer Jobs</h3>
+                        <p class="description">What 50-65 year old business owners are trying to accomplish</p>
+                        <ul>
+                            <li><strong>Generate consistent leads:</strong> Stop relying on word-of-mouth that has slowed down</li>
+                            <li><strong>Compete with digital-first rivals:</strong> Match the online presence of younger competitors</li>
+                            <li><strong>Modernize without disruption:</strong> Update technology without breaking what works</li>
+                            <li><strong>Increase efficiency:</strong> Do more with the same or fewer staff</li>
+                            <li><strong>Protect legacy:</strong> Ensure the business they built survives and thrives</li>
+                            <li><strong>Plan for exit:</strong> Maximize business value for eventual sale or succession</li>
+                            <li><strong>Stay relevant:</strong> Not be left behind by industry changes</li>
+                            <li><strong>Maintain relationships:</strong> Preserve the personal touch that built their success</li>
+                        </ul>
+                    </div>
+
+                    <div class="card pains-card">
+                        <div class="card-icon pains">&#9888;</div>
+                        <h3>Pains</h3>
+                        <p class="description">Frustrations, obstacles, and risks they face</p>
+                        <ul>
+                            <li><strong>Burned by agencies:</strong> ~50% have been disappointed by marketing vendors before</li>
+                            <li><strong>Technology overwhelm:</strong> Cannot understand or evaluate tech solutions themselves</li>
+                            <li><strong>Cannot prove ROI:</strong> 81% struggle to measure marketing effectiveness</li>
+                            <li><strong>Fear of AI disruption:</strong> 90% worry AI will negatively impact their business</li>
+                            <li><strong>Hidden fees and scope creep:</strong> 40% of projects exceed budget</li>
+                            <li><strong>Vendor lock-in:</strong> Agencies hold assets hostage for ongoing payments</li>
+                            <li><strong>Outdated credibility:</strong> Website hurts perception with prospects</li>
+                            <li><strong>Losing to competition:</strong> Watching market share erode to digital-native rivals</li>
+                        </ul>
+                    </div>
+
+                    <div class="card gains-card">
+                        <div class="card-icon gains">&#9733;</div>
+                        <h3>Gains</h3>
+                        <p class="description">Desired outcomes and benefits they seek</p>
+                        <ul>
+                            <li><strong>Measurable growth:</strong> Quantifiable increase in leads and revenue</li>
+                            <li><strong>Peace of mind:</strong> Confidence that technology is handled correctly</li>
+                            <li><strong>Competitive presence:</strong> Digital experience that matches or exceeds competitors</li>
+                            <li><strong>Time freedom:</strong> Less time managing technology, more on core business</li>
+                            <li><strong>Trust in partner:</strong> Reliable vendor they can depend on long-term</li>
+                            <li><strong>Exit readiness:</strong> Business positioned for maximum sale value</li>
+                            <li><strong>Industry leadership:</strong> Seen as modern, relevant, forward-thinking</li>
+                            <li><strong>Operational efficiency:</strong> AI and automation saving time and money</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Value Map -->
+                <div class="cards-grid">
+                    <div class="card products-card">
+                        <div class="card-icon products" style="color: var(--white);">&#10070;</div>
+                        <h3>Products & Services</h3>
+                        <p class="description">What ScaleUp Ventures offers</p>
+                        <ul>
+                            <li><strong>Development Services:</strong> Websites, web applications, custom software</li>
+                            <li><strong>Growth Marketing:</strong> SEO, paid ads, lead generation, branding</li>
+                            <li><strong>AI & Automation:</strong> Chatbots, workflow automation, process improvement</li>
+                            <li><strong>Pre-Engagement ROI Modeling:</strong> Custom financial projections before commitment</li>
+                            <li><strong>Strategic Consulting:</strong> Business analysis and technology roadmapping</li>
+                            <li><strong>Ongoing Optimization:</strong> Retainer-based continuous improvement</li>
+                            <li><strong>Training & Support:</strong> Team enablement and knowledge transfer</li>
+                        </ul>
+                    </div>
+
+                    <div class="card relievers-card">
+                        <div class="card-icon relievers">&#10003;</div>
+                        <h3>Pain Relievers</h3>
+                        <p class="description">How ScaleUp addresses customer pains</p>
+                        <ul>
+                            <li><strong>Pre-engagement ROI proof:</strong> See value before spending eliminates "burned again" risk</li>
+                            <li><strong>Transparent fixed pricing:</strong> No hidden fees, no surprise change orders</li>
+                            <li><strong>Industry expertise:</strong> Deep understanding of staffing, vet, trades, insurance</li>
+                            <li><strong>Full asset ownership:</strong> Client owns everything - no lock-in</li>
+                            <li><strong>Plain English communication:</strong> Technology translated to business outcomes</li>
+                            <li><strong>AI as tool, not threat:</strong> Position AI as competitive advantage</li>
+                            <li><strong>Done-for-you delivery:</strong> No tech knowledge required from client</li>
+                            <li><strong>Client references available:</strong> "Talk to our clients" as standard offer</li>
+                        </ul>
+                    </div>
+
+                    <div class="card creators-card">
+                        <div class="card-icon creators">&#9650;</div>
+                        <h3>Gain Creators</h3>
+                        <p class="description">How ScaleUp enables customer gains</p>
+                        <ul>
+                            <li><strong>Measurable ROI tracking:</strong> Regular reporting against projected outcomes</li>
+                            <li><strong>Competitive digital presence:</strong> Modern platforms that match industry leaders</li>
+                            <li><strong>AI-powered efficiency:</strong> Automation that saves 10-20 hours per week</li>
+                            <li><strong>Exit value optimization:</strong> Digital capability increases business multiples</li>
+                            <li><strong>Land-and-expand partnership:</strong> One vendor for all growth needs</li>
+                            <li><strong>Hands-off implementation:</strong> Client focuses on business while we build</li>
+                            <li><strong>Proactive opportunity identification:</strong> We find the next value-add</li>
+                            <li><strong>90-day performance reviews:</strong> Regular check-ins ensure ongoing fit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Industry Variations -->
+        <div id="industry" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">3</div>
+                    <h2 class="section-title">Industry-Specific Canvas Variations</h2>
+                </div>
+
+                <div class="industry-tabs">
+                    <button class="industry-tab active" data-industry="staffing">Staffing Agencies</button>
+                    <button class="industry-tab" data-industry="veterinary">Veterinary Practices</button>
+                    <button class="industry-tab" data-industry="trades">Home Services Trades</button>
+                    <button class="industry-tab" data-industry="insurance">Insurance Agencies</button>
+                    <button class="industry-tab" data-industry="pest">Pest Control</button>
+                </div>
+
+                <!-- Staffing Agencies -->
+                <div id="staffing" class="industry-content active">
+                    <div class="industry-canvas">
+                        <div class="industry-panel">
+                            <h4>Staffing Agency Customer Profile</h4>
+                            <ul>
+                                <li><span class="bullet"></span><strong>Primary Job:</strong> Fill open positions faster than Indeed/ZipRecruiter</li>
+                                <li><span class="bullet"></span><strong>Top Pain:</strong> AI is perceived as existential threat (90% fear negative impact)</li>
+                                <li><span class="bullet"></span><strong>Key Gain:</strong> Recruiter efficiency - do more placements with same team</li>
+                                <li><span class="bullet"></span><strong>Budget:</strong> 7-10% of revenue for marketing/technology</li>
+                                <li><span class="bullet"></span><strong>Sales Cycle:</strong> 4-8 weeks (fastest of all industries)</li>
+                            </ul>
+                        </div>
+                        <div class="industry-panel">
+                            <h4>ScaleUp Value Map for Staffing</h4>
+                            <ul>
+                                <li><span class="bullet"></span><strong>Lead Service:</strong> AI-powered applicant tracking and automation</li>
+                                <li><span class="bullet"></span><strong>Pain Relief:</strong> "Don't fear AI - leverage it before competitors do"</li>
+                                <li><span class="bullet"></span><strong>Gain Creator:</strong> Recruiter productivity gains ($100K+/year savings)</li>
+                                <li><span class="bullet"></span><strong>Proof Point:</strong> "See how AI handles 15 hours of manual work weekly"</li>
+                                <li><span class="bullet"></span><strong>Entry Point:</strong> Website + basic automation, expand to full AI suite</li>
+                            </ul>
+                        </div>
+                        <div class="industry-panel">
+                            <h4>Key Messaging</h4>
+                            <ul>
+                                <li><span class="bullet"></span>"AI isn't replacing recruiters - it's multiplying their impact"</li>
+                                <li><span class="bullet"></span>"Your competitors are using automation. Are you?"</li>
+                                <li><span class="bullet"></span>"See exactly how you make your money back before spending"</li>
+                            </ul>
+                        </div>
+                        <div class="industry-panel">
+                            <h4>Target Associations</h4>
+                            <ul>
+                                <li><span class="bullet"></span>American Staffing Association (ASA) - 3,000+ members</li>
+                                <li><span class="bullet"></span>Staffing World conference</li>
+                                <li><span class="bullet"></span>State staffing associations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Veterinary Practices -->
+                <div id="veterinary" class="industry-content">
+                    <div class="industry-canvas">
+                        <div class="industry-panel">
+                            <h4>Veterinary Practice Customer Profile</h4>
+                            <ul>
+                                <li><span class="bullet"></span><strong>Primary Job:</strong> Stay independent while competing with VCA/Mars/Banfield</li>
+                                <li><span class="bullet"></span><strong>Top Pain:</strong> Corporate consolidation threatening 30+ years of practice</li>
+                                <li><span class="bullet"></span><strong>Key Gain:</strong> Digital experience that matches corporate competitors</li>
+                                <li><span class="bullet"></span><strong>Budget:</strong> $3-10K monthly for marketing</li>
+                                <li><span class="bullet"></span><strong>Sales Cycle:</strong> 4-8 weeks</li>
+                            </ul>
+                        </div>
+                        <div class="industry-panel">
+                            <h4>ScaleUp Value Map for Veterinary</h4>
+                            <ul>
+                                <li><span class="bullet"></span><strong>Lead Service:</strong> Online booking and patient portal</li>
+                                <li><span class="bullet"></span><strong>Pain Relief:</strong> "Match corporate experience without losing independence"</li>
+                                <li><span class="bullet"></span><strong>Gain Creator:</strong> Client retention and new patient acquisition</li>
+                                <li><span class="bullet"></span><strong>Proof Point:</strong> Practice owners who modernized and kept independence</li>
+                                <li><span class="bullet"></span><strong>Entry Point:</strong> Website with online scheduling</li>
+                            </ul>
+                        </div>
+                        <div class="industry-panel">
+                            <h4>Key Messaging</h4>
+                            <ul>
+                                <li><span class="bullet"></span>"Stay independent. Compete with corporate."</li>
+                                <li><span class="bullet"></span>"Your clients expect online booking. VCA already offers it."</li>
+                                <li><span class="bullet"></span>"30 years of relationships deserve modern protection"</li>
+                            </ul>
+                        </div>
+                        <div class="industry-panel">
+                            <h4>Target Associations</h4>
+                            <ul>
+                                <li><span class="bullet"></span>AVMA (American Veterinary Medical Association)</li>
+                                <li><span class="bullet"></span>State Veterinary Medical Associations</li>
+                                <li><span class="bullet"></span>VMX and WVC conferences</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Home Services Trades -->
+                <div id="trades" class="industry-content">
+                    <div class="industry-canvas">
+                        <div class="industry-panel">
+                            <h4>Trades Customer Profile</h4>
+                            <ul>
+                                <li><span class="bullet"></span><strong>Primary Job:</strong> Get more jobs without relying on HomeAdvisor/Angi</li>
+                                <li><span class="bullet"></span><strong>Top Pain:</strong> 70% unhappy with current marketing providers</li>
+                                <li><span class="bullet"></span><strong>Key Gain:</strong> Website that actually generates leads</li>
+                                <li><span class="bullet"></span><strong>Budget:</strong> 8-15% of revenue for marketing</li>
+                                <li><span class="bullet"></span><strong>Sales Cycle:</strong> 6-10 weeks</li>
+                            </ul>
+                        </div>
+                        <div class="industry-panel">
+                            <h4>ScaleUp Value Map for Trades</h4>
+                            <ul>
+                                <li><span class="bullet"></span><strong>Lead Service:</strong> Lead-generating website + local SEO</li>
+                                <li><span class="bullet"></span><strong>Pain Relief:</strong> "Marketing that actually works, with proof"</li>
+                                <li><span class="bullet"></span><strong>Gain Creator:</strong> Direct leads, not pay-per-lead dependency</li>
+                                <li><span class="bullet"></span><strong>Proof Point:</strong> Before/after lead metrics from similar businesses</li>
+                                <li><span class="bullet"></span><strong>Entry Point:</strong> Website redesign with conversion optimization</li>
+                            </ul>
+                        </div>
+                        <div class="industry-panel">
+                            <h4>Key Messaging</h4>
+                            <ul>
+                                <li><span class="bullet"></span>"Stop losing jobs to competitors with better websites"</li>
+                                <li><span class="bullet"></span>"You're damn good at what you do. Let's make sure people find you."</li>
+                                <li><span class="bullet"></span>"70% of trades owners are unhappy with their marketing. We change that."</li>
+                            </ul>
+                        </div>
+                        <div class="industry-panel">
+                            <h4>Target Associations</h4>
+                            <ul>
+                                <li><span class="bullet"></span>PHCC (Plumbing-Heating-Cooling Contractors)</li>
+                                <li><span class="bullet"></span>NECA (National Electrical Contractors Association)</li>
+                                <li><span class="bullet"></span>ACCA (Air Conditioning Contractors of America)</li>
+                                <li><span class="bullet"></span>NRCA (National Roofing Contractors Association)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insurance Agencies -->
+                <div id="insurance" class="industry-content">
+                    <div class="industry-canvas">
+                        <div class="industry-panel">
+                            <h4>Insurance Agency Customer Profile</h4>
+                            <ul>
+                                <li><span class="bullet"></span><strong>Primary Job:</strong> Compete with InsurTech without losing personal touch</li>
+                                <li><span class="bullet"></span><strong>Top Pain:</strong> Losing renewals to online quote tools (10-20% annually)</li>
+                                <li><span class="bullet"></span><strong>Key Gain:</strong> Match digital convenience while keeping relationships</li>
+                                <li><span class="bullet"></span><strong>Budget:</strong> 78% increasing tech budgets year over year</li>
+                                <li><span class="bullet"></span><strong>Sales Cycle:</strong> 3-6 weeks (older demographic, needs hand-holding)</li>
+                            </ul>
+                        </div>
+                        <div class="industry-panel">
+                            <h4>ScaleUp Value Map for Insurance</h4>
+                            <ul>
+                                <li><span class="bullet"></span><strong>Lead Service:</strong> Modern website with quote request automation</li>
+                                <li><span class="bullet"></span><strong>Pain Relief:</strong> "Keep personal relationships, add digital convenience"</li>
+                                <li><span class="bullet"></span><strong>Gain Creator:</strong> Higher exit valuations (digital = 2-3x higher multiples)</li>
+                                <li><span class="bullet"></span><strong>Proof Point:</strong> "High-digital agencies grow 70% faster"</li>
+                                <li><span class="bullet"></span><strong>Entry Point:</strong> Website + client portal</li>
+                            </ul>
+                        </div>
+                        <div class="industry-panel">
+                            <h4>Key Messaging</h4>
+                            <ul>
+                                <li><span class="bullet"></span>"High-digital agencies grow 70% faster. Where do you stand?"</li>
+                                <li><span class="bullet"></span>"Your 30-year client relationships deserve modern protection"</li>
+                                <li><span class="bullet"></span>"Increase your agency value for when it's time to sell"</li>
+                            </ul>
+                        </div>
+                        <div class="industry-panel">
+                            <h4>Target Associations</h4>
+                            <ul>
+                                <li><span class="bullet"></span>IIABA (Independent Insurance Agents & Brokers of America)</li>
+                                <li><span class="bullet"></span>State insurance associations</li>
+                                <li><span class="bullet"></span>Insurance Journal readership</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pest Control -->
+                <div id="pest" class="industry-content">
+                    <div class="industry-canvas">
+                        <div class="industry-panel">
+                            <h4>Pest Control Customer Profile</h4>
+                            <ul>
+                                <li><span class="bullet"></span><strong>Primary Job:</strong> Compete with Orkin/Terminix on convenience</li>
+                                <li><span class="bullet"></span><strong>Top Pain:</strong> No online scheduling, losing to nationals with apps</li>
+                                <li><span class="bullet"></span><strong>Key Gain:</strong> Route optimization, seasonal demand management</li>
+                                <li><span class="bullet"></span><strong>Budget:</strong> 6-12% of revenue for marketing</li>
+                                <li><span class="bullet"></span><strong>Sales Cycle:</strong> 6-10 weeks</li>
+                            </ul>
+                        </div>
+                        <div class="industry-panel">
+                            <h4>ScaleUp Value Map for Pest Control</h4>
+                            <ul>
+                                <li><span class="bullet"></span><strong>Lead Service:</strong> Online booking + customer portal</li>
+                                <li><span class="bullet"></span><strong>Pain Relief:</strong> "Same-day booking capability like the big guys"</li>
+                                <li><span class="bullet"></span><strong>Gain Creator:</strong> Route efficiency savings ($50K+/year in fuel)</li>
+                                <li><span class="bullet"></span><strong>Proof Point:</strong> "15-25% reduction in drive time"</li>
+                                <li><span class="bullet"></span><strong>Entry Point:</strong> Website with scheduling integration</li>
+                            </ul>
+                        </div>
+                        <div class="industry-panel">
+                            <h4>Key Messaging</h4>
+                            <ul>
+                                <li><span class="bullet"></span>"Terminix has an app. Your customers want one too."</li>
+                                <li><span class="bullet"></span>"Modernize before the big players swallow you up"</li>
+                                <li><span class="bullet"></span>"Keep what makes you different - actual service from someone who cares"</li>
+                            </ul>
+                        </div>
+                        <div class="industry-panel">
+                            <h4>Target Associations</h4>
+                            <ul>
+                                <li><span class="bullet"></span>NPMA (National Pest Management Association) - 7,000+ members</li>
+                                <li><span class="bullet"></span>PestWorld conference</li>
+                                <li><span class="bullet"></span>PCT Magazine and Pest Management Pro</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Sales Process -->
+        <div id="sales" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">4</div>
+                    <h2 class="section-title">Using the Canvas in Sales</h2>
+                </div>
+
+                <div class="canvas-container">
+                    <p style="color: var(--gray-600); margin-bottom: 32px;">
+                        The Value Proposition Canvas is a powerful sales tool when used correctly. Here's how to integrate it into
+                        the ScaleUp Ventures sales process to build trust and demonstrate understanding.
+                    </p>
+
+                    <div class="sales-process">
+                        <div class="sales-step">
+                            <div class="step-number">1</div>
+                            <h4>Discovery Call</h4>
+                            <p>Use the Customer Profile side to validate and uncover their specific pains and gains.</p>
+                            <div class="script">
+                                "Let me share what we typically hear from [industry] owners like you. You tell me if this resonates..."
+                            </div>
+                        </div>
+
+                        <div class="sales-step">
+                            <div class="step-number">2</div>
+                            <h4>Pain Validation</h4>
+                            <p>Walk through the pains list and note which ones resonate most strongly.</p>
+                            <div class="script">
+                                "Many owners tell us they've been burned by agencies before. Has that been your experience?"
+                            </div>
+                        </div>
+
+                        <div class="sales-step">
+                            <div class="step-number">3</div>
+                            <h4>Gain Prioritization</h4>
+                            <p>Identify which gains matter most to them personally - exit value? Time freedom? Competitive parity?</p>
+                            <div class="script">
+                                "If we could solve one thing for your business this year, what would matter most?"
+                            </div>
+                        </div>
+
+                        <div class="sales-step">
+                            <div class="step-number">4</div>
+                            <h4>Value Map Presentation</h4>
+                            <p>Show how ScaleUp's offerings specifically address their prioritized pains and gains.</p>
+                            <div class="script">
+                                "Based on what you've shared, here's exactly how we'd help you [specific pain relief]..."
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 48px;">
+                        <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.25rem; color: var(--navy); margin-bottom: 20px;">
+                            Key Discovery Questions by Canvas Segment
+                        </h3>
+
+                        <div class="cards-grid two-col">
+                            <div class="card">
+                                <h3>Customer Jobs Questions</h3>
+                                <ul style="list-style: decimal; padding-left: 20px;">
+                                    <li style="padding-left: 8px;">"What's the biggest challenge you're trying to solve this year?"</li>
+                                    <li style="padding-left: 8px;">"How are you currently generating new business?"</li>
+                                    <li style="padding-left: 8px;">"What does success look like for your business in 3 years?"</li>
+                                    <li style="padding-left: 8px;">"Are you thinking about an eventual exit or transition?"</li>
+                                </ul>
+                            </div>
+
+                            <div class="card">
+                                <h3>Pains Questions</h3>
+                                <ul style="list-style: decimal; padding-left: 20px;">
+                                    <li style="padding-left: 8px;">"Have you worked with marketing agencies before? How did that go?"</li>
+                                    <li style="padding-left: 8px;">"What's your biggest frustration with technology in your business?"</li>
+                                    <li style="padding-left: 8px;">"How do you currently measure if your marketing is working?"</li>
+                                    <li style="padding-left: 8px;">"What keeps you up at night about your business?"</li>
+                                </ul>
+                            </div>
+
+                            <div class="card">
+                                <h3>Gains Questions</h3>
+                                <ul style="list-style: decimal; padding-left: 20px;">
+                                    <li style="padding-left: 8px;">"If you woke up and everything was working perfectly, what would be different?"</li>
+                                    <li style="padding-left: 8px;">"What would your business look like if you didn't have to worry about technology?"</li>
+                                    <li style="padding-left: 8px;">"How much time per week do you spend on marketing-related tasks?"</li>
+                                    <li style="padding-left: 8px;">"What would it mean for your business to be seen as a leader in your market?"</li>
+                                </ul>
+                            </div>
+
+                            <div class="card">
+                                <h3>Transition to Value Map</h3>
+                                <ul style="list-style: decimal; padding-left: 20px;">
+                                    <li style="padding-left: 8px;">"Based on what you've shared, here's what we typically do for [industry] owners..."</li>
+                                    <li style="padding-left: 8px;">"The reason we focus on [pain] is because we've seen it directly impact [gain]..."</li>
+                                    <li style="padding-left: 8px;">"Unlike typical agencies, we actually [differentiator] so you [outcome]..."</li>
+                                    <li style="padding-left: 8px;">"Before we'd move forward, we'd build a custom ROI model so you see exactly how you make your money back."</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 48px; background: var(--navy); border-radius: 12px; padding: 32px; color: var(--white);">
+                        <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.25rem; margin-bottom: 16px; color: var(--gold);">
+                            The ScaleUp Advantage: Using the Canvas to Close
+                        </h3>
+                        <p style="margin-bottom: 24px; opacity: 0.9;">
+                            The canvas reveals our core differentiator naturally. After exploring pains (especially "burned before" and "can't prove ROI"),
+                            the transition to our pre-engagement ROI model becomes inevitable:
+                        </p>
+                        <div style="background: rgba(212, 168, 83, 0.1); border-left: 4px solid var(--gold); padding: 20px; border-radius: 0 8px 8px 0;">
+                            <p style="font-style: italic; font-size: 1.1rem;">
+                                "You mentioned you've been burned before and you can't prove if marketing is working. That's exactly why we do things
+                                differently. Before you spend a dollar with us, we build a custom model showing exactly how you make your money back.
+                                You see the ROI before you commit. No other agency does this."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 5: PDF Layout -->
+        <div id="pdf" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">5</div>
+                    <h2 class="section-title">One-Page PDF Layout</h2>
+                </div>
+
+                <p style="color: var(--gray-600); margin-bottom: 24px;">
+                    This PDF version is designed for printing, email attachments, and sales leave-behinds.
+                    Print at 100% scale on letter-size (8.5" x 11") paper.
+                </p>
+
+                <div class="pdf-preview">
+                    <div class="pdf-page">
+                        <div class="pdf-header">
+                            <div class="pdf-logo">
+                                <h1>ScaleUp Ventures</h1>
+                                <div class="tagline">Certainty First.</div>
+                            </div>
+                            <div class="pdf-doc-title">
+                                <h2>Value Proposition Canvas</h2>
+                                <p>How We Create Value for Your Business</p>
+                            </div>
+                        </div>
+
+                        <div style="text-align: center; margin-bottom: 16px;">
+                            <span style="display: inline-block; background: var(--navy); color: var(--gold); padding: 6px 16px; border-radius: 16px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">
+                                For Established Business Owners (50-65) in Technology Laggard Industries
+                            </span>
+                        </div>
+
+                        <div class="pdf-canvas">
+                            <div class="pdf-section">
+                                <h4>Customer Jobs</h4>
+                                <ul>
+                                    <li>Generate consistent leads</li>
+                                    <li>Compete with digital-first rivals</li>
+                                    <li>Modernize without disruption</li>
+                                    <li>Prepare for profitable exit</li>
+                                </ul>
+                            </div>
+                            <div class="pdf-section">
+                                <h4>Products & Services</h4>
+                                <ul>
+                                    <li>Website & web application development</li>
+                                    <li>Growth marketing & lead generation</li>
+                                    <li>AI & automation solutions</li>
+                                    <li>Pre-engagement ROI modeling</li>
+                                </ul>
+                            </div>
+                            <div class="pdf-section">
+                                <h4>Pains</h4>
+                                <ul>
+                                    <li>Burned by agencies before (~50%)</li>
+                                    <li>Technology overwhelm</li>
+                                    <li>Cannot prove marketing ROI (81%)</li>
+                                    <li>Fear of AI disruption (90%)</li>
+                                </ul>
+                            </div>
+                            <div class="pdf-section">
+                                <h4>Pain Relievers</h4>
+                                <ul>
+                                    <li>Prove value before investment</li>
+                                    <li>Transparent, fixed pricing</li>
+                                    <li>Industry-specific expertise</li>
+                                    <li>Full asset ownership transfer</li>
+                                </ul>
+                            </div>
+                            <div class="pdf-section">
+                                <h4>Gains</h4>
+                                <ul>
+                                    <li>Measurable business growth</li>
+                                    <li>Peace of mind with technology</li>
+                                    <li>Competitive digital presence</li>
+                                    <li>More time for core business</li>
+                                </ul>
+                            </div>
+                            <div class="pdf-section">
+                                <h4>Gain Creators</h4>
+                                <ul>
+                                    <li>Measurable ROI tracking</li>
+                                    <li>Match/exceed competitor presence</li>
+                                    <li>Increase business exit value</li>
+                                    <li>Hands-off implementation</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div style="background: var(--navy); color: var(--white); padding: 16px; border-radius: 8px; text-align: center; margin-bottom: 16px;">
+                            <p style="font-size: 0.85rem; margin-bottom: 4px;">Our Core Differentiator</p>
+                            <p style="font-family: 'Crimson Pro', serif; font-size: 1.1rem; color: var(--gold);">
+                                "We prove the value before you invest. You see exactly how you make your money back before you spend a dollar."
+                            </p>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px;">
+                            <div style="text-align: center; padding: 12px; background: var(--cream); border-radius: 8px;">
+                                <div style="font-size: 1.25rem; font-weight: 700; color: var(--navy);">&lt;5%</div>
+                                <div style="font-size: 0.6rem; color: var(--gray-600);">of agencies offer pre-engagement ROI models</div>
+                            </div>
+                            <div style="text-align: center; padding: 12px; background: var(--cream); border-radius: 8px;">
+                                <div style="font-size: 1.25rem; font-weight: 700; color: var(--navy);">~50%</div>
+                                <div style="font-size: 0.6rem; color: var(--gray-600);">of SMBs have been burned by agencies</div>
+                            </div>
+                            <div style="text-align: center; padding: 12px; background: var(--cream); border-radius: 8px;">
+                                <div style="font-size: 1.25rem; font-weight: 700; color: var(--navy);">81%</div>
+                                <div style="font-size: 0.6rem; color: var(--gray-600);">struggle to prove marketing ROI</div>
+                            </div>
+                        </div>
+
+                        <div class="pdf-footer">
+                            <div>scaleupventures.com</div>
+                            <div>Staffing | Veterinary | Trades | Insurance | Pest Control</div>
+                            <div>Certainty First.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 24px; text-align: center;">
+                    <button onclick="window.print()" style="background: var(--navy); color: var(--white); border: none; padding: 12px 32px; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif;">
+                        Print / Save as PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 6: Presentation -->
+        <div id="presentation" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">6</div>
+                    <h2 class="section-title">Presentation Slide</h2>
+                </div>
+
+                <p style="color: var(--gray-600); margin-bottom: 24px;">
+                    Use this slide format for sales presentations, investor pitches, and internal training.
+                    The 16:9 aspect ratio works with most presentation software.
+                </p>
+
+                <div class="presentation-preview">
+                    <div class="presentation-slide">
+                        <div class="slide-header">
+                            <h2>Value Proposition Canvas</h2>
+                            <div class="logo">ScaleUp Ventures</div>
+                        </div>
+
+                        <div class="slide-content">
+                            <div class="slide-column">
+                                <h3>Customer Profile</h3>
+                                <ul>
+                                    <li><strong>Jobs:</strong> Generate leads, compete digitally, modernize, prepare for exit</li>
+                                    <li><strong>Pains:</strong> Burned by agencies, tech overwhelm, can't prove ROI, fear AI</li>
+                                    <li><strong>Gains:</strong> Growth, peace of mind, competitive presence, time freedom</li>
+                                </ul>
+                            </div>
+
+                            <div class="slide-column">
+                                <h3>Value Map</h3>
+                                <ul>
+                                    <li><strong>Products:</strong> Development, Growth Marketing, AI & Automation</li>
+                                    <li><strong>Relievers:</strong> Pre-engagement ROI, transparent pricing, industry expertise</li>
+                                    <li><strong>Creators:</strong> Measurable ROI, competitive tools, exit value, hands-off</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div style="position: absolute; bottom: 48px; left: 48px; right: 48px; display: flex; justify-content: space-between; align-items: center;">
+                            <div style="color: var(--gold); font-size: 0.9rem;">
+                                "We prove the value before you invest."
+                            </div>
+                            <div style="color: rgba(255,255,255,0.5); font-size: 0.75rem;">
+                                Certainty First.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Presentation Slides -->
+                <div style="margin-top: 48px;">
+                    <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.25rem; color: var(--navy); margin-bottom: 20px;">
+                        Full Presentation Deck Structure
+                    </h3>
+
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>Slide 1: Title</h3>
+                            <p class="description">ScaleUp Ventures Value Proposition Canvas</p>
+                            <ul>
+                                <li>Company logo and tagline</li>
+                                <li>Target audience definition</li>
+                                <li>Date and presenter name</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3>Slide 2: The Problem</h3>
+                            <p class="description">Customer Pains Deep Dive</p>
+                            <ul>
+                                <li>~50% have been burned by agencies</li>
+                                <li>81% cannot prove marketing ROI</li>
+                                <li>90% fear AI disruption</li>
+                                <li>Tech overwhelm preventing action</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3>Slide 3: Customer Jobs</h3>
+                            <p class="description">What They're Trying to Accomplish</p>
+                            <ul>
+                                <li>Generate consistent leads</li>
+                                <li>Compete with digital rivals</li>
+                                <li>Modernize without disruption</li>
+                                <li>Maximize exit value</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3>Slide 4: Our Solution</h3>
+                            <p class="description">Products & Services Overview</p>
+                            <ul>
+                                <li>Development (websites, apps)</li>
+                                <li>Growth Marketing (SEO, ads)</li>
+                                <li>AI & Automation</li>
+                                <li>Pre-engagement ROI modeling</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3>Slide 5: Pain Relievers</h3>
+                            <p class="description">How We Address Each Pain</p>
+                            <ul>
+                                <li>Burned before -> ROI proof first</li>
+                                <li>Tech overwhelm -> Done-for-you</li>
+                                <li>Can't prove ROI -> Tracking</li>
+                                <li>Fear AI -> AI as tool</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3>Slide 6: The Fit</h3>
+                            <p class="description">Why ScaleUp is the Right Partner</p>
+                            <ul>
+                                <li>Industry expertise</li>
+                                <li>Outcome-focused partnership</li>
+                                <li>Full asset ownership</li>
+                                <li>Land-and-expand model</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: var(--navy); color: var(--white); padding: 40px 60px; margin-top: 60px;">
+        <div style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+            <div>
+                <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.25rem; margin-bottom: 8px;">ScaleUp Ventures</h3>
+                <p style="color: var(--gold); font-size: 0.9rem;">Certainty First.</p>
+            </div>
+            <div style="text-align: right;">
+                <p style="font-size: 0.85rem; opacity: 0.7;">Value Proposition Canvas</p>
+                <p style="font-size: 0.75rem; opacity: 0.5;">Strategic Sales Tool | December 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Navigation
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked tab
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Industry Tabs
+        document.querySelectorAll('.industry-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all industry tabs
+                document.querySelectorAll('.industry-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.industry-content').forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.industry).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

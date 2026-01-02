@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | ScaleUp Ventures - Certainty First.</title>
+    <meta name="description" content="ScaleUp Ventures helps established business owners modernize with complete certainty. After an exit from a $4M venture-backed startup backed by Google, Northwestern Mutual, and other institutional investors, our founding team came together to help other businesses reach their promised land. We believe in telling you the truth - even when that means telling you NOT to build.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2540;
+            --navy-dark: #0a0f1a;
+            --gold: #D4A853;
+            --gold-light: #e5c77a;
+            --gold-muted: rgba(212, 168, 83, 0.15);
+            --cream: #FAF8F5;
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--navy);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--cream);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+            color: var(--cream);
+            padding: 180px 40px 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--gold-muted) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .hero .tagline {
+            font-size: 22px;
+            line-height: 1.6;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 100px 40px;
+        }
+
+        .section-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 42px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--navy);
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 32px 0;
+        }
+
+        .section p {
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* Story Section */
+        .story-section {
+            background: var(--cream);
+        }
+
+        /* Heron Section */
+        .heron-section {
+            background: var(--navy);
+            color: var(--cream);
+        }
+
+        .heron-section .section-inner {
+            max-width: 1000px;
+        }
+
+        .heron-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .heron-symbol {
+            text-align: center;
+        }
+
+        .heron-icon {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 32px;
+            background: linear-gradient(135deg, var(--gold-muted) 0%, transparent 100%);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .heron-icon svg {
+            width: 100px;
+            height: 100px;
+            fill: var(--gold);
+            opacity: 0.8;
+        }
+
+        .heron-tagline {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 28px;
+            font-style: italic;
+            color: var(--gold);
+            margin-top: 16px;
+        }
+
+        .heron-section h2 {
+            color: var(--cream);
+            font-size: 36px;
+        }
+
+        .heron-section p {
+            color: var(--cream);
+            opacity: 0.9;
+        }
+
+        .heron-principles {
+            margin-top: 40px;
+            display: flex;
+            gap: 32px;
+        }
+
+        .principle {
+            flex: 1;
+            text-align: center;
+            padding: 24px;
+            background: rgba(212, 168, 83, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .principle-word {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 24px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .principle-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        /* Founder Section */
+        .founder-section {
+            background: white;
+        }
+
+        .founder-section .section-inner {
+            max-width: 1100px;
+        }
+
+        .founder-intro {
+            max-width: 700px;
+            margin-bottom: 64px;
+        }
+
+        .founder-card {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 48px;
+            margin-bottom: 64px;
+        }
+
+        .founder-photo {
+            width: 240px;
+            height: 280px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--text-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .founder-photo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold);
+        }
+
+        .founder-info h3 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .founder-title {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+
+        .founder-bio {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--navy);
+            opacity: 0.85;
+        }
+
+        .founder-bio p {
+            margin-bottom: 16px;
+        }
+
+        /* Work Section */
+        .work-section {
+            background: var(--cream);
+        }
+
+        .work-section .section-inner {
+            max-width: 1000px;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .work-card {
+            background: white;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 20px rgba(15, 23, 41, 0.06);
+            border-left: 4px solid var(--gold);
+        }
+
+        .work-card h4 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--navy);
+        }
+
+        .work-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            opacity: 0.85;
+            margin: 0;
+        }
+
+        .work-card .outcome {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(15, 23, 41, 0.1);
+            font-size: 14px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Approach Section */
+        .approach-section {
+            background: white;
+        }
+
+        .approach-section .section-inner {
+            max-width: 1100px;
+        }
+
+        .approach-quote {
+            background: var(--navy);
+            color: var(--cream);
+            padding: 48px;
+            border-radius: 8px;
+            margin: 48px 0;
+            position: relative;
+        }
+
+        .approach-quote::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 32px;
+            font-size: 80px;
+            font-family: Georgia, serif;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .approach-quote p {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 26px;
+            font-style: italic;
+            line-height: 1.5;
+            margin: 0;
+            padding-left: 48px;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .approach-card {
+            background: var(--cream);
+            padding: 32px;
+            border-radius: 8px;
+            border-top: 3px solid var(--gold);
+        }
+
+        .approach-card h4 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--navy);
+        }
+
+        .approach-card p {
+            font-size: 16px;
+            line-height: 1.7;
+            opacity: 0.85;
+            margin: 0;
+        }
+
+        /* Values Section */
+        .values-section {
+            background: var(--cream);
+        }
+
+        .values-section .section-inner {
+            max-width: 1100px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 20px rgba(15, 23, 41, 0.06);
+            border-left: 4px solid var(--gold);
+        }
+
+        .value-card h4 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--navy);
+        }
+
+        .value-card p {
+            font-size: 16px;
+            line-height: 1.7;
+            opacity: 0.85;
+            margin: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+            color: var(--cream);
+            padding: 120px 40px;
+            text-align: center;
+        }
+
+        .cta-section .section-inner {
+            max-width: 700px;
+        }
+
+        .cta-section h2 {
+            color: var(--cream);
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 18px 48px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        .cta-subtext {
+            margin-top: 24px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy-dark);
+            color: var(--cream);
+            padding: 60px 40px;
+            border-top: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .footer-tagline {
+            color: var(--gold);
+            font-size: 14px;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-copyright {
+            color: var(--text-secondary);
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .heron-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 16px 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 140px 24px 80px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .tagline {
+                font-size: 18px;
+            }
+
+            .section {
+                padding: 64px 24px;
+            }
+
+            .section h2 {
+                font-size: 32px;
+            }
+
+            .founder-card {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .founder-photo {
+                width: 100%;
+                height: 200px;
+            }
+
+            .heron-principles {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 32px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+                gap: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">Back to Index</a>
+  <span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span>
+  <div style="display:flex;gap:12px;">
+    <a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a>
+    <a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a>
+    <a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a>
+    <a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a>
+    <a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a>
+  </div>
+</nav>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="/" class="logo">Scale<span>Up</span> Ventures</a>
+        <ul class="nav-links">
+            <li><a href="/services">Services</a></li>
+            <li><a href="/about" style="color: var(--gold);">About</a></li>
+            <li><a href="/results">Results</a></li>
+            <li><a href="/insights">Insights</a></li>
+        </ul>
+        <a href="/contact" class="nav-cta">Schedule a Conversation</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-label">About ScaleUp Ventures</div>
+            <h1>Sometimes the Right Answer Is "Do Not Build"</h1>
+            <p class="tagline">ScaleUp Ventures is an early-stage consultancy that helps business owners modernize with certainty. We are intentionally selective because we only take work where we can genuinely help.</p>
+        </div>
+    </header>
+
+    <!-- Our Story Section -->
+    <section class="section story-section">
+        <div class="section-inner">
+            <div class="section-label">Our Story</div>
+            <h2>Why I Started ScaleUp Ventures</h2>
+            <div class="section-divider"></div>
+
+            <p>I kept seeing the same pattern. Business owners who had spent years building something real were told they needed to "modernize" or "go digital." They would hire an agency, spend significant money, and end up with a website or app that looked nice but did not actually move their business forward.</p>
+
+            <p>The problem was not the technology. It was that nobody bothered to ask the fundamental question: Should you build this at all?</p>
+
+            <p>I founded ScaleUp Ventures to be different. We start every engagement by understanding whether building is even the right move. Sometimes it is not. Sometimes the honest answer is "keep doing what you are doing" or "fix your operations first" or "this technology will not solve the problem you actually have."</p>
+
+            <p>We are early-stage and intentionally selective. I would rather work with a handful of clients where I can genuinely help than scale up with work that does not deliver real value. That is not a business limitation. It is a philosophy.</p>
+        </div>
+    </section>
+
+    <!-- The Heron Section -->
+    <section class="section heron-section">
+        <div class="section-inner">
+            <div class="heron-grid">
+                <div class="heron-symbol">
+                    <div class="heron-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 10 L55 25 L52 45 L60 50 L52 55 L55 75 L50 90 L45 75 L48 55 L40 50 L48 45 L45 25 Z" />
+                            <circle cx="50" cy="15" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M35 35 Q25 40 20 50" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M65 35 Q75 40 80 50" fill="none" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <p class="heron-tagline">"Like the heron, we watch before we strike."</p>
+                </div>
+
+                <div class="heron-content">
+                    <div class="section-label">Our Philosophy</div>
+                    <h2>Certainty First</h2>
+
+                    <p>Watch a heron hunt. It stands motionless, sometimes for extended periods, observing the water. When it strikes, the motion is swift, precise, and effective. That patience is not hesitation. It is strategy.</p>
+
+                    <p>"Certainty First" means we prove it before you buy - and if we can't, we'll tell you. Our Two-Track ROI Model makes this concrete: For ad campaigns, we quantify projected ad spend AND projected leads BEFORE starting to ensure the expected results will meet your needs - then we guarantee those lead numbers with our fee refunded if we miss. For app and development projects, we build three-scenario ROI projections (high/mid/low) showing your return in cash or company value. If we can't show a high-probability positive outcome on either track, we recommend not proceeding.</p>
+
+                    <p>This approach is not common. Most consultancies want to sell you something. We want to help you succeed, which sometimes means telling you not to spend money with us.</p>
+
+                    <div class="heron-principles">
+                        <div class="principle">
+                            <div class="principle-word">Patience</div>
+                            <div class="principle-desc">Understand before acting</div>
+                        </div>
+                        <div class="principle">
+                            <div class="principle-word">Precision</div>
+                            <div class="principle-desc">Target what matters</div>
+                        </div>
+                        <div class="principle">
+                            <div class="principle-word">Proof</div>
+                            <div class="principle-desc">Measure outcomes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="section founder-section">
+        <div class="section-inner">
+            <div class="founder-intro">
+                <div class="section-label">Our Team</div>
+                <h2>The ScaleUp Ventures Founding Team</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="founder-card">
+                <div class="founder-photo">[Team Photo]</div>
+                <div class="founder-info">
+                    <h3>Calvin Williams Jr.</h3>
+                    <div class="founder-title">CEO</div>
+                    <div class="founder-bio">
+                        <p>We came together after an exit from a $4M venture-backed startup, backed by Google, Northwestern Mutual, and other institutional investors. Calvin, Ray, and Aaron looked at what we'd accomplished and asked ourselves: what if we could help other founders and business leaders reach their promised land too?</p>
+
+                        <p>We started ScaleUp Ventures because we were tired of watching business owners get sold things they did not need. After years of working at the intersection of business strategy and technology, we realized that the most valuable thing we could offer was not technical expertise. It was honest assessment.</p>
+
+                        <p>Our background spans product management, strategy, and investment. We have worked with startups trying to find product-market fit, established businesses looking to modernize, and everything in between. What we learned is that the technology is rarely the hard part. The hard part is knowing whether technology is the right solution at all.</p>
+
+                        <p>ScaleUp Ventures is early-stage by design. We work with a small number of clients at a time because that is the only way to give each engagement the attention it deserves. We are not trying to build an agency with hundreds of clients. We are trying to do good work for the people we work with.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Work Section -->
+    <section class="section work-section">
+        <div class="section-inner">
+            <div class="section-label">Real Work</div>
+            <h2>What We Have Actually Done</h2>
+            <div class="section-divider"></div>
+
+            <p>I am not going to inflate our track record. Here is what we have actually worked on:</p>
+
+            <div class="work-grid">
+                <div class="work-card">
+                    <h4>The No-Build Decision</h4>
+                    <p>A client approached us with a $150,000+ budget and 12-18 month commitment for a custom web application. Instead of building, we proposed a $5,000 discovery and feasibility analysis over 4 weeks. Our analysis revealed: the market was more saturated than realized, hidden maintenance costs had not been budgeted, and existing solutions could accomplish 80% of their goals at a fraction of the cost. We told them not to build. They saved $150,000+ and 12+ months by NOT building.</p>
+                    <div class="outcome">$5K discovery, saved $150K+ | "Certainty First" is not a marketing slogan. It means we would rather earn $5,000 telling you the truth than $150,000 building something that will not serve you.</div>
+                </div>
+
+                <div class="work-card">
+                    <h4>Startup Support</h4>
+                    <p>Full-spectrum early-stage support: market validation, business and financial model validation, app development, fundraising plan creation, and investor and advisor introductions.</p>
+                    <div class="outcome">Outcome: Clearer direction, focused roadmap</div>
+                </div>
+
+                <div class="work-card">
+                    <h4>Financial Trading Platform</h4>
+                    <p>Full go-to-market engagement from idea to SEC/NFA compliant application. Beyond product build, scope included persona research, targeting strategy, ad management, and lead generation to validate market opportunity and customer acquisition.</p>
+                    <div class="outcome">Outcome: Complete production-ready trading platform with validated GTM strategy</div>
+                </div>
+
+                <div class="work-card">
+                    <h4>HR Automation Tool</h4>
+                    <p>Full go-to-market engagement from concept to production. Beyond product build, scope included persona research, targeting strategy, ad management, and lead generation. Achieved $25-$33 lead costs, enabling validation of market demand, customer fit, and profitable customer acquisition economics.</p>
+                    <div class="outcome">Outcome: Production-ready platform with proven GTM and validated unit economics</div>
+                </div>
+
+                <div class="work-card">
+                    <h4>AI Automation Agents for Solutions Consulting Firm</h4>
+                    <p>Contract work building AI automation agents using best practices for a solutions consulting firm. Team members now save 20-25 hours per month—and that number grows 10-20% each month as additional processes flow into the automated workflow. The team redirects their effort to higher-value strategic activities.</p>
+                    <div class="outcome">Outcome: 20-25 hours saved per member monthly, with savings growing 10-20% each month</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach Section -->
+    <section class="section approach-section">
+        <div class="section-inner">
+            <div class="section-label">Our Approach</div>
+            <h2>How We Work</h2>
+            <div class="section-divider"></div>
+
+            <div class="approach-quote">
+                <p>We prove it before you buy - and if we can't, we'll tell you. For ad campaigns, we quantify projected ad spend AND projected leads BEFORE starting to ensure the expected results will meet your needs - then guarantee those numbers with our fee refunded if we miss. For development projects, we show you three-scenario ROI projections before you commit. If we can't demonstrate a high-probability positive outcome, we recommend not proceeding - just like we did in The No-Build Decision case, where a $5,000 discovery saved a client $150,000+ by revealing they should NOT build.</p>
+            </div>
+
+            <p>Every engagement starts with understanding. We dig into your business, your numbers, your goals, and your constraints. Only then do we make recommendations. Sometimes those recommendations involve building something. Sometimes they do not.</p>
+
+            <div class="approach-grid">
+                <div class="approach-card">
+                    <h4>Understand First</h4>
+                    <p>We take time to learn your business before recommending anything. This is not a sales tactic. It is the only way to give advice that actually helps.</p>
+                </div>
+                <div class="approach-card">
+                    <h4>Honest Assessment</h4>
+                    <p>If building is not the right move, we say so. If we are not the right fit, we say that too. Our reputation depends on giving advice that works.</p>
+                </div>
+                <div class="approach-card">
+                    <h4>Defined Outcomes</h4>
+                    <p>Our Two-Track ROI Model defines success upfront. Ad campaigns start with quantified projected ad spend AND projected leads BEFORE we begin, ensuring expected results will meet your needs - then we guarantee those numbers (fee refunded if missed). Development projects get three-scenario projections showing return in cash or company value. No vague promises, no moving goalposts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section values-section">
+        <div class="section-inner">
+            <div class="section-label">Our Values</div>
+            <h2>What We Stand For</h2>
+            <div class="section-divider"></div>
+
+            <p>These are not marketing statements. These are the principles that guide every engagement.</p>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <h4>Honesty Over Revenue</h4>
+                    <p>We would rather tell you not to build than take money for a project that will not help you. Short-term, this costs us business. Long-term, it is the only way to build something worth building.</p>
+                </div>
+
+                <div class="value-card">
+                    <h4>Clarity Over Complexity</h4>
+                    <p>We explain things in plain language because you should understand what you are buying. If we cannot explain it simply, we probably do not understand it well enough ourselves.</p>
+                </div>
+
+                <div class="value-card">
+                    <h4>Quality Over Scale</h4>
+                    <p>We stay small intentionally. Working with fewer clients means we can give each one the attention they deserve. We are not trying to be the biggest. We are trying to be genuinely useful.</p>
+                </div>
+
+                <div class="value-card">
+                    <h4>Outcomes Over Activity</h4>
+                    <p>We measure success by what changes for you, not by how busy we look. If a project does not move your business forward, it does not matter how polished the deliverables are.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="section-inner">
+            <h2>Want to Talk?</h2>
+            <p>If you are thinking about a technology investment and want an honest assessment, let us have a conversation. No pitch, no pressure. Just a straightforward discussion about whether we can help.</p>
+            <a href="/contact" class="cta-button">Schedule a Conversation</a>
+            <p class="cta-subtext">If we are not the right fit, we will tell you.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-logo">ScaleUp Ventures</div>
+                <div class="footer-tagline">Certainty First.</div>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/services">Services</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/results">Results</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div class="footer-copyright">2025 ScaleUp Ventures. All rights reserved.</div>
+        </div>
+    </footer>
+
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">Back to Content Index</a>
+  <p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p>
+</footer>
+</body>
+</html>

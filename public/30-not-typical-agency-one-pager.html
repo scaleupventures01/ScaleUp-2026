@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why We're Not a Typical Agency | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1A2640;
+            --gold: #D4A853;
+            --gold-light: #E8C97A;
+            --gold-dark: #B8923E;
+            --cream: #F8F6F1;
+            --warm-white: #FDFCFA;
+            --text-muted: #5A6478;
+            --success: #2E7D4A;
+            --warning: #B54B4B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Print Specifications */
+        @page {
+            size: 8.5in 11in;
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                background: white;
+            }
+            .one-pager {
+                box-shadow: none;
+                width: 8.5in;
+                min-height: 11in;
+                max-height: 11in;
+                overflow: hidden;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .qr-placeholder {
+                border: 2px dashed var(--navy);
+            }
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #E8E6E1;
+            color: var(--navy);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Main Container - designed for 8.5x11 print */
+        .one-pager {
+            max-width: 8.5in;
+            min-height: 11in;
+            margin: 0 auto;
+            background: var(--warm-white);
+            box-shadow: 0 4px 30px rgba(15, 23, 41, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .header {
+            background: var(--navy);
+            padding: 35px 45px 30px;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header-left {
+            flex: 1;
+        }
+
+        .brand-name {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--warm-white);
+            letter-spacing: 0.05em;
+            margin-bottom: 5px;
+        }
+
+        .brand-name span {
+            font-weight: 400;
+        }
+
+        .tagline {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--gold);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        .headline {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: var(--warm-white);
+            line-height: 1.2;
+            margin-top: 20px;
+            max-width: 500px;
+        }
+
+        .headline-accent {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        .qr-placeholder {
+            width: 80px;
+            height: 80px;
+            background: var(--warm-white);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+        }
+
+        .qr-icon {
+            width: 45px;
+            height: 45px;
+            background:
+                linear-gradient(var(--navy) 33%, transparent 33%),
+                linear-gradient(90deg, var(--navy) 33%, transparent 33%);
+            background-size: 15px 15px;
+            border-radius: 2px;
+            margin-bottom: 4px;
+        }
+
+        .qr-text {
+            font-size: 0.5rem;
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        /* Subheader */
+        .subheader {
+            background: var(--cream);
+            padding: 15px 45px;
+            border-bottom: 1px solid rgba(212, 168, 83, 0.3);
+        }
+
+        .subheader-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .subheader-text strong {
+            color: var(--navy);
+            font-style: normal;
+        }
+
+        /* Main Content Grid */
+        .content {
+            padding: 25px 45px;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.78rem;
+        }
+
+        .comparison-table thead th {
+            padding: 10px 15px;
+            text-align: left;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .comparison-table thead th:first-child {
+            background: var(--cream);
+            color: var(--text-muted);
+            border-radius: 6px 0 0 0;
+        }
+
+        .comparison-table thead th:nth-child(2) {
+            background: #F5E6E6;
+            color: var(--warning);
+            border-radius: 0;
+        }
+
+        .comparison-table thead th:last-child {
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 0 6px 0 0;
+        }
+
+        .comparison-table tbody td {
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(15, 23, 41, 0.08);
+            vertical-align: top;
+        }
+
+        .comparison-table tbody td:first-child {
+            font-weight: 500;
+            color: var(--navy);
+            background: var(--cream);
+        }
+
+        .comparison-table tbody td:nth-child(2) {
+            color: var(--text-muted);
+            background: rgba(245, 230, 230, 0.3);
+        }
+
+        .comparison-table tbody td:last-child {
+            color: var(--navy);
+            background: rgba(15, 23, 41, 0.03);
+            font-weight: 500;
+        }
+
+        .comparison-table tbody tr:last-child td:first-child {
+            border-radius: 0 0 0 6px;
+        }
+
+        .comparison-table tbody tr:last-child td:last-child {
+            border-radius: 0 0 6px 0;
+        }
+
+        .check-icon {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        .x-icon {
+            color: var(--warning);
+            font-weight: 700;
+        }
+
+        /* Five Differences Section */
+        .differences-section {
+            margin-bottom: 25px;
+        }
+
+        .differences-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .difference-card {
+            background: var(--navy);
+            border-radius: 8px;
+            padding: 15px 12px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .difference-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .difference-number {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .difference-title {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--warm-white);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .difference-text {
+            font-size: 0.6rem;
+            color: rgba(248, 246, 241, 0.75);
+            line-height: 1.4;
+        }
+
+        .difference-proof {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(212, 168, 83, 0.3);
+            font-size: 0.55rem;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* Proof Points Banner */
+        .proof-banner {
+            background: linear-gradient(135deg, var(--cream), var(--warm-white));
+            border: 1px solid rgba(212, 168, 83, 0.4);
+            border-radius: 8px;
+            padding: 18px 25px;
+            margin-bottom: 25px;
+        }
+
+        .proof-banner-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--navy);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .proof-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .proof-stat {
+            text-align: center;
+        }
+
+        .proof-stat-number {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        .proof-stat-number .percent {
+            font-size: 1rem;
+            color: var(--gold);
+        }
+
+        .proof-stat-label {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            line-height: 1.3;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--navy);
+            margin: 0 -45px;
+            padding: 25px 45px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .cta-content h3 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--warm-white);
+            margin-bottom: 6px;
+        }
+
+        .cta-content h3 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .cta-content p {
+            font-size: 0.75rem;
+            color: rgba(248, 246, 241, 0.7);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 14px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .cta-button:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px 45px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 20px;
+            border-top: 1px solid rgba(15, 23, 41, 0.1);
+        }
+
+        .footer-contact {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        .footer-contact a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-brand {
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .footer-logo span {
+            font-weight: 400;
+        }
+
+        .footer-tagline {
+            font-size: 0.55rem;
+            color: var(--gold);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .footer-legal {
+            text-align: right;
+            font-size: 0.55rem;
+            color: var(--text-muted);
+        }
+
+        /* Usage Instructions - Screen Only */
+        .usage-instructions {
+            max-width: 8.5in;
+            margin: 40px auto 0;
+            background: var(--warm-white);
+            border-radius: 8px;
+            padding: 35px;
+            box-shadow: 0 2px 15px rgba(15, 23, 41, 0.1);
+        }
+
+        .usage-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .usage-section {
+            margin-bottom: 25px;
+        }
+
+        .usage-section h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .usage-section h4::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .usage-section p, .usage-section ul {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .usage-section ul {
+            padding-left: 20px;
+        }
+
+        .usage-section li {
+            margin-bottom: 6px;
+        }
+
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .spec-box {
+            background: var(--cream);
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .spec-box h5 {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+
+        .spec-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .spec-box li {
+            font-size: 0.75rem;
+            color: var(--navy);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .spec-box li span:last-child {
+            font-weight: 500;
+        }
+
+        .print-button {
+            display: inline-block;
+            background: var(--navy);
+            color: var(--warm-white);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .print-button:hover {
+            background: var(--navy-light);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            body {
+                padding: 10px;
+            }
+
+            .one-pager {
+                min-height: auto;
+            }
+
+            .header {
+                padding: 25px 30px 20px;
+            }
+
+            .headline {
+                font-size: 1.5rem;
+            }
+
+            .content {
+                padding: 20px 30px;
+            }
+
+            .differences-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .differences-grid .difference-card:nth-child(4),
+            .differences-grid .difference-card:nth-child(5) {
+                grid-column: span 1;
+            }
+
+            .proof-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+                margin: 0 -30px;
+                padding: 20px 30px;
+            }
+
+            .footer {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 10px;
+                padding: 15px 30px;
+            }
+
+            .footer-legal {
+                text-align: center;
+            }
+
+            .usage-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .differences-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .comparison-table {
+                font-size: 0.7rem;
+            }
+
+            .comparison-table thead th,
+            .comparison-table tbody td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- THE ONE-PAGER (Print-Ready) -->
+    <div class="one-pager">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="brand-name">Scale<span>Up</span> Ventures</div>
+                    <div class="tagline">Certainty First.</div>
+                    <h1 class="headline">
+                        You've Been Burned Before.<br>
+                        <span class="headline-accent">We Prove It First.</span>
+                    </h1>
+                </div>
+                <div class="header-right">
+                    <div class="qr-placeholder">
+                        <div class="qr-icon"></div>
+                        <span class="qr-text">Scan Me</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Subheader -->
+        <div class="subheader">
+            <p class="subheader-text">
+                <strong>50% of business owners</strong> have been disappointed by agencies who promised results and delivered excuses.
+                If that's you, this page explains why we're different.
+            </p>
+        </div>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Comparison Section -->
+            <section class="comparison-section">
+                <h2 class="section-title">Side-by-Side: What Makes Us Different</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>When You Ask...</th>
+                            <th><span class="x-icon">X</span> Typical Agency</th>
+                            <th><span class="check-icon">&#10003;</span> ScaleUp Ventures</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>"How will I know this works?"</td>
+                            <td>"Trust us, we've done this before"</td>
+                            <td>ROI model with your numbers, before you spend</td>
+                        </tr>
+                        <tr>
+                            <td>"What does success look like?"</td>
+                            <td>Vague promises about "increased visibility"</td>
+                            <td>Defined metrics you hold us accountable to</td>
+                        </tr>
+                        <tr>
+                            <td>"What's the total cost?"</td>
+                            <td>"Let's discuss that on a call..."</td>
+                            <td>Transparent pricing, no hidden fees, upfront</td>
+                        </tr>
+                        <tr>
+                            <td>"What if it doesn't work?"</td>
+                            <td>Change orders, scope adjustments, excuses</td>
+                            <td>We show you the risk before you commit</td>
+                        </tr>
+                        <tr>
+                            <td>"Do you understand my business?"</td>
+                            <td>Generic solutions, tech jargon</td>
+                            <td>Plain language, tailored to your industry</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Five Differences Section -->
+            <section class="differences-section">
+                <h2 class="section-title">The 5 Ways ScaleUp Is Different</h2>
+                <div class="differences-grid">
+                    <div class="difference-card">
+                        <div class="difference-number">1</div>
+                        <div class="difference-title">Pre-Engagement ROI Modeling</div>
+                        <div class="difference-text">See exactly how you make your money back before spending a dollar</div>
+                        <div class="difference-proof">Less than 5% of agencies offer this</div>
+                    </div>
+                    <div class="difference-card">
+                        <div class="difference-number">2</div>
+                        <div class="difference-title">Full-Stack Integration</div>
+                        <div class="difference-text">Development, growth marketing, and AI automation under one roof</div>
+                        <div class="difference-proof">One partner, complete visibility</div>
+                    </div>
+                    <div class="difference-card">
+                        <div class="difference-number">3</div>
+                        <div class="difference-title">Plain Language, No Jargon</div>
+                        <div class="difference-text">We translate tech into business outcomes you understand</div>
+                        <div class="difference-proof">Respect for your expertise</div>
+                    </div>
+                    <div class="difference-card">
+                        <div class="difference-number">4</div>
+                        <div class="difference-title">Complete Ownership</div>
+                        <div class="difference-text">You own all assets, accounts, and IP from day one. No lock-in.</div>
+                        <div class="difference-proof">Standard in every contract</div>
+                    </div>
+                    <div class="difference-card">
+                        <div class="difference-number">5</div>
+                        <div class="difference-title">AI-Augmented Delivery</div>
+                        <div class="difference-text">Faster results at competitive prices through smart efficiency</div>
+                        <div class="difference-proof">30-40% faster than traditional</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Proof Points Banner -->
+            <section class="proof-banner">
+                <h3 class="proof-banner-title">The Numbers That Back Our Claims</h3>
+                <div class="proof-stats">
+                    <div class="proof-stat">
+                        <div class="proof-stat-number">100<span class="percent">%</span></div>
+                        <div class="proof-stat-label">Client satisfaction<br>rate to date</div>
+                    </div>
+                    <div class="proof-stat">
+                        <div class="proof-stat-number">50<span class="percent">%+</span></div>
+                        <div class="proof-stat-label">Gross margins through<br>AI efficiency</div>
+                    </div>
+                    <div class="proof-stat">
+                        <div class="proof-stat-number">0</div>
+                        <div class="proof-stat-label">Projects delivered late<br>or over budget</div>
+                    </div>
+                    <div class="proof-stat">
+                        <div class="proof-stat-number">1</div>
+                        <div class="proof-stat-label">Conversation to see<br>if we're a fit</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <div class="cta-content">
+                    <h3>Ready to Experience <span>Certainty</span>?</h3>
+                    <p>One 30-minute conversation. No pressure. See the ROI model for yourself.</p>
+                </div>
+                <a href="https://scaleupventures.co/contact" class="cta-button">Schedule Your ROI Review</a>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-contact">
+                <a href="https://scaleupventures.co">scaleupventures.co</a>
+            </div>
+            <div class="footer-brand">
+                <div class="footer-logo">Scale<span>Up</span> Ventures</div>
+                <div class="footer-tagline">Certainty First.</div>
+            </div>
+            <div class="footer-legal">
+                For business owners who demand proof.
+            </div>
+        </footer>
+    </div>
+
+    <!-- USAGE INSTRUCTIONS (Screen Only) -->
+    <div class="usage-instructions no-print">
+        <h2 class="usage-title">One-Pager Usage Guide & Specifications</h2>
+
+        <div class="usage-grid">
+            <div class="spec-box">
+                <h5>Print Specifications</h5>
+                <ul>
+                    <li><span>Document Size:</span> <span>8.5" x 11" (Letter)</span></li>
+                    <li><span>Orientation:</span> <span>Portrait</span></li>
+                    <li><span>Color Mode:</span> <span>CMYK for print</span></li>
+                    <li><span>Bleed:</span> <span>0.125" all sides</span></li>
+                    <li><span>Safe Zone:</span> <span>0.25" from trim</span></li>
+                    <li><span>Paper Stock:</span> <span>100# Gloss Text or 80# Matte</span></li>
+                    <li><span>Coating:</span> <span>Aqueous gloss or soft touch matte</span></li>
+                </ul>
+            </div>
+
+            <div class="spec-box">
+                <h5>Digital Specifications</h5>
+                <ul>
+                    <li><span>Format:</span> <span>PDF or HTML</span></li>
+                    <li><span>File Size Target:</span> <span>Under 2MB for email</span></li>
+                    <li><span>Resolution:</span> <span>150 DPI minimum</span></li>
+                    <li><span>PDF/A:</span> <span>For archival compatibility</span></li>
+                    <li><span>Accessibility:</span> <span>Tagged PDF preferred</span></li>
+                    <li><span>Email Attachment:</span> <span>Yes, under 5MB total</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="usage-section">
+            <h4>QR Code Implementation</h4>
+            <p>Replace the QR placeholder with a generated QR code linking to:</p>
+            <ul>
+                <li><strong>Primary:</strong> scaleupventures.co/roi-review - Direct scheduling page</li>
+                <li><strong>Alternative:</strong> scaleupventures.co/proof - Landing page with case studies</li>
+                <li><strong>Tracking:</strong> Add UTM parameters: ?utm_source=print&utm_medium=one-pager&utm_campaign=not-typical-agency</li>
+            </ul>
+            <p style="margin-top: 10px;">Generate QR code at: <a href="https://www.qr-code-generator.com" target="_blank" style="color: var(--gold);">qr-code-generator.com</a> or similar service. Use minimum 1" x 1" size for reliable scanning.</p>
+        </div>
+
+        <div class="usage-section">
+            <h4>How to Use in the Sales Process</h4>
+            <ul>
+                <li><strong>Initial Outreach:</strong> Attach PDF version to introduction emails. Subject line: "Why we're not a typical agency (1-page PDF)"</li>
+                <li><strong>First Meeting Leave-Behind:</strong> Print on quality stock. Hand to prospect at end of discovery call with: "This summarizes what we discussed. Take your time - I'll follow up Thursday."</li>
+                <li><strong>Proposal Companion:</strong> Include as first page of any proposal package to set expectations before diving into details.</li>
+                <li><strong>Referral Tool:</strong> Give 3-5 copies to satisfied clients: "If you know anyone who's been burned by agencies, this explains why we're different."</li>
+                <li><strong>Trade Shows/Networking:</strong> Premium handout for qualified prospects only - don't mass distribute.</li>
+                <li><strong>Website Download:</strong> Gated content behind email capture: "Download: Why We're Not a Typical Agency"</li>
+            </ul>
+        </div>
+
+        <div class="usage-section">
+            <h4>Talking Points When Presenting</h4>
+            <ul>
+                <li><strong>Opening:</strong> "I know you've probably worked with agencies before. This explains why we do things differently."</li>
+                <li><strong>Comparison Table:</strong> "Look at the left column - these are real questions our clients asked before working with us. The middle shows what they heard from other agencies. The right shows our approach."</li>
+                <li><strong>Five Differences:</strong> "These aren't marketing claims - they're operational realities. Number one is the big one: we show you the ROI before you invest."</li>
+                <li><strong>Proof Points:</strong> "The numbers are current. Feel free to verify - we'll connect you with any of our clients."</li>
+                <li><strong>Closing:</strong> "Take this with you. If anything doesn't ring true, call me on it. That's the whole point - we prove it first."</li>
+            </ul>
+        </div>
+
+        <div class="usage-section">
+            <h4>Version Control</h4>
+            <p>
+                <strong>Document:</strong> 30-not-typical-agency-one-pager.html<br>
+                <strong>Version:</strong> 1.0<br>
+                <strong>Created:</strong> December 31, 2025<br>
+                <strong>Brand Colors:</strong> Navy #0F1729 / Gold #D4A853<br>
+                <strong>Target Audience:</strong> Business owners 50-65, previously burned by agencies<br>
+                <strong>Core Message:</strong> Pre-engagement ROI modeling as key differentiator
+            </p>
+        </div>
+
+        <button class="print-button" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+
+    <script>
+        // Print functionality
+        document.querySelector('.print-button').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
+</body>
+</html>

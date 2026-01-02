@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Modeling Methodology | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --navy-lighter: #243352;
+            --gold: #D4A853;
+            --gold-light: #e6c580;
+            --gold-dark: #b8923f;
+            --white: #ffffff;
+            --gray-100: #f7f8fa;
+            --gray-200: #e9ebf0;
+            --gray-300: #d1d5e0;
+            --gray-600: #6b7280;
+            --green: #10b981;
+            --green-light: #d1fae5;
+            --amber: #f59e0b;
+            --amber-light: #fef3c7;
+            --red: #ef4444;
+            --red-light: #fee2e2;
+            --blue: #3b82f6;
+            --blue-light: #dbeafe;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+            background: var(--gray-100);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: var(--navy);
+            padding: 24px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+        }
+
+        .logo-text {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-tagline {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .header-meta {
+            text-align: right;
+            color: var(--gray-300);
+            font-size: 14px;
+        }
+
+        .header-meta strong {
+            color: var(--white);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        /* Document Header */
+        .doc-header {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: 0 1px 3px rgba(15, 23, 41, 0.08);
+            border-left: 6px solid var(--gold);
+        }
+
+        .doc-label {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .doc-title {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .doc-subtitle {
+            font-size: 20px;
+            color: var(--gray-600);
+            margin-bottom: 24px;
+        }
+
+        .doc-meta {
+            display: flex;
+            gap: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .meta-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Section */
+        .section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(15, 23, 41, 0.08);
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--navy);
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 14px;
+            border-radius: 8px;
+            margin-right: 12px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 24px;
+        }
+
+        /* Two-Track Cards */
+        .track-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .track-card {
+            border-radius: 16px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .track-card.campaigns {
+            background: linear-gradient(135deg, var(--blue) 0%, #1e40af 100%);
+            color: var(--white);
+        }
+
+        .track-card.projects {
+            background: linear-gradient(135deg, var(--green) 0%, #047857 100%);
+            color: var(--white);
+        }
+
+        .track-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .track-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--white);
+        }
+
+        .track-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+
+        .track-title {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .track-desc {
+            font-size: 15px;
+            opacity: 0.9;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .track-features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .track-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .track-feature-icon {
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .track-feature-icon svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        /* Guarantee Box */
+        .guarantee-box {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--navy);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 32px 0;
+            text-align: center;
+        }
+
+        .guarantee-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .guarantee-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--gold);
+        }
+
+        .guarantee-title {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .guarantee-text {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 24px;
+            line-height: 1.6;
+        }
+
+        .guarantee-details {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .guarantee-detail {
+            text-align: center;
+        }
+
+        .guarantee-detail-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-bottom: 4px;
+        }
+
+        .guarantee-detail-value {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        /* Scenario Cards */
+        .scenarios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .scenario-card {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 24px;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .scenario-card.low {
+            border-color: var(--gray-300);
+        }
+
+        .scenario-card.mid {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+        }
+
+        .scenario-card.mid::before {
+            content: "BASE CASE";
+            position: absolute;
+            top: -10px;
+            left: 24px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .scenario-card.high {
+            border-color: var(--green);
+        }
+
+        .scenario-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .scenario-label.low { color: var(--gray-600); }
+        .scenario-label.mid { color: var(--gold-dark); }
+        .scenario-label.high { color: var(--green); }
+
+        .scenario-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 4px;
+            font-family: 'SF Mono', 'Consolas', monospace;
+        }
+
+        .scenario-desc {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        .scenario-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(15, 23, 41, 0.1);
+        }
+
+        .scenario-metric {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+        }
+
+        .scenario-metric-label {
+            color: var(--gray-600);
+        }
+
+        .scenario-metric-value {
+            font-weight: 600;
+            color: var(--navy);
+            font-family: 'SF Mono', 'Consolas', monospace;
+        }
+
+        /* Return Types */
+        .return-types {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .return-type {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 24px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .return-type-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--navy);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .return-type-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--gold);
+        }
+
+        .return-type-title {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .return-type-desc {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        .return-type-examples {
+            font-size: 13px;
+            color: var(--navy);
+        }
+
+        .return-type-examples strong {
+            color: var(--gold-dark);
+        }
+
+        /* ROI Highlight Box */
+        .roi-highlight {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 16px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .roi-stat {
+            text-align: center;
+            position: relative;
+        }
+
+        .roi-stat:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: -16px;
+            top: 10%;
+            height: 80%;
+            width: 1px;
+            background: rgba(212, 168, 83, 0.3);
+        }
+
+        .roi-stat-label {
+            font-size: 12px;
+            color: var(--gray-300);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .roi-stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--gold);
+            font-family: 'SF Mono', 'Consolas', monospace;
+        }
+
+        .roi-stat-value.positive {
+            color: var(--green);
+        }
+
+        .roi-stat-sub {
+            font-size: 13px;
+            color: var(--gray-300);
+            margin-top: 4px;
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
+        }
+
+        .data-table th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+
+        .data-table th:last-child {
+            border-radius: 0 8px 0 0;
+            text-align: right;
+        }
+
+        .data-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 15px;
+        }
+
+        .data-table td:last-child {
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tr:hover {
+            background: var(--gray-100);
+        }
+
+        .data-table .highlight-row {
+            background: var(--gold-light);
+        }
+
+        .data-table .highlight-row:hover {
+            background: var(--gold-light);
+        }
+
+        /* Methodology Box */
+        .methodology-box {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+            border-left: 4px solid var(--gold);
+        }
+
+        .methodology-box h4 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 18px;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .methodology-box p {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 12px;
+        }
+
+        .methodology-box ul {
+            margin-left: 20px;
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .methodology-box li {
+            margin-bottom: 8px;
+        }
+
+        /* Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .comparison-card {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 16px 20px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .comparison-body {
+            padding: 20px;
+        }
+
+        .comparison-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 14px;
+        }
+
+        .comparison-item:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-item-label {
+            color: var(--gray-600);
+        }
+
+        .comparison-item-value {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Risk Factors */
+        .risk-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .risk-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .risk-item.low {
+            background: var(--green-light);
+        }
+
+        .risk-item.medium {
+            background: var(--amber-light);
+        }
+
+        .risk-item.high {
+            background: var(--red-light);
+        }
+
+        .risk-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+
+        .risk-badge.low {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .risk-badge.medium {
+            background: var(--amber);
+            color: var(--white);
+        }
+
+        .risk-badge.high {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        .risk-content {
+            flex: 1;
+        }
+
+        .risk-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .risk-desc {
+            font-size: 13px;
+            color: var(--gray-600);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            padding: 32px 48px;
+            margin-top: 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            color: var(--gray-300);
+            font-size: 14px;
+        }
+
+        .footer-left strong {
+            color: var(--gold);
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-cta {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .footer-cta:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        .methodology-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(212, 168, 83, 0.15);
+            color: var(--gold);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .track-grid,
+            .scenarios-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-highlight {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .roi-stat:nth-child(2)::after {
+                display: none;
+            }
+
+            .comparison-grid,
+            .return-types,
+            .risk-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .doc-meta {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .guarantee-details {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .header-meta {
+                text-align: center;
+            }
+
+            .roi-highlight {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-stat::after {
+                display: none;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .footer-right {
+                text-align: center;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .section {
+                break-inside: avoid;
+            }
+
+            .footer-cta {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;"><a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">Back to Index</a><span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span><div style="display:flex;gap:12px;"><a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a><a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a><a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a><a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a><a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a></div></nav>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="28" width="8" height="16" fill="#D4A853"/>
+                <rect x="15" y="20" width="8" height="24" fill="#D4A853"/>
+                <rect x="26" y="12" width="8" height="32" fill="#D4A853"/>
+                <rect x="37" y="4" width="8" height="40" fill="#D4A853"/>
+                <path d="M8 26L19 18L30 22L41 6" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+                <div class="logo-text">ScaleUp Ventures</div>
+                <div class="logo-tagline">We Prove It Before You Buy</div>
+            </div>
+        </div>
+        <div class="header-meta">
+            <div><strong>ROI Methodology</strong></div>
+            <div>How We Guarantee Your Investment</div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Document Header -->
+        <div class="doc-header">
+            <span class="doc-label">Core Differentiator</span>
+            <h1 class="doc-title">Two-Track ROI Modeling</h1>
+            <p class="doc-subtitle">We prove the return before you invest - in cash or company value</p>
+            <div class="doc-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Track 1</span>
+                    <span class="meta-value">Ad Campaigns (Lead Guarantee)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Track 2</span>
+                    <span class="meta-value">App Projects (3-Scenario Analysis)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Return Types</span>
+                    <span class="meta-value">Cash OR Asset Value</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: The Two Tracks -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-number">1</span>
+                Two Tracks, One Promise
+            </h2>
+
+            <div class="methodology-box">
+                <h4>The Core Principle</h4>
+                <p>
+                    Every engagement at ScaleUp Ventures starts with the same question: <strong>"How will you make your money back?"</strong>
+                    The answer determines which track your project follows - and what kind of accountability we provide.
+                </p>
+            </div>
+
+            <div class="track-grid">
+                <!-- Track 1: Ad Campaigns -->
+                <div class="track-card campaigns">
+                    <div class="track-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <div class="track-label">Track 1</div>
+                    <div class="track-title">Ad Campaigns</div>
+                    <div class="track-desc">
+                        Lead generation and paid advertising with guaranteed results. If we don't hit the numbers, we refund our fee.
+                    </div>
+                    <div class="track-features">
+                        <div class="track-feature">
+                            <div class="track-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
+                                </svg>
+                            </div>
+                            Lead volume projections upfront
+                        </div>
+                        <div class="track-feature">
+                            <div class="track-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
+                                </svg>
+                            </div>
+                            Guaranteed lead numbers
+                        </div>
+                        <div class="track-feature">
+                            <div class="track-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
+                                </svg>
+                            </div>
+                            Fee refund if we miss
+                        </div>
+                        <div class="track-feature">
+                            <div class="track-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
+                                </svg>
+                            </div>
+                            You control ad spend
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 2: App Projects -->
+                <div class="track-card projects">
+                    <div class="track-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M9 9h6M9 12h6M9 15h4"/>
+                        </svg>
+                    </div>
+                    <div class="track-label">Track 2</div>
+                    <div class="track-title">App & Development Projects</div>
+                    <div class="track-desc">
+                        Custom software, websites, and automation with three-scenario ROI projections showing potential return.
+                    </div>
+                    <div class="track-features">
+                        <div class="track-feature">
+                            <div class="track-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
+                                </svg>
+                            </div>
+                            High / Mid / Low scenarios
+                        </div>
+                        <div class="track-feature">
+                            <div class="track-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
+                                </svg>
+                            </div>
+                            Cash OR asset value return
+                        </div>
+                        <div class="track-feature">
+                            <div class="track-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
+                                </svg>
+                            </div>
+                            May include ad spend projections
+                        </div>
+                        <div class="track-feature">
+                            <div class="track-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
+                                </svg>
+                            </div>
+                            Decide based on conservative case
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Track 1 - Ad Campaigns with Guarantee -->
+        <section class="section" style="border: 2px solid var(--blue);">
+            <h2 class="section-title">
+                <span class="section-number" style="background: var(--blue);">2</span>
+                Track 1: Ad Campaign Lead Guarantee
+            </h2>
+
+            <p style="margin-bottom: 24px; color: var(--gray-600);">
+                For paid advertising and lead generation campaigns, we project exactly how many leads you'll receive - and we guarantee that number.
+            </p>
+
+            <div class="guarantee-box">
+                <div class="guarantee-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <polyline points="9,12 11,14 15,10"/>
+                    </svg>
+                </div>
+                <div class="guarantee-title">The ScaleUp Lead Guarantee</div>
+                <div class="guarantee-text">
+                    We project a specific number of qualified leads from your campaign. If we don't hit that number, <strong>we refund our management fee</strong>. No excuses, no fine print.
+                </div>
+                <div class="guarantee-details">
+                    <div class="guarantee-detail">
+                        <div class="guarantee-detail-label">What's Guaranteed</div>
+                        <div class="guarantee-detail-value">Lead Volume</div>
+                    </div>
+                    <div class="guarantee-detail">
+                        <div class="guarantee-detail-label">What's Refunded</div>
+                        <div class="guarantee-detail-value">Our Fee (Not Ad Spend)</div>
+                    </div>
+                    <div class="guarantee-detail">
+                        <div class="guarantee-detail-label">Your Control</div>
+                        <div class="guarantee-detail-value">Ad Budget Decisions</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="methodology-box">
+                <h4>How It Works</h4>
+                <ul>
+                    <li><strong>Before campaign launch:</strong> We analyze your market, industry benchmarks, and competitive landscape to project lead volume</li>
+                    <li><strong>We commit to a number:</strong> "This campaign will generate X qualified leads at your proposed budget"</li>
+                    <li><strong>You control ad spend:</strong> The ad budget goes directly to the platform (Google, Meta, etc.) - you see exactly where every dollar goes</li>
+                    <li><strong>If we miss:</strong> We refund our management fee. You only paid for ad spend, which went to the platforms regardless.</li>
+                    <li><strong>Why this works for us:</strong> We only take campaigns where we're confident in the projections. If the numbers don't support success, we'll tell you before you spend anything.</li>
+                </ul>
+            </div>
+
+            <!-- Ad Campaign ROI Framework Table -->
+            <h3 style="font-family: 'Crimson Pro', Georgia, serif; font-size: 20px; font-weight: 600; color: var(--navy); margin: 32px 0 16px; display: flex; align-items: center; gap: 8px;">
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--blue); color: var(--white); font-size: 12px; border-radius: 6px;">2a</span>
+                The Ad Campaign ROI Framework
+            </h3>
+            <p style="margin-bottom: 16px; color: var(--gray-600);">
+                Before any ad campaign launches, we quantify the projected ad spend and leads to ensure the expected results will meet your needs.
+            </p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>What We Quantify</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Market Analysis</strong></td>
+                        <td>Industry benchmarks, competitive landscape, platform performance data</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Projected Ad Spend</strong></td>
+                        <td>Budget required to achieve target results based on market rates</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Projected Lead Volume</strong></td>
+                        <td>Expected qualified leads at proposed budget level</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cost Per Lead Target</strong></td>
+                        <td>Industry benchmarks and historical data for your market</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Client Needs Alignment</strong></td>
+                        <td>Your conversion rate, deal value, and revenue targets</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Go/No-Go Recommendation</strong></td>
+                        <td>Proceed only if projected leads meet your business needs</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 16px; font-size: 14px; color: var(--gray-600); font-style: italic;">
+                <strong>Key Point:</strong> If our analysis shows the projected ad spend won't generate enough leads to meet your needs, we'll tell you before you spend a dollar. We'd rather lose the project than take your money for a campaign that won't work.
+            </p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-header">Traditional Agency Model</div>
+                    <div class="comparison-body">
+                        <div class="comparison-item">
+                            <span class="comparison-item-label">What they promise</span>
+                            <span class="comparison-item-value">"We'll optimize your campaigns"</span>
+                        </div>
+                        <div class="comparison-item">
+                            <span class="comparison-item-label">Accountability</span>
+                            <span class="comparison-item-value">None - you pay regardless</span>
+                        </div>
+                        <div class="comparison-item">
+                            <span class="comparison-item-label">If it fails</span>
+                            <span class="comparison-item-value">"Market conditions changed"</span>
+                        </div>
+                        <div class="comparison-item">
+                            <span class="comparison-item-label">Your risk</span>
+                            <span class="comparison-item-value">100% - fee + ad spend</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comparison-card" style="border-color: var(--gold);">
+                    <div class="comparison-header" style="background: var(--gold); color: var(--navy);">ScaleUp Model</div>
+                    <div class="comparison-body">
+                        <div class="comparison-item">
+                            <span class="comparison-item-label">What we promise</span>
+                            <span class="comparison-item-value">"X leads or your fee back"</span>
+                        </div>
+                        <div class="comparison-item">
+                            <span class="comparison-item-label">Accountability</span>
+                            <span class="comparison-item-value">Our fee on the line</span>
+                        </div>
+                        <div class="comparison-item">
+                            <span class="comparison-item-label">If it fails</span>
+                            <span class="comparison-item-value">We refund our fee</span>
+                        </div>
+                        <div class="comparison-item">
+                            <span class="comparison-item-label">Your risk</span>
+                            <span class="comparison-item-value">Only ad spend (platform cost)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Track 2 - App Projects -->
+        <section class="section" style="border: 2px solid var(--green);">
+            <h2 class="section-title">
+                <span class="section-number" style="background: var(--green);">3</span>
+                Track 2: App & Development ROI Projections
+            </h2>
+
+            <p style="margin-bottom: 24px; color: var(--gray-600);">
+                For custom software, websites, and automation projects, we build a detailed ROI model with three scenarios. We base our recommendation on the conservative case, not the best-case fantasy.
+            </p>
+
+            <div class="scenarios-grid">
+                <!-- Low -->
+                <div class="scenario-card low">
+                    <div class="scenario-label low">Conservative (Low)</div>
+                    <div class="scenario-value">Scenario A</div>
+                    <div class="scenario-desc">If several things go wrong</div>
+                    <div class="scenario-metrics">
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Adoption rate</span>
+                            <span class="scenario-metric-value">Below target</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Timeline</span>
+                            <span class="scenario-metric-value">Some delays</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Efficiency gains</span>
+                            <span class="scenario-metric-value">Partial capture</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Decision basis</span>
+                            <span class="scenario-metric-value" style="color: var(--gold-dark);">PRIMARY</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mid -->
+                <div class="scenario-card mid">
+                    <div class="scenario-label mid">Expected (Mid)</div>
+                    <div class="scenario-value">Scenario B</div>
+                    <div class="scenario-desc">Realistic projection</div>
+                    <div class="scenario-metrics">
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Adoption rate</span>
+                            <span class="scenario-metric-value">Industry typical</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Timeline</span>
+                            <span class="scenario-metric-value">On target</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Efficiency gains</span>
+                            <span class="scenario-metric-value">Full capture</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Decision basis</span>
+                            <span class="scenario-metric-value">Reference point</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- High -->
+                <div class="scenario-card high">
+                    <div class="scenario-label high">Optimistic (High)</div>
+                    <div class="scenario-value">Scenario C</div>
+                    <div class="scenario-desc">If everything goes right</div>
+                    <div class="scenario-metrics">
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Adoption rate</span>
+                            <span class="scenario-metric-value">Exceeds targets</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Timeline</span>
+                            <span class="scenario-metric-value">Ahead of schedule</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Efficiency gains</span>
+                            <span class="scenario-metric-value">Above expected</span>
+                        </div>
+                        <div class="scenario-metric">
+                            <span class="scenario-metric-label">Decision basis</span>
+                            <span class="scenario-metric-value">Don't count on it</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="methodology-box">
+                <h4>Why We Decide on the Conservative Case</h4>
+                <p>
+                    Most agencies sell you on the best-case scenario. Then when reality hits, they blame "market conditions" or "your team's execution."
+                </p>
+                <p>
+                    We flip this: <strong>if the conservative scenario doesn't show positive ROI, we recommend against proceeding</strong> - even if the mid and high scenarios look fantastic. This protects you from optimism bias, which kills more software projects than technical debt.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 4: Return Types -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-number">4</span>
+                Two Types of Return
+            </h2>
+
+            <p style="margin-bottom: 24px; color: var(--gray-600);">
+                ROI isn't always cash in your pocket this quarter. For business owners planning an exit, increased company value is often more valuable than immediate cash return.
+            </p>
+
+            <div class="return-types">
+                <div class="return-type">
+                    <div class="return-type-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <div class="return-type-title">Cash Return</div>
+                    <div class="return-type-desc">
+                        Direct financial impact you can see in your bank account. Revenue increase, cost savings, efficiency gains that translate to real dollars.
+                    </div>
+                    <div class="return-type-examples">
+                        <strong>Examples:</strong> Lead generation campaigns, sales automation, process efficiency tools, website conversion optimization
+                    </div>
+                </div>
+
+                <div class="return-type">
+                    <div class="return-type-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                            <polyline points="17 6 23 6 23 12"/>
+                        </svg>
+                    </div>
+                    <div class="return-type-title">Asset / Company Value</div>
+                    <div class="return-type-desc">
+                        Improvements that increase what your company is worth when you sell. Digital capabilities directly impact business valuation.
+                    </div>
+                    <div class="return-type-examples">
+                        <strong>Examples:</strong> Modern technology stack, automated operations, digital customer experience, documented processes, proprietary systems
+                    </div>
+                </div>
+            </div>
+
+            <div class="methodology-box">
+                <h4>Why This Matters for Exit-Focused Owners</h4>
+                <p>
+                    65% of our target clients are planning to sell their business within 5-10 years. For them, the question isn't just "will this make money this year?" - it's "will this make my company worth more when I sell?"
+                </p>
+                <p>
+                    A custom CRM might not generate direct revenue, but it could increase your valuation by 0.5-1x EBITDA by demonstrating operational sophistication to buyers. We model both types of return so you can make the right decision for your situation.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 5: Combined Projects -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-number">5</span>
+                When Projects Include Both Tracks
+            </h2>
+
+            <p style="margin-bottom: 24px; color: var(--gray-600);">
+                Many projects combine development work with marketing campaigns. In these cases, we model them separately so you can see the return from each component.
+            </p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Project Component</th>
+                        <th>ROI Track</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>New website build</strong></td>
+                        <td>Track 2: 3-Scenario (Asset Value + Conversion improvement)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Paid ad campaigns to drive traffic</strong></td>
+                        <td>Track 1: Lead Guarantee (Fee refund if we miss)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CRM implementation</strong></td>
+                        <td>Track 2: 3-Scenario (Efficiency + Asset Value)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email marketing automation</strong></td>
+                        <td>Track 1: Lead nurture metrics (conversion rate guarantee)</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Full digital transformation</strong></td>
+                        <td>Combined model showing return from each component</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="methodology-box">
+                <h4>Example: Website + Paid Ads Project</h4>
+                <p>
+                    <strong>Website (Track 2):</strong> $25K investment with 3-scenario analysis. Conservative case shows 2.1x ROI over 2 years through improved conversion rates and increased company valuation.
+                </p>
+                <p>
+                    <strong>Paid Ads (Track 1):</strong> $3K/month management fee + $5K/month ad spend. We guarantee 40 qualified leads per month. If we deliver fewer than 40, we refund the $3K management fee. You only pay the $5K ad spend that went to Google.
+                </p>
+                <p>
+                    <strong>Total Picture:</strong> You can evaluate the website on its merits (will it pay for itself?) and the ads on guaranteed performance (we hit the number or you don't pay us).
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 6: Risk Factors -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-number">6</span>
+                What We Account For
+            </h2>
+
+            <p style="margin-bottom: 24px; color: var(--gray-600);">
+                Our projections aren't optimistic guesses. We factor in real-world risks and adjust accordingly.
+            </p>
+
+            <div class="risk-grid">
+                <div class="risk-item high">
+                    <span class="risk-badge high">Critical</span>
+                    <div class="risk-content">
+                        <div class="risk-title">Adoption Risk</div>
+                        <div class="risk-desc">Will your team actually use the software? We discount projections based on organizational readiness.</div>
+                    </div>
+                </div>
+                <div class="risk-item medium">
+                    <span class="risk-badge medium">Significant</span>
+                    <div class="risk-content">
+                        <div class="risk-title">Market Changes</div>
+                        <div class="risk-desc">For ad campaigns, we build in variance for seasonal shifts and competitive dynamics.</div>
+                    </div>
+                </div>
+                <div class="risk-item medium">
+                    <span class="risk-badge medium">Significant</span>
+                    <div class="risk-content">
+                        <div class="risk-title">Integration Complexity</div>
+                        <div class="risk-desc">Connecting to existing systems always takes longer than expected. We factor in known integration points.</div>
+                    </div>
+                </div>
+                <div class="risk-item low">
+                    <span class="risk-badge low">Managed</span>
+                    <div class="risk-content">
+                        <div class="risk-title">Ongoing Maintenance</div>
+                        <div class="risk-desc">Software requires ongoing care. We include Year 2+ maintenance costs in the projections.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: The No-Build Decision -->
+        <section class="section" style="border: 2px solid var(--red);">
+            <h2 class="section-title">
+                <span class="section-number" style="background: var(--red);">7</span>
+                When the Answer is "Don't Build"
+            </h2>
+
+            <p style="margin-bottom: 24px; color: var(--gray-600);">
+                Any vendor who makes money on builds has an incentive to recommend building. Our discovery model separates the analysis from the build, so you get honest recommendations.
+            </p>
+
+            <div style="background: var(--red-light); border: 2px solid var(--red); border-radius: 12px; padding: 32px; margin-bottom: 24px;">
+                <h3 style="font-family: 'Crimson Pro', Georgia, serif; font-size: 24px; font-weight: 700; color: var(--red); margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--red);">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="15" y1="9" x2="9" y2="15"/>
+                        <line x1="9" y1="9" x2="15" y2="15"/>
+                    </svg>
+                    Real Example: The No-Build Decision
+                </h3>
+                <p style="margin-bottom: 16px; color: var(--navy);">
+                    A client approached ScaleUp Ventures with a vision for a custom web application, ready to budget <strong>$150,000+</strong> and commit <strong>12-18 months</strong> to development. They expected us to build it.
+                </p>
+                <p style="margin-bottom: 16px; color: var(--navy);">
+                    Rather than immediately proceeding, we proposed a <strong>$5,000 discovery and feasibility analysis</strong> lasting four weeks. This examination covered market conditions and saturation levels, client assumptions and validity, competitive landscape assessment, and technical requirements evaluation.
+                </p>
+                <h4 style="font-weight: 700; color: var(--navy); margin-bottom: 12px;">The analysis revealed three critical issues:</h4>
+                <ul style="margin-left: 20px; margin-bottom: 16px; color: var(--navy);">
+                    <li style="margin-bottom: 8px;"><strong>Market Reality:</strong> The target market was more saturated than the client realized</li>
+                    <li style="margin-bottom: 8px;"><strong>Hidden Costs:</strong> The envisioned technical approach required ongoing maintenance expenses not accounted for in the budget</li>
+                    <li style="margin-bottom: 8px;"><strong>Existing Solutions:</strong> Current alternatives could accomplish 80% of project goals at significantly lower cost</li>
+                </ul>
+                <div style="background: var(--white); border-radius: 8px; padding: 20px; border-left: 4px solid var(--green);">
+                    <p style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--gray-600); margin-bottom: 8px;">Outcome</p>
+                    <p style="font-size: 18px; font-weight: 700; color: var(--green);">Client saved $150,000+ in misdirected spending and 12+ months of effort. They used the existing SaaS solution instead.</p>
+                </div>
+            </div>
+
+            <div class="methodology-box" style="border-left-color: var(--gold);">
+                <h4>Why This Matters</h4>
+                <p style="font-size: 18px; font-style: italic; color: var(--navy);">
+                    "'Certainty First' is not a marketing slogan. It means we would rather earn $5,000 telling you the truth than $150,000 building something that will not serve you."
+                </p>
+            </div>
+        </section>
+
+        <!-- Summary -->
+        <section class="section" style="border: 2px solid var(--gold);">
+            <h2 class="section-title">
+                <span class="section-number" style="background: var(--gold); color: var(--navy);">!</span>
+                The Bottom Line
+            </h2>
+
+            <div class="roi-highlight">
+                <div class="roi-stat">
+                    <div class="roi-stat-label">Ad Campaigns</div>
+                    <div class="roi-stat-value">Guaranteed</div>
+                    <div class="roi-stat-sub">Lead numbers or fee refund</div>
+                </div>
+                <div class="roi-stat">
+                    <div class="roi-stat-label">App Projects</div>
+                    <div class="roi-stat-value">3 Scenarios</div>
+                    <div class="roi-stat-sub">Decide on conservative case</div>
+                </div>
+                <div class="roi-stat">
+                    <div class="roi-stat-label">Return Types</div>
+                    <div class="roi-stat-value">Cash + Value</div>
+                    <div class="roi-stat-sub">Revenue or company valuation</div>
+                </div>
+                <div class="roi-stat">
+                    <div class="roi-stat-label">Our Commitment</div>
+                    <div class="roi-stat-value positive">Prove First</div>
+                    <div class="roi-stat-sub">Before you spend a dollar</div>
+                </div>
+            </div>
+
+            <table class="data-table" style="margin-bottom: 24px;">
+                <thead>
+                    <tr>
+                        <th>What You Get</th>
+                        <th>Why It Matters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lead guarantee on ad campaigns</td>
+                        <td>We don't get paid unless we deliver</td>
+                    </tr>
+                    <tr>
+                        <td>Three-scenario projections on app projects</td>
+                        <td>Decisions based on reality, not best-case fantasy</td>
+                    </tr>
+                    <tr>
+                        <td>Cash AND asset value return modeling</td>
+                        <td>See both immediate and exit-value impact</td>
+                    </tr>
+                    <tr>
+                        <td>Combined models for multi-component projects</td>
+                        <td>Evaluate each element on its own merits</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Honest assessment before you invest</strong></td>
+                        <td><strong>We'll tell you not to proceed if the numbers don't work</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="methodology-box">
+                <h4>This Is What "We Prove It Before You Buy" Means</h4>
+                <p>
+                    Less than 5% of agencies will tell you not to proceed with a project. We will - if the numbers don't support it.
+                    And for ad campaigns, we put our fee on the line because we only take projects where we're confident in the outcome.
+                </p>
+                <p>
+                    <strong>Your money back - not excuses.</strong>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-left">
+            <div><strong>ScaleUp Ventures</strong> | We Prove It Before You Buy</div>
+            <div class="methodology-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                LEAD GUARANTEE + ROI PROJECTIONS
+            </div>
+        </div>
+        <div class="footer-right">
+            <a href="#" class="footer-cta">Get Your ROI Model</a>
+        </div>
+    </footer>
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;"><a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">Back to Content Index</a><p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | We Prove It Before You Buy</p></footer>
+</body>
+</html>

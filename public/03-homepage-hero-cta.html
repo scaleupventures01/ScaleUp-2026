@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage Hero CTA Messaging | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --navy-dark: #0a1019;
+            --slate: #334155;
+            --slate-light: #64748b;
+            --gold: #D4A853;
+            --gold-light: #e6c880;
+            --gold-muted: #b8956e;
+            --cream: #faf8f5;
+            --cream-dark: #f1ede6;
+            --white: #ffffff;
+            --success: #059669;
+            --warning: #d97706;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--navy);
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .nav-header {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .nav-subtitle {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 0.25rem;
+        }
+
+        .nav-section { margin-bottom: 1.5rem; }
+
+        .nav-section-title {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--slate-light);
+            padding: 0 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+            border-left-color: var(--gold);
+        }
+
+        /* Main Content */
+        .main {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 5rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a853' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+        }
+
+        /* Content Sections */
+        .content {
+            padding: 4rem;
+            max-width: 1200px;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-header { margin-bottom: 2rem; }
+
+        .section-number {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: 0.25rem;
+        }
+
+        .section-intro {
+            font-size: 1.125rem;
+            color: var(--slate);
+            margin-top: 0.75rem;
+            max-width: 700px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-number {
+            width: 40px;
+            height: 40px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .card-badge {
+            background: rgba(212, 168, 83, 0.15);
+            color: var(--gold-muted);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-badge.recommended {
+            background: rgba(5, 150, 105, 0.15);
+            color: var(--success);
+        }
+
+        .card-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Hero Headline Display */
+        .headline-display {
+            background: var(--navy);
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .headline-display h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .headline-display h2 .gold {
+            color: var(--gold);
+        }
+
+        .headline-display .subheadline {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.6;
+        }
+
+        .rationale {
+            background: var(--cream-dark);
+            padding: 1.25rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .rationale-label {
+            font-size: 0.75rem;
+            color: var(--gold-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .rationale p {
+            color: var(--slate);
+            font-size: 0.9375rem;
+        }
+
+        /* CTA Buttons */
+        .cta-display {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .cta-primary {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .cta-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-1px);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border: 2px solid rgba(255,255,255,0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .cta-secondary:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Grid Layouts */
+        .two-col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .three-col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        /* Trust Signals */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .trust-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .trust-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--cream-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .trust-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .trust-label {
+            font-size: 0.875rem;
+            color: var(--slate-light);
+            margin-top: 0.25rem;
+        }
+
+        /* Mockup Displays */
+        .mockup-container {
+            background: var(--navy-dark);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .mockup-browser {
+            background: var(--navy);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        }
+
+        .mockup-browser-bar {
+            background: var(--navy-light);
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mockup-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .mockup-dot.red { background: #ff5f57; }
+        .mockup-dot.yellow { background: #ffbd2e; }
+        .mockup-dot.green { background: #28c840; }
+
+        .mockup-url {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-left: 1rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .mockup-hero {
+            padding: 4rem;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            position: relative;
+        }
+
+        .mockup-hero-content {
+            max-width: 600px;
+        }
+
+        .mockup-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .mockup-headline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .mockup-headline .gold {
+            color: var(--gold);
+        }
+
+        .mockup-subheadline {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .mockup-cta-row {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .mockup-cta-primary {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.75rem 1.25rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+        }
+
+        .mockup-cta-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 0.75rem 1.25rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            text-decoration: none;
+        }
+
+        .mockup-trust-bar {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mockup-trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.75rem;
+        }
+
+        .mockup-trust-item strong {
+            color: var(--white);
+            font-size: 1.125rem;
+        }
+
+        /* Mobile Mockup */
+        .mockup-mobile {
+            width: 320px;
+            margin: 0 auto;
+            background: var(--navy-dark);
+            border-radius: 40px;
+            padding: 10px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        }
+
+        .mockup-mobile-inner {
+            background: var(--navy);
+            border-radius: 32px;
+            overflow: hidden;
+        }
+
+        .mockup-mobile-notch {
+            width: 150px;
+            height: 30px;
+            background: var(--navy-dark);
+            border-radius: 0 0 20px 20px;
+            margin: 0 auto;
+        }
+
+        .mockup-mobile-hero {
+            padding: 1.5rem;
+            background: linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 100%);
+            min-height: 500px;
+        }
+
+        .mockup-mobile-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold);
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.5rem;
+            font-size: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .mockup-mobile-headline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+
+        .mockup-mobile-headline .gold {
+            color: var(--gold);
+        }
+
+        .mockup-mobile-subheadline {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+        }
+
+        .mockup-mobile-cta {
+            display: block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.875rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: 0.75rem;
+        }
+
+        .mockup-mobile-cta-secondary {
+            display: block;
+            background: transparent;
+            color: var(--white);
+            padding: 0.875rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+            text-decoration: none;
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .data-table th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .data-table th:first-child { border-radius: 8px 0 0 0; }
+        .data-table th:last-child { border-radius: 0 8px 0 0; }
+
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--cream-dark);
+            font-size: 0.9375rem;
+        }
+
+        .data-table tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+        .data-table tr:last-child td:last-child { border-radius: 0 0 8px 0; }
+
+        .data-table tr:nth-child(even) {
+            background: rgba(0,0,0,0.02);
+        }
+
+        /* Copy Blocks */
+        .copy-block {
+            background: var(--white);
+            border: 1px solid var(--cream-dark);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .copy-block::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gold);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .copy-block-label {
+            font-size: 0.75rem;
+            color: var(--gold-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .copy-block-text {
+            font-size: 1.0625rem;
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        /* Lists */
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1rem;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        /* Layout Diagram */
+        .layout-diagram {
+            background: var(--cream-dark);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .layout-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .layout-zone {
+            background: var(--white);
+            border: 2px dashed var(--slate-light);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .layout-zone-label {
+            font-size: 0.75rem;
+            color: var(--gold-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .layout-zone-content {
+            font-size: 0.875rem;
+            color: var(--slate);
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            color: var(--white);
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .three-col { grid-template-columns: repeat(2, 1fr); }
+            .trust-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            .nav { display: none; }
+            .main { margin-left: 0; }
+            .hero { padding: 3rem 2rem; }
+            .content { padding: 2rem; }
+            .two-col, .three-col { grid-template-columns: 1fr; }
+            .mockup-hero { padding: 2rem; }
+            .mockup-headline { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-logo">ScaleUp Ventures</div>
+            <div class="nav-subtitle">Homepage Hero CTA</div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Headlines</div>
+            <a href="#headlines" class="nav-link">Hero Headline Options</a>
+            <a href="#subheadlines" class="nav-link">Supporting Subheadlines</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Call-to-Actions</div>
+            <a href="#primary-cta" class="nav-link">Primary CTA Options</a>
+            <a href="#secondary-cta" class="nav-link">Secondary CTA Options</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Copy & Trust</div>
+            <a href="#copy-blocks" class="nav-link">Hero Copy Blocks</a>
+            <a href="#trust-signals" class="nav-link">Trust Signals</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Layout</div>
+            <a href="#layout" class="nav-link">Above-the-Fold Layout</a>
+            <a href="#mobile" class="nav-link">Mobile Adaptations</a>
+            <a href="#mockups" class="nav-link">Visual Mockups</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">Implementation</div>
+            <a href="#recommendations" class="nav-link">Recommendations</a>
+            <a href="#ab-testing" class="nav-link">A/B Testing Plan</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <header class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">Website Messaging</span>
+                <h1 class="hero-title">Homepage Hero CTA Messaging</h1>
+                <p class="hero-subtitle">Strategic messaging framework for ScaleUp Ventures' homepage hero section, designed to convert skeptical 50-65 year old business owners with proof-first positioning.</p>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- Executive Summary -->
+            <section class="section" id="summary">
+                <div class="card">
+                    <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.25rem; color: var(--navy); margin-bottom: 1rem;">Strategic Context</h3>
+                    <p style="color: var(--slate); margin-bottom: 1rem;">This messaging framework addresses the core challenge of converting skeptical, experienced business owners who have "seen it all" and distrust advisory firms. The "Certainty First" positioning directly addresses their primary objection: they need proof before investment.</p>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem;">
+                        <div style="text-align: center; padding: 1rem; background: var(--cream-dark); border-radius: 8px;">
+                            <div style="font-size: 0.75rem; color: var(--gold-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Target Audience</div>
+                            <div style="font-family: 'Crimson Pro', serif; font-size: 1.125rem; color: var(--navy);">50-65 Year Old Business Owners</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: var(--cream-dark); border-radius: 8px;">
+                            <div style="font-size: 0.75rem; color: var(--gold-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Brand Symbol</div>
+                            <div style="font-family: 'Crimson Pro', serif; font-size: 1.125rem; color: var(--navy);">The Heron (Patience Before Precision)</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: var(--cream-dark); border-radius: 8px;">
+                            <div style="font-size: 0.75rem; color: var(--gold-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Core Tagline</div>
+                            <div style="font-family: 'Crimson Pro', serif; font-size: 1.125rem; color: var(--navy);">"Certainty First."</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hero Headlines -->
+            <section class="section" id="headlines">
+                <div class="section-header">
+                    <span class="section-number">Section 01</span>
+                    <h2 class="section-title">Hero Headline Options</h2>
+                    <p class="section-intro">Five strategic headline options, each reinforcing the "Certainty First" positioning while addressing different aspects of our target audience's concerns.</p>
+                </div>
+
+                <!-- Headline 1 - Recommended -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-number">1</div>
+                        <span class="card-badge recommended">Recommended</span>
+                    </div>
+                    <div class="headline-display">
+                        <h2>Know Before You Invest.<br><span class="gold">Certainty First.</span></h2>
+                        <p class="subheadline">Strategic advisory for business owners who've learned that preparation determines profit. We prove the path before you walk it.</p>
+                    </div>
+                    <div class="rationale">
+                        <div class="rationale-label">Strategic Rationale</div>
+                        <p>Directly addresses the skeptical buyer's core fear: wasting money on unproven strategies. The imperative "Know Before You Invest" positions ScaleUp as the antidote to risky advisory engagements. Strong alignment with The Heron's "patience before precision" symbolism.</p>
+                    </div>
+                </div>
+
+                <!-- Headline 2 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-number">2</div>
+                        <span class="card-badge">Data-Forward</span>
+                    </div>
+                    <div class="headline-display">
+                        <h2>Your Growth Path, <span class="gold">Proven Before You Pay.</span></h2>
+                        <p class="subheadline">We show you exactly what works for your business before you invest a dollar. Because experience has taught you to demand proof.</p>
+                    </div>
+                    <div class="rationale">
+                        <div class="rationale-label">Strategic Rationale</div>
+                        <p>Emphasizes the proof-first business model directly in the headline. "Proven Before You Pay" is a powerful differentiator that separates ScaleUp from traditional advisory firms. Appeals to the analytical, experienced business owner.</p>
+                    </div>
+                </div>
+
+                <!-- Headline 3 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-number">3</div>
+                        <span class="card-badge">Trust-Centric</span>
+                    </div>
+                    <div class="headline-display">
+                        <h2>We Earn Your Trust <span class="gold">Before We Earn Your Business.</span></h2>
+                        <p class="subheadline">Strategic advisory built on evidence, not promises. Because you didn't build your business by taking unnecessary risks.</p>
+                    </div>
+                    <div class="rationale">
+                        <div class="rationale-label">Strategic Rationale</div>
+                        <p>Acknowledges the trust deficit that experienced business owners have with advisory firms. The reciprocal structure ("earn trust / earn business") demonstrates understanding of their worldview. Respects their journey.</p>
+                    </div>
+                </div>
+
+                <!-- Headline 4 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-number">4</div>
+                        <span class="card-badge">Experience-Focused</span>
+                    </div>
+                    <div class="headline-display">
+                        <h2>Advisory for Owners Who've <span class="gold">Seen It All.</span></h2>
+                        <p class="subheadline">You've built something real. You don't need hype. You need a partner who proves their value before asking for yours. Certainty First.</p>
+                    </div>
+                    <div class="rationale">
+                        <div class="rationale-label">Strategic Rationale</div>
+                        <p>Validates the target audience's experience and wisdom. "Seen It All" acknowledges their skepticism as earned, not unreasonable. Positions ScaleUp as a peer rather than a vendor. Ends with the tagline as a promise.</p>
+                    </div>
+                </div>
+
+                <!-- Headline 5 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-number">5</div>
+                        <span class="card-badge">ROI-Focused</span>
+                    </div>
+                    <div class="headline-display">
+                        <h2>See the Returns <span class="gold">Before You Sign the Check.</span></h2>
+                        <p class="subheadline">We model your outcomes, prove the strategy, and show you exactly what to expect. Only then do we ask you to invest.</p>
+                    </div>
+                    <div class="rationale">
+                        <div class="rationale-label">Strategic Rationale</div>
+                        <p>Most direct financial appeal. Speaks to owners who think in terms of ROI and checkbook decisions. The concrete "sign the check" language matches how this audience actually makes decisions.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Subheadlines -->
+            <section class="section" id="subheadlines">
+                <div class="section-header">
+                    <span class="section-number">Section 02</span>
+                    <h2 class="section-title">Supporting Subheadlines</h2>
+                    <p class="section-intro">Subheadlines expand on the headline promise and add specificity. Each is designed to work with multiple headline options.</p>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 15%;">Type</th>
+                            <th style="width: 50%;">Subheadline</th>
+                            <th style="width: 35%;">Best Paired With</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Process-Focused</strong></td>
+                            <td>We analyze your business, model your opportunities, and prove the strategy works before you invest. That's how certainty is built.</td>
+                            <td>Headlines 1, 2, 5</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Audience-Focused</strong></td>
+                            <td>For business owners who've earned their skepticism. We don't ask for trust. We prove we deserve it.</td>
+                            <td>Headlines 3, 4</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Outcome-Focused</strong></td>
+                            <td>Strategic advisory that shows you the path, proves the numbers, and delivers the results. In that order.</td>
+                            <td>Headlines 1, 5</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Differentiator-Focused</strong></td>
+                            <td>Most advisors ask you to believe them. We ask you to see the evidence. Then decide.</td>
+                            <td>Headlines 2, 3</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Value-Focused</strong></td>
+                            <td>Decades of experience serving established businesses. A methodology built on proof, not promises.</td>
+                            <td>Headlines 3, 4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Primary CTAs -->
+            <section class="section" id="primary-cta">
+                <div class="section-header">
+                    <span class="section-number">Section 03</span>
+                    <h2 class="section-title">Primary CTA Options</h2>
+                    <p class="section-intro">Primary CTAs are proof-based, emphasizing the "see before you spend" value proposition. All designed to reduce perceived risk.</p>
+                </div>
+
+                <div class="two-col">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-badge recommended">Recommended</span>
+                        </div>
+                        <h3 class="card-title">See How We Prove ROI Before You Spend</h3>
+                        <div class="cta-display">
+                            <a href="#" class="cta-primary">See How We Prove ROI Before You Spend</a>
+                        </div>
+                        <div class="rationale" style="margin-top: 1rem;">
+                            <div class="rationale-label">Why This Works</div>
+                            <p>Longest CTA option but highest specificity. Directly addresses the #1 objection. "Before You Spend" is the key trust trigger.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">See the Proof First</h3>
+                        <div class="cta-display">
+                            <a href="#" class="cta-primary">See the Proof First</a>
+                        </div>
+                        <div class="rationale" style="margin-top: 1rem;">
+                            <div class="rationale-label">Why This Works</div>
+                            <p>Short, punchy, and directly tied to the "Certainty First" tagline. Low cognitive load. Good for mobile.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Request Your ROI Preview</h3>
+                        <div class="cta-display">
+                            <a href="#" class="cta-primary">Request Your ROI Preview</a>
+                        </div>
+                        <div class="rationale" style="margin-top: 1rem;">
+                            <div class="rationale-label">Why This Works</div>
+                            <p>"Preview" implies seeing before committing. "Your" makes it personalized. Product-feeling action.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Get Your Free Strategy Analysis</h3>
+                        <div class="cta-display">
+                            <a href="#" class="cta-primary">Get Your Free Strategy Analysis</a>
+                        </div>
+                        <div class="rationale" style="margin-top: 1rem;">
+                            <div class="rationale-label">Why This Works</div>
+                            <p>Clear value offer. "Analysis" appeals to analytical buyers. Free removes barrier. Standard but effective.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Show Me What's Possible</h3>
+                        <div class="cta-display">
+                            <a href="#" class="cta-primary">Show Me What's Possible</a>
+                        </div>
+                        <div class="rationale" style="margin-top: 1rem;">
+                            <div class="rationale-label">Why This Works</div>
+                            <p>First-person language creates ownership. "What's Possible" is aspirational without being salesy. Invitational tone.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Prove It To Me</h3>
+                        <div class="cta-display">
+                            <a href="#" class="cta-primary">Prove It To Me</a>
+                        </div>
+                        <div class="rationale" style="margin-top: 1rem;">
+                            <div class="rationale-label">Why This Works</div>
+                            <p>Most direct challenge format. Speaks in the voice of the skeptical buyer. Bold choice that shows confidence.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secondary CTAs -->
+            <section class="section" id="secondary-cta">
+                <div class="section-header">
+                    <span class="section-number">Section 04</span>
+                    <h2 class="section-title">Secondary CTA Options</h2>
+                    <p class="section-intro">Secondary CTAs provide an alternative for visitors not ready to engage directly. Lower commitment, information-gathering actions.</p>
+                </div>
+
+                <div class="three-col">
+                    <div class="card">
+                        <h3 class="card-title">Watch How It Works</h3>
+                        <div class="cta-display">
+                            <a href="#" class="cta-secondary" style="color: var(--navy); border-color: var(--navy);">Watch How It Works</a>
+                        </div>
+                        <p style="color: var(--slate); font-size: 0.875rem; margin-top: 1rem;">Video explainer of the proof-first methodology. Good for visual learners and those wanting more information.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Read Client Results</h3>
+                        <div class="cta-display">
+                            <a href="#" class="cta-secondary" style="color: var(--navy); border-color: var(--navy);">Read Client Results</a>
+                        </div>
+                        <p style="color: var(--slate); font-size: 0.875rem; margin-top: 1rem;">Links to case studies. Appeals to evidence-seeking buyers who want third-party validation.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">See Our Process</h3>
+                        <div class="cta-display">
+                            <a href="#" class="cta-secondary" style="color: var(--navy); border-color: var(--navy);">See Our Process</a>
+                        </div>
+                        <p style="color: var(--slate); font-size: 0.875rem; margin-top: 1rem;">Detailed methodology page. For those who want to understand the "how" before engaging.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Download the Guide</h3>
+                        <div class="cta-display">
+                            <a href="#" class="cta-secondary" style="color: var(--navy); border-color: var(--navy);">Download the Guide</a>
+                        </div>
+                        <p style="color: var(--slate); font-size: 0.875rem; margin-top: 1rem;">Lead magnet approach. Exchanges value for email. Good for nurture campaigns.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Explore Success Stories</h3>
+                        <div class="cta-display">
+                            <a href="#" class="cta-secondary" style="color: var(--navy); border-color: var(--navy);">Explore Success Stories</a>
+                        </div>
+                        <p style="color: var(--slate); font-size: 0.875rem; margin-top: 1rem;">Alternative to "Read Client Results" with more exploratory language. Less commitment implied.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Learn More</h3>
+                        <div class="cta-display">
+                            <a href="#" class="cta-secondary" style="color: var(--navy); border-color: var(--navy);">Learn More</a>
+                        </div>
+                        <p style="color: var(--slate); font-size: 0.875rem; margin-top: 1rem;">Standard fallback. Lowest friction but also lowest intent signal. Use sparingly.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hero Copy Blocks -->
+            <section class="section" id="copy-blocks">
+                <div class="section-header">
+                    <span class="section-number">Section 05</span>
+                    <h2 class="section-title">Hero Section Copy Blocks</h2>
+                    <p class="section-intro">Extended copy options for hero sections that can accommodate 2-3 sentences of supporting text.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-badge recommended">Recommended</span>
+                    </div>
+                    <h3 class="card-title">Copy Block A: The Proof Promise</h3>
+                    <div class="copy-block">
+                        <div class="copy-block-label">Hero Copy</div>
+                        <p class="copy-block-text">You've built a successful business by making smart decisions and avoiding unnecessary risk. That's exactly why we prove our strategies work before you invest. We analyze your business, model your opportunities, and show you documented results from similar companies. Then you decide if we've earned your trust.</p>
+                    </div>
+                    <div class="rationale" style="margin-top: 1rem;">
+                        <div class="rationale-label">Strategic Notes</div>
+                        <p>Validates the audience's approach, explains the methodology, and puts them in control of the decision. Three sentences that build from acknowledgment to process to empowerment.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Copy Block B: The Experience Acknowledgment</h3>
+                    <div class="copy-block">
+                        <div class="copy-block-label">Hero Copy</div>
+                        <p class="copy-block-text">After decades in business, you know the difference between consultants who talk and partners who deliver. We're not here to sell you a vision. We're here to show you documented proof from businesses like yours, model your specific opportunities, and let the numbers speak for themselves.</p>
+                    </div>
+                    <div class="rationale" style="margin-top: 1rem;">
+                        <div class="rationale-label">Strategic Notes</div>
+                        <p>Speaks directly to their experience-based skepticism. Draws a line between ScaleUp and typical consultants. Emphasizes evidence over persuasion.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Copy Block C: The Certainty Definition</h3>
+                    <div class="copy-block">
+                        <div class="copy-block-label">Hero Copy</div>
+                        <p class="copy-block-text">Certainty isn't about guarantees. It's about seeing the evidence before you commit. We show you what's worked for similar businesses, model the potential for yours, and walk you through every assumption. You make decisions based on data, not faith. That's what Certainty First means.</p>
+                    </div>
+                    <div class="rationale" style="margin-top: 1rem;">
+                        <div class="rationale-label">Strategic Notes</div>
+                        <p>Defines the tagline in practical terms. Distinguishes certainty from guarantee (important for managing expectations). Ends with tagline anchor.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Copy Block D: The Partnership Offer</h3>
+                    <div class="copy-block">
+                        <div class="copy-block-label">Hero Copy</div>
+                        <p class="copy-block-text">We serve business owners who've learned that the right partner is worth finding. Our approach is simple: we do the analysis first, prove the opportunity second, and only then ask for your business. If the numbers don't work, we'll tell you. That's the kind of honesty experience demands.</p>
+                    </div>
+                    <div class="rationale" style="margin-top: 1rem;">
+                        <div class="rationale-label">Strategic Notes</div>
+                        <p>Positions ScaleUp as a selective partner rather than a vendor. The "we'll tell you if it doesn't work" line builds trust by acknowledging not every engagement makes sense.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trust Signals -->
+            <section class="section" id="trust-signals">
+                <div class="section-header">
+                    <span class="section-number">Section 06</span>
+                    <h2 class="section-title">Trust Signals Below Hero</h2>
+                    <p class="section-intro">Trust signals that reinforce credibility immediately below the fold. Designed for skeptical buyers who need proof of legitimacy.</p>
+                </div>
+
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <div class="trust-icon">25+</div>
+                        <div class="trust-value">Years Experience</div>
+                        <div class="trust-label">Combined advisory experience</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon">$___M</div>
+                        <div class="trust-value">Client Growth</div>
+                        <div class="trust-label">Documented revenue growth</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon">94%</div>
+                        <div class="trust-value">Retention Rate</div>
+                        <div class="trust-label">Clients who continue working with us</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon">[Logo]</div>
+                        <div class="trust-value">Featured In</div>
+                        <div class="trust-label">Industry recognition</div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 2rem;">
+                    <h3 class="card-title">Trust Signal Categories</h3>
+                    <div class="two-col" style="margin-top: 1.5rem;">
+                        <div>
+                            <h4 style="font-family: 'Crimson Pro', serif; color: var(--navy); margin-bottom: 1rem;">Quantitative Proof</h4>
+                            <ul class="feature-list">
+                                <li>Years of combined experience</li>
+                                <li>Number of successful engagements</li>
+                                <li>Total client revenue growth documented</li>
+                                <li>Client retention/renewal rate</li>
+                                <li>Average ROI achieved for clients</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="font-family: 'Crimson Pro', serif; color: var(--navy); margin-bottom: 1rem;">Qualitative Proof</h4>
+                            <ul class="feature-list">
+                                <li>Client testimonial quotes (with names/titles)</li>
+                                <li>Industry association memberships</li>
+                                <li>Media mentions or features</li>
+                                <li>Speaking engagements or publications</li>
+                                <li>Client company logos (with permission)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>Testimonial Format Recommendation</h3>
+                    <p>For this audience, testimonials should be structured as: <strong>Problem acknowledged + Skepticism mentioned + Result delivered.</strong> Example:</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--white);">"I'd worked with consultants before and was honestly skeptical when we first talked. But they showed me exactly what they'd done for three similar businesses, modeled my numbers, and let me decide. That approach sold me. Twelve months later, we've exceeded every projection they made."</p>
+                    <p style="margin-top: 1rem; color: var(--gold);">- [Name], [Title], [Company]</p>
+                </div>
+            </section>
+
+            <!-- Above-the-Fold Layout -->
+            <section class="section" id="layout">
+                <div class="section-header">
+                    <span class="section-number">Section 07</span>
+                    <h2 class="section-title">Above-the-Fold Layout Recommendations</h2>
+                    <p class="section-intro">Strategic layout guidance for maximizing impact in the critical first viewport.</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Desktop Layout Structure (1440px)</h3>
+                    <div class="layout-diagram">
+                        <div class="layout-grid" style="grid-template-columns: 1fr; gap: 0.5rem;">
+                            <div class="layout-zone" style="background: var(--navy); color: var(--white); padding: 0.75rem;">
+                                <div class="layout-zone-label" style="color: var(--gold);">Navigation Bar</div>
+                                <div class="layout-zone-content">Logo (left) | Nav Links (center) | CTA Button (right)</div>
+                            </div>
+                        </div>
+                        <div class="layout-grid" style="grid-template-columns: 55% 45%; gap: 1rem; margin-top: 1rem;">
+                            <div class="layout-zone" style="min-height: 300px; display: flex; flex-direction: column; justify-content: center; text-align: left; padding: 2rem;">
+                                <div class="layout-zone-label">Content Zone</div>
+                                <div class="layout-zone-content" style="text-align: left;">
+                                    <div style="font-size: 0.75rem; color: var(--gold); margin-bottom: 0.5rem;">Eyebrow text (optional)</div>
+                                    <div style="font-family: 'Crimson Pro', serif; font-size: 1.25rem; color: var(--navy); margin-bottom: 0.5rem;">Headline (48-56px)</div>
+                                    <div style="font-size: 0.875rem; color: var(--slate); margin-bottom: 1rem;">Subheadline (18-20px)</div>
+                                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                                        <div style="background: var(--gold); color: var(--navy); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem;">Primary CTA</div>
+                                        <div style="border: 1px solid var(--navy); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem;">Secondary CTA</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layout-zone" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
+                                <div class="layout-zone-label">Visual Zone</div>
+                                <div class="layout-zone-content" style="margin-top: 0.5rem;">Heron illustration or professional imagery</div>
+                            </div>
+                        </div>
+                        <div class="layout-grid" style="grid-template-columns: 1fr; gap: 0.5rem; margin-top: 1rem;">
+                            <div class="layout-zone" style="background: var(--cream-dark); padding: 1rem;">
+                                <div class="layout-zone-label">Trust Signal Bar</div>
+                                <div class="layout-zone-content">4 trust signals in row | Metrics + Labels | Client logos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="two-col" style="margin-top: 1.5rem;">
+                    <div class="card">
+                        <h3 class="card-title">Visual Hierarchy</h3>
+                        <ul class="feature-list">
+                            <li><strong>Level 1:</strong> Headline - largest, highest contrast (white on navy or navy on cream)</li>
+                            <li><strong>Level 2:</strong> Subheadline - supporting size, slightly muted color</li>
+                            <li><strong>Level 3:</strong> Primary CTA - gold button, high visibility</li>
+                            <li><strong>Level 4:</strong> Secondary CTA - ghost button, lower priority</li>
+                            <li><strong>Level 5:</strong> Trust signals - supporting elements, consistent sizing</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Spacing Guidelines</h3>
+                        <ul class="feature-list">
+                            <li><strong>Hero padding:</strong> 80-120px vertical, maintain breathing room</li>
+                            <li><strong>Headline to subheadline:</strong> 16-24px gap</li>
+                            <li><strong>Subheadline to CTA:</strong> 32-40px gap</li>
+                            <li><strong>Between CTAs:</strong> 16px gap</li>
+                            <li><strong>Hero to trust bar:</strong> 0px (seamless transition) or 48px (separated)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mobile Adaptations -->
+            <section class="section" id="mobile">
+                <div class="section-header">
+                    <span class="section-number">Section 08</span>
+                    <h2 class="section-title">Mobile-Specific Adaptations</h2>
+                    <p class="section-intro">Critical adjustments for mobile viewport to maintain impact and usability.</p>
+                </div>
+
+                <div class="two-col">
+                    <div class="card">
+                        <h3 class="card-title">Content Adjustments</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Element</th>
+                                    <th>Desktop</th>
+                                    <th>Mobile</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Headline size</td>
+                                    <td>48-56px</td>
+                                    <td>32-36px</td>
+                                </tr>
+                                <tr>
+                                    <td>Subheadline size</td>
+                                    <td>18-20px</td>
+                                    <td>16-17px</td>
+                                </tr>
+                                <tr>
+                                    <td>CTA buttons</td>
+                                    <td>Inline, side by side</td>
+                                    <td>Stacked, full width</td>
+                                </tr>
+                                <tr>
+                                    <td>Hero padding</td>
+                                    <td>80-120px</td>
+                                    <td>48-64px</td>
+                                </tr>
+                                <tr>
+                                    <td>Visual element</td>
+                                    <td>50% of hero</td>
+                                    <td>Hidden or background</td>
+                                </tr>
+                                <tr>
+                                    <td>Trust signals</td>
+                                    <td>4 across</td>
+                                    <td>2x2 grid or swiper</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Mobile Copy Recommendations</h3>
+                        <ul class="feature-list">
+                            <li><strong>Shorten headlines:</strong> "Know Before You Invest. Certainty First." works well</li>
+                            <li><strong>Truncate subheadlines:</strong> Keep to 2 lines max, prioritize core promise</li>
+                            <li><strong>Single primary CTA:</strong> Remove secondary CTA above fold on mobile</li>
+                            <li><strong>Thumb-friendly buttons:</strong> Minimum 48px height, 16px padding</li>
+                            <li><strong>Trust signals:</strong> Show 2-3 key metrics, others below fold</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 1.5rem;">
+                    <h3 class="card-title">Mobile-Specific Headlines</h3>
+                    <p style="color: var(--slate); margin-bottom: 1rem;">Shortened versions optimized for mobile viewports:</p>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Desktop Version</th>
+                                <th>Mobile Version</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Know Before You Invest. Certainty First.</td>
+                                <td>Know Before You Invest.</td>
+                            </tr>
+                            <tr>
+                                <td>Your Growth Path, Proven Before You Pay.</td>
+                                <td>Proven Before You Pay.</td>
+                            </tr>
+                            <tr>
+                                <td>We Earn Your Trust Before We Earn Your Business.</td>
+                                <td>Trust Earned First.</td>
+                            </tr>
+                            <tr>
+                                <td>Advisory for Owners Who've Seen It All.</td>
+                                <td>For Owners Who've Seen It All.</td>
+                            </tr>
+                            <tr>
+                                <td>See the Returns Before You Sign the Check.</td>
+                                <td>See Returns Before You Invest.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Visual Mockups -->
+            <section class="section" id="mockups">
+                <div class="section-header">
+                    <span class="section-number">Section 09</span>
+                    <h2 class="section-title">Visual Mockups</h2>
+                    <p class="section-intro">Desktop and mobile mockups showing recommended hero implementation.</p>
+                </div>
+
+                <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.25rem; color: var(--navy); margin-bottom: 1rem;">Desktop Hero Mockup</h3>
+                <div class="mockup-container">
+                    <div class="mockup-browser">
+                        <div class="mockup-browser-bar">
+                            <div class="mockup-dot red"></div>
+                            <div class="mockup-dot yellow"></div>
+                            <div class="mockup-dot green"></div>
+                            <div class="mockup-url">scaleupventures.com</div>
+                        </div>
+                        <div class="mockup-hero">
+                            <div class="mockup-hero-content">
+                                <div class="mockup-badge">Strategic Advisory</div>
+                                <h2 class="mockup-headline">Know Before You Invest.<br><span class="gold">Certainty First.</span></h2>
+                                <p class="mockup-subheadline">Strategic advisory for business owners who've learned that preparation determines profit. We prove the path before you walk it.</p>
+                                <div class="mockup-cta-row">
+                                    <a href="#" class="mockup-cta-primary">See How We Prove ROI Before You Spend</a>
+                                    <a href="#" class="mockup-cta-secondary">Watch How It Works</a>
+                                </div>
+                                <div class="mockup-trust-bar">
+                                    <div class="mockup-trust-item"><strong>25+</strong> Years Experience</div>
+                                    <div class="mockup-trust-item"><strong>94%</strong> Client Retention</div>
+                                    <div class="mockup-trust-item"><strong>$___M</strong> Growth Delivered</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.25rem; color: var(--navy); margin-bottom: 1rem; margin-top: 2rem;">Mobile Hero Mockup</h3>
+                <div style="display: flex; justify-content: center;">
+                    <div class="mockup-mobile">
+                        <div class="mockup-mobile-inner">
+                            <div class="mockup-mobile-notch"></div>
+                            <div class="mockup-mobile-hero">
+                                <div class="mockup-mobile-badge">Strategic Advisory</div>
+                                <h2 class="mockup-mobile-headline">Know Before You Invest.</h2>
+                                <p class="mockup-mobile-subheadline">We prove the path before you walk it. Certainty First.</p>
+                                <a href="#" class="mockup-mobile-cta">See the Proof First</a>
+                                <a href="#" class="mockup-mobile-cta-secondary">Watch How It Works</a>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                                    <div style="text-align: center;">
+                                        <div style="font-family: 'Crimson Pro', serif; font-size: 1.25rem; color: var(--white);">25+</div>
+                                        <div style="font-size: 0.625rem; color: rgba(255,255,255,0.6);">Years Experience</div>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <div style="font-family: 'Crimson Pro', serif; font-size: 1.25rem; color: var(--white);">94%</div>
+                                        <div style="font-size: 0.625rem; color: rgba(255,255,255,0.6);">Client Retention</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.25rem; color: var(--navy); margin-bottom: 1rem; margin-top: 3rem;">Alternative Layout: Light Theme</h3>
+                <div class="mockup-container" style="background: var(--cream-dark);">
+                    <div class="mockup-browser">
+                        <div class="mockup-browser-bar">
+                            <div class="mockup-dot red"></div>
+                            <div class="mockup-dot yellow"></div>
+                            <div class="mockup-dot green"></div>
+                            <div class="mockup-url">scaleupventures.com</div>
+                        </div>
+                        <div style="padding: 4rem; background: var(--cream);">
+                            <div style="max-width: 600px;">
+                                <div style="display: inline-block; background: var(--navy); color: var(--gold); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Strategic Advisory</div>
+                                <h2 style="font-family: 'Crimson Pro', serif; font-size: 2rem; font-weight: 700; color: var(--navy); line-height: 1.15; margin-bottom: 1rem;">Your Growth Path, <span style="color: var(--gold);">Proven Before You Pay.</span></h2>
+                                <p style="font-size: 1rem; color: var(--slate); line-height: 1.6; margin-bottom: 1.5rem;">We show you exactly what works for your business before you invest a dollar. Because experience has taught you to demand proof.</p>
+                                <div style="display: flex; gap: 0.75rem;">
+                                    <a href="#" style="background: var(--navy); color: var(--white); padding: 0.75rem 1.25rem; border-radius: 4px; font-weight: 600; font-size: 0.875rem; text-decoration: none;">Request Your ROI Preview</a>
+                                    <a href="#" style="background: transparent; color: var(--navy); padding: 0.75rem 1.25rem; border-radius: 4px; font-weight: 600; font-size: 0.875rem; border: 1px solid var(--navy); text-decoration: none;">Read Client Results</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommendations -->
+            <section class="section" id="recommendations">
+                <div class="section-header">
+                    <span class="section-number">Section 10</span>
+                    <h2 class="section-title">Implementation Recommendations</h2>
+                    <p class="section-intro">Final guidance for implementing hero messaging effectively.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>Recommended Combination</h3>
+                    <p style="margin-bottom: 1.5rem;">Based on strategic alignment with the "Certainty First" positioning and appeal to skeptical 50-65 year old business owners, we recommend:</p>
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <div style="font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Headline</div>
+                        <div style="font-family: 'Crimson Pro', serif; font-size: 1.5rem; color: var(--white);">Know Before You Invest. <span style="color: var(--gold);">Certainty First.</span></div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <div style="font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Subheadline</div>
+                        <div style="color: rgba(255,255,255,0.9);">Strategic advisory for business owners who've learned that preparation determines profit. We prove the path before you walk it.</div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">
+                            <div style="font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Primary CTA</div>
+                            <div style="color: var(--white);">See How We Prove ROI Before You Spend</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">
+                            <div style="font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Secondary CTA</div>
+                            <div style="color: var(--white);">Watch How It Works</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="two-col" style="margin-top: 2rem;">
+                    <div class="card">
+                        <h3 class="card-title">Do</h3>
+                        <ul class="feature-list">
+                            <li>Lead with proof and evidence language</li>
+                            <li>Acknowledge the audience's experience and wisdom</li>
+                            <li>Put the visitor in control ("you decide")</li>
+                            <li>Use specific, concrete language over vague claims</li>
+                            <li>Include quantitative trust signals with real numbers</li>
+                            <li>Test CTA variations to optimize conversion</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Don't</h3>
+                        <ul class="feature-list">
+                            <li>Use hype language ("revolutionary," "game-changing")</li>
+                            <li>Make claims without supporting evidence</li>
+                            <li>Patronize the audience with basic explanations</li>
+                            <li>Use urgency tactics (limited time, act now)</li>
+                            <li>Include generic stock photography</li>
+                            <li>Bury the proof promise below the fold</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- A/B Testing Plan -->
+            <section class="section" id="ab-testing">
+                <div class="section-header">
+                    <span class="section-number">Section 11</span>
+                    <h2 class="section-title">A/B Testing Plan</h2>
+                    <p class="section-intro">Recommended testing sequence to optimize hero performance.</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Testing Priority Order</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Priority</th>
+                                <th>Test</th>
+                                <th>Variants</th>
+                                <th>Primary Metric</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1</strong></td>
+                                <td>Headline Approach</td>
+                                <td>"Know Before You Invest" vs "Your Growth Path, Proven Before You Pay"</td>
+                                <td>CTA click rate</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2</strong></td>
+                                <td>Primary CTA Copy</td>
+                                <td>"See How We Prove ROI Before You Spend" vs "See the Proof First"</td>
+                                <td>Form completion rate</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3</strong></td>
+                                <td>Trust Signal Format</td>
+                                <td>Metrics bar vs Client testimonial quote</td>
+                                <td>Scroll depth, CTA clicks</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4</strong></td>
+                                <td>Color Theme</td>
+                                <td>Dark (navy) hero vs Light (cream) hero</td>
+                                <td>Time on page, bounce rate</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5</strong></td>
+                                <td>Secondary CTA</td>
+                                <td>Include vs Exclude secondary CTA</td>
+                                <td>Primary CTA click rate</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card" style="margin-top: 1.5rem;">
+                    <h3 class="card-title">Testing Guidelines</h3>
+                    <ul class="feature-list">
+                        <li><strong>Sample size:</strong> Minimum 1,000 visitors per variant before drawing conclusions</li>
+                        <li><strong>Test duration:</strong> Run tests for at least 2 weeks to account for day-of-week variations</li>
+                        <li><strong>Statistical significance:</strong> Wait for 95% confidence before declaring a winner</li>
+                        <li><strong>One change at a time:</strong> Isolate variables to understand what drives results</li>
+                        <li><strong>Document learnings:</strong> Record results even from losing variants for future reference</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer style="border-top: 1px solid var(--cream-dark); padding-top: 2rem; margin-top: 4rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <div style="font-family: 'Crimson Pro', serif; font-size: 1.25rem; color: var(--navy);">ScaleUp Ventures</div>
+                        <div style="font-size: 0.875rem; color: var(--slate-light);">Homepage Hero CTA Messaging Guide</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="font-size: 0.875rem; color: var(--slate-light);">Created: December 31, 2025</div>
+                        <div style="font-size: 0.875rem; color: var(--slate-light);">Version 1.0</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+</body>
+</html>

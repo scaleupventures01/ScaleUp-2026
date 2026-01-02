@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Solutions for HVAC, Plumbing, and Electrical Contractors | ScaleUp Ventures</title>
+    <meta name="description" content="Stop losing jobs to competitors who show up first on Google. Get a website that generates leads, systems that capture every call, and marketing that fills your slow seasons - with ROI you can see before you invest.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --navy-dark: #0a0f1a;
+            --slate: #334155;
+            --slate-light: #64748b;
+            --gold: #D4A853;
+            --gold-muted: #b8956e;
+            --gold-light: rgba(212, 168, 83, 0.15);
+            --cream: #faf8f5;
+            --cream-dark: #f1ede6;
+            --white: #ffffff;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--white);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--navy);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.6rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 8rem 2rem 5rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a853' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gold-light);
+            color: var(--gold);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.25rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title .highlight {
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-body {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-stat {
+            text-align: left;
+        }
+
+        .hero-stat-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 0.25rem;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+            border: 2px solid var(--gold);
+        }
+
+        .btn-primary:hover {
+            background: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .hero-visual {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .urgency-card {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(212, 168, 83, 0.1) 100%);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .urgency-card-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+
+        .urgency-card-text {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trust-badge-icon {
+            color: var(--gold);
+            font-size: 1rem;
+        }
+
+        /* Pain Points Section */
+        .pain-section {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--gold-light);
+            color: var(--gold-muted);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--slate);
+            max-width: 700px;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .pain-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--danger);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .pain-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .pain-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(220, 38, 38, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+            color: var(--danger);
+            font-weight: bold;
+        }
+
+        .pain-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .pain-text {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.6;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .solution-intro {
+            max-width: 800px;
+            margin-bottom: 3rem;
+        }
+
+        .solution-body {
+            font-size: 1.1rem;
+            color: var(--slate);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--cream);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid var(--cream-dark);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: var(--white);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--navy);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .service-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-description {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            font-size: 0.9rem;
+            color: var(--slate);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--cream-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features .check {
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Results Section */
+        .results-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+        }
+
+        .results-section .section-title {
+            color: var(--white);
+        }
+
+        .results-section .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .result-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .result-metric {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.4;
+        }
+
+        .case-study-mini {
+            background: rgba(212, 168, 83, 0.1);
+            border: 1px solid var(--gold);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .case-study-mini-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-study-mini-badge {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .case-study-mini-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .case-study-mini-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .case-study-mini-item {
+            text-align: center;
+        }
+
+        .case-study-mini-label {
+            font-size: 0.8rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-study-mini-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .case-study-mini-note {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 0.25rem;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+
+        .testimonial-featured {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-featured::before {
+            content: '"';
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-family: 'Crimson Pro', serif;
+            font-size: 6rem;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .testimonial-featured-text {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--navy);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+            padding-left: 1rem;
+        }
+
+        .testimonial-featured-author {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding-left: 1rem;
+        }
+
+        .testimonial-featured-avatar {
+            width: 64px;
+            height: 64px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-family: 'Crimson Pro', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .testimonial-featured-info {
+            flex: 1;
+        }
+
+        .testimonial-featured-name {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 1.15rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-featured-role {
+            font-size: 0.95rem;
+            color: var(--slate-light);
+        }
+
+        .testimonial-featured-results {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--cream-dark);
+        }
+
+        .testimonial-result {
+            text-align: center;
+        }
+
+        .testimonial-result-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .testimonial-result-label {
+            font-size: 0.8rem;
+            color: var(--slate-light);
+            margin-top: 0.25rem;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 50%;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .process-step:first-child::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            width: 50%;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .process-step:not(:first-child):not(:last-child)::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .process-step:last-child::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .process-number {
+            width: 64px;
+            height: 64px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .process-description {
+            font-size: 0.9rem;
+            color: var(--slate);
+            line-height: 1.5;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--cream);
+        }
+
+        .faq-toggle {
+            width: 28px;
+            height: 28px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--gold);
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 2rem 1.5rem;
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            text-align: center;
+        }
+
+        .cta-section .section-title {
+            color: var(--white);
+            max-width: 800px;
+            margin: 0 auto 1rem;
+        }
+
+        .cta-body {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-section .btn-primary {
+            font-size: 1.1rem;
+            padding: 1.25rem 2.5rem;
+        }
+
+        .cta-guarantee {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cta-guarantee-text {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .cta-guarantee-text strong {
+            color: var(--gold);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy-dark);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand span {
+            color: var(--gold);
+        }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-heading {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .pain-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid,
+            .case-study-mini-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-step::after,
+            .process-step::before {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 7rem 1.5rem 4rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .results-grid,
+            .case-study-mini-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-featured-results {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-legal {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#" class="nav-logo">ScaleUp<span>Ventures</span></a>
+        <div class="nav-links">
+            <a href="#solution" class="nav-link">How We Help</a>
+            <a href="#results" class="nav-link">Results</a>
+            <a href="#process" class="nav-link">Process</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+            <a href="#contact" class="nav-cta">Get Your Free Growth Assessment</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">For HVAC, Plumbing, and Electrical Contractors</span>
+                <h1 class="hero-title">Stop Losing Jobs to Competitors Who <span class="highlight">Show Up First on Google</span></h1>
+                <p class="hero-subtitle">Your trucks should be rolling, not sitting in the lot. Get a website that generates leads, systems that capture every call, and marketing that fills your slow seasons.</p>
+                <p class="hero-body">We build digital systems for trades businesses that actually work - and we prove the ROI before you spend a dollar.</p>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">47%</div>
+                        <div class="hero-stat-label">More Service Calls</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">24/7</div>
+                        <div class="hero-stat-label">Lead Capture</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">2.8x</div>
+                        <div class="hero-stat-label">Average ROI</div>
+                    </div>
+                </div>
+
+                <div class="hero-cta-group">
+                    <a href="#contact" class="btn-primary">Get Your Free Growth Assessment</a>
+                    <a href="#results" class="btn-secondary">See ComfortPro HVAC Results</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="urgency-card">
+                    <div class="urgency-card-title">Every Missed Call Is Money Lost</div>
+                    <p class="urgency-card-text">The average HVAC company loses 35% of incoming calls after hours or when techs are busy. That is $50,000+ walking to your competitor every year. We fix that.</p>
+                </div>
+
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">&#10003;</span>
+                        ROI Model Before You Invest
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">&#10003;</span>
+                        You Own Everything We Build
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">&#10003;</span>
+                        No Long-Term Contracts
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">&#10003;</span>
+                        Built for Trades
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Pain Points Section -->
+    <section class="pain-section">
+        <div class="container">
+            <span class="section-badge">The Challenges You Face</span>
+            <h2 class="section-title">We Understand What Keeps Contractors Up at Night</h2>
+            <p class="section-subtitle">You built your business on great work and word of mouth. But the market has changed, and the contractors who adapt are winning all the jobs.</p>
+
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-icon">!</div>
+                    <h3 class="pain-title">Seasonal Revenue Gaps</h3>
+                    <p class="pain-text">Summer is slammed, but winter is slow. You are either turning away work or scrambling to make payroll. There is no middle ground - just feast or famine.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">!</div>
+                    <h3 class="pain-title">Missed Calls, Lost Jobs</h3>
+                    <p class="pain-text">When you are on a roof or under a house, you cannot answer the phone. By the time you call back, they have already booked someone else. Every ring is a $500 job you might lose.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">!</div>
+                    <h3 class="pain-title">Invisible Online Presence</h3>
+                    <p class="pain-text">Homeowners search "HVAC repair near me" and find your competitors. Your website looks like it was built in 2010 - if you have one at all. You are losing jobs before they even call.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">!</div>
+                    <h3 class="pain-title">Low-Quality Leads</h3>
+                    <p class="pain-text">The leads you do get are tire-kickers looking for the cheapest quote. They waste your time with estimates that go nowhere. You need customers who value quality, not price shoppers.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">!</div>
+                    <h3 class="pain-title">No Time for Marketing</h3>
+                    <p class="pain-text">You know you need better marketing, but when? Between managing crews, ordering parts, and doing actual work, there are no hours left. It falls to the bottom of the list every week.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="solution-section">
+        <div class="container">
+            <div class="solution-intro">
+                <span class="section-badge">How We Help</span>
+                <h2 class="section-title">Digital Systems Built for Trades Businesses</h2>
+                <p class="solution-body">We are not a marketing agency that works with everyone. We build growth systems specifically for HVAC, plumbing, and electrical contractors. We understand your seasonal patterns, your service areas, and what actually moves homeowners to call.</p>
+                <p class="solution-body">More importantly, we prove the ROI before you invest. No guessing. No hoping. Just a clear model showing how you make your money back.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">&#9881;</div>
+                    <h3 class="service-title">Lead Capture System</h3>
+                    <p class="service-description">Never miss another call. We build automated systems that capture leads 24/7 - even when you are on a job site or it is 2 AM on a Sunday.</p>
+                    <ul class="service-features">
+                        <li><span class="check">&#10003;</span> After-hours lead capture</li>
+                        <li><span class="check">&#10003;</span> Instant text notifications</li>
+                        <li><span class="check">&#10003;</span> Automated follow-up sequences</li>
+                        <li><span class="check">&#10003;</span> Online booking integration</li>
+                        <li><span class="check">&#10003;</span> CRM for tracking every lead</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">&#9733;</div>
+                    <h3 class="service-title">Website That Converts</h3>
+                    <p class="service-description">A professional website that ranks on Google and turns visitors into service calls. Built specifically for how homeowners search for contractors.</p>
+                    <ul class="service-features">
+                        <li><span class="check">&#10003;</span> Local SEO optimization</li>
+                        <li><span class="check">&#10003;</span> Mobile-first design</li>
+                        <li><span class="check">&#10003;</span> Service area pages</li>
+                        <li><span class="check">&#10003;</span> Trust signals and reviews</li>
+                        <li><span class="check">&#10003;</span> Fast loading speed</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">&#9830;</div>
+                    <h3 class="service-title">Slow Season Marketing</h3>
+                    <p class="service-description">Fill your calendar during the slow months. Targeted campaigns for maintenance contracts, tune-ups, and off-season services that keep trucks rolling year-round.</p>
+                    <ul class="service-features">
+                        <li><span class="check">&#10003;</span> Seasonal campaign planning</li>
+                        <li><span class="check">&#10003;</span> Google Ads management</li>
+                        <li><span class="check">&#10003;</span> Maintenance contract promotion</li>
+                        <li><span class="check">&#10003;</span> Customer reactivation emails</li>
+                        <li><span class="check">&#10003;</span> Review generation system</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="results-section">
+        <div class="container">
+            <span class="section-badge" style="background: rgba(212,168,83,0.2);">Results That Matter</span>
+            <h2 class="section-title">Real Numbers for Trades Businesses</h2>
+            <p class="section-subtitle">These are the metrics that actually move your business - more calls, more jobs, more revenue. Not vanity metrics, just results.</p>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-metric">47%</div>
+                    <div class="result-label">More service calls per month</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-metric">90%+</div>
+                    <div class="result-label">Lead capture rate (vs. 65% industry avg)</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-metric">38%</div>
+                    <div class="result-label">Increase in average ticket size</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-metric">2.8x</div>
+                    <div class="result-label">Average first-year ROI</div>
+                </div>
+            </div>
+
+            <div class="case-study-mini">
+                <div class="case-study-mini-header">
+                    <span class="case-study-mini-badge">Case Study</span>
+                    <span class="case-study-mini-title">ComfortPro HVAC - Phoenix, AZ</span>
+                </div>
+                <div class="case-study-mini-grid">
+                    <div class="case-study-mini-item">
+                        <div class="case-study-mini-label">Service Calls</div>
+                        <div class="case-study-mini-value">+52%</div>
+                        <div class="case-study-mini-note">Year-over-year increase</div>
+                    </div>
+                    <div class="case-study-mini-item">
+                        <div class="case-study-mini-label">Slow Season Revenue</div>
+                        <div class="case-study-mini-value">+$127K</div>
+                        <div class="case-study-mini-note">Winter maintenance revenue</div>
+                    </div>
+                    <div class="case-study-mini-item">
+                        <div class="case-study-mini-label">Missed Call Rate</div>
+                        <div class="case-study-mini-value">-78%</div>
+                        <div class="case-study-mini-note">With 24/7 lead capture</div>
+                    </div>
+                    <div class="case-study-mini-item">
+                        <div class="case-study-mini-label">First Year ROI</div>
+                        <div class="case-study-mini-value">3.4x</div>
+                        <div class="case-study-mini-note">Return on investment</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <span class="section-badge">Client Success</span>
+            <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">What Contractors Say</h2>
+
+            <div class="testimonial-featured">
+                <p class="testimonial-featured-text">I have been in HVAC for 23 years, and I was skeptical of another marketing company. But ScaleUp was different - they showed me exactly what to expect before I spent a dime. The ROI model was spot-on. We went from losing calls every day to capturing 94% of our leads. My slow season is not slow anymore. The maintenance contract campaign alone covered my entire investment in the first two months.</p>
+
+                <div class="testimonial-featured-author">
+                    <div class="testimonial-featured-avatar">TR</div>
+                    <div class="testimonial-featured-info">
+                        <div class="testimonial-featured-name">Tom Rodriguez</div>
+                        <div class="testimonial-featured-role">Owner, ComfortPro HVAC - Phoenix, AZ (23 years in business)</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-featured-results">
+                    <div class="testimonial-result">
+                        <div class="testimonial-result-value">+52%</div>
+                        <div class="testimonial-result-label">More Service Calls</div>
+                    </div>
+                    <div class="testimonial-result">
+                        <div class="testimonial-result-value">94%</div>
+                        <div class="testimonial-result-label">Lead Capture Rate</div>
+                    </div>
+                    <div class="testimonial-result">
+                        <div class="testimonial-result-value">$127K</div>
+                        <div class="testimonial-result-label">Slow Season Revenue</div>
+                    </div>
+                    <div class="testimonial-result">
+                        <div class="testimonial-result-value">3.4x</div>
+                        <div class="testimonial-result-label">First Year ROI</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <span class="section-badge">How It Works</span>
+            <h2 class="section-title">From First Call to Full Calendar in 4-6 Weeks</h2>
+            <p class="section-subtitle">A straightforward process designed for busy contractors. We do the heavy lifting - you keep running your business.</p>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <h3 class="process-title">Service Area Review</h3>
+                    <p class="process-description">30 minutes to understand your territory, your services, and your competition. We analyze your market before recommending anything.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <h3 class="process-title">ROI Model</h3>
+                    <p class="process-description">We build a custom financial model showing exactly how many leads and service calls to expect - before you invest a dollar.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <h3 class="process-title">System Build</h3>
+                    <p class="process-description">4-6 weeks to launch your website, lead capture, and marketing systems. You approve milestones - we handle the work.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <h3 class="process-title">Measure and Grow</h3>
+                    <p class="process-description">Monthly reporting on leads, calls, and revenue. We track against the ROI model and optimize for more jobs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="faq-container">
+                <span class="section-badge">Common Questions</span>
+                <h2 class="section-title">Questions Contractors Ask</h2>
+                <p class="section-subtitle">Straight answers from someone who understands the trades.</p>
+
+                <div class="faq-list" style="margin-top: 2rem;">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How is this different from the marketing companies that cold-call me every week?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Those companies sell the same cookie-cutter package to every contractor in your city. We build custom systems based on your specific service area, your services, and your capacity. More importantly, we show you the expected ROI before you spend anything. If the numbers do not make sense for your business, we will tell you. Our reputation depends on results, not signing up as many contractors as possible.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            I am too busy to deal with another marketing project. How much time does this take?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                About 2-3 hours total during the build phase - a 30-minute discovery call, a few 15-minute approval checkpoints, and a final review. We designed this for contractors who are on job sites all day. Once launched, you just watch the leads come in. The whole point is to free up your time, not consume more of it.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Will this work in my area? My market is different.
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                That is exactly why we start with a service area review. We analyze your specific market - competition level, search volume, seasonal patterns - before recommending anything. If your market has challenges that make success unlikely, we will tell you upfront. We would rather turn down business than take on a project that will not deliver results.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What if I get too many leads and cannot handle the volume?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                That is actually a good problem to have - and we plan for it. During discovery, we assess your current capacity and build systems that match. We can throttle marketing spend up or down based on your crew size and season. The lead capture system also helps you respond faster, so you do not waste time on leads that would have gone cold anyway.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How long until I see results?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                The lead capture system works immediately after launch - you will stop losing after-hours calls on day one. Website traffic and Google rankings typically improve in weeks 4-8. Most contractors see meaningful revenue impact by month 2-3. We set realistic expectations in the ROI model and report against them monthly so you always know where you stand.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What does this cost?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Typical trades engagements range from $15,000-$35,000 for the initial build, with ongoing marketing starting at $1,500/month. But the real answer is: it depends on what you need and what ROI we can deliver. We build the financial model first so you know exactly what you are getting for your investment. If the numbers do not work, we will tell you before you spend anything.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <span class="section-badge" style="background: rgba(212,168,83,0.2);">Get Started</span>
+            <h2 class="section-title">Ready to Stop Losing Jobs to Your Competitors?</h2>
+            <p class="cta-body">Get a free growth assessment for your trades business. 30 minutes to review your market, your competition, and your opportunities. Then we will show you a custom ROI model - before you spend a dollar.</p>
+
+            <a href="#" class="btn-primary">Get Your Free Growth Assessment</a>
+
+            <div class="cta-guarantee">
+                <p class="cta-guarantee-text"><strong>Certainty First.</strong> If the ROI does not make sense for your business, we will tell you. We only take on projects we can win.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">ScaleUp<span>Ventures</span></div>
+                <p class="footer-tagline">Certainty First. We prove ROI before you invest.</p>
+            </div>
+
+            <div>
+                <div class="footer-heading">Services</div>
+                <ul class="footer-links">
+                    <li><a href="#">Lead Capture Systems</a></li>
+                    <li><a href="#">Websites That Convert</a></li>
+                    <li><a href="#">Slow Season Marketing</a></li>
+                    <li><a href="#">Review Generation</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="footer-heading">Industries</div>
+                <ul class="footer-links">
+                    <li><a href="#">HVAC Contractors</a></li>
+                    <li><a href="#">Plumbing Companies</a></li>
+                    <li><a href="#">Electrical Contractors</a></li>
+                    <li><a href="#">Home Services</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="footer-heading">Company</div>
+                <ul class="footer-links">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">ROI Calculator</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copyright">2025 ScaleUp Ventures. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FAQ Toggle Script -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

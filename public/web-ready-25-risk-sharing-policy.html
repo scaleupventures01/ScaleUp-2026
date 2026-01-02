@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk-Sharing Philosophy | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2540;
+            --gold: #D4A853;
+            --gold-muted: rgba(212, 168, 83, 0.15);
+            --cream: #FAFAF8;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #6a6a6a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: white;
+            padding: 80px 24px 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border-radius: 2px;
+            margin-bottom: 32px;
+        }
+
+        .hero h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-tagline {
+            font-size: 20px;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-size: 17px;
+            color: rgba(255,255,255,0.75);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Section Styling */
+        .policy-section {
+            padding: 64px 0;
+            border-bottom: 1px solid rgba(15, 23, 41, 0.1);
+        }
+
+        .policy-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--navy);
+            color: var(--gold);
+            font-family: 'Crimson Pro', serif;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+
+        .section-content p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .section-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Promise Box */
+        .promise-box {
+            background: var(--navy);
+            color: white;
+            padding: 48px;
+            border-radius: 4px;
+            position: relative;
+            margin-top: 32px;
+        }
+
+        .promise-box::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 32px;
+            font-family: 'Crimson Pro', serif;
+            font-size: 120px;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .promise-text {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 1.5;
+            position: relative;
+            z-index: 1;
+        }
+
+        .promise-signature {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(212, 168, 83, 0.3);
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .promise-signature strong {
+            color: var(--gold);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Guarantee Grid */
+        .guarantee-grid {
+            display: grid;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .guarantee-item {
+            background: white;
+            border: 1px solid rgba(15, 23, 41, 0.1);
+            border-left: 4px solid var(--gold);
+            padding: 28px 32px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .guarantee-item h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .guarantee-item p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* Timeline */
+        .timeline {
+            background: var(--gold-muted);
+            border-radius: 4px;
+            padding: 32px;
+            margin-top: 32px;
+        }
+
+        .timeline h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 24px;
+        }
+
+        .timeline-step {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .timeline-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-marker {
+            width: 32px;
+            height: 32px;
+            background: var(--navy);
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 32px;
+            text-align: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .timeline-content h5 {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .timeline-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Options List */
+        .options-list {
+            margin-top: 32px;
+        }
+
+        .option {
+            display: flex;
+            gap: 20px;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(15, 23, 41, 0.1);
+        }
+
+        .option:last-child {
+            border-bottom: none;
+        }
+
+        .option-letter {
+            width: 36px;
+            height: 36px;
+            background: var(--gold);
+            color: var(--navy);
+            font-family: 'Crimson Pro', serif;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 36px;
+            text-align: center;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .option-content h4 {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+
+        .option-content p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Disclaimer Section */
+        .disclaimer-section {
+            background: white;
+        }
+
+        .disclaimer-grid {
+            display: grid;
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .disclaimer-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .disclaimer-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            color: var(--text-muted);
+        }
+
+        .disclaimer-item p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            margin-top: 32px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid rgba(15, 23, 41, 0.1);
+        }
+
+        .comparison-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--navy);
+            color: white;
+        }
+
+        .comparison-header div {
+            padding: 16px 24px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .comparison-header div:last-child {
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--gold);
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 1px solid rgba(15, 23, 41, 0.1);
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-row div {
+            padding: 20px 24px;
+            font-size: 15px;
+        }
+
+        .comparison-row div:first-child {
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.02);
+        }
+
+        .comparison-row div:last-child {
+            color: var(--navy);
+            font-weight: 500;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .testimonial {
+            background: white;
+            border: 1px solid rgba(15, 23, 41, 0.1);
+            padding: 32px;
+            border-radius: 4px;
+        }
+
+        .testimonial-text {
+            font-family: 'Crimson Pro', serif;
+            font-size: 20px;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--navy);
+            color: var(--gold);
+            font-family: 'Crimson Pro', serif;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 48px;
+            text-align: center;
+            border-radius: 50%;
+        }
+
+        .testimonial-info strong {
+            display: block;
+            color: var(--navy);
+            font-size: 15px;
+        }
+
+        .testimonial-info span {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--navy);
+            color: white;
+            padding: 80px 24px;
+        }
+
+        .faq-section .section-title {
+            color: white;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .faq-item {
+            max-width: 700px;
+            margin: 0 auto 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-family: 'Crimson Pro', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .faq-answer {
+            color: rgba(255,255,255,0.75);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            background: linear-gradient(135deg, var(--gold) 0%, #c49a4a 100%);
+            color: var(--navy);
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .footer-cta h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .footer-cta p {
+            font-size: 17px;
+            opacity: 0.85;
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--navy);
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 16px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(15, 23, 41, 0.3);
+        }
+
+        /* Legal Footer */
+        .legal-footer {
+            background: var(--navy);
+            color: rgba(255,255,255,0.5);
+            padding: 40px 24px;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .legal-footer p {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .promise-box {
+                padding: 32px 24px;
+            }
+
+            .promise-box::before {
+                font-size: 80px;
+                left: 16px;
+            }
+
+            .comparison-row div {
+                padding: 16px;
+                font-size: 14px;
+            }
+
+            .comparison-header div {
+                padding: 12px 16px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;"><a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Index</a><span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span><div style="display:flex;gap:12px;"><a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a><a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a><a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a><a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a><a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a></div></nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <span class="hero-badge">Our Philosophy</span>
+        <h1>Risk-Sharing Approach</h1>
+        <p class="hero-tagline">We prove it before you buy - and if we can't, we'll tell you.</p>
+        <p class="hero-subtitle">
+            As an early-stage consultancy, we don't have decades of case studies to point to.
+            What we offer instead is genuine skin in the game through our Two-Track ROI model.
+        </p>
+    </section>
+
+    <!-- Section 1: Our Philosophy -->
+    <section class="policy-section">
+        <div class="container">
+            <span class="section-number">1</span>
+            <h2 class="section-title">Why We Share Risk</h2>
+            <div class="section-content">
+                <p>
+                    We're a young consultancy. We don't have a decade of client logos or
+                    hundreds of success stories. What we do have is conviction in our approach
+                    and a willingness to prove it.
+                </p>
+                <p>
+                    Most consultants deliver advice, send an invoice, and move on whether
+                    you succeed or not. We think that model creates misaligned incentives.
+                    If we're confident enough to recommend a path, we should be willing
+                    to have something at stake.
+                </p>
+            </div>
+
+            <div class="promise-box">
+                <p class="promise-text">
+                    We prove it before you buy - and if we can't, we'll tell you. Our Two-Track
+                    model ensures aligned incentives: guaranteed lead numbers for ad campaigns
+                    (fee refunded if missed), and three-scenario ROI projections for development
+                    projects showing your return in cash OR company/asset value.
+                </p>
+                <div class="promise-signature">
+                    <strong>Calvin Williams Jr.</strong>
+                    Founder, ScaleUp Ventures
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: What Risk-Sharing Looks Like -->
+    <section class="policy-section">
+        <div class="container">
+            <span class="section-number">2</span>
+            <h2 class="section-title">What Risk-Sharing Looks Like</h2>
+            <div class="section-content">
+                <p>
+                    Risk-sharing isn't one-size-fits-all. We tailor the structure to
+                    each engagement based on scope, timeline, and what success looks like
+                    for your specific situation.
+                </p>
+            </div>
+
+            <div class="guarantee-grid">
+                <div class="guarantee-item">
+                    <h4>Track 1: Ad Campaigns - Guaranteed Lead Numbers</h4>
+                    <p>
+                        For marketing and lead generation engagements, we quantify projected
+                        ad spend AND projected leads BEFORE starting to ensure expected results
+                        meet client needs. We guarantee specific lead numbers upfront. If we
+                        miss the target, our fee is refunded (not the ad spend). You pay for
+                        results, not effort.
+                    </p>
+                </div>
+                <div class="guarantee-item">
+                    <h4>Track 2: App & Development Projects - Three-Scenario ROI</h4>
+                    <p>
+                        For application development and strategic projects, we provide
+                        three-scenario ROI projections (high/mid/low) showing your expected
+                        return in cash OR company/asset value. Full transparency on what
+                        success looks like before you commit.
+                    </p>
+                </div>
+                <div class="guarantee-item">
+                    <h4>Honest Recommendations</h4>
+                    <p>
+                        We prove it before you buy - and if we can't, we'll tell you. Sometimes
+                        the right advice is "don't build this" or "this isn't the right time."
+                        We've told clients not to proceed when the data pointed that direction,
+                        even when it meant less work for us.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <h4>A Real Example: The No-Build Decision</h4>
+                <div class="timeline-step">
+                    <span class="timeline-marker">1</span>
+                    <div class="timeline-content">
+                        <h5>The Situation</h5>
+                        <p>Client had $150,000+ budget with a 12-18 month commitment ready to build a custom platform.</p>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <span class="timeline-marker">2</span>
+                    <div class="timeline-content">
+                        <h5>Our Approach</h5>
+                        <p>ScaleUp proposed a $5,000 discovery engagement (4 weeks) to validate the opportunity before committing.</p>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <span class="timeline-marker">3</span>
+                    <div class="timeline-content">
+                        <h5>What We Found</h5>
+                        <p>Market saturation, hidden costs the client hadn't anticipated, and that 80% of their needs were achievable with existing solutions.</p>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <span class="timeline-marker">4</span>
+                    <div class="timeline-content">
+                        <h5>The Outcome</h5>
+                        <p>Saved $150,000+ and 12+ months. We earned $5,000 instead of a much larger engagement.</p>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <span class="timeline-marker">5</span>
+                    <div class="timeline-content">
+                        <h5>Our Philosophy</h5>
+                        <p>"'Certainty First' means we'd rather earn $5,000 telling the truth than $150,000 building something that won't serve you."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Engagement Types -->
+    <section class="policy-section">
+        <div class="container">
+            <span class="section-number">3</span>
+            <h2 class="section-title">Where We Add Value</h2>
+            <div class="section-content">
+                <p>
+                    Our risk-sharing approach applies across different engagement types.
+                    Here's how we work with clients today:
+                </p>
+            </div>
+
+            <div class="options-list">
+                <div class="option">
+                    <span class="option-letter">A</span>
+                    <div class="option-content">
+                        <h4>Discovery and Assessment</h4>
+                        <p>
+                            Focused engagements to evaluate whether a project is worth pursuing.
+                            We provide honest analysis even when the answer is "don't proceed."
+                            You pay for clarity, not confirmation of what you wanted to hear.
+                        </p>
+                    </div>
+                </div>
+                <div class="option">
+                    <span class="option-letter">B</span>
+                    <div class="option-content">
+                        <h4>Startup Support</h4>
+                        <p>
+                            End-to-end support for a founder building from the ground up: market validation,
+                            business and financial model validation, application development, fundraising
+                            validation and plan, and investor/advisor introductions. Payment tied to
+                            deliverables completed.
+                        </p>
+                    </div>
+                </div>
+                <div class="option">
+                    <span class="option-letter">C</span>
+                    <div class="option-content">
+                        <h4>Financial Trading Platform</h4>
+                        <p>
+                            Full product build from idea to SEC/NFA compliant application, plus
+                            complete go-to-market execution. Scope includes persona research,
+                            targeting, ad management, lead generation, end-to-end product
+                            development, marketing funnels, and customer acquisition strategy.
+                        </p>
+                    </div>
+                </div>
+                <div class="option">
+                    <span class="option-letter">D</span>
+                    <div class="option-content">
+                        <h4>HR Automation Tool</h4>
+                        <p>
+                            Full product build plus complete go-to-market execution. Scope
+                            includes persona research, targeting, ad management, lead generation,
+                            end-to-end product development, marketing funnels, and customer
+                            acquisition strategy. Achieved $25-$33 lead costs, enabling validation
+                            of market demand, customer fit, and profitable customer acquisition.
+                        </p>
+                    </div>
+                </div>
+                <div class="option">
+                    <span class="option-letter">E</span>
+                    <div class="option-content">
+                        <h4>AI Automation Agents for Solutions Consulting</h4>
+                        <p>
+                            Contract work for a solutions consulting firm where we built AI automation
+                            agents using best practices. Team members now save 20-25 hours per month—and
+                            that number grows 10-20% each month as additional processes flow into the
+                            automated workflow. The result: efficient project management and operational
+                            management, with staff redirecting their effort to strategic work that
+                            drives greater impact.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Being Honest About Limitations -->
+    <section class="policy-section disclaimer-section">
+        <div class="container">
+            <span class="section-number">4</span>
+            <h2 class="section-title">Being Honest About Limitations</h2>
+            <div class="section-content">
+                <p>
+                    We're building our track record. Here's what we can and can't promise:
+                </p>
+            </div>
+
+            <div class="disclaimer-grid">
+                <div class="disclaimer-item">
+                    <svg class="disclaimer-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                    <p>
+                        <strong>We can't guarantee outcomes we don't control.</strong> If
+                        your team needs to execute on recommendations and doesn't, or if
+                        external factors change the landscape, that's outside our scope.
+                    </p>
+                </div>
+                <div class="disclaimer-item">
+                    <svg class="disclaimer-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                    <p>
+                        <strong>We're not a large firm with infinite resources.</strong> We're
+                        selective about the engagements we take because we need to be confident
+                        we can deliver value.
+                    </p>
+                </div>
+                <div class="disclaimer-item">
+                    <svg class="disclaimer-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                    <p>
+                        <strong>Each engagement's terms are specific.</strong> The risk-sharing
+                        structure for your project will be defined in your Statement of Work.
+                        This page describes our philosophy, not a blanket policy.
+                    </p>
+                </div>
+                <div class="disclaimer-item">
+                    <svg class="disclaimer-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                    <p>
+                        <strong>Honesty isn't always comfortable.</strong> If we think your
+                        idea won't work, we'll tell you. That might not be what you want to
+                        hear, but it's what you're paying for.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: How We Think About Alignment -->
+    <section class="policy-section">
+        <div class="container">
+            <span class="section-number">5</span>
+            <h2 class="section-title">How We Think About Alignment</h2>
+            <div class="section-content">
+                <p>
+                    The traditional consulting model creates misaligned incentives. We're
+                    trying to build something different:
+                </p>
+            </div>
+
+            <div class="comparison-table">
+                <div class="comparison-header">
+                    <div>Traditional Model</div>
+                    <div>Our Approach</div>
+                </div>
+                <div class="comparison-row">
+                    <div>Get paid regardless of outcome</div>
+                    <div>Two-Track model: guaranteed leads OR three-scenario ROI projections</div>
+                </div>
+                <div class="comparison-row">
+                    <div>Say yes to every engagement</div>
+                    <div>Only take work we believe we can deliver</div>
+                </div>
+                <div class="comparison-row">
+                    <div>Maximize billable hours</div>
+                    <div>Solve the problem efficiently</div>
+                </div>
+                <div class="comparison-row">
+                    <div>Tell clients what they want to hear</div>
+                    <div>Tell clients what they need to hear</div>
+                </div>
+                <div class="comparison-row">
+                    <div>Protect the consultant in disputes</div>
+                    <div>Default to good-faith resolution</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Why This Matters -->
+    <section class="policy-section">
+        <div class="container">
+            <span class="section-number">6</span>
+            <h2 class="section-title">Why This Matters to Us</h2>
+            <div class="section-content">
+                <p>
+                    We're building ScaleUp Ventures to be the kind of consultancy we
+                    wished existed when we were on the client side.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        We've been the client who paid $50K for a strategy deck that
+                        sat in a drawer. We've watched consultants recommend the most
+                        expensive option because it meant more billable hours. We've
+                        seen firms walk away the moment the check cleared.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">CW</div>
+                        <div class="testimonial-info">
+                            <strong>From Experience</strong>
+                            <span>Why we built ScaleUp differently</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        Our Two-Track model isn't a marketing gimmick. It's how we
+                        hold ourselves accountable. For ad campaigns, we guarantee leads
+                        or refund our fee. For development projects, we show you the ROI
+                        in three scenarios before you commit. We prove it before you buy -
+                        and if we can't, we'll tell you.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SV</div>
+                        <div class="testimonial-info">
+                            <strong>Our Commitment</strong>
+                            <span>Alignment creates accountability</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Common Questions</h2>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How does your Two-Track model work in practice?</h3>
+                <p class="faq-answer">
+                    For ad campaigns (Track 1), we guarantee specific lead numbers upfront.
+                    If we miss the target, our fee is refunded - though ad spend remains yours.
+                    For app and development projects (Track 2), we provide three-scenario ROI
+                    projections (high/mid/low) showing your expected return in cash OR
+                    company/asset value. Every engagement is different, but the principle
+                    is consistent: we prove it before you buy - and if we can't, we'll tell you.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Are you just a new firm trying to win business?</h3>
+                <p class="faq-answer">
+                    Yes, honestly. We're early-stage and we need to earn trust. But
+                    that's exactly why risk-sharing makes sense for both of us. You
+                    get reduced risk working with a newer firm, and we get the
+                    opportunity to prove ourselves. If we deliver, we build reputation.
+                    If we don't, we've earned nothing.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What kinds of projects are a good fit?</h3>
+                <p class="faq-answer">
+                    We work best on projects with clear deliverables: discovery
+                    assessments, prototype development, proof of concepts, architecture
+                    design, and strategic analysis. We're less suited for open-ended
+                    advisory relationships or ongoing staff augmentation.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What if my project doesn't fit your Two-Track model?</h3>
+                <p class="faq-answer">
+                    Most projects fit into either Track 1 (ad campaigns with guaranteed leads)
+                    or Track 2 (app/development with three-scenario ROI projections). For projects
+                    that don't fit neatly, we're flexible on structure as long as there's clarity
+                    on deliverables and how we'll measure return on investment - whether that's
+                    in cash or company/asset value.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Why should I trust a new consultancy?</h3>
+                <p class="faq-answer">
+                    You shouldn't trust us based on claims. That's the point. We prove it
+                    before you buy - and if we can't, we'll tell you. Start with a small
+                    engagement. See how we work. Our Two-Track model means you get either
+                    guaranteed leads with fee refund if missed, or clear ROI projections
+                    showing high/mid/low scenarios before you commit.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta">
+        <h2>Let's Talk</h2>
+        <p>
+            Tell us about your project. We'll be honest about whether
+            we're the right fit and how we might structure the engagement.
+        </p>
+        <a href="mailto:contact@scaleupventures.com" class="cta-button">
+            Start a Conversation
+        </a>
+    </section>
+
+    <!-- Legal Footer -->
+    <footer class="legal-footer">
+        <p>
+            This page describes ScaleUp Ventures' approach to risk-sharing and
+            aligned incentives. Specific terms for any engagement are defined in
+            individual Statements of Work. Nothing on this page constitutes a
+            blanket guarantee or warranty. We discuss and document the specifics
+            for each project based on its unique requirements.
+            Last updated: January 2025.
+        </p>
+    </footer>
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;"><a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Content Index</a><p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Aligned Incentives.</p></footer>
+
+</body>
+</html>

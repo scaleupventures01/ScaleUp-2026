@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objection Handling Guide | ScaleUp Ventures Sales Playbook</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0F1729;
+            color: #E2E8F0;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0F1729 0%, #1a2744 100%);
+            border-bottom: 3px solid #D4A853;
+            padding: 32px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header h1 {
+            color: #D4A853;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #94A3B8;
+            font-size: 14px;
+        }
+
+        .nav-bar {
+            background: #1a2744;
+            padding: 16px 32px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            border-bottom: 1px solid #2a3a5a;
+        }
+
+        .nav-btn {
+            background: #0F1729;
+            border: 1px solid #3a4a6a;
+            color: #94A3B8;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: #D4A853;
+            color: #0F1729;
+            border-color: #D4A853;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 32px;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #1a2744 0%, #0F1729 100%);
+            border: 1px solid #D4A853;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .intro-box h2 {
+            color: #D4A853;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .intro-box p {
+            color: #CBD5E1;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .framework {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .framework-step {
+            background: #0F1729;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .framework-step .number {
+            background: #D4A853;
+            color: #0F1729;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .framework-step .label {
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .framework-step .desc {
+            color: #94A3B8;
+            font-size: 11px;
+        }
+
+        .category-section {
+            margin-bottom: 48px;
+        }
+
+        .category-header {
+            background: #1a2744;
+            border-left: 4px solid #D4A853;
+            padding: 16px 24px;
+            margin-bottom: 24px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .category-header h2 {
+            color: #FFFFFF;
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .category-header p {
+            color: #94A3B8;
+            font-size: 13px;
+        }
+
+        .objection-card {
+            background: #1a2744;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            overflow: hidden;
+            border: 1px solid #2a3a5a;
+            transition: border-color 0.2s;
+        }
+
+        .objection-card:hover {
+            border-color: #D4A853;
+        }
+
+        .objection-header {
+            background: #0F1729;
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .objection-number {
+            background: #D4A853;
+            color: #0F1729;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .objection-text {
+            flex: 1;
+        }
+
+        .objection-text .quote {
+            color: #FFFFFF;
+            font-size: 18px;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .objection-text .category-tag {
+            display: inline-block;
+            background: #2a3a5a;
+            color: #94A3B8;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-top: 8px;
+        }
+
+        .expand-icon {
+            color: #D4A853;
+            font-size: 24px;
+            transition: transform 0.2s;
+        }
+
+        .objection-card.expanded .expand-icon {
+            transform: rotate(45deg);
+        }
+
+        .objection-body {
+            display: none;
+            padding: 24px;
+        }
+
+        .objection-card.expanded .objection-body {
+            display: block;
+        }
+
+        .response-section {
+            margin-bottom: 20px;
+        }
+
+        .response-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .response-label .icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .response-label .icon.red { background: #7F1D1D; color: #FCA5A5; }
+        .response-label .icon.blue { background: #1E3A5F; color: #93C5FD; }
+        .response-label .icon.green { background: #14532D; color: #86EFAC; }
+        .response-label .icon.gold { background: #78350F; color: #FCD34D; }
+        .response-label .icon.purple { background: #4C1D95; color: #C4B5FD; }
+
+        .response-label span {
+            color: #94A3B8;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .response-content {
+            background: #0F1729;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #E2E8F0;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .response-content.script {
+            border-left: 3px solid #22C55E;
+            font-style: italic;
+        }
+
+        .response-content strong {
+            color: #D4A853;
+        }
+
+        .proof-points {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .proof-tag {
+            background: #14532D;
+            color: #86EFAC;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .follow-up-box {
+            background: linear-gradient(135deg, #2a3a5a 0%, #1a2744 100%);
+            border: 1px solid #D4A853;
+            border-radius: 8px;
+            padding: 16px 20px;
+        }
+
+        .follow-up-box .question {
+            color: #D4A853;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .follow-up-box .purpose {
+            color: #94A3B8;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        .quick-tips {
+            background: #0F1729;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+
+        .quick-tips h4 {
+            color: #D4A853;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .quick-tips ul {
+            list-style: none;
+        }
+
+        .quick-tips li {
+            color: #94A3B8;
+            font-size: 13px;
+            padding: 4px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .quick-tips li::before {
+            content: ">";
+            color: #D4A853;
+            position: absolute;
+            left: 0;
+        }
+
+        .search-box {
+            background: #0F1729;
+            border: 1px solid #3a4a6a;
+            border-radius: 8px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: #FFFFFF;
+            font-size: 16px;
+            flex: 1;
+            outline: none;
+        }
+
+        .search-box input::placeholder {
+            color: #64748B;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .stat-box {
+            background: #1a2744;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .stat-box .number {
+            color: #D4A853;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .stat-box .label {
+            color: #94A3B8;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .footer {
+            background: #0F1729;
+            border-top: 1px solid #2a3a5a;
+            padding: 24px 32px;
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .footer p {
+            color: #64748B;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .framework {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .objection-text .quote {
+                font-size: 16px;
+            }
+        }
+
+        @media print {
+            .header {
+                position: static;
+            }
+
+            .objection-body {
+                display: block !important;
+            }
+
+            .nav-bar, .search-box {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Index</a>
+  <span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span>
+  <div style="display:flex;gap:12px;">
+    <a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a>
+    <a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a>
+    <a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a>
+    <a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a>
+    <a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a>
+  </div>
+</nav>
+    <header class="header">
+        <h1>OBJECTION HANDLING PLAYBOOK</h1>
+        <p>ScaleUp Ventures Sales Reference Guide | 20 Common Objections with Response Scripts</p>
+    </header>
+
+    <nav class="nav-bar">
+        <button class="nav-btn active" onclick="filterCategory('all')">All Objections</button>
+        <button class="nav-btn" onclick="filterCategory('trust')">Trust Issues</button>
+        <button class="nav-btn" onclick="filterCategory('budget')">Budget Concerns</button>
+        <button class="nav-btn" onclick="filterCategory('timing')">Timing Issues</button>
+        <button class="nav-btn" onclick="filterCategory('value')">Value Questions</button>
+        <button class="nav-btn" onclick="filterCategory('competition')">Competition</button>
+    </nav>
+
+    <main class="container">
+        <div class="search-box">
+            <span style="color: #64748B;">Search:</span>
+            <input type="text" id="searchInput" placeholder="Type to search objections..." onkeyup="searchObjections()">
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-box">
+                <div class="number">20</div>
+                <div class="label">Total Objections</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">5</div>
+                <div class="label">Categories</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">5</div>
+                <div class="label">Real Client Examples</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">$150K+</div>
+                <div class="label">Saved (No-Build Decision)</div>
+            </div>
+        </div>
+
+        <div class="intro-box">
+            <h2>The LAER Framework</h2>
+            <p>Every objection is an opportunity. Use this four-step framework to turn resistance into revenue.</p>
+            <div class="framework">
+                <div class="framework-step">
+                    <div class="number">L</div>
+                    <div class="label">Listen</div>
+                    <div class="desc">Hear the full objection without interrupting</div>
+                </div>
+                <div class="framework-step">
+                    <div class="number">A</div>
+                    <div class="label">Acknowledge</div>
+                    <div class="desc">Validate their concern is legitimate</div>
+                </div>
+                <div class="framework-step">
+                    <div class="number">E</div>
+                    <div class="label">Explore</div>
+                    <div class="desc">Ask questions to understand the real issue</div>
+                </div>
+                <div class="framework-step">
+                    <div class="number">R</div>
+                    <div class="label">Respond</div>
+                    <div class="desc">Address with proof and next steps</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRUST ISSUES -->
+        <section class="category-section" data-category="trust">
+            <div class="category-header">
+                <h2>Trust Issues</h2>
+                <p>Objections rooted in past experiences or skepticism about your credibility</p>
+            </div>
+
+            <!-- Objection 1 -->
+            <div class="objection-card" data-category="trust" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">1</div>
+                        <div class="objection-text">
+                            <div class="quote">"We've been burned by agencies before"</div>
+                            <div class="category-tag">Trust Issue</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            They've wasted money before and are protecting themselves from repeating that mistake. There's likely a specific bad experience - overpromising, poor communication, or no results. They want proof you're different.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "I appreciate you sharing that - honestly, that frustration is one of the reasons we started ScaleUp Ventures. After our exit from a $4M venture-backed startup (backed by Google and Northwestern Mutual), our team came together specifically to help business owners avoid those bad experiences. <strong>Can I ask what specifically went wrong?</strong> Because we've built our model around preventing exactly that. For example, a client came to us with a $150,000+ budget and 12-18 month commitment in mind. We proposed a $5,000 discovery engagement (4 weeks). We found market saturation, hidden costs, and that 80% was achievable with existing solutions - saving them $150,000+ and 12+ months. Our philosophy: 'Certainty First' means we'd rather earn $5,000 telling the truth than $150,000 building something that won't serve you. We're consultants, not order-takers. We tell you what you need to hear, not what you want to hear."
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">No-Build Decision example</span>
+                            <span class="proof-tag">Honest recommendations</span>
+                            <span class="proof-tag">Discovery-first approach</span>
+                            <span class="proof-tag">Project-based engagements</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What would need to be true for you to feel confident trying again?"</div>
+                            <div class="purpose">Purpose: Lets them define their own success criteria, which you can then commit to.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Don't bash the previous agency - it comes across as unprofessional</li>
+                            <li>Ask specific questions about what went wrong</li>
+                            <li>Mirror their concern back to show you heard them</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objection 2 -->
+            <div class="objection-card" data-category="trust" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">2</div>
+                        <div class="objection-text">
+                            <div class="quote">"This seems too good to be true"</div>
+                            <div class="category-tag">Trust Issue</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            They're skeptical but interested. Something you said resonated, but their defense mechanisms kicked in. They want to believe it but need logical justification to proceed.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "You know what, I'd be skeptical too if I were in your position. <strong>Here's the thing - we're an early-stage consultancy, and we're honest about that.</strong> What we bring is deep technical expertise and a track record of principled decisions. We've built a full financial trading platform from idea to SEC/NFA-compliant app, including persona research, targeting, ad management, and lead generation - the complete go-to-market package in a regulated industry. We've helped startups with market validation, business model validation, app development, fundraising plans, and investor/advisor introductions. And we've told clients NOT to build when that was the right answer. Let me walk you through a specific example relevant to your situation."
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Financial trading app (full product)</span>
+                            <span class="proof-tag">Startup support examples</span>
+                            <span class="proof-tag">No-Build Decision case</span>
+                            <span class="proof-tag">HR Automation Tool (client)</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What specifically feels too good? I want to address that directly."</div>
+                            <div class="purpose">Purpose: Gets them to verbalize the specific doubt so you can address it precisely.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Agree with their skepticism - it builds rapport</li>
+                            <li>Use data and specifics, not hype</li>
+                            <li>Offer to introduce them to a current client</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objection 11 -->
+            <div class="objection-card" data-category="trust" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">11</div>
+                        <div class="objection-text">
+                            <div class="quote">"Why should we trust you?"</div>
+                            <div class="category-tag">Trust Issue</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            This is a direct challenge - they're testing your confidence and authenticity. They want you to prove you're different, not just claim it. They may also be trying to see if you get defensive.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "That's the right question to ask - I'm glad you're being thorough. <strong>Here's how we've earned trust:</strong> A client came to us with a $150,000+ budget and 12-18 month commitment. We proposed a $5,000 discovery (4 weeks). We found market saturation, hidden costs, and 80% achievable with existing solutions - saving them $150,000+ and 12+ months. Our philosophy: 'Certainty First' means we'd rather earn $5,000 telling the truth than $150,000 building something that won't serve you. We've delivered a full financial trading platform - from idea to SEC/NFA-compliant app PLUS persona research, targeting, ad management, and lead generation - in a regulated industry where trust is everything. We've built a full HR Automation Tool for a client, taking it from concept through product research, user research, marketing funnels, and customer acquisition - achieving $25-$33 lead costs that enabled validation of market, customer, and profitable customer acquisition. We're early-stage, which means you get direct access to senior expertise, not junior staff learning on your dime."
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">No-Build Decision example</span>
+                            <span class="proof-tag">Regulated industry experience</span>
+                            <span class="proof-tag">HR Automation Tool (client work)</span>
+                            <span class="proof-tag">Senior-level direct access</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What would you need to see or hear from us to feel comfortable moving forward?"</div>
+                            <div class="purpose">Purpose: Makes them articulate their trust requirements so you can meet them exactly.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Stay calm and confident - never defensive</li>
+                            <li>Offer immediate proof, not future promises</li>
+                            <li>This objection often means they're close to saying yes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BUDGET CONCERNS -->
+        <section class="category-section" data-category="budget">
+            <div class="category-header">
+                <h2>Budget Concerns</h2>
+                <p>Objections about price, cost, and financial investment</p>
+            </div>
+
+            <!-- Objection 3 -->
+            <div class="objection-card" data-category="budget" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">3</div>
+                        <div class="objection-text">
+                            <div class="quote">"We don't have the budget"</div>
+                            <div class="category-tag">Budget Concern</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            One of three things: (1) They genuinely can't afford it, (2) They don't see enough value to prioritize the spend, or (3) They're using it as a polite excuse to end the conversation. Your job is to figure out which.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "I hear you - budget is a real consideration. <strong>Here's how we think about it:</strong> We prove it before you buy - and if we can't, we'll tell you. For ad campaigns, we quantify projected ad spend AND projected leads BEFORE starting to ensure expected results meet your needs - and we guarantee those lead numbers (if we miss, we refund our fee). For development projects, we build three-scenario ROI projections showing your expected return in cash OR company value. Our discovery engagements start at $5K. One client came to us with a $150,000+ budget and 12-18 month commitment. Our $5,000 discovery (4 weeks) found market saturation, hidden costs, and that 80% was achievable with existing solutions - saving them $150,000+ and 12+ months. 'Certainty First' means we'd rather earn $5,000 telling the truth than $150,000 building something that won't serve you. Would a focused discovery engagement make sense as a starting point?"
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">$5K discovery engagement</span>
+                            <span class="proof-tag">$150K+ saved example</span>
+                            <span class="proof-tag">Project-based pricing</span>
+                            <span class="proof-tag">Honest recommendations</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"Help me understand - is this a timing issue or a value question?"</div>
+                            <div class="purpose">Purpose: Separates genuine budget constraints from value perception issues.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Never immediately offer a discount - it devalues your service</li>
+                            <li>Reframe as investment vs. cost</li>
+                            <li>Calculate the cost of NOT doing this</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objection 12 -->
+            <div class="objection-card" data-category="budget" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">12</div>
+                        <div class="objection-text">
+                            <div class="quote">"This seems expensive"</div>
+                            <div class="category-tag">Budget Concern</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            They don't yet see enough value to justify the price. This is a value problem, not a price problem. They're comparing your price to something - likely the wrong thing (like doing it themselves or a cheaper alternative).
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "Compared to what? That's a fair question. <strong>Here's how I think about it:</strong> We prove it before you buy - and if we can't, we'll tell you. For ad campaigns, we quantify projected ad spend AND projected leads BEFORE starting to ensure expected results meet your needs - and we guarantee those lead numbers (fee refunded if we miss). For development work, we build three-scenario ROI projections (high/mid/low) showing return in cash OR company value - before you spend a dollar on build. Compare that to: hiring a full-time technical lead ($150K+/year), or paying a big consultancy ($300+/hour), or making an expensive mistake because no one modeled the ROI first. One client came with a $150,000+ budget and 12-18 month commitment. Our $5,000 discovery (4 weeks) found market saturation, hidden costs, and 80% achievable with existing solutions - saving them $150,000+ and 12+ months. 'Certainty First' means we'd rather earn $5,000 telling the truth than $150,000 building something that won't serve you."
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Senior expertise, no overhead</span>
+                            <span class="proof-tag">Full-time hire comparison</span>
+                            <span class="proof-tag">Big consultancy alternative</span>
+                            <span class="proof-tag">Cost of wrong decision</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What would you expect to pay for the outcomes we're discussing?"</div>
+                            <div class="purpose">Purpose: Reveals their price anchor so you can address the gap directly.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Always ask "compared to what?"</li>
+                            <li>Shift from price to value and outcomes</li>
+                            <li>Break it down to cost per lead/customer/day</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIMING ISSUES -->
+        <section class="category-section" data-category="timing">
+            <div class="category-header">
+                <h2>Timing Issues</h2>
+                <p>Objections about when to start, readiness, and bandwidth</p>
+            </div>
+
+            <!-- Objection 6 -->
+            <div class="objection-card" data-category="timing" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">6</div>
+                        <div class="objection-text">
+                            <div class="quote">"We're too busy right now"</div>
+                            <div class="category-tag">Timing Issue</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            They're overwhelmed and adding anything new feels like a burden. They may also be concerned that onboarding will require too much of their time and attention.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "I get it - you're in the weeds. <strong>Here's what makes us different:</strong> We're not an agency that needs constant feeding. We do focused engagements - architecture reviews, full product development, strategic decisions. Our startup clients are all busy founders. We helped one with market validation, business model validation, app development, fundraising plans, AND investor/advisor introductions - all while they were running their company. We work around your schedule, not the other way around."
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Focused engagements</span>
+                            <span class="proof-tag">Startup founder experience</span>
+                            <span class="proof-tag">Flexible scheduling</span>
+                            <span class="proof-tag">End-to-end support</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What would need to come off your plate for this to make sense?"</div>
+                            <div class="purpose">Purpose: Shows you can potentially help remove that burden, not add to it.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Emphasize the time they'll SAVE, not spend</li>
+                            <li>Quantify your time requirements precisely</li>
+                            <li>Position yourself as a burden-reducer</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objection 7 -->
+            <div class="objection-card" data-category="timing" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">7</div>
+                        <div class="objection-text">
+                            <div class="quote">"We need to think about it"</div>
+                            <div class="category-tag">Timing Issue</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            There's an unspoken objection you haven't uncovered yet. "Think about it" almost always means there's something specific holding them back that they haven't shared. Your job is to find it.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "Of course, take your time. But I've learned that 'think about it' usually means there's something specific I haven't addressed. <strong>Can I ask - if you had to decide right now, which way would you lean?</strong> And what's the one thing that would make it a definite yes? I'd rather address that now than have you walk away wondering."
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Decision support materials</span>
+                            <span class="proof-tag">FAQ document</span>
+                            <span class="proof-tag">Risk-free trial offer</span>
+                            <span class="proof-tag">Other decision-makers to involve</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What specifically do you need to think about? Maybe I can help clarify right now."</div>
+                            <div class="purpose">Purpose: Surfaces the hidden objection so you can address it directly.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Never accept "think about it" at face value</li>
+                            <li>Be respectful but probe for the real concern</li>
+                            <li>Set a specific follow-up time before ending the call</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objection 15 -->
+            <div class="objection-card" data-category="timing" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">15</div>
+                        <div class="objection-text">
+                            <div class="quote">"We're not ready for this"</div>
+                            <div class="category-tag">Timing Issue</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            They feel unprepared - either their business isn't at the right stage, they don't have internal processes in place, or they're worried they can't handle the growth. This is often imposter syndrome in disguise.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "I hear that a lot, actually. Can I ask - <strong>what does 'ready' look like to you?</strong> Because here's the thing: we specialize in early-stage. That's literally our focus. We've helped startups figure out architecture before they had a technical team. We've done business model work before product-market fit. One client came to us with just an idea - we helped them with market validation, business model validation, app development, fundraising plans, and investor/advisor introductions. 'Not ready' might actually be the perfect time."
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Early-stage specialist</span>
+                            <span class="proof-tag">Pre-technical team support</span>
+                            <span class="proof-tag">Idea-to-prototype path</span>
+                            <span class="proof-tag">Investor intro support</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What would need to be true for you to feel ready?"</div>
+                            <div class="purpose">Purpose: Reveals specific gaps you can help address or show aren't actually blockers.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Challenge their definition of "ready"</li>
+                            <li>Share examples of clients who started before feeling ready</li>
+                            <li>Offer to help them get ready as part of the engagement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objection 13 -->
+            <div class="objection-card" data-category="timing" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">13</div>
+                        <div class="objection-text">
+                            <div class="quote">"How long until we see results?"</div>
+                            <div class="category-tag">Timing Issue</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            They're worried about sinking money into something with delayed or uncertain returns. They want predictability and a clear timeline to plan around. This is often about cash flow concerns.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "Fair question - you need to plan. <strong>Here's our honest answer:</strong> It depends on the engagement. A discovery engagement takes 2-4 weeks and gives you a clear decision framework. A full product build varies by scope. We built a complete financial trading platform - from idea through SEC/NFA-compliant app PLUS persona research, targeting, ad management, and lead generation - in a regulated industry. For AI automation agents, we build solutions that handle delegated work - team members now save 20-25 hours per month, and that number grows 10-20% each month as additional processes flow into the automated workflow. You see value incrementally as agents take over routine tasks. What's the outcome you're trying to achieve?"
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Discovery: 2-4 weeks</span>
+                            <span class="proof-tag">Full product builds</span>
+                            <span class="proof-tag">Sprint-based consulting</span>
+                            <span class="proof-tag">Regulated industry experience</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What's driving the timeline question? Are you working against a specific deadline?"</div>
+                            <div class="purpose">Purpose: Uncovers if there's urgency you can address or a business constraint to work around.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Give specific, honest timelines - never overpromise</li>
+                            <li>Explain what happens at each milestone</li>
+                            <li>Offer leading indicators they can track before full ROI</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VALUE QUESTIONS -->
+        <section class="category-section" data-category="value">
+            <div class="category-header">
+                <h2>Value Questions</h2>
+                <p>Objections about effectiveness, differentiation, and past experiences</p>
+            </div>
+
+            <!-- Objection 4 -->
+            <div class="objection-card" data-category="value" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">4</div>
+                        <div class="objection-text">
+                            <div class="quote">"We tried marketing, it didn't work"</div>
+                            <div class="category-tag">Value Question</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            They invested time or money in marketing (probably random tactics without strategy) and didn't see the return. They've concluded marketing doesn't work for their business, when really it was bad execution.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "I believe you - most marketing doesn't work. <strong>But marketing isn't one thing.</strong> It's like saying 'we tried medicine, it didn't work.' The question is: which medicine, what dose, and was it the right diagnosis? What exactly did you try, and what happened? Because there's usually a specific reason it failed, and it's rarely that marketing fundamentally doesn't work for your business. Nine times out of ten, it's either wrong channel, wrong message, or not enough time."
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Diagnostic assessment</span>
+                            <span class="proof-tag">Common mistakes audit</span>
+                            <span class="proof-tag">Similar turnaround cases</span>
+                            <span class="proof-tag">Strategy vs. tactics distinction</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What specifically did you try, and how did you measure whether it worked?"</div>
+                            <div class="purpose">Purpose: Often reveals they didn't measure properly or gave up too early.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Don't argue - validate their experience first</li>
+                            <li>Diagnose what they actually tried</li>
+                            <li>Separate strategy from tactics in your explanation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objection 5 -->
+            <div class="objection-card" data-category="value" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">5</div>
+                        <div class="objection-text">
+                            <div class="quote">"We're too small for this"</div>
+                            <div class="category-tag">Value Question</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            They believe sophisticated marketing is only for big companies with big budgets. They may also be concerned they can't handle an influx of leads or that the investment won't scale to their size.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "Actually, early-stage is exactly who we work with. <strong>ScaleUp Ventures is literally built for companies like yours.</strong> We've helped startups before they had technical teams. We've done architecture work for founders with just an idea. One client came to us early - we helped with market validation, business/financial model validation, app development, fundraising plans, AND investor/advisor introductions. Being 'small' means you can move fast and make smart decisions before you've burned capital on mistakes. What specific challenge are you trying to solve?"
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Early-stage focus</span>
+                            <span class="proof-tag">Pre-team support</span>
+                            <span class="proof-tag">Founder-friendly approach</span>
+                            <span class="proof-tag">Full startup support</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What size would you need to be for this to make sense to you?"</div>
+                            <div class="purpose">Purpose: Often reveals arbitrary thresholds you can challenge with data.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Flip the "too small" into an advantage</li>
+                            <li>Show examples of similar-sized clients</li>
+                            <li>Address the underlying fear of being overwhelmed</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objection 8 -->
+            <div class="objection-card" data-category="value" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">8</div>
+                        <div class="objection-text">
+                            <div class="quote">"Can you guarantee results?"</div>
+                            <div class="category-tag">Value Question</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            They're risk-averse and want protection. They've probably been burned before by vague promises. They want to know what happens if it doesn't work - what's their recourse?
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "Great question - and we have a clear answer. <strong>We prove it before you buy - and if we can't, we'll tell you.</strong> Here's how our Two-Track ROI model works: <strong>Track 1 - Ad Campaigns:</strong> We quantify projected ad spend AND projected leads BEFORE starting to ensure expected results meet your needs. We guarantee specific lead numbers - if we miss them, we refund our fee (not the ad spend). <strong>Track 2 - App & Development Projects:</strong> We build three-scenario ROI projections (high/mid/low) showing your expected return - either in cash or in company/asset value. Before any build, we validate the business case. One client came with a $150,000+ budget and 12-18 month commitment. Our $5,000 discovery (4 weeks) found market saturation, hidden costs, and 80% achievable with existing solutions - saving them $150,000+ and 12+ months. 'Certainty First' means we'd rather earn $5,000 telling the truth than $150,000 building something that won't serve you. We don't just promise results; we prove the math works before you commit."
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Two-Track ROI Model</span>
+                            <span class="proof-tag">Guaranteed leads (Track 1)</span>
+                            <span class="proof-tag">Three-scenario projections (Track 2)</span>
+                            <span class="proof-tag">No-Build Decision proof</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What specific result would you need to see to consider this successful?"</div>
+                            <div class="purpose">Purpose: Gets agreement on success criteria before you start.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Be honest - don't make promises you can't keep</li>
+                            <li>Shift from outcome guarantee to process guarantee</li>
+                            <li>Make your guarantee terms crystal clear</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objection 9 -->
+            <div class="objection-card" data-category="value" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">9</div>
+                        <div class="objection-text">
+                            <div class="quote">"What makes you different?"</div>
+                            <div class="category-tag">Value Question</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            They've heard similar pitches before. They see you as a commodity and are trying to figure out why they should choose you over cheaper or more established alternatives.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "Three things. <strong>First, honesty</strong> - a client came with a $150,000+ budget and 12-18 month commitment. Our $5,000 discovery (4 weeks) found market saturation, hidden costs, and 80% achievable with existing solutions - saving them $150,000+ and 12+ months. 'Certainty First' means we'd rather earn $5,000 telling the truth than $150,000 building something that won't serve you. <strong>Second, breadth of experience</strong> - we've built a full financial trading platform (idea to SEC/NFA-compliant app PLUS persona research, targeting, ad management, and lead generation) in a regulated industry, provided startup support from market validation to investor/advisor intros, AI automation agents that handle delegated work and free teams for higher-value activities, and delivered a full HR Automation Tool for a client including persona research, targeting, ad management, and lead generation - achieving $25-$33 lead costs that validated market, customer, and profitable customer acquisition. <strong>Third, senior access</strong> - we're early-stage, which means you work directly with experienced practitioners, not junior staff learning on your project."
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Honest recommendations</span>
+                            <span class="proof-tag">Diverse project experience</span>
+                            <span class="proof-tag">Senior-level access</span>
+                            <span class="proof-tag">HR Automation Tool (client work)</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What's most important to you in a partner - expertise, communication, or results?"</div>
+                            <div class="purpose">Purpose: Lets you emphasize the differentiator that matters most to them.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Limit to 3 differentiators maximum</li>
+                            <li>Make differentiators provable, not just claims</li>
+                            <li>Tailor to what you've learned matters to them</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objection 14 -->
+            <div class="objection-card" data-category="value" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">14</div>
+                        <div class="objection-text">
+                            <div class="quote">"Do you have experience in our industry?"</div>
+                            <div class="category-tag">Value Question</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            They want proof you understand their specific challenges and customer base. They're concerned you'll waste time learning instead of executing. They might also be testing your honesty.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "<strong>I'll be direct about our experience:</strong> We've built a full financial trading platform in a regulated industry - from idea through SEC/NFA-compliant app PLUS persona research, targeting, ad management, and lead generation - that required understanding compliance and risk. We've supported startups across different sectors with market validation, business model validation, app development, and fundraising plans. We build AI automation agents that handle delegated work, giving teams time back for higher-value activities. And we've built a full HR Automation Tool for a client including persona research, targeting, ad management, and lead generation - achieving $25-$33 lead costs that enabled validation of market, customer, and profitable customer acquisition. If your industry is highly specialized, we'll tell you upfront if we're the right fit. We've literally recommended clients NOT to work with us when we weren't the best solution."
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Full fintech product (SEC/NFA)</span>
+                            <span class="proof-tag">Startup support breadth</span>
+                            <span class="proof-tag">AI automation agents</span>
+                            <span class="proof-tag">HR Automation Tool (client)</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What's unique about your industry that you're worried we might miss?"</div>
+                            <div class="purpose">Purpose: Shows you care about understanding and addresses their specific concern.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Never lie about experience</li>
+                            <li>Pivot to transferable skills if no direct experience</li>
+                            <li>Show curiosity about their industry's nuances</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPETITION -->
+        <section class="category-section" data-category="competition">
+            <div class="category-header">
+                <h2>Competition Concerns</h2>
+                <p>Objections about existing solutions and alternatives</p>
+            </div>
+
+            <!-- Objection 10 -->
+            <div class="objection-card" data-category="competition" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">10</div>
+                        <div class="objection-text">
+                            <div class="quote">"We already have someone doing this"</div>
+                            <div class="category-tag">Competition</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            They might be satisfied with their current solution (unlikely if they're talking to you), they might be locked into a contract, or they're using this to end the conversation. The fact they took the meeting suggests something isn't working.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "That's great that you're already investing in this area. <strong>Quick question - if they were crushing it, would you have taken this call?</strong> I'm not trying to put anyone down, but usually when someone talks to us, there's something they wish was different. What would that be? Even if we never work together, I might be able to give you some ideas to get more from what you're already doing."
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Audit/assessment offer</span>
+                            <span class="proof-tag">Complementary services</span>
+                            <span class="proof-tag">Transition support</span>
+                            <span class="proof-tag">Competitive comparison</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"On a scale of 1-10, how happy are you with the results you're getting?"</div>
+                            <div class="purpose">Purpose: Anything below 8 opens the door for discussion about what's missing.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Don't bash the competitor directly</li>
+                            <li>The meeting itself is a signal of dissatisfaction</li>
+                            <li>Offer value even if they don't switch</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objection 16 -->
+            <div class="objection-card" data-category="competition" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">16</div>
+                        <div class="objection-text">
+                            <div class="quote">"We can do this ourselves"</div>
+                            <div class="category-tag">Competition</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            They're comparing your cost to hiring internally or DIY. They may underestimate the complexity, time, or expertise required. Or they're protecting their ego - admitting they need help feels like a failure.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "You probably could - you're clearly smart and capable. <strong>The question is: should you?</strong> Here's the honest calculation: hiring a senior technical person is $150K+/year. The learning curve for specialized work (like SEC/NFA-compliant fintech with full go-to-market or AI automation agents that handle delegated work) is steep. One client came to us with a $150,000+ budget and 12-18 month commitment in mind. We proposed a $5,000 discovery engagement (4 weeks). We found market saturation, hidden costs, and that 80% was achievable with existing solutions - saving them $150,000+ and 12+ months. 'Certainty First' means we'd rather earn $5,000 telling the truth than $150,000 building something that won't serve you. Sometimes the right answer is 'don't do this.' That's the value of experienced outside perspective."
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Senior hire comparison</span>
+                            <span class="proof-tag">Learning curve avoided</span>
+                            <span class="proof-tag">No-Build Decision example</span>
+                            <span class="proof-tag">Outside perspective value</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What's stopped you from doing it so far?"</div>
+                            <div class="purpose">Purpose: Usually reveals time or expertise constraints that justify your value.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Calculate true cost of DIY (time + tools + mistakes)</li>
+                            <li>Position as acceleration, not replacement</li>
+                            <li>Respect their capability while showing your value</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objection 17 -->
+            <div class="objection-card" data-category="competition" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">17</div>
+                        <div class="objection-text">
+                            <div class="quote">"We're talking to other vendors"</div>
+                            <div class="category-tag">Competition</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            They're doing due diligence, which is smart. They might be trying to create leverage for pricing. Or they genuinely don't know how to evaluate options. This is actually a buying signal - they're actively in market.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "That's smart - you should. <strong>I'd be worried if you weren't.</strong> Here's how I'd evaluate us or anyone else: One, will they tell you NOT to do something if that's the right answer? (We have.) Two, do they have experience in complex situations? (We've built full products in regulated fintech with SEC/NFA compliance PLUS persona research, targeting, ad management, and lead generation.) Three, who actually does the work - seniors or juniors? (With us, you get direct senior access.) Four, have they delivered full products for clients? (We built a complete HR Automation Tool from idea to customer acquisition including persona research, targeting, ad management, and lead generation - achieving $25-$33 lead costs that validated market, customer, and profitable customer acquisition.) Ask every vendor these questions."
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Honest 'no' track record</span>
+                            <span class="proof-tag">Full product delivery</span>
+                            <span class="proof-tag">Senior-level access</span>
+                            <span class="proof-tag">Client product credibility</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What's your timeline for making this decision?"</div>
+                            <div class="purpose">Purpose: Helps you understand urgency and plan your follow-up.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Be the helpful advisor, not the pushy salesperson</li>
+                            <li>Provide a framework that makes you look good</li>
+                            <li>Ask who else they're considering (you may learn a lot)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objection 18 -->
+            <div class="objection-card" data-category="competition" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">18</div>
+                        <div class="objection-text">
+                            <div class="quote">"We're locked into a contract"</div>
+                            <div class="category-tag">Competition</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            They're stuck with a current vendor but interested in changing. This is actually a good sign - they're unhappy enough to look elsewhere even while under contract. They need a reason to break the contract or a timeline to wait.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "I understand - contracts are contracts. <strong>When does it end?</strong> Let's put something on the calendar for then. In the meantime, two thoughts: First, many contracts have performance clauses - if they're not meeting agreed-upon metrics, you may have an out. Worth reviewing the fine print. Second, some of our clients run us in parallel during their transition period - we start building pipeline so there's no gap when you're free. Would either of those options work for your situation?"
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Parallel engagement option</span>
+                            <span class="proof-tag">Contract review tips</span>
+                            <span class="proof-tag">Transition planning</span>
+                            <span class="proof-tag">Early buyout analysis</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What would need to be true for you to not renew that contract?"</div>
+                            <div class="purpose">Purpose: Helps you position your future pitch around their pain points.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Get the exact contract end date</li>
+                            <li>Set a calendar reminder to follow up</li>
+                            <li>Offer value now to stay top of mind</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objection 19 -->
+            <div class="objection-card" data-category="competition" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">19</div>
+                        <div class="objection-text">
+                            <div class="quote">"My partner/spouse needs to approve this"</div>
+                            <div class="category-tag">Competition</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            Could be legitimate (another decision-maker exists) or a stall tactic. Either way, you need to get in front of the other person or arm your contact with what they need to sell internally.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "Absolutely - major decisions should be made together. <strong>Would it help if I joined a call with both of you?</strong> That way your partner can ask questions directly, and you won't have to play telephone. I've found that works better than trying to recreate the conversation. Alternatively, I can put together a summary document you can share - what questions do you think they'll have?"
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Executive summary document</span>
+                            <span class="proof-tag">Two-Track ROI one-pager</span>
+                            <span class="proof-tag">Common questions answered</span>
+                            <span class="proof-tag">Case study PDF</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What's your partner most likely to be concerned about?"</div>
+                            <div class="purpose">Purpose: Lets you preemptively address their partner's objections.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Always try to get in front of all decision-makers</li>
+                            <li>Provide leave-behind materials they can share</li>
+                            <li>Ask what the partner's role and concerns might be</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objection 20 -->
+            <div class="objection-card" data-category="competition" onclick="toggleCard(this)">
+                <div class="objection-header">
+                    <div style="display: flex; align-items: center;">
+                        <div class="objection-number">20</div>
+                        <div class="objection-text">
+                            <div class="quote">"Send me some information"</div>
+                            <div class="category-tag">Competition</div>
+                        </div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="objection-body">
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon red">!</div>
+                            <span>What They Really Mean</span>
+                        </div>
+                        <div class="response-content">
+                            Usually a polite brush-off. They want to end the conversation without saying no directly. Occasionally they genuinely want to review materials before committing time. Either way, information alone rarely closes deals.
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon green">></div>
+                            <span>Your Response Script</span>
+                        </div>
+                        <div class="response-content script">
+                            "Happy to send information - but honestly, <strong>PDFs and brochures rarely do justice to what we actually do.</strong> They end up in inbox purgatory. Here's what I'd suggest instead: let's do a 15-minute call where I can show you exactly what we'd do for your specific situation. If after that you want materials to share internally, I'll customize them for you. Fair enough? What does your Thursday look like?"
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon gold">*</div>
+                            <span>Proof Points to Reference</span>
+                        </div>
+                        <div class="proof-points">
+                            <span class="proof-tag">Custom proposal offer</span>
+                            <span class="proof-tag">15-minute demo</span>
+                            <span class="proof-tag">Case study video</span>
+                            <span class="proof-tag">Interactive assessment</span>
+                        </div>
+                    </div>
+
+                    <div class="response-section">
+                        <div class="response-label">
+                            <div class="icon purple">?</div>
+                            <span>Follow-Up Question</span>
+                        </div>
+                        <div class="follow-up-box">
+                            <div class="question">"What specifically would you want that information to cover?"</div>
+                            <div class="purpose">Purpose: Forces them to articulate what they actually need, which often reveals the real objection.</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h4>Quick Tips</h4>
+                        <ul>
+                            <li>Pivot to scheduling a short call instead</li>
+                            <li>If you must send, follow up immediately</li>
+                            <li>Make the next step specific and calendared</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>ScaleUp Ventures Objection Handling Playbook | Reference Guide for Sales Team | v1.0</p>
+    </footer>
+
+    <script>
+        function toggleCard(card) {
+            card.classList.toggle('expanded');
+        }
+
+        function filterCategory(category) {
+            // Update nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Filter cards
+            const cards = document.querySelectorAll('.objection-card');
+            const sections = document.querySelectorAll('.category-section');
+
+            if (category === 'all') {
+                cards.forEach(card => card.style.display = 'block');
+                sections.forEach(section => section.style.display = 'block');
+            } else {
+                sections.forEach(section => {
+                    if (section.dataset.category === category) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        function searchObjections() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.objection-card');
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Expand all for print
+        window.onbeforeprint = function() {
+            document.querySelectorAll('.objection-card').forEach(card => {
+                card.classList.add('expanded');
+            });
+        };
+    </script>
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Content Index</a>
+  <p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p>
+</footer>
+</body>
+</html>

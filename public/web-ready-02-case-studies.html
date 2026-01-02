@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Case Studies | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2540;
+            --navy-lighter: #243156;
+            --gold: #D4A853;
+            --gold-light: #e4c178;
+            --gold-dark: #b8923f;
+            --white: #ffffff;
+            --gray-100: #f7f8fa;
+            --gray-200: #e9ecf2;
+            --gray-300: #d1d7e3;
+            --gray-600: #6b7894;
+            --success: #22c55e;
+            --success-bg: rgba(34, 197, 94, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--gray-100);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Header */
+        .site-header {
+            background: var(--navy);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .tagline {
+            color: var(--gold);
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .principles-bar {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            padding-top: 40px;
+            border-top: 1px solid var(--navy-lighter);
+        }
+
+        .principle {
+            text-align: center;
+        }
+
+        .principle-icon {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .principle-label {
+            color: var(--gray-300);
+            font-size: 0.9rem;
+        }
+
+        /* Case Studies Container */
+        .case-studies {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        /* Individual Case Study */
+        .case-study {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(15, 23, 41, 0.08);
+            margin-bottom: 48px;
+            overflow: hidden;
+        }
+
+        .case-header {
+            background: var(--navy);
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .case-header-left {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .industry-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .case-header h2 {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .company-meta {
+            color: var(--gray-300);
+            font-size: 0.95rem;
+        }
+
+        .case-header-right {
+            text-align: right;
+        }
+
+        .outcome-highlight {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .outcome-label {
+            color: var(--gray-300);
+            font-size: 0.875rem;
+        }
+
+        .case-body {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold-dark);
+            margin-bottom: 12px;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .section p {
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        .section p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* Results Grid */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .result-card {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+        }
+
+        .result-card.highlight {
+            background: var(--success-bg);
+            border-color: var(--success);
+        }
+
+        .result-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .result-card.highlight .result-value {
+            color: var(--success);
+        }
+
+        .result-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 12px;
+            padding: 32px;
+            position: relative;
+        }
+
+        .quote-mark {
+            font-family: 'Crimson Pro', serif;
+            font-size: 6rem;
+            color: var(--gold);
+            opacity: 0.3;
+            position: absolute;
+            top: 0;
+            left: 24px;
+            line-height: 1;
+        }
+
+        .quote-text {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            color: var(--white);
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-author {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .quote-title {
+            color: var(--gray-300);
+            font-size: 0.875rem;
+        }
+
+        /* Approach List */
+        .approach-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .approach-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: var(--gray-600);
+        }
+
+        .approach-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 0.75rem;
+            margin-top: 2px;
+        }
+
+        /* Featured Case */
+        .featured-case {
+            border: 3px solid var(--gold);
+        }
+
+        .featured-badge {
+            background: var(--gold);
+            color: var(--navy);
+            text-align: center;
+            padding: 12px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--navy);
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .cta-section h2 span {
+            color: var(--gold);
+        }
+
+        .cta-section p {
+            color: var(--gray-300);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 168, 83, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            border-top: 1px solid var(--navy-lighter);
+            padding: 40px 24px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-tagline {
+            color: var(--gold);
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-copy {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">Back to Index</a>
+  <span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span>
+  <div style="display:flex;gap:12px;">
+    <a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a>
+    <a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a>
+    <a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a>
+    <a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a>
+    <a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a>
+  </div>
+</nav>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <div>
+                <div class="logo">Scale<span>Up</span> Ventures</div>
+            </div>
+            <div class="tagline">Certainty First.</div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Real Work. <span>Real Results.</span></h1>
+        <p>We prove it before you buy - and if we can't, we'll tell you. These are actual engagements from our portfolio. No fabricated metrics. No invented clients. Just honest examples of how we approach complex problems.</p>
+
+        <div class="principles-bar">
+            <div class="principle">
+                <div class="principle-icon">Track 1</div>
+                <div class="principle-label">Ad Campaigns: Guaranteed Leads</div>
+            </div>
+            <div class="principle">
+                <div class="principle-icon">Track 2</div>
+                <div class="principle-label">Apps & Dev: Three-Scenario ROI</div>
+            </div>
+            <div class="principle">
+                <div class="principle-icon">Truth</div>
+                <div class="principle-label">The No-Build Decision</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <main class="case-studies">
+
+        <!-- Case Study 1: The No-Build Decision (FEATURED) -->
+        <article class="case-study featured-case">
+            <div class="featured-badge">Featured: Our Two-Track ROI Model in Action</div>
+            <div class="case-header">
+                <div class="case-header-left">
+                    <span class="industry-badge">Track 2: App & Development</span>
+                    <h2>The No-Build Decision</h2>
+                    <p class="company-meta">$5K Discovery & Feasibility Analysis (4 Weeks) | Three-Scenario ROI Analysis | Web Application Feasibility</p>
+                </div>
+                <div class="case-header-right">
+                    <div class="outcome-highlight">$150K+</div>
+                    <div class="outcome-label">Client Savings</div>
+                </div>
+            </div>
+
+            <div class="case-body">
+                <div class="section">
+                    <div class="section-label">The Situation</div>
+                    <h3>A Client Ready to Invest Six Figures in the Wrong Direction</h3>
+                    <p>A client approached us with a vision for a custom web application. They had budgeted $150,000 or more for development and were ready to commit 12-18 months to the project. They wanted us to build it.</p>
+                    <p>Instead, we proposed a $5,000 discovery and feasibility analysis. Most consultancies would have happily taken the larger project. The client was eager, funded, and asking for exactly what we offer. But our Two-Track ROI model demands we prove it before you buy - and if we can't show a high-probability positive outcome, we recommend not proceeding.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Discovery</div>
+                    <h3>When the Three-Scenario Analysis Shows "Don't Build"</h3>
+                    <p>For Track 2 (App & Development Projects), we create three-scenario ROI projections showing return in cash OR company/asset value across high, mid, and low probability outcomes. In this case, even our high scenario couldn't justify the investment.</p>
+                    <p>We spent four weeks examining their market, their assumptions, their competitive landscape, and the technical requirements they had outlined. Our analysis revealed that the market they wanted to enter was more saturated than they realized. The technical approach they envisioned would require ongoing maintenance costs they had not budgeted for. And critically, there were existing solutions that could accomplish 80% of their goals at a fraction of the cost.</p>
+                    <p>We presented our findings honestly: building this application would be a mistake. The client would likely spend $150,000 or more and 12+ months only to discover what we found in four weeks of focused analysis.</p>
+                    <ul class="approach-list">
+                        <li><span class="check-icon">1</span><strong>Three-Scenario ROI Analysis:</strong> Modeled high/mid/low return scenarios showing value in cash and asset terms</li>
+                        <li><span class="check-icon">2</span><strong>Market Analysis:</strong> Evaluated competitive landscape and demand signals</li>
+                        <li><span class="check-icon">3</span><strong>Technical Assessment:</strong> Mapped architecture requirements and ongoing costs</li>
+                        <li><span class="check-icon">4</span><strong>Alternative Identification:</strong> Found existing solutions that addressed core needs</li>
+                        <li><span class="check-icon">5</span><strong>Honest Recommendation:</strong> No high-probability positive outcome - advised against the build</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Outcome</div>
+                    <h3>The Most Valuable "No" We've Ever Delivered</h3>
+
+                    <div class="results-grid">
+                        <div class="result-card highlight">
+                            <div class="result-value">$150K+</div>
+                            <div class="result-label">Development Cost Avoided</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">12+ mo</div>
+                            <div class="result-label">Misdirected Effort Saved</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">$5K</div>
+                            <div class="result-label">Discovery Investment</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="quote-section">
+                        <span class="quote-mark">"</span>
+                        <p class="quote-text">"Certainty First" is not a marketing slogan. It means we would rather earn $5,000 telling you the truth than $150,000 building something that will not serve you. Your skepticism about agencies who always say yes is well-founded. We are not that agency.</p>
+                        <p class="quote-author">ScaleUp Ventures</p>
+                        <p class="quote-title">Our Most Important Case Study</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Case Study 2: Startup Support -->
+        <article class="case-study">
+            <div class="case-header">
+                <div class="case-header-left">
+                    <span class="industry-badge">Startup / Fundraising</span>
+                    <h2>Comprehensive Startup Support</h2>
+                    <p class="company-meta">Early-Stage Startup | Full-Stack Validation + Development + Fundraising</p>
+                </div>
+                <div class="case-header-right">
+                    <div class="outcome-highlight">Investor Ready</div>
+                    <div class="outcome-label">Outcome</div>
+                </div>
+            </div>
+
+            <div class="case-body">
+                <div class="section">
+                    <div class="section-label">The Situation</div>
+                    <h3>A Founder with Vision Needing End-to-End Support</h3>
+                    <p>A founder approached us with a compelling idea but needed comprehensive support across every dimension of building a fundable startup: market validation, business model development, application building, and fundraising strategy. They needed a partner who could guide them from concept through investor conversations.</p>
+                    <p>Many founders in this position either spend months working with disconnected advisors or approach investors prematurely. We provided integrated support across all critical areas, building a solid foundation before entering fundraising.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Engagement</div>
+                    <h3>Full-Stack Startup Development</h3>
+                    <p>We worked across every domain required to transform an idea into an investor-ready venture. This wasn't about pitch coaching or surface-level advice. It was about building real substance across market, business, product, and fundraising dimensions.</p>
+                    <ul class="approach-list">
+                        <li><span class="check-icon">1</span><strong>Market Validation:</strong> Conducted thorough market research and validated demand signals</li>
+                        <li><span class="check-icon">2</span><strong>Business &amp; Financial Model:</strong> Developed complete business model with unit economics and financial projections</li>
+                        <li><span class="check-icon">3</span><strong>Application Development:</strong> Built the actual product, not just prototypes or mockups</li>
+                        <li><span class="check-icon">4</span><strong>Fundraising Validation &amp; Plan:</strong> Created comprehensive fundraising strategy and validated approach</li>
+                        <li><span class="check-icon">5</span><strong>Investor &amp; Advisor Introductions:</strong> Connected founder with relevant investors and advisors in our network</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Outcome</div>
+                    <h3>Entered Fundraising with Complete Foundation</h3>
+
+                    <div class="results-grid">
+                        <div class="result-card highlight">
+                            <div class="result-value">Fundable</div>
+                            <div class="result-label">Position Achieved</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">Validated</div>
+                            <div class="result-label">Market &amp; Business Model</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">Built</div>
+                            <div class="result-label">Working Application</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">Connected</div>
+                            <div class="result-label">To Investors &amp; Advisors</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="quote-section">
+                        <span class="quote-mark">"</span>
+                        <p class="quote-text">Most consultants specialize in one area. ScaleUp supported me across everything: validating my market, building my financial model, developing my application, and preparing my fundraising plan. Then they introduced me to investors who were actually relevant. I walked into those meetings with real substance behind every claim.</p>
+                        <p class="quote-author">Startup Founder</p>
+                        <p class="quote-title">Comprehensive Startup Support Engagement</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Case Study 3: Financial Trading Platform -->
+        <article class="case-study">
+            <div class="case-header">
+                <div class="case-header-left">
+                    <span class="industry-badge">Financial Services | Two-Track ROI</span>
+                    <h2>Financial Trading Platform</h2>
+                    <p class="company-meta">Track 1 (Ads) + Track 2 (App) Combined | SEC/NFA Compliant | Idea to Market</p>
+                </div>
+                <div class="case-header-right">
+                    <div class="outcome-highlight">Launched</div>
+                    <div class="outcome-label">Outcome</div>
+                </div>
+            </div>
+
+            <div class="case-body">
+                <div class="section">
+                    <div class="section-label">The Challenge</div>
+                    <h3>Building a Compliant Financial Product from Scratch</h3>
+                    <p>A client came to us with an idea for a financial trading platform. Not a prototype request. Not a feasibility study. They needed a partner who could take their concept and build a fully functional, SEC and NFA compliant application ready for real users and real money.</p>
+                    <p>Financial services is one of the most demanding domains in software development. Compliance isn't optional. Security must be bulletproof. Every feature must work within strict regulatory frameworks. Most development teams can't operate at this level - and most can't prove ROI before you commit.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Approach</div>
+                    <h3>Two-Track ROI: App Development + Ad Campaigns</h3>
+                    <p>This engagement combined both tracks of our ROI model. <strong>Track 2 (App Development):</strong> Three-scenario ROI projections showing return in cash and company/asset value across high/mid/low outcomes. <strong>Track 1 (Ad Campaigns):</strong> We quantify projected ad spend AND projected leads BEFORE starting to ensure the expected results will meet client needs - then guarantee lead numbers with fee refunded (not ad spend) if missed.</p>
+                    <p>We owned the entire journey from idea to launched product and paying customers. This wasn't just a build. It was a complete go-to-market engagement including product development, regulatory compliance, and full customer acquisition infrastructure.</p>
+                    <ul class="approach-list">
+                        <li><span class="check-icon">1</span><strong>Track 2 - Product &amp; User Research:</strong> Deep discovery to understand market needs and user requirements</li>
+                        <li><span class="check-icon">2</span><strong>Track 2 - SEC/NFA Compliance:</strong> Built compliance into the architecture from day one, not bolted on later</li>
+                        <li><span class="check-icon">3</span><strong>Track 2 - Full Product Development:</strong> Designed, built, and shipped the complete application</li>
+                        <li><span class="check-icon">4</span><strong>Track 1 - Upfront ROI Quantification:</strong> Projected ad spend and lead numbers quantified BEFORE starting to ensure alignment with client needs</li>
+                        <li><span class="check-icon">5</span><strong>Track 1 - Persona Research &amp; Targeting:</strong> Identified and validated target customer profiles for effective outreach</li>
+                        <li><span class="check-icon">6</span><strong>Track 1 - Ad Management &amp; Lead Generation:</strong> Guaranteed lead numbers with our fee refunded if missed</li>
+                        <li><span class="check-icon">7</span><strong>Launch:</strong> Took the product live with real users and real transactions</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Outcome</div>
+                    <h3>A Launched, Compliant Financial Product</h3>
+
+                    <div class="results-grid">
+                        <div class="result-card highlight">
+                            <div class="result-value">Launched</div>
+                            <div class="result-label">Live in Market</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">SEC/NFA</div>
+                            <div class="result-label">Fully Compliant</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">End-to-End</div>
+                            <div class="result-label">Idea to Launch</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="quote-section">
+                        <span class="quote-mark">"</span>
+                        <p class="quote-text">This engagement demonstrates our Two-Track ROI model at scale. Track 2 delivered a complex regulated product with three-scenario projections. Track 1 delivered guaranteed leads through managed ad campaigns. We proved it before they bought - and they got paying customers, not just a product that might work.</p>
+                        <p class="quote-author">ScaleUp Ventures</p>
+                        <p class="quote-title">Full Go-to-Market Capability</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Case Study 4: HR Automation Tool -->
+        <article class="case-study">
+            <div class="case-header">
+                <div class="case-header-left">
+                    <span class="industry-badge">HR Technology | Two-Track ROI</span>
+                    <h2>HR Automation Tool</h2>
+                    <p class="company-meta">Track 1 (Ads) + Track 2 (App) Combined | Full Product Launch | Idea to Market</p>
+                </div>
+                <div class="case-header-right">
+                    <div class="outcome-highlight">Launched</div>
+                    <div class="outcome-label">Outcome</div>
+                </div>
+            </div>
+
+            <div class="case-body">
+                <div class="section">
+                    <div class="section-label">The Challenge</div>
+                    <h3>Transforming HR Operations Through Technology</h3>
+                    <p>A client approached us with a vision for an HR automation tool that would streamline hiring workflows and reduce manual overhead in recruitment processes. They had the domain expertise and market insight, but needed a partner who could take ownership of building and launching the complete product.</p>
+                    <p>HR technology requires understanding complex workflows, sensitive data handling, and integration with existing enterprise systems. The client needed more than developers. They needed a team who could own the entire product journey - with proof at every stage.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Approach</div>
+                    <h3>Two-Track ROI: App Development + Ad Campaigns</h3>
+                    <p>This engagement combined both tracks of our ROI model. <strong>Track 2 (App Development):</strong> Three-scenario ROI projections showing return in cash and company value across high/mid/low outcomes. <strong>Track 1 (Ad Campaigns):</strong> We quantify projected ad spend AND projected leads BEFORE starting to ensure the expected results will meet client needs - then guarantee lead numbers with fee refunded (not ad spend) if missed.</p>
+                    <p>We took full responsibility for transforming the concept into a launched product with proven customer acquisition. This wasn't just a build. It was a complete go-to-market engagement including product development and full marketing infrastructure to validate the market and customer acquisition economics.</p>
+                    <ul class="approach-list">
+                        <li><span class="check-icon">1</span><strong>Track 2 - Product &amp; User Research:</strong> Deep discovery into HR workflows and pain points</li>
+                        <li><span class="check-icon">2</span><strong>Track 2 - Full Product Development:</strong> Designed, architected, and built the complete application</li>
+                        <li><span class="check-icon">3</span><strong>Track 1 - Upfront ROI Quantification:</strong> Projected ad spend and lead numbers quantified BEFORE starting to ensure alignment with client needs</li>
+                        <li><span class="check-icon">4</span><strong>Track 1 - Persona Research &amp; Targeting:</strong> Identified and validated target customer profiles for effective outreach</li>
+                        <li><span class="check-icon">5</span><strong>Track 1 - Ad Management &amp; Lead Generation:</strong> Guaranteed lead numbers with our fee refunded if missed</li>
+                        <li><span class="check-icon">6</span><strong>Launch:</strong> Took the product live and into the hands of real users</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Outcome</div>
+                    <h3>Validated Market with Proven Customer Acquisition Economics</h3>
+
+                    <div class="results-grid">
+                        <div class="result-card highlight">
+                            <div class="result-value">$25-$33</div>
+                            <div class="result-label">Cost Per Lead (Track 1)</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">Validated</div>
+                            <div class="result-label">Market &amp; Customer Fit</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">Proven</div>
+                            <div class="result-label">Profitable Acquisition</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">Launched</div>
+                            <div class="result-label">Live in Market</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="quote-section">
+                        <span class="quote-mark">"</span>
+                        <p class="quote-text">This engagement showcases our Two-Track ROI model in action. Track 2 delivered a product with three-scenario projections showing return in both cash and company value. Track 1 delivered guaranteed leads at $25-$33 per lead - with our fee at risk if we missed targets. The client got proof that their business could scale, not just a product that might work.</p>
+                        <p class="quote-author">ScaleUp Ventures</p>
+                        <p class="quote-title">Full Go-to-Market Capability</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Case Study 5: AI Automation Agents -->
+        <article class="case-study">
+            <div class="case-header">
+                <div class="case-header-left">
+                    <span class="industry-badge">Enterprise / Contract</span>
+                    <h2>AI Automation Agents</h2>
+                    <p class="company-meta">Solutions Consulting Firm Contract | AI Agents for Delegated Work</p>
+                </div>
+                <div class="case-header-right">
+                    <div class="outcome-highlight">Deployed</div>
+                    <div class="outcome-label">Outcome</div>
+                </div>
+            </div>
+
+            <div class="case-body">
+                <div class="section">
+                    <div class="section-label">The Engagement</div>
+                    <h3>Building AI Agents That Team Members Can Delegate Work To</h3>
+                    <p>A solutions consulting firm engaged ScaleUp to build AI automation agents using best practices. This wasn't about implementing off-the-shelf tools or simply "modernizing workflows." It was about creating intelligent agents that team members could actually delegate work to. Team members now save 20-25 hours per month—and that number grows 10-20% each month as additional processes flow into the automated workflow.</p>
+                    <p>Professional services teams are stretched thin. Repetitive operational tasks consume hours that should go toward client work and strategic thinking. The firm needed AI agents that could handle delegated work reliably, enabling more efficient project management and operational management across the organization.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Approach</div>
+                    <h3>AI Agents Built Using Best Practices</h3>
+                    <p>We designed and built AI automation agents that team members can delegate real work to. These aren't chatbots or simple automations. They're intelligent agents that handle operational tasks autonomously, freeing up team capacity for client-facing and strategic work.</p>
+                    <ul class="approach-list">
+                        <li><span class="check-icon">1</span><strong>Task Analysis:</strong> Identified high-volume tasks suitable for AI agent delegation</li>
+                        <li><span class="check-icon">2</span><strong>Agent Architecture:</strong> Designed AI agents using proven best practices for reliability and accuracy</li>
+                        <li><span class="check-icon">3</span><strong>Delegation Workflows:</strong> Built systems that let team members hand off work to agents seamlessly</li>
+                        <li><span class="check-icon">4</span><strong>Time Recovery:</strong> Enabled team to redirect effort toward higher-value activities</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">The Outcome</div>
+                    <h3>AI Agents Handling Delegated Work, Time Returned to the Team</h3>
+
+                    <div class="results-grid">
+                        <div class="result-card highlight">
+                            <div class="result-value">20-25 hrs</div>
+                            <div class="result-label">Saved Per Member Monthly</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">10-20%</div>
+                            <div class="result-label">Monthly Savings Growth</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">Deployed</div>
+                            <div class="result-label">AI Agents Live</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="quote-section">
+                        <span class="quote-mark">"</span>
+                        <p class="quote-text">This contract work demonstrates our ability to build AI automation agents that actually work in professional services environments. Team members now save 20-25 hours per month—and that number grows 10-20% each month as additional processes flow into the automated workflow. The agents handle the delegated work; the team focuses on what matters most.</p>
+                        <p class="quote-author">ScaleUp Ventures</p>
+                        <p class="quote-title">AI Agent Development</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready for <span>Honest Assessment?</span></h2>
+        <p>We prove it before you buy - and if we can't, we'll tell you. <strong>Track 1 (Ad Campaigns):</strong> We quantify projected ad spend AND projected leads BEFORE starting to ensure expected results meet your needs - then guarantee lead numbers with fee refunded if missed. <strong>Track 2 (Apps & Development):</strong> Three-scenario ROI projections showing return in cash OR company value. If we can't show a high-probability positive outcome, we recommend not proceeding. Sometimes the answer is "don't build." Either way, you'll know before you commit.</p>
+        <a href="#" class="cta-button">Start a Conversation</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Scale<span>Up</span> Ventures</div>
+        <div class="footer-tagline">Certainty First.</div>
+        <p class="footer-copy">&copy; 2025 ScaleUp Ventures. All rights reserved.</p>
+    </footer>
+
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">Back to Content Index</a>
+  <p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p>
+</footer>
+</body>
+</html>

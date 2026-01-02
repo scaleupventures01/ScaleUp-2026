@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures | Tagline Rollout Guide</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --gold-light: #E8C878;
+            --navy-light: #1a2440;
+            --gray-light: #f5f5f5;
+            --gray-medium: #e0e0e0;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--gray-light);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .header .version {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .comparison-section {
+            background: white;
+            border-radius: 16px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .comparison-header h2 {
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .comparison-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 80px 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .tagline-box {
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .tagline-box.old {
+            background: #f8f8f8;
+            border: 2px dashed #ccc;
+        }
+
+        .tagline-box.new {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: white;
+            border: 2px solid var(--gold);
+        }
+
+        .tagline-box .label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            opacity: 0.7;
+        }
+
+        .tagline-box.new .label {
+            color: var(--gold);
+            opacity: 1;
+        }
+
+        .tagline-box .tagline {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .tagline-box.new .tagline {
+            color: var(--gold);
+        }
+
+        .tagline-box .stats {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .arrow-container {
+            text-align: center;
+        }
+
+        .arrow {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(212, 168, 83, 0.4);
+        }
+
+        .arrow svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--navy);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid #eee;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .benefit-item .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+
+        .benefit-item .label {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--gray-light);
+        }
+
+        .section-number {
+            width: 50px;
+            height: 50px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--navy);
+        }
+
+        .priority-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-left: auto;
+        }
+
+        .priority-critical { background: #dc3545; color: white; }
+        .priority-high { background: #fd7e14; color: white; }
+        .priority-medium { background: #ffc107; color: var(--navy); }
+        .priority-low { background: #28a745; color: white; }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .material-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .material-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 4px 15px rgba(212, 168, 83, 0.2);
+        }
+
+        .material-card h4 {
+            color: var(--navy);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .material-card .icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gray-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .material-card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .material-card .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        .material-card .status {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .status-pending { background: #fff3cd; color: #856404; }
+        .status-ready { background: #d4edda; color: #155724; }
+        .status-in-progress { background: #cce5ff; color: #004085; }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--gold);
+            border-radius: 6px;
+            flex-shrink: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox:hover {
+            background: rgba(212, 168, 83, 0.1);
+        }
+
+        .checkbox.checked {
+            background: var(--gold);
+        }
+
+        .checkbox.checked::after {
+            content: '';
+            width: 8px;
+            height: 14px;
+            border: solid var(--navy);
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+            margin-bottom: 4px;
+        }
+
+        .checklist-content {
+            flex: 1;
+        }
+
+        .checklist-content strong {
+            display: block;
+            color: var(--navy);
+            margin-bottom: 3px;
+        }
+
+        .checklist-content span {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .lockup-section {
+            background: var(--navy);
+            border-radius: 16px;
+            padding: 50px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .lockup-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .lockup-example {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .lockup-example.dark-bg {
+            background: var(--navy-light);
+        }
+
+        .lockup-example .logo-mark {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .lockup-example.dark-bg .logo-mark {
+            color: white;
+        }
+
+        .lockup-example .tagline {
+            font-size: 1rem;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .lockup-example .label {
+            display: block;
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .spec-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .spec-item .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+
+        .spec-item .label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .page-table th {
+            background: var(--navy);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .page-table th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+
+        .page-table th:last-child {
+            border-radius: 0 8px 0 0;
+        }
+
+        .page-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .page-table tr:hover td {
+            background: rgba(212, 168, 83, 0.05);
+        }
+
+        .page-table .page-name {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .page-table .changes {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .social-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .social-card .platform {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .social-card h4 {
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .social-card ul {
+            text-align: left;
+            font-size: 0.9rem;
+            color: #666;
+            list-style: none;
+        }
+
+        .social-card ul li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .social-card ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .email-signature {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 500px;
+            margin: 20px 0;
+        }
+
+        .email-signature .name {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 1.1rem;
+        }
+
+        .email-signature .title {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .email-signature .divider {
+            height: 2px;
+            background: var(--gold);
+            width: 40px;
+            margin: 15px 0;
+        }
+
+        .email-signature .company {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .email-signature .tagline {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .email-signature .contact {
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+
+        .transition-box {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff5d6 100%);
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .transition-box h4 {
+            color: var(--navy);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .transition-box ul {
+            color: #666;
+            margin-left: 20px;
+        }
+
+        .transition-box li {
+            margin: 8px 0;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--gold);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 30px;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .timeline-marker {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--navy);
+            flex-shrink: 0;
+            z-index: 1;
+        }
+
+        .timeline-marker.complete {
+            background: var(--gold);
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .timeline-content h4 {
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .timeline-tasks {
+            list-style: none;
+        }
+
+        .timeline-tasks li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .timeline-tasks li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .announcement-template {
+            background: var(--gray-light);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .announcement-template h4 {
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .announcement-template .email-content {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .announcement-template .subject {
+            background: var(--navy);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px 8px 0 0;
+            margin: -25px -25px 20px -25px;
+            font-weight: 600;
+        }
+
+        .print-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .print-item {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .print-item .header {
+            background: var(--navy);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+        }
+
+        .print-item .body {
+            padding: 20px;
+        }
+
+        .print-item .quantity {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .print-item .quantity span:first-child {
+            color: #666;
+        }
+
+        .print-item .quantity span:last-child {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .print-item .action {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .master-checklist {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 16px;
+            padding: 40px;
+            color: white;
+        }
+
+        .master-checklist h3 {
+            color: var(--gold);
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+        }
+
+        .checklist-category {
+            margin-bottom: 30px;
+        }
+
+        .checklist-category h4 {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checklist-category ul {
+            list-style: none;
+        }
+
+        .checklist-category li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .checklist-category li:last-child {
+            border-bottom: none;
+        }
+
+        .check-box {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gold);
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .progress-bar {
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            height: 20px;
+            overflow: hidden;
+            margin-top: 30px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gold);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .progress-label {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .footer {
+            background: var(--navy);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer .tagline {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .footer .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .arrow-container {
+                transform: rotate(90deg);
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .lockup-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            .checkbox {
+                border: 2px solid #333;
+            }
+
+            .section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>ScaleUp <span>Ventures</span></h1>
+        <p class="subtitle">Tagline Rollout Guide</p>
+        <span class="version">Brand Transition Document v1.0</span>
+    </header>
+
+    <div class="container">
+        <!-- Section 1: Tagline Comparison -->
+        <section class="comparison-section">
+            <div class="comparison-header">
+                <h2>The Evolution of Our Message</h2>
+                <p>A strategic transition to a more powerful, memorable brand statement</p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="tagline-box old">
+                    <div class="label">Previous Tagline</div>
+                    <div class="tagline">"We Prove It Before You Buy"</div>
+                    <div class="stats">7 words | 25 characters | Explanatory</div>
+                </div>
+
+                <div class="arrow-container">
+                    <div class="arrow">
+                        <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    </div>
+                </div>
+
+                <div class="tagline-box new">
+                    <div class="label">New Tagline</div>
+                    <div class="tagline">"Certainty First."</div>
+                    <div class="stats">2 words | 15 characters | Declarative</div>
+                </div>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="number">71%</div>
+                    <div class="label">Fewer Words</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="number">40%</div>
+                    <div class="label">Shorter Length</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="number">3x</div>
+                    <div class="label">More Memorable</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="number">100%</div>
+                    <div class="label">Brand Aligned</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Materials Inventory -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h3 class="section-title">Complete Materials Inventory</h3>
+                <span class="priority-badge priority-critical">Action Required</span>
+            </div>
+
+            <div class="materials-grid">
+                <div class="material-card">
+                    <h4>
+                        <div class="icon">W</div>
+                        Website
+                    </h4>
+                    <p>All pages featuring tagline, meta descriptions, and hero sections</p>
+                    <div class="meta">
+                        <span>12 pages affected</span>
+                        <span class="status status-pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="material-card">
+                    <h4>
+                        <div class="icon">S</div>
+                        Social Profiles
+                    </h4>
+                    <p>LinkedIn, Twitter, Facebook bios and cover images</p>
+                    <div class="meta">
+                        <span>5 platforms</span>
+                        <span class="status status-pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="material-card">
+                    <h4>
+                        <div class="icon">E</div>
+                        Email Signatures
+                    </h4>
+                    <p>All team member signatures and automated emails</p>
+                    <div class="meta">
+                        <span>Team-wide</span>
+                        <span class="status status-pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="material-card">
+                    <h4>
+                        <div class="icon">P</div>
+                        Proposal Templates
+                    </h4>
+                    <p>Cover pages, headers, and closing slides</p>
+                    <div class="meta">
+                        <span>4 templates</span>
+                        <span class="status status-pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="material-card">
+                    <h4>
+                        <div class="icon">D</div>
+                        Presentation Decks
+                    </h4>
+                    <p>Master slides, title slides, and end cards</p>
+                    <div class="meta">
+                        <span>3 master decks</span>
+                        <span class="status status-pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="material-card">
+                    <h4>
+                        <div class="icon">B</div>
+                        Business Cards
+                    </h4>
+                    <p>All team member cards with tagline</p>
+                    <div class="meta">
+                        <span>Reorder needed</span>
+                        <span class="status status-pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="material-card">
+                    <h4>
+                        <div class="icon">L</div>
+                        Letterhead
+                    </h4>
+                    <p>Digital and print letterhead templates</p>
+                    <div class="meta">
+                        <span>2 versions</span>
+                        <span class="status status-pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="material-card">
+                    <h4>
+                        <div class="icon">V</div>
+                        Video Assets
+                    </h4>
+                    <p>Intro/outro sequences, lower thirds</p>
+                    <div class="meta">
+                        <span>Video templates</span>
+                        <span class="status status-pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="material-card">
+                    <h4>
+                        <div class="icon">M</div>
+                        Marketing Collateral
+                    </h4>
+                    <p>Brochures, one-pagers, case studies</p>
+                    <div class="meta">
+                        <span>8 documents</span>
+                        <span class="status status-pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="material-card">
+                    <h4>
+                        <div class="icon">A</div>
+                        Advertising Assets
+                    </h4>
+                    <p>Digital ads, banners, sponsored content</p>
+                    <div class="meta">
+                        <span>Multiple sizes</span>
+                        <span class="status status-pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="material-card">
+                    <h4>
+                        <div class="icon">T</div>
+                        Trade Show Materials
+                    </h4>
+                    <p>Banners, booth graphics, handouts</p>
+                    <div class="meta">
+                        <span>Event-specific</span>
+                        <span class="status status-pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="material-card">
+                    <h4>
+                        <div class="icon">C</div>
+                        Contracts/Legal
+                    </h4>
+                    <p>Agreement headers and footers</p>
+                    <div class="meta">
+                        <span>Template updates</span>
+                        <span class="status status-pending">Pending</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Priority Order -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h3 class="section-title">Priority Order for Updates</h3>
+            </div>
+
+            <ul class="checklist">
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Priority 1: Website Homepage and Hero Sections</strong>
+                        <span>First touchpoint for all prospects - update immediately upon launch</span>
+                    </div>
+                    <span class="priority-badge priority-critical">Critical</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Priority 2: Email Signatures</strong>
+                        <span>Every email sent represents the brand - update team-wide simultaneously</span>
+                    </div>
+                    <span class="priority-badge priority-critical">Critical</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Priority 3: LinkedIn Company Page and Personal Profiles</strong>
+                        <span>Most visible professional presence - coordinate update with team</span>
+                    </div>
+                    <span class="priority-badge priority-high">High</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Priority 4: Active Proposal Templates</strong>
+                        <span>All new proposals go out with new tagline - no exceptions</span>
+                    </div>
+                    <span class="priority-badge priority-high">High</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Priority 5: Other Social Media Platforms</strong>
+                        <span>Twitter, Facebook, YouTube - update within first week</span>
+                    </div>
+                    <span class="priority-badge priority-medium">Medium</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Priority 6: Presentation Master Decks</strong>
+                        <span>Update masters so all new presentations are on-brand</span>
+                    </div>
+                    <span class="priority-badge priority-medium">Medium</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Priority 7: Marketing Collateral (Digital)</strong>
+                        <span>PDFs, one-pagers, case studies - update as inventory depletes</span>
+                    </div>
+                    <span class="priority-badge priority-medium">Medium</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Priority 8: Business Cards</strong>
+                        <span>Reorder with new tagline - use existing stock until depleted</span>
+                    </div>
+                    <span class="priority-badge priority-low">Low</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Priority 9: Print Collateral</strong>
+                        <span>Brochures, signage - update at next print run</span>
+                    </div>
+                    <span class="priority-badge priority-low">Low</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Priority 10: Trade Show and Event Materials</strong>
+                        <span>Update before next scheduled event</span>
+                    </div>
+                    <span class="priority-badge priority-low">Low</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section 4: Logo Lockup Specifications -->
+        <section class="lockup-section">
+            <div class="section-header" style="border-bottom-color: rgba(255,255,255,0.2);">
+                <div class="section-number" style="background: var(--gold); color: var(--navy);">4</div>
+                <h3 class="section-title" style="color: white;">Logo Lockup with Tagline</h3>
+            </div>
+
+            <div class="lockup-grid">
+                <div class="lockup-example">
+                    <div class="logo-mark">ScaleUp Ventures</div>
+                    <div class="tagline">Certainty First.</div>
+                    <span class="label">Primary Lockup - Light Background</span>
+                </div>
+
+                <div class="lockup-example dark-bg">
+                    <div class="logo-mark">ScaleUp Ventures</div>
+                    <div class="tagline">Certainty First.</div>
+                    <span class="label" style="color: #888;">Primary Lockup - Dark Background</span>
+                </div>
+            </div>
+
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <div class="value">50%</div>
+                    <div class="label">Tagline Size vs Logo</div>
+                </div>
+                <div class="spec-item">
+                    <div class="value">0.5x</div>
+                    <div class="label">Spacing (Logo Height)</div>
+                </div>
+                <div class="spec-item">
+                    <div class="value">#D4A853</div>
+                    <div class="label">Tagline Color (Gold)</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 25px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                <h4 style="color: var(--gold); margin-bottom: 15px;">Lockup Rules</h4>
+                <ul style="columns: 2; column-gap: 40px; color: rgba(255,255,255,0.9);">
+                    <li style="margin-bottom: 10px;">Tagline always appears below logo wordmark</li>
+                    <li style="margin-bottom: 10px;">Maintain consistent spacing ratio</li>
+                    <li style="margin-bottom: 10px;">Tagline uses all caps with tracking</li>
+                    <li style="margin-bottom: 10px;">Period is mandatory (part of brand)</li>
+                    <li style="margin-bottom: 10px;">Never modify tagline typography</li>
+                    <li style="margin-bottom: 10px;">Minimum size: 200px width for lockup</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 5: Website Updates -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h3 class="section-title">Website Updates by Page</h3>
+            </div>
+
+            <table class="page-table">
+                <thead>
+                    <tr>
+                        <th>Page</th>
+                        <th>Location</th>
+                        <th>Current Text</th>
+                        <th>New Text</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="page-name">Homepage</td>
+                        <td>Hero Section</td>
+                        <td class="changes">"We Prove It Before You Buy"</td>
+                        <td class="changes">"Certainty First."</td>
+                        <td><span class="status status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td class="page-name">Homepage</td>
+                        <td>Meta Title</td>
+                        <td class="changes">ScaleUp Ventures | We Prove It...</td>
+                        <td class="changes">ScaleUp Ventures | Certainty First</td>
+                        <td><span class="status status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td class="page-name">Homepage</td>
+                        <td>Footer</td>
+                        <td class="changes">Tagline in footer lockup</td>
+                        <td class="changes">"Certainty First."</td>
+                        <td><span class="status status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td class="page-name">About Us</td>
+                        <td>Page Header</td>
+                        <td class="changes">Mission statement with old tagline</td>
+                        <td class="changes">Updated with new tagline</td>
+                        <td><span class="status status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td class="page-name">Services</td>
+                        <td>Hero Section</td>
+                        <td class="changes">Service overview with tagline</td>
+                        <td class="changes">"Certainty First." positioning</td>
+                        <td><span class="status status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td class="page-name">Contact</td>
+                        <td>CTA Section</td>
+                        <td class="changes">Contact CTA messaging</td>
+                        <td class="changes">Updated brand messaging</td>
+                        <td><span class="status status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td class="page-name">All Pages</td>
+                        <td>Browser Tab / Favicon</td>
+                        <td class="changes">Title tag reference</td>
+                        <td class="changes">Updated title format</td>
+                        <td><span class="status status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td class="page-name">All Pages</td>
+                        <td>OG/Social Meta</td>
+                        <td class="changes">Social share descriptions</td>
+                        <td class="changes">New tagline in OG description</td>
+                        <td><span class="status status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td class="page-name">Blog/Resources</td>
+                        <td>Sidebar/Footer</td>
+                        <td class="changes">Brand callout boxes</td>
+                        <td class="changes">"Certainty First." messaging</td>
+                        <td><span class="status status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td class="page-name">Case Studies</td>
+                        <td>Headers</td>
+                        <td class="changes">Case study page headers</td>
+                        <td class="changes">Updated brand statement</td>
+                        <td><span class="status status-pending">Pending</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 6: Social Media Updates -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h3 class="section-title">Social Media Profile Updates</h3>
+            </div>
+
+            <div class="social-grid">
+                <div class="social-card">
+                    <div class="platform">in</div>
+                    <h4>LinkedIn</h4>
+                    <ul>
+                        <li>Company page tagline field</li>
+                        <li>About section first line</li>
+                        <li>Cover image (if tagline included)</li>
+                        <li>All employee "Current Company" descriptions</li>
+                    </ul>
+                </div>
+
+                <div class="social-card">
+                    <div class="platform">X</div>
+                    <h4>Twitter/X</h4>
+                    <ul>
+                        <li>Bio/description field</li>
+                        <li>Header image (if applicable)</li>
+                        <li>Pinned tweet update</li>
+                    </ul>
+                </div>
+
+                <div class="social-card">
+                    <div class="platform">f</div>
+                    <h4>Facebook</h4>
+                    <ul>
+                        <li>Page description</li>
+                        <li>About section</li>
+                        <li>Cover photo (if applicable)</li>
+                    </ul>
+                </div>
+
+                <div class="social-card">
+                    <div class="platform">YT</div>
+                    <h4>YouTube</h4>
+                    <ul>
+                        <li>Channel description</li>
+                        <li>Channel banner</li>
+                        <li>Video end screens template</li>
+                    </ul>
+                </div>
+
+                <div class="social-card">
+                    <div class="platform">IG</div>
+                    <h4>Instagram</h4>
+                    <ul>
+                        <li>Bio text</li>
+                        <li>Highlight covers (if branded)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="transition-box" style="margin-top: 30px;">
+                <h4>Coordination Note</h4>
+                <p style="color: #666;">All social media updates should happen within the same 2-hour window to ensure brand consistency across platforms. Assign one team member to execute all updates simultaneously on launch day.</p>
+            </div>
+        </section>
+
+        <!-- Section 7: Email Signature Updates -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h3 class="section-title">Email Signature Updates</h3>
+            </div>
+
+            <h4 style="margin-bottom: 20px; color: var(--navy);">New Standard Email Signature Template</h4>
+
+            <div class="email-signature">
+                <div class="name">Calvin Williams Jr.</div>
+                <div class="title">Founder and CEO</div>
+                <div class="divider"></div>
+                <div class="company">ScaleUp Ventures</div>
+                <div class="tagline">Certainty First.</div>
+                <div class="contact">
+                    calvin@scaleupventures.com | (555) 123-4567<br>
+                    www.scaleupventures.com
+                </div>
+            </div>
+
+            <ul class="checklist" style="margin-top: 30px;">
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Update HTML signature template in email system</strong>
+                        <span>Master template that applies to all team members</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Update signature in email marketing platform</strong>
+                        <span>Automated emails, newsletters, drip campaigns</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Update CRM email templates</strong>
+                        <span>Sales outreach, follow-ups, automated sequences</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Notify team to refresh signatures</strong>
+                        <span>Send instructions for updating individual email clients</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Update transactional email templates</strong>
+                        <span>Receipts, confirmations, system notifications</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section 8: Proposal Template Updates -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <h3 class="section-title">Proposal Template Updates</h3>
+            </div>
+
+            <div class="materials-grid">
+                <div class="material-card">
+                    <h4>Cover Page</h4>
+                    <p>Update logo lockup with new tagline beneath company name</p>
+                    <ul style="font-size: 0.85rem; color: #666; margin-top: 10px;">
+                        <li>Logo with tagline lockup</li>
+                        <li>Positioning statement if included</li>
+                    </ul>
+                </div>
+
+                <div class="material-card">
+                    <h4>Header/Footer</h4>
+                    <p>Replace old tagline in running headers or footers</p>
+                    <ul style="font-size: 0.85rem; color: #666; margin-top: 10px;">
+                        <li>Page headers</li>
+                        <li>Page footers</li>
+                        <li>Document properties</li>
+                    </ul>
+                </div>
+
+                <div class="material-card">
+                    <h4>Introduction Section</h4>
+                    <p>Update "About Us" or company overview language</p>
+                    <ul style="font-size: 0.85rem; color: #666; margin-top: 10px;">
+                        <li>Company description</li>
+                        <li>Value proposition statement</li>
+                    </ul>
+                </div>
+
+                <div class="material-card">
+                    <h4>Closing Section</h4>
+                    <p>Update final call-to-action and brand sign-off</p>
+                    <ul style="font-size: 0.85rem; color: #666; margin-top: 10px;">
+                        <li>Thank you page</li>
+                        <li>Contact/next steps page</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="transition-box" style="margin-top: 30px;">
+                <h4>Template Locations to Update</h4>
+                <ul>
+                    <li><strong>Google Docs/Slides:</strong> Update shared templates in company drive</li>
+                    <li><strong>Microsoft Word/PowerPoint:</strong> Update .dotx/.potx template files</li>
+                    <li><strong>Proposal Software:</strong> Update templates in PandaDoc, Proposify, etc.</li>
+                    <li><strong>CRM Templates:</strong> Update any proposal templates stored in CRM</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 9: Print Collateral Updates -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">9</div>
+                <h3 class="section-title">Print Collateral Updates</h3>
+            </div>
+
+            <div class="print-grid">
+                <div class="print-item">
+                    <div class="header">Business Cards</div>
+                    <div class="body">
+                        <div class="quantity">
+                            <span>Current Stock:</span>
+                            <span>Audit Required</span>
+                        </div>
+                        <div class="quantity">
+                            <span>Reorder Quantity:</span>
+                            <span>500 per person</span>
+                        </div>
+                        <div class="action">Deplete existing stock, then reorder</div>
+                    </div>
+                </div>
+
+                <div class="print-item">
+                    <div class="header">Letterhead</div>
+                    <div class="body">
+                        <div class="quantity">
+                            <span>Format:</span>
+                            <span>Digital + Print</span>
+                        </div>
+                        <div class="quantity">
+                            <span>Priority:</span>
+                            <span>Update digital first</span>
+                        </div>
+                        <div class="action">Update Word/PDF templates immediately</div>
+                    </div>
+                </div>
+
+                <div class="print-item">
+                    <div class="header">Brochures</div>
+                    <div class="body">
+                        <div class="quantity">
+                            <span>Current Stock:</span>
+                            <span>Audit Required</span>
+                        </div>
+                        <div class="quantity">
+                            <span>Action:</span>
+                            <span>Update files, reprint when depleted</span>
+                        </div>
+                        <div class="action">Update source files now for future runs</div>
+                    </div>
+                </div>
+
+                <div class="print-item">
+                    <div class="header">One-Pagers</div>
+                    <div class="body">
+                        <div class="quantity">
+                            <span>Format:</span>
+                            <span>PDF (print on demand)</span>
+                        </div>
+                        <div class="quantity">
+                            <span>Priority:</span>
+                            <span>High - update immediately</span>
+                        </div>
+                        <div class="action">Update all PDF source files</div>
+                    </div>
+                </div>
+
+                <div class="print-item">
+                    <div class="header">Signage/Banners</div>
+                    <div class="body">
+                        <div class="quantity">
+                            <span>Type:</span>
+                            <span>Trade show, office</span>
+                        </div>
+                        <div class="quantity">
+                            <span>Timeline:</span>
+                            <span>Before next event</span>
+                        </div>
+                        <div class="action">Update before next scheduled use</div>
+                    </div>
+                </div>
+
+                <div class="print-item">
+                    <div class="header">Promotional Items</div>
+                    <div class="body">
+                        <div class="quantity">
+                            <span>Items:</span>
+                            <span>Pens, notebooks, etc.</span>
+                        </div>
+                        <div class="quantity">
+                            <span>Action:</span>
+                            <span>Use existing, reorder with new</span>
+                        </div>
+                        <div class="action">Update reorder templates</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Transition Period Guidelines -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">10</div>
+                <h3 class="section-title">Handling Materials During Transition</h3>
+            </div>
+
+            <div class="transition-box">
+                <h4>Transition Period Policy</h4>
+                <p style="color: #666; margin-bottom: 20px;">During the rollout period, some materials will still contain the old tagline. Here's how to handle mixed-brand situations:</p>
+                <ul>
+                    <li><strong>Digital materials:</strong> Update immediately - no grace period</li>
+                    <li><strong>Existing print stock:</strong> May be used until depleted (up to 90 days)</li>
+                    <li><strong>Client-facing materials:</strong> Prioritize updates for active deals</li>
+                    <li><strong>Internal materials:</strong> Can use old materials until next print run</li>
+                </ul>
+            </div>
+
+            <h4 style="margin: 30px 0 20px; color: var(--navy);">What to Do When Asked About the Old Tagline</h4>
+
+            <div style="background: #f8f8f8; border-radius: 12px; padding: 25px; margin-bottom: 20px;">
+                <p style="font-style: italic; color: #666; margin-bottom: 15px;">"I noticed your materials say 'We Prove It Before You Buy' - is that still your tagline?"</p>
+                <p style="color: var(--navy);"><strong>Recommended Response:</strong></p>
+                <p style="color: #555;">"We've recently evolved our brand positioning to 'Certainty First.' - a more focused expression of our core value. The materials you have reflect our previous messaging, but our commitment to eliminating risk before you invest remains exactly the same. In fact, it's now even more central to everything we do."</p>
+            </div>
+
+            <h4 style="margin: 30px 0 20px; color: var(--navy);">Disposal Guidelines for Old Materials</h4>
+
+            <ul class="checklist">
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Digital Files</strong>
+                        <span>Archive old versions in "Legacy" folder, remove from active circulation</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Business Cards</strong>
+                        <span>Use until depleted or recycle if brand consistency is critical</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Printed Collateral</strong>
+                        <span>Use for internal purposes, recycle for external use</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Signage/Banners</strong>
+                        <span>Replace before next public use</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section 11: Internal Announcement -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">11</div>
+                <h3 class="section-title">Internal Announcement and Training</h3>
+            </div>
+
+            <div class="announcement-template">
+                <h4>Internal Announcement Email Template</h4>
+                <div class="email-content">
+                    <div class="subject">Subject: Introducing Our New Tagline: "Certainty First."</div>
+                    <p>Team,</p>
+                    <p>Today marks an important milestone in our brand evolution. We're officially transitioning from our previous tagline, "We Prove It Before You Buy," to a new, more powerful brand statement:</p>
+                    <p style="text-align: center; font-size: 1.5rem; color: var(--gold); font-weight: 600; margin: 25px 0;">"Certainty First."</p>
+                    <p><strong>Why the change?</strong></p>
+                    <p>Our new tagline distills our value proposition into two memorable words. While we loved our previous tagline's clarity, "Certainty First." is more versatile, more memorable, and positions us as the definitive choice for risk-averse decision makers.</p>
+                    <p><strong>What you need to do:</strong></p>
+                    <ol style="margin: 15px 0; padding-left: 20px;">
+                        <li>Update your email signature using the new template (link below)</li>
+                        <li>Update your LinkedIn headline and company description</li>
+                        <li>Begin using "Certainty First." in all client communications</li>
+                        <li>Refer to the brand guide for proper usage</li>
+                    </ol>
+                    <p><strong>Resources:</strong></p>
+                    <ul style="margin: 15px 0; padding-left: 20px;">
+                        <li>New email signature template: [Link]</li>
+                        <li>Updated brand guidelines: [Link]</li>
+                        <li>Talking points for client questions: [Link]</li>
+                    </ul>
+                    <p>Questions? Reply to this email or bring them to our team meeting on [Date].</p>
+                    <p>Let's make this transition seamless and powerful.</p>
+                    <p style="margin-top: 20px;">
+                        Best,<br>
+                        <strong>[Leadership Name]</strong>
+                    </p>
+                </div>
+            </div>
+
+            <h4 style="margin: 30px 0 20px; color: var(--navy);">Training Checklist</h4>
+
+            <ul class="checklist">
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>All-Hands Announcement Meeting</strong>
+                        <span>Present the new tagline, rationale, and rollout plan</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Distribute Talking Points</strong>
+                        <span>Provide team with responses to common questions</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Sales Team Deep Dive</strong>
+                        <span>How to position "Certainty First." in sales conversations</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Marketing Team Session</strong>
+                        <span>Content guidelines and campaign integration</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="this.classList.toggle('checked')"></div>
+                    <div class="checklist-content">
+                        <strong>Client-Facing Staff Briefing</strong>
+                        <span>Consistent messaging across all touchpoints</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section 12: Rollout Timeline -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">12</div>
+                <h3 class="section-title">Rollout Timeline and Master Checklist</h3>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">W1</div>
+                    <div class="timeline-content">
+                        <h4>Week 1: Launch and Critical Updates</h4>
+                        <p>Internal announcement and highest-priority digital updates</p>
+                        <ul class="timeline-tasks">
+                            <li>Internal team announcement</li>
+                            <li>Website homepage and hero sections</li>
+                            <li>Email signature templates</li>
+                            <li>LinkedIn company page</li>
+                            <li>Team LinkedIn profile updates</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">W2</div>
+                    <div class="timeline-content">
+                        <h4>Week 2: Digital Ecosystem</h4>
+                        <p>Complete digital presence updates</p>
+                        <ul class="timeline-tasks">
+                            <li>All website pages</li>
+                            <li>All social media platforms</li>
+                            <li>Active proposal templates</li>
+                            <li>CRM email templates</li>
+                            <li>Marketing automation emails</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">W3</div>
+                    <div class="timeline-content">
+                        <h4>Week 3: Templates and Documents</h4>
+                        <p>Update all reusable templates and documents</p>
+                        <ul class="timeline-tasks">
+                            <li>Presentation master decks</li>
+                            <li>Document templates</li>
+                            <li>Digital marketing collateral</li>
+                            <li>Case study PDFs</li>
+                            <li>One-pagers and fact sheets</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">W4</div>
+                    <div class="timeline-content">
+                        <h4>Week 4: Print and Physical</h4>
+                        <p>Initiate print collateral updates</p>
+                        <ul class="timeline-tasks">
+                            <li>Business card reorder</li>
+                            <li>Letterhead template updates</li>
+                            <li>Brochure file updates</li>
+                            <li>Signage order placement</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">30D</div>
+                    <div class="timeline-content">
+                        <h4>30-Day Audit</h4>
+                        <p>Quality check and gap identification</p>
+                        <ul class="timeline-tasks">
+                            <li>Audit all updated materials</li>
+                            <li>Identify any missed items</li>
+                            <li>Check consistency across touchpoints</li>
+                            <li>Gather team feedback</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">90D</div>
+                    <div class="timeline-content">
+                        <h4>90-Day Completion</h4>
+                        <p>Full transition complete</p>
+                        <ul class="timeline-tasks">
+                            <li>All print materials updated</li>
+                            <li>Old materials retired</li>
+                            <li>Archive legacy brand assets</li>
+                            <li>Final brand audit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Master Checklist -->
+        <section class="master-checklist">
+            <h3>Master Rollout Checklist</h3>
+
+            <div class="checklist-category">
+                <h4>Digital Presence</h4>
+                <ul>
+                    <li><div class="check-box"></div> Homepage hero section updated</li>
+                    <li><div class="check-box"></div> All website pages updated</li>
+                    <li><div class="check-box"></div> Meta titles and descriptions updated</li>
+                    <li><div class="check-box"></div> Footer tagline updated</li>
+                    <li><div class="check-box"></div> OG/social sharing images updated</li>
+                </ul>
+            </div>
+
+            <div class="checklist-category">
+                <h4>Social Media</h4>
+                <ul>
+                    <li><div class="check-box"></div> LinkedIn company page updated</li>
+                    <li><div class="check-box"></div> Twitter/X profile updated</li>
+                    <li><div class="check-box"></div> Facebook page updated</li>
+                    <li><div class="check-box"></div> YouTube channel updated</li>
+                    <li><div class="check-box"></div> All team member profiles updated</li>
+                </ul>
+            </div>
+
+            <div class="checklist-category">
+                <h4>Communications</h4>
+                <ul>
+                    <li><div class="check-box"></div> Email signature templates updated</li>
+                    <li><div class="check-box"></div> All team signatures refreshed</li>
+                    <li><div class="check-box"></div> Marketing email templates updated</li>
+                    <li><div class="check-box"></div> CRM templates updated</li>
+                    <li><div class="check-box"></div> Transactional emails updated</li>
+                </ul>
+            </div>
+
+            <div class="checklist-category">
+                <h4>Sales Materials</h4>
+                <ul>
+                    <li><div class="check-box"></div> Proposal cover pages updated</li>
+                    <li><div class="check-box"></div> Presentation master slides updated</li>
+                    <li><div class="check-box"></div> One-pagers updated</li>
+                    <li><div class="check-box"></div> Case studies updated</li>
+                    <li><div class="check-box"></div> Sales decks updated</li>
+                </ul>
+            </div>
+
+            <div class="checklist-category">
+                <h4>Print Collateral</h4>
+                <ul>
+                    <li><div class="check-box"></div> Business cards reordered</li>
+                    <li><div class="check-box"></div> Letterhead updated</li>
+                    <li><div class="check-box"></div> Brochures updated</li>
+                    <li><div class="check-box"></div> Signage/banners updated</li>
+                    <li><div class="check-box"></div> Promotional items reordered</li>
+                </ul>
+            </div>
+
+            <div class="checklist-category">
+                <h4>Internal</h4>
+                <ul>
+                    <li><div class="check-box"></div> Team announcement sent</li>
+                    <li><div class="check-box"></div> Training session completed</li>
+                    <li><div class="check-box"></div> Talking points distributed</li>
+                    <li><div class="check-box"></div> Brand guide updated</li>
+                    <li><div class="check-box"></div> Legacy materials archived</li>
+                </ul>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 0%;"></div>
+            </div>
+            <div class="progress-label">0% Complete - Update progress as items are checked</div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="tagline">Certainty First.</div>
+        <div class="copyright">ScaleUp Ventures Tagline Rollout Guide | Confidential</div>
+    </footer>
+
+    <script>
+        // Interactive checkbox functionality
+        document.querySelectorAll('.checkbox, .check-box').forEach(box => {
+            box.addEventListener('click', function() {
+                this.classList.toggle('checked');
+                updateProgress();
+            });
+        });
+
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.master-checklist .check-box');
+            const checked = document.querySelectorAll('.master-checklist .check-box.checked');
+            const percentage = Math.round((checked.length / checkboxes.length) * 100);
+
+            document.querySelector('.progress-fill').style.width = percentage + '%';
+            document.querySelector('.progress-label').textContent = percentage + '% Complete';
+        }
+
+        // Add checked class styles dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            .check-box.checked {
+                background: var(--gold);
+                position: relative;
+            }
+            .check-box.checked::after {
+                content: '';
+                position: absolute;
+                left: 5px;
+                top: 2px;
+                width: 6px;
+                height: 10px;
+                border: solid var(--navy);
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

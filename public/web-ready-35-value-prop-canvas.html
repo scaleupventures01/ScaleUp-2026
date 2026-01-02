@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Value Proposition Canvas | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, #0a1020 0%, #0F1729 50%, #1a2744 100%);
+            min-height: 100vh;
+            color: #E8E8E8;
+            padding: 40px 20px;
+        }
+
+        h1, h2, h3, .section-title, .footer-logo {
+            font-family: 'Crimson Pro', serif;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #D4A853;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .header p {
+            font-size: 1.125rem;
+            color: #9CA3AF;
+        }
+
+        .canvas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        @media (max-width: 1024px) {
+            .canvas {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 168, 83, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #D4A853, #F0D78C);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #D4A853, #B8923F);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+
+        .section-title span {
+            font-size: 0.875rem;
+            color: #9CA3AF;
+            font-weight: 400;
+        }
+
+        .subsections {
+            display: grid;
+            gap: 24px;
+        }
+
+        .subsection {
+            background: rgba(15, 23, 41, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .subsection-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .subsection-number {
+            width: 28px;
+            height: 28px;
+            background: #D4A853;
+            color: #0F1729;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+
+        .subsection-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #D4A853;
+        }
+
+        .items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .item:hover {
+            background: rgba(212, 168, 83, 0.08);
+            transform: translateX(4px);
+        }
+
+        .item-icon {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .item-content {
+            flex: 1;
+        }
+
+        .item-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #6B7280;
+            margin-bottom: 4px;
+        }
+
+        .item-text {
+            font-size: 0.9375rem;
+            color: #E8E8E8;
+            line-height: 1.5;
+        }
+
+        /* Customer Profile specific styles */
+        .customer-profile .section::before {
+            background: linear-gradient(90deg, #3B82F6, #60A5FA);
+        }
+
+        .customer-profile .section-icon {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+        }
+
+        .customer-profile .subsection-number {
+            background: #3B82F6;
+        }
+
+        .customer-profile .subsection-title {
+            color: #60A5FA;
+        }
+
+        .customer-profile .item:hover {
+            background: rgba(59, 130, 246, 0.08);
+        }
+
+        /* Pain colors */
+        .pain-item .item-icon { color: #EF4444; }
+
+        /* Gain colors */
+        .gain-item .item-icon { color: #10B981; }
+
+        /* Jobs colors */
+        .job-item .item-icon { color: #8B5CF6; }
+
+        /* Value Map specific */
+        .value-map .section::before {
+            background: linear-gradient(90deg, #D4A853, #F0D78C);
+        }
+
+        /* Service item */
+        .service-item .item-icon { color: #D4A853; }
+
+        /* Relief item */
+        .relief-item .item-icon { color: #22D3EE; }
+
+        /* Creator item */
+        .creator-item .item-icon { color: #A3E635; }
+
+        /* Connection line */
+        .connection {
+            display: none;
+        }
+
+        @media (min-width: 1025px) {
+            .connection {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 10;
+            }
+
+            .connection-circle {
+                width: 64px;
+                height: 64px;
+                background: linear-gradient(135deg, #D4A853, #B8923F);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 0 30px rgba(212, 168, 83, 0.4);
+            }
+
+            .connection-circle svg {
+                width: 28px;
+                height: 28px;
+                fill: #0F1729;
+            }
+        }
+
+        .canvas-wrapper {
+            position: relative;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .footer-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #D4A853;
+            margin-bottom: 8px;
+        }
+
+        .footer-tagline {
+            color: #6B7280;
+            font-size: 0.875rem;
+        }
+
+        /* Fit indicator */
+        .fit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.2), rgba(212, 168, 83, 0.1));
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            padding: 12px 24px;
+            border-radius: 100px;
+            margin-top: 16px;
+        }
+
+        .fit-badge-icon {
+            width: 24px;
+            height: 24px;
+            background: #10B981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fit-badge-icon svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+        }
+
+        .fit-badge-text {
+            font-weight: 600;
+            color: #D4A853;
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Index</a>
+  <span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span>
+  <div style="display:flex;gap:12px;">
+    <a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a>
+    <a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a>
+    <a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a>
+    <a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a>
+    <a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a>
+  </div>
+</nav>
+    <div class="container">
+        <header class="header">
+            <h1>Value Proposition Canvas</h1>
+            <p>How ScaleUp Ventures Creates Value for Early-Stage Founders, Business Leaders, and Growing Businesses</p>
+        </header>
+
+        <div class="canvas-wrapper">
+            <div class="canvas">
+                <!-- Customer Profile -->
+                <div class="customer-profile">
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon">👤</div>
+                            <div>
+                                <h2>Customer Profile</h2>
+                                <span>Understanding Our Ideal Client</span>
+                            </div>
+                        </div>
+
+                        <div class="subsections">
+                            <!-- Jobs to be Done -->
+                            <div class="subsection">
+                                <div class="subsection-header">
+                                    <div class="subsection-number">1</div>
+                                    <div class="subsection-title">Jobs-to-be-Done</div>
+                                </div>
+                                <div class="items">
+                                    <div class="item job-item">
+                                        <span class="item-icon">⚙️</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Functional Job</div>
+                                            <div class="item-text">Build a product that works technically and resonates with customers</div>
+                                        </div>
+                                    </div>
+                                    <div class="item job-item">
+                                        <span class="item-icon">💭</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Emotional Job</div>
+                                            <div class="item-text">Feel confident about build-or-buy decisions and avoid wasting runway</div>
+                                        </div>
+                                    </div>
+                                    <div class="item job-item">
+                                        <span class="item-icon">👥</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Social Job</div>
+                                            <div class="item-text">Present credibly to investors with solid architecture and business model</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pains -->
+                            <div class="subsection">
+                                <div class="subsection-header">
+                                    <div class="subsection-number">2</div>
+                                    <div class="subsection-title">Pains</div>
+                                </div>
+                                <div class="items">
+                                    <div class="item pain-item">
+                                        <span class="item-icon">😰</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Fear</div>
+                                            <div class="item-text">Building the wrong thing and burning through limited runway</div>
+                                        </div>
+                                    </div>
+                                    <div class="item pain-item">
+                                        <span class="item-icon">😤</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Frustration</div>
+                                            <div class="item-text">Navigating regulated industries without deep technical expertise</div>
+                                        </div>
+                                    </div>
+                                    <div class="item pain-item">
+                                        <span class="item-icon">🚧</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Obstacle</div>
+                                            <div class="item-text">Lacking in-house capacity for architecture, prototyping, and strategy</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Gains -->
+                            <div class="subsection">
+                                <div class="subsection-header">
+                                    <div class="subsection-number">3</div>
+                                    <div class="subsection-title">Gains</div>
+                                </div>
+                                <div class="items">
+                                    <div class="item gain-item">
+                                        <span class="item-icon">✅</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Required Gain</div>
+                                            <div class="item-text">A working prototype or clear decision on path forward</div>
+                                        </div>
+                                    </div>
+                                    <div class="item gain-item">
+                                        <span class="item-icon">📋</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Expected Gain</div>
+                                            <div class="item-text">Sound technical architecture and validated business model</div>
+                                        </div>
+                                    </div>
+                                    <div class="item gain-item">
+                                        <span class="item-icon">🤝</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Desired Gain</div>
+                                            <div class="item-text">Access to investor networks and strategic introductions</div>
+                                        </div>
+                                    </div>
+                                    <div class="item gain-item">
+                                        <span class="item-icon">✨</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Unexpected Gain</div>
+                                            <div class="item-text">Honest no-build recommendations: Client had $150,000+ budget and 12-18 month commitment. ScaleUp proposed $5,000 discovery (4 weeks). Found market saturation, hidden costs, and 80% achievable with existing solutions. Saved $150,000+ and 12+ months. Philosophy: "Certainty First means we'd rather earn $5,000 telling the truth than $150,000 building something that won't serve you."</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Value Map -->
+                <div class="value-map">
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon">💎</div>
+                            <div>
+                                <h2>Value Map</h2>
+                                <span>How ScaleUp Delivers Value</span>
+                            </div>
+                        </div>
+
+                        <div class="subsections">
+                            <!-- Products & Services -->
+                            <div class="subsection">
+                                <div class="subsection-header">
+                                    <div class="subsection-number">1</div>
+                                    <div class="subsection-title">Products & Services</div>
+                                </div>
+                                <div class="items">
+                                    <div class="item service-item">
+                                        <span class="item-icon">🏗️</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Startup Support</div>
+                                            <div class="item-text">Comprehensive support for a founder: market validation, business and financial model validation, application development, fundraising validation and plan, investor and advisor introductions</div>
+                                        </div>
+                                    </div>
+                                    <div class="item service-item">
+                                        <span class="item-icon">📊</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Two-Track ROI Model</div>
+                                            <div class="item-text">We prove it before you buy — and if we can't, we'll tell you. Track 1 (Ad Campaigns): We quantify projected ad spend AND projected leads BEFORE starting to ensure expected results meet client needs. Track 2 (App & Development): Three-scenario ROI projections showing return in cash or company value</div>
+                                        </div>
+                                    </div>
+                                    <div class="item service-item">
+                                        <span class="item-icon">🤖</span>
+                                        <div class="item-content">
+                                            <div class="item-label">AI Automation Agents</div>
+                                            <div class="item-text">Custom AI agents built using project management best practices. Team members save 20-25 hours per month—and that number grows 10-20% each month as additional processes flow into the automated workflow</div>
+                                        </div>
+                                    </div>
+                                    <div class="item service-item">
+                                        <span class="item-icon">📈</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Financial Trading App</div>
+                                            <div class="item-text">Full product build from idea to SEC/NFA compliant app plus complete go-to-market: persona research, targeting, ad management, and lead generation</div>
+                                        </div>
+                                    </div>
+                                    <div class="item service-item">
+                                        <span class="item-icon">🤖</span>
+                                        <div class="item-content">
+                                            <div class="item-label">HR Automation Tool</div>
+                                            <div class="item-text">Full product build plus complete go-to-market: persona research, targeting, ad management, and lead generation. Achieved $25-$33 lead costs, enabling validation of market, customer, and profitable customer acquisition</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pain Relievers -->
+                            <div class="subsection">
+                                <div class="subsection-header">
+                                    <div class="subsection-number">2</div>
+                                    <div class="subsection-title">Pain Relievers</div>
+                                </div>
+                                <div class="items">
+                                    <div class="item relief-item">
+                                        <span class="item-icon">🛡️</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Eliminates ROI Uncertainty</div>
+                                            <div class="item-text">Two-Track proof model: Ad campaigns quantify projected ad spend AND projected leads BEFORE starting to ensure expected results meet client needs, while development projects include three-scenario ROI projections (high/mid/low) showing returns in cash or company value</div>
+                                        </div>
+                                    </div>
+                                    <div class="item relief-item">
+                                        <span class="item-icon">📊</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Eliminates Regulatory Uncertainty</div>
+                                            <div class="item-text">Experience launching full products in regulated industries including SEC/NFA compliant financial trading apps</div>
+                                        </div>
+                                    </div>
+                                    <div class="item relief-item">
+                                        <span class="item-icon">🏆</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Removes Capacity Constraints</div>
+                                            <div class="item-text">Fractional expertise in architecture, AI agent development, and strategy without full-time hires</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Gain Creators -->
+                            <div class="subsection">
+                                <div class="subsection-header">
+                                    <div class="subsection-number">3</div>
+                                    <div class="subsection-title">Gain Creators</div>
+                                </div>
+                                <div class="items">
+                                    <div class="item creator-item">
+                                        <span class="item-icon">💰</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Delivers Required Gain</div>
+                                            <div class="item-text">Proven ROI before commitment: Ad campaigns quantify projected ad spend AND projected leads BEFORE starting to ensure expected results meet client needs. Development projects include three-scenario projections (high/mid/low) showing return in cash or company/asset value</div>
+                                        </div>
+                                    </div>
+                                    <div class="item creator-item">
+                                        <span class="item-icon">🎖️</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Delivers Expected Gain</div>
+                                            <div class="item-text">Documented architecture decisions and validated business models</div>
+                                        </div>
+                                    </div>
+                                    <div class="item creator-item">
+                                        <span class="item-icon">🤝</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Delivers Desired Gain</div>
+                                            <div class="item-text">Investor introductions and strategic network connections</div>
+                                        </div>
+                                    </div>
+                                    <div class="item creator-item">
+                                        <span class="item-icon">😌</span>
+                                        <div class="item-content">
+                                            <div class="item-label">Delivers Unexpected Gain</div>
+                                            <div class="item-text">Candid upfront honesty: Client had $150,000+ budget and 12-18 month commitment. ScaleUp proposed $5,000 discovery (4 weeks). Found market saturation, hidden costs, and 80% achievable with existing solutions. Saved $150,000+ and 12+ months. "Certainty First means we'd rather earn $5,000 telling the truth than $150,000 building something that won't serve you."</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connection indicator -->
+            <div class="connection">
+                <div class="connection-circle">
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-logo">ScaleUp Ventures</div>
+            <div class="footer-tagline">We prove it before you buy — and if we can't, we'll tell you</div>
+        </footer>
+    </div>
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Content Index</a>
+  <p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p>
+</footer>
+</body>
+</html>

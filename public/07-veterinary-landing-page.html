@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinary Practice Solutions | ScaleUp Ventures</title>
+    <meta name="description" content="Transform your veterinary practice with operational systems that reduce no-shows, eliminate phone chaos, and give you time to focus on patient care. Certainty First.">
+    <style>
+        /* ============================================
+           ScaleUp Ventures - VETERINARY LANDING PAGE
+           Brand Colors: Navy #0F1729, Gold #D4A853
+           Tagline: Certainty First.
+           ============================================ */
+
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2538;
+            --navy-dark: #0a1018;
+            --gold: #D4A853;
+            --gold-light: #e4be73;
+            --gold-dark: #b8923f;
+            --white: #ffffff;
+            --gray-50: #f8f9fa;
+            --gray-100: #f1f3f5;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+            --gray-600: #868e96;
+            --gray-700: #495057;
+            --gray-800: #343a40;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+            --success: #2d8a5f;
+            --shadow-sm: 0 1px 2px rgba(15, 23, 41, 0.05);
+            --shadow-md: 0 4px 6px rgba(15, 23, 41, 0.1);
+            --shadow-lg: 0 10px 25px rgba(15, 23, 41, 0.15);
+            --shadow-xl: 0 20px 40px rgba(15, 23, 41, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--white);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .container-narrow {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--navy);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 1.875rem);
+        }
+
+        h4 {
+            font-size: 1.25rem;
+        }
+
+        p {
+            color: var(--text-secondary);
+        }
+
+        .text-gold {
+            color: var(--gold);
+        }
+
+        .text-navy {
+            color: var(--navy);
+        }
+
+        .text-white {
+            color: var(--white);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+            border-color: var(--gold);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--navy);
+        }
+
+        .btn-large {
+            padding: 20px 48px;
+            font-size: 1.125rem;
+        }
+
+        .btn-icon {
+            margin-left: 8px;
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+
+        .nav {
+            background: var(--navy);
+            padding: 16px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .nav-logo-tagline {
+            font-size: 0.75rem;
+            color: var(--gold);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .nav-cta {
+            padding: 12px 24px;
+            font-size: 0.9375rem;
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 160px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(212, 168, 83, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.15);
+            color: var(--gold);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .hero-subheadline {
+            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .hero-body {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 40px;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .hero-trust {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-trust-text {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+            margin-bottom: 16px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: left;
+        }
+
+        .hero-stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .hero-stat-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ============================================
+           PAIN POINTS SECTION
+           ============================================ */
+
+        .pain-points {
+            padding: 100px 0;
+            background: var(--gray-50);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 64px;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--gold-dark);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .pain-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .pain-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--gold);
+        }
+
+        .pain-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(212, 168, 83, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .pain-card h4 {
+            margin-bottom: 12px;
+            color: var(--navy);
+        }
+
+        .pain-card p {
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           SOLUTION SECTION
+           ============================================ */
+
+        .solution {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .solution-intro {
+            max-width: 800px;
+            margin: 0 auto 64px;
+            text-align: center;
+        }
+
+        .solution-intro h2 {
+            margin-bottom: 24px;
+        }
+
+        .solution-intro p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        @media (max-width: 900px) {
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 40px 32px;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold);
+        }
+
+        .solution-number {
+            width: 48px;
+            height: 48px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 auto 24px;
+        }
+
+        .solution-card h3 {
+            color: var(--white);
+            margin-bottom: 16px;
+            font-size: 1.375rem;
+        }
+
+        .solution-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+
+        .solution-features {
+            list-style: none;
+            margin-top: 24px;
+            text-align: left;
+        }
+
+        .solution-features li {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.9375rem;
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .solution-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .solution-features li::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            width: 4px;
+            height: 8px;
+            border-bottom: 2px solid var(--navy);
+            border-right: 2px solid var(--navy);
+        }
+
+        /* ============================================
+           RESULTS SECTION
+           ============================================ */
+
+        .results {
+            padding: 100px 0;
+            background: var(--gray-50);
+        }
+
+        .results-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 64px;
+        }
+
+        .results-header h2 {
+            margin-bottom: 16px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 64px;
+        }
+
+        @media (max-width: 900px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .metric-card {
+            background: var(--white);
+            padding: 32px 24px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+        }
+
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .metric-context {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .case-study-mini {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--gold);
+        }
+
+        .case-study-mini-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .case-study-badge {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .case-study-mini h3 {
+            margin-bottom: 16px;
+        }
+
+        .case-study-mini p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .case-study-results {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            padding-top: 24px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .case-study-result {
+            text-align: left;
+        }
+
+        .case-study-result-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        .case-study-result-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* ============================================
+           TESTIMONIAL SECTION
+           ============================================ */
+
+        .testimonial {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4A853' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-quote-mark {
+            font-size: 6rem;
+            color: var(--gold);
+            line-height: 0.5;
+            margin-bottom: 24px;
+            opacity: 0.5;
+        }
+
+        .testimonial-quote {
+            font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+            color: var(--white);
+            font-weight: 400;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 72px;
+            height: 72px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .testimonial-info {
+            text-align: left;
+        }
+
+        .testimonial-name {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .testimonial-title {
+            font-size: 0.9375rem;
+            color: var(--gold);
+        }
+
+        .testimonial-location {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 4px;
+        }
+
+        /* ============================================
+           PROCESS SECTION
+           ============================================ */
+
+        .process {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .process-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 64px;
+        }
+
+        .process-header h2 {
+            margin-bottom: 16px;
+        }
+
+        .process-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--gold), var(--navy));
+        }
+
+        @media (max-width: 600px) {
+            .process-timeline::before {
+                left: 24px;
+            }
+        }
+
+        .process-step {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 48px;
+            position: relative;
+        }
+
+        .process-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .process-step-number {
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            box-shadow: var(--shadow-lg);
+        }
+
+        @media (max-width: 600px) {
+            .process-step-number {
+                width: 48px;
+                height: 48px;
+                min-width: 48px;
+                font-size: 1.25rem;
+            }
+        }
+
+        .process-step-content {
+            background: var(--gray-50);
+            padding: 32px;
+            border-radius: 12px;
+            flex: 1;
+            border: 1px solid var(--gray-200);
+        }
+
+        .process-step-content h4 {
+            margin-bottom: 12px;
+            color: var(--navy);
+        }
+
+        .process-step-content p {
+            margin-bottom: 16px;
+        }
+
+        .process-step-duration {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.15);
+            color: var(--gold-dark);
+            padding: 6px 12px;
+            border-radius: 100px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+        }
+
+        /* ============================================
+           FAQ SECTION
+           ============================================ */
+
+        .faq {
+            padding: 100px 0;
+            background: var(--gray-50);
+        }
+
+        .faq-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 64px;
+        }
+
+        .faq-header h2 {
+            margin-bottom: 16px;
+        }
+
+        .faq-grid {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border: 1px solid var(--gray-200);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 24px 32px;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--gray-50);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 32px 24px;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-answer p {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           FINAL CTA SECTION
+           ============================================ */
+
+        .final-cta {
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(212, 168, 83, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .final-cta p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .final-cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .final-cta-guarantee {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .final-cta-guarantee p {
+            font-size: 0.9375rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+
+        .footer {
+            background: var(--navy-dark);
+            padding: 48px 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .footer-tagline {
+            color: var(--gold);
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.875rem;
+        }
+
+        /* ============================================
+           UTILITY CLASSES
+           ============================================ */
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 140px 0 80px;
+            }
+
+            .pain-points,
+            .solution,
+            .results,
+            .testimonial,
+            .process,
+            .faq {
+                padding: 80px 0;
+            }
+
+            .final-cta {
+                padding: 80px 0;
+            }
+
+            .case-study-mini {
+                padding: 32px 24px;
+            }
+
+            .case-study-mini-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .testimonial-quote {
+                font-size: 1.125rem;
+            }
+
+            .hero-stats {
+                gap: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         NAVIGATION
+         ============================================ -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="container nav-content">
+            <a href="#" class="nav-logo">
+                <div>
+                    <div class="nav-logo-text">ScaleUp Ventures</div>
+                    <div class="nav-logo-tagline">Certainty First.</div>
+                </div>
+            </a>
+            <a href="#contact" class="btn btn-primary nav-cta">Schedule Your Assessment</a>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <header class="hero">
+        <div class="container hero-content">
+            <span class="hero-label">For Veterinary Practice Owners</span>
+
+            <h1>Stop Losing Revenue to Missed Appointments and Phone Chaos</h1>
+
+            <p class="hero-subheadline">Operational systems that give you back control of your practice and your time.</p>
+
+            <p class="hero-body">Your team is stretched thin. Phones ring constantly while clients wait. No-shows eat into revenue. And you are stuck managing operations instead of practicing medicine. There is a better way. ScaleUp Ventures builds the operational foundation that transforms chaotic practices into thriving businesses ready for growth or sale.</p>
+
+            <div class="hero-cta-group">
+                <a href="#contact" class="btn btn-primary btn-large">
+                    Get Your Free Practice Assessment
+                    <span class="btn-icon" aria-hidden="true">&#8594;</span>
+                </a>
+                <a href="#process" class="btn btn-secondary">See How It Works</a>
+            </div>
+
+            <div class="hero-trust">
+                <p class="hero-trust-text">Trusted by veterinary practices ready to scale</p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">67%</div>
+                        <div class="hero-stat-label">Average reduction in no-shows</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">4.2 hrs</div>
+                        <div class="hero-stat-label">Saved weekly on phone management</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">23%</div>
+                        <div class="hero-stat-label">Revenue increase in Year 1</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================
+         PAIN POINTS SECTION
+         ============================================ -->
+    <section class="pain-points" id="challenges">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-label">The Daily Struggles</span>
+                <h2>Sound Familiar?</h2>
+                <p>These operational challenges are not just frustrating. They are costing you revenue, burning out your team, and limiting your exit options.</p>
+            </header>
+
+            <div class="pain-grid">
+                <article class="pain-card">
+                    <div class="pain-icon" aria-hidden="true">&#128222;</div>
+                    <h4>Phone Lines That Never Stop</h4>
+                    <p>Your front desk spends 60% of their day on the phone while clients in the lobby wait. Every unanswered call is a potential patient walking to your competitor down the street.</p>
+                </article>
+
+                <article class="pain-card">
+                    <div class="pain-icon" aria-hidden="true">&#128197;</div>
+                    <h4>No-Shows Destroying Your Schedule</h4>
+                    <p>Empty exam rooms mean lost revenue. You have tried reminder calls, but your team does not have time to chase down every appointment. Last month, no-shows cost you over $12,000.</p>
+                </article>
+
+                <article class="pain-card">
+                    <div class="pain-icon" aria-hidden="true">&#128196;</div>
+                    <h4>Paper Records Slowing Everything Down</h4>
+                    <p>Files get misfiled. Vaccination records take forever to locate. Your team wastes hours each week on tasks that modern systems handle in seconds.</p>
+                </article>
+
+                <article class="pain-card">
+                    <div class="pain-icon" aria-hidden="true">&#128549;</div>
+                    <h4>Staff Burnout and Turnover</h4>
+                    <p>Your best technicians are exhausted from juggling clinical work with administrative chaos. You have lost two great team members this year, and recruiting replacements costs a fortune.</p>
+                </article>
+
+                <article class="pain-card">
+                    <div class="pain-icon" aria-hidden="true">&#128176;</div>
+                    <h4>Exit Value Uncertainty</h4>
+                    <p>You are thinking about selling in 3-5 years, but potential buyers will see your operational chaos and discount your valuation. Owner-dependent practices sell for less.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SOLUTION SECTION
+         ============================================ -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <div class="solution-intro">
+                <span class="section-label">The ScaleUp Approach</span>
+                <h2>Operational Excellence Built for Veterinary Medicine</h2>
+                <p>We do not sell generic software or cookie-cutter solutions. ScaleUp Ventures builds custom operational systems designed specifically for the unique demands of veterinary practice. Your patients cannot tell you where it hurts. Your systems should not make that job any harder.</p>
+            </div>
+
+            <div class="solution-grid">
+                <article class="solution-card">
+                    <div class="solution-number">1</div>
+                    <h3>Intelligent Scheduling Systems</h3>
+                    <p>Automated appointment management that reduces no-shows, optimizes exam room utilization, and integrates with your practice management software.</p>
+                    <ul class="solution-features">
+                        <li>Automated multi-channel reminders (text, email, voice)</li>
+                        <li>Smart waitlist management for cancellations</li>
+                        <li>Appointment type optimization by time of day</li>
+                        <li>Integration with major veterinary PMS platforms</li>
+                    </ul>
+                </article>
+
+                <article class="solution-card">
+                    <div class="solution-number">2</div>
+                    <h3>Client Communication Hub</h3>
+                    <p>Centralized communication that eliminates phone chaos while improving client satisfaction and freeing your team for clinical work.</p>
+                    <ul class="solution-features">
+                        <li>Online booking for routine appointments</li>
+                        <li>Two-way texting for quick questions</li>
+                        <li>Automated prescription refill requests</li>
+                        <li>Post-visit follow-up sequences</li>
+                    </ul>
+                </article>
+
+                <article class="solution-card">
+                    <div class="solution-number">3</div>
+                    <h3>Revenue Optimization</h3>
+                    <p>Data-driven insights that identify revenue leaks, improve service capture rates, and position your practice for maximum exit value.</p>
+                    <ul class="solution-features">
+                        <li>Missed service alerts and reminders</li>
+                        <li>Wellness plan automation</li>
+                        <li>Revenue per patient tracking</li>
+                        <li>Buyer-ready operational documentation</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         RESULTS SECTION
+         ============================================ -->
+    <section class="results" id="results">
+        <div class="container">
+            <header class="results-header">
+                <span class="section-label">Measurable Impact</span>
+                <h2>Results That Transform Practices</h2>
+                <p>We measure success by the metrics that matter to veterinary practice owners.</p>
+            </header>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number">67%</div>
+                    <div class="metric-label">No-Show Reduction</div>
+                    <div class="metric-context">Average within 90 days</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-number">41%</div>
+                    <div class="metric-label">Fewer Phone Calls</div>
+                    <div class="metric-context">Clients prefer self-service</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-number">$127K</div>
+                    <div class="metric-label">Annual Revenue Recovered</div>
+                    <div class="metric-context">Average 3-doctor practice</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-number">2.3x</div>
+                    <div class="metric-label">Valuation Multiple Improvement</div>
+                    <div class="metric-context">For practices sold within 3 years</div>
+                </div>
+            </div>
+
+            <article class="case-study-mini">
+                <header class="case-study-mini-header">
+                    <span class="case-study-badge">Case Study</span>
+                </header>
+                <h3>Riverside Animal Hospital: From Chaos to Control in 6 Months</h3>
+                <p>When Dr. Sarah Chen came to us, Riverside was losing $15,000 monthly to no-shows and her front desk team was drowning in phone calls. She was considering cutting back to part-time because the administrative burden had made practice ownership unbearable.</p>
+                <p>Within 6 months of implementing our operational systems, Riverside transformed. No-shows dropped from 23% to 7%. Phone volume decreased by 52%. And Dr. Chen regained 12 hours per week she had been spending on operational firefighting.</p>
+                <div class="case-study-results">
+                    <div class="case-study-result">
+                        <div class="case-study-result-number">+$187K</div>
+                        <div class="case-study-result-label">Annual revenue increase</div>
+                    </div>
+                    <div class="case-study-result">
+                        <div class="case-study-result-number">52%</div>
+                        <div class="case-study-result-label">Reduction in phone volume</div>
+                    </div>
+                    <div class="case-study-result">
+                        <div class="case-study-result-number">12 hrs</div>
+                        <div class="case-study-result-label">Weekly time reclaimed</div>
+                    </div>
+                    <div class="case-study-result">
+                        <div class="case-study-result-number">94%</div>
+                        <div class="case-study-result-label">Staff satisfaction score</div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TESTIMONIAL SECTION
+         ============================================ -->
+    <section class="testimonial" id="testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <div class="testimonial-quote-mark" aria-hidden="true">"</div>
+                <blockquote class="testimonial-quote">
+                    I spent fifteen years building Riverside, but the last three had become a nightmare. Every day felt like I was drowning in administrative chaos instead of practicing medicine. ScaleUp did not just give us better systems. They gave me my practice back. For the first time since opening, I am genuinely excited about coming to work. My team is happier, my clients are happier, and when I am ready to sell in a few years, I will have a practice that buyers actually want to buy. The ROI was measurable within 90 days, but what they really delivered was certainty. I finally know my practice will run smoothly whether I am there or not.
+                </blockquote>
+                <footer class="testimonial-author">
+                    <div class="testimonial-avatar" aria-hidden="true">SC</div>
+                    <div class="testimonial-info">
+                        <div class="testimonial-name">Dr. Sarah Chen, DVM</div>
+                        <div class="testimonial-title">Owner, Riverside Animal Hospital</div>
+                        <div class="testimonial-location">Portland, Oregon</div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PROCESS SECTION
+         ============================================ -->
+    <section class="process" id="process">
+        <div class="container">
+            <header class="process-header">
+                <span class="section-label">How We Work</span>
+                <h2>Your Path to Operational Excellence</h2>
+                <p>A structured approach designed specifically for veterinary practices, with minimal disruption to your daily operations.</p>
+            </header>
+
+            <div class="process-timeline">
+                <article class="process-step">
+                    <div class="process-step-number">1</div>
+                    <div class="process-step-content">
+                        <h4>Practice Assessment</h4>
+                        <p>We spend a full day in your practice observing workflows, interviewing staff, and analyzing your data. No generic questionnaires. We identify exactly where revenue is leaking and time is being wasted.</p>
+                        <span class="process-step-duration">1 day on-site</span>
+                    </div>
+                </article>
+
+                <article class="process-step">
+                    <div class="process-step-number">2</div>
+                    <div class="process-step-content">
+                        <h4>Custom System Design</h4>
+                        <p>Based on our assessment, we design an operational system tailored to your practice. This is not off-the-shelf software. Every workflow is mapped to your specific needs, team size, and growth goals.</p>
+                        <span class="process-step-duration">2-3 weeks</span>
+                    </div>
+                </article>
+
+                <article class="process-step">
+                    <div class="process-step-number">3</div>
+                    <div class="process-step-content">
+                        <h4>Implementation and Training</h4>
+                        <p>We implement in phases to minimize disruption. Your team receives hands-on training during actual work hours. We do not leave until every staff member is confident with the new systems.</p>
+                        <span class="process-step-duration">4-6 weeks</span>
+                    </div>
+                </article>
+
+                <article class="process-step">
+                    <div class="process-step-number">4</div>
+                    <div class="process-step-content">
+                        <h4>Optimization and Support</h4>
+                        <p>We monitor performance metrics, make adjustments based on real-world results, and provide ongoing support. Our goal is measurable improvement within 90 days and sustained excellence long-term.</p>
+                        <span class="process-step-duration">Ongoing partnership</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FAQ SECTION
+         ============================================ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <header class="faq-header">
+                <span class="section-label">Common Questions</span>
+                <h2>Frequently Asked Questions</h2>
+                <p>Answers to the questions veterinary practice owners ask most often.</p>
+            </header>
+
+            <div class="faq-grid">
+                <article class="faq-item active">
+                    <button class="faq-question" aria-expanded="true">
+                        <span>Will this integrate with my current practice management software?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. We have built integrations with all major veterinary practice management systems including Cornerstone, AVImark, eVetPractice, Shepherd, and others. During our assessment, we evaluate your current technology stack and design solutions that work seamlessly with what you already use. If you are considering switching PMS systems, we can help with that transition as well.</p>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How long until we see results?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Most practices see measurable improvement within 90 days of full implementation. No-show reductions typically appear within the first 30 days as automated reminders take effect. Phone volume reduction follows as clients adopt self-service options. Revenue impact usually becomes clear by month three. We track all key metrics and provide monthly reports so you can see exactly what is changing.</p>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>My team is already overwhelmed. How disruptive is implementation?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We designed our implementation process specifically to minimize disruption. Training happens during actual work hours in short, focused sessions. We phase in new systems gradually rather than changing everything at once. And our team handles the heavy lifting. Your staff does not need to learn complex configurations or spend hours in training rooms. Within two weeks of starting, most team members report that the new systems are actually making their jobs easier, not harder.</p>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What if my clients prefer calling over texting or online booking?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Clients can always call. We do not force anyone into communication channels they do not want. What we find is that when given convenient options, a significant percentage of clients prefer them. The clients who continue calling get better service because your phone lines are not jammed. And younger pet owners, who represent your future client base, overwhelmingly prefer text and online options. It is about meeting every client where they are.</p>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How do you handle emergency and urgent care scheduling?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Emergencies always come through immediately. Our systems include triage protocols that route urgent cases appropriately and ensure they never get lost in automation. Sick appointments have different booking rules than wellness visits. We work with you to define exactly how different appointment types should be handled, and the system enforces those rules consistently while keeping flexibility for your clinical judgment.</p>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What does this cost, and what is the ROI?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Investment varies based on practice size and complexity. A typical 3-doctor practice invests $35,000-$55,000 for full implementation, with ongoing support at $1,500-$2,500 monthly. The average ROI we see is 300-400% in the first year from reduced no-shows, recovered revenue, and decreased labor costs. We build a detailed ROI projection during your assessment so you know exactly what to expect before committing. Many practice owners find the increased valuation multiple at sale more than covers the lifetime investment.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FINAL CTA SECTION
+         ============================================ -->
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <div class="final-cta-content">
+                <h2>Ready to Transform Your Practice?</h2>
+                <p>Schedule your free Practice Assessment. We will spend a full day understanding your operations and deliver a detailed report on exactly where you are losing revenue and time. No obligation. No generic recommendations. Just clarity on what is possible for your practice.</p>
+
+                <div class="final-cta-buttons">
+                    <a href="mailto:assessment@scaleupventures.com?subject=Veterinary%20Practice%20Assessment%20Request" class="btn btn-primary btn-large">
+                        Schedule Your Free Assessment
+                        <span class="btn-icon" aria-hidden="true">&#8594;</span>
+                    </a>
+                    <a href="tel:+15555551234" class="btn btn-secondary btn-large">
+                        Call (555) 555-1234
+                    </a>
+                </div>
+
+                <div class="final-cta-guarantee">
+                    <p>Assessment includes a full day on-site, detailed operational analysis, and custom ROI projection. If we cannot identify at least $50,000 in annual recoverable revenue, we will tell you. Certainty First.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">ScaleUp Ventures</div>
+            <div class="footer-tagline">Certainty First.</div>
+            <nav class="footer-links" aria-label="Footer navigation">
+                <a href="#solution">Solutions</a>
+                <a href="#results">Results</a>
+                <a href="#process">Process</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <p class="footer-copyright">Copyright 2025 ScaleUp Ventures. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         JAVASCRIPT - FAQ Accordion
+         ============================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(function(item) {
+                const question = item.querySelector('.faq-question');
+
+                question.addEventListener('click', function() {
+                    const isActive = item.classList.contains('active');
+
+                    // Close all FAQ items
+                    faqItems.forEach(function(faq) {
+                        faq.classList.remove('active');
+                        faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    });
+
+                    // Open clicked item if it was not already active
+                    if (!isActive) {
+                        item.classList.add('active');
+                        question.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const navHeight = document.querySelector('.nav').offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

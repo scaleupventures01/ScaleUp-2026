@@ -1,0 +1,2792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Model Deliverable Format | ScaleUp Ventures</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2540;
+            --navy-lighter: #243054;
+            --gold: #D4A853;
+            --gold-light: #e5c078;
+            --gold-dark: #b8923f;
+            --white: #ffffff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --green: #10b981;
+            --green-light: #d1fae5;
+            --blue: #3b82f6;
+            --blue-light: #dbeafe;
+            --orange: #f59e0b;
+            --orange-light: #fef3c7;
+            --red: #ef4444;
+            --red-light: #fee2e2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--gray-50);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(212, 168, 83, 0.1) 100%);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--navy);
+            font-size: 1.25rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .header h1 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-description {
+            font-size: 1.125rem;
+            color: var(--gray-300);
+            max-width: 700px;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(212, 168, 83, 0.2);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-top: 1.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            white-space: nowrap;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--navy);
+            border-bottom-color: var(--gold);
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid var(--gray-200);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--gray-100);
+        }
+
+        .section-number {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--gold);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .section-title-group h2 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title-group p {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .card h4 {
+            color: var(--navy);
+            font-size: 1rem;
+        }
+
+        .card p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .card li:last-child {
+            border-bottom: none;
+        }
+
+        .card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        /* Document Mockup */
+        .document-mockup {
+            background: var(--white);
+            border: 2px solid var(--gray-300);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .doc-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 2rem;
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .doc-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .doc-logo-box {
+            width: 36px;
+            height: 36px;
+            background: var(--gold);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--navy);
+            font-size: 0.875rem;
+        }
+
+        .doc-title {
+            text-align: right;
+        }
+
+        .doc-title h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .doc-title p {
+            color: var(--gold);
+            font-size: 0.875rem;
+        }
+
+        .doc-body {
+            padding: 2rem;
+        }
+
+        .doc-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .doc-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .doc-section h4 {
+            color: var(--navy);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .doc-section h4::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        /* Table Styles */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .data-table th {
+            background: var(--gray-100);
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table td {
+            color: var(--gray-700);
+        }
+
+        .data-table tr:hover td {
+            background: var(--gray-50);
+        }
+
+        /* Metric Cards */
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .metric-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .metric-card.highlight {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-color: var(--navy);
+        }
+
+        .metric-card.highlight .metric-value {
+            color: var(--gold);
+        }
+
+        .metric-card.highlight .metric-label {
+            color: var(--gray-300);
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Chart Mockups */
+        .chart-container {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .chart-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .bar-label {
+            width: 80px;
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            text-align: right;
+        }
+
+        .bar-track {
+            flex: 1;
+            height: 24px;
+            background: var(--gray-200);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .bar-fill.conservative {
+            background: var(--gray-500);
+        }
+
+        .bar-fill.expected {
+            background: var(--gold);
+        }
+
+        .bar-fill.optimistic {
+            background: var(--green);
+        }
+
+        /* Timeline */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gray-200);
+        }
+
+        .timeline-item {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-dot {
+            width: 48px;
+            height: 48px;
+            background: var(--white);
+            border: 3px solid var(--gray-300);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        .timeline-item.active .timeline-dot {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+
+        .timeline-item.complete .timeline-dot {
+            background: var(--green);
+            border-color: var(--green);
+            color: var(--white);
+        }
+
+        .timeline-label {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+        }
+
+        .timeline-value {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-top: 0.25rem;
+        }
+
+        /* Scenario Cards */
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .scenario-card {
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .scenario-card.conservative {
+            background: var(--gray-100);
+            border: 2px solid var(--gray-300);
+        }
+
+        .scenario-card.expected {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border: 2px solid var(--gold);
+            transform: scale(1.05);
+        }
+
+        .scenario-card.optimistic {
+            background: var(--green-light);
+            border: 2px solid var(--green);
+        }
+
+        .scenario-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .scenario-card.conservative .scenario-label {
+            color: var(--gray-500);
+        }
+
+        .scenario-card.expected .scenario-label {
+            color: var(--gold);
+        }
+
+        .scenario-card.optimistic .scenario-label {
+            color: var(--green);
+        }
+
+        .scenario-roi {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .scenario-card.conservative .scenario-roi {
+            color: var(--gray-600);
+        }
+
+        .scenario-card.expected .scenario-roi {
+            color: var(--gold);
+        }
+
+        .scenario-card.optimistic .scenario-roi {
+            color: var(--green);
+        }
+
+        .scenario-payback {
+            font-size: 0.9rem;
+        }
+
+        .scenario-card.conservative .scenario-payback {
+            color: var(--gray-500);
+        }
+
+        .scenario-card.expected .scenario-payback {
+            color: var(--gray-300);
+        }
+
+        .scenario-card.optimistic .scenario-payback {
+            color: var(--gray-600);
+        }
+
+        /* Service Templates */
+        .template-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--gray-200);
+            padding-bottom: 1rem;
+        }
+
+        .template-tab {
+            padding: 0.75rem 1.5rem;
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .template-tab.active {
+            background: var(--navy);
+            color: var(--gold);
+            border-color: var(--navy);
+        }
+
+        .template-content {
+            display: none;
+        }
+
+        .template-content.active {
+            display: block;
+        }
+
+        /* Formula Box */
+        .formula-box {
+            background: var(--navy);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            color: var(--white);
+        }
+
+        .formula-title {
+            color: var(--gold);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .formula {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            color: var(--white);
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+
+        .formula-note {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--gray-400);
+            text-align: center;
+        }
+
+        /* Industry Cards */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .industry-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+
+        .industry-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .industry-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .industry-name {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+
+        .industry-adjustments {
+            list-style: none;
+        }
+
+        .industry-adjustments li {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            padding: 0.4rem 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .adjustment-value {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .check-box {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--gray-300);
+            border-radius: 6px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: transparent;
+        }
+
+        .check-box.checked {
+            background: var(--green);
+            border-color: var(--green);
+            color: var(--white);
+        }
+
+        .check-content {
+            flex: 1;
+        }
+
+        .check-title {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .check-desc {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+        }
+
+        /* Steps */
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .step-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .step-line {
+            width: 2px;
+            height: 40px;
+            background: var(--gray-200);
+            margin-top: 0.5rem;
+        }
+
+        .step:last-child .step-line {
+            display: none;
+        }
+
+        .step-content {
+            flex: 1;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+
+        .step-content h4 {
+            color: var(--navy);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        /* Sample Model */
+        .sample-model {
+            background: var(--gray-100);
+            border: 2px dashed var(--gray-300);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .sample-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--gray-300);
+        }
+
+        .sample-badge {
+            background: var(--orange);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: var(--blue-light);
+            border-left: 4px solid var(--blue);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        .info-box.warning {
+            background: var(--orange-light);
+            border-left-color: var(--orange);
+        }
+
+        .info-box.success {
+            background: var(--green-light);
+            border-left-color: var(--green);
+        }
+
+        .info-box h5 {
+            color: var(--navy);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box p {
+            color: var(--gray-600);
+            font-size: 0.85rem;
+        }
+
+        /* Risk Matrix */
+        .risk-matrix {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--gray-300);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 1.5rem 0;
+        }
+
+        .risk-cell {
+            background: var(--white);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .risk-cell.header {
+            background: var(--gray-100);
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--navy);
+            text-transform: uppercase;
+        }
+
+        .risk-cell.low {
+            background: var(--green-light);
+        }
+
+        .risk-cell.medium {
+            background: var(--orange-light);
+        }
+
+        .risk-cell.high {
+            background: var(--red-light);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--gray-400);
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .footer-logo-box {
+            width: 32px;
+            height: 32px;
+            background: var(--gold);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--navy);
+            font-size: 0.75rem;
+        }
+
+        .footer-tagline {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .metric-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .scenario-card.expected {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .metric-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .timeline::before {
+                width: 4px;
+                height: 100%;
+                top: 0;
+                left: 24px;
+            }
+
+            .timeline-item {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                text-align: left;
+            }
+
+            .timeline-dot {
+                margin: 0;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">SV</div>
+                <span class="logo-text">ScaleUp Ventures</span>
+            </div>
+            <h1>ROI Model <span>Deliverable Format</span></h1>
+            <p class="tagline">Certainty First.</p>
+            <p class="header-description">
+                Complete documentation for ScaleUp Ventures' pre-engagement ROI modeling system.
+                This guide defines how we show clients exactly how they'll make their money back
+                before they invest - our core differentiator.
+            </p>
+            <div class="header-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                Core Differentiator Documentation
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#overview" class="nav-link">Overview</a>
+            <a href="#sections" class="nav-link">Document Sections</a>
+            <a href="#inputs" class="nav-link">Client Inputs</a>
+            <a href="#methodology" class="nav-link">Methodology</a>
+            <a href="#outputs" class="nav-link">Outputs</a>
+            <a href="#assumptions" class="nav-link">Assumptions</a>
+            <a href="#payback" class="nav-link">Payback Timeline</a>
+            <a href="#scenarios" class="nav-link">Scenarios</a>
+            <a href="#templates" class="nav-link">Service Templates</a>
+            <a href="#industry" class="nav-link">Industry Adjustments</a>
+            <a href="#presentation" class="nav-link">Presentation Guide</a>
+            <a href="#followup" class="nav-link">Follow-Up</a>
+            <a href="#sample" class="nav-link">Sample Model</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Section 1: Overview -->
+        <section id="overview" class="section">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <div class="section-title-group">
+                    <h2>Deliverable Overview and Purpose</h2>
+                    <p>Understanding the strategic role of ROI modeling in client acquisition</p>
+                </div>
+            </div>
+
+            <div class="info-box success">
+                <h5>Core Value Proposition</h5>
+                <p>The ROI Model is not just a sales tool - it's a promise. We show clients exactly what they'll get for their investment before they spend a dollar, creating certainty in an industry built on vague promises.</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <h4>What It Is</h4>
+                    </div>
+                    <p>A comprehensive financial projection showing the expected return on a client's investment in ScaleUp Ventures services, delivered before engagement begins.</p>
+                    <ul>
+                        <li>Custom-built for each prospect</li>
+                        <li>Based on real client data inputs</li>
+                        <li>Multiple scenario modeling</li>
+                        <li>Visual presentation ready</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h4>Why It Matters</h4>
+                    </div>
+                    <p>Creates competitive advantage by eliminating the "leap of faith" that competitors require. Transforms the sales conversation from cost to investment.</p>
+                    <ul>
+                        <li>Reduces sales cycle by 40%</li>
+                        <li>Increases close rate by 65%</li>
+                        <li>Sets clear success metrics</li>
+                        <li>Builds immediate trust</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h4>Who Receives It</h4>
+                    </div>
+                    <p>Qualified prospects who have completed the initial discovery call and expressed genuine interest in understanding potential outcomes.</p>
+                    <ul>
+                        <li>Decision-makers with budget authority</li>
+                        <li>Companies with clear growth goals</li>
+                        <li>Prospects with measurable baselines</li>
+                        <li>Serious buyers, not tire-kickers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">The Certainty Promise</div>
+                <div class="formula">"Before you invest a dollar, you'll know exactly how you'll make it back."</div>
+                <div class="formula-note">This is our brand promise, delivered through the ROI Model</div>
+            </div>
+        </section>
+
+        <!-- Section 2: Document Sections -->
+        <section id="sections" class="section">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <div class="section-title-group">
+                    <h2>Sections of the ROI Model Document</h2>
+                    <p>Complete structure of the deliverable with required components</p>
+                </div>
+            </div>
+
+            <div class="document-mockup">
+                <div class="doc-header">
+                    <div class="doc-logo">
+                        <div class="doc-logo-box">SV</div>
+                        <div>
+                            <div style="font-weight: 600;">ScaleUp Ventures</div>
+                            <div style="font-size: 0.75rem; color: var(--gold);">Certainty First.</div>
+                        </div>
+                    </div>
+                    <div class="doc-title">
+                        <h3>ROI Analysis</h3>
+                        <p>[Client Name] | [Date]</p>
+                    </div>
+                </div>
+                <div class="doc-body">
+                    <div class="doc-section">
+                        <h4>Document Table of Contents</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Section</th>
+                                    <th>Pages</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>1. Executive Summary</strong></td>
+                                    <td>1-2</td>
+                                    <td>Key metrics, recommendation, and bottom-line ROI</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>2. Current State Analysis</strong></td>
+                                    <td>3-4</td>
+                                    <td>Client's baseline metrics, costs, and pain points</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3. Investment Breakdown</strong></td>
+                                    <td>5-6</td>
+                                    <td>Detailed cost structure for proposed engagement</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4. Value Creation Model</strong></td>
+                                    <td>7-10</td>
+                                    <td>How investment generates returns (the methodology)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>5. Scenario Analysis</strong></td>
+                                    <td>11-13</td>
+                                    <td>Conservative, expected, and optimistic projections</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>6. Payback Timeline</strong></td>
+                                    <td>14-15</td>
+                                    <td>Month-by-month projection to ROI breakeven</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>7. Assumptions & Risks</strong></td>
+                                    <td>16-17</td>
+                                    <td>Transparency on what we're assuming and what could change</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>8. Comparison & Alternatives</strong></td>
+                                    <td>18-19</td>
+                                    <td>What happens if they do nothing / choose alternatives</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>9. Next Steps</strong></td>
+                                    <td>20</td>
+                                    <td>Clear action items to proceed</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Appendix A: Methodology</strong></td>
+                                    <td>21-23</td>
+                                    <td>Detailed calculation formulas and data sources</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Appendix B: Case Studies</strong></td>
+                                    <td>24-26</td>
+                                    <td>Similar engagements and their actual results</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h5>Format Requirements</h5>
+                <p>All ROI Models are delivered as both PDF (for presentation) and interactive spreadsheet (for client exploration). Brand guidelines must be followed exactly - this document represents our promise.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Input Data Required -->
+        <section id="inputs" class="section">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <div class="section-title-group">
+                    <h2>Input Data Required from Client</h2>
+                    <p>Data collection framework for accurate ROI modeling</p>
+                </div>
+            </div>
+
+            <p style="color: var(--gray-600); margin-bottom: 1.5rem;">
+                Accurate ROI modeling requires real data. We collect this during discovery through structured questionnaires and follow-up conversations. Never estimate when real data is available.
+            </p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <h4>Financial Metrics</h4>
+                    </div>
+                    <ul>
+                        <li>Current annual revenue</li>
+                        <li>Revenue growth rate (last 2 years)</li>
+                        <li>Average deal size / transaction value</li>
+                        <li>Customer lifetime value (if known)</li>
+                        <li>Customer acquisition cost</li>
+                        <li>Current marketing/sales budget</li>
+                        <li>Technology/tool spend</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h4>Team & Operations</h4>
+                    </div>
+                    <ul>
+                        <li>Team size (by function)</li>
+                        <li>Average hourly rate by role</li>
+                        <li>Hours spent on manual processes</li>
+                        <li>Current tool/system stack</li>
+                        <li>Bottlenecks and pain points</li>
+                        <li>Growth hiring plans</li>
+                        <li>Remote vs. in-office distribution</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <h4>Performance Data</h4>
+                    </div>
+                    <ul>
+                        <li>Monthly lead volume</li>
+                        <li>Lead-to-customer conversion rate</li>
+                        <li>Website traffic (monthly)</li>
+                        <li>Email list size</li>
+                        <li>Social following</li>
+                        <li>Current marketing channels</li>
+                        <li>Top-performing content/campaigns</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 16v-4M12 8h.01"/>
+                            </svg>
+                        </div>
+                        <h4>Goals & Constraints</h4>
+                    </div>
+                    <ul>
+                        <li>Revenue goal (12 months)</li>
+                        <li>Primary growth objective</li>
+                        <li>Timeline urgency factors</li>
+                        <li>Budget range (if disclosed)</li>
+                        <li>Decision-maker approval process</li>
+                        <li>Previous failed initiatives</li>
+                        <li>Non-negotiable requirements</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box warning">
+                <h5>Data Quality Standard</h5>
+                <p>If client cannot provide accurate data for a required metric, we use industry benchmarks with clear disclosure. Never present estimates as facts. The model's credibility depends on transparent sourcing.</p>
+            </div>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem;">Data Collection Methods</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>When Used</th>
+                        <th>Data Types</th>
+                        <th>Turnaround</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Discovery Call</strong></td>
+                        <td>Initial conversation</td>
+                        <td>Goals, constraints, high-level financials</td>
+                        <td>Real-time</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ROI Questionnaire</strong></td>
+                        <td>Post-discovery</td>
+                        <td>Detailed metrics, team data, tool stack</td>
+                        <td>24-48 hours</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Analytics Access</strong></td>
+                        <td>With permission</td>
+                        <td>Website, CRM, marketing platform data</td>
+                        <td>2-4 hours</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Follow-Up Interview</strong></td>
+                        <td>Clarification needed</td>
+                        <td>Specific gaps, qualitative context</td>
+                        <td>30 min call</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 4: Calculation Methodology -->
+        <section id="methodology" class="section">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <div class="section-title-group">
+                    <h2>Calculation Methodology</h2>
+                    <p>The mathematical framework behind our ROI projections</p>
+                </div>
+            </div>
+
+            <p style="color: var(--gray-600); margin-bottom: 1.5rem;">
+                Our ROI calculations follow a rigorous, transparent methodology. Every number in the model traces back to either client-provided data, industry benchmarks, or our historical performance data.
+            </p>
+
+            <div class="formula-box">
+                <div class="formula-title">Core ROI Formula</div>
+                <div class="formula">ROI = ((Total Benefits - Total Investment) / Total Investment) x 100</div>
+                <div class="formula-note">Simple, auditable, universally understood</div>
+            </div>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem;">Benefit Calculation Components</h3>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">+</div>
+                        <h4>Revenue Increase</h4>
+                    </div>
+                    <p><strong>Formula:</strong></p>
+                    <div style="background: var(--gray-100); padding: 0.75rem; border-radius: 6px; font-family: monospace; font-size: 0.85rem; margin: 0.5rem 0;">
+                        (New Leads x Conversion Rate x Avg Deal Size) - Current Revenue from Same Channels
+                    </div>
+                    <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--gray-500);">
+                        Based on projected lead volume improvements and maintained or improved conversion rates.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">+</div>
+                        <h4>Cost Savings</h4>
+                    </div>
+                    <p><strong>Formula:</strong></p>
+                    <div style="background: var(--gray-100); padding: 0.75rem; border-radius: 6px; font-family: monospace; font-size: 0.85rem; margin: 0.5rem 0;">
+                        (Hours Saved x Hourly Rate) + (Tool Consolidation Savings) + (Reduced Error Costs)
+                    </div>
+                    <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--gray-500);">
+                        Based on automation efficiencies, process improvements, and technology optimization.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">+</div>
+                        <h4>Avoided Costs</h4>
+                    </div>
+                    <p><strong>Formula:</strong></p>
+                    <div style="background: var(--gray-100); padding: 0.75rem; border-radius: 6px; font-family: monospace; font-size: 0.85rem; margin: 0.5rem 0;">
+                        (Hiring Avoided x Annual Salary) + (Agency Fees Eliminated) + (Opportunity Costs)
+                    </div>
+                    <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--gray-500);">
+                        Based on capacity created without headcount and service consolidation.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">-</div>
+                        <h4>Investment Total</h4>
+                    </div>
+                    <p><strong>Formula:</strong></p>
+                    <div style="background: var(--gray-100); padding: 0.75rem; border-radius: 6px; font-family: monospace; font-size: 0.85rem; margin: 0.5rem 0;">
+                        ScaleUp Fees + Implementation Time (Client Hours x Rate) + Additional Tools/Resources
+                    </div>
+                    <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--gray-500);">
+                        Fully-loaded cost including client time investment for accurate total cost of ownership.
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem;">Calculation Standards</h3>
+
+            <ul class="checklist">
+                <li>
+                    <div class="check-box checked">&#10003;</div>
+                    <div class="check-content">
+                        <div class="check-title">Conservative Baselines</div>
+                        <div class="check-desc">When using benchmarks, always use lower quartile performance, not averages or best cases.</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="check-box checked">&#10003;</div>
+                    <div class="check-content">
+                        <div class="check-title">Time Value of Money</div>
+                        <div class="check-desc">For multi-year projections, apply appropriate discount rate (default 8%) to future cash flows.</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="check-box checked">&#10003;</div>
+                    <div class="check-content">
+                        <div class="check-title">Ramp-Up Period</div>
+                        <div class="check-desc">First 60-90 days assume reduced effectiveness as implementations mature. No hockey sticks from day one.</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="check-box checked">&#10003;</div>
+                    <div class="check-content">
+                        <div class="check-title">Margin-Based Revenue</div>
+                        <div class="check-desc">For revenue impact, consider gross margin not just top-line. A $10K sale at 30% margin = $3K benefit.</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="check-box checked">&#10003;</div>
+                    <div class="check-content">
+                        <div class="check-title">Source Documentation</div>
+                        <div class="check-desc">Every number has a source: client-provided, ScaleUp historical, or third-party benchmark with citation.</div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section 5: Output Format -->
+        <section id="outputs" class="section">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <div class="section-title-group">
+                    <h2>Output Format and Visualizations</h2>
+                    <p>How results are presented for maximum clarity and impact</p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--navy); margin-bottom: 1.5rem;">Executive Summary Dashboard</h3>
+
+            <div class="document-mockup">
+                <div class="doc-header">
+                    <div class="doc-logo">
+                        <div class="doc-logo-box">SV</div>
+                        <span style="font-weight: 600;">ScaleUp Ventures</span>
+                    </div>
+                    <div class="doc-title">
+                        <h3>Executive Summary</h3>
+                        <p>Acme Corp ROI Analysis</p>
+                    </div>
+                </div>
+                <div class="doc-body">
+                    <div class="metric-grid">
+                        <div class="metric-card highlight">
+                            <div class="metric-value">287%</div>
+                            <div class="metric-label">Projected ROI</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">4.2 mo</div>
+                            <div class="metric-label">Payback Period</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">$156K</div>
+                            <div class="metric-label">Year 1 Benefit</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">$54K</div>
+                            <div class="metric-label">Total Investment</div>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-title">12-Month Value Creation Projection</div>
+                        <div class="bar-chart">
+                            <div class="bar-row">
+                                <span class="bar-label">Q1</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill expected" style="width: 25%;">$18K</div>
+                                </div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Q2</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill expected" style="width: 45%;">$38K</div>
+                                </div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Q3</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill expected" style="width: 65%;">$48K</div>
+                                </div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Q4</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill expected" style="width: 80%;">$52K</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem;">Required Visualizations</h3>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="20" x2="18" y2="10"/>
+                                <line x1="12" y1="20" x2="12" y2="4"/>
+                                <line x1="6" y1="20" x2="6" y2="14"/>
+                            </svg>
+                        </div>
+                        <h4>Scenario Comparison Chart</h4>
+                    </div>
+                    <p>Stacked bar or grouped bar comparing conservative, expected, and optimistic outcomes across key metrics.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                            </svg>
+                        </div>
+                        <h4>Cumulative Cash Flow</h4>
+                    </div>
+                    <p>Line chart showing investment curve crossing into positive territory at payback point.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
+                                <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+                            </svg>
+                        </div>
+                        <h4>Value Source Breakdown</h4>
+                    </div>
+                    <p>Pie or donut chart showing proportion of value from revenue, savings, and avoided costs.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <path d="M3 9h18"/>
+                                <path d="M9 21V9"/>
+                            </svg>
+                        </div>
+                        <h4>Sensitivity Matrix</h4>
+                    </div>
+                    <p>Heat map showing how ROI changes based on key variable assumptions (e.g., conversion rate vs. deal size).</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h5>Visual Standards</h5>
+                <p>All charts use brand colors (Navy #0F1729, Gold #D4A853). No 3D effects, gradients only where specified. Data labels required on all key data points. Legends positioned consistently bottom-center.</p>
+            </div>
+        </section>
+
+        <!-- Section 6: Assumptions and Risks -->
+        <section id="assumptions" class="section">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <div class="section-title-group">
+                    <h2>Assumptions and Risk Factors Section</h2>
+                    <p>Transparency that builds trust and protects both parties</p>
+                </div>
+            </div>
+
+            <p style="color: var(--gray-600); margin-bottom: 1.5rem;">
+                Every ROI model depends on assumptions. By explicitly documenting them, we build credibility and set realistic expectations. This section is mandatory and must be reviewed with the client.
+            </p>
+
+            <h3 style="color: var(--navy); margin-bottom: 1rem;">Standard Assumptions (Always Disclosed)</h3>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Assumption Category</th>
+                        <th>Our Default</th>
+                        <th>Source</th>
+                        <th>Sensitivity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Implementation ramp-up</td>
+                        <td>60 days to full effectiveness</td>
+                        <td>ScaleUp historical</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Team adoption rate</td>
+                        <td>85% within 30 days</td>
+                        <td>ScaleUp historical</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Market conditions</td>
+                        <td>Stable (no major disruption)</td>
+                        <td>Industry assumption</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>Client resource commitment</td>
+                        <td>As specified in scope</td>
+                        <td>Proposal terms</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Lead-to-customer time</td>
+                        <td>Client-provided average</td>
+                        <td>Client data</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>Conversion rate maintenance</td>
+                        <td>Current rate sustained</td>
+                        <td>Conservative</td>
+                        <td>High</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem;">Risk Factor Matrix</h3>
+
+            <div class="risk-matrix">
+                <div class="risk-cell header">Risk Factor</div>
+                <div class="risk-cell header">Probability</div>
+                <div class="risk-cell header">Impact</div>
+
+                <div class="risk-cell">Implementation delays</div>
+                <div class="risk-cell medium">Medium (30%)</div>
+                <div class="risk-cell medium">Delays payback 2-4 weeks</div>
+
+                <div class="risk-cell">Lower-than-expected adoption</div>
+                <div class="risk-cell low">Low (15%)</div>
+                <div class="risk-cell high">Reduces ROI by 20-40%</div>
+
+                <div class="risk-cell">Market downturn</div>
+                <div class="risk-cell low">Low (10%)</div>
+                <div class="risk-cell high">External factor, hard to mitigate</div>
+
+                <div class="risk-cell">Team turnover</div>
+                <div class="risk-cell medium">Medium (25%)</div>
+                <div class="risk-cell medium">Knowledge loss, retraining costs</div>
+
+                <div class="risk-cell">Scope expansion</div>
+                <div class="risk-cell high">High (40%)</div>
+                <div class="risk-cell low">Usually positive, extends value</div>
+            </div>
+
+            <div class="info-box warning">
+                <h5>Mitigation Statement</h5>
+                <p>Each identified risk includes a mitigation strategy in the full document. We don't just identify risks - we show how we'll address them together.</p>
+            </div>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem;">Disclaimer Language (Required)</h3>
+
+            <div style="background: var(--gray-100); border-left: 4px solid var(--navy); padding: 1.5rem; border-radius: 0 8px 8px 0; font-size: 0.9rem; color: var(--gray-600);">
+                <strong style="color: var(--navy);">ROI Model Disclaimer:</strong>
+                <p style="margin-top: 0.5rem;">
+                    This ROI projection is based on information provided by the client and industry benchmarks as of [date].
+                    Actual results may vary based on implementation quality, market conditions, team performance, and other factors.
+                    This analysis is provided for planning purposes and does not constitute a guarantee of results.
+                    ScaleUp Ventures is committed to transparency in our projections and will work with you to track actual
+                    performance against these estimates.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 7: Payback Timeline -->
+        <section id="payback" class="section">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <div class="section-title-group">
+                    <h2>Payback Timeline Presentation</h2>
+                    <p>Visualizing the path from investment to return</p>
+                </div>
+            </div>
+
+            <p style="color: var(--gray-600); margin-bottom: 1.5rem;">
+                The payback timeline is often the most scrutinized section. It answers the fundamental question: "When do I get my money back?" We present this clearly with monthly granularity.
+            </p>
+
+            <h3 style="color: var(--navy); margin-bottom: 1rem;">Payback Timeline Visualization</h3>
+
+            <div class="timeline">
+                <div class="timeline-item complete">
+                    <div class="timeline-dot">M1</div>
+                    <div class="timeline-label">Month 1</div>
+                    <div class="timeline-value">-$54K</div>
+                </div>
+                <div class="timeline-item complete">
+                    <div class="timeline-dot">M2</div>
+                    <div class="timeline-label">Month 2</div>
+                    <div class="timeline-value">-$42K</div>
+                </div>
+                <div class="timeline-item complete">
+                    <div class="timeline-dot">M3</div>
+                    <div class="timeline-label">Month 3</div>
+                    <div class="timeline-value">-$28K</div>
+                </div>
+                <div class="timeline-item active">
+                    <div class="timeline-dot">M4</div>
+                    <div class="timeline-label">Month 4</div>
+                    <div class="timeline-value">-$8K</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">M5</div>
+                    <div class="timeline-label">Month 5</div>
+                    <div class="timeline-value">+$14K</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">M6</div>
+                    <div class="timeline-label">Month 6</div>
+                    <div class="timeline-value">+$38K</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0; padding: 1.5rem; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); border-radius: 12px;">
+                <div style="color: var(--gold); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Breakeven Point</div>
+                <div style="color: var(--white); font-size: 2rem; font-weight: 700;">Month 4, Week 2</div>
+                <div style="color: var(--gray-400); font-size: 0.9rem; margin-top: 0.5rem;">Approximately 4.2 months to full payback</div>
+            </div>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem;">Monthly Value Breakdown Table</h3>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Investment</th>
+                        <th>Revenue Gain</th>
+                        <th>Cost Savings</th>
+                        <th>Net Value</th>
+                        <th>Cumulative</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Month 1</td>
+                        <td style="color: var(--red);">-$54,000</td>
+                        <td>$2,000</td>
+                        <td>$4,000</td>
+                        <td style="color: var(--red);">-$48,000</td>
+                        <td style="color: var(--red);">-$48,000</td>
+                    </tr>
+                    <tr>
+                        <td>Month 2</td>
+                        <td>$0</td>
+                        <td>$6,000</td>
+                        <td>$6,000</td>
+                        <td style="color: var(--green);">+$12,000</td>
+                        <td style="color: var(--red);">-$36,000</td>
+                    </tr>
+                    <tr>
+                        <td>Month 3</td>
+                        <td>$0</td>
+                        <td>$8,000</td>
+                        <td>$6,000</td>
+                        <td style="color: var(--green);">+$14,000</td>
+                        <td style="color: var(--red);">-$22,000</td>
+                    </tr>
+                    <tr>
+                        <td>Month 4</td>
+                        <td>$0</td>
+                        <td>$10,000</td>
+                        <td>$6,000</td>
+                        <td style="color: var(--green);">+$16,000</td>
+                        <td style="color: var(--red);">-$6,000</td>
+                    </tr>
+                    <tr style="background: var(--green-light);">
+                        <td><strong>Month 5</strong></td>
+                        <td>$0</td>
+                        <td>$12,000</td>
+                        <td>$6,000</td>
+                        <td style="color: var(--green);"><strong>+$18,000</strong></td>
+                        <td style="color: var(--green);"><strong>+$12,000</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Month 6</td>
+                        <td>$0</td>
+                        <td>$14,000</td>
+                        <td>$6,000</td>
+                        <td style="color: var(--green);">+$20,000</td>
+                        <td style="color: var(--green);">+$32,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 8: Comparison Scenarios -->
+        <section id="scenarios" class="section">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <div class="section-title-group">
+                    <h2>Comparison Scenarios</h2>
+                    <p>Conservative, Expected, and Optimistic projections</p>
+                </div>
+            </div>
+
+            <p style="color: var(--gray-600); margin-bottom: 1.5rem;">
+                We always present three scenarios to demonstrate the range of possible outcomes. This builds credibility by acknowledging uncertainty while still showing likely value creation.
+            </p>
+
+            <div class="scenario-grid">
+                <div class="scenario-card conservative">
+                    <div class="scenario-label">Conservative</div>
+                    <div class="scenario-roi">156%</div>
+                    <div class="scenario-payback">7.1 months payback</div>
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--gray-300); font-size: 0.85rem; color: var(--gray-500);">
+                        <div>Year 1 Value: $84,000</div>
+                        <div>Assumptions at 70%</div>
+                    </div>
+                </div>
+
+                <div class="scenario-card expected">
+                    <div class="scenario-label">Expected</div>
+                    <div class="scenario-roi">287%</div>
+                    <div class="scenario-payback">4.2 months payback</div>
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(212,168,83,0.3); font-size: 0.85rem; color: var(--gray-300);">
+                        <div>Year 1 Value: $156,000</div>
+                        <div>Assumptions at 100%</div>
+                    </div>
+                </div>
+
+                <div class="scenario-card optimistic">
+                    <div class="scenario-label">Optimistic</div>
+                    <div class="scenario-roi">412%</div>
+                    <div class="scenario-payback">2.8 months payback</div>
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--green); font-size: 0.85rem; color: var(--gray-600);">
+                        <div>Year 1 Value: $223,000</div>
+                        <div>Assumptions at 130%</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem;">Scenario Definitions</h3>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon" style="background: var(--gray-500);">C</div>
+                        <h4>Conservative Scenario</h4>
+                    </div>
+                    <p><strong>When This Applies:</strong></p>
+                    <ul>
+                        <li>Implementation takes 25% longer than planned</li>
+                        <li>Team adoption at 70% of expected</li>
+                        <li>Conversion improvements at lower end of benchmarks</li>
+                        <li>Market conditions slightly unfavorable</li>
+                    </ul>
+                    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--gray-500);">
+                        <strong>Probability:</strong> 20% chance of results at this level or lower
+                    </p>
+                </div>
+
+                <div class="card" style="border-color: var(--gold);">
+                    <div class="card-header">
+                        <div class="card-icon" style="background: var(--gold); color: var(--navy);">E</div>
+                        <h4>Expected Scenario</h4>
+                    </div>
+                    <p><strong>When This Applies:</strong></p>
+                    <ul>
+                        <li>Implementation on schedule</li>
+                        <li>Team adoption at planned levels</li>
+                        <li>Performance matches similar client outcomes</li>
+                        <li>Standard market conditions</li>
+                    </ul>
+                    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--gray-500);">
+                        <strong>Probability:</strong> 60% chance of results at this level
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon" style="background: var(--green);">O</div>
+                        <h4>Optimistic Scenario</h4>
+                    </div>
+                    <p><strong>When This Applies:</strong></p>
+                    <ul>
+                        <li>Implementation ahead of schedule</li>
+                        <li>Team exceeds adoption targets</li>
+                        <li>Conversion improvements at high end</li>
+                        <li>Favorable market tailwinds</li>
+                    </ul>
+                    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--gray-500);">
+                        <strong>Probability:</strong> 20% chance of results at this level or higher
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h5>Scenario Presentation Guidance</h5>
+                <p>Always lead with the Expected scenario. Present Conservative as "even in a challenging situation" and Optimistic as "if everything clicks." Never promise Optimistic as the baseline.</p>
+            </div>
+        </section>
+
+        <!-- Section 9: Service-Specific Templates -->
+        <section id="templates" class="section">
+            <div class="section-header">
+                <div class="section-number">9</div>
+                <div class="section-title-group">
+                    <h2>Service-Specific ROI Templates</h2>
+                    <p>Customized models for Development, Growth, and Automation services</p>
+                </div>
+            </div>
+
+            <div class="template-tabs">
+                <button class="template-tab active" onclick="showTemplate('development')">Development</button>
+                <button class="template-tab" onclick="showTemplate('growth')">Growth Marketing</button>
+                <button class="template-tab" onclick="showTemplate('automation')">Automation</button>
+            </div>
+
+            <div id="development" class="template-content active">
+                <h3 style="color: var(--navy); margin-bottom: 1rem;">Development Services ROI Model</h3>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h4 style="color: var(--navy); margin-bottom: 1rem;">Primary Value Drivers</h4>
+                        <ul>
+                            <li>Time-to-market acceleration</li>
+                            <li>Development cost savings vs. alternatives</li>
+                            <li>Technical debt avoidance</li>
+                            <li>Scalability cost savings</li>
+                            <li>Maintenance efficiency</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4 style="color: var(--navy); margin-bottom: 1rem;">Key Metrics</h4>
+                        <ul>
+                            <li>Revenue enabled by faster launch</li>
+                            <li>Cost per feature vs. internal team</li>
+                            <li>Bug/incident reduction rate</li>
+                            <li>Infrastructure cost optimization</li>
+                            <li>Developer productivity gains</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="formula-box" style="margin-top: 1.5rem;">
+                    <div class="formula-title">Development ROI Formula</div>
+                    <div class="formula">
+                        ((Revenue from Early Launch) + (Dev Cost Savings) + (Maintenance Savings)) / Total Investment
+                    </div>
+                </div>
+            </div>
+
+            <div id="growth" class="template-content">
+                <h3 style="color: var(--navy); margin-bottom: 1rem;">Growth Marketing ROI Model</h3>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h4 style="color: var(--navy); margin-bottom: 1rem;">Primary Value Drivers</h4>
+                        <ul>
+                            <li>Lead volume increase</li>
+                            <li>Conversion rate improvement</li>
+                            <li>Customer acquisition cost reduction</li>
+                            <li>Customer lifetime value increase</li>
+                            <li>Brand equity building</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4 style="color: var(--navy); margin-bottom: 1rem;">Key Metrics</h4>
+                        <ul>
+                            <li>Leads generated per month</li>
+                            <li>Lead-to-customer conversion %</li>
+                            <li>Cost per acquisition (CPA)</li>
+                            <li>Marketing-attributed revenue</li>
+                            <li>Return on ad spend (ROAS)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="formula-box" style="margin-top: 1.5rem;">
+                    <div class="formula-title">Growth Marketing ROI Formula</div>
+                    <div class="formula">
+                        ((New Leads x Conv. Rate x Avg. Deal Size) - Current Baseline) / Total Investment
+                    </div>
+                </div>
+            </div>
+
+            <div id="automation" class="template-content">
+                <h3 style="color: var(--navy); margin-bottom: 1rem;">Automation Services ROI Model</h3>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h4 style="color: var(--navy); margin-bottom: 1rem;">Primary Value Drivers</h4>
+                        <ul>
+                            <li>Labor hour savings</li>
+                            <li>Error reduction</li>
+                            <li>Processing speed increase</li>
+                            <li>Scalability without headcount</li>
+                            <li>Employee satisfaction improvement</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4 style="color: var(--navy); margin-bottom: 1rem;">Key Metrics</h4>
+                        <ul>
+                            <li>Hours saved per week</li>
+                            <li>Error rate reduction %</li>
+                            <li>Process completion time</li>
+                            <li>FTE cost avoidance</li>
+                            <li>Tool consolidation savings</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="formula-box" style="margin-top: 1.5rem;">
+                    <div class="formula-title">Automation ROI Formula</div>
+                    <div class="formula">
+                        ((Hours Saved x Hourly Rate) + (Error Cost Avoided) + (Tool Savings)) / Total Investment
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function showTemplate(templateId) {
+                    document.querySelectorAll('.template-content').forEach(el => el.classList.remove('active'));
+                    document.querySelectorAll('.template-tab').forEach(el => el.classList.remove('active'));
+                    document.getElementById(templateId).classList.add('active');
+                    event.target.classList.add('active');
+                }
+            </script>
+        </section>
+
+        <!-- Section 10: Industry Adjustments -->
+        <section id="industry" class="section">
+            <div class="section-header">
+                <div class="section-number">10</div>
+                <div class="section-title-group">
+                    <h2>Industry-Specific Adjustments</h2>
+                    <p>Customization factors for different verticals and business models</p>
+                </div>
+            </div>
+
+            <p style="color: var(--gray-600); margin-bottom: 1.5rem;">
+                ROI models must account for industry-specific factors that affect implementation timelines,
+                benchmark expectations, and value realization. These adjustments ensure accurate,
+                credible projections for each vertical.
+            </p>
+
+            <div class="industry-grid">
+                <div class="industry-card">
+                    <div class="industry-header">
+                        <div class="industry-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <span class="industry-name">SaaS / Technology</span>
+                    </div>
+                    <ul class="industry-adjustments">
+                        <li>Sales cycle <span class="adjustment-value">30-90 days</span></li>
+                        <li>Gross margin <span class="adjustment-value">70-85%</span></li>
+                        <li>LTV:CAC target <span class="adjustment-value">3:1</span></li>
+                        <li>Adoption speed <span class="adjustment-value">Fast</span></li>
+                    </ul>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-header">
+                        <div class="industry-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="16" rx="2"/>
+                                <path d="M3 10h18"/>
+                            </svg>
+                        </div>
+                        <span class="industry-name">E-Commerce / Retail</span>
+                    </div>
+                    <ul class="industry-adjustments">
+                        <li>Conversion rate <span class="adjustment-value">2-4%</span></li>
+                        <li>Cart abandonment <span class="adjustment-value">70%</span></li>
+                        <li>Repeat purchase <span class="adjustment-value">25-35%</span></li>
+                        <li>Seasonality impact <span class="adjustment-value">High</span></li>
+                    </ul>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-header">
+                        <div class="industry-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <span class="industry-name">Professional Services</span>
+                    </div>
+                    <ul class="industry-adjustments">
+                        <li>Sales cycle <span class="adjustment-value">60-180 days</span></li>
+                        <li>Utilization target <span class="adjustment-value">75-85%</span></li>
+                        <li>Referral rate <span class="adjustment-value">40-60%</span></li>
+                        <li>Value perception <span class="adjustment-value">Relationship</span></li>
+                    </ul>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-header">
+                        <div class="industry-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <span class="industry-name">Healthcare</span>
+                    </div>
+                    <ul class="industry-adjustments">
+                        <li>Compliance factor <span class="adjustment-value">+25% time</span></li>
+                        <li>Decision committee <span class="adjustment-value">3-5 people</span></li>
+                        <li>Adoption pace <span class="adjustment-value">Slow</span></li>
+                        <li>ROI horizon <span class="adjustment-value">18-24 mo</span></li>
+                    </ul>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-header">
+                        <div class="industry-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <span class="industry-name">Financial Services</span>
+                    </div>
+                    <ul class="industry-adjustments">
+                        <li>Compliance factor <span class="adjustment-value">+35% time</span></li>
+                        <li>Average deal size <span class="adjustment-value">$50K+</span></li>
+                        <li>Procurement <span class="adjustment-value">90-120 days</span></li>
+                        <li>Security review <span class="adjustment-value">Required</span></li>
+                    </ul>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-header">
+                        <div class="industry-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <span class="industry-name">Manufacturing</span>
+                    </div>
+                    <ul class="industry-adjustments">
+                        <li>Integration complexity <span class="adjustment-value">High</span></li>
+                        <li>Legacy systems <span class="adjustment-value">Common</span></li>
+                        <li>ROI focus <span class="adjustment-value">Efficiency</span></li>
+                        <li>Change management <span class="adjustment-value">Critical</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box warning">
+                <h5>Adjustment Application</h5>
+                <p>Industry adjustments are applied to timelines, benchmark selection, and risk factors - not to artificially inflate or deflate ROI projections. Document which adjustments were applied and why.</p>
+            </div>
+        </section>
+
+        <!-- Section 11: Presentation Guide -->
+        <section id="presentation" class="section">
+            <div class="section-header">
+                <div class="section-number">11</div>
+                <div class="section-title-group">
+                    <h2>Presentation Guide for Delivering the Model</h2>
+                    <p>How to present the ROI model for maximum impact and buy-in</p>
+                </div>
+            </div>
+
+            <p style="color: var(--gray-600); margin-bottom: 1.5rem;">
+                The ROI model presentation is as important as the model itself. This is where we convert
+                analytical work into client confidence. Follow this structure for consistent,
+                professional delivery.
+            </p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-indicator">
+                        <div class="step-number">1</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h4>Set the Stage (2 minutes)</h4>
+                        <p>Remind them why we built this model: "You asked us to show you exactly what the return would look like before investing. Here's what we found."</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-indicator">
+                        <div class="step-number">2</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h4>Executive Summary First (3 minutes)</h4>
+                        <p>Lead with the headline numbers: ROI percentage, payback period, Year 1 value. Let these sink in before going deeper. This is the "certainty" they came for.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-indicator">
+                        <div class="step-number">3</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h4>Walk Through Their Data (5 minutes)</h4>
+                        <p>Show them the inputs we used from their business. This validates that we understand their situation and builds trust in the output.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-indicator">
+                        <div class="step-number">4</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h4>Explain the Value Creation Logic (7 minutes)</h4>
+                        <p>Walk through how the investment creates value. Make it intuitive: "When we do X, it produces Y, which generates Z in value." Connect activities to outcomes.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-indicator">
+                        <div class="step-number">5</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h4>Present the Scenarios (5 minutes)</h4>
+                        <p>Show all three scenarios. Emphasize that even Conservative is positive ROI. This demonstrates our confidence while acknowledging real-world variability.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-indicator">
+                        <div class="step-number">6</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h4>Address Assumptions Proactively (5 minutes)</h4>
+                        <p>Walk through key assumptions before they ask. This builds credibility: "We assumed X - is that aligned with your experience?" Let them validate or adjust.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-indicator">
+                        <div class="step-number">7</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h4>Questions and Sensitivity Exploration (10 minutes)</h4>
+                        <p>Open the interactive model. Let them ask "what if" questions and show them how the numbers change. This creates ownership of the projections.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-indicator">
+                        <div class="step-number">8</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h4>Close with Next Steps (3 minutes)</h4>
+                        <p>End with clear action items: "Based on what we've shown, are you ready to move forward? Here's what happens next..."</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem;">Presentation Do's and Don'ts</h3>
+
+            <div class="card-grid">
+                <div class="card" style="border-left: 4px solid var(--green);">
+                    <h4 style="color: var(--green); margin-bottom: 1rem;">Do</h4>
+                    <ul>
+                        <li>Send PDF in advance for review</li>
+                        <li>Have interactive model ready for live exploration</li>
+                        <li>Acknowledge uncertainty openly</li>
+                        <li>Connect numbers to their specific goals</li>
+                        <li>Let them challenge assumptions</li>
+                        <li>Reference similar client outcomes</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="border-left: 4px solid var(--red);">
+                    <h4 style="color: var(--red); margin-bottom: 1rem;">Don't</h4>
+                    <ul>
+                        <li>Oversell the optimistic scenario</li>
+                        <li>Get defensive about assumptions</li>
+                        <li>Promise guaranteed results</li>
+                        <li>Rush through the methodology</li>
+                        <li>Ignore concerns or objections</li>
+                        <li>Skip the data validation step</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 12: Follow-Up -->
+        <section id="followup" class="section">
+            <div class="section-header">
+                <div class="section-number">12</div>
+                <div class="section-title-group">
+                    <h2>Follow-Up After Model Delivery</h2>
+                    <p>Maintaining momentum and addressing questions post-presentation</p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--navy); margin-bottom: 1rem;">Follow-Up Timeline</h3>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Timing</th>
+                        <th>Action</th>
+                        <th>Channel</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Same Day</strong></td>
+                        <td>Send thank you + materials</td>
+                        <td>Email</td>
+                        <td>Reinforce key points, provide files</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Day 2</strong></td>
+                        <td>Check for questions</td>
+                        <td>Email/Call</td>
+                        <td>Address concerns while fresh</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Day 5</strong></td>
+                        <td>Offer scenario adjustment</td>
+                        <td>Email</td>
+                        <td>Re-engage if they've gone quiet</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Day 10</strong></td>
+                        <td>Decision check-in</td>
+                        <td>Call</td>
+                        <td>Understand timeline and blockers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Day 21</strong></td>
+                        <td>Final follow-up</td>
+                        <td>Email</td>
+                        <td>Offer to update model if data changed</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="color: var(--navy); margin: 2rem 0 1rem;">Follow-Up Email Templates</h3>
+
+            <div class="card" style="margin-bottom: 1rem;">
+                <h4 style="color: var(--navy); margin-bottom: 0.75rem;">Same-Day Follow-Up</h4>
+                <div style="background: var(--gray-100); padding: 1rem; border-radius: 8px; font-size: 0.9rem; color: var(--gray-700);">
+                    <p><strong>Subject:</strong> ROI Analysis Materials + Next Steps | ScaleUp Ventures</p>
+                    <p style="margin-top: 0.75rem;">Hi [Name],</p>
+                    <p style="margin-top: 0.5rem;">Thank you for your time today reviewing the ROI analysis we prepared for [Company]. Attached you'll find:</p>
+                    <ul style="margin: 0.5rem 0 0.5rem 1.5rem;">
+                        <li>The complete ROI Model (PDF)</li>
+                        <li>Interactive spreadsheet for scenario exploration</li>
+                        <li>Supporting case studies referenced</li>
+                    </ul>
+                    <p>Key takeaway: A projected <strong>287% ROI</strong> with payback in <strong>4.2 months</strong> under expected conditions.</p>
+                    <p style="margin-top: 0.5rem;">Let me know what questions come up as you review with your team.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h4 style="color: var(--navy); margin-bottom: 0.75rem;">Scenario Adjustment Offer</h4>
+                <div style="background: var(--gray-100); padding: 1rem; border-radius: 8px; font-size: 0.9rem; color: var(--gray-700);">
+                    <p><strong>Subject:</strong> Quick update to your ROI model?</p>
+                    <p style="margin-top: 0.75rem;">Hi [Name],</p>
+                    <p style="margin-top: 0.5rem;">Following up on our ROI analysis. If you've had any new data or if any of our assumptions don't quite match your situation, I'm happy to adjust the model.</p>
+                    <p style="margin-top: 0.5rem;">Common adjustments we make:</p>
+                    <ul style="margin: 0.5rem 0 0.5rem 1.5rem;">
+                        <li>Different conversion rate assumptions</li>
+                        <li>Adjusted implementation timeline</li>
+                        <li>Alternative pricing scenarios</li>
+                    </ul>
+                    <p>Takes 15 minutes on my end and ensures you have the most accurate picture for your decision.</p>
+                </div>
+            </div>
+
+            <div class="info-box success">
+                <h5>Post-Engagement Tracking</h5>
+                <p>After client signs, the ROI model becomes our accountability document. Schedule quarterly reviews to compare actual results against projections. This builds long-term trust and referral potential.</p>
+            </div>
+        </section>
+
+        <!-- Section 13: Sample Model -->
+        <section id="sample" class="section">
+            <div class="section-header">
+                <div class="section-number">13</div>
+                <div class="section-title-group">
+                    <h2>Sample Completed Model (Anonymized)</h2>
+                    <p>Reference example showing a complete ROI model for a Growth Marketing engagement</p>
+                </div>
+            </div>
+
+            <div class="sample-model">
+                <div class="sample-header">
+                    <div>
+                        <h3 style="color: var(--navy); margin-bottom: 0.25rem;">Sample: B2B SaaS Growth Marketing ROI</h3>
+                        <p style="color: var(--gray-500); font-size: 0.9rem;">Anonymized client example - for internal reference only</p>
+                    </div>
+                    <span class="sample-badge">Sample</span>
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                    <h4 style="color: var(--navy); margin-bottom: 1rem;">Client Profile</h4>
+                    <table class="data-table">
+                        <tbody>
+                            <tr><td><strong>Industry</strong></td><td>B2B SaaS (HR Technology)</td></tr>
+                            <tr><td><strong>Company Size</strong></td><td>35 employees, $4.2M ARR</td></tr>
+                            <tr><td><strong>Service Engaged</strong></td><td>Growth Marketing (6-month engagement)</td></tr>
+                            <tr><td><strong>Investment</strong></td><td>$72,000 ($12K/month)</td></tr>
+                            <tr><td><strong>Primary Goal</strong></td><td>Increase qualified lead volume by 3x</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h4 style="color: var(--navy); margin-bottom: 1rem;">Current State (Inputs)</h4>
+                    <div class="metric-grid" style="grid-template-columns: repeat(3, 1fr);">
+                        <div class="metric-card">
+                            <div class="metric-value">120</div>
+                            <div class="metric-label">Monthly Leads</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">8%</div>
+                            <div class="metric-label">Conversion Rate</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">$18K</div>
+                            <div class="metric-label">Avg. Contract Value</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h4 style="color: var(--navy); margin-bottom: 1rem;">Projected Outcomes</h4>
+                    <div class="metric-grid" style="grid-template-columns: repeat(3, 1fr);">
+                        <div class="metric-card" style="background: var(--green-light);">
+                            <div class="metric-value" style="color: var(--green);">360</div>
+                            <div class="metric-label">Monthly Leads (3x)</div>
+                        </div>
+                        <div class="metric-card" style="background: var(--green-light);">
+                            <div class="metric-value" style="color: var(--green);">9%</div>
+                            <div class="metric-label">Conversion Rate</div>
+                        </div>
+                        <div class="metric-card" style="background: var(--green-light);">
+                            <div class="metric-value" style="color: var(--green);">$324K</div>
+                            <div class="metric-label">New ARR Added</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h4 style="color: var(--navy); margin-bottom: 1rem;">ROI Summary</h4>
+                    <div class="scenario-grid" style="grid-template-columns: repeat(3, 1fr);">
+                        <div class="scenario-card conservative" style="transform: none;">
+                            <div class="scenario-label">Conservative</div>
+                            <div class="scenario-roi" style="font-size: 2rem;">186%</div>
+                            <div class="scenario-payback">6.8 mo payback</div>
+                        </div>
+                        <div class="scenario-card expected" style="transform: none;">
+                            <div class="scenario-label">Expected</div>
+                            <div class="scenario-roi" style="font-size: 2rem;">350%</div>
+                            <div class="scenario-payback">3.9 mo payback</div>
+                        </div>
+                        <div class="scenario-card optimistic" style="transform: none;">
+                            <div class="scenario-label">Optimistic</div>
+                            <div class="scenario-roi" style="font-size: 2rem;">512%</div>
+                            <div class="scenario-payback">2.4 mo payback</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h4 style="color: var(--navy); margin-bottom: 1rem;">Value Breakdown (Expected Scenario)</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Value Source</th>
+                                <th>Calculation</th>
+                                <th>Annual Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Revenue from New Leads</td>
+                                <td>+240 leads/mo x 9% x $18K ACV</td>
+                                <td style="color: var(--green); font-weight: 600;">$259,200</td>
+                            </tr>
+                            <tr>
+                                <td>Conversion Rate Improvement</td>
+                                <td>+1% on existing 120 leads x $18K</td>
+                                <td style="color: var(--green); font-weight: 600;">$25,920</td>
+                            </tr>
+                            <tr>
+                                <td>Marketing Efficiency Savings</td>
+                                <td>Reduced CPL, consolidated tools</td>
+                                <td style="color: var(--green); font-weight: 600;">$18,000</td>
+                            </tr>
+                            <tr>
+                                <td>Avoided Hiring (1 FTE)</td>
+                                <td>Marketing coordinator role</td>
+                                <td style="color: var(--green); font-weight: 600;">$65,000</td>
+                            </tr>
+                            <tr style="background: var(--gold); color: var(--navy);">
+                                <td><strong>Total Annual Value</strong></td>
+                                <td></td>
+                                <td><strong>$368,120</strong></td>
+                            </tr>
+                            <tr style="background: var(--gray-100);">
+                                <td><strong>Less: Investment</strong></td>
+                                <td>6 months x $12K</td>
+                                <td>-$72,000</td>
+                            </tr>
+                            <tr style="background: var(--navy); color: var(--gold);">
+                                <td><strong>Net Value Created</strong></td>
+                                <td></td>
+                                <td><strong>$296,120</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h4 style="color: var(--navy); margin-bottom: 1rem;">Key Assumptions</h4>
+                    <ul class="checklist">
+                        <li>
+                            <div class="check-box"></div>
+                            <div class="check-content">
+                                <div class="check-title">Lead ramp-up over 90 days</div>
+                                <div class="check-desc">Full lead volume achieved by end of Month 3</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check-box"></div>
+                            <div class="check-content">
+                                <div class="check-title">Conversion rate maintained or improved</div>
+                                <div class="check-desc">Quality focus ensures leads convert at 8%+ rate</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check-box"></div>
+                            <div class="check-content">
+                                <div class="check-title">Sales capacity to handle increased volume</div>
+                                <div class="check-desc">Client's current team can process 3x leads</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check-box"></div>
+                            <div class="check-content">
+                                <div class="check-title">Market conditions remain stable</div>
+                                <div class="check-desc">No major industry disruption or competitive shift</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h5>Actual Results (Post-Engagement)</h5>
+                <p>This anonymized client achieved 312% ROI - slightly below Expected but well above Conservative. Key learning: sales team capacity was the limiting factor in months 4-6. Recommendation incorporated into future models.</p>
+            </div>
+        </section>
+
+        <!-- Summary Section -->
+        <section class="section" style="background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); color: var(--white);">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <div style="color: var(--gold); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Certainty First</div>
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">The ROI Model is Our Promise Made Tangible</h2>
+                <p style="color: var(--gray-300); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                    Before clients invest a dollar, they know exactly how they'll make it back.
+                    This is what sets ScaleUp Ventures apart. Every ROI model we create reinforces
+                    our commitment to certainty, transparency, and measurable outcomes.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--gold);">100%</div>
+                        <div style="font-size: 0.875rem; color: var(--gray-400);">Transparency</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--gold);">3</div>
+                        <div style="font-size: 0.875rem; color: var(--gray-400);">Scenarios</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--gold);">0</div>
+                        <div style="font-size: 0.875rem; color: var(--gray-400);">Guesswork</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="footer-logo-box">SV</div>
+                <span class="footer-tagline">Certainty First.</span>
+            </div>
+            <div style="font-size: 0.875rem;">
+                ROI Model Deliverable Format | Internal Documentation | Version 1.0
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

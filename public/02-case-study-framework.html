@@ -1,0 +1,2699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study Framework & Templates | ScaleUp Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2540;
+            --navy-dark: #0a0f1a;
+            --gold: #D4A853;
+            --gold-light: #e5c17a;
+            --gold-dark: #b8923f;
+            --cream: #FAF8F5;
+            --warm-gray: #6B7280;
+            --light-gray: #E5E7EB;
+            --success: #059669;
+            --success-light: #D1FAE5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* Header */
+        .header {
+            background: var(--navy);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-logo span {
+            color: var(--gold);
+        }
+
+        .header h1 {
+            font-size: 2.75rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .header-tagline {
+            color: var(--gold);
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .header-subtitle {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: var(--navy-light);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .nav-container a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .nav-container a:hover {
+            color: white;
+            background: rgba(212,168,83,0.2);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Sections */
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(15,23,41,0.08);
+        }
+
+        .section-header {
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.75rem;
+            color: var(--navy);
+        }
+
+        .section-header .section-number {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 0.875rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Introduction Box */
+        .intro-box {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .intro-box h3 {
+            color: var(--gold);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro-box p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1rem;
+        }
+
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Template Cards */
+        .template-card {
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: border-color 0.2s;
+        }
+
+        .template-card:hover {
+            border-color: var(--gold);
+        }
+
+        .template-card h4 {
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .template-card h4 .badge {
+            background: var(--gold);
+            color: var(--navy);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        /* CAR Structure */
+        .car-structure {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .car-item {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .car-item.challenge {
+            border-top: 4px solid #EF4444;
+        }
+
+        .car-item.approach {
+            border-top: 4px solid var(--gold);
+        }
+
+        .car-item.results {
+            border-top: 4px solid var(--success);
+        }
+
+        .car-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .car-item h5 {
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .car-item p {
+            font-size: 0.875rem;
+            color: var(--warm-gray);
+        }
+
+        /* Arrow between CAR items */
+        .car-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        /* Template Sections */
+        .template-section {
+            background: var(--cream);
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .template-section h5 {
+            font-size: 1rem;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .template-section ul {
+            margin-left: 1.25rem;
+            color: var(--warm-gray);
+        }
+
+        .template-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .template-section .placeholder {
+            color: var(--gold-dark);
+            font-style: italic;
+        }
+
+        /* ROI Table */
+        .roi-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .roi-table th {
+            background: var(--navy);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .roi-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .roi-table tr:nth-child(even) {
+            background: var(--cream);
+        }
+
+        .roi-table .projected {
+            color: var(--warm-gray);
+        }
+
+        .roi-table .actual {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .roi-table .variance-positive {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .roi-table .variance-negative {
+            color: #EF4444;
+            font-weight: 600;
+        }
+
+        /* Industry Tabs */
+        .industry-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 0;
+        }
+
+        .industry-tab {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--warm-gray);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+        }
+
+        .industry-tab:hover {
+            color: var(--navy);
+        }
+
+        .industry-tab.active {
+            color: var(--navy);
+            border-bottom-color: var(--gold);
+        }
+
+        .industry-content {
+            display: none;
+        }
+
+        .industry-content.active {
+            display: block;
+        }
+
+        /* Metrics Display */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .metric-box {
+            background: var(--cream);
+            padding: 1.25rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .metric-value.gold {
+            color: var(--gold-dark);
+        }
+
+        .metric-value.green {
+            color: var(--success);
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+            margin-top: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Quote Box */
+        .quote-box {
+            background: var(--navy);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: '"';
+            font-family: 'Crimson Pro', serif;
+            font-size: 4rem;
+            color: var(--gold);
+            position: absolute;
+            top: 0.5rem;
+            left: 1rem;
+            line-height: 1;
+        }
+
+        .quote-text {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            line-height: 1.6;
+            margin-left: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .quote-attribution {
+            margin-left: 2.5rem;
+            font-size: 0.9rem;
+        }
+
+        .quote-name {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .quote-title {
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Visual Layout Guide */
+        .layout-mockup {
+            background: #f0f0f0;
+            border: 2px dashed var(--warm-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .layout-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .layout-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .layout-block {
+            background: white;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+        }
+
+        .layout-block.full {
+            flex: 1;
+        }
+
+        .layout-block.half {
+            flex: 1;
+        }
+
+        .layout-block.third {
+            flex: 1;
+        }
+
+        .layout-block.quarter {
+            flex: 1;
+        }
+
+        .layout-block.header {
+            background: var(--navy);
+            color: white;
+        }
+
+        .layout-block.highlight {
+            background: var(--cream);
+            border-color: var(--gold);
+        }
+
+        /* Data Visualization Guidelines */
+        .viz-example {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .viz-card {
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .viz-header {
+            background: var(--navy);
+            color: white;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .viz-body {
+            padding: 1.5rem;
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .bar-label {
+            width: 80px;
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+        }
+
+        .bar-container {
+            flex: 1;
+            height: 24px;
+            background: var(--cream);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .bar-fill.before {
+            background: var(--warm-gray);
+        }
+
+        .bar-fill.after {
+            background: var(--success);
+        }
+
+        .bar-value {
+            width: 50px;
+            text-align: right;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        /* Comparison Chart */
+        .comparison-chart {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 150px;
+            padding: 1rem 0;
+        }
+
+        .comparison-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .comparison-bar-fill {
+            width: 60px;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .comparison-bar-label {
+            font-size: 0.75rem;
+            color: var(--warm-gray);
+        }
+
+        .comparison-bar-value {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        /* Guidelines List */
+        .guidelines-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .guideline-item {
+            display: flex;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--cream);
+            border-radius: 6px;
+        }
+
+        .guideline-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .guideline-icon.do {
+            background: var(--success-light);
+            color: var(--success);
+        }
+
+        .guideline-icon.dont {
+            background: #FEE2E2;
+            color: #EF4444;
+        }
+
+        .guideline-text {
+            font-size: 0.9rem;
+            color: var(--navy);
+        }
+
+        /* Example Case Studies */
+        .case-study-example {
+            border: 2px solid var(--navy);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .case-study-header {
+            background: var(--navy);
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .case-study-title h4 {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+
+        .case-study-title .industry-badge {
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .case-study-logo {
+            background: white;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.875rem;
+        }
+
+        .case-study-body {
+            padding: 2rem;
+            background: white;
+        }
+
+        .case-study-intro {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .company-overview h5 {
+            font-size: 0.875rem;
+            color: var(--warm-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .company-overview p {
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .quick-stats {
+            background: var(--cream);
+            padding: 1.25rem;
+            border-radius: 8px;
+        }
+
+        .quick-stats h5 {
+            font-size: 0.875rem;
+            color: var(--warm-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            color: var(--warm-gray);
+            font-size: 0.875rem;
+        }
+
+        .stat-value {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .case-study-section {
+            margin-bottom: 2rem;
+        }
+
+        .case-study-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-label.challenge {
+            background: #FEE2E2;
+            color: #DC2626;
+        }
+
+        .section-label.approach {
+            background: #FEF3C7;
+            color: #B45309;
+        }
+
+        .section-label.results {
+            background: var(--success-light);
+            color: var(--success);
+        }
+
+        .case-study-section h5 {
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .approach-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .approach-item {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .approach-number {
+            width: 28px;
+            height: 28px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .result-card {
+            background: var(--navy);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .result-card .value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .result-card .label {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            margin-top: 0.25rem;
+        }
+
+        /* Short Form Template */
+        .short-form-preview {
+            background: white;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 1.5rem auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .short-form-preview h4 {
+            font-size: 1.1rem;
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .short-form-section {
+            margin-bottom: 1rem;
+        }
+
+        .short-form-section h5 {
+            font-size: 0.875rem;
+            color: var(--gold-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .short-form-section p {
+            font-size: 0.875rem;
+            color: var(--warm-gray);
+        }
+
+        .short-form-metrics {
+            display: flex;
+            justify-content: space-around;
+            background: var(--cream);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+        }
+
+        .short-metric {
+            text-align: center;
+        }
+
+        .short-metric .value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .short-metric .label {
+            font-size: 0.7rem;
+            color: var(--warm-gray);
+            text-transform: uppercase;
+        }
+
+        /* Checklist */
+        .checklist {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .checklist h5 {
+            font-size: 1rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .checklist-item {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            padding: 0.5rem 0;
+        }
+
+        .checklist-box {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--gold);
+            border-radius: 3px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checklist-text {
+            font-size: 0.9rem;
+            color: var(--navy);
+        }
+
+        /* Code/Template Block */
+        .template-block {
+            background: var(--navy-dark);
+            color: #E5E7EB;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+
+        .template-block .label {
+            color: var(--gold);
+        }
+
+        .template-block .placeholder {
+            color: #60A5FA;
+        }
+
+        .template-block .comment {
+            color: #6B7280;
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .car-structure {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .viz-example {
+                grid-template-columns: 1fr;
+            }
+
+            .guidelines-list {
+                grid-template-columns: 1fr;
+            }
+
+            .case-study-intro {
+                grid-template-columns: 1fr;
+            }
+
+            .approach-list {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .industry-tabs {
+                overflow-x: auto;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav-container {
+                display: none;
+            }
+
+            .section {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+
+            .case-study-example {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">SCALEUP <span>VENTURES</span></div>
+        <h1>Case Study Framework & Templates</h1>
+        <div class="header-tagline">Certainty First.</div>
+        <p class="header-subtitle">Comprehensive templates for documenting client success stories with credibility and measurable impact</p>
+    </header>
+
+    <div class="nav-container">
+        <nav>
+            <a href="#car-structure">CAR Structure</a>
+            <a href="#roi-template">ROI Template</a>
+            <a href="#industry-templates">Industry Templates</a>
+            <a href="#short-form">Short Form</a>
+            <a href="#long-form">Long Form</a>
+            <a href="#visual-layout">Visual Layout</a>
+            <a href="#data-viz">Data Visualization</a>
+            <a href="#quotes">Quote Integration</a>
+            <a href="#examples">Examples</a>
+        </nav>
+    </div>
+
+    <main class="container">
+        <!-- Introduction -->
+        <section class="section">
+            <div class="intro-box">
+                <h3>Why Case Studies Matter for Our Audience</h3>
+                <p>Business owners aged 50-65 are naturally skeptical. They've seen countless promises fail to materialize and have developed a keen eye for marketing fluff versus substance. Our case studies must earn their trust through:</p>
+                <p><strong>Specificity:</strong> Concrete numbers, timelines, and outcomes - not vague claims of "improvement."</p>
+                <p><strong>Relatability:</strong> Scenarios they recognize from their own experience in their industry.</p>
+                <p><strong>Credibility:</strong> Real attribution, verifiable claims, and honest acknowledgment of challenges.</p>
+                <p><strong>Proof of Process:</strong> Clear demonstration of HOW results were achieved, not just what happened.</p>
+            </div>
+        </section>
+
+        <!-- Section 1: CAR Structure -->
+        <section id="car-structure" class="section">
+            <div class="section-header">
+                <span class="section-number">Section 1</span>
+                <h2>Challenge > Approach > Results Structure</h2>
+            </div>
+
+            <p>The CAR framework is the backbone of every ScaleUp Ventures case study. This proven structure mirrors how our audience naturally thinks about business problems and evaluates solutions.</p>
+
+            <div class="car-structure">
+                <div class="car-item challenge">
+                    <div class="car-icon">!</div>
+                    <h5>Challenge</h5>
+                    <p>The specific problem or situation the client faced before engagement</p>
+                </div>
+                <div class="car-item approach">
+                    <div class="car-icon">&#8594;</div>
+                    <h5>Approach</h5>
+                    <p>The methodology, strategy, and actions taken to address the challenge</p>
+                </div>
+                <div class="car-item results">
+                    <div class="car-icon">&#10003;</div>
+                    <h5>Results</h5>
+                    <p>Quantifiable outcomes and measurable impact achieved</p>
+                </div>
+            </div>
+
+            <div class="template-card">
+                <h4>Challenge Section Template</h4>
+
+                <div class="template-section">
+                    <h5>Opening Hook</h5>
+                    <p>Begin with the most pressing pain point. Lead with emotion, then support with data.</p>
+                    <div class="template-block">
+                        <span class="label">[CLIENT NAME]</span> was facing <span class="placeholder">[PRIMARY PROBLEM]</span> that was costing them <span class="placeholder">[SPECIFIC IMPACT - $, time, or opportunity]</span> every <span class="placeholder">[TIMEFRAME]</span>.
+                    </div>
+                </div>
+
+                <div class="template-section">
+                    <h5>Context & Background</h5>
+                    <ul>
+                        <li>Company size, industry, years in operation</li>
+                        <li>What triggered the need for change (catalyst event)</li>
+                        <li>Previous attempts to solve the problem (shows they've tried)</li>
+                        <li>Specific metrics before engagement (baseline data)</li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>Stakes & Urgency</h5>
+                    <ul>
+                        <li>What would happen if the problem continued?</li>
+                        <li>Timeline pressure or market conditions</li>
+                        <li>Personal impact on owner/leadership</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="template-card">
+                <h4>Approach Section Template</h4>
+
+                <div class="template-section">
+                    <h5>Discovery Phase</h5>
+                    <ul>
+                        <li>How we diagnosed the root cause (not just symptoms)</li>
+                        <li>What our analysis revealed that others missed</li>
+                        <li>Key insights that shaped our strategy</li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>Strategy Development</h5>
+                    <ul>
+                        <li>Why we chose this particular approach</li>
+                        <li>Alternatives considered and why they weren't right</li>
+                        <li>How we customized our methodology for this client</li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>Implementation</h5>
+                    <ul>
+                        <li>Timeline with key milestones</li>
+                        <li>Specific actions taken (be concrete)</li>
+                        <li>Obstacles encountered and how we overcame them</li>
+                        <li>Client's role in the process</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="template-card">
+                <h4>Results Section Template</h4>
+
+                <div class="template-section">
+                    <h5>Primary Outcomes (Lead with the Strongest)</h5>
+                    <ul>
+                        <li>Revenue impact: <span class="placeholder">[$ or %]</span></li>
+                        <li>Cost reduction: <span class="placeholder">[$ or %]</span></li>
+                        <li>Time savings: <span class="placeholder">[Hours/days per week/month]</span></li>
+                        <li>Efficiency gains: <span class="placeholder">[Specific metric improvement]</span></li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>Secondary Outcomes (Unexpected Benefits)</h5>
+                    <ul>
+                        <li>Employee satisfaction/retention improvements</li>
+                        <li>Customer experience enhancements</li>
+                        <li>Market position changes</li>
+                        <li>Personal impact on owner (lifestyle, stress)</li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>Sustainability</h5>
+                    <ul>
+                        <li>How results have held or grown over time</li>
+                        <li>Systems in place to maintain improvements</li>
+                        <li>Next phase opportunities identified</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: ROI-Focused Template -->
+        <section id="roi-template" class="section">
+            <div class="section-header">
+                <span class="section-number">Section 2</span>
+                <h2>ROI-Focused Case Study Template</h2>
+            </div>
+
+            <p>For skeptical business owners, return on investment isn't just a nice-to-have - it's the deciding factor. This template emphasizes projected versus actual ROI with full transparency.</p>
+
+            <div class="template-card">
+                <h4>ROI Summary Table <span class="badge">Required</span></h4>
+
+                <table class="roi-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Before Engagement</th>
+                            <th>Projected Improvement</th>
+                            <th>Actual Result</th>
+                            <th>Variance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Annual Revenue</td>
+                            <td class="projected">[Baseline]</td>
+                            <td class="projected">+[%] increase</td>
+                            <td class="actual">[Actual]</td>
+                            <td class="variance-positive">+[%] above projection</td>
+                        </tr>
+                        <tr>
+                            <td>Gross Margin</td>
+                            <td class="projected">[Baseline %]</td>
+                            <td class="projected">+[pts] improvement</td>
+                            <td class="actual">[Actual %]</td>
+                            <td class="variance-positive">+[pts] above projection</td>
+                        </tr>
+                        <tr>
+                            <td>Operating Costs</td>
+                            <td class="projected">$[Baseline]</td>
+                            <td class="projected">-[%] reduction</td>
+                            <td class="actual">$[Actual]</td>
+                            <td class="variance-positive">-[%] below projection</td>
+                        </tr>
+                        <tr>
+                            <td>Owner Time on Operations</td>
+                            <td class="projected">[Hours]/week</td>
+                            <td class="projected">-[%] reduction</td>
+                            <td class="actual">[Hours]/week</td>
+                            <td class="variance-positive">-[%] below projection</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="template-card">
+                <h4>Investment Analysis Section</h4>
+
+                <div class="template-section">
+                    <h5>Total Investment</h5>
+                    <ul>
+                        <li>Advisory fees: <span class="placeholder">$[Amount]</span></li>
+                        <li>Implementation costs: <span class="placeholder">$[Amount]</span></li>
+                        <li>Technology/tools: <span class="placeholder">$[Amount]</span></li>
+                        <li>Internal time investment: <span class="placeholder">[Hours] @ [implied cost]</span></li>
+                        <li><strong>Total Investment: <span class="placeholder">$[Amount]</span></strong></li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>Returns Calculation</h5>
+                    <ul>
+                        <li>Direct revenue increase: <span class="placeholder">$[Amount]</span></li>
+                        <li>Cost savings realized: <span class="placeholder">$[Amount]</span></li>
+                        <li>Productivity gains (monetized): <span class="placeholder">$[Amount]</span></li>
+                        <li><strong>Year 1 Net Return: <span class="placeholder">$[Amount]</span></strong></li>
+                        <li><strong>ROI: <span class="placeholder">[X]%</span></strong></li>
+                        <li><strong>Payback Period: <span class="placeholder">[X] months</span></strong></li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>Projected vs Actual Comparison</h5>
+                    <div class="template-block">
+                        <span class="label">PROJECTED ROI:</span> <span class="placeholder">[X]%</span> within <span class="placeholder">[timeframe]</span><br>
+                        <span class="label">ACTUAL ROI:</span> <span class="placeholder">[X]%</span> achieved in <span class="placeholder">[actual timeframe]</span><br>
+                        <span class="label">VARIANCE:</span> <span class="placeholder">[X]%</span> <span class="comment">// Always explain why - builds credibility</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h5>ROI Credibility Checklist</h5>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">All baseline numbers verified with client before publishing</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Calculation methodology explained transparently</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Timeframes clearly specified (not cherry-picked)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Any assumptions or estimates clearly labeled</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Variances from projection explained honestly</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Client has approved all numbers for publication</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Industry-Specific Templates -->
+        <section id="industry-templates" class="section">
+            <div class="section-header">
+                <span class="section-number">Section 3</span>
+                <h2>Industry-Specific Templates</h2>
+            </div>
+
+            <p>Each industry has unique metrics, challenges, and language. These templates are tailored to resonate with owners in specific verticals.</p>
+
+            <div class="industry-tabs">
+                <button class="industry-tab active" onclick="showIndustry('staffing')">Staffing</button>
+                <button class="industry-tab" onclick="showIndustry('veterinary')">Veterinary</button>
+                <button class="industry-tab" onclick="showIndustry('trades')">Trades</button>
+            </div>
+
+            <!-- Staffing Industry Template -->
+            <div id="staffing" class="industry-content active">
+                <div class="template-card">
+                    <h4>Staffing Industry Template</h4>
+
+                    <div class="template-section">
+                        <h5>Industry-Specific Metrics to Highlight</h5>
+                        <ul>
+                            <li><strong>Fill Rate:</strong> Percentage of job orders successfully filled</li>
+                            <li><strong>Time-to-Fill:</strong> Average days from job order to placement</li>
+                            <li><strong>Gross Margin per Placement:</strong> Profit per placement</li>
+                            <li><strong>Reorder Rate:</strong> Clients who place repeat orders</li>
+                            <li><strong>Contractor Retention:</strong> How long placed candidates stay</li>
+                            <li><strong>Revenue per Recruiter:</strong> Individual productivity</li>
+                            <li><strong>Spread:</strong> Bill rate minus pay rate</li>
+                        </ul>
+                    </div>
+
+                    <div class="template-section">
+                        <h5>Common Challenges to Address</h5>
+                        <ul>
+                            <li>High recruiter turnover eating into profitability</li>
+                            <li>Inconsistent sales pipeline and feast-or-famine cycles</li>
+                            <li>Technology fragmentation (multiple ATS, CRM, VMS systems)</li>
+                            <li>Margin compression from client pressure and competition</li>
+                            <li>Scaling beyond founder-led sales</li>
+                            <li>Compliance and legal exposure management</li>
+                        </ul>
+                    </div>
+
+                    <div class="template-section">
+                        <h5>Staffing Case Study Opening Template</h5>
+                        <div class="template-block">
+                            <span class="label">[COMPANY NAME]</span>, a <span class="placeholder">[light industrial/IT/healthcare/etc.]</span> staffing firm with <span class="placeholder">[X]</span> internal employees and <span class="placeholder">[X]</span> contractors on assignment, was struggling with <span class="placeholder">[primary challenge]</span>.<br><br>
+Despite <span class="placeholder">[revenue level]</span> in annual billings, owner <span class="placeholder">[NAME]</span> found himself working <span class="placeholder">[hours]</span>-hour weeks while watching margins erode from <span class="placeholder">[X]%</span> to <span class="placeholder">[X]%</span> over the past <span class="placeholder">[X]</span> years.
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-box">
+                            <div class="metric-value">+34%</div>
+                            <div class="metric-label">Fill Rate</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value gold">-8 days</div>
+                            <div class="metric-label">Time-to-Fill</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value green">+$2.4M</div>
+                            <div class="metric-label">Annual Revenue</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value">4.2 pts</div>
+                            <div class="metric-label">Margin Improvement</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Veterinary Industry Template -->
+            <div id="veterinary" class="industry-content">
+                <div class="template-card">
+                    <h4>Veterinary Practice Template</h4>
+
+                    <div class="template-section">
+                        <h5>Industry-Specific Metrics to Highlight</h5>
+                        <ul>
+                            <li><strong>Average Transaction Value (ATV):</strong> Revenue per visit</li>
+                            <li><strong>New Client Acquisition Rate:</strong> Monthly new patient households</li>
+                            <li><strong>Client Retention Rate:</strong> Returning clients year-over-year</li>
+                            <li><strong>Revenue per DVM Hour:</strong> Doctor productivity</li>
+                            <li><strong>Appointment Utilization:</strong> Booked vs available slots</li>
+                            <li><strong>Support Staff Ratio:</strong> Technicians per doctor</li>
+                            <li><strong>Wellness Plan Enrollment:</strong> Recurring revenue percentage</li>
+                        </ul>
+                    </div>
+
+                    <div class="template-section">
+                        <h5>Common Challenges to Address</h5>
+                        <ul>
+                            <li>Veterinarian burnout and high associate turnover</li>
+                            <li>Competition from corporate consolidators</li>
+                            <li>Difficulty raising prices in price-sensitive markets</li>
+                            <li>Inefficient scheduling leading to overtime and lost revenue</li>
+                            <li>Succession planning and practice valuation concerns</li>
+                            <li>Work-life balance for owner-practitioners</li>
+                        </ul>
+                    </div>
+
+                    <div class="template-section">
+                        <h5>Veterinary Case Study Opening Template</h5>
+                        <div class="template-block">
+                            <span class="label">[PRACTICE NAME]</span>, a <span class="placeholder">[X]</span>-doctor <span class="placeholder">[small animal/mixed/specialty]</span> practice in <span class="placeholder">[LOCATION]</span>, had built a loyal client base over <span class="placeholder">[X]</span> years - but founder Dr. <span class="placeholder">[NAME]</span> was exhausted.<br><br>
+Working <span class="placeholder">[X]</span> clinical hours per week while managing <span class="placeholder">[X]</span> staff members, she watched as corporate practices opened nearby with marketing budgets she couldn't match. Despite <span class="placeholder">[$X]</span> in annual revenue, profitability had stagnated and the path to eventual sale looked unclear.
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-box">
+                            <div class="metric-value">+28%</div>
+                            <div class="metric-label">Revenue per DVM Hour</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value gold">-15 hrs</div>
+                            <div class="metric-label">Owner Hours/Week</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value green">+$340K</div>
+                            <div class="metric-label">EBITDA Improvement</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value">2.1x</div>
+                            <div class="metric-label">Valuation Multiple Increase</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trades Industry Template -->
+            <div id="trades" class="industry-content">
+                <div class="template-card">
+                    <h4>Trades Business Template</h4>
+
+                    <div class="template-section">
+                        <h5>Industry-Specific Metrics to Highlight</h5>
+                        <ul>
+                            <li><strong>Revenue per Truck/Crew:</strong> Field productivity</li>
+                            <li><strong>Average Ticket:</strong> Invoice amount per job</li>
+                            <li><strong>Callback Rate:</strong> Warranty or quality issues</li>
+                            <li><strong>Technician Billable Hours:</strong> Productive vs. drive time</li>
+                            <li><strong>Lead Conversion Rate:</strong> Estimates to booked jobs</li>
+                            <li><strong>Service Agreement Revenue:</strong> Recurring maintenance contracts</li>
+                            <li><strong>Gross Margin by Service Line:</strong> Profitability mix</li>
+                        </ul>
+                    </div>
+
+                    <div class="template-section">
+                        <h5>Common Challenges to Address</h5>
+                        <ul>
+                            <li>Finding and retaining skilled technicians</li>
+                            <li>Owner stuck "on the tools" instead of running the business</li>
+                            <li>Inconsistent lead flow and seasonal fluctuations</li>
+                            <li>Pricing below market due to competition fear</li>
+                            <li>Lack of systems for dispatching, invoicing, follow-up</li>
+                            <li>Customer service and reputation management</li>
+                        </ul>
+                    </div>
+
+                    <div class="template-section">
+                        <h5>Trades Case Study Opening Template</h5>
+                        <div class="template-block">
+                            <span class="label">[COMPANY NAME]</span>, a <span class="placeholder">[HVAC/plumbing/electrical/roofing/etc.]</span> company serving <span class="placeholder">[MARKET AREA]</span> with <span class="placeholder">[X]</span> trucks in the field, was caught in a trap familiar to many trades owners.<br><br>
+Founder <span class="placeholder">[NAME]</span> had grown the business to <span class="placeholder">[$X]</span> in revenue, but still spent <span class="placeholder">[X]%</span> of his time running service calls because he couldn't find technicians he trusted. Every attempt to step back resulted in callbacks, customer complaints, and lost revenue.
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-box">
+                            <div class="metric-value">+42%</div>
+                            <div class="metric-label">Average Ticket</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value gold">0%</div>
+                            <div class="metric-label">Owner Field Time</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value green">3 to 7</div>
+                            <div class="metric-label">Trucks Deployed</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value">+$890K</div>
+                            <div class="metric-label">Annual Revenue</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Short-Form Template -->
+        <section id="short-form" class="section">
+            <div class="section-header">
+                <span class="section-number">Section 4</span>
+                <h2>Short-Form Case Study (1 Page)</h2>
+            </div>
+
+            <p>Use for quick reference, leave-behinds, email attachments, and social proof on landing pages. Every word must earn its place.</p>
+
+            <div class="layout-mockup">
+                <div class="layout-row">
+                    <div class="layout-block full header">Header: Client Name + Industry Badge + Key Metric Hero</div>
+                </div>
+                <div class="layout-row">
+                    <div class="layout-block half">Challenge (75 words max)</div>
+                    <div class="layout-block half highlight">Quick Stats Sidebar</div>
+                </div>
+                <div class="layout-row">
+                    <div class="layout-block full">Approach (100 words max - 3-4 bullet points)</div>
+                </div>
+                <div class="layout-row">
+                    <div class="layout-block third highlight">Result 1</div>
+                    <div class="layout-block third highlight">Result 2</div>
+                    <div class="layout-block third highlight">Result 3</div>
+                </div>
+                <div class="layout-row">
+                    <div class="layout-block full">Quote + Attribution (1 sentence)</div>
+                </div>
+            </div>
+
+            <div class="short-form-preview">
+                <h4>PRECISION STAFFING GROUP | Light Industrial</h4>
+
+                <div class="short-form-section">
+                    <h5>The Challenge</h5>
+                    <p>$3.2M staffing firm losing $180K annually to recruiter turnover. Fill rate dropped to 67%. Owner working 70-hour weeks to compensate.</p>
+                </div>
+
+                <div class="short-form-section">
+                    <h5>Our Approach</h5>
+                    <p>Implemented structured onboarding, performance-based compensation, and automated candidate sourcing to reduce recruiter burden while improving outcomes.</p>
+                </div>
+
+                <div class="short-form-metrics">
+                    <div class="short-metric">
+                        <div class="value">89%</div>
+                        <div class="label">Fill Rate</div>
+                    </div>
+                    <div class="short-metric">
+                        <div class="value">-45%</div>
+                        <div class="label">Turnover</div>
+                    </div>
+                    <div class="short-metric">
+                        <div class="value">+$480K</div>
+                        <div class="label">Net Revenue</div>
+                    </div>
+                </div>
+
+                <div class="quote-box" style="margin-top: 1rem; padding: 1rem;">
+                    <p style="font-family: 'Crimson Pro', serif; font-style: italic; margin-left: 0; font-size: 0.9rem;">"For the first time in 12 years, I took a two-week vacation without my phone."</p>
+                    <p style="font-size: 0.8rem; color: var(--gold); margin-top: 0.5rem; margin-left: 0;">- Mike Chen, President</p>
+                </div>
+            </div>
+
+            <div class="template-card">
+                <h4>Short-Form Word Count Guide</h4>
+                <table class="roi-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Word Count</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Headline</td>
+                            <td>8-12 words</td>
+                            <td>Company name + industry + hero metric</td>
+                        </tr>
+                        <tr>
+                            <td>Challenge</td>
+                            <td>50-75 words</td>
+                            <td>Problem + stakes + emotional hook</td>
+                        </tr>
+                        <tr>
+                            <td>Approach</td>
+                            <td>75-100 words</td>
+                            <td>3-4 key actions taken</td>
+                        </tr>
+                        <tr>
+                            <td>Results</td>
+                            <td>Numbers only</td>
+                            <td>3 key metrics with labels</td>
+                        </tr>
+                        <tr>
+                            <td>Quote</td>
+                            <td>15-25 words</td>
+                            <td>Emotional/outcome focused</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>175-225 words</strong></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 5: Long-Form Template -->
+        <section id="long-form" class="section">
+            <div class="section-header">
+                <span class="section-number">Section 5</span>
+                <h2>Long-Form Case Study (3 Pages)</h2>
+            </div>
+
+            <p>Use for in-depth sales conversations, website deep-dives, and PDF downloads. Provides comprehensive proof while maintaining readability.</p>
+
+            <div class="template-card">
+                <h4>Page 1: The Story <span class="badge">800-1000 words</span></h4>
+
+                <div class="template-section">
+                    <h5>Executive Summary (100 words)</h5>
+                    <ul>
+                        <li>One-paragraph overview of the entire case</li>
+                        <li>Key outcome highlighted immediately</li>
+                        <li>Industry, company size, and timeframe</li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>About the Company (150 words)</h5>
+                    <ul>
+                        <li>Company background and history</li>
+                        <li>Market position and competitive context</li>
+                        <li>Owner/leadership profile (humanize)</li>
+                        <li>Size metrics (employees, revenue, locations)</li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>The Challenge (250-300 words)</h5>
+                    <ul>
+                        <li>Detailed description of the problem</li>
+                        <li>How the problem manifested day-to-day</li>
+                        <li>Previous attempts to solve it</li>
+                        <li>What finally triggered seeking help</li>
+                        <li>Stakes if nothing changed</li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>Why ScaleUp Ventures (150-200 words)</h5>
+                    <ul>
+                        <li>How they found us / referral source</li>
+                        <li>Initial skepticism and concerns</li>
+                        <li>What differentiated our approach</li>
+                        <li>Decision criteria for moving forward</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="template-card">
+                <h4>Page 2: The Process <span class="badge">800-1000 words</span></h4>
+
+                <div class="template-section">
+                    <h5>Discovery & Diagnosis (200-250 words)</h5>
+                    <ul>
+                        <li>Our initial assessment process</li>
+                        <li>Key findings from analysis</li>
+                        <li>Root causes identified vs symptoms</li>
+                        <li>Insights that shaped our strategy</li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>Strategic Approach (250-300 words)</h5>
+                    <ul>
+                        <li>Overview of the strategy developed</li>
+                        <li>Why this approach fit their situation</li>
+                        <li>Alternatives considered</li>
+                        <li>Expected timeline and milestones</li>
+                        <li>Success metrics defined upfront</li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>Implementation (300-350 words)</h5>
+                    <ul>
+                        <li>Phase 1: [Specific actions and timeline]</li>
+                        <li>Phase 2: [Specific actions and timeline]</li>
+                        <li>Phase 3: [Specific actions and timeline]</li>
+                        <li>Obstacles encountered and how overcome</li>
+                        <li>Adjustments made along the way</li>
+                        <li>Client's role and commitment</li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>Key Milestones (visual timeline)</h5>
+                    <ul>
+                        <li>Month 1: [Milestone achieved]</li>
+                        <li>Month 3: [Milestone achieved]</li>
+                        <li>Month 6: [Milestone achieved]</li>
+                        <li>Month 12: [Milestone achieved]</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="template-card">
+                <h4>Page 3: The Results <span class="badge">600-800 words</span></h4>
+
+                <div class="template-section">
+                    <h5>Quantitative Results (include ROI table)</h5>
+                    <ul>
+                        <li>Primary metrics with before/after comparison</li>
+                        <li>Full ROI calculation with methodology</li>
+                        <li>Projected vs actual performance</li>
+                        <li>Time to payback</li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>Qualitative Results</h5>
+                    <ul>
+                        <li>Changes in owner's day-to-day experience</li>
+                        <li>Team/employee impact</li>
+                        <li>Customer experience improvements</li>
+                        <li>Market position changes</li>
+                        <li>Unexpected benefits</li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>Client Testimonial (block quote)</h5>
+                    <ul>
+                        <li>Extended quote (50-100 words)</li>
+                        <li>Photo of client if available</li>
+                        <li>Full name, title, company</li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>What's Next</h5>
+                    <ul>
+                        <li>Ongoing relationship</li>
+                        <li>Future initiatives planned</li>
+                        <li>How results have sustained/grown</li>
+                    </ul>
+                </div>
+
+                <div class="template-section">
+                    <h5>Call to Action</h5>
+                    <ul>
+                        <li>Invitation to discuss similar challenges</li>
+                        <li>Contact information</li>
+                        <li>Link to schedule consultation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Visual Layout Recommendations -->
+        <section id="visual-layout" class="section">
+            <div class="section-header">
+                <span class="section-number">Section 6</span>
+                <h2>Visual Layout Recommendations</h2>
+            </div>
+
+            <div class="guidelines-list">
+                <div class="guideline-item">
+                    <div class="guideline-icon do">&#10003;</div>
+                    <div class="guideline-text">Lead with a large hero metric or result to capture attention immediately</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon do">&#10003;</div>
+                    <div class="guideline-text">Use generous white space - our audience values clarity over density</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon do">&#10003;</div>
+                    <div class="guideline-text">Include client photos when possible - builds trust and relatability</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon do">&#10003;</div>
+                    <div class="guideline-text">Use sidebars for quick-scan statistics and key facts</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon dont">&#10005;</div>
+                    <div class="guideline-text">Never use stock photos - they scream "not real"</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon dont">&#10005;</div>
+                    <div class="guideline-text">Avoid walls of text - break up with visuals every 200-250 words</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon dont">&#10005;</div>
+                    <div class="guideline-text">Don't bury the results - they should be immediately visible</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon dont">&#10005;</div>
+                    <div class="guideline-text">Avoid cluttered charts - one insight per visualization</div>
+                </div>
+            </div>
+
+            <div class="template-card">
+                <h4>Layout Hierarchy for Print/PDF</h4>
+
+                <div class="layout-mockup">
+                    <div class="layout-row">
+                        <div class="layout-block full header" style="padding: 2rem;">
+                            <strong>Header Zone</strong><br>
+                            Logo | Client Name | Industry | Hero Metric
+                        </div>
+                    </div>
+                    <div class="layout-row">
+                        <div class="layout-block" style="flex: 2;">
+                            <strong>Primary Content Zone</strong><br>
+                            Challenge > Approach > Results narrative
+                        </div>
+                        <div class="layout-block highlight" style="flex: 1;">
+                            <strong>Proof Sidebar</strong><br>
+                            Key metrics<br>
+                            Client photo<br>
+                            Quote preview
+                        </div>
+                    </div>
+                    <div class="layout-row">
+                        <div class="layout-block full highlight">
+                            <strong>Results Banner</strong><br>
+                            3-4 key metrics in visual format
+                        </div>
+                    </div>
+                    <div class="layout-row">
+                        <div class="layout-block full">
+                            <strong>Testimonial Zone</strong><br>
+                            Extended quote with photo and attribution
+                        </div>
+                    </div>
+                    <div class="layout-row">
+                        <div class="layout-block full header">
+                            <strong>CTA Footer</strong><br>
+                            Contact | Website | Tagline
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template-card">
+                <h4>Color Usage in Case Studies</h4>
+
+                <div class="metrics-grid" style="margin-top: 1rem;">
+                    <div class="metric-box" style="background: var(--navy); color: white;">
+                        <div class="metric-value" style="color: white;">Navy</div>
+                        <div class="metric-label" style="color: rgba(255,255,255,0.7);">#0F1729</div>
+                        <p style="font-size: 0.75rem; margin-top: 0.5rem; color: rgba(255,255,255,0.7);">Headers, footers, emphasis blocks</p>
+                    </div>
+                    <div class="metric-box" style="background: var(--gold);">
+                        <div class="metric-value" style="color: var(--navy);">Gold</div>
+                        <div class="metric-label" style="color: var(--navy-light);">#D4A853</div>
+                        <p style="font-size: 0.75rem; margin-top: 0.5rem; color: var(--navy);">Highlights, accents, key metrics</p>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">Cream</div>
+                        <div class="metric-label">#FAF8F5</div>
+                        <p style="font-size: 0.75rem; margin-top: 0.5rem;">Background, sidebars, callouts</p>
+                    </div>
+                    <div class="metric-box" style="background: var(--success); color: white;">
+                        <div class="metric-value" style="color: white;">Success</div>
+                        <div class="metric-label" style="color: rgba(255,255,255,0.7);">#059669</div>
+                        <p style="font-size: 0.75rem; margin-top: 0.5rem; color: rgba(255,255,255,0.7);">Positive results, growth metrics</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Data Visualization Guidelines -->
+        <section id="data-viz" class="section">
+            <div class="section-header">
+                <span class="section-number">Section 7</span>
+                <h2>Data Visualization Guidelines</h2>
+            </div>
+
+            <div class="intro-box">
+                <h3>Visualization Philosophy</h3>
+                <p>Our audience is experienced and data-literate, but time-poor. Visualizations should communicate one insight immediately - not require study. Favor simple, familiar chart types that tell the story at a glance.</p>
+            </div>
+
+            <div class="viz-example">
+                <div class="viz-card">
+                    <div class="viz-header">Before/After Comparison (Recommended)</div>
+                    <div class="viz-body">
+                        <div class="bar-chart">
+                            <div class="bar-row">
+                                <span class="bar-label">Revenue</span>
+                                <div class="bar-container">
+                                    <div class="bar-fill before" style="width: 45%;"></div>
+                                </div>
+                                <span class="bar-value">$2.1M</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label"></span>
+                                <div class="bar-container">
+                                    <div class="bar-fill after" style="width: 72%;"></div>
+                                </div>
+                                <span class="bar-value" style="color: var(--success);">$3.4M</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Margin</span>
+                                <div class="bar-container">
+                                    <div class="bar-fill before" style="width: 28%;"></div>
+                                </div>
+                                <span class="bar-value">28%</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label"></span>
+                                <div class="bar-container">
+                                    <div class="bar-fill after" style="width: 42%;"></div>
+                                </div>
+                                <span class="bar-value" style="color: var(--success);">42%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="viz-card">
+                    <div class="viz-header">Single Metric Highlight (Hero Use)</div>
+                    <div class="viz-body" style="text-align: center; padding: 2rem;">
+                        <div style="font-family: 'Crimson Pro', serif; font-size: 4rem; font-weight: 700; color: var(--navy);">347%</div>
+                        <div style="font-size: 1rem; color: var(--gold-dark); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;">Return on Investment</div>
+                        <div style="font-size: 0.875rem; color: var(--warm-gray); margin-top: 0.5rem;">Achieved in 14 months</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template-card">
+                <h4>Chart Type Selection Guide</h4>
+
+                <table class="roi-table">
+                    <thead>
+                        <tr>
+                            <th>Use Case</th>
+                            <th>Recommended Chart</th>
+                            <th>Avoid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Before/After comparison</td>
+                            <td>Horizontal bar pairs</td>
+                            <td>Pie charts, area charts</td>
+                        </tr>
+                        <tr>
+                            <td>Progress over time</td>
+                            <td>Simple line chart (1-2 lines max)</td>
+                            <td>Multiple overlapping lines</td>
+                        </tr>
+                        <tr>
+                            <td>Multiple metrics at once</td>
+                            <td>Metric boxes grid</td>
+                            <td>Radar/spider charts</td>
+                        </tr>
+                        <tr>
+                            <td>Projected vs Actual</td>
+                            <td>Side-by-side bars or table</td>
+                            <td>Stacked charts</td>
+                        </tr>
+                        <tr>
+                            <td>Single impressive result</td>
+                            <td>Large number with context</td>
+                            <td>Any chart (overkill)</td>
+                        </tr>
+                        <tr>
+                            <td>ROI breakdown</td>
+                            <td>Clean table</td>
+                            <td>Waterfall charts</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="guidelines-list">
+                <div class="guideline-item">
+                    <div class="guideline-icon do">&#10003;</div>
+                    <div class="guideline-text">Always include units and timeframes with numbers</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon do">&#10003;</div>
+                    <div class="guideline-text">Use color consistently: Gray = before, Green = after/positive</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon do">&#10003;</div>
+                    <div class="guideline-text">Round numbers for impact ($2.4M not $2,387,412)</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon do">&#10003;</div>
+                    <div class="guideline-text">Label everything - never assume the reader will infer</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon dont">&#10005;</div>
+                    <div class="guideline-text">Never truncate axis to exaggerate change</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon dont">&#10005;</div>
+                    <div class="guideline-text">Avoid 3D effects, shadows, or decorative elements</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon dont">&#10005;</div>
+                    <div class="guideline-text">Never use more than 3-4 colors in one visualization</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon dont">&#10005;</div>
+                    <div class="guideline-text">Don't include data without explaining what it means</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Quote Integration Guidance -->
+        <section id="quotes" class="section">
+            <div class="section-header">
+                <span class="section-number">Section 8</span>
+                <h2>Quote Integration Guidance</h2>
+            </div>
+
+            <p>Client quotes transform case studies from claims into testimonials. Done right, they're your most powerful credibility tool. Done wrong, they feel manufactured and undermine trust.</p>
+
+            <div class="template-card">
+                <h4>Quote Types and When to Use</h4>
+
+                <div class="template-section">
+                    <h5>Challenge Quote</h5>
+                    <p>Describes the pain point in the client's own words. Use early in the case study.</p>
+                    <div class="quote-box">
+                        <p class="quote-text">I was working 70-hour weeks and watching my margins shrink every quarter. I knew something had to change, but I'd tried three consultants before and none of them understood our industry.</p>
+                        <p class="quote-attribution">
+                            <span class="quote-name">David Morrison</span><br>
+                            <span class="quote-title">CEO, Morrison Mechanical | 23 years in HVAC</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="template-section">
+                    <h5>Turning Point Quote</h5>
+                    <p>Describes the moment of realization or decision. Use in the Approach section.</p>
+                    <div class="quote-box">
+                        <p class="quote-text">When they showed me the data on where we were actually losing money - not where I thought we were - that's when I knew we were onto something.</p>
+                        <p class="quote-attribution">
+                            <span class="quote-name">Sandra Liu</span><br>
+                            <span class="quote-title">Owner, Elite Staffing Solutions</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="template-section">
+                    <h5>Results Quote</h5>
+                    <p>Validates the outcome with personal impact. Use in the Results section or as the closing.</p>
+                    <div class="quote-box">
+                        <p class="quote-text">Last month I took my first real vacation in 15 years. My phone didn't ring once. The systems we built actually work, and my team runs them without me.</p>
+                        <p class="quote-attribution">
+                            <span class="quote-name">Robert Castellanos</span><br>
+                            <span class="quote-title">Founder, Castellanos Plumbing | Annual revenue now $4.2M</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guidelines-list">
+                <div class="guideline-item">
+                    <div class="guideline-icon do">&#10003;</div>
+                    <div class="guideline-text">Include specific details that only a real client would know</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon do">&#10003;</div>
+                    <div class="guideline-text">Let imperfect grammar stay - it sounds more authentic</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon do">&#10003;</div>
+                    <div class="guideline-text">Include context in attribution (years in business, role details)</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon do">&#10003;</div>
+                    <div class="guideline-text">Focus on personal/emotional impact, not just business metrics</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon dont">&#10005;</div>
+                    <div class="guideline-text">Never fabricate or significantly alter quotes</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon dont">&#10005;</div>
+                    <div class="guideline-text">Avoid quotes that sound like marketing copy</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon dont">&#10005;</div>
+                    <div class="guideline-text">Don't use quotes that only praise - skeptics distrust perfection</div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon dont">&#10005;</div>
+                    <div class="guideline-text">Never use "Anonymous" - it destroys credibility</div>
+                </div>
+            </div>
+
+            <div class="template-card">
+                <h4>Quote Collection Interview Questions</h4>
+                <p>Use these prompts when interviewing clients for case study quotes:</p>
+
+                <div class="checklist">
+                    <h5>For Challenge Quotes</h5>
+                    <div class="checklist-item">
+                        <div class="checklist-box"></div>
+                        <span class="checklist-text">"What was your biggest frustration before we started working together?"</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-box"></div>
+                        <span class="checklist-text">"What finally made you decide to seek outside help?"</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-box"></div>
+                        <span class="checklist-text">"How was the problem affecting you personally - not just the business?"</span>
+                    </div>
+                </div>
+
+                <div class="checklist">
+                    <h5>For Results Quotes</h5>
+                    <div class="checklist-item">
+                        <div class="checklist-box"></div>
+                        <span class="checklist-text">"What's different about your day-to-day life now?"</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-box"></div>
+                        <span class="checklist-text">"What surprised you most about the results?"</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-box"></div>
+                        <span class="checklist-text">"What would you tell another owner who's skeptical about this kind of help?"</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: Example Case Studies -->
+        <section id="examples" class="section">
+            <div class="section-header">
+                <span class="section-number">Section 9</span>
+                <h2>Example Case Studies</h2>
+            </div>
+
+            <p>These fictional but realistic examples demonstrate how to apply the framework across our three core industries.</p>
+
+            <!-- Example 1: Staffing -->
+            <div class="case-study-example">
+                <div class="case-study-header">
+                    <div class="case-study-title">
+                        <span class="industry-badge">STAFFING</span>
+                        <h4>Precision Staffing Group</h4>
+                    </div>
+                    <div class="case-study-logo">347% ROI</div>
+                </div>
+                <div class="case-study-body">
+                    <div class="case-study-intro">
+                        <div class="company-overview">
+                            <h5>Company Overview</h5>
+                            <p>Precision Staffing Group is a 28-year-old light industrial staffing firm serving manufacturing clients in the greater Detroit metro area. Founded by Mike Chen after his own experience as a temporary worker, the company grew to $3.2M in annual revenue with 8 internal recruiters placing approximately 400 temporary workers per week.</p>
+                            <p>Despite decades of experience and strong client relationships, Mike found himself increasingly overwhelmed. Recruiter turnover was costing the company an estimated $180,000 annually in training, lost productivity, and client service disruptions. Fill rates had dropped to 67%, and Mike was personally working 70-hour weeks to compensate for the gaps.</p>
+                        </div>
+                        <div class="quick-stats">
+                            <h5>Quick Facts</h5>
+                            <div class="stat-row">
+                                <span class="stat-label">Industry</span>
+                                <span class="stat-value">Light Industrial Staffing</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Location</span>
+                                <span class="stat-value">Detroit Metro, MI</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Employees</span>
+                                <span class="stat-value">8 Internal + 400 Temps</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Revenue (Before)</span>
+                                <span class="stat-value">$3.2M</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Engagement Length</span>
+                                <span class="stat-value">14 months</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-study-section">
+                        <span class="section-label challenge">Challenge</span>
+                        <h5>Trapped in the Talent Revolving Door</h5>
+                        <p>The staffing industry has always had turnover, but Precision's numbers had become unsustainable. In the previous 18 months, Mike had hired and trained 11 recruiters - only 3 remained. Each departure cost roughly $40,000 in recruiting, training, and lost productivity, not counting the strain on client relationships when their main contact disappeared.</p>
+                        <p>Mike's compensation structure, which had worked well when he had 3 recruiters, was creating perverse incentives at scale. Top performers felt underpaid while struggling recruiters had no clear path to improvement. The training program - essentially "shadow Mike for two weeks" - couldn't scale and didn't prepare new hires for independent success.</p>
+                        <p>Meanwhile, fill rates continued to decline. Clients were patient with a company they'd trusted for years, but patience was wearing thin. Two major accounts had already reduced their orders by 30%, citing "reliability concerns."</p>
+                    </div>
+
+                    <div class="case-study-section">
+                        <span class="section-label approach">Approach</span>
+                        <h5>Building Systems That Scale Without the Founder</h5>
+                        <p>Our assessment revealed that Mike's core challenge wasn't finding good recruiters - it was creating an environment where good recruiters could succeed and stay. We developed a three-phase approach:</p>
+
+                        <div class="approach-list">
+                            <div class="approach-item">
+                                <div class="approach-number">1</div>
+                                <div>
+                                    <strong>Compensation Restructure</strong><br>
+                                    <span style="color: var(--warm-gray); font-size: 0.9rem;">Implemented tiered commission structure with clear advancement criteria, retention bonuses, and team-based incentives that rewarded collaboration over internal competition.</span>
+                                </div>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-number">2</div>
+                                <div>
+                                    <strong>Structured Onboarding Program</strong><br>
+                                    <span style="color: var(--warm-gray); font-size: 0.9rem;">Created 90-day onboarding curriculum with documented processes, weekly milestones, and peer mentorship - replacing the informal "follow Mike" approach.</span>
+                                </div>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-number">3</div>
+                                <div>
+                                    <strong>Technology Integration</strong><br>
+                                    <span style="color: var(--warm-gray); font-size: 0.9rem;">Deployed automated candidate sourcing and screening tools that reduced recruiter administrative burden by 40%, allowing focus on relationship-building.</span>
+                                </div>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-number">4</div>
+                                <div>
+                                    <strong>Performance Management System</strong><br>
+                                    <span style="color: var(--warm-gray); font-size: 0.9rem;">Established clear KPIs, weekly performance reviews, and coaching frameworks that addressed issues early before they led to departures.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-study-section">
+                        <span class="section-label results">Results</span>
+                        <h5>From Survival Mode to Strategic Growth</h5>
+                        <p>Within 14 months, Precision Staffing Group had transformed from a founder-dependent operation into a scalable business with systems that performed consistently:</p>
+
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <div class="value">89%</div>
+                                <div class="label">Fill Rate (up from 67%)</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="value">-62%</div>
+                                <div class="label">Recruiter Turnover</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="value">+$480K</div>
+                                <div class="label">Net Revenue Increase</div>
+                            </div>
+                        </div>
+
+                        <table class="roi-table" style="margin-top: 1.5rem;">
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Projected</th>
+                                    <th>Actual</th>
+                                    <th>Variance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Annual Revenue</td>
+                                    <td class="projected">$3.5M</td>
+                                    <td class="actual">$3.68M</td>
+                                    <td class="variance-positive">+5%</td>
+                                </tr>
+                                <tr>
+                                    <td>Recruiter Retention</td>
+                                    <td class="projected">65%</td>
+                                    <td class="actual">88%</td>
+                                    <td class="variance-positive">+23 pts</td>
+                                </tr>
+                                <tr>
+                                    <td>Owner Hours/Week</td>
+                                    <td class="projected">55 hrs</td>
+                                    <td class="actual">45 hrs</td>
+                                    <td class="variance-positive">-10 hrs</td>
+                                </tr>
+                                <tr>
+                                    <td>ROI</td>
+                                    <td class="projected">280%</td>
+                                    <td class="actual">347%</td>
+                                    <td class="variance-positive">+67 pts</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="quote-box">
+                        <p class="quote-text">For 25 years, I thought the staffing business just had to be this hard. That turnover was inevitable. That I'd always be the one putting out fires. Turns out, I just needed the right systems. Last month, I took my first two-week vacation since I started the company. My phone didn't ring once.</p>
+                        <p class="quote-attribution">
+                            <span class="quote-name">Mike Chen</span><br>
+                            <span class="quote-title">President & Founder, Precision Staffing Group</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 2: Veterinary -->
+            <div class="case-study-example">
+                <div class="case-study-header">
+                    <div class="case-study-title">
+                        <span class="industry-badge">VETERINARY</span>
+                        <h4>Riverside Animal Hospital</h4>
+                    </div>
+                    <div class="case-study-logo">2.3x Valuation</div>
+                </div>
+                <div class="case-study-body">
+                    <div class="case-study-intro">
+                        <div class="company-overview">
+                            <h5>Company Overview</h5>
+                            <p>Dr. Patricia Okonkwo founded Riverside Animal Hospital in 1998, building it from a solo practice into a 3-doctor small animal clinic in suburban Atlanta. With $1.8M in annual revenue and a loyal client base of over 4,000 active patients, the practice was successful by most measures - but Patricia was exhausted.</p>
+                            <p>At 58, she was still working 45 clinical hours per week while managing 12 staff members, dealing with corporate competitors, and wondering if she'd ever be able to retire. Two national veterinary consolidators had approached her about acquisition, but their offers valued the practice at just 4.2x EBITDA - far below what she needed for the retirement she'd envisioned.</p>
+                        </div>
+                        <div class="quick-stats">
+                            <h5>Quick Facts</h5>
+                            <div class="stat-row">
+                                <span class="stat-label">Industry</span>
+                                <span class="stat-value">Small Animal Veterinary</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Location</span>
+                                <span class="stat-value">Suburban Atlanta, GA</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Doctors</span>
+                                <span class="stat-value">3 DVMs</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Revenue (Before)</span>
+                                <span class="stat-value">$1.8M</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Engagement Length</span>
+                                <span class="stat-value">18 months</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-study-section">
+                        <span class="section-label challenge">Challenge</span>
+                        <h5>The Founder Trap: Too Valuable to Leave</h5>
+                        <p>Patricia's clinical excellence had become a liability. Over 25 years, she'd become the go-to doctor for complex cases, long-term client relationships, and anything that required "the real expert." Her two associate veterinarians were competent but hadn't developed the diagnostic confidence or client relationships to fully replace her.</p>
+                        <p>This founder-dependence was crushing her valuation. Acquirers told her directly: "We're buying a practice, not a practitioner. If you leave, 40% of your clients leave with you." They weren't wrong - client surveys confirmed that nearly half of active patients specifically requested Dr. Okonkwo for every visit.</p>
+                        <p>Meanwhile, a new corporate practice had opened 2 miles away with extended hours, flashy marketing, and aggressive pricing. While Riverside hadn't lost significant market share yet, the pressure was mounting.</p>
+                    </div>
+
+                    <div class="case-study-section">
+                        <span class="section-label approach">Approach</span>
+                        <h5>Building a Practice That Runs Without the Founder</h5>
+                        <p>Our analysis revealed that Patricia's practice needed two transformations: operational independence from its founder, and profitability improvements that would justify a higher multiple. We developed a comprehensive 18-month roadmap:</p>
+
+                        <div class="approach-list">
+                            <div class="approach-item">
+                                <div class="approach-number">1</div>
+                                <div>
+                                    <strong>Associate Development Program</strong><br>
+                                    <span style="color: var(--warm-gray); font-size: 0.9rem;">Structured mentorship program to transfer complex case management skills to associates, with gradual client relationship transitions and formal CE sponsorship.</span>
+                                </div>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-number">2</div>
+                                <div>
+                                    <strong>Wellness Plan Implementation</strong><br>
+                                    <span style="color: var(--warm-gray); font-size: 0.9rem;">Launched preventive care membership program generating predictable recurring revenue and increasing client retention regardless of which doctor they saw.</span>
+                                </div>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-number">3</div>
+                                <div>
+                                    <strong>Operational Efficiency Overhaul</strong><br>
+                                    <span style="color: var(--warm-gray); font-size: 0.9rem;">Optimized scheduling, implemented inventory management systems, and restructured support staff ratios to improve DVM productivity and reduce overhead.</span>
+                                </div>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-number">4</div>
+                                <div>
+                                    <strong>Practice Manager Hiring</strong><br>
+                                    <span style="color: var(--warm-gray); font-size: 0.9rem;">Recruited experienced practice manager to handle day-to-day operations, removing Patricia from administrative responsibilities entirely.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-study-section">
+                        <span class="section-label results">Results</span>
+                        <h5>From Exhausted Owner to Strategic Exit</h5>
+                        <p>At the 18-month mark, Riverside Animal Hospital was a fundamentally different business - and Patricia was a different leader:</p>
+
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <div class="value">-18 hrs</div>
+                                <div class="label">Owner Clinical Hours/Week</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="value">+$420K</div>
+                                <div class="label">Annual EBITDA Increase</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="value">6.8x</div>
+                                <div class="label">New Valuation Multiple</div>
+                            </div>
+                        </div>
+
+                        <p style="margin-top: 1.5rem;">Client surveys now showed only 18% specifically requesting Patricia - down from 42% - with no decrease in overall satisfaction. The wellness plan enrolled 850 members, generating $340K in predictable annual revenue. Most importantly, when Patricia approached the same acquirers who'd offered 4.2x, the new offer came in at 6.8x - representing over $1.1M in additional exit value.</p>
+                    </div>
+
+                    <div class="quote-box">
+                        <p class="quote-text">I spent 25 years building this practice and almost lost my chance at a real retirement because I couldn't let go. Now my associates are thriving, my clients are happy with any doctor they see, and I have options I never thought I'd have. I'm choosing when I leave - on my terms.</p>
+                        <p class="quote-attribution">
+                            <span class="quote-name">Dr. Patricia Okonkwo, DVM</span><br>
+                            <span class="quote-title">Founder, Riverside Animal Hospital</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 3: Trades -->
+            <div class="case-study-example">
+                <div class="case-study-header">
+                    <div class="case-study-title">
+                        <span class="industry-badge">TRADES</span>
+                        <h4>Heritage Plumbing & Mechanical</h4>
+                    </div>
+                    <div class="case-study-logo">3x Fleet Size</div>
+                </div>
+                <div class="case-study-body">
+                    <div class="case-study-intro">
+                        <div class="company-overview">
+                            <h5>Company Overview</h5>
+                            <p>Robert Castellanos started Heritage Plumbing in 1999 with a single truck and a commitment to quality work. Twenty-three years later, that same commitment to personal craftsmanship had become a ceiling on growth. Despite a stellar reputation and more work than he could handle, Robert was still personally running 30% of all service calls because he couldn't find technicians he trusted.</p>
+                            <p>With 4 trucks generating $1.4M annually, Robert was making a good living - but working 60-hour weeks, turning away work, and watching competitors with "inferior" technicians grow past him. At 57, he was tired of being the only one who could handle complex jobs.</p>
+                        </div>
+                        <div class="quick-stats">
+                            <h5>Quick Facts</h5>
+                            <div class="stat-row">
+                                <span class="stat-label">Industry</span>
+                                <span class="stat-value">Residential Plumbing</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Location</span>
+                                <span class="stat-value">Sacramento, CA</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Fleet Size</span>
+                                <span class="stat-value">4 Trucks (Before)</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Revenue (Before)</span>
+                                <span class="stat-value">$1.4M</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Engagement Length</span>
+                                <span class="stat-value">16 months</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-study-section">
+                        <span class="section-label challenge">Challenge</span>
+                        <h5>The Master Craftsman's Dilemma</h5>
+                        <p>Robert's excellence was genuine - 23 years of experience had made him exceptional at diagnosing problems and executing complex repairs. But that same expertise had created impossible standards for his team. "Nobody does it like I do" wasn't ego - it was frustration born from watching callbacks pile up whenever he delegated.</p>
+                        <p>The result was a vicious cycle: Robert personally handled the complex, high-margin work while his technicians handled only simple calls. They never developed skills because they never got challenging work. And when they left (as they often did, frustrated by limited growth), Robert had to start over with new trainees.</p>
+                        <p>Meanwhile, his competitors were growing. Companies with technicians Robert considered "mediocre" were adding trucks, hiring aggressively, and dominating Google results. Robert knew how to fix a pipe - he didn't know how to fix a business.</p>
+                    </div>
+
+                    <div class="case-study-section">
+                        <span class="section-label approach">Approach</span>
+                        <h5>From Master Craftsman to Business Builder</h5>
+                        <p>Our assessment revealed that Robert's real asset wasn't his personal skill - it was the diagnostic methodology he'd developed over 23 years. The challenge was extracting that knowledge and making it transferable. We built a system around Robert's expertise:</p>
+
+                        <div class="approach-list">
+                            <div class="approach-item">
+                                <div class="approach-number">1</div>
+                                <div>
+                                    <strong>Knowledge Capture & Documentation</strong><br>
+                                    <span style="color: var(--warm-gray); font-size: 0.9rem;">Video-documented Robert's diagnostic process for 50+ common scenarios, creating a training library no competitor could match.</span>
+                                </div>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-number">2</div>
+                                <div>
+                                    <strong>Tiered Skill Development</strong><br>
+                                    <span style="color: var(--warm-gray); font-size: 0.9rem;">Created clear advancement path from apprentice to journeyman to senior tech, with specific skills required at each level and compensation tied to demonstrated competency.</span>
+                                </div>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-number">3</div>
+                                <div>
+                                    <strong>Quality Assurance System</strong><br>
+                                    <span style="color: var(--warm-gray); font-size: 0.9rem;">Implemented photo documentation, customer follow-up calls, and callback tracking that caught issues early and created accountability without requiring Robert's personal oversight.</span>
+                                </div>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-number">4</div>
+                                <div>
+                                    <strong>Recruiting & Retention Redesign</strong><br>
+                                    <span style="color: var(--warm-gray); font-size: 0.9rem;">Partnered with local trade school, created apprenticeship program, and built culture that attracted quality technicians looking to grow their careers.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-study-section">
+                        <span class="section-label results">Results</span>
+                        <h5>The Owner Who Finally Left the Truck</h5>
+                        <p>At the 16-month mark, Robert hadn't touched a wrench in 90 days - and his business had never been healthier:</p>
+
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <div class="value">0%</div>
+                                <div class="label">Owner Time on Service Calls</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="value">4 to 12</div>
+                                <div class="label">Trucks in Fleet</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="value">$4.2M</div>
+                                <div class="label">Annual Revenue</div>
+                            </div>
+                        </div>
+
+                        <table class="roi-table" style="margin-top: 1.5rem;">
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Before</th>
+                                    <th>After</th>
+                                    <th>Change</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Revenue per Truck</td>
+                                    <td class="projected">$350K</td>
+                                    <td class="actual">$350K</td>
+                                    <td class="variance-positive">Maintained at scale</td>
+                                </tr>
+                                <tr>
+                                    <td>Callback Rate</td>
+                                    <td class="projected">8.2%</td>
+                                    <td class="actual">3.1%</td>
+                                    <td class="variance-positive">-62%</td>
+                                </tr>
+                                <tr>
+                                    <td>Average Ticket</td>
+                                    <td class="projected">$387</td>
+                                    <td class="actual">$492</td>
+                                    <td class="variance-positive">+27%</td>
+                                </tr>
+                                <tr>
+                                    <td>Technician Retention</td>
+                                    <td class="projected">14 months avg</td>
+                                    <td class="actual">28 months avg</td>
+                                    <td class="variance-positive">+100%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="quote-box">
+                        <p class="quote-text">I used to think my job was being the best plumber in Sacramento. Turns out, my real job is building a company of excellent plumbers. I've got guys now who can handle jobs I used to think only I could do. And I haven't missed a single one of my grandson's baseball games this season.</p>
+                        <p class="quote-attribution">
+                            <span class="quote-name">Robert Castellanos</span><br>
+                            <span class="quote-title">Founder, Heritage Plumbing & Mechanical</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Appendix: Decision Framework -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">Appendix</span>
+                <h2>Case Study Quality Decision Framework</h2>
+            </div>
+
+            <p>Before publishing any case study, run it through this quality checklist. Every "no" answer should trigger revision.</p>
+
+            <div class="checklist">
+                <h5>Credibility Check</h5>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">All numbers verified by client and documented</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Timeframes explicitly stated for all metrics</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Client has approved final version for publication</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">No exaggerated or unsubstantiated claims</span>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h5>Relatability Check</h5>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Challenge section would resonate with similar business owners</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Industry-specific language and metrics used correctly</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Personal/emotional elements included, not just business metrics</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Quote sounds authentic (not marketing-speak)</span>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h5>Persuasion Check</h5>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">ROI clearly calculated and explained</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Before/after contrast is dramatic and clear</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Approach section shows methodology, not just magic</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Results include at least one "unexpected benefit"</span>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h5>Format Check</h5>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Visual elements break up text appropriately</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Key metrics scannable without reading full text</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Brand colors and typography applied consistently</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-box"></div>
+                    <span class="checklist-text">Works in both digital and print formats</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background: var(--navy); color: white; padding: 3rem 2rem; text-align: center;">
+        <div style="font-family: 'Crimson Pro', serif; font-size: 1.25rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
+            SCALEUP <span style="color: var(--gold);">VENTURES</span>
+        </div>
+        <div style="color: var(--gold); font-size: 0.9rem; letter-spacing: 0.1em; margin-bottom: 1rem;">CERTAINTY FIRST.</div>
+        <div style="color: rgba(255,255,255,0.6); font-size: 0.875rem;">
+            Case Study Framework & Templates | Version 1.0 | December 2025
+        </div>
+    </footer>
+
+    <script>
+        function showIndustry(industry) {
+            // Hide all content
+            document.querySelectorAll('.industry-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // Deactivate all tabs
+            document.querySelectorAll('.industry-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Show selected content
+            document.getElementById(industry).classList.add('active');
+            // Activate selected tab
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

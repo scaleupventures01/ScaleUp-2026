@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Proof Test | ScaleUp Ventures - Know Your ROI Before You Invest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --gold: #D4A853;
+            --gold-light: #E8C882;
+            --gold-dark: #B8923F;
+            --white: #FFFFFF;
+            --gray-50: #F8F9FA;
+            --gray-100: #E9ECEF;
+            --gray-200: #DEE2E6;
+            --gray-400: #ADB5BD;
+            --gray-600: #6C757D;
+            --gray-800: #343A40;
+            --success: #28A745;
+            --warning: #FFC107;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--navy);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .tagline {
+            color: var(--gold);
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 80px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.15);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            color: var(--white);
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            color: var(--gray-200);
+            font-size: 22px;
+            font-weight: 400;
+            max-width: 650px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 40px;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            color: var(--gold);
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .hero-stat-label {
+            color: var(--gray-400);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background: var(--gray-50);
+        }
+
+        .section-dark {
+            background: var(--navy);
+        }
+
+        .section-header {
+            margin-bottom: 48px;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .section-dark .section-title {
+            color: var(--white);
+        }
+
+        .section-subtitle {
+            color: var(--gray-600);
+            font-size: 18px;
+            max-width: 600px;
+        }
+
+        .section-dark .section-subtitle {
+            color: var(--gray-400);
+        }
+
+        /* What Is Section */
+        .what-is-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .definition-card {
+            background: var(--white);
+            border: 2px solid var(--gold);
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .definition-card h3 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            color: var(--navy);
+            font-size: 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .definition-card h3::before {
+            content: '';
+            width: 4px;
+            height: 28px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .definition-card p {
+            color: var(--gray-800);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .definition-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .why-card {
+            background: var(--navy);
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .why-card h3 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            color: var(--gold);
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+
+        .why-list {
+            list-style: none;
+        }
+
+        .why-list li {
+            color: var(--gray-200);
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .why-list li:last-child {
+            border-bottom: none;
+        }
+
+        .why-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .why-icon svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* 5-Step Process */
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 32px;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--gray-200);
+            position: relative;
+        }
+
+        .process-step:last-child {
+            border-bottom: none;
+        }
+
+        .step-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: var(--navy);
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .step-line {
+            width: 3px;
+            flex: 1;
+            background: linear-gradient(to bottom, var(--gold), var(--gray-200));
+            margin-top: 16px;
+        }
+
+        .process-step:last-child .step-line {
+            display: none;
+        }
+
+        .step-content h3 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            color: var(--navy);
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step-timing {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .step-description {
+            color: var(--gray-600);
+            font-size: 16px;
+            margin-bottom: 24px;
+            max-width: 700px;
+        }
+
+        .step-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .detail-box {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .detail-box h4 {
+            color: var(--navy);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .detail-box h4::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .detail-list {
+            list-style: none;
+        }
+
+        .detail-list li {
+            color: var(--gray-800);
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 15px;
+        }
+
+        .detail-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 16px;
+            width: 8px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        /* ROI Model Section */
+        .roi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .roi-category {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.08);
+            border: 1px solid var(--gray-100);
+        }
+
+        .roi-category h3 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            color: var(--navy);
+            font-size: 20px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .roi-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .roi-item:last-child {
+            border-bottom: none;
+        }
+
+        .roi-check {
+            width: 24px;
+            height: 24px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .roi-check svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .roi-text h4 {
+            color: var(--navy);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .roi-text p {
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        /* Comparison Section */
+        .comparison-wrapper {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(15, 23, 41, 0.1);
+        }
+
+        .comparison-header {
+            display: grid;
+            grid-template-columns: 200px 1fr 1fr;
+            background: var(--navy);
+        }
+
+        .comparison-header div {
+            padding: 24px 32px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .comparison-header div:first-child {
+            color: var(--white);
+        }
+
+        .comparison-header div:nth-child(2) {
+            color: var(--gray-400);
+            text-align: center;
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .comparison-header div:nth-child(3) {
+            background: var(--gold);
+            color: var(--navy);
+            text-align: center;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 200px 1fr 1fr;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-row:nth-child(even) {
+            background: var(--gray-50);
+        }
+
+        .comparison-row div {
+            padding: 20px 32px;
+            font-size: 15px;
+        }
+
+        .comparison-row div:first-child {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .comparison-row div:nth-child(2) {
+            color: var(--gray-600);
+            text-align: center;
+            border-left: 1px solid var(--gray-100);
+        }
+
+        .comparison-row div:nth-child(3) {
+            background: rgba(212, 168, 83, 0.08);
+            color: var(--navy);
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212, 168, 83, 0.2);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--gold);
+        }
+
+        .faq-question {
+            padding: 24px 32px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question h4 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .faq-toggle {
+            width: 32px;
+            height: 32px;
+            background: rgba(212, 168, 83, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            background: var(--gold);
+            color: var(--navy);
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 32px 24px;
+            color: var(--gray-400);
+            font-size: 16px;
+            line-height: 1.8;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            color: var(--white);
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .cta-content h2 span {
+            color: var(--gold);
+        }
+
+        .cta-content p {
+            color: var(--gray-400);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Pricing Callout */
+        .pricing-callout {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+            box-shadow: 0 8px 40px rgba(15, 23, 41, 0.1);
+            max-width: 700px;
+            margin: 48px auto 0;
+        }
+
+        .pricing-callout h3 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            color: var(--navy);
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .pricing-range {
+            color: var(--gold);
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .pricing-note {
+            color: var(--gray-600);
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+
+        .pricing-features {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .pricing-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-800);
+            font-size: 14px;
+        }
+
+        .pricing-feature svg {
+            width: 20px;
+            height: 20px;
+            color: var(--success);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            padding: 32px 0;
+            border-top: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-text {
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .what-is-grid,
+            .roi-grid,
+            .step-details {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-header,
+            .comparison-row {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-header div,
+            .comparison-row div {
+                border-left: none !important;
+                text-align: left !important;
+            }
+
+            .comparison-header div:first-child,
+            .comparison-row div:first-child {
+                background: var(--navy);
+                color: var(--white);
+            }
+
+            .process-step {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .step-indicator {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+
+            .step-line {
+                display: none;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .pricing-features {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .pricing-range {
+                font-size: 36px;
+            }
+        }
+
+        /* Print */
+        @media print {
+            .header {
+                position: static;
+            }
+
+            .faq-answer {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;"><a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Index</a><span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span><div style="display:flex;gap:12px;"><a href="web-ready-01-testimonials.html" style="color:#fff;text-decoration:none;font-size:13px;">Testimonials</a><a href="web-ready-02-case-studies.html" style="color:#fff;text-decoration:none;font-size:13px;">Cases</a><a href="web-ready-03-homepage.html" style="color:#fff;text-decoration:none;font-size:13px;">Homepage</a><a href="web-ready-11-blog-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">Blog</a><a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a></div></nav>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Scale<span>Up</span> Ventures</div>
+                <div class="tagline">Certainty First.</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">Our Signature Methodology</div>
+            <h1>The <span>Proof Test</span></h1>
+            <p class="hero-subtitle">We prove it before you buy -- and if we can't, we'll tell you. Two tracks of validation, 11 business days.</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value">11</div>
+                    <div class="hero-stat-label">Business Days</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">2</div>
+                    <div class="hero-stat-label">ROI Tracks</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">Go/No-Go</div>
+                    <div class="hero-stat-label">Clear Recommendation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: What Is The Proof Test? -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2 class="section-title">What Is The Proof Test?</h2>
+                <p class="section-subtitle">A two-track methodology that proves your value before you commit.</p>
+            </div>
+
+            <div class="what-is-grid">
+                <div class="definition-card">
+                    <h3>Definition</h3>
+                    <p>The Proof Test is a rigorous, 11-day pre-engagement process with two distinct tracks tailored to your project type:</p>
+                    <p><strong>Track 1 - Ad Campaigns:</strong> Guaranteed lead numbers with our fee refunded (not ad spend) if we miss targets. You know the outcome before you commit.</p>
+                    <p><strong>Track 2 - App &amp; Development Projects:</strong> Three-scenario ROI projections (high/mid/low) showing return in cash OR company/asset value, stress-tested against real-world conditions.</p>
+                    <p><strong>The result:</strong> We prove it before you buy -- and if we can't, we'll tell you.</p>
+                </div>
+
+                <div class="why-card">
+                    <h3>Why We Created It</h3>
+                    <ul class="why-list">
+                        <li>
+                            <div class="why-icon">
+                                <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                            </div>
+                            <span>Too many businesses invest millions based on projections that are little more than educated guesses</span>
+                        </li>
+                        <li>
+                            <div class="why-icon">
+                                <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                            </div>
+                            <span>Traditional consulting asks you to commit before proving value -- we prove value before you commit</span>
+                        </li>
+                        <li>
+                            <div class="why-icon">
+                                <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                            </div>
+                            <span>Some initiatives shouldn't proceed -- The Proof Test identifies these before you waste resources</span>
+                        </li>
+                        <li>
+                            <div class="why-icon">
+                                <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                            </div>
+                            <span>When you do proceed, you'll have a validated roadmap with clear milestones and success metrics</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: The 5-Step Process -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2 class="section-title">The 5-Step Process</h2>
+                <p class="section-subtitle">A systematic approach to proving value before engagement.</p>
+            </div>
+
+            <div class="process-steps">
+                <!-- Step 1: Discovery Deep-Dive -->
+                <div class="process-step">
+                    <div class="step-indicator">
+                        <div class="step-number">1</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3>Discovery Deep-Dive</h3>
+                        <span class="step-timing">Days 1-2</span>
+                        <p class="step-description">We immerse ourselves in your business model, current operations, market position, and strategic objectives. This isn't a surface-level intake -- it's a comprehensive understanding of every lever that affects your outcomes.</p>
+                        <div class="step-details">
+                            <div class="detail-box">
+                                <h4>What We Learn</h4>
+                                <ul class="detail-list">
+                                    <li>Your complete business model and revenue drivers</li>
+                                    <li>Current operational workflows and pain points</li>
+                                    <li>Strategic objectives and success criteria</li>
+                                    <li>Stakeholder perspectives and organizational dynamics</li>
+                                    <li>Historical performance data and trends</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <h4>What You Receive</h4>
+                                <ul class="detail-list">
+                                    <li>Business Model Canvas documentation</li>
+                                    <li>Current state operational assessment</li>
+                                    <li>Initial opportunity identification matrix</li>
+                                    <li>Data request list for next phase</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Market Analysis -->
+                <div class="process-step">
+                    <div class="step-indicator">
+                        <div class="step-number">2</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3>Market Analysis</h3>
+                        <span class="step-timing">Days 3-5</span>
+                        <p class="step-description">We collect, verify, and analyze the quantitative data that will drive our Two-Track model. Every assumption is tested. Every number is validated. We identify data gaps and work with you to fill them.</p>
+                        <div class="step-details">
+                            <div class="detail-box">
+                                <h4>What We Research</h4>
+                                <ul class="detail-list">
+                                    <li>Your 12-24 months of operational metrics</li>
+                                    <li>Industry benchmarks and competitive positioning</li>
+                                    <li>Market trends affecting your sector</li>
+                                    <li>Technology and implementation precedents</li>
+                                    <li>Regulatory and compliance considerations</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <h4>What You Receive</h4>
+                                <ul class="detail-list">
+                                    <li>Data quality audit report</li>
+                                    <li>Validated metrics baseline</li>
+                                    <li>Gap analysis with mitigation strategies</li>
+                                    <li>Benchmark comparison report</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Two-Track Modeling -->
+                <div class="process-step">
+                    <div class="step-indicator">
+                        <div class="step-number">3</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3>Two-Track Modeling</h3>
+                        <span class="step-timing">Days 6-8</span>
+                        <p class="step-description">Using our Two-Track framework, we build the value projections that form the core of The Proof Test. For ad campaigns: guaranteed lead numbers. For development projects: three-scenario ROI projections.</p>
+                        <div class="step-details">
+                            <div class="detail-box">
+                                <h4>Track 1: Ad Campaigns</h4>
+                                <ul class="detail-list">
+                                    <li>Quantify projected ad spend AND projected leads BEFORE starting</li>
+                                    <li>Ensure expected results meet client needs before commitment</li>
+                                    <li>Fee refund terms if targets are missed (ad spend excluded)</li>
+                                    <li>Campaign structure and timeline recommendations</li>
+                                    <li>Risk factors and mitigation strategies</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <h4>Track 2: App &amp; Development</h4>
+                                <ul class="detail-list">
+                                    <li>Three-scenario projections (high/mid/low)</li>
+                                    <li>Return shown in cash OR company/asset value</li>
+                                    <li>Sensitivity analysis on key variables</li>
+                                    <li>Complete assumption documentation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Scenario Planning -->
+                <div class="process-step">
+                    <div class="step-indicator">
+                        <div class="step-number">4</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3>Scenario Planning</h3>
+                        <span class="step-timing">Days 9-10</span>
+                        <p class="step-description">We synthesize all findings into three distinct scenarios: Conservative, Moderate, and Optimistic. Each scenario is probability-weighted and includes specific conditions required to achieve those outcomes.</p>
+                        <div class="step-details">
+                            <div class="detail-box">
+                                <h4>Best / Worst / Expected</h4>
+                                <ul class="detail-list">
+                                    <li><strong>Conservative:</strong> 70% confidence -- assumes challenges, slower adoption</li>
+                                    <li><strong>Moderate:</strong> 50% confidence -- realistic execution with typical hurdles</li>
+                                    <li><strong>Optimistic:</strong> 30% confidence -- best-case with favorable conditions</li>
+                                    <li>Each includes timeline, investment, and risk factors</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <h4>What You Receive</h4>
+                                <ul class="detail-list">
+                                    <li>Three-scenario comparison matrix</li>
+                                    <li>Risk assessment and mitigation strategies</li>
+                                    <li>Critical success factors documentation</li>
+                                    <li>Go/no-go recommendation with rationale</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Decision Framework -->
+                <div class="process-step">
+                    <div class="step-indicator">
+                        <div class="step-number">5</div>
+                    </div>
+                    <div class="step-content">
+                        <h3>Decision Framework</h3>
+                        <span class="step-timing">Day 11</span>
+                        <p class="step-description">A comprehensive presentation to your leadership team walking through every aspect of The Proof Test findings. You leave with complete clarity on whether to proceed -- and exactly what to expect if you do.</p>
+                        <div class="step-details">
+                            <div class="detail-box">
+                                <h4>How Client Decides</h4>
+                                <ul class="detail-list">
+                                    <li>Executive briefing with your leadership team</li>
+                                    <li>Interactive walkthrough of all three scenarios</li>
+                                    <li>Q&A session with our analysis team</li>
+                                    <li>Clear decision criteria and next steps</li>
+                                    <li>Implementation blueprint (if proceeding)</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <h4>What You Receive</h4>
+                                <ul class="detail-list">
+                                    <li>Executive presentation deck</li>
+                                    <li>Complete Proof Test documentation package</li>
+                                    <li>Board-ready summary report</li>
+                                    <li>Implementation roadmap (if go decision)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: What's Included in the Two-Track Model -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2 class="section-title">What's Included in the Two-Track Model</h2>
+                <p class="section-subtitle">Tailored deliverables based on your project type.</p>
+            </div>
+
+            <div class="roi-grid">
+                <div class="roi-category">
+                    <h3>Track 1: Ad Campaign ROI</h3>
+                    <div class="roi-item">
+                        <div class="roi-check">
+                            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="roi-text">
+                            <h4>Projected Ad Spend Quantified</h4>
+                            <p>We quantify projected ad spend BEFORE starting to ensure clarity on investment required</p>
+                        </div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-check">
+                            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="roi-text">
+                            <h4>Projected Leads Quantified</h4>
+                            <p>We quantify projected leads BEFORE starting to ensure expected results meet client needs</p>
+                        </div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-check">
+                            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="roi-text">
+                            <h4>Fee Refund Policy</h4>
+                            <p>Our fee refunded if targets are missed (ad spend not included in refund)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roi-category">
+                    <h3>Track 2: Development ROI Projections</h3>
+                    <div class="roi-item">
+                        <div class="roi-check">
+                            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="roi-text">
+                            <h4>Three-Scenario Projections</h4>
+                            <p>High, mid, and low cases with clear assumptions for each outcome</p>
+                        </div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-check">
+                            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="roi-text">
+                            <h4>Return in Cash OR Value</h4>
+                            <p>Returns modeled as direct revenue, company valuation, or asset value increase</p>
+                        </div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-check">
+                            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="roi-text">
+                            <h4>Sensitivity Analysis</h4>
+                            <p>How key variables impact outcomes with interactive modeling</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roi-category">
+                    <h3>Cost Analysis (Both Tracks)</h3>
+                    <div class="roi-item">
+                        <div class="roi-check">
+                            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="roi-text">
+                            <h4>Implementation Investment</h4>
+                            <p>One-time costs including technology, training, and transition</p>
+                        </div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-check">
+                            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="roi-text">
+                            <h4>Ongoing Operating Costs</h4>
+                            <p>Monthly/annual operational expenses including maintenance and support</p>
+                        </div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-check">
+                            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="roi-text">
+                            <h4>Hidden Cost Identification</h4>
+                            <p>Often-overlooked expenses like opportunity cost and productivity dips</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roi-category">
+                    <h3>Timeline &amp; Risk Factors (Both Tracks)</h3>
+                    <div class="roi-item">
+                        <div class="roi-check">
+                            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="roi-text">
+                            <h4>Implementation Timeline</h4>
+                            <p>Phase-by-phase schedule with milestones and dependencies</p>
+                        </div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-check">
+                            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="roi-text">
+                            <h4>Time-to-Value Projections</h4>
+                            <p>When you'll see first returns and when you'll break even</p>
+                        </div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-check">
+                            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="roi-text">
+                            <h4>Risk Assessment Matrix</h4>
+                            <p>Identified risks with probability, impact, and mitigation strategies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: How It's Different -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2 class="section-title">How It's Different</h2>
+                <p class="section-subtitle">The Proof Test vs. traditional consulting approaches.</p>
+            </div>
+
+            <div class="comparison-wrapper">
+                <div class="comparison-header">
+                    <div>Dimension</div>
+                    <div>Traditional Approach</div>
+                    <div>The Proof Test</div>
+                </div>
+                <div class="comparison-row">
+                    <div>When You Know ROI</div>
+                    <div>After you've invested, often during implementation</div>
+                    <div>Before you commit a single dollar</div>
+                </div>
+                <div class="comparison-row">
+                    <div>Data Source</div>
+                    <div>Industry benchmarks and general assumptions</div>
+                    <div>Your actual data, validated and stress-tested</div>
+                </div>
+                <div class="comparison-row">
+                    <div>Scenario Analysis</div>
+                    <div>Single-point estimates with optimistic bias</div>
+                    <div>Three scenarios with probability weightings</div>
+                </div>
+                <div class="comparison-row">
+                    <div>Risk Assessment</div>
+                    <div>Qualitative discussion of potential challenges</div>
+                    <div>Quantified risk matrix with mitigation plans</div>
+                </div>
+                <div class="comparison-row">
+                    <div>Timeline</div>
+                    <div>Weeks to months before any projections</div>
+                    <div>Complete validation in 11 business days</div>
+                </div>
+                <div class="comparison-row">
+                    <div>Transparency</div>
+                    <div>Black-box methodologies with limited visibility</div>
+                    <div>Full documentation of every assumption</div>
+                </div>
+                <div class="comparison-row">
+                    <div>Commitment Required</div>
+                    <div>Large upfront investment before knowing returns</div>
+                    <div>Fixed fee credited toward engagement if you proceed</div>
+                </div>
+                <div class="comparison-row">
+                    <div>If It's Not Right</div>
+                    <div>You find out after significant investment</div>
+                    <div>You know in 11 days; we recommend "don't proceed"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: The Proof Test in Practice -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2 class="section-title">The Proof Test in Practice</h2>
+                <p class="section-subtitle">Real examples of how the methodology creates value.</p>
+            </div>
+
+            <div class="roi-grid">
+                <div class="roi-category">
+                    <h3>The No-Build Decision</h3>
+                    <div class="roi-item">
+                        <div class="roi-check">
+                            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="roi-text">
+                            <h4>$5K Discovery, $150K+ and 12+ Months Saved</h4>
+                            <p>Client had $150,000+ budget and 12-18 month commitment timeline. ScaleUp proposed $5,000 discovery (4 weeks). We found market saturation, hidden costs, and that 80% was achievable with existing solutions. Saved $150,000+ and 12+ months.</p>
+                        </div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-check">
+                            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="roi-text">
+                            <h4>Certainty First Philosophy</h4>
+                            <p>"'Certainty First' means we'd rather earn $5,000 telling the truth than $150,000 building something that won't serve you."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roi-category">
+                    <h3>When the Answer Is "Build, But Differently"</h3>
+                    <div class="roi-item">
+                        <div class="roi-check">
+                            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="roi-text">
+                            <h4>Full Product for Regulated Industry</h4>
+                            <p>A financial trading application required full product build from idea to SEC/NFA compliant app, plus comprehensive go-to-market: persona research, targeting, ad management, and lead generation.</p>
+                        </div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-check">
+                            <svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="#0F1729" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="roi-text">
+                            <h4>Startup Support Beyond Code</h4>
+                            <p>Market validation, business/financial model validation, app development, fundraising plan, and investor/advisor intros -- the Proof Test often reveals what's really needed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: var(--navy); border-radius: 16px; padding: 32px; margin-top: 32px; text-align: center;">
+                <p style="color: var(--gray-200); font-size: 18px; font-style: italic; margin: 0;">
+                    "The Proof Test methodology emerged from our client work on an HR Automation Tool -- full product build plus persona research, targeting, ad management, and lead generation. We achieved $25-$33 lead costs, which enabled validation of market, customer, and profitable customer acquisition. We built this because we needed it ourselves."
+                </p>
+                <p style="color: var(--gold); font-size: 14px; margin-top: 16px; margin-bottom: 0;">
+                    -- ScaleUp Ventures Team
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: FAQ -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number" style="background: var(--white); color: var(--navy);">6</div>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">What clients ask before starting The Proof Test.</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <h4>What does The Proof Test cost?</h4>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        The Proof Test is a fixed-fee engagement priced based on the complexity of your situation. For most early-stage and growth companies we work with, this typically ranges from $5,000 to $15,000. The fee is independent of any subsequent engagement -- if The Proof Test reveals that proceeding isn't advisable, you've avoided a much larger mistake. If you proceed with a full engagement, The Proof Test fee is credited toward your project investment.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What if The Proof Test shows we shouldn't proceed?</h4>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        That's exactly the point -- and one of our most valuable outcomes. In one engagement, a $5K Proof Test saved a client over $150K by recommending they <em>not</em> build. We provide detailed documentation of why the initiative isn't advisable at this time, and what would need to change for it to become viable. Knowing when not to proceed is just as valuable as knowing when to move forward.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What data do you need from us?</h4>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        We provide a detailed data request list tailored to your specific initiative. Typically this includes: historical operational metrics (12-24 months), financial data related to the areas of focus, current process documentation, and previous relevant analyses. We work with whatever format your data exists in and help identify gaps early in the process.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How accurate are your ROI projections?</h4>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        We use a three-scenario approach specifically because single-point projections are often misleading. By providing conservative, moderate, and optimistic scenarios with clear assumptions for each, you can make decisions based on ranges rather than false precision. We're conservative in our estimates because we'd rather under-promise and over-deliver than the reverse.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Can we do The Proof Test before selecting a vendor?</h4>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Absolutely -- this is actually an ideal use case. The Proof Test can help you develop requirements, understand what ROI you should expect, and create evaluation criteria before you engage with vendors. This gives you significant leverage in negotiations because you'll know exactly what outcomes you should demand.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What happens after The Proof Test?</h4>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        If our recommendation is to proceed, you'll have a complete implementation blueprint ready to execute. You can choose to engage ScaleUp Ventures for implementation support, use another firm, or handle it internally. The Proof Test deliverables are yours regardless. Many clients choose to continue with us for implementation -- we've helped startups with market validation, business/financial model validation, app development, fundraising plans, and investor/advisor intros.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How is our sensitive data protected?</h4>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        All Proof Test engagements are covered by comprehensive NDAs. We use secure, encrypted file sharing systems, and all client data is destroyed 90 days after project completion unless you request otherwise. Our team members are bound by confidentiality agreements, and we never use client data for any purpose other than your specific engagement.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How much of our team's time is required?</h4>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        We've designed The Proof Test to be minimally disruptive. Key stakeholders typically invest 4-6 hours total over the 11-day period. This includes an initial discovery session (2 hours), data access coordination (1-2 hours), and the final decision briefing (2 hours). We do the heavy lifting; you provide the access and context.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-callout">
+                <h3>Investment Range</h3>
+                <div class="pricing-range">$5,000 - $15,000</div>
+                <div class="pricing-note">Based on engagement complexity | Credited toward implementation if you proceed</div>
+                <div class="pricing-features">
+                    <div class="pricing-feature">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Fixed-fee engagement
+                    </div>
+                    <div class="pricing-feature">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        11 business days
+                    </div>
+                    <div class="pricing-feature">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Complete deliverable package
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready for <span>Certainty</span>?</h2>
+                <p>In 11 days, you'll know exactly what your investment will deliver. No guesswork. No surprises. Just data-validated ROI projections you can take to the board with confidence.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn-primary">
+                        Request Your Proof Test
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                    </a>
+                    <a href="#" class="btn-secondary">Download Overview PDF</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Scale<span>Up</span> Ventures</div>
+                <div class="footer-text">The Proof Test Methodology | Certainty First.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const wasActive = item.classList.contains('active');
+
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+
+                // Toggle current
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+<footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;"><a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Content Index</a><p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p></footer>
+</body>
+</html>

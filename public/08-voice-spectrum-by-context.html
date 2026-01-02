@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Spectrum by Context Matrix | ScaleUp Ventures</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --gold-light: #E8C878;
+            --gold-dark: #B8923F;
+            --navy-light: #1A2540;
+            --navy-lighter: #2A3A5A;
+            --warm: #C4785A;
+            --technical: #4A6B8A;
+            --neutral: #6B7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #F8F6F3;
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            margin-bottom: 16px;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            max-width: 700px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        .header .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 24px;
+            padding: 12px 24px;
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+        }
+
+        .header .brand-badge span {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .section-intro {
+            font-size: 1.1rem;
+            color: var(--navy-lighter);
+            margin-bottom: 32px;
+            max-width: 900px;
+        }
+
+        /* Voice Spectrum Visual */
+        .spectrum-section {
+            background: white;
+            padding: 48px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 24px rgba(15, 23, 41, 0.08);
+        }
+
+        .spectrum-visual {
+            margin: 40px 0;
+        }
+
+        .spectrum-bar {
+            height: 60px;
+            background: linear-gradient(90deg, var(--warm) 0%, var(--gold) 50%, var(--technical) 100%);
+            border-radius: 30px;
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .spectrum-labels {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .spectrum-labels .warmer {
+            color: var(--warm);
+        }
+
+        .spectrum-labels .technical {
+            color: var(--technical);
+        }
+
+        .spectrum-ticks {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            margin-top: 8px;
+        }
+
+        .spectrum-ticks span {
+            font-size: 0.8rem;
+            color: var(--neutral);
+        }
+
+        /* Context Markers on Spectrum */
+        .spectrum-markers {
+            position: relative;
+            height: 120px;
+            margin-top: 40px;
+        }
+
+        .context-marker {
+            position: absolute;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .context-marker .dot {
+            width: 16px;
+            height: 16px;
+            background: var(--navy);
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            margin: 0 auto 8px;
+        }
+
+        .context-marker .label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--navy);
+            white-space: nowrap;
+        }
+
+        .context-marker.row-1 { top: 0; }
+        .context-marker.row-2 { top: 50px; }
+
+        /* Voice Attributes */
+        .voice-attributes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .voice-attribute {
+            padding: 24px;
+            background: var(--navy);
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .voice-attribute h4 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--gold);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .voice-attribute p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Context Cards Grid */
+        .context-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .context-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(15, 23, 41, 0.08);
+        }
+
+        .context-card-header {
+            background: var(--navy);
+            color: white;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .context-card-header h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .context-number {
+            width: 32px;
+            height: 32px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .context-card-body {
+            padding: 24px;
+        }
+
+        /* Tone Dial */
+        .tone-dial-container {
+            margin-bottom: 24px;
+        }
+
+        .tone-dial-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .tone-dial {
+            position: relative;
+            height: 40px;
+            background: linear-gradient(90deg, var(--warm) 0%, var(--gold) 50%, var(--technical) 100%);
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+
+        .tone-dial-marker {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            background: white;
+            border: 3px solid var(--navy);
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .tone-dial-ends {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--neutral);
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .metric {
+            padding: 16px;
+            background: #F8F6F3;
+            border-radius: 6px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--neutral);
+            margin-bottom: 6px;
+        }
+
+        .metric-value {
+            font-size: 1rem;
+            color: var(--navy);
+            font-weight: 500;
+        }
+
+        /* Emotional Temperature */
+        .emotional-temp {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--navy);
+            border-radius: 6px;
+            margin-bottom: 24px;
+        }
+
+        .temp-icon {
+            font-size: 1.5rem;
+        }
+
+        .temp-details {
+            flex: 1;
+        }
+
+        .temp-label {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .temp-value {
+            font-size: 1rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        /* Example Paragraph */
+        .example-section {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #E5E5E5;
+        }
+
+        .example-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold-dark);
+            margin-bottom: 12px;
+        }
+
+        .example-text {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--navy);
+            padding: 20px;
+            background: linear-gradient(135deg, #F8F6F3 0%, #FFFFFF 100%);
+            border-radius: 6px;
+            border-left: 4px solid var(--gold);
+            font-style: italic;
+        }
+
+        /* Master Spectrum Diagram */
+        .master-spectrum {
+            background: var(--navy);
+            padding: 48px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .master-spectrum h2 {
+            color: white;
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .master-spectrum h2 span {
+            color: var(--gold);
+        }
+
+        .master-bar-container {
+            padding: 40px 60px;
+        }
+
+        .master-bar {
+            height: 80px;
+            background: linear-gradient(90deg, var(--warm) 0%, var(--gold) 50%, var(--technical) 100%);
+            border-radius: 40px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .master-bar::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100px;
+            background: rgba(255,255,255,0.3);
+        }
+
+        .context-positions {
+            position: relative;
+            height: 300px;
+        }
+
+        .position-item {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .position-line {
+            width: 2px;
+            background: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .position-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin-bottom: 8px;
+        }
+
+        .position-label {
+            font-size: 0.8rem;
+            color: white;
+            text-align: center;
+            max-width: 100px;
+            line-height: 1.3;
+        }
+
+        .position-label strong {
+            display: block;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .master-labels {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px 0;
+        }
+
+        .master-labels span {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .master-labels .warmer {
+            color: var(--warm);
+        }
+
+        .master-labels .center {
+            color: var(--gold);
+        }
+
+        .master-labels .technical {
+            color: #8AA4C4;
+        }
+
+        /* Quick Reference Table */
+        .quick-reference {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(15, 23, 41, 0.08);
+            margin-bottom: 40px;
+        }
+
+        .quick-reference table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .quick-reference th {
+            background: var(--navy);
+            color: white;
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .quick-reference td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #E5E5E5;
+            font-size: 0.9rem;
+        }
+
+        .quick-reference tr:nth-child(even) {
+            background: #F8F6F3;
+        }
+
+        .quick-reference tr:hover {
+            background: #F0EDE8;
+        }
+
+        .position-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: linear-gradient(90deg, var(--warm) 0%, var(--gold) 50%, var(--technical) 100%);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px;
+            background: var(--navy);
+            color: white;
+            margin-top: 40px;
+        }
+
+        .footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .footer .brand {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .context-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .voice-attributes {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-reference {
+                overflow-x: auto;
+            }
+
+            .master-bar-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Voice Spectrum by <span>Context Matrix</span></h1>
+        <p class="subtitle">A comprehensive guide to calibrating ScaleUp Ventures' voice across all communication contexts, ensuring consistency while allowing for situational adaptation.</p>
+        <div class="brand-badge">
+            <span>ScaleUp Ventures</span>
+            <span style="color: var(--gold);">|</span>
+            <span>Brand Voice Guidelines</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Voice Spectrum Definition -->
+        <section class="spectrum-section">
+            <h2 class="section-title">The Voice Spectrum: From Warmer to More Technical</h2>
+            <p class="section-intro">Our voice exists on a calibrated spectrum. On one end, we speak with warmth and accessibility, creating connection with skeptical business owners. On the other, we deploy precise, technical language that demonstrates deep expertise. The art lies in knowing where to position ourselves for each context.</p>
+
+            <div class="voice-attributes">
+                <div class="voice-attribute">
+                    <h4>Watchful</h4>
+                    <p>We observe carefully before acting. Our communications reflect deep understanding of the business landscape, market conditions, and client-specific challenges. We see what others miss.</p>
+                </div>
+                <div class="voice-attribute">
+                    <h4>Measured</h4>
+                    <p>Every word carries weight. We avoid hyperbole and overstatement, preferring precision and substantiation. Our restraint builds trust with experienced business owners.</p>
+                </div>
+                <div class="voice-attribute">
+                    <h4>Decisive</h4>
+                    <p>When we speak, we speak with conviction. Our recommendations are clear, our analysis is definitive, and our guidance is actionable. We do not hedge unnecessarily.</p>
+                </div>
+            </div>
+
+            <div class="spectrum-visual">
+                <div class="spectrum-labels">
+                    <span class="warmer">Warmer</span>
+                    <span class="technical">More Technical</span>
+                </div>
+                <div class="spectrum-bar"></div>
+                <div class="spectrum-ticks">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+
+            <div class="spectrum-markers">
+                <div class="context-marker row-1" style="left: 35%">
+                    <div class="dot"></div>
+                    <div class="label">Marketing</div>
+                </div>
+                <div class="context-marker row-1" style="left: 55%">
+                    <div class="dot"></div>
+                    <div class="label">Website</div>
+                </div>
+                <div class="context-marker row-1" style="left: 75%">
+                    <div class="dot"></div>
+                    <div class="label">Client Reports</div>
+                </div>
+                <div class="context-marker row-1" style="left: 85%">
+                    <div class="dot"></div>
+                    <div class="label">Thought Leadership</div>
+                </div>
+                <div class="context-marker row-2" style="left: 25%">
+                    <div class="dot"></div>
+                    <div class="label">Social Media</div>
+                </div>
+                <div class="context-marker row-2" style="left: 45%">
+                    <div class="dot"></div>
+                    <div class="label">Email</div>
+                </div>
+                <div class="context-marker row-2" style="left: 60%">
+                    <div class="dot"></div>
+                    <div class="label">Sales Conversations</div>
+                </div>
+                <div class="context-marker row-2" style="left: 70%">
+                    <div class="dot"></div>
+                    <div class="label">Proposals</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Context Cards -->
+        <div class="context-grid">
+
+            <!-- 1. Marketing Materials -->
+            <div class="context-card">
+                <div class="context-card-header">
+                    <h3>Marketing Materials</h3>
+                    <div class="context-number">1</div>
+                </div>
+                <div class="context-card-body">
+                    <div class="tone-dial-container">
+                        <div class="tone-dial-label">Tone Dial Position</div>
+                        <div class="tone-dial">
+                            <div class="tone-dial-marker" style="left: 35%"></div>
+                        </div>
+                        <div class="tone-dial-ends">
+                            <span>Warmer</span>
+                            <span>Position: 3.5/10</span>
+                            <span>Technical</span>
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-label">Formality Level</div>
+                            <div class="metric-value">Professional-Accessible</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Sentence Length</div>
+                            <div class="metric-value">15-22 words avg.</div>
+                        </div>
+                    </div>
+
+                    <div class="emotional-temp">
+                        <div class="temp-icon">&#9728;</div>
+                        <div class="temp-details">
+                            <div class="temp-label">Emotional Temperature</div>
+                            <div class="temp-value">Confident warmth with understated ambition</div>
+                        </div>
+                    </div>
+
+                    <div class="example-section">
+                        <div class="example-label">Example Paragraph</div>
+                        <div class="example-text">
+                            "Building a business over decades demands more than good instincts. You've navigated market shifts, staffing challenges, and economic uncertainty through sheer determination. Now, as you consider what comes next, ScaleUp Ventures brings the same measured approach you've applied to your business. We don't promise miracles. We deliver clarity, strategy, and results that respect what you've built."
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Website Copy -->
+            <div class="context-card">
+                <div class="context-card-header">
+                    <h3>Website Copy</h3>
+                    <div class="context-number">2</div>
+                </div>
+                <div class="context-card-body">
+                    <div class="tone-dial-container">
+                        <div class="tone-dial-label">Tone Dial Position</div>
+                        <div class="tone-dial">
+                            <div class="tone-dial-marker" style="left: 55%"></div>
+                        </div>
+                        <div class="tone-dial-ends">
+                            <span>Warmer</span>
+                            <span>Position: 5.5/10</span>
+                            <span>Technical</span>
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-label">Formality Level</div>
+                            <div class="metric-value">Business Professional</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Sentence Length</div>
+                            <div class="metric-value">12-18 words avg.</div>
+                        </div>
+                    </div>
+
+                    <div class="emotional-temp">
+                        <div class="temp-icon">&#9670;</div>
+                        <div class="temp-details">
+                            <div class="temp-label">Emotional Temperature</div>
+                            <div class="temp-value">Authoritative calm with measured confidence</div>
+                        </div>
+                    </div>
+
+                    <div class="example-section">
+                        <div class="example-label">Example Paragraph</div>
+                        <div class="example-text">
+                            "Most advisory firms sell optimism. We sell clear-eyed analysis. ScaleUp Ventures works exclusively with established businesses, typically generating $2M-$50M in annual revenue. Our methodology combines operational diagnostics, market positioning assessment, and strategic growth planning. The result: actionable insights that translate directly to your bottom line."
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Client Reports -->
+            <div class="context-card">
+                <div class="context-card-header">
+                    <h3>Client Reports</h3>
+                    <div class="context-number">3</div>
+                </div>
+                <div class="context-card-body">
+                    <div class="tone-dial-container">
+                        <div class="tone-dial-label">Tone Dial Position</div>
+                        <div class="tone-dial">
+                            <div class="tone-dial-marker" style="left: 75%"></div>
+                        </div>
+                        <div class="tone-dial-ends">
+                            <span>Warmer</span>
+                            <span>Position: 7.5/10</span>
+                            <span>Technical</span>
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-label">Formality Level</div>
+                            <div class="metric-value">Formal-Technical</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Sentence Length</div>
+                            <div class="metric-value">18-25 words avg.</div>
+                        </div>
+                    </div>
+
+                    <div class="emotional-temp">
+                        <div class="temp-icon">&#9670;</div>
+                        <div class="temp-details">
+                            <div class="temp-label">Emotional Temperature</div>
+                            <div class="temp-value">Clinical precision with decisive recommendations</div>
+                        </div>
+                    </div>
+
+                    <div class="example-section">
+                        <div class="example-label">Example Paragraph</div>
+                        <div class="example-text">
+                            "Analysis of Q4 operational metrics reveals a 23% decline in gross margin contribution from the northeast region, attributable primarily to increased logistics costs and competitive pricing pressure. We recommend immediate implementation of the regional pricing adjustment outlined in Section 4.2, targeting a margin recovery of 15-18% within two quarters. Supporting data and sensitivity analysis follow."
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Thought Leadership -->
+            <div class="context-card">
+                <div class="context-card-header">
+                    <h3>Thought Leadership</h3>
+                    <div class="context-number">4</div>
+                </div>
+                <div class="context-card-body">
+                    <div class="tone-dial-container">
+                        <div class="tone-dial-label">Tone Dial Position</div>
+                        <div class="tone-dial">
+                            <div class="tone-dial-marker" style="left: 85%"></div>
+                        </div>
+                        <div class="tone-dial-ends">
+                            <span>Warmer</span>
+                            <span>Position: 8.5/10</span>
+                            <span>Technical</span>
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-label">Formality Level</div>
+                            <div class="metric-value">Academic-Professional</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Sentence Length</div>
+                            <div class="metric-value">20-30 words avg.</div>
+                        </div>
+                    </div>
+
+                    <div class="emotional-temp">
+                        <div class="temp-icon">&#9733;</div>
+                        <div class="temp-details">
+                            <div class="temp-label">Emotional Temperature</div>
+                            <div class="temp-value">Intellectual authority with measured provocation</div>
+                        </div>
+                    </div>
+
+                    <div class="example-section">
+                        <div class="example-label">Example Paragraph</div>
+                        <div class="example-text">
+                            "The conventional wisdom around business succession planning fundamentally misunderstands the psychology of the founder-operator. Research consistently demonstrates that owners aged 55-70 resist exit planning not due to emotional attachment alone, but because prevailing frameworks fail to address the identity-enterprise integration that develops over decades of ownership. Effective advisory practice must begin with this recognition."
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Sales Conversations -->
+            <div class="context-card">
+                <div class="context-card-header">
+                    <h3>Sales Conversations</h3>
+                    <div class="context-number">5</div>
+                </div>
+                <div class="context-card-body">
+                    <div class="tone-dial-container">
+                        <div class="tone-dial-label">Tone Dial Position</div>
+                        <div class="tone-dial">
+                            <div class="tone-dial-marker" style="left: 60%"></div>
+                        </div>
+                        <div class="tone-dial-ends">
+                            <span>Warmer</span>
+                            <span>Position: 6.0/10</span>
+                            <span>Technical</span>
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-label">Formality Level</div>
+                            <div class="metric-value">Conversational-Professional</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Sentence Length</div>
+                            <div class="metric-value">10-16 words avg.</div>
+                        </div>
+                    </div>
+
+                    <div class="emotional-temp">
+                        <div class="temp-icon">&#9670;</div>
+                        <div class="temp-details">
+                            <div class="temp-label">Emotional Temperature</div>
+                            <div class="temp-value">Attentive curiosity with quiet confidence</div>
+                        </div>
+                    </div>
+
+                    <div class="example-section">
+                        <div class="example-label">Example Paragraph</div>
+                        <div class="example-text">
+                            "I hear what you're saying about past experiences with consultants. Frankly, I'd be skeptical too. Here's how we're different: we don't operate on billable hours. Our compensation ties directly to measurable outcomes we define together upfront. If we don't deliver, you don't pay. That's not marketing. That's our model."
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Social Media -->
+            <div class="context-card">
+                <div class="context-card-header">
+                    <h3>Social Media</h3>
+                    <div class="context-number">6</div>
+                </div>
+                <div class="context-card-body">
+                    <div class="tone-dial-container">
+                        <div class="tone-dial-label">Tone Dial Position</div>
+                        <div class="tone-dial">
+                            <div class="tone-dial-marker" style="left: 25%"></div>
+                        </div>
+                        <div class="tone-dial-ends">
+                            <span>Warmer</span>
+                            <span>Position: 2.5/10</span>
+                            <span>Technical</span>
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-label">Formality Level</div>
+                            <div class="metric-value">Approachable-Professional</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Sentence Length</div>
+                            <div class="metric-value">8-14 words avg.</div>
+                        </div>
+                    </div>
+
+                    <div class="emotional-temp">
+                        <div class="temp-icon">&#9728;</div>
+                        <div class="temp-details">
+                            <div class="temp-label">Emotional Temperature</div>
+                            <div class="temp-value">Thoughtful accessibility with insight</div>
+                        </div>
+                    </div>
+
+                    <div class="example-section">
+                        <div class="example-label">Example Paragraph</div>
+                        <div class="example-text">
+                            "Thirty years in business taught me one thing: the numbers tell stories that instincts miss. Last week, a client discovered their 'best' product line was actually eroding margin. Sometimes clarity requires looking where you haven't thought to look. That's what we do."
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Email Communication -->
+            <div class="context-card">
+                <div class="context-card-header">
+                    <h3>Email Communication</h3>
+                    <div class="context-number">7</div>
+                </div>
+                <div class="context-card-body">
+                    <div class="tone-dial-container">
+                        <div class="tone-dial-label">Tone Dial Position</div>
+                        <div class="tone-dial">
+                            <div class="tone-dial-marker" style="left: 45%"></div>
+                        </div>
+                        <div class="tone-dial-ends">
+                            <span>Warmer</span>
+                            <span>Position: 4.5/10</span>
+                            <span>Technical</span>
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-label">Formality Level</div>
+                            <div class="metric-value">Professional-Personable</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Sentence Length</div>
+                            <div class="metric-value">12-18 words avg.</div>
+                        </div>
+                    </div>
+
+                    <div class="emotional-temp">
+                        <div class="temp-icon">&#9670;</div>
+                        <div class="temp-details">
+                            <div class="temp-label">Emotional Temperature</div>
+                            <div class="temp-value">Respectful directness with personal touch</div>
+                        </div>
+                    </div>
+
+                    <div class="example-section">
+                        <div class="example-label">Example Paragraph</div>
+                        <div class="example-text">
+                            "Good morning, Richard. Following up on our conversation about the inventory management challenge. I've reviewed the numbers you shared and see a path to reducing carrying costs by 18-22% within six months. Happy to walk through the analysis when you have 30 minutes. Wednesday afternoon works on my end."
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Proposals -->
+            <div class="context-card">
+                <div class="context-card-header">
+                    <h3>Proposals</h3>
+                    <div class="context-number">8</div>
+                </div>
+                <div class="context-card-body">
+                    <div class="tone-dial-container">
+                        <div class="tone-dial-label">Tone Dial Position</div>
+                        <div class="tone-dial">
+                            <div class="tone-dial-marker" style="left: 70%"></div>
+                        </div>
+                        <div class="tone-dial-ends">
+                            <span>Warmer</span>
+                            <span>Position: 7.0/10</span>
+                            <span>Technical</span>
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-label">Formality Level</div>
+                            <div class="metric-value">Formal-Structured</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Sentence Length</div>
+                            <div class="metric-value">16-24 words avg.</div>
+                        </div>
+                    </div>
+
+                    <div class="emotional-temp">
+                        <div class="temp-icon">&#9670;</div>
+                        <div class="temp-details">
+                            <div class="temp-label">Emotional Temperature</div>
+                            <div class="temp-value">Confident precision with investment justification</div>
+                        </div>
+                    </div>
+
+                    <div class="example-section">
+                        <div class="example-label">Example Paragraph</div>
+                        <div class="example-text">
+                            "The proposed engagement encompasses a 90-day diagnostic phase followed by strategic implementation support over 12 months. Based on preliminary analysis, we project recoverable value of $340,000-$420,000 annually through operational optimization and pricing strategy refinement. Our fee structure aligns 40% of compensation with achievement of defined performance benchmarks."
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Master Visual Spectrum -->
+        <section class="master-spectrum">
+            <h2>Complete <span>Context Positioning</span> Overview</h2>
+
+            <div class="master-bar-container">
+                <div class="master-bar"></div>
+
+                <div class="context-positions">
+                    <!-- Position 2.5: Social Media -->
+                    <div class="position-item" style="left: 25%; top: 0;">
+                        <div class="position-line" style="height: 40px;"></div>
+                        <div class="position-dot"></div>
+                        <div class="position-label">
+                            <strong>Social Media</strong>
+                            2.5/10
+                        </div>
+                    </div>
+
+                    <!-- Position 3.5: Marketing -->
+                    <div class="position-item" style="left: 35%; top: 60px;">
+                        <div class="position-line" style="height: 30px;"></div>
+                        <div class="position-dot"></div>
+                        <div class="position-label">
+                            <strong>Marketing</strong>
+                            3.5/10
+                        </div>
+                    </div>
+
+                    <!-- Position 4.5: Email -->
+                    <div class="position-item" style="left: 45%; top: 0;">
+                        <div class="position-line" style="height: 40px;"></div>
+                        <div class="position-dot"></div>
+                        <div class="position-label">
+                            <strong>Email</strong>
+                            4.5/10
+                        </div>
+                    </div>
+
+                    <!-- Position 5.5: Website -->
+                    <div class="position-item" style="left: 55%; top: 60px;">
+                        <div class="position-line" style="height: 30px;"></div>
+                        <div class="position-dot"></div>
+                        <div class="position-label">
+                            <strong>Website</strong>
+                            5.5/10
+                        </div>
+                    </div>
+
+                    <!-- Position 6.0: Sales -->
+                    <div class="position-item" style="left: 60%; top: 120px;">
+                        <div class="position-line" style="height: 25px;"></div>
+                        <div class="position-dot"></div>
+                        <div class="position-label">
+                            <strong>Sales</strong>
+                            6.0/10
+                        </div>
+                    </div>
+
+                    <!-- Position 7.0: Proposals -->
+                    <div class="position-item" style="left: 70%; top: 0;">
+                        <div class="position-line" style="height: 40px;"></div>
+                        <div class="position-dot"></div>
+                        <div class="position-label">
+                            <strong>Proposals</strong>
+                            7.0/10
+                        </div>
+                    </div>
+
+                    <!-- Position 7.5: Client Reports -->
+                    <div class="position-item" style="left: 75%; top: 60px;">
+                        <div class="position-line" style="height: 30px;"></div>
+                        <div class="position-dot"></div>
+                        <div class="position-label">
+                            <strong>Reports</strong>
+                            7.5/10
+                        </div>
+                    </div>
+
+                    <!-- Position 8.5: Thought Leadership -->
+                    <div class="position-item" style="left: 85%; top: 0;">
+                        <div class="position-line" style="height: 40px;"></div>
+                        <div class="position-dot"></div>
+                        <div class="position-label">
+                            <strong>Thought Leadership</strong>
+                            8.5/10
+                        </div>
+                    </div>
+                </div>
+
+                <div class="master-labels">
+                    <span class="warmer">Warmer / Accessible</span>
+                    <span class="center">Balanced</span>
+                    <span class="technical">Technical / Formal</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Reference Table -->
+        <section class="quick-reference">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Context</th>
+                        <th>Position</th>
+                        <th>Formality</th>
+                        <th>Avg. Sentence</th>
+                        <th>Emotional Temperature</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Social Media</strong></td>
+                        <td><span class="position-badge">2.5/10</span></td>
+                        <td>Approachable-Professional</td>
+                        <td>8-14 words</td>
+                        <td>Thoughtful accessibility with insight</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marketing Materials</strong></td>
+                        <td><span class="position-badge">3.5/10</span></td>
+                        <td>Professional-Accessible</td>
+                        <td>15-22 words</td>
+                        <td>Confident warmth with understated ambition</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email Communication</strong></td>
+                        <td><span class="position-badge">4.5/10</span></td>
+                        <td>Professional-Personable</td>
+                        <td>12-18 words</td>
+                        <td>Respectful directness with personal touch</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Website Copy</strong></td>
+                        <td><span class="position-badge">5.5/10</span></td>
+                        <td>Business Professional</td>
+                        <td>12-18 words</td>
+                        <td>Authoritative calm with measured confidence</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sales Conversations</strong></td>
+                        <td><span class="position-badge">6.0/10</span></td>
+                        <td>Conversational-Professional</td>
+                        <td>10-16 words</td>
+                        <td>Attentive curiosity with quiet confidence</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Proposals</strong></td>
+                        <td><span class="position-badge">7.0/10</span></td>
+                        <td>Formal-Structured</td>
+                        <td>16-24 words</td>
+                        <td>Confident precision with investment justification</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Client Reports</strong></td>
+                        <td><span class="position-badge">7.5/10</span></td>
+                        <td>Formal-Technical</td>
+                        <td>18-25 words</td>
+                        <td>Clinical precision with decisive recommendations</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Thought Leadership</strong></td>
+                        <td><span class="position-badge">8.5/10</span></td>
+                        <td>Academic-Professional</td>
+                        <td>20-30 words</td>
+                        <td>Intellectual authority with measured provocation</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Application Guidelines -->
+        <section class="spectrum-section">
+            <h2 class="section-title">Applying the Voice Spectrum</h2>
+            <p class="section-intro">The spectrum provides calibration, not constraint. Within each context, your voice should remain authentically ScaleUp Ventures while adjusting to serve the communication purpose.</p>
+
+            <div class="voice-attributes">
+                <div class="voice-attribute">
+                    <h4>Starting Point</h4>
+                    <p>Begin by identifying your context from the matrix. Use the position as your baseline, then adjust based on the specific situation, audience familiarity, and communication goal.</p>
+                </div>
+                <div class="voice-attribute">
+                    <h4>Consistency Check</h4>
+                    <p>Every piece of communication should pass the "Who wrote this?" test. Regardless of position on the spectrum, readers should recognize ScaleUp Ventures' watchful, measured, decisive voice.</p>
+                </div>
+                <div class="voice-attribute">
+                    <h4>Situational Shift</h4>
+                    <p>When unusual circumstances require deviation from standard positioning, shift no more than 2 points on the spectrum. Document the reasoning and return to baseline for subsequent communications.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <p><span class="brand">ScaleUp Ventures</span> | Voice Spectrum by Context Matrix</p>
+        <p style="margin-top: 8px;">Brand Guidelines Document | Confidential</p>
+    </footer>
+
+</body>
+</html>

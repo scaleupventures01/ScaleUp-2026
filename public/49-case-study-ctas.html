@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study CTAs | ScaleUp Ventures</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --gold: #D4A853;
+            --gold-light: #E8C87A;
+            --gold-dark: #B8923F;
+            --white: #FFFFFF;
+            --gray-50: #F8F9FA;
+            --gray-100: #F1F3F5;
+            --gray-200: #E9ECEF;
+            --gray-300: #DEE2E6;
+            --gray-600: #6C757D;
+            --gray-800: #343A40;
+            --success: #28A745;
+            --navy-light: #1A2744;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--gray-50);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .header .tagline {
+            color: var(--gold);
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            color: var(--gray-300);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .section-number {
+            background: var(--navy);
+            color: var(--gold);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .section-description {
+            color: var(--gray-600);
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+        }
+
+        /* CTA Grid Layouts */
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .cta-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 2px 8px rgba(15, 23, 41, 0.08);
+            border: 1px solid var(--gray-200);
+        }
+
+        .cta-card h4 {
+            color: var(--navy);
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cta-label {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Hero CTA Styles */
+        .hero-cta-preview {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .hero-cta-preview .result-stat {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .hero-cta-preview .result-label {
+            font-size: 1.1rem;
+            color: var(--gray-300);
+            margin-bottom: 24px;
+        }
+
+        .hero-cta-preview h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .hero-cta-preview p {
+            color: var(--gray-300);
+            margin-bottom: 24px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-navy {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .btn-navy:hover {
+            background: var(--navy-light);
+        }
+
+        .btn-outline-navy {
+            background: transparent;
+            border: 2px solid var(--navy);
+            color: var(--navy);
+        }
+
+        .btn-outline-navy:hover {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .btn-large {
+            padding: 18px 36px;
+            font-size: 1.1rem;
+        }
+
+        .btn-small {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* End of Case Study CTA */
+        .end-cta-box {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 32px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .end-cta-box h4 {
+            font-size: 1.4rem;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .end-cta-box p {
+            color: var(--gray-600);
+            margin-bottom: 20px;
+        }
+
+        /* Similar Results CTA */
+        .similar-results-cta {
+            background: var(--white);
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 32px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .similar-results-cta.vertical {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .similar-results-cta h4 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .similar-results-cta p {
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        /* ROI Calculator CTA */
+        .roi-cta {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%);
+            border-radius: 12px;
+            padding: 32px;
+            color: var(--white);
+        }
+
+        .roi-cta-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .roi-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--gold);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .roi-cta h4 {
+            color: var(--white);
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+        }
+
+        .roi-cta .subtitle {
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        .roi-inputs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .roi-input-group label {
+            display: block;
+            color: var(--gray-300);
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+        }
+
+        .roi-input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .roi-input-group input::placeholder {
+            color: var(--gray-300);
+        }
+
+        .roi-projection {
+            background: rgba(212, 168, 83, 0.15);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .roi-projection .amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .roi-projection .label {
+            color: var(--gray-300);
+            font-size: 0.9rem;
+        }
+
+        /* Industry Specific CTAs */
+        .industry-cta {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(15, 23, 41, 0.08);
+        }
+
+        .industry-cta-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .industry-icon {
+            font-size: 1.5rem;
+        }
+
+        .industry-cta-body {
+            padding: 24px;
+        }
+
+        .industry-cta h5 {
+            color: var(--navy);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .industry-stats {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .industry-stat {
+            text-align: center;
+        }
+
+        .industry-stat .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .industry-stat .label {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+        }
+
+        /* Result Specific CTAs */
+        .result-cta {
+            display: flex;
+            gap: 20px;
+            padding: 24px;
+            background: var(--white);
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
+            align-items: center;
+        }
+
+        .result-badge {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+            flex-shrink: 0;
+        }
+
+        .result-badge .number {
+            font-size: 1.75rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .result-badge .unit {
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .result-content h5 {
+            color: var(--navy);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .result-content p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        /* Comparison CTA */
+        .comparison-cta {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(15, 23, 41, 0.1);
+        }
+
+        .comparison-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 20px 28px;
+            text-align: center;
+        }
+
+        .comparison-header h4 {
+            margin-bottom: 4px;
+        }
+
+        .comparison-header p {
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        .comparison-body {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 0;
+        }
+
+        .comparison-side {
+            padding: 24px;
+        }
+
+        .comparison-side.current {
+            background: var(--gray-100);
+        }
+
+        .comparison-side.after {
+            background: rgba(212, 168, 83, 0.1);
+        }
+
+        .comparison-side h5 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .comparison-side.current h5 {
+            color: var(--gray-600);
+        }
+
+        .comparison-side.after h5 {
+            color: var(--gold-dark);
+        }
+
+        .comparison-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .comparison-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--navy);
+            color: var(--gold);
+            padding: 0 20px;
+            font-size: 1.5rem;
+        }
+
+        .comparison-footer {
+            padding: 24px;
+            text-align: center;
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-200);
+        }
+
+        /* Personalization CTA */
+        .personalization-cta {
+            background: linear-gradient(135deg, #1a2744 0%, var(--navy) 100%);
+            border-radius: 12px;
+            padding: 32px;
+            color: var(--white);
+        }
+
+        .personalization-tag {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .personalization-cta h4 {
+            color: var(--white);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .personalization-cta p {
+            color: var(--gray-300);
+            margin-bottom: 24px;
+        }
+
+        .personalization-fields {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .personalization-field {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .personalization-field .label {
+            font-size: 0.8rem;
+            color: var(--gray-300);
+            margin-bottom: 4px;
+        }
+
+        .personalization-field .value {
+            font-size: 1.1rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Social Proof CTA */
+        .social-proof-cta {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 28px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .testimonial-preview {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .testimonial-avatar {
+            width: 56px;
+            height: 56px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .testimonial-content blockquote {
+            font-style: italic;
+            color: var(--gray-800);
+            margin-bottom: 8px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-role {
+            color: var(--gray-600);
+            font-size: 0.85rem;
+        }
+
+        .social-stats {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .social-stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .social-stat-icon {
+            color: var(--gold);
+        }
+
+        /* Follow-up Sequence CTAs */
+        .sequence-timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .sequence-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gold);
+        }
+
+        .sequence-item {
+            position: relative;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .sequence-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 24px;
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 2px var(--gold);
+        }
+
+        .sequence-timing {
+            display: inline-block;
+            background: var(--gray-100);
+            color: var(--gray-600);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .sequence-item h5 {
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .sequence-item p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        /* Video CTA */
+        .video-cta {
+            background: var(--navy);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .video-thumbnail {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #1a2744 0%, var(--navy) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .play-button svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--navy);
+            margin-left: 4px;
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .video-cta-body {
+            padding: 24px;
+            color: var(--white);
+        }
+
+        .video-cta h5 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .video-cta p {
+            color: var(--gray-300);
+            margin-bottom: 20px;
+        }
+
+        .video-cta-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        /* Library CTA */
+        .library-header-cta {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%);
+            border-radius: 16px;
+            padding: 48px;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .library-header-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .library-header-cta p {
+            color: var(--gray-300);
+            max-width: 600px;
+            margin: 0 auto 24px;
+        }
+
+        .library-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-bottom: 32px;
+        }
+
+        .library-stat {
+            text-align: center;
+        }
+
+        .library-stat .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .library-stat .label {
+            font-size: 0.9rem;
+            color: var(--gray-300);
+        }
+
+        .library-filter-cta {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .filter-prompt {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .filter-prompt span {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .filter-tag {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 2px solid var(--gray-200);
+            border-radius: 20px;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-tag:hover, .filter-tag.active {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Copy Examples */
+        .copy-examples {
+            background: var(--gray-100);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+
+        .copy-example {
+            margin-bottom: 12px;
+        }
+
+        .copy-example:last-child {
+            margin-bottom: 0;
+        }
+
+        .copy-label {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .copy-text {
+            font-size: 0.95rem;
+            color: var(--navy);
+            font-style: italic;
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-16 {
+            margin-top: 16px;
+        }
+
+        .mt-24 {
+            margin-top: 24px;
+        }
+
+        .mb-16 {
+            margin-bottom: 16px;
+        }
+
+        .highlight {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer p {
+            color: var(--gray-300);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer .tagline {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="tagline">Certainty First.</div>
+        <h1>Case Study CTAs</h1>
+        <p>Strategic call-to-action designs that connect proven results to prospect outcomes. Each CTA bridges the gap between case study evidence and business transformation.</p>
+    </header>
+
+    <div class="container">
+        <!-- Section 1: Hero CTAs -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2 class="section-title">Case Study Page Hero CTAs</h2>
+            </div>
+            <p class="section-description">High-impact hero sections that lead with results and create immediate value perception.</p>
+
+            <div class="cta-grid">
+                <div class="cta-card">
+                    <h4>Result-Led Hero <span class="cta-label">High Impact</span></h4>
+                    <div class="hero-cta-preview">
+                        <div class="result-stat">312%</div>
+                        <div class="result-label">Revenue Growth in 18 Months</div>
+                        <h3>How TechFlow Eliminated Guesswork from Their GTM Strategy</h3>
+                        <p>A systematic approach that transformed pipeline uncertainty into predictable, scalable growth.</p>
+                        <div class="btn-group">
+                            <button class="btn btn-primary btn-large">Get Your Growth Roadmap</button>
+                            <button class="btn btn-secondary">Watch the 3-Min Story</button>
+                        </div>
+                    </div>
+                    <div class="copy-examples">
+                        <div class="copy-example">
+                            <div class="copy-label">Primary CTA</div>
+                            <div class="copy-text">"Get Your Growth Roadmap" / "See How This Applies to You" / "Calculate Your Potential"</div>
+                        </div>
+                        <div class="copy-example">
+                            <div class="copy-label">Secondary CTA</div>
+                            <div class="copy-text">"Watch the 3-Min Story" / "Read the Full Case Study" / "Skip to Results"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Outcome Preview Hero <span class="cta-label">Conversion Focus</span></h4>
+                    <div class="hero-cta-preview">
+                        <h3>From 6-Month Sales Cycles to 6-Week Closes</h3>
+                        <p>DataSync reduced their enterprise sales timeline by 75% using our Certainty Framework.</p>
+                        <div class="result-stat">75%</div>
+                        <div class="result-label">Faster Time-to-Close</div>
+                        <div class="btn-group">
+                            <button class="btn btn-primary btn-large">See If You Qualify</button>
+                        </div>
+                    </div>
+                    <div class="copy-examples">
+                        <div class="copy-example">
+                            <div class="copy-label">Urgency Variant</div>
+                            <div class="copy-text">"Book Your Strategy Session (3 Slots This Week)"</div>
+                        </div>
+                        <div class="copy-example">
+                            <div class="copy-label">Low Commitment</div>
+                            <div class="copy-text">"Get the Playbook PDF" / "See the Full Timeline"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: End-of-Case-Study CTAs -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2 class="section-title">End-of-Case-Study CTAs</h2>
+            </div>
+            <p class="section-description">Converting readers who've consumed the full story into qualified opportunities.</p>
+
+            <div class="cta-grid">
+                <div class="cta-card">
+                    <h4>Result Summary CTA <span class="cta-label">Recap + Action</span></h4>
+                    <div class="end-cta-box">
+                        <h4>TechFlow's Results at a Glance</h4>
+                        <ul style="color: var(--gray-600); margin-bottom: 20px; padding-left: 20px;">
+                            <li><strong style="color: var(--gold);">312%</strong> revenue growth in 18 months</li>
+                            <li><strong style="color: var(--gold);">47%</strong> reduction in CAC</li>
+                            <li><strong style="color: var(--gold);">3.2x</strong> increase in qualified pipeline</li>
+                        </ul>
+                        <p>Ready to see what these results could look like for your business?</p>
+                        <button class="btn btn-navy btn-large">Calculate Your Potential ROI</button>
+                    </div>
+                    <div class="copy-examples">
+                        <div class="copy-example">
+                            <div class="copy-label">Primary CTA Copy</div>
+                            <div class="copy-text">"Calculate Your Potential ROI" / "Get a Customized Projection" / "See Your Numbers"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Next Step Ladder <span class="cta-label">Multi-Option</span></h4>
+                    <div class="end-cta-box">
+                        <h4>What's Your Next Move?</h4>
+                        <p>Choose the path that matches where you are today:</p>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <button class="btn btn-navy" style="text-align: left;">
+                                <strong>I want similar results</strong> - Book a Strategy Call
+                            </button>
+                            <button class="btn btn-outline-navy" style="text-align: left;">
+                                <strong>I need more proof</strong> - See 12 More Case Studies
+                            </button>
+                            <button class="btn btn-outline-navy" style="text-align: left;">
+                                <strong>I want to learn first</strong> - Get the Framework PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Conversation Starter <span class="cta-label">Low Friction</span></h4>
+                    <div class="end-cta-box">
+                        <h4>Still Have Questions?</h4>
+                        <p>Our team answered TechFlow's questions before they became clients too. No pressure, just clarity.</p>
+                        <div class="btn-group" style="justify-content: flex-start;">
+                            <button class="btn btn-navy">Ask Us Anything</button>
+                            <button class="btn btn-outline-navy">See FAQs</button>
+                        </div>
+                    </div>
+                    <div class="copy-examples">
+                        <div class="copy-example">
+                            <div class="copy-label">Empathy-First Copy</div>
+                            <div class="copy-text">"We know you're skeptical. Here's how to verify everything in this case study."</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Get Similar Results CTAs -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2 class="section-title">"Get Similar Results" CTAs</h2>
+            </div>
+            <p class="section-description">Direct conversion paths that promise outcome parity with case study subjects.</p>
+
+            <div class="cta-grid">
+                <div class="cta-card">
+                    <h4>Horizontal Layout <span class="cta-label">Inline</span></h4>
+                    <div class="similar-results-cta">
+                        <div>
+                            <h4>Want TechFlow's Results for Your Business?</h4>
+                            <p>Let's map the same growth methodology to your specific situation.</p>
+                        </div>
+                        <button class="btn btn-navy btn-large">Start Your Assessment</button>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Vertical Layout <span class="cta-label">Centered</span></h4>
+                    <div class="similar-results-cta vertical">
+                        <div>
+                            <h4>Ready to Write Your Own Success Story?</h4>
+                            <p>Join 47 companies that have achieved similar results using our proven methodology.</p>
+                        </div>
+                        <button class="btn btn-navy btn-large">Get Your Custom Roadmap</button>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Qualifier-Based <span class="cta-label">Pre-Screen</span></h4>
+                    <div class="similar-results-cta vertical">
+                        <div>
+                            <h4>Could You Be Our Next Success Story?</h4>
+                            <p>Take our 2-minute fit assessment to see if our methodology matches your situation.</p>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-navy">Take the Assessment</button>
+                            <button class="btn btn-outline-navy">See Qualification Criteria</button>
+                        </div>
+                    </div>
+                    <div class="copy-examples">
+                        <div class="copy-example">
+                            <div class="copy-label">CTA Variants</div>
+                            <div class="copy-text">"Check Your Fit Score" / "See If You Qualify" / "Find Out in 2 Minutes"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: ROI Model CTAs -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2 class="section-title">"See Your ROI Model" CTAs</h2>
+            </div>
+            <p class="section-description">Interactive calculators that personalize case study results to prospect situations.</p>
+
+            <div class="cta-grid">
+                <div class="cta-card">
+                    <h4>Interactive Calculator <span class="cta-label">Engagement</span></h4>
+                    <div class="roi-cta">
+                        <div class="roi-cta-header">
+                            <div class="roi-icon">%</div>
+                            <div>
+                                <h4>Calculate Your Potential ROI</h4>
+                                <div class="subtitle">Based on TechFlow's actual results</div>
+                            </div>
+                        </div>
+                        <div class="roi-inputs">
+                            <div class="roi-input-group">
+                                <label>Current Annual Revenue</label>
+                                <input type="text" placeholder="$2,500,000">
+                            </div>
+                            <div class="roi-input-group">
+                                <label>Current Growth Rate</label>
+                                <input type="text" placeholder="15%">
+                            </div>
+                            <div class="roi-input-group">
+                                <label>Sales Team Size</label>
+                                <input type="text" placeholder="8">
+                            </div>
+                            <div class="roi-input-group">
+                                <label>Average Deal Size</label>
+                                <input type="text" placeholder="$45,000">
+                            </div>
+                        </div>
+                        <div class="roi-projection">
+                            <div class="amount">$4.2M - $5.8M</div>
+                            <div class="label">Projected Year 2 Revenue</div>
+                        </div>
+                        <button class="btn btn-primary btn-large" style="width: 100%;">Get Your Full ROI Analysis</button>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Quick Estimate CTA <span class="cta-label">Low Effort</span></h4>
+                    <div class="roi-cta">
+                        <div class="roi-cta-header">
+                            <div class="roi-icon">$</div>
+                            <div>
+                                <h4>What Could 312% Growth Mean For You?</h4>
+                                <div class="subtitle">60-second calculation</div>
+                            </div>
+                        </div>
+                        <p style="color: var(--gray-300); margin-bottom: 20px;">Enter just one number to see your potential upside based on TechFlow's results.</p>
+                        <div class="roi-input-group">
+                            <label>Your Current Annual Revenue</label>
+                            <input type="text" placeholder="Enter amount...">
+                        </div>
+                        <button class="btn btn-primary btn-large mt-24" style="width: 100%;">Show My Potential</button>
+                    </div>
+                    <div class="copy-examples">
+                        <div class="copy-example">
+                            <div class="copy-label">CTA Variants</div>
+                            <div class="copy-text">"Show My Potential" / "Calculate Now" / "See the Math"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Gated Report CTA <span class="cta-label">Lead Capture</span></h4>
+                    <div class="roi-cta">
+                        <div class="roi-cta-header">
+                            <div class="roi-icon">PDF</div>
+                            <div>
+                                <h4>Get Your Custom ROI Report</h4>
+                                <div class="subtitle">12-page personalized analysis</div>
+                            </div>
+                        </div>
+                        <p style="color: var(--gray-300); margin-bottom: 20px;">We'll model TechFlow's methodology against your specific metrics and industry benchmarks.</p>
+                        <p style="color: var(--gold); font-size: 0.9rem; margin-bottom: 20px;">Includes: Growth projection, CAC reduction estimate, timeline, and investment range</p>
+                        <button class="btn btn-primary btn-large" style="width: 100%;">Request Your Custom Report</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Industry-Specific CTAs -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2 class="section-title">Industry-Specific Case Study CTAs</h2>
+            </div>
+            <p class="section-description">Vertical-focused CTAs that speak directly to industry pain points and metrics.</p>
+
+            <div class="cta-grid">
+                <div class="cta-card">
+                    <h4>SaaS Industry <span class="cta-label">B2B Software</span></h4>
+                    <div class="industry-cta">
+                        <div class="industry-cta-header">
+                            <span class="industry-icon">SaaS</span>
+                            <div>
+                                <strong>SaaS Growth Case Studies</strong>
+                                <div style="font-size: 0.85rem; opacity: 0.8;">12 B2B software success stories</div>
+                            </div>
+                        </div>
+                        <div class="industry-cta-body">
+                            <h5>How SaaS Companies Like Yours Achieved:</h5>
+                            <div class="industry-stats">
+                                <div class="industry-stat">
+                                    <div class="value">156%</div>
+                                    <div class="label">Avg. ARR Growth</div>
+                                </div>
+                                <div class="industry-stat">
+                                    <div class="value">42%</div>
+                                    <div class="label">Lower CAC</div>
+                                </div>
+                                <div class="industry-stat">
+                                    <div class="value">2.1x</div>
+                                    <div class="label">Net Retention</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-navy" style="width: 100%;">See SaaS Case Studies</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>FinTech Industry <span class="cta-label">Financial Services</span></h4>
+                    <div class="industry-cta">
+                        <div class="industry-cta-header">
+                            <span class="industry-icon">FIN</span>
+                            <div>
+                                <strong>FinTech Case Studies</strong>
+                                <div style="font-size: 0.85rem; opacity: 0.8;">8 financial services wins</div>
+                            </div>
+                        </div>
+                        <div class="industry-cta-body">
+                            <h5>Results from FinTech Companies:</h5>
+                            <div class="industry-stats">
+                                <div class="industry-stat">
+                                    <div class="value">67%</div>
+                                    <div class="label">Faster Compliance</div>
+                                </div>
+                                <div class="industry-stat">
+                                    <div class="value">3.4x</div>
+                                    <div class="label">Enterprise Deals</div>
+                                </div>
+                                <div class="industry-stat">
+                                    <div class="value">89%</div>
+                                    <div class="label">Renewal Rate</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-navy" style="width: 100%;">Explore FinTech Results</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Healthcare Tech <span class="cta-label">Medical/Health</span></h4>
+                    <div class="industry-cta">
+                        <div class="industry-cta-header">
+                            <span class="industry-icon">MED</span>
+                            <div>
+                                <strong>Healthcare Tech Studies</strong>
+                                <div style="font-size: 0.85rem; opacity: 0.8;">6 health-sector transformations</div>
+                            </div>
+                        </div>
+                        <div class="industry-cta-body">
+                            <h5>Healthcare-Specific Achievements:</h5>
+                            <div class="industry-stats">
+                                <div class="industry-stat">
+                                    <div class="value">78%</div>
+                                    <div class="label">Shorter Sales Cycle</div>
+                                </div>
+                                <div class="industry-stat">
+                                    <div class="value">4.1x</div>
+                                    <div class="label">Pipeline Value</div>
+                                </div>
+                                <div class="industry-stat">
+                                    <div class="value">92%</div>
+                                    <div class="label">Buyer Confidence</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-navy" style="width: 100%;">View Healthcare Results</button>
+                        </div>
+                    </div>
+                    <div class="copy-examples">
+                        <div class="copy-example">
+                            <div class="copy-label">CTA Pattern</div>
+                            <div class="copy-text">"See [Industry] Case Studies" / "View [Industry] Results" / "Explore [Industry] Wins"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Result-Specific CTAs -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2 class="section-title">Result-Specific CTAs (By Outcome Type)</h2>
+            </div>
+            <p class="section-description">CTAs organized by the specific outcome the prospect cares about most.</p>
+
+            <div class="cta-grid">
+                <div class="cta-card">
+                    <h4>Revenue Growth <span class="cta-label">Top Line</span></h4>
+                    <div class="result-cta">
+                        <div class="result-badge">
+                            <div class="number">312</div>
+                            <div class="unit">% UP</div>
+                        </div>
+                        <div class="result-content">
+                            <h5>Accelerate Revenue Growth</h5>
+                            <p>See how 23 companies increased revenue by an average of 187% in their first 18 months.</p>
+                            <button class="btn btn-navy btn-small">View Revenue Case Studies</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Cost Reduction <span class="cta-label">Efficiency</span></h4>
+                    <div class="result-cta">
+                        <div class="result-badge">
+                            <div class="number">47</div>
+                            <div class="unit">% CUT</div>
+                        </div>
+                        <div class="result-content">
+                            <h5>Reduce Acquisition Costs</h5>
+                            <p>Learn how our clients cut CAC by 30-55% while increasing deal quality.</p>
+                            <button class="btn btn-navy btn-small">See Cost Reduction Stories</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Speed Improvement <span class="cta-label">Velocity</span></h4>
+                    <div class="result-cta">
+                        <div class="result-badge">
+                            <div class="number">75</div>
+                            <div class="unit">% FASTER</div>
+                        </div>
+                        <div class="result-content">
+                            <h5>Shorten Sales Cycles</h5>
+                            <p>Discover how companies compressed 6-month cycles to 6 weeks.</p>
+                            <button class="btn btn-navy btn-small">View Speed Studies</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Pipeline Growth <span class="cta-label">Volume</span></h4>
+                    <div class="result-cta">
+                        <div class="result-badge">
+                            <div class="number">3.2</div>
+                            <div class="unit">X MORE</div>
+                        </div>
+                        <div class="result-content">
+                            <h5>Multiply Qualified Pipeline</h5>
+                            <p>See how companies tripled their qualified opportunities without increasing headcount.</p>
+                            <button class="btn btn-navy btn-small">Explore Pipeline Studies</button>
+                        </div>
+                    </div>
+                    <div class="copy-examples">
+                        <div class="copy-example">
+                            <div class="copy-label">Badge Format Options</div>
+                            <div class="copy-text">[Number] + [Unit: % UP / % CUT / % FASTER / X MORE / DAYS SAVED]</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Comparison CTAs -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2 class="section-title">Comparison CTAs ("vs. Your Current Situation")</h2>
+            </div>
+            <p class="section-description">Side-by-side comparisons that highlight the gap between current state and potential outcomes.</p>
+
+            <div class="cta-grid">
+                <div class="cta-card" style="grid-column: span 2;">
+                    <h4>Before/After Comparison <span class="cta-label">Transformation</span></h4>
+                    <div class="comparison-cta">
+                        <div class="comparison-header">
+                            <h4>TechFlow's Transformation</h4>
+                            <p>The same methodology could work for you</p>
+                        </div>
+                        <div class="comparison-body">
+                            <div class="comparison-side current">
+                                <h5>Before ScaleUp</h5>
+                                <div class="comparison-item">
+                                    <span>Sales Cycle</span>
+                                    <strong>6 months</strong>
+                                </div>
+                                <div class="comparison-item">
+                                    <span>Win Rate</span>
+                                    <strong>12%</strong>
+                                </div>
+                                <div class="comparison-item">
+                                    <span>CAC</span>
+                                    <strong>$48,000</strong>
+                                </div>
+                                <div class="comparison-item">
+                                    <span>Pipeline</span>
+                                    <strong>$2.1M</strong>
+                                </div>
+                            </div>
+                            <div class="comparison-divider">-></div>
+                            <div class="comparison-side after">
+                                <h5>After 18 Months</h5>
+                                <div class="comparison-item">
+                                    <span>Sales Cycle</span>
+                                    <strong style="color: var(--gold-dark);">6 weeks</strong>
+                                </div>
+                                <div class="comparison-item">
+                                    <span>Win Rate</span>
+                                    <strong style="color: var(--gold-dark);">34%</strong>
+                                </div>
+                                <div class="comparison-item">
+                                    <span>CAC</span>
+                                    <strong style="color: var(--gold-dark);">$25,440</strong>
+                                </div>
+                                <div class="comparison-item">
+                                    <span>Pipeline</span>
+                                    <strong style="color: var(--gold-dark);">$6.7M</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comparison-footer">
+                            <p style="margin-bottom: 16px; color: var(--gray-600);">How do your numbers compare?</p>
+                            <button class="btn btn-navy btn-large">Build Your Comparison Model</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Gap Analysis CTA <span class="cta-label">Assessment</span></h4>
+                    <div style="background: var(--gray-100); border-radius: 12px; padding: 24px;">
+                        <h5 style="color: var(--navy); margin-bottom: 16px;">Where Do You Stand?</h5>
+                        <p style="color: var(--gray-600); margin-bottom: 20px;">Compare your current metrics against the outcomes in this case study.</p>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <div style="display: flex; justify-content: space-between; padding: 12px; background: var(--white); border-radius: 8px;">
+                                <span>Your Sales Cycle</span>
+                                <input type="text" placeholder="e.g., 4 months" style="border: none; text-align: right; width: 120px;">
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 12px; background: var(--white); border-radius: 8px;">
+                                <span>Your Win Rate</span>
+                                <input type="text" placeholder="e.g., 18%" style="border: none; text-align: right; width: 120px;">
+                            </div>
+                        </div>
+                        <button class="btn btn-navy mt-24" style="width: 100%;">See Your Gap Analysis</button>
+                    </div>
+                    <div class="copy-examples">
+                        <div class="copy-example">
+                            <div class="copy-label">CTA Variants</div>
+                            <div class="copy-text">"See Your Gap Analysis" / "Compare Your Numbers" / "Benchmark Against TechFlow"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Quick Poll CTA <span class="cta-label">Engagement</span></h4>
+                    <div style="background: var(--navy); border-radius: 12px; padding: 24px; color: var(--white);">
+                        <h5 style="color: var(--white); margin-bottom: 16px;">Quick Reality Check</h5>
+                        <p style="color: var(--gray-300); margin-bottom: 20px;">Is your current sales cycle closer to:</p>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <button class="btn btn-secondary btn-small" style="text-align: left;">Under 30 days</button>
+                            <button class="btn btn-secondary btn-small" style="text-align: left;">1-3 months</button>
+                            <button class="btn btn-secondary btn-small" style="text-align: left;">3-6 months</button>
+                            <button class="btn btn-secondary btn-small" style="text-align: left;">Over 6 months</button>
+                        </div>
+                        <p style="color: var(--gold); font-size: 0.85rem; margin-top: 16px;">We'll show you relevant case studies based on your answer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Personalization CTAs -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <h2 class="section-title">Personalization Options for CTAs</h2>
+            </div>
+            <p class="section-description">Dynamic CTAs that adapt based on visitor data, behavior, and stated preferences.</p>
+
+            <div class="cta-grid">
+                <div class="cta-card">
+                    <h4>Role-Based Personalization <span class="cta-label">By Title</span></h4>
+                    <div class="personalization-cta">
+                        <div class="personalization-tag">Personalized for CEOs</div>
+                        <h4>How CEOs Like You Are Achieving Predictable Growth</h4>
+                        <p>TechFlow's CEO Sarah Chen faced the same challenges you're dealing with. See how she eliminated uncertainty from her growth strategy.</p>
+                        <div class="personalization-fields">
+                            <div class="personalization-field">
+                                <div class="label">Your Industry</div>
+                                <div class="value">B2B SaaS</div>
+                            </div>
+                            <div class="personalization-field">
+                                <div class="label">Company Size</div>
+                                <div class="value">50-200</div>
+                            </div>
+                            <div class="personalization-field">
+                                <div class="label">Revenue Stage</div>
+                                <div class="value">$5M-$20M</div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-large" style="width: 100%;">Get Your CEO Briefing</button>
+                    </div>
+                    <div class="copy-examples">
+                        <div class="copy-example">
+                            <div class="copy-label">Role Variants</div>
+                            <div class="copy-text">CEO: "CEO Briefing" / VP Sales: "Sales Leader Playbook" / CMO: "Marketing Strategy Guide"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Behavior-Based <span class="cta-label">By Engagement</span></h4>
+                    <div class="personalization-cta">
+                        <div class="personalization-tag">Based on Your Interest</div>
+                        <h4>You've Been Researching Pipeline Growth</h4>
+                        <p>We noticed you've read 3 pipeline-focused case studies. Ready to see how these strategies could work for your team?</p>
+                        <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+                            <p style="color: var(--gray-300); font-size: 0.9rem; margin-bottom: 12px;">Case studies you've viewed:</p>
+                            <ul style="color: var(--gold); font-size: 0.9rem; padding-left: 20px;">
+                                <li>TechFlow: 3.2x Pipeline Growth</li>
+                                <li>DataSync: Enterprise Pipeline Expansion</li>
+                                <li>CloudFirst: SMB Pipeline Automation</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary btn-large" style="width: 100%;">Get Your Pipeline Growth Plan</button>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Account-Based <span class="cta-label">ABM</span></h4>
+                    <div class="personalization-cta">
+                        <div class="personalization-tag">Prepared for Acme Corp</div>
+                        <h4>How Companies Like Acme Corp Achieved 312% Growth</h4>
+                        <p>We've identified 3 case studies from companies in your exact market segment with similar growth challenges.</p>
+                        <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+                            <p style="color: var(--gold); font-size: 0.9rem;">Why these matter for Acme Corp:</p>
+                            <ul style="color: var(--gray-300); font-size: 0.9rem; padding-left: 20px; margin-top: 8px;">
+                                <li>Same ICP: Mid-market enterprise buyers</li>
+                                <li>Same challenge: Long sales cycles</li>
+                                <li>Same stage: Series B scaling</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary btn-large" style="width: 100%;">See Your Custom Case Study Package</button>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Return Visitor <span class="cta-label">Repeat Engagement</span></h4>
+                    <div class="personalization-cta">
+                        <div class="personalization-tag">Welcome Back</div>
+                        <h4>Ready to Take the Next Step?</h4>
+                        <p>You've visited this case study 3 times. Let's stop wondering "what if" and start building your growth plan.</p>
+                        <button class="btn btn-primary btn-large" style="width: 100%;">Schedule Your Strategy Call</button>
+                        <p style="color: var(--gray-300); font-size: 0.85rem; margin-top: 16px; text-align: center;">Or continue exploring: <a href="#" style="color: var(--gold);">See 12 more case studies</a></p>
+                    </div>
+                    <div class="copy-examples">
+                        <div class="copy-example">
+                            <div class="copy-label">Return Visit Escalation</div>
+                            <div class="copy-text">Visit 1: "Download PDF" / Visit 2: "Get Custom Analysis" / Visit 3: "Schedule Strategy Call"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: Social Proof Integration -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">9</div>
+                <h2 class="section-title">Social Proof Integration with CTAs</h2>
+            </div>
+            <p class="section-description">Combining testimonials, stats, and peer validation with conversion actions.</p>
+
+            <div class="cta-grid">
+                <div class="cta-card">
+                    <h4>Testimonial + CTA <span class="cta-label">Quote-Driven</span></h4>
+                    <div class="social-proof-cta">
+                        <div class="testimonial-preview">
+                            <div class="testimonial-avatar">SC</div>
+                            <div class="testimonial-content">
+                                <blockquote>"We went from hoping for growth to knowing exactly how to achieve it. The Certainty Framework changed everything."</blockquote>
+                                <div class="testimonial-author">Sarah Chen</div>
+                                <div class="testimonial-role">CEO, TechFlow (312% growth)</div>
+                            </div>
+                        </div>
+                        <p style="color: var(--gray-600); margin-bottom: 16px;">Join 47 CEOs who've transformed their growth strategy.</p>
+                        <button class="btn btn-navy btn-large" style="width: 100%;">Get the Same Certainty</button>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Stats + CTA <span class="cta-label">Numbers-Driven</span></h4>
+                    <div class="social-proof-cta">
+                        <div class="social-stats">
+                            <div class="social-stat">
+                                <span class="social-stat-icon">+</span>
+                                <div>
+                                    <strong>47</strong>
+                                    <span style="color: var(--gray-600); font-size: 0.85rem;">Success Stories</span>
+                                </div>
+                            </div>
+                            <div class="social-stat">
+                                <span class="social-stat-icon">%</span>
+                                <div>
+                                    <strong>94%</strong>
+                                    <span style="color: var(--gray-600); font-size: 0.85rem;">Recommendation Rate</span>
+                                </div>
+                            </div>
+                            <div class="social-stat">
+                                <span class="social-stat-icon">$</span>
+                                <div>
+                                    <strong>$2.4B</strong>
+                                    <span style="color: var(--gray-600); font-size: 0.85rem;">Revenue Generated</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-navy btn-large" style="width: 100%;">Become Our Next Success Story</button>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Peer Activity <span class="cta-label">FOMO</span></h4>
+                    <div class="social-proof-cta">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                            <div style="display: flex;">
+                                <div style="width: 32px; height: 32px; background: var(--navy); border-radius: 50%; border: 2px solid var(--white);"></div>
+                                <div style="width: 32px; height: 32px; background: var(--gold); border-radius: 50%; border: 2px solid var(--white); margin-left: -12px;"></div>
+                                <div style="width: 32px; height: 32px; background: var(--gray-600); border-radius: 50%; border: 2px solid var(--white); margin-left: -12px;"></div>
+                            </div>
+                            <span style="color: var(--gray-600); font-size: 0.9rem;"><strong>12 companies</strong> requested this analysis this week</span>
+                        </div>
+                        <h5 style="color: var(--navy); margin-bottom: 8px;">Your Competitors Are Already Learning</h5>
+                        <p style="color: var(--gray-600); margin-bottom: 20px;">Companies in your space are studying TechFlow's success. Don't fall behind.</p>
+                        <button class="btn btn-navy" style="width: 100%;">Get Your Competitive Analysis</button>
+                    </div>
+                    <div class="copy-examples">
+                        <div class="copy-example">
+                            <div class="copy-label">Social Proof Formats</div>
+                            <div class="copy-text">"12 companies this week" / "Join 47 CEOs" / "94% recommend" / "Used by [Logo Wall]"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Logo Wall + CTA <span class="cta-label">Trust</span></h4>
+                    <div class="social-proof-cta">
+                        <p style="color: var(--gray-600); margin-bottom: 16px;">Trusted by growth leaders at:</p>
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 20px;">
+                            <div style="background: var(--gray-100); padding: 16px; border-radius: 8px; text-align: center; color: var(--gray-600); font-weight: 600;">Logo</div>
+                            <div style="background: var(--gray-100); padding: 16px; border-radius: 8px; text-align: center; color: var(--gray-600); font-weight: 600;">Logo</div>
+                            <div style="background: var(--gray-100); padding: 16px; border-radius: 8px; text-align: center; color: var(--gray-600); font-weight: 600;">Logo</div>
+                            <div style="background: var(--gray-100); padding: 16px; border-radius: 8px; text-align: center; color: var(--gray-600); font-weight: 600;">Logo</div>
+                        </div>
+                        <button class="btn btn-navy" style="width: 100%;">Join These Industry Leaders</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Follow-up Sequence CTAs -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">10</div>
+                <h2 class="section-title">Follow-up Sequence CTAs (Post-Download)</h2>
+            </div>
+            <p class="section-description">Email sequence CTAs that nurture case study downloaders toward conversion.</p>
+
+            <div class="cta-card">
+                <h4>5-Email Nurture Sequence <span class="cta-label">Drip Campaign</span></h4>
+                <div class="sequence-timeline">
+                    <div class="sequence-item">
+                        <div class="sequence-timing">Day 1 - Immediate</div>
+                        <h5>Here's Your Case Study (+ One Question)</h5>
+                        <p>Thanks for downloading the TechFlow case study. What specific result caught your attention most?</p>
+                        <button class="btn btn-navy btn-small">Reply With Your Answer</button>
+                        <div class="copy-examples mt-16">
+                            <div class="copy-example">
+                                <div class="copy-label">CTA Goal</div>
+                                <div class="copy-text">Initiate conversation, understand priority pain point</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sequence-item">
+                        <div class="sequence-timing">Day 3 - Value Add</div>
+                        <h5>The Strategy Behind TechFlow's 312% Growth</h5>
+                        <p>The case study showed the results. Here's the actual playbook we used (bonus content just for you).</p>
+                        <button class="btn btn-navy btn-small">Download the Playbook</button>
+                        <div class="copy-examples mt-16">
+                            <div class="copy-example">
+                                <div class="copy-label">CTA Goal</div>
+                                <div class="copy-text">Provide additional value, deepen engagement</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sequence-item">
+                        <div class="sequence-timing">Day 7 - Personalization</div>
+                        <h5>I Mapped TechFlow's Results to Your Industry</h5>
+                        <p>Based on the case study you downloaded, I put together a quick analysis of what similar results could look like in [Industry].</p>
+                        <button class="btn btn-navy btn-small">See Your Industry Analysis</button>
+                        <div class="copy-examples mt-16">
+                            <div class="copy-example">
+                                <div class="copy-label">CTA Goal</div>
+                                <div class="copy-text">Make results tangible and specific to their situation</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sequence-item">
+                        <div class="sequence-timing">Day 12 - Social Proof</div>
+                        <h5>3 More Companies Like Yours That Got Similar Results</h5>
+                        <p>Loved the TechFlow story? Here are three more in your space that followed the same path.</p>
+                        <button class="btn btn-navy btn-small">See Related Case Studies</button>
+                        <div class="copy-examples mt-16">
+                            <div class="copy-example">
+                                <div class="copy-label">CTA Goal</div>
+                                <div class="copy-text">Reinforce pattern, show repeatable success</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sequence-item">
+                        <div class="sequence-timing">Day 18 - Conversion</div>
+                        <h5>Ready to Build Your Own Success Story?</h5>
+                        <p>You've seen what's possible. Let's discuss what a similar transformation could look like for your business.</p>
+                        <div class="btn-group" style="justify-content: flex-start;">
+                            <button class="btn btn-navy btn-small">Book Strategy Call</button>
+                            <button class="btn btn-outline-navy btn-small">Not Yet - Send More Case Studies</button>
+                        </div>
+                        <div class="copy-examples mt-16">
+                            <div class="copy-example">
+                                <div class="copy-label">CTA Goal</div>
+                                <div class="copy-text">Direct conversion with easy exit ramp for those not ready</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 11: Video Case Study CTAs -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">11</div>
+                <h2 class="section-title">Video Case Study CTAs</h2>
+            </div>
+            <p class="section-description">CTAs designed specifically for video content and post-video engagement.</p>
+
+            <div class="cta-grid">
+                <div class="cta-card">
+                    <h4>Video Player CTA <span class="cta-label">In-Video</span></h4>
+                    <div class="video-cta">
+                        <div class="video-thumbnail">
+                            <div class="play-button">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <div class="video-duration">4:32</div>
+                        </div>
+                        <div class="video-cta-body">
+                            <h5>TechFlow's Journey: From Uncertainty to 312% Growth</h5>
+                            <p>Hear directly from CEO Sarah Chen about how she transformed her go-to-market strategy.</p>
+                            <div class="video-cta-actions">
+                                <button class="btn btn-primary">Watch Now</button>
+                                <button class="btn btn-secondary">Read Summary Instead</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Post-Video CTA <span class="cta-label">End Screen</span></h4>
+                    <div style="background: var(--navy); border-radius: 12px; padding: 32px; text-align: center; color: var(--white);">
+                        <h5 style="color: var(--gold); margin-bottom: 8px;">You Just Watched</h5>
+                        <h4 style="color: var(--white); font-size: 1.4rem; margin-bottom: 20px;">TechFlow's 312% Growth Story</h4>
+                        <p style="color: var(--gray-300); margin-bottom: 24px;">Ready to create your own transformation story?</p>
+                        <div class="btn-group">
+                            <button class="btn btn-primary btn-large">Get Your Growth Roadmap</button>
+                            <button class="btn btn-secondary">Watch Another Story</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Chapter Markers <span class="cta-label">Segmented</span></h4>
+                    <div style="background: var(--white); border: 1px solid var(--gray-200); border-radius: 12px; overflow: hidden;">
+                        <div style="background: var(--navy); padding: 16px 20px; color: var(--white);">
+                            <strong>Jump to What Matters Most</strong>
+                        </div>
+                        <div style="padding: 20px;">
+                            <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--gray-200); cursor: pointer;">
+                                <span>The Challenge</span>
+                                <span style="color: var(--gold);">0:00</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--gray-200); cursor: pointer;">
+                                <span>The Solution</span>
+                                <span style="color: var(--gold);">1:24</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--gray-200); cursor: pointer;">
+                                <span>The Results</span>
+                                <span style="color: var(--gold);">2:48</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 12px 0; cursor: pointer;">
+                                <span>Key Takeaways</span>
+                                <span style="color: var(--gold);">3:52</span>
+                            </div>
+                            <button class="btn btn-navy mt-16" style="width: 100%;">Skip to Results</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Video Series CTA <span class="cta-label">Binge</span></h4>
+                    <div style="background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%); border-radius: 12px; padding: 24px; color: var(--white);">
+                        <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                            <div style="width: 60px; height: 40px; background: var(--gold); border-radius: 4px;"></div>
+                            <div style="width: 60px; height: 40px; background: rgba(212,168,83,0.5); border-radius: 4px;"></div>
+                            <div style="width: 60px; height: 40px; background: rgba(212,168,83,0.3); border-radius: 4px;"></div>
+                        </div>
+                        <h5 style="color: var(--white); margin-bottom: 8px;">Success Story Series</h5>
+                        <p style="color: var(--gray-300); font-size: 0.9rem; margin-bottom: 16px;">Watch all 5 videos in the TechFlow transformation series.</p>
+                        <button class="btn btn-primary" style="width: 100%;">Watch Next Episode</button>
+                    </div>
+                    <div class="copy-examples">
+                        <div class="copy-example">
+                            <div class="copy-label">Series CTA Variants</div>
+                            <div class="copy-text">"Watch Next Episode" / "Continue Series" / "See How It Ends"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 12: Library Page CTAs -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">12</div>
+                <h2 class="section-title">Case Study Library Page CTAs</h2>
+            </div>
+            <p class="section-description">Navigation and discovery CTAs that help prospects find the right case studies.</p>
+
+            <div class="cta-card">
+                <h4>Library Header CTA <span class="cta-label">Page Hero</span></h4>
+                <div class="library-header-cta">
+                    <h3>47 Proof Points. Zero Guesswork.</h3>
+                    <p>Every success story in our library follows the same methodology. Find the one that matches your situation.</p>
+                    <div class="library-stats">
+                        <div class="library-stat">
+                            <div class="number">47</div>
+                            <div class="label">Case Studies</div>
+                        </div>
+                        <div class="library-stat">
+                            <div class="number">12</div>
+                            <div class="label">Industries</div>
+                        </div>
+                        <div class="library-stat">
+                            <div class="number">$2.4B</div>
+                            <div class="label">Revenue Generated</div>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-primary btn-large">Find My Match</button>
+                        <button class="btn btn-secondary btn-large">Browse All</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-grid mt-24">
+                <div class="cta-card">
+                    <h4>Filter Prompt CTA <span class="cta-label">Discovery</span></h4>
+                    <div class="library-filter-cta">
+                        <div class="filter-prompt">
+                            <span>I want to see results for:</span>
+                            <span class="filter-tag">Revenue Growth</span>
+                            <span class="filter-tag">Cost Reduction</span>
+                            <span class="filter-tag">Speed</span>
+                            <span class="filter-tag active">Pipeline</span>
+                            <span class="filter-tag">Retention</span>
+                        </div>
+                    </div>
+                    <div class="library-filter-cta">
+                        <div class="filter-prompt">
+                            <span>In this industry:</span>
+                            <span class="filter-tag active">SaaS</span>
+                            <span class="filter-tag">FinTech</span>
+                            <span class="filter-tag">Healthcare</span>
+                            <span class="filter-tag">Manufacturing</span>
+                        </div>
+                    </div>
+                    <div class="library-filter-cta">
+                        <div class="filter-prompt">
+                            <span>Company size:</span>
+                            <span class="filter-tag">Startup</span>
+                            <span class="filter-tag active">Scale-up</span>
+                            <span class="filter-tag">Enterprise</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-navy btn-large mt-16" style="width: 100%;">Show Matching Case Studies (8 results)</button>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Curated Collections <span class="cta-label">Bundles</span></h4>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <div style="background: var(--gray-100); border-radius: 12px; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong style="color: var(--navy);">Top 5: Fastest Growing</strong>
+                                <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0 0;">Companies that grew 200%+ in under 2 years</p>
+                            </div>
+                            <button class="btn btn-navy btn-small">View</button>
+                        </div>
+                        <div style="background: var(--gray-100); border-radius: 12px; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong style="color: var(--navy);">Series B Success Stories</strong>
+                                <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0 0;">8 companies that scaled post-Series B</p>
+                            </div>
+                            <button class="btn btn-navy btn-small">View</button>
+                        </div>
+                        <div style="background: var(--gray-100); border-radius: 12px; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong style="color: var(--navy);">Enterprise GTM Transformations</strong>
+                                <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0 0;">Moving upmarket successfully</p>
+                            </div>
+                            <button class="btn btn-navy btn-small">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Recommendation Engine <span class="cta-label">AI-Powered</span></h4>
+                    <div style="background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%); border-radius: 12px; padding: 24px; color: var(--white); text-align: center;">
+                        <h5 style="color: var(--gold); margin-bottom: 12px;">Not Sure Where to Start?</h5>
+                        <p style="color: var(--gray-300); margin-bottom: 20px;">Answer 3 quick questions and we'll recommend the most relevant case studies for your situation.</p>
+                        <button class="btn btn-primary btn-large">Find My Match</button>
+                        <p style="color: var(--gray-400); font-size: 0.8rem; margin-top: 12px;">Takes less than 60 seconds</p>
+                    </div>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Exit Intent CTA <span class="cta-label">Capture</span></h4>
+                    <div style="background: var(--white); border: 3px solid var(--gold); border-radius: 12px; padding: 32px; text-align: center;">
+                        <h4 style="color: var(--navy); margin-bottom: 12px;">Before You Go...</h4>
+                        <p style="color: var(--gray-600); margin-bottom: 20px;">Get our top 3 case studies delivered to your inbox - curated based on companies like yours.</p>
+                        <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                            <input type="email" placeholder="Enter your email" style="flex: 1; padding: 12px; border: 1px solid var(--gray-300); border-radius: 6px;">
+                            <button class="btn btn-navy">Send</button>
+                        </div>
+                        <p style="color: var(--gray-500); font-size: 0.8rem;">No spam. Just proof that works.</p>
+                    </div>
+                    <div class="copy-examples">
+                        <div class="copy-example">
+                            <div class="copy-label">Exit Intent Variants</div>
+                            <div class="copy-text">"Before You Go" / "One More Thing" / "Wait - Don't Miss This"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation Summary -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">+</div>
+                <h2 class="section-title">Implementation Checklist</h2>
+            </div>
+
+            <div class="cta-grid">
+                <div class="cta-card">
+                    <h4>CTA Hierarchy</h4>
+                    <ul style="color: var(--gray-600); padding-left: 20px;">
+                        <li><strong>Primary:</strong> High-value actions (Strategy Call, Custom Analysis)</li>
+                        <li><strong>Secondary:</strong> Mid-value actions (Download, Watch Video)</li>
+                        <li><strong>Tertiary:</strong> Low-commitment actions (Browse, Learn More)</li>
+                    </ul>
+                </div>
+
+                <div class="cta-card">
+                    <h4>CTA Copy Formulas</h4>
+                    <ul style="color: var(--gray-600); padding-left: 20px;">
+                        <li><strong>Outcome-focused:</strong> "Get Your [Outcome]"</li>
+                        <li><strong>Action-focused:</strong> "Calculate Your [Metric]"</li>
+                        <li><strong>Identity-focused:</strong> "Become Our Next [Success Type]"</li>
+                        <li><strong>Comparison-focused:</strong> "See How You Compare"</li>
+                    </ul>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Placement Strategy</h4>
+                    <ul style="color: var(--gray-600); padding-left: 20px;">
+                        <li><strong>Hero:</strong> Result-led primary CTA</li>
+                        <li><strong>25% scroll:</strong> ROI calculator or qualifier</li>
+                        <li><strong>50% scroll:</strong> Social proof + CTA combo</li>
+                        <li><strong>End:</strong> Multi-option ladder CTA</li>
+                        <li><strong>Sticky:</strong> Floating bar with primary action</li>
+                    </ul>
+                </div>
+
+                <div class="cta-card">
+                    <h4>Testing Priorities</h4>
+                    <ul style="color: var(--gray-600); padding-left: 20px;">
+                        <li>Outcome-focused vs. action-focused copy</li>
+                        <li>Single CTA vs. multi-option ladder</li>
+                        <li>Static vs. personalized messaging</li>
+                        <li>Direct conversion vs. lead magnet first</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>Case study CTAs are the bridge between proof and action. Each design transforms evidence into opportunity, connecting documented success to prospect potential.</p>
+        <div class="tagline">Certainty First.</div>
+    </footer>
+</body>
+</html>

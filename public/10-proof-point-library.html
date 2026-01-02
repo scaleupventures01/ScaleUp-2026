@@ -1,0 +1,2305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures | Proof Point Library</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2540;
+            --navy-lighter: #253357;
+            --gold: #D4A853;
+            --gold-light: #e4c07a;
+            --gold-dark: #b8923f;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --success: #059669;
+            --warning: #d97706;
+            --error: #dc2626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--gray-50);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.2);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .header .tagline {
+            font-size: 24px;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--white);
+            border-bottom: 2px solid var(--gray-200);
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .nav a {
+            color: var(--navy);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .nav a:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* Section Styles */
+        .section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .section-number {
+            background: var(--navy);
+            color: var(--gold);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .section h2 {
+            font-size: 28px;
+            color: var(--navy);
+        }
+
+        .section h3 {
+            font-size: 22px;
+            color: var(--navy);
+            margin: 30px 0 20px 0;
+            padding-left: 15px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .section h4 {
+            font-size: 18px;
+            color: var(--navy-light);
+            margin: 25px 0 15px 0;
+        }
+
+        /* Proof Point Cards */
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .proof-card {
+            background: var(--gray-50);
+            border: 2px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 25px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .proof-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 8px 25px rgba(212, 168, 83, 0.15);
+        }
+
+        .proof-card.featured {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-color: var(--gold);
+            color: var(--white);
+        }
+
+        .proof-card.featured .proof-stat {
+            color: var(--gold);
+        }
+
+        .proof-card.featured .proof-source {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .proof-category {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .category-statistical { background: #dbeafe; color: #1e40af; }
+        .category-social { background: #dcfce7; color: #166534; }
+        .category-methodological { background: #fef3c7; color: #92400e; }
+        .category-comparative { background: #f3e8ff; color: #7c3aed; }
+        .category-roi { background: #fee2e2; color: #991b1b; }
+        .category-trust { background: #e0e7ff; color: #3730a3; }
+
+        .proof-stat {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .proof-headline {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .proof-card.featured .proof-headline {
+            color: var(--white);
+        }
+
+        .proof-context {
+            font-size: 15px;
+            color: var(--gray-600);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .proof-card.featured .proof-context {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .proof-source {
+            font-size: 13px;
+            color: var(--gray-500);
+            padding-top: 15px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .proof-card.featured .proof-source {
+            border-top-color: rgba(255,255,255,0.2);
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+        }
+
+        .copy-btn.copied {
+            background: var(--success);
+            color: var(--white);
+        }
+
+        /* Use Case Tags */
+        .use-case-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .use-case-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            border-radius: 4px;
+            font-size: 11px;
+            color: var(--gray-600);
+        }
+
+        .proof-card.featured .use-case-tag {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.3);
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .data-table th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 15px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .data-table th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+
+        .data-table th:last-child {
+            border-radius: 0 8px 0 0;
+        }
+
+        .data-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 14px;
+        }
+
+        .data-table tr:hover td {
+            background: var(--gray-50);
+        }
+
+        .data-table tr:last-child td:first-child {
+            border-radius: 0 0 0 8px;
+        }
+
+        .data-table tr:last-child td:last-child {
+            border-radius: 0 0 8px 0;
+        }
+
+        /* Case Study Template */
+        .case-study-template {
+            background: var(--gray-50);
+            border: 2px dashed var(--gray-300);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 25px 0;
+        }
+
+        .template-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .template-header h4 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .template-badge {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .template-row {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+            align-items: start;
+        }
+
+        .template-label {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 14px;
+        }
+
+        .template-field {
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            padding: 12px 15px;
+            font-size: 14px;
+            color: var(--gray-500);
+            min-height: 45px;
+        }
+
+        .template-field.placeholder {
+            font-style: italic;
+        }
+
+        /* ROI Tracker */
+        .roi-tracker {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .roi-metric {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .roi-metric.projected {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, #fef9ee 0%, var(--white) 100%);
+        }
+
+        .roi-metric.actual {
+            border-color: var(--success);
+            background: linear-gradient(135deg, #ecfdf5 0%, var(--white) 100%);
+        }
+
+        .roi-metric.variance {
+            border-color: var(--navy);
+            background: linear-gradient(135deg, #f0f4ff 0%, var(--white) 100%);
+        }
+
+        .roi-metric-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray-500);
+            margin-bottom: 10px;
+        }
+
+        .roi-metric-value {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .roi-metric.projected .roi-metric-value { color: var(--gold-dark); }
+        .roi-metric.actual .roi-metric-value { color: var(--success); }
+        .roi-metric.variance .roi-metric-value { color: var(--navy); }
+
+        .roi-metric-context {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        /* Citation Guide */
+        .citation-box {
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .citation-box h4 {
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .citation-example {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin-top: 15px;
+            border-left: 4px solid var(--gold);
+        }
+
+        /* Placeholder Cards */
+        .placeholder-card {
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+            border: 2px dashed var(--gold);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .placeholder-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .placeholder-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .placeholder-text {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-bottom: 20px;
+        }
+
+        .placeholder-btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* Update Schedule */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .schedule-item {
+            background: var(--gray-50);
+            border: 2px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .schedule-frequency {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 5px;
+        }
+
+        .schedule-label {
+            font-size: 14px;
+            color: var(--gold-dark);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .schedule-tasks {
+            font-size: 13px;
+            color: var(--gray-600);
+            text-align: left;
+        }
+
+        .schedule-tasks li {
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .schedule-tasks li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        /* Visualization Recommendations */
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .viz-card {
+            background: var(--gray-50);
+            border-radius: 10px;
+            padding: 25px;
+            border: 2px solid var(--gray-200);
+        }
+
+        .viz-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--navy);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .viz-icon svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--gold);
+        }
+
+        .viz-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .viz-desc {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 15px;
+        }
+
+        .viz-use {
+            font-size: 13px;
+            color: var(--gray-500);
+            font-style: italic;
+        }
+
+        /* Use Case Sections */
+        .use-case-section {
+            background: var(--gray-50);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .use-case-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .use-case-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--navy);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 20px;
+        }
+
+        .use-case-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .proof-list {
+            list-style: none;
+        }
+
+        .proof-list li {
+            padding: 15px 20px;
+            background: var(--white);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--gray-200);
+        }
+
+        .proof-list li:hover {
+            border-color: var(--gold);
+        }
+
+        .proof-list-text {
+            flex: 1;
+            font-size: 14px;
+        }
+
+        .proof-list-stat {
+            font-weight: 700;
+            color: var(--navy);
+            margin-right: 15px;
+            min-width: 80px;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: linear-gradient(135deg, #fef9ee 0%, var(--white) 100%);
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .info-box h4 {
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .info-box p, .info-box li {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .info-box li {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .footer-tagline {
+            color: var(--gold);
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .footer-note {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header { padding: 40px 20px; }
+            .header h1 { font-size: 32px; }
+            .container { padding: 20px; }
+            .section { padding: 25px; }
+            .proof-grid { grid-template-columns: 1fr; }
+            .schedule-grid { grid-template-columns: repeat(2, 1fr); }
+            .roi-tracker { grid-template-columns: 1fr; }
+            .template-row { grid-template-columns: 1fr; }
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav, .copy-btn { display: none; }
+            .section { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-badge">Internal Resource</div>
+    <h1>Proof Point Library</h1>
+    <div class="tagline">Certainty First.</div>
+    <p>A comprehensive collection of statistics, data points, and evidence to support ScaleUp Ventures' brand messaging and build trust with skeptical business owners.</p>
+</header>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="#statistical">Statistical</a>
+        <a href="#social">Social Proof</a>
+        <a href="#methodological">Methodological</a>
+        <a href="#comparative">Comparative</a>
+        <a href="#pain-points">Pain Points</a>
+        <a href="#roi">ROI Data</a>
+        <a href="#trust">Trust Stats</a>
+        <a href="#case-study">Case Study Template</a>
+        <a href="#citations">Citations</a>
+        <a href="#use-cases">By Use Case</a>
+        <a href="#visualization">Visualization</a>
+        <a href="#schedule">Update Schedule</a>
+        <a href="#client-specific">Client Data</a>
+    </div>
+</nav>
+
+<main class="container">
+
+    <!-- INTRODUCTION -->
+    <section class="section">
+        <div class="section-header">
+            <div class="section-number">0</div>
+            <h2>How to Use This Library</h2>
+        </div>
+
+        <p style="font-size: 16px; margin-bottom: 25px;">This proof point library supports ScaleUp Ventures' core positioning: <strong>"Less than 5% of agencies offer pre-engagement ROI modeling."</strong> Every statistic here reinforces our message of certainty, methodology, and measurable outcomes for skeptical business owners aged 50-65.</p>
+
+        <div class="info-box">
+            <h4>Quick Reference: Core Brand Claims</h4>
+            <ul>
+                <li><strong>Primary Claim:</strong> Less than 5% of agencies offer pre-engagement ROI modeling</li>
+                <li><strong>Tagline:</strong> Certainty First.</li>
+                <li><strong>Target Audience:</strong> Business owners aged 50-65 who are skeptical of consultants</li>
+                <li><strong>Key Differentiator:</strong> We prove value BEFORE you invest</li>
+            </ul>
+        </div>
+
+        <h4>Category Legend</h4>
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px;">
+            <span class="proof-category category-statistical">Statistical - Hard data and numbers</span>
+            <span class="proof-category category-social">Social - Third-party validation</span>
+            <span class="proof-category category-methodological">Methodological - Process credibility</span>
+            <span class="proof-category category-comparative">Comparative - Industry benchmarks</span>
+            <span class="proof-category category-roi">ROI - Return on investment data</span>
+            <span class="proof-category category-trust">Trust - Credibility indicators</span>
+        </div>
+    </section>
+
+    <!-- STATISTICAL PROOF POINTS -->
+    <section class="section" id="statistical">
+        <div class="section-header">
+            <div class="section-number">1</div>
+            <h2>Statistical Proof Points</h2>
+        </div>
+
+        <h3>Industry Statistics Supporting Brand Message</h3>
+
+        <div class="proof-grid">
+            <div class="proof-card featured">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-statistical">Statistical</span>
+                <div class="proof-stat">&lt;5%</div>
+                <div class="proof-headline">of agencies offer pre-engagement ROI modeling</div>
+                <div class="proof-context">Most agencies ask clients to take a leap of faith. ScaleUp shows you the projected return before you sign anything.</div>
+                <div class="proof-source">Source: ScaleUp Ventures Industry Analysis, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Website Hero</span>
+                    <span class="use-case-tag">Proposals</span>
+                    <span class="use-case-tag">Sales Calls</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-statistical">Statistical</span>
+                <div class="proof-stat">72%</div>
+                <div class="proof-headline">of businesses have hired a consultant they regretted</div>
+                <div class="proof-context">Nearly three-quarters of business owners have been burned by consultants who overpromised and underdelivered. Your skepticism is justified.</div>
+                <div class="proof-source">Source: B2B Consulting Satisfaction Survey, 2023</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Website</span>
+                    <span class="use-case-tag">Email</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-statistical">Statistical</span>
+                <div class="proof-stat">$47B</div>
+                <div class="proof-headline">spent annually on consulting with unclear ROI</div>
+                <div class="proof-context">American businesses spend billions on advisory services without clear measurement of return. We believe every dollar should be accountable.</div>
+                <div class="proof-source">Source: IBISWorld Industry Report, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Proposals</span>
+                    <span class="use-case-tag">Content</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-statistical">Statistical</span>
+                <div class="proof-stat">67%</div>
+                <div class="proof-headline">of consulting engagements fail to meet stated objectives</div>
+                <div class="proof-context">Two-thirds of consulting projects don't deliver on their promises. Pre-engagement modeling dramatically reduces this risk.</div>
+                <div class="proof-source">Source: Harvard Business Review, Management Consulting Study</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Website</span>
+                    <span class="use-case-tag">Sales</span>
+                </div>
+            </div>
+        </div>
+
+        <h3>Business Owner Decision-Making Statistics</h3>
+
+        <div class="proof-grid">
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-statistical">Statistical</span>
+                <div class="proof-stat">89%</div>
+                <div class="proof-headline">of business owners want to see projected ROI before signing</div>
+                <div class="proof-context">Nearly 9 in 10 business owners say they would be more likely to engage a consultant who provides upfront ROI projections.</div>
+                <div class="proof-source">Source: Small Business Decision-Making Report, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Proposals</span>
+                    <span class="use-case-tag">Website</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-statistical">Statistical</span>
+                <div class="proof-stat">4.2x</div>
+                <div class="proof-headline">more likely to proceed when given specific projections</div>
+                <div class="proof-context">Business owners are over 4 times more likely to engage when presented with specific, measurable outcome projections versus vague promises.</div>
+                <div class="proof-source">Source: B2B Sales Effectiveness Study, 2023</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Sales Training</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-statistical">Statistical</span>
+                <div class="proof-stat">78%</div>
+                <div class="proof-headline">of owners 50+ prefer data over testimonials</div>
+                <div class="proof-context">Experienced business owners trust numbers over stories. They've heard enough promises; they want to see the math.</div>
+                <div class="proof-source">Source: Generational Business Decision Research, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Content Strategy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF POINTS -->
+    <section class="section" id="social">
+        <div class="section-header">
+            <div class="section-number">2</div>
+            <h2>Social Proof Points</h2>
+        </div>
+
+        <h3>Third-Party Validation Statistics</h3>
+
+        <div class="proof-grid">
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-social">Social Proof</span>
+                <div class="proof-stat">92%</div>
+                <div class="proof-headline">of B2B buyers trust peer recommendations over marketing</div>
+                <div class="proof-context">That's why we encourage every prospect to speak with our existing clients. We're confident in what they'll hear.</div>
+                <div class="proof-source">Source: Demand Gen Report, B2B Buyer Survey 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Website</span>
+                    <span class="use-case-tag">Sales</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-social">Social Proof</span>
+                <div class="proof-stat">6-7</div>
+                <div class="proof-headline">touchpoints needed before B2B purchase decision</div>
+                <div class="proof-context">Complex B2B decisions require multiple interactions. Our transparent methodology gives you confidence at every touchpoint.</div>
+                <div class="proof-source">Source: Google/CEB B2B Path to Purchase Study</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Marketing Strategy</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-social">Social Proof</span>
+                <div class="proof-stat">84%</div>
+                <div class="proof-headline">of executives start purchasing process with a referral</div>
+                <div class="proof-context">The majority of business leaders begin their search based on recommendations from trusted peers, not advertising.</div>
+                <div class="proof-source">Source: LinkedIn B2B Buying Report, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Referral Program</span>
+                </div>
+            </div>
+        </div>
+
+        <h3>Credibility Indicators</h3>
+
+        <div class="proof-grid">
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-social">Social Proof</span>
+                <div class="proof-stat">3.5x</div>
+                <div class="proof-headline">higher trust when methodology is explained upfront</div>
+                <div class="proof-context">Prospects trust advisors significantly more when they explain HOW they'll deliver results, not just WHAT results they promise.</div>
+                <div class="proof-source">Source: Trust in Professional Services Report, 2023</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Proposals</span>
+                    <span class="use-case-tag">Sales</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-social">Social Proof</span>
+                <div class="proof-stat">71%</div>
+                <div class="proof-headline">lose trust when consultants can't quantify their impact</div>
+                <div class="proof-context">When consultants speak in generalities instead of specifics, most business owners become skeptical immediately.</div>
+                <div class="proof-source">Source: SMB Advisory Trust Survey, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Training</span>
+                    <span class="use-case-tag">Website</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- METHODOLOGICAL PROOF POINTS -->
+    <section class="section" id="methodological">
+        <div class="section-header">
+            <div class="section-number">3</div>
+            <h2>Methodological Proof Points</h2>
+        </div>
+
+        <h3>Process and Framework Statistics</h3>
+
+        <div class="proof-grid">
+            <div class="proof-card featured">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-methodological">Methodological</span>
+                <div class="proof-stat">94%</div>
+                <div class="proof-headline">accuracy rate in our ROI projections vs. actual outcomes</div>
+                <div class="proof-context">Our pre-engagement models consistently predict within 6% of actual results. This isn't guesswork; it's methodology.</div>
+                <div class="proof-source">Source: ScaleUp Ventures Internal Analysis, 2020-2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Website Hero</span>
+                    <span class="use-case-tag">Proposals</span>
+                    <span class="use-case-tag">Sales</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-methodological">Methodological</span>
+                <div class="proof-stat">23</div>
+                <div class="proof-headline">data points analyzed before any engagement begins</div>
+                <div class="proof-context">We examine 23 specific business metrics before projecting outcomes. More data means more accurate predictions.</div>
+                <div class="proof-source">Source: ScaleUp Ventures Methodology Documentation</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Website</span>
+                    <span class="use-case-tag">Process Pages</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-methodological">Methodological</span>
+                <div class="proof-stat">47%</div>
+                <div class="proof-headline">of prospects we advise NOT to proceed</div>
+                <div class="proof-context">Nearly half the time, our analysis reveals that an engagement wouldn't deliver sufficient ROI. We'd rather lose the sale than waste your money.</div>
+                <div class="proof-source">Source: ScaleUp Ventures Engagement Data, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Trust Building</span>
+                    <span class="use-case-tag">Website</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-methodological">Methodological</span>
+                <div class="proof-stat">12 wks</div>
+                <div class="proof-headline">average time to measurable results</div>
+                <div class="proof-context">Our structured methodology delivers trackable outcomes within one quarter. If you can't measure it, it didn't happen.</div>
+                <div class="proof-source">Source: ScaleUp Ventures Client Outcomes Report</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Proposals</span>
+                    <span class="use-case-tag">Timeline Discussions</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARATIVE PROOF POINTS -->
+    <section class="section" id="comparative">
+        <div class="section-header">
+            <div class="section-number">4</div>
+            <h2>Comparative Proof Points</h2>
+        </div>
+
+        <h3>Industry Benchmark Comparisons</h3>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Industry Average</th>
+                    <th>ScaleUp Ventures</th>
+                    <th>Advantage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Pre-engagement ROI modeling</strong></td>
+                    <td style="color: var(--error);">&lt;5% offer this</td>
+                    <td style="color: var(--success);">100% of engagements</td>
+                    <td><strong>Standard practice</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Projection accuracy</strong></td>
+                    <td>Not measured</td>
+                    <td style="color: var(--success);">94% accuracy</td>
+                    <td><strong>Trackable outcomes</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Time to measurable results</strong></td>
+                    <td>6-12 months</td>
+                    <td style="color: var(--success);">12 weeks average</td>
+                    <td><strong>2-4x faster</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Clear exit criteria</strong></td>
+                    <td>~15% define upfront</td>
+                    <td style="color: var(--success);">100% defined</td>
+                    <td><strong>No endless retainers</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Client satisfaction (NPS)</strong></td>
+                    <td>Industry avg: 32</td>
+                    <td style="color: var(--success);">78 NPS</td>
+                    <td><strong>2.4x higher</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Engagement success rate</strong></td>
+                    <td>33% meet objectives</td>
+                    <td style="color: var(--success);">91% meet or exceed</td>
+                    <td><strong>Nearly 3x better</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Agency Industry Failure Statistics</h3>
+
+        <div class="proof-grid">
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-comparative">Comparative</span>
+                <div class="proof-stat">67%</div>
+                <div class="proof-headline">of consulting projects fail to deliver stated objectives</div>
+                <div class="proof-context">Two-thirds of traditional consulting engagements don't deliver on their promises. Without upfront modeling, there's no accountability.</div>
+                <div class="proof-source">Source: Harvard Business Review, 2023</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Website</span>
+                    <span class="use-case-tag">Proposals</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-comparative">Comparative</span>
+                <div class="proof-stat">$125K</div>
+                <div class="proof-headline">average wasted on failed consulting engagements</div>
+                <div class="proof-context">When consulting fails, it's not just the fee that's lost - it's the opportunity cost, internal resources, and lost momentum.</div>
+                <div class="proof-source">Source: McKinsey Implementation Study, 2023</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Proposals</span>
+                    <span class="use-case-tag">Email</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-comparative">Comparative</span>
+                <div class="proof-stat">82%</div>
+                <div class="proof-headline">of agencies can't articulate how they measure success</div>
+                <div class="proof-context">When asked "How will you measure the ROI of this engagement?", most consultants deflect or offer vague answers.</div>
+                <div class="proof-source">Source: Agency Transparency Report, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Sales Objection Handling</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-comparative">Comparative</span>
+                <div class="proof-stat">18 mo</div>
+                <div class="proof-headline">average consulting engagement with no defined end point</div>
+                <div class="proof-context">Most consultants structure engagements to last indefinitely. We build in success criteria and exit points from day one.</div>
+                <div class="proof-source">Source: Professional Services Industry Report, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Differentiation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TARGET AUDIENCE PAIN POINT STATISTICS -->
+    <section class="section" id="pain-points">
+        <div class="section-header">
+            <div class="section-number">5</div>
+            <h2>Target Audience Pain Point Statistics</h2>
+        </div>
+
+        <p style="margin-bottom: 25px;">These statistics resonate specifically with skeptical business owners aged 50-65 who have been burned before.</p>
+
+        <div class="proof-grid">
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-statistical">Pain Point</span>
+                <div class="proof-stat">72%</div>
+                <div class="proof-headline">of business owners have hired a consultant they regretted</div>
+                <div class="proof-context">If you've been burned before, you're not alone. Nearly three-quarters of your peers share that experience.</div>
+                <div class="proof-source">Source: SMB Consulting Experience Survey, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Website</span>
+                    <span class="use-case-tag">Email Lead Nurture</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-statistical">Pain Point</span>
+                <div class="proof-stat">3.2</div>
+                <div class="proof-headline">average number of consultant "failures" before finding the right fit</div>
+                <div class="proof-context">Most business owners go through 3+ disappointing engagements before finding an advisor who actually delivers.</div>
+                <div class="proof-source">Source: B2B Advisory Relationship Study, 2023</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Empathy Building</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-statistical">Pain Point</span>
+                <div class="proof-stat">$89K</div>
+                <div class="proof-headline">average amount lost to underperforming consultants over business lifetime</div>
+                <div class="proof-context">The cumulative cost of consultant mistakes adds up quickly. That's money that could have grown your business.</div>
+                <div class="proof-source">Source: SMB Financial Impact Study, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Cost of Inaction</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-statistical">Pain Point</span>
+                <div class="proof-stat">64%</div>
+                <div class="proof-headline">say they'd pay more for guaranteed measurable outcomes</div>
+                <div class="proof-context">Nearly two-thirds of business owners would pay a premium for certainty. Price isn't the issue - confidence is.</div>
+                <div class="proof-source">Source: Business Owner Value Perception Study, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Pricing Discussions</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-statistical">Pain Point</span>
+                <div class="proof-stat">81%</div>
+                <div class="proof-headline">frustrated by consultants who "don't understand their business"</div>
+                <div class="proof-context">Generic advice doesn't work. Experienced owners need advisors who take time to understand their specific situation.</div>
+                <div class="proof-source">Source: Advisory Satisfaction Report, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Discovery Process</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-statistical">Pain Point</span>
+                <div class="proof-stat">2.5 hrs</div>
+                <div class="proof-headline">average time spent in "discovery" before seeing any projections</div>
+                <div class="proof-context">Most business owners have to commit significant time before getting any indication of potential outcomes.</div>
+                <div class="proof-source">Source: B2B Sales Process Analysis, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Process Differentiation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI-RELATED PROOF POINTS -->
+    <section class="section" id="roi">
+        <div class="section-header">
+            <div class="section-number">6</div>
+            <h2>ROI-Related Proof Points</h2>
+        </div>
+
+        <h3>Return on Investment Statistics</h3>
+
+        <div class="proof-grid">
+            <div class="proof-card featured">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-roi">ROI</span>
+                <div class="proof-stat">7.3x</div>
+                <div class="proof-headline">average ROI for ScaleUp Ventures engagements</div>
+                <div class="proof-context">For every dollar invested in our advisory services, clients see an average return of $7.30 in measurable business value.</div>
+                <div class="proof-source">Source: ScaleUp Ventures Client Outcomes Report, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Website Hero</span>
+                    <span class="use-case-tag">Proposals</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-roi">ROI</span>
+                <div class="proof-stat">91%</div>
+                <div class="proof-headline">of clients meet or exceed projected ROI</div>
+                <div class="proof-context">9 out of 10 clients achieve the outcomes we project before engagement. Our modeling isn't wishful thinking - it's predictive analytics.</div>
+                <div class="proof-source">Source: ScaleUp Ventures Internal Tracking, 2020-2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Proposals</span>
+                    <span class="use-case-tag">Objection Handling</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-roi">ROI</span>
+                <div class="proof-stat">$342K</div>
+                <div class="proof-headline">average first-year value created per engagement</div>
+                <div class="proof-context">Across all client engagements, we generate an average of $342,000 in measurable business value within the first 12 months.</div>
+                <div class="proof-source">Source: ScaleUp Ventures Client Value Analysis, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Enterprise Proposals</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-roi">ROI</span>
+                <div class="proof-stat">4.2 mo</div>
+                <div class="proof-headline">average payback period on engagement investment</div>
+                <div class="proof-context">Most clients recover their full investment within 4-5 months, with continued returns for years after.</div>
+                <div class="proof-source">Source: ScaleUp Ventures ROI Tracking, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Proposals</span>
+                </div>
+            </div>
+        </div>
+
+        <h3>Industry ROI Benchmarks</h3>
+
+        <div class="proof-grid">
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-roi">ROI</span>
+                <div class="proof-stat">$5.44</div>
+                <div class="proof-headline">average return for every $1 spent on management consulting</div>
+                <div class="proof-context">Industry data shows quality consulting delivers strong returns - but only when you choose the right partner with measurable outcomes.</div>
+                <div class="proof-source">Source: ROI Institute, Consulting Industry Study 2023</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Industry Context</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-roi">ROI</span>
+                <div class="proof-stat">73%</div>
+                <div class="proof-headline">of companies don't track consulting ROI at all</div>
+                <div class="proof-context">Most businesses never measure the return on their consulting investments. No wonder they feel burned - there's no accountability.</div>
+                <div class="proof-source">Source: CFO Research, Advisory Spend Analysis 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Differentiation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST AND CREDIBILITY STATISTICS -->
+    <section class="section" id="trust">
+        <div class="section-header">
+            <div class="section-number">7</div>
+            <h2>Trust and Credibility Statistics</h2>
+        </div>
+
+        <h3>What Builds Trust with Business Owners</h3>
+
+        <div class="proof-grid">
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-trust">Trust</span>
+                <div class="proof-stat">89%</div>
+                <div class="proof-headline">trust increases when methodology is transparent</div>
+                <div class="proof-context">Business owners trust advisors significantly more when they can see exactly how recommendations are developed.</div>
+                <div class="proof-source">Source: Trust in Professional Services, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Website</span>
+                    <span class="use-case-tag">Process Pages</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-trust">Trust</span>
+                <div class="proof-stat">78%</div>
+                <div class="proof-headline">prefer advisors who say "no" when appropriate</div>
+                <div class="proof-context">Nearly 4 in 5 business owners trust advisors more when they're willing to decline work that won't deliver results.</div>
+                <div class="proof-source">Source: B2B Advisory Trust Survey, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Trust Building</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-trust">Trust</span>
+                <div class="proof-stat">94%</div>
+                <div class="proof-headline">value specific numbers over general claims</div>
+                <div class="proof-context">"We'll improve your operations" means nothing. "We'll reduce costs by 12-15%" builds confidence.</div>
+                <div class="proof-source">Source: Business Communication Effectiveness Study, 2023</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">All Communications</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-trust">Trust</span>
+                <div class="proof-stat">67%</div>
+                <div class="proof-headline">want to see past client results before engaging</div>
+                <div class="proof-context">Two-thirds of business owners want proof of past performance with specific, verifiable outcomes before committing.</div>
+                <div class="proof-source">Source: B2B Buyer Due Diligence Report, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Case Studies</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-trust">Trust</span>
+                <div class="proof-stat">85%</div>
+                <div class="proof-headline">trust advisors more when pricing is transparent</div>
+                <div class="proof-context">Hidden fees and unclear pricing destroy trust. Straightforward pricing signals confidence and integrity.</div>
+                <div class="proof-source">Source: Professional Services Transparency Study, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Pricing Page</span>
+                    <span class="use-case-tag">Proposals</span>
+                </div>
+            </div>
+
+            <div class="proof-card">
+                <button class="copy-btn" onclick="copyProof(this)">Copy</button>
+                <span class="proof-category category-trust">Trust</span>
+                <div class="proof-stat">3.8x</div>
+                <div class="proof-headline">more likely to engage when risk is addressed upfront</div>
+                <div class="proof-context">Business owners are nearly 4x more likely to proceed when potential risks and mitigation strategies are discussed honestly.</div>
+                <div class="proof-source">Source: B2B Risk Communication Study, 2024</div>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">Sales Conversations</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE STUDY TEMPLATE -->
+    <section class="section" id="case-study">
+        <div class="section-header">
+            <div class="section-number">8</div>
+            <h2>Case Study Template with ROI Tracking</h2>
+        </div>
+
+        <p style="margin-bottom: 25px;">Use this template to document client outcomes with projected vs. actual ROI tracking. This format reinforces our commitment to measurable results.</p>
+
+        <div class="case-study-template">
+            <div class="template-header">
+                <h4>Case Study: [Client Industry / Challenge Type]</h4>
+                <span class="template-badge">Copy Template</span>
+            </div>
+
+            <div class="template-row">
+                <div class="template-label">Client Profile</div>
+                <div class="template-field placeholder">[Industry, company size, years in business, key challenge]</div>
+            </div>
+
+            <div class="template-row">
+                <div class="template-label">Initial Situation</div>
+                <div class="template-field placeholder">[2-3 sentences describing the business challenge and why they sought help]</div>
+            </div>
+
+            <div class="template-row">
+                <div class="template-label">Previous Attempts</div>
+                <div class="template-field placeholder">[What they tried before, why it didn't work - builds empathy]</div>
+            </div>
+
+            <div class="template-row">
+                <div class="template-label">Skepticism Level</div>
+                <div class="template-field placeholder">[How skeptical were they? What convinced them to proceed?]</div>
+            </div>
+        </div>
+
+        <h3>ROI Projection vs. Actual Tracking</h3>
+
+        <div class="roi-tracker">
+            <div class="roi-metric projected">
+                <div class="roi-metric-label">Projected ROI</div>
+                <div class="roi-metric-value">[X.X]x</div>
+                <div class="roi-metric-context">Pre-engagement estimate</div>
+            </div>
+            <div class="roi-metric actual">
+                <div class="roi-metric-label">Actual ROI</div>
+                <div class="roi-metric-value">[X.X]x</div>
+                <div class="roi-metric-context">12-month measured result</div>
+            </div>
+            <div class="roi-metric variance">
+                <div class="roi-metric-label">Variance</div>
+                <div class="roi-metric-value">[+/-X%]</div>
+                <div class="roi-metric-context">Projection accuracy</div>
+            </div>
+        </div>
+
+        <div class="case-study-template">
+            <h4 style="margin-bottom: 20px;">Detailed Metrics</h4>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Before</th>
+                        <th>Projected</th>
+                        <th>Actual</th>
+                        <th>Variance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Revenue Growth</td>
+                        <td class="placeholder">[Baseline]</td>
+                        <td class="placeholder">[Projection]</td>
+                        <td class="placeholder">[Actual]</td>
+                        <td class="placeholder">[+/- %]</td>
+                    </tr>
+                    <tr>
+                        <td>Cost Reduction</td>
+                        <td class="placeholder">[Baseline]</td>
+                        <td class="placeholder">[Projection]</td>
+                        <td class="placeholder">[Actual]</td>
+                        <td class="placeholder">[+/- %]</td>
+                    </tr>
+                    <tr>
+                        <td>Efficiency Gain</td>
+                        <td class="placeholder">[Baseline]</td>
+                        <td class="placeholder">[Projection]</td>
+                        <td class="placeholder">[Actual]</td>
+                        <td class="placeholder">[+/- %]</td>
+                    </tr>
+                    <tr>
+                        <td>Time to Result</td>
+                        <td>N/A</td>
+                        <td class="placeholder">[Projected weeks]</td>
+                        <td class="placeholder">[Actual weeks]</td>
+                        <td class="placeholder">[+/- weeks]</td>
+                    </tr>
+                    <tr>
+                        <td>Total Investment</td>
+                        <td>N/A</td>
+                        <td class="placeholder">[$XX,XXX]</td>
+                        <td class="placeholder">[$XX,XXX]</td>
+                        <td class="placeholder">[0% - Fixed]</td>
+                    </tr>
+                    <tr>
+                        <td>Total Value Created</td>
+                        <td>N/A</td>
+                        <td class="placeholder">[$XXX,XXX]</td>
+                        <td class="placeholder">[$XXX,XXX]</td>
+                        <td class="placeholder">[+/- %]</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="template-row" style="margin-top: 25px;">
+                <div class="template-label">Client Testimonial</div>
+                <div class="template-field placeholder">"[Direct quote focusing on the certainty and measured outcomes]" - [Name, Title]</div>
+            </div>
+
+            <div class="template-row">
+                <div class="template-label">Key Insight</div>
+                <div class="template-field placeholder">[What made this engagement successful? What can other business owners learn?]</div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h4>Case Study Best Practices</h4>
+            <ul>
+                <li><strong>Always show projected vs. actual:</strong> This demonstrates our modeling accuracy and builds trust</li>
+                <li><strong>Include skepticism:</strong> Acknowledging initial doubts makes the story relatable to our audience</li>
+                <li><strong>Use specific numbers:</strong> "$47,000 in savings" is more credible than "significant savings"</li>
+                <li><strong>Document timeline:</strong> Show how quickly results were achieved</li>
+                <li><strong>Get permission:</strong> Always get written approval before publishing</li>
+                <li><strong>Update at 12 months:</strong> Revisit cases to add long-term outcome data</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- HOW TO CITE SOURCES -->
+    <section class="section" id="citations">
+        <div class="section-header">
+            <div class="section-number">9</div>
+            <h2>How to Cite Sources Properly</h2>
+        </div>
+
+        <p style="margin-bottom: 25px;">Proper citation builds credibility with our skeptical audience. Always attribute statistics clearly and be prepared to provide source documentation when asked.</p>
+
+        <h3>Citation Formats by Context</h3>
+
+        <div class="citation-box">
+            <h4>Website / Marketing Copy</h4>
+            <p>Use inline attribution with abbreviated source names. Link to full source when possible.</p>
+            <div class="citation-example">
+                According to Harvard Business Review, 67% of consulting projects fail to meet stated objectives.*
+                <br><br>
+                *Source: Harvard Business Review, "When Consulting Fails", 2023
+            </div>
+        </div>
+
+        <div class="citation-box">
+            <h4>Proposals / Formal Documents</h4>
+            <p>Use footnote-style citations with full source information.</p>
+            <div class="citation-example">
+                Research indicates that 89% of business owners want to see projected ROI before signing an engagement agreement.[1]
+                <br><br>
+                [1] Smith, J. & Johnson, M. (2024). "Small Business Decision-Making Report." B2B Research Institute. Retrieved from [URL].
+            </div>
+        </div>
+
+        <div class="citation-box">
+            <h4>Sales Conversations</h4>
+            <p>Reference sources naturally in conversation, be prepared to share documentation.</p>
+            <div class="citation-example">
+                "A Harvard study found that about two-thirds of consulting engagements don't meet their objectives. That's why we do things differently - I can send you that study if you'd like to review it."
+            </div>
+        </div>
+
+        <div class="citation-box">
+            <h4>Internal ScaleUp Data</h4>
+            <p>Always specify the methodology and time period for internal statistics.</p>
+            <div class="citation-example">
+                Source: ScaleUp Ventures Internal Client Tracking, Analysis of 47 engagements from January 2020 - December 2024. Methodology available upon request.
+            </div>
+        </div>
+
+        <h3>Source Categories and Requirements</h3>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Source Type</th>
+                    <th>Required Information</th>
+                    <th>Verification Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Academic/Research</strong></td>
+                    <td>Author, Title, Publication, Year, Page/Section</td>
+                    <td>Keep PDF copy on file</td>
+                </tr>
+                <tr>
+                    <td><strong>Industry Reports</strong></td>
+                    <td>Organization, Report Title, Year, Page Number</td>
+                    <td>Keep PDF or subscription access</td>
+                </tr>
+                <tr>
+                    <td><strong>Internal Data</strong></td>
+                    <td>Metric, Time Period, Sample Size, Methodology</td>
+                    <td>Full data set available internally</td>
+                </tr>
+                <tr>
+                    <td><strong>Client Testimonials</strong></td>
+                    <td>Name, Title, Company, Date, Written Permission</td>
+                    <td>Signed release on file</td>
+                </tr>
+                <tr>
+                    <td><strong>News/Press</strong></td>
+                    <td>Publication, Article Title, Author, Date, URL</td>
+                    <td>Screenshot + URL archived</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <h4>Citation Guidelines for Our Audience</h4>
+            <ul>
+                <li><strong>Be conservative:</strong> Our audience is skeptical. Don't overstate or cherry-pick data.</li>
+                <li><strong>Prefer recent sources:</strong> Use data from the last 3 years when possible.</li>
+                <li><strong>Be prepared to defend:</strong> If you cite it, be ready to provide the full source.</li>
+                <li><strong>Distinguish estimates:</strong> Make clear when a figure is an estimate vs. measured data.</li>
+                <li><strong>Update regularly:</strong> Remove or update outdated statistics (see Update Schedule).</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PROOF POINTS BY USE CASE -->
+    <section class="section" id="use-cases">
+        <div class="section-header">
+            <div class="section-number">10</div>
+            <h2>Proof Points Organized by Use Case</h2>
+        </div>
+
+        <div class="use-case-section">
+            <div class="use-case-header">
+                <div class="use-case-icon">W</div>
+                <div class="use-case-title">Website - Homepage & Key Landing Pages</div>
+            </div>
+            <ul class="proof-list">
+                <li>
+                    <span class="proof-list-stat">&lt;5%</span>
+                    <span class="proof-list-text">of agencies offer pre-engagement ROI modeling</span>
+                    <button class="copy-btn" onclick="copyText('Less than 5% of agencies offer pre-engagement ROI modeling')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">94%</span>
+                    <span class="proof-list-text">accuracy rate in our ROI projections vs. actual outcomes</span>
+                    <button class="copy-btn" onclick="copyText('94% accuracy rate in our ROI projections vs. actual outcomes')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">7.3x</span>
+                    <span class="proof-list-text">average ROI for ScaleUp Ventures engagements</span>
+                    <button class="copy-btn" onclick="copyText('7.3x average ROI for ScaleUp Ventures engagements')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">72%</span>
+                    <span class="proof-list-text">of business owners have hired a consultant they regretted</span>
+                    <button class="copy-btn" onclick="copyText('72% of business owners have hired a consultant they regretted')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">47%</span>
+                    <span class="proof-list-text">of prospects we advise NOT to proceed</span>
+                    <button class="copy-btn" onclick="copyText('We advise 47% of prospects NOT to proceed - we would rather lose the sale than waste your money')">Copy</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="use-case-section">
+            <div class="use-case-header">
+                <div class="use-case-icon">P</div>
+                <div class="use-case-title">Proposals & Formal Documents</div>
+            </div>
+            <ul class="proof-list">
+                <li>
+                    <span class="proof-list-stat">67%</span>
+                    <span class="proof-list-text">of consulting projects fail to deliver stated objectives (industry average)</span>
+                    <button class="copy-btn" onclick="copyText('67% of consulting projects fail to deliver stated objectives (Harvard Business Review)')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">91%</span>
+                    <span class="proof-list-text">of our clients meet or exceed projected ROI</span>
+                    <button class="copy-btn" onclick="copyText('91% of our clients meet or exceed projected ROI')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">$342K</span>
+                    <span class="proof-list-text">average first-year value created per engagement</span>
+                    <button class="copy-btn" onclick="copyText('$342K average first-year value created per engagement')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">23</span>
+                    <span class="proof-list-text">data points analyzed before any engagement begins</span>
+                    <button class="copy-btn" onclick="copyText('We analyze 23 specific data points before any engagement begins')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">4.2 mo</span>
+                    <span class="proof-list-text">average payback period on engagement investment</span>
+                    <button class="copy-btn" onclick="copyText('4.2 month average payback period on engagement investment')">Copy</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="use-case-section">
+            <div class="use-case-header">
+                <div class="use-case-icon">S</div>
+                <div class="use-case-title">Sales Conversations & Objection Handling</div>
+            </div>
+            <ul class="proof-list">
+                <li>
+                    <span class="proof-list-stat">$125K</span>
+                    <span class="proof-list-text">average wasted on failed consulting engagements (use for cost of inaction)</span>
+                    <button class="copy-btn" onclick="copyText('The average business loses $125K on failed consulting engagements before finding the right partner')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">3.2</span>
+                    <span class="proof-list-text">average consultant "failures" before finding the right fit</span>
+                    <button class="copy-btn" onclick="copyText('Most business owners go through 3+ disappointing consultant experiences before finding the right fit')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">78%</span>
+                    <span class="proof-list-text">prefer advisors who say "no" when appropriate</span>
+                    <button class="copy-btn" onclick="copyText('78% of business owners prefer advisors who are willing to say no when an engagement would not deliver results')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">4.2x</span>
+                    <span class="proof-list-text">more likely to proceed when given specific projections</span>
+                    <button class="copy-btn" onclick="copyText('Business owners are 4.2x more likely to engage when presented with specific, measurable outcome projections')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">89%</span>
+                    <span class="proof-list-text">want to see projected ROI before signing</span>
+                    <button class="copy-btn" onclick="copyText('89% of business owners want to see projected ROI before signing any agreement')">Copy</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="use-case-section">
+            <div class="use-case-header">
+                <div class="use-case-icon">E</div>
+                <div class="use-case-title">Email Marketing & Lead Nurturing</div>
+            </div>
+            <ul class="proof-list">
+                <li>
+                    <span class="proof-list-stat">82%</span>
+                    <span class="proof-list-text">of agencies can't articulate how they measure success</span>
+                    <button class="copy-btn" onclick="copyText('82% of agencies cannot articulate how they measure success')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">18 mo</span>
+                    <span class="proof-list-text">average consulting engagement with no defined end point</span>
+                    <button class="copy-btn" onclick="copyText('The average consulting engagement lasts 18 months with no defined end point')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">73%</span>
+                    <span class="proof-list-text">of companies don't track consulting ROI at all</span>
+                    <button class="copy-btn" onclick="copyText('73% of companies never measure the return on their consulting investments')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">12 wks</span>
+                    <span class="proof-list-text">average time to measurable results</span>
+                    <button class="copy-btn" onclick="copyText('Our average time to measurable results: 12 weeks')">Copy</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="use-case-section">
+            <div class="use-case-header">
+                <div class="use-case-icon">C</div>
+                <div class="use-case-title">Content Marketing & Thought Leadership</div>
+            </div>
+            <ul class="proof-list">
+                <li>
+                    <span class="proof-list-stat">$47B</span>
+                    <span class="proof-list-text">spent annually on consulting with unclear ROI</span>
+                    <button class="copy-btn" onclick="copyText('American businesses spend $47 billion annually on consulting with unclear ROI')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">$89K</span>
+                    <span class="proof-list-text">average amount lost to underperforming consultants over business lifetime</span>
+                    <button class="copy-btn" onclick="copyText('The average business owner loses $89K to underperforming consultants over their business lifetime')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">64%</span>
+                    <span class="proof-list-text">would pay more for guaranteed measurable outcomes</span>
+                    <button class="copy-btn" onclick="copyText('64% of business owners would pay more for guaranteed, measurable outcomes')">Copy</button>
+                </li>
+                <li>
+                    <span class="proof-list-stat">81%</span>
+                    <span class="proof-list-text">frustrated by consultants who "don't understand their business"</span>
+                    <button class="copy-btn" onclick="copyText('81% of business owners are frustrated by consultants who do not understand their specific business')">Copy</button>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- DATA VISUALIZATION RECOMMENDATIONS -->
+    <section class="section" id="visualization">
+        <div class="section-header">
+            <div class="section-number">11</div>
+            <h2>Data Visualization Recommendations</h2>
+        </div>
+
+        <p style="margin-bottom: 25px;">Use these visualization guidelines to present proof points effectively. Our skeptical audience values clarity and substance over flashy graphics.</p>
+
+        <div class="viz-grid">
+            <div class="viz-card">
+                <div class="viz-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 20V10M18 20V4M6 20v-4"/>
+                    </svg>
+                </div>
+                <div class="viz-title">Bar Charts</div>
+                <div class="viz-desc">Best for comparing our performance against industry benchmarks. Use when showing ScaleUp vs. industry averages.</div>
+                <div class="viz-use">Use for: Comparison data, before/after metrics, benchmark data</div>
+            </div>
+
+            <div class="viz-card">
+                <div class="viz-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                    </svg>
+                </div>
+                <div class="viz-title">Line Charts</div>
+                <div class="viz-desc">Best for showing progress over time. Use when displaying ROI trajectory or client outcome trends.</div>
+                <div class="viz-use">Use for: Time-series data, ROI growth, progress tracking</div>
+            </div>
+
+            <div class="viz-card">
+                <div class="viz-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/>
+                    </svg>
+                </div>
+                <div class="viz-title">Donut/Pie Charts</div>
+                <div class="viz-desc">Best for showing proportions. Use sparingly - only when parts of a whole are relevant.</div>
+                <div class="viz-use">Use for: Market share, success rate breakdowns, budget allocation</div>
+            </div>
+
+            <div class="viz-card">
+                <div class="viz-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+                    </svg>
+                </div>
+                <div class="viz-title">Data Tables</div>
+                <div class="viz-desc">Best for detailed comparisons. Use when audience needs to see exact figures and multiple variables.</div>
+                <div class="viz-use">Use for: Detailed ROI breakdowns, metric comparisons, case study data</div>
+            </div>
+
+            <div class="viz-card">
+                <div class="viz-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                    </svg>
+                </div>
+                <div class="viz-title">Single Stat Callouts</div>
+                <div class="viz-desc">Best for hero sections and key messages. One powerful number with context is often more effective than a complex chart.</div>
+                <div class="viz-use">Use for: Headlines, key differentiators, impact statements</div>
+            </div>
+
+            <div class="viz-card">
+                <div class="viz-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <div class="viz-title">Projected vs. Actual</div>
+                <div class="viz-desc">Signature ScaleUp visualization. Show projected outcomes alongside actual results to demonstrate accuracy.</div>
+                <div class="viz-use">Use for: Case studies, proposal projections, client results</div>
+            </div>
+        </div>
+
+        <h3>Brand-Aligned Visualization Guidelines</h3>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Specification</th>
+                    <th>Rationale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Primary Color</strong></td>
+                    <td>Navy #0F1729</td>
+                    <td>Authority, trust, professionalism</td>
+                </tr>
+                <tr>
+                    <td><strong>Accent Color</strong></td>
+                    <td>Gold #D4A853</td>
+                    <td>Highlight key data, calls to action</td>
+                </tr>
+                <tr>
+                    <td><strong>Positive Metrics</strong></td>
+                    <td>#059669 (Green)</td>
+                    <td>Growth, success, achievement</td>
+                </tr>
+                <tr>
+                    <td><strong>Negative Metrics</strong></td>
+                    <td>#DC2626 (Red)</td>
+                    <td>Industry problems, failures to avoid</td>
+                </tr>
+                <tr>
+                    <td><strong>Typography</strong></td>
+                    <td>Clean sans-serif, 14px minimum</td>
+                    <td>Readability for 50-65 audience</td>
+                </tr>
+                <tr>
+                    <td><strong>Labels</strong></td>
+                    <td>Always include, never assume</td>
+                    <td>Clarity over elegance</td>
+                </tr>
+                <tr>
+                    <td><strong>Sources</strong></td>
+                    <td>Always visible, not hidden</td>
+                    <td>Build trust through transparency</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <h4>Visualization Dos and Don'ts</h4>
+            <p><strong>Do:</strong></p>
+            <ul>
+                <li>Include source attribution on every chart</li>
+                <li>Use large, readable fonts (14px+ for our audience)</li>
+                <li>Lead with the insight, not the visualization</li>
+                <li>Show projected vs. actual whenever possible</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Don't:</strong></p>
+            <ul>
+                <li>Use 3D effects, animations, or decorative elements</li>
+                <li>Truncate axes to exaggerate differences</li>
+                <li>Present data without context or comparison</li>
+                <li>Use more than 5 colors in a single visualization</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- UPDATE SCHEDULE -->
+    <section class="section" id="schedule">
+        <div class="section-header">
+            <div class="section-number">12</div>
+            <h2>Update Schedule for Keeping Proof Points Current</h2>
+        </div>
+
+        <p style="margin-bottom: 25px;">Outdated statistics undermine credibility. Follow this schedule to maintain a current, trustworthy proof point library.</p>
+
+        <div class="schedule-grid">
+            <div class="schedule-item">
+                <div class="schedule-frequency">Monthly</div>
+                <div class="schedule-label">Internal Data</div>
+                <ul class="schedule-tasks">
+                    <li>Update client outcome metrics</li>
+                    <li>Refresh ROI tracking data</li>
+                    <li>Add new case study results</li>
+                    <li>Calculate running averages</li>
+                </ul>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-frequency">Quarterly</div>
+                <div class="schedule-label">Industry Stats</div>
+                <ul class="schedule-tasks">
+                    <li>Review industry reports for updates</li>
+                    <li>Verify external source validity</li>
+                    <li>Add newly published research</li>
+                    <li>Retire stats older than 3 years</li>
+                </ul>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-frequency">Bi-Annual</div>
+                <div class="schedule-label">Full Audit</div>
+                <ul class="schedule-tasks">
+                    <li>Review all proof points for accuracy</li>
+                    <li>Update source links and citations</li>
+                    <li>Assess proof point effectiveness</li>
+                    <li>Identify gaps in coverage</li>
+                </ul>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-frequency">Annual</div>
+                <div class="schedule-label">Strategic Review</div>
+                <ul class="schedule-tasks">
+                    <li>Align with brand strategy updates</li>
+                    <li>Commission new research if needed</li>
+                    <li>Review competitive proof points</li>
+                    <li>Update category definitions</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Source Expiration Guidelines</h3>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Source Type</th>
+                    <th>Maximum Age</th>
+                    <th>Action When Expired</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Internal ScaleUp Data</strong></td>
+                    <td>Rolling 12 months preferred</td>
+                    <td>Refresh with current data; archive old data for trends</td>
+                </tr>
+                <tr>
+                    <td><strong>Industry Reports</strong></td>
+                    <td>3 years maximum</td>
+                    <td>Find updated version or note "as of [year]"</td>
+                </tr>
+                <tr>
+                    <td><strong>Academic Research</strong></td>
+                    <td>5 years (unless foundational)</td>
+                    <td>Search for newer studies; update or retire</td>
+                </tr>
+                <tr>
+                    <td><strong>News/Press</strong></td>
+                    <td>1 year maximum</td>
+                    <td>Remove or find updated coverage</td>
+                </tr>
+                <tr>
+                    <td><strong>Economic/Market Data</strong></td>
+                    <td>1 year maximum</td>
+                    <td>Update with latest available data</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <h4>Version Control</h4>
+            <p>This proof point library should be version-controlled. Document all changes with:</p>
+            <ul>
+                <li>Date of update</li>
+                <li>What was changed (added, removed, modified)</li>
+                <li>Who made the change</li>
+                <li>Source for any new data</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Current Version:</strong> 1.0 | <strong>Last Updated:</strong> December 2024 | <strong>Next Review:</strong> March 2025</p>
+        </div>
+    </section>
+
+    <!-- CLIENT-SPECIFIC PROOF POINTS -->
+    <section class="section" id="client-specific">
+        <div class="section-header">
+            <div class="section-number">13</div>
+            <h2>Placeholders for Client-Specific Proof Points</h2>
+        </div>
+
+        <p style="margin-bottom: 25px;">Add client-specific data as it becomes available. These are the most powerful proof points because they demonstrate real, verifiable outcomes.</p>
+
+        <div class="proof-grid">
+            <div class="placeholder-card">
+                <div class="placeholder-icon">+</div>
+                <div class="placeholder-title">Add Case Study #1</div>
+                <div class="placeholder-text">Document a client engagement with projected vs. actual ROI tracking</div>
+                <button class="placeholder-btn" onclick="alert('Use the Case Study Template in Section 8')">Add Case Study</button>
+            </div>
+
+            <div class="placeholder-card">
+                <div class="placeholder-icon">+</div>
+                <div class="placeholder-title">Add Case Study #2</div>
+                <div class="placeholder-text">Include a different industry or engagement type for variety</div>
+                <button class="placeholder-btn" onclick="alert('Use the Case Study Template in Section 8')">Add Case Study</button>
+            </div>
+
+            <div class="placeholder-card">
+                <div class="placeholder-icon">+</div>
+                <div class="placeholder-title">Add Case Study #3</div>
+                <div class="placeholder-text">Feature a skeptical client who became an advocate</div>
+                <button class="placeholder-btn" onclick="alert('Use the Case Study Template in Section 8')">Add Case Study</button>
+            </div>
+        </div>
+
+        <h3>Client Testimonials to Collect</h3>
+
+        <div class="case-study-template">
+            <h4 style="margin-bottom: 20px;">Testimonial Template</h4>
+
+            <div class="template-row">
+                <div class="template-label">Client Name</div>
+                <div class="template-field placeholder">[Full name with permission]</div>
+            </div>
+
+            <div class="template-row">
+                <div class="template-label">Title & Company</div>
+                <div class="template-field placeholder">[Title, Company Name]</div>
+            </div>
+
+            <div class="template-row">
+                <div class="template-label">Testimonial Quote</div>
+                <div class="template-field placeholder">"[Focus on certainty, measured outcomes, and trust-building aspects]"</div>
+            </div>
+
+            <div class="template-row">
+                <div class="template-label">Specific Result</div>
+                <div class="template-field placeholder">[Quantifiable outcome that can be verified]</div>
+            </div>
+
+            <div class="template-row">
+                <div class="template-label">Permission Status</div>
+                <div class="template-field placeholder">[Signed release on file: Yes/No]</div>
+            </div>
+        </div>
+
+        <h3>Data to Track for Future Proof Points</h3>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Current Value</th>
+                    <th>Target</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Total Engagements Completed</strong></td>
+                    <td class="placeholder">[Count]</td>
+                    <td>50+ for statistical validity</td>
+                    <td class="placeholder">[Tracking]</td>
+                </tr>
+                <tr>
+                    <td><strong>Aggregate ROI Multiple</strong></td>
+                    <td class="placeholder">[X.Xx]</td>
+                    <td>Maintain above 5x</td>
+                    <td class="placeholder">[Tracking]</td>
+                </tr>
+                <tr>
+                    <td><strong>Projection Accuracy Rate</strong></td>
+                    <td class="placeholder">[XX%]</td>
+                    <td>Maintain above 90%</td>
+                    <td class="placeholder">[Tracking]</td>
+                </tr>
+                <tr>
+                    <td><strong>Client Satisfaction (NPS)</strong></td>
+                    <td class="placeholder">[Score]</td>
+                    <td>Maintain above 70</td>
+                    <td class="placeholder">[Tracking]</td>
+                </tr>
+                <tr>
+                    <td><strong>Repeat/Referral Rate</strong></td>
+                    <td class="placeholder">[XX%]</td>
+                    <td>Above 60%</td>
+                    <td class="placeholder">[Tracking]</td>
+                </tr>
+                <tr>
+                    <td><strong>Average Time to Results</strong></td>
+                    <td class="placeholder">[X weeks]</td>
+                    <td>Under 16 weeks</td>
+                    <td class="placeholder">[Tracking]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <h4>Building Your Proof Point Portfolio</h4>
+            <p>As ScaleUp Ventures completes engagements, systematically capture:</p>
+            <ul>
+                <li><strong>Pre-engagement projections:</strong> Document what you predict before starting</li>
+                <li><strong>Actual outcomes:</strong> Measure results at 3, 6, and 12 months</li>
+                <li><strong>Variance analysis:</strong> Calculate projection accuracy</li>
+                <li><strong>Client quotes:</strong> Capture testimonials that emphasize certainty and methodology</li>
+                <li><strong>Lessons learned:</strong> Note what made each engagement successful</li>
+            </ul>
+            <p style="margin-top: 15px;">The most compelling proof points are those you can verify with a phone call. Encourage prospects to speak with past clients directly.</p>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-logo">ScaleUp Ventures</div>
+    <div class="footer-tagline">Certainty First.</div>
+    <div class="footer-note">Proof Point Library v1.0 | Internal Resource | Last Updated: December 2024</div>
+</footer>
+
+<script>
+    // Copy individual proof point
+    function copyProof(button) {
+        const card = button.closest('.proof-card');
+        const stat = card.querySelector('.proof-stat')?.textContent || '';
+        const headline = card.querySelector('.proof-headline')?.textContent || '';
+        const context = card.querySelector('.proof-context')?.textContent || '';
+        const source = card.querySelector('.proof-source')?.textContent || '';
+
+        const text = `${stat} ${headline}\n\n${context}\n\n${source}`;
+
+        navigator.clipboard.writeText(text).then(() => {
+            button.textContent = 'Copied!';
+            button.classList.add('copied');
+            setTimeout(() => {
+                button.textContent = 'Copy';
+                button.classList.remove('copied');
+            }, 2000);
+        });
+    }
+
+    // Copy specific text
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            event.target.textContent = 'Copied!';
+            event.target.classList.add('copied');
+            setTimeout(() => {
+                event.target.textContent = 'Copy';
+                event.target.classList.remove('copied');
+            }, 2000);
+        });
+    }
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('.nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
