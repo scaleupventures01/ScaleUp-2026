@@ -17,8 +17,8 @@
 - "Land with development, expand into growth and process improvement as natural cross-sells"
 - Eliminates multi-vendor coordination burden
 
-### 3. Tertiary Differentiator: Technology Laggard Specialization
-- Target: Business owners aged 50+ who cannot modernize themselves
+### 3. Tertiary Differentiator: Technology-Cautious Specialization
+- Target: Business owners aged 30-55 who cannot modernize themselves
 - 40 industries researched; validated persona across top-scoring sectors
 - Industries with 9/10 disruption fear (Staffing, Veterinary, Trades)
 
@@ -64,7 +64,7 @@
 ### Is it BELIEVABLE?
 - **STRENGTH:** The mechanism is concrete - clients can verify the ROI model exists in the sales process
 - **STRENGTH:** Research validates <5% of agencies offer this, so it's genuinely rare
-- **STRENGTH:** 50-65 audience has been burned before; specificity builds trust
+- **STRENGTH:** 30-55 audience has been burned before; specificity builds trust
 - **GAP:** No current case studies or testimonials documented to support claims
 - **GAP:** Proof points need to be catalogued and deployed (see Agent 8)
 

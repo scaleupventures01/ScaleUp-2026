@@ -17,7 +17,7 @@ The optometry/eye care industry presents a **MODERATELY STRONG** opportunity for
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 8/10 | $21.5B industry with 29,062 practices; avg practice revenue $973K; 1-5% marketing spend = $215M-$1.07B addressable for marketing services |
-| **Owner Demographics (older = higher)** | 5/10 | Average owner age 44 years; 59% are 40+; younger than ideal but documented tech resistance and burnout concerns |
+| **Owner Demographics (growth-focused = higher)** | 5/10 | Target practice owners aged 30-55 focused on growing their practices. Growth-oriented optometrists seeking competitive advantages and reduced administrative burden. |
 | **Budget Availability** | 6/10 | Industry standard 1-5% of gross revenue on marketing ($9.7K-$48.5K per practice); practice owners earn $264K avg; budget exists but conservative |
 | **Pain Intensity (disruption fear)** | 8/10 | 77% report burnout; 18% Medicare reimbursement cuts; PE consolidation threat; 38.85% of patients buy elsewhere; staffing shortages |
 | **Competition Level (less = higher)** | 4/10 | 10+ specialized optometry marketing agencies exist (EyeCarePro, Marketing4ECPs, Cardinal, etc.); $365M practice management software market |
@@ -81,7 +81,7 @@ The optometry/eye care industry presents a **MODERATELY STRONG** opportunity for
 - Average practice owner income: **$263,995** annually
 - Owners with 4+ associates average: **$400,000+** income
 
-**Assessment**: While younger than ideal "technology laggard" profile (44 vs. 55+), the documented burnout rates (77%), resistance to EHR adoption, and business management struggles create opportunities for service providers who can reduce administrative burden.
+**Assessment**: While younger than ideal "technology-cautious" profile (44 vs. 55+), the documented burnout rates (77%), resistance to EHR adoption, and business management struggles create opportunities for service providers who can reduce administrative burden.
 
 ---
 

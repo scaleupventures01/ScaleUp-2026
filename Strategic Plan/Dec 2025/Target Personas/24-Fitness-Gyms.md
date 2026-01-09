@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-The fitness industry presents a **MODERATE opportunity** for ScaleUp Ventures. While the market is large ($45-46B US revenue) with 114,000+ facilities, it faces significant headwinds including heavy competition from specialized fitness marketing agencies, established software vendors, and a younger-than-expected owner demographic. The industry was a technology laggard but COVID-19 forced rapid digital adoption, meaning many operators have already modernized or are working with existing vendors.
+The fitness industry presents a **MODERATE opportunity** for ScaleUp Ventures. While the market is large ($45-46B US revenue) with 114,000+ facilities, it faces significant headwinds including heavy competition from specialized fitness marketing agencies, established software vendors, and a younger-than-expected owner demographic. The industry was a technology-cautious but COVID-19 forced rapid digital adoption, meaning many operators have already modernized or are working with existing vendors.
 
 **Overall Assessment**: Proceed with caution. Target the specific sub-segment of independent boutique studio owners (50+) in secondary markets who missed the digital transformation wave.
 
@@ -19,7 +19,7 @@ The fitness industry presents a **MODERATE opportunity** for ScaleUp Ventures. W
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | Market Size (TAM potential) | 8/10 | $45-46B US market, 114,370 facilities, 77M members. Gym management software market $500M-$2B. Strong absolute numbers. |
-| Owner Demographics (older = higher) | 4/10 | Personal trainers avg age 37-40. Industry skews younger than expected. 40% of trainers are 40+, but owners often former trainers. Not the "technology laggard" profile we seek. |
+| **Owner Demographics (growth-focused = higher)** | 4/10 | Target gym and studio owners aged 30-55 focused on scaling their fitness businesses. Growth-oriented operators seeking competitive advantages through technology and member acquisition strategies. |
 | Budget Availability | 6/10 | 5-12% of revenue on marketing ($1K-$5K/month for small gyms). Top 10% spend $5K+/month on ads alone. However, 67% spend <$500/month. Budget exists but highly variable. |
 | Pain Intensity (disruption fear) | 7/10 | 81% fail in first year. 50% member churn in 6 months. Post-pandemic competition from digital fitness. Gold's Gym, LA Fitness bankruptcies. High anxiety but diffuse. |
 | Competition Level (less = higher) | 3/10 | HEAVILY served market. Gym Launch, Loud Rumor, Two Brain, SpearPoint, plus Mindbody, Glofox, WellnessLiving, PushPress all compete. Saturated vendor landscape. |
@@ -71,7 +71,7 @@ The fitness industry presents a **MODERATE opportunity** for ScaleUp Ventures. W
 | Most Common Age Bracket | 25-34 years old | Trainer Academy |
 | Typical Business Experience | 13.4 years average | PMC study |
 
-**Assessment**: The fitness industry skews YOUNGER than expected. While 40% of trainers are 40+, the most active segment is 25-34. Gym owners are often former trainers, suggesting similar or slightly older demographics. This does NOT match the "older, technology-resistant owner" profile ScaleUp seeks.
+**Assessment**: The fitness industry skews YOUNGER than expected. While 40% of trainers are 40+, the most active segment is 25-34. Gym owners are often former trainers, suggesting similar or slightly target demographics. This does NOT match the "older, technology-resistant owner" profile ScaleUp seeks.
 
 ### Gender Distribution
 - Personal Trainers: 63% male, 37% female
@@ -105,7 +105,7 @@ The industry has largely digitized. Most operators now use:
 - Mobile apps for member engagement
 - Online booking and class reservations
 
-**Key Insight**: The "technology laggard" window has largely closed. Operators who survived COVID either adapted or failed.
+**Key Insight**: The "technology-cautious" window has largely closed. Operators who survived COVID either adapted or failed.
 
 ---
 
@@ -161,7 +161,7 @@ The industry has largely digitized. Most operators now use:
 
 ### Competitive Assessment
 
-**Market is HEAVILY served**. Unlike true technology laggard industries, fitness has:
+**Market is HEAVILY served**. Unlike true technology-cautious industries, fitness has:
 - Multiple dedicated marketing agencies (some with 1,000+ clients)
 - 10+ established software platforms with marketing features
 - Active VC investment (Glofox $12M, Mindbody acquisitions)
@@ -305,7 +305,7 @@ The industry has largely digitized. Most operators now use:
 If pursuing this industry, focus on:
 
 ### Primary Target: "Analog Amy"
-- **Profile**: Independent boutique studio owner, age 50-65
+- **Profile**: Independent boutique studio owner, age 30-55
 - **Situation**: Survived COVID but didn't fully digitize, using outdated systems
 - **Location**: Secondary/tertiary markets (not major metros saturated with agencies)
 - **Revenue**: $200K-$500K annually
@@ -342,7 +342,7 @@ If pursuing this industry, focus on:
 
 ### Alternative Industries to Consider
 
-If seeking technology laggard industries with older owners, consider:
+If seeking technology-cautious industries with business owners, consider:
 - **Funeral homes** (avg owner age 55+, minimal digital presence)
 - **Auto body shops** (owner-operated, behind on tech)
 - **Dry cleaners** (aging owners, commoditized, needs differentiation)
@@ -403,7 +403,7 @@ If seeking technology laggard industries with older owners, consider:
 
 **Final Score: 46/80 (57.5%)**
 
-The fitness industry is a **MODERATE fit** for ScaleUp Ventures. While the market is large and pain points are real, the industry does NOT match the ideal "technology laggard with older owners" profile:
+The fitness industry is a **MODERATE fit** for ScaleUp Ventures. While the market is large and pain points are real, the industry does NOT match the ideal "technology-cautious with business owners" profile:
 
 1. **Owners skew younger** than expected (avg 37-40 for trainers, likely 40-50 for owners)
 2. **COVID forced digital transformation** - the laggard window largely closed

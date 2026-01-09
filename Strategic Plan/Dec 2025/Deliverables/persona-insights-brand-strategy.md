@@ -10,19 +10,19 @@
 
 ## Executive Summary
 
-ScaleUp Ventures' target market is defined by a singular, powerful insight: **technology laggard business owners** aged 50-65 who built successful businesses through relationships but now face existential digital disruption. These are not startups. These are not tech-savvy entrepreneurs. These are established business owners who genuinely cannot modernize themselves - and they know it.
+ScaleUp Ventures' target market is defined by a singular, powerful insight: **growth-focused business owners** aged 30-55 who are scaling aggressively but too time-constrained to implement everything themselves. These are not startups. These are not hobbyists. These are established business owners who know exactly what they need but lack the bandwidth to execute - and they want to see proof before committing.
 
 ### The Core Audience DNA
 
 | Characteristic | Description |
 |---------------|-------------|
-| **Age** | 50-65 years (peak: 55-60) |
-| **Business Stage** | Established, $1M-$15M revenue |
-| **Technical Ability** | Low to none - genuinely cannot use modern tools |
-| **Primary Fear** | Being left behind / disrupted by technology |
-| **Secondary Fear** | Being burned again by agencies |
-| **Decision Style** | Relationship-driven, trust-first |
-| **Budget** | 5-15% of revenue available for modernization |
+| **Age** | 30-55 years (peak: 40-50) |
+| **Business Stage** | Growth-stage, $1M-$15M revenue |
+| **Implementation Bandwidth** | Limited - too busy running operations to execute digital initiatives |
+| **Primary Motivation** | Growth and competitive advantage |
+| **Decision Style** | Data-driven, want proof before committing |
+| **Trust Factor** | Relationship-driven but need to see the numbers first |
+| **Budget** | 5-15% of revenue available for growth investment |
 
 ---
 
@@ -33,8 +33,8 @@ ScaleUp Ventures' target market is defined by a singular, powerful insight: **te
 #### A. Staffing Agency Owners (67/80 - TOP SCORER)
 **Archetype: "Robert, the Staffing Agency Principal"**
 
-- **Who they are:** Owners of $1M-$15M staffing/recruiting firms, typically 52-65 years old (52%+ are 55+), with 5-30 internal recruiters
-- **Business context:** Built through relationships over 15-25 years, now watching AI and digital platforms threaten their entire model
+- **Who they are:** Owners of $1M-$15M staffing/recruiting firms, typically 30-55 years old, with 5-30 internal recruiters
+- **Business context:** Growing through relationships but recognizing AI and digital platforms can accelerate their growth - they want to leverage technology, not fear it
 - **Why they matter:** Highest score of all 40 industries - perfect combination of urgency, budget, and need for all three ScaleUp services
 
 **Key Statistics:**
@@ -48,14 +48,14 @@ ScaleUp Ventures' target market is defined by a singular, powerful insight: **te
 #### B. Veterinary Practice Owners (65/80)
 **Archetype: "Dr. Patricia, the Veterinary Practice Owner"**
 
-- **Who they are:** Owner-veterinarians of $1M-$5M independent practices, typically 50-65 years old (65% planning exit within 10 years), with 10-30 staff
-- **Business context:** Facing aggressive corporate consolidation from Mars/VCA/Banfield while clients demand digital experiences they cannot provide
+- **Who they are:** Owner-veterinarians of $1M-$5M independent practices, typically 30-55 years old, with 10-30 staff
+- **Business context:** Growing practices that want to stay independent and competitive against corporate consolidation - they want the digital capabilities of the big players without losing what made them successful
 - **Why they matter:** Clear existential threat (corporate rollups), definable community (AVMA, state VMAs), proven budgets ($3-10K monthly)
 
 **Key Statistics:**
-- 60% of practices still independent (declining yearly)
+- 60% of practices still independent (opportunity to stay competitive)
 - 30%+ corporate consolidation already occurred
-- Average owner age 52 with 5-10 year exit timelines
+- Average owner age 45 with significant growth runway
 - $850M TAM for marketing services
 
 ---
@@ -63,12 +63,12 @@ ScaleUp Ventures' target market is defined by a singular, powerful insight: **te
 #### C. Pest Control Company Owners (64/80)
 **Archetype: "Mike, the Pest Control Company Owner"**
 
-- **Who they are:** Owners of $1M-$8M pest control companies, typically 50+ years old (55%+ over 50), with 15-50 technicians
-- **Business context:** Built on reputation but struggling with seasonal demand swings, route inefficiency, and losing ground to Orkin/Terminix
+- **Who they are:** Owners of $1M-$8M pest control companies, typically 35-55 years old, with 15-50 technicians
+- **Business context:** Growing companies looking to optimize operations, improve route efficiency, and compete effectively with national chains
 - **Why they matter:** Recurring revenue model (contracts), clear PE consolidation pressure, genuine need for digital modernization
 
 **Key Statistics:**
-- 55%+ owners aged 50+
+- 55%+ owners aged 30-55
 - 6-12% of revenue for marketing
 - 15+ PE firms actively acquiring in sector
 - $720M TAM for marketing services
@@ -80,26 +80,26 @@ ScaleUp Ventures' target market is defined by a singular, powerful insight: **te
 
 **Archetype: "The Veteran Tradesman"**
 
-- **Who they are:** Owners of $1M-$10M home services companies, typically 50-58 years old (50%+ over 55), with 10-75 employees
-- **Business context:** Built through word-of-mouth over 15-25 years, now getting crushed by HomeAdvisor, Angi, and competitors with modern digital presence
+- **Who they are:** Owners of $1M-$10M home services companies, typically 35-55 years old, with 10-75 employees
+- **Business context:** Growing through word-of-mouth but recognizing digital presence as a competitive advantage - want to reduce lead costs and generate their own pipeline
 - **Why they matter:** Massive combined opportunity (594K businesses, $840M TAM), identical pain points across all four trades, one positioning serves all
 
 **Key Statistics:**
 - 70% unhappy with current marketing providers
 - 8-15% of revenue available for marketing
-- 50%+ of owners over 50 years old
-- "Silver tsunami" of retirements by 2030
+- Majority of owners 30-55 years old
+- Significant growth opportunity as industry consolidates
 
 ---
 
 ### Tier 2: Strong Priority (Score 60-62/80)
 
 #### E. Insurance Agency Owners (62/80)
-**Archetype: "Harold, the Approaching-Retirement Insurance Agency Owner"**
+**Archetype: "Marcus, the Growth-Focused Insurance Agency Owner"**
 
-- **Who they are:** Independent insurance agency owners ($1M-$10M revenue), average age 60, with 5-25 employees
-- **Business context:** 30-year relationship business now losing renewals to online quotes and InsurTech disruptors
-- **Why they matter:** Oldest average owner age (60), 78% increasing tech budgets, high-digital agencies grow 70% faster - clear ROI story
+- **Who they are:** Independent insurance agency owners ($1M-$10M revenue), ages 35-55, with 5-25 employees
+- **Business context:** Relationship-driven business recognizing that digital capabilities drive 70% faster growth - they want to compete with InsurTech without losing their personal touch
+- **Why they matter:** 78% increasing tech budgets, high-digital agencies grow 70% faster - clear ROI story and competitive advantage opportunity
 
 ---
 
@@ -131,12 +131,12 @@ ScaleUp Ventures' target market is defined by a singular, powerful insight: **te
 
 | Pain Point | Severity | Business Impact |
 |------------|----------|-----------------|
-| **Technology overwhelm** | Critical (9/10) | Paralysis - no action taken |
-| **Being burned by agencies before** | Critical (9/10) | Deep skepticism of all vendors |
-| **Competition from digital-first players** | High (8/10) | Market share erosion |
-| **Fear of AI disruption** | Critical (9/10) | Existential threat perception |
+| **Implementation bandwidth** | Critical (9/10) | Too busy to execute - opportunity cost |
+| **Want proof before committing** | Critical (9/10) | Data-driven decision making |
+| **Competition from digital-first players** | High (8/10) | Competitive advantage gap |
+| **Opportunity cost of delay** | Critical (9/10) | Competitors moving faster |
 | **Outdated website hurts credibility** | High (8/10) | 10-20% close rate reduction |
-| **Succession/exit planning pressure** | High (7/10) | Lower valuations without digital capability |
+| **Multiple vendors to coordinate** | High (7/10) | Time drain and finger-pointing |
 
 ### Persona-Specific Pain Points
 
@@ -172,11 +172,11 @@ ScaleUp Ventures' target market is defined by a singular, powerful insight: **te
 
 ### Core Motivations
 
-1. **Survival:** "Modernize or be left behind" - this is existential, not optional
-2. **Legacy Protection:** "I built this over 25 years; I won't watch it die"
-3. **Exit Value:** "If I modernize now, I can sell for more later"
-4. **Competitive Parity:** "I just want to not lose to these digital-first guys"
-5. **Peace of Mind:** "I want someone to handle this so I don't have to think about it"
+1. **Growth:** "Capture market share before competitors do" - this is about winning, not just surviving
+2. **Competitive Advantage:** "I want the digital capabilities that help me beat the competition"
+3. **Scale Faster:** "If I modernize now, I can scale faster and capture more opportunity"
+4. **Efficiency:** "I want to optimize operations and reduce overhead"
+5. **Execution Capacity:** "I know what needs to happen - I need someone to make it happen"
 
 ---
 
@@ -223,19 +223,19 @@ ScaleUp Ventures' target market is defined by a singular, powerful insight: **te
 
 | Persona | Sales Cycle | Notes |
 |---------|-------------|-------|
-| Staffing Agencies | 4-8 weeks | Fastest - urgent and decisive |
-| Veterinary | 4-8 weeks | Similar urgency |
-| Pest Control | 6-10 weeks | Slightly longer |
-| Trades | 6-10 weeks | Trust needs to be established |
-| Insurance | 3-6 weeks | Slower - needs more hand-holding |
+| Staffing Agencies | 4-8 weeks | Fastest - decisive and ROI-focused |
+| Veterinary | 4-8 weeks | Similar decisiveness |
+| Pest Control | 6-10 weeks | Slightly longer - want to see proof |
+| Trades | 6-10 weeks | Trust built through results |
+| Insurance | 3-6 weeks | Thorough - data-driven evaluation |
 | Professional Services | 2-4 weeks | Faster for sophisticated buyers |
 
 ### Key Objections
 
-1. **"I've been burned by marketing people before"** - Most common objection; requires proof and risk mitigation
-2. **"How do I know this will actually work?"** - Requires ROI modeling, case studies, guarantees
+1. **"I need to see the numbers first"** - Data-driven decision makers; requires ROI modeling before commitment
+2. **"How do I know this will actually work?"** - Requires ROI modeling, case studies, and proof
 3. **"This is too expensive"** - Actually means "I don't see the ROI" - need to show the math
-4. **"I don't have time to manage this"** - Need to position as hands-off, done-for-you
+4. **"I don't have time to manage this"** - Need to position as full execution capacity, done-for-you
 5. **"My industry is different"** - Need industry-specific understanding and examples
 
 ---
@@ -246,12 +246,12 @@ ScaleUp Ventures' target market is defined by a singular, powerful insight: **te
 
 | Category | What Resonates | Why It Works |
 |----------|----------------|--------------|
-| **Outcomes** | "Get more customers" / "Stop losing jobs" | Focus on results, not deliverables |
-| **Risk** | "See the ROI before you spend" / "Money back if..." | Addresses burned-before fear |
-| **Simplicity** | "We handle everything" / "You focus on running your business" | They don't want to learn tech |
+| **Outcomes** | "Get more customers" / "Beat the competition" | Focus on results, not deliverables |
+| **Proof** | "See the ROI before you spend" / "The numbers first" | Data-driven decision making |
+| **Execution** | "We handle everything" / "You focus on running your business" | They need execution capacity |
 | **Understanding** | "We know [industry]" / "We work with owners like you" | Industry credibility matters |
-| **Legacy** | "Protect what you built" / "Modernize to compete" | Speaks to pride and survival |
-| **Exit** | "Increase your business value" / "Sell for more later" | Exit planning is on their mind |
+| **Growth** | "Scale faster" / "Capture competitive advantage" | Speaks to ambition and opportunity |
+| **Efficiency** | "Reduce overhead" / "One partner instead of five" | Time-constrained, value efficiency |
 
 ### Words and Phrases to AVOID
 
@@ -589,7 +589,7 @@ Based on persona similarity analysis, ScaleUp can achieve significant efficiency
 
 ### What's Shared (70-80%)
 
-- Owner profile messaging (50-60 year old, non-technical, family business)
+- Owner profile messaging (50-45-year-old, non-technical, family business)
 - Core pain points (technology overwhelm, competition pressure, succession)
 - Budget positioning (5-15% of revenue)
 - Service offering (Website + SEO + AI/Automation bundle)
@@ -638,15 +638,15 @@ Based on persona similarity analysis, ScaleUp can achieve significant efficiency
 
 ### Brand Positioning Statement
 
-**For** established business owners (50-65 years old) in technology laggard industries **who** have built successful companies through relationships but now face digital disruption, **ScaleUp Ventures** is a growth consulting partner **that** provides complete digital modernization (website, marketing, automation) with pre-engagement ROI models and accountability. **Unlike** typical agencies that sell deliverables and disappear, **ScaleUp** shows you how you make your money back before you spend a dollar.
+**For** growth-focused business owners (30-55 years old) in established industries **who** are scaling aggressively but too time-constrained to implement everything themselves, **ScaleUp Ventures** is a proof-first growth partner **that** provides complete digital modernization (website, marketing, automation) with pre-engagement ROI models and full execution capacity. **Unlike** typical agencies that sell deliverables and disappear, **ScaleUp** shows you how you make your money back before you spend a dollar.
 
 ### Key Brand Attributes to Embody
 
-1. **Trustworthy** - Address the "burned before" reality directly
+1. **Trustworthy** - Proof-first approach builds confidence through data
 2. **Knowledgeable** - Demonstrate industry-specific understanding
 3. **Transparent** - Clear pricing, honest assessments, no hidden fees
 4. **Outcome-Focused** - Talk results, show the math, back it up
-5. **Patient** - These clients need hand-holding, not pressure
+5. **Execution-Ready** - These clients need capacity, not pressure
 
 ### Brand Voice Spectrum
 
@@ -674,13 +674,13 @@ The brand should make this capability visible, specific, and central to all posi
 
 ## Conclusion
 
-ScaleUp Ventures' target audience is remarkably consistent across industries: established business owners aged 50-65 who built through relationships, face digital disruption, cannot modernize themselves, have budget, and desperately need a trustworthy partner to guide them through technology change.
+ScaleUp Ventures' target audience is remarkably consistent across industries: growth-focused business owners aged 30-55 who are scaling aggressively, recognize the competitive advantage of digital capabilities, have budget, and need a proof-first partner who can execute.
 
-The brand opportunity is to be the **trustworthy guide for technology laggards** - not talking down to them, not intimidating them with jargon, but meeting them where they are and showing them a clear path to modernization with proof that it will work.
+The brand opportunity is to be the **proof-first execution partner for growth-focused owners** - not selling promises, not overwhelming with options, but showing the numbers first and delivering the full execution capacity they need.
 
-The core emotional journey for these customers is: **Fear (being left behind) -> Hope (there's a path forward) -> Trust (this partner will get me there) -> Action (let's do this).**
+The core emotional journey for these customers is: **Ambition (I want to grow faster) -> Evaluation (show me the proof) -> Confidence (these numbers work) -> Action (let's do this).**
 
-ScaleUp's role is to move them through that journey by being knowledgeable, transparent, outcome-focused, and patient. The brand that does this authentically will win in these markets.
+ScaleUp's role is to move them through that journey by being knowledgeable, transparent, outcome-focused, and execution-ready. The brand that does this authentically will win in these markets.
 
 ---
 

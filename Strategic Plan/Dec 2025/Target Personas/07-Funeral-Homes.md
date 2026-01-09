@@ -19,7 +19,7 @@ The funeral home industry represents a **high-potential target** for ScaleUp Ven
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 8/10 | $18-21B US market; ~24,400 funeral homes; average $250K-$1M revenue per location; ~10-20% margin |
-| **Owner Demographics (older = higher)** | 9/10 | Average owner age 55-60; 54 avg for directors; 75-89% family-owned; Baby Boomer dominated |
+| **Owner Demographics (growth-focused = higher)** | 9/10 | Target funeral home owners aged 30-55 focused on growing their practices. Growth-oriented operators seeking competitive advantages against corporate consolidation. |
 | **Budget Availability** | 6/10 | 44% spend <$15K/year on marketing; 2-5% of revenue typical; limited but present budgets |
 | **Pain Intensity (disruption fear)** | 8/10 | 78% lack succession plans; cremation disruption (62%+ choosing cremation); tech overwhelm |
 | **Competition Level (less = higher)** | 8/10 | Only 48% use marketing agencies; few specialized providers; DISRUPT Media, Outcompete primary |

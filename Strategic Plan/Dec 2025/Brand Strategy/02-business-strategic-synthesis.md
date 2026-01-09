@@ -280,16 +280,16 @@ Based on the strategic analysis, the brand must communicate:
 [Source: business-context.html, Section: "Value Proposition"]
 
 **Primary Audience:**
-- Small-to-mid-sized business owners/founders
+- Growth-stage business owners/founders (30-55)
 - $20K+ annual investment capacity
-- Growth-oriented, decisive decision-makers
-- Frustrated with previous vendor experiences (overpromised, underdelivered)
+- Data-driven, decisive decision-makers seeking competitive advantage
+- Time-constrained executives who know what needs to happen but lack bandwidth to implement
 
 **Anti-Persona (Who We're NOT For):**
 - Price-shoppers looking for cheapest option
-- Committees that can't make decisions
+- DIYers who want to learn how to do it themselves
 - Businesses under $1M revenue
-- Those unwilling to invest in growth
+- Those without urgency to gain competitive advantage
 
 ### Voice and Tone Implications
 
@@ -304,9 +304,10 @@ Based on strategic positioning, the brand voice should convey:
 
 The brand should:
 - Signal premium quality and professionalism
-- Appeal to growth-minded business owners
+- Appeal to growth-minded business owners (30-55) scaling aggressively
 - Differentiate from typical agency aesthetics
-- Convey trust, stability, and strategic thinking
+- Convey trust, speed, and competitive advantage
+- Photography featuring 35-50 year olds building/scaling (not retiring)
 
 ### Messaging Implications
 

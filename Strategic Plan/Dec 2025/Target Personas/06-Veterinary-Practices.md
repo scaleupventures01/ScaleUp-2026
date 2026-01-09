@@ -19,7 +19,7 @@ Independent veterinary practices represent a compelling target persona for Scale
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 8/10 | $68.7B industry; ~25,500 independent clinics; avg revenue $1.5-2.5M per clinic; marketing TAM ~$1.2B at 2-5% spend |
-| **Owner Demographics (older = higher)** | 7/10 | Avg veterinarian age 43; practice owners skew older (40-60); 57% of vets over 40; declining ownership among younger vets (only 9% under 40 own practices vs 14.5% in 2008) |
+| **Owner Demographics (growth-focused = higher)** | 7/10 | Target practice owners aged 30-55 focused on growing their practices and competing effectively. Growth-oriented owners seeking competitive advantages against corporate consolidation. |
 | **Budget Availability** | 7/10 | 2-5% revenue on marketing ($30K-$125K/year for typical practice); 10-15% profit margins; avg owner profit $280K/year; 41% planning software upgrades in 2025 |
 | **Pain Intensity (disruption fear)** | 9/10 | 30%+ now corporate-owned (up from 8%); $51.6B PE investment; 78% cite staffing as top issue; $1-2B annual turnover cost; 5-year exit planning window typical |
 | **Competition Level (less = higher)** | 6/10 | 10+ specialized vet marketing agencies exist (GeniusVets, InTouch, VetMatrix); but focused on websites/SEO, not AI automation; no dominant player for full dev+growth+AI stack |
@@ -61,15 +61,15 @@ Independent veterinary practices represent a compelling target persona for Scale
 
 ## Owner Demographics & Psychographics
 
-### Age & Ownership Profile
+### Target Demographics
 
-| Demographic | Data Point | Source |
-|-------------|------------|--------|
-| Average Veterinarian Age | 43 years | [Zippia](https://www.zippia.com/veterinarian-jobs/demographics/) |
-| Vets Over 40 | 57% | [Zippia](https://www.zippia.com/veterinarian-jobs/demographics/) |
-| Practice Owners Under 40 | Only 9% (down from 14.5% in 2008) | [AVMA Census](https://www.avma.org/javma-news/2019-07-15/census-veterinarians-finds-trends-shortages-practice-ownership) |
-| Male Vet Ownership Rate | 59.3% | [AVMA Census](https://www.avma.org/javma-news/2019-07-15/census-veterinarians-finds-trends-shortages-practice-ownership) |
-| Female Vet Ownership Rate | 29.3% | [AVMA Census](https://www.avma.org/javma-news/2019-07-15/census-veterinarians-finds-trends-shortages-practice-ownership) |
+| Demographic | Target Profile | Rationale |
+|-------------|----------------|-----------|
+| Target Owner Age | 30-55 years | Growth-focused, scaling their practices |
+| Average Veterinarian Age | 43 years | Industry reference |
+| Male Vet Ownership Rate | 59.3% | Market composition |
+| Female Vet Ownership Rate | 29.3% | Growing segment |
+| Key Characteristic | Time-constrained, growth-oriented | Need execution capacity, not hand-holding |
 
 ### Technology Comfort Level
 
@@ -103,12 +103,12 @@ Independent veterinary practices represent a compelling target persona for Scale
 - Reduce administrative burden
 - Compete with corporate marketing budgets
 
-**Fears:**
-- Being "squeezed out" by PE-backed competitors
-- Staff turnover destroying practice
-- Technology making them obsolete
-- Not having a viable exit strategy
-- Burnout and mental health decline
+**Challenges:**
+- Competing effectively against PE-backed competitors
+- Staff turnover impacting growth capacity
+- Keeping pace with technology while running a practice
+- Time constraints preventing strategic initiatives
+- Need to demonstrate ROI before making investments
 
 ---
 
@@ -260,20 +260,20 @@ This is the #1 pain point and directly addressable by ScaleUp:
 |-----------|---------------|
 | **Revenue** | $1.5M-$5M annually |
 | **Staff Size** | 2-5 veterinarians, 10-25 total staff |
-| **Owner Age** | 45-60 (motivated to grow before exit) |
+| **Owner Age** | 30-55 (growth-focused, scaling the practice) |
 | **Location** | Suburban/urban with competition nearby |
-| **Current Tech** | Legacy systems, outdated website |
-| **Mindset** | Wants to stay independent, willing to invest |
-| **Pain Level** | Struggling with staffing, feeling competition pressure |
-| **Exit Timeline** | 5-10 years (motivated to build value) |
+| **Current Tech** | Need modernization but time-constrained |
+| **Mindset** | Growth-oriented, wants to outcompete corporate chains |
+| **Pain Level** | Time-constrained, needs execution capacity |
+| **Motivation** | Beat competition, capture market share, scale efficiently |
 
 ### Red Flags (Negative Persona)
 
 - Revenue under $750K (cannot afford services)
 - Already committed to selling to PE
-- Owner retiring in <2 years (no ROI time)
+- No growth orientation or competitive drive
 - Multiple partners with conflicting goals
-- "We've always done it this way" mindset
+- Not willing to invest in competitive advantages
 - Expecting immediate results with no investment
 
 ---
@@ -284,7 +284,7 @@ This is the #1 pain point and directly addressable by ScaleUp:
 
 | Factor | Assessment |
 |--------|------------|
-| **Technology Laggard** | YES - 65% on legacy systems; 43% cite training as barrier |
+| **Technology-Cautious** | YES - 65% on legacy systems; 43% cite training as barrier |
 | **Older Owners** | YES - Avg 43, owners skew 45-60; declining young ownership |
 | **Cannot Modernize Themselves** | YES - Busy with clinical work; lack tech expertise |
 | **Clear Pain Points** | YES - Staffing crisis, PE pressure, digital gaps |

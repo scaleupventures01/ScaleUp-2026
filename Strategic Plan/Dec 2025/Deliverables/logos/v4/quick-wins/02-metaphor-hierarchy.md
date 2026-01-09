@@ -24,7 +24,7 @@ The Heron perfectly embodies ScaleUp's proof-first positioning:
 | Brand Attribute | Heron Behavior | Connection |
 |-----------------|----------------|------------|
 | **Proof-first approach** | Observes carefully before acting | We analyze and model before recommending |
-| **Patience with clients** | Stands motionless for extended periods | We meet technology laggards where they are |
+| **Patience with clients** | Stands motionless for extended periods | We meet growth-focused owners where they are |
 | **Decisive expertise** | Strikes with lethal precision when ready | When we recommend, we're confident |
 | **Watchful guidance** | Surveys the entire landscape | We see what others miss in the data |
 | **Measured confidence** | Calm, unhurried, certain | Our voice is direct without being aggressive |
@@ -47,7 +47,7 @@ Returns to watching    -->  Ongoing accountability and iteration
 
 **2. Emotional Resonance for Target Audience**
 
-For skeptical business owners aged 50-65 who have been burned by agencies:
+For data-driven business owners aged 30-55 who need proof before committing:
 - The heron is **not aggressive** (unlike predatory symbols)
 - The heron is **patient** (respects their decision timeline)
 - The heron is **elegant** (suggests sophistication, not hustle)

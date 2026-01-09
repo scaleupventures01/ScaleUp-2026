@@ -245,7 +245,7 @@ COLOR EXECUTION:
 - Background: White
 
 MOOD & FEELING:
-This is about CONSOLIDATION and the resulting power of unified direction. Architectural — like structural lines where load-bearing elements meet. The mark should feel like it could be etched in steel or cast in bronze. Permanent, not trendy. A 60-year-old business owner should think "these people are serious."
+This is about CONSOLIDATION and the resulting power of unified direction. Architectural — like structural lines where load-bearing elements meet. The mark should feel like it could be etched in steel or cast in bronze. Permanent, not trendy. A 45-year-old business owner should think "these people are serious."
 
 WHAT THIS IS NOT:
 - Not about "connection" or "collaboration" in a soft way

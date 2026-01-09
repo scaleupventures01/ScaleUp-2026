@@ -18,7 +18,7 @@ This refined brief eliminates rejected concepts (Lever Point, Threshold) and pro
 |---------|-------|
 | Brand Name | **ScaleUp Ventures** |
 | Tagline | "We Prove It Before You Buy" |
-| Primary Audience | 50-65+ technology-hesitant business owners who've been burned |
+| Primary Audience | 30-55+ technology-hesitant business owners who've been burned |
 | Color: Navy | #0F1729 |
 | Color: Gold | #D4A853 |
 | Color: Muted Gold | #B8956E |
@@ -376,7 +376,7 @@ At thumbnail size (16px), is the mark recognizable and distinct?
 In pure black and white, does the mark still work?
 
 ### 3. The Trust Test
-Would a skeptical 60-year-old business owner see this and think "these people are serious"?
+Would a skeptical 45-year-old business owner see this and think "these people are serious"?
 
 ### 4. The Story Test
 Can you explain what the mark means in one sentence?

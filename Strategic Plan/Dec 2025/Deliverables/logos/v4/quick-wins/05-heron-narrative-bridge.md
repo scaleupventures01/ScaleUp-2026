@@ -222,7 +222,7 @@ This narrative bridges to core brand messaging from the Messaging Architecture:
 | Primary Message: "We prove the ROI before you spend a dollar" | "The heron observes before it strikes - we prove before you pay" |
 | Trust-Building: "We prove value first" | "Patience before precision. Proof before payment." |
 | Differentiation: "<5% of agencies offer pre-engagement ROI" | "Most agencies strike first and hope. We prove first and deliver." |
-| Pain Point: "You've been burned before" | Implicit: unlike agencies that rush to sell, we take time to understand |
+| Pain Point: "You need to see proof first" | Implicit: unlike agencies that rush to sell, we take time to understand |
 
 ---
 

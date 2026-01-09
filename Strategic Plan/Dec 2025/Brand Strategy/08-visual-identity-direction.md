@@ -29,7 +29,7 @@ The current website presents a dark, minimal aesthetic with:
 |---------|--------------|------------|
 | **Primary Palette** | Pure black (#000) with white text (#fff) | High contrast, but lacks warmth and differentiation |
 | **Typography** | Generic sans-serif | Professional but undifferentiated |
-| **Visual Complexity** | Minimal, near-stark | May feel cold to technology-laggard personas |
+| **Visual Complexity** | Minimal, near-stark | May feel cold to growth-stage business owners |
 | **Brand Personality** | Technical, anonymous | Doesn't communicate trust-based differentiation |
 | **Design Elements** | Fixed badge, subtle rounded corners | Modern but generic |
 
@@ -39,13 +39,13 @@ The current website presents a dark, minimal aesthetic with:
 
 | Dimension | Current Identity | Required Identity | Gap |
 |-----------|-----------------|-------------------|-----|
-| **Trust Signals** | Minimal | High (critical for burned SMBs) | Significant |
-| **Approachability** | Low (stark, technical) | Medium-high (welcoming to tech-laggards) | Significant |
+| **Trust Signals** | Minimal | High (critical for ROI-focused buyers) | Significant |
+| **Approachability** | Low (stark, technical) | Medium-high (welcoming to busy executives) | Significant |
 | **Premium Positioning** | Neutral | Elevated (justifies $15K+ projects) | Moderate |
 | **Differentiation** | Generic tech aesthetic | Distinctive, memorable | Significant |
 | **ROI Focus** | Not visually communicated | Central to visual language | Critical |
 
-[Gap analysis based on: business-context.html, Section 7 "Value Proposition" stating ROI-focused differentiation; persona-research-report.html, Section 01b showing 50% of SMBs have been burned by agencies]
+[Gap analysis based on: business-context.html, Section 7 "Value Proposition" stating ROI-focused differentiation; persona-research-report.html, Section 01b showing 50% of SMBs want proof before committing resources]
 
 ---
 
@@ -72,9 +72,9 @@ Visual elements that communicate methodology and rigor, reflecting ScaleUp's ROI
 
 #### Theme 2: Trustworthy Partnership
 
-Visual warmth that counters the "burned by agencies" experience of target personas.
+Visual warmth that signals proven capability and partnership potential.
 
-**Rationale:** 50% of SMBs report being burned by agencies; only 4% trust tech sales reps (persona-research-report.html, ROI Validation section). The visual identity must work against skepticism.
+**Rationale:** 50% of SMBs want to see proof before committing; only 4% trust tech sales reps (persona-research-report.html, ROI Validation section). The visual identity must quickly establish credibility.
 
 - Warm accent colors balancing technical precision
 - Human-scale imagery (real people, not stock)
@@ -103,7 +103,7 @@ Premium visual quality that justifies $15-25K project pricing.
 **Psychology:** Authority, expertise, depth, trust
 **Application:** Primary backgrounds, headers, footer, navigation
 
-[Color rationale based on: persona-research-report.html showing target owners aged 50+ across all top-scoring industries (staffing 52%+, vet 65% planning exit, pest control 55%+). These demographics respond to established, professional color palettes that communicate stability and experience.]
+[Color rationale based on: persona-research-report.html showing target owners aged 30-55 across all top-scoring industries. These growth-stage executives respond to established, professional color palettes that communicate capability and results.]
 
 #### Secondary Color: Rich Gold (#D4A853)
 
@@ -155,7 +155,7 @@ Premium visual quality that justifies $15-25K project pricing.
 - Mix warm and cool grays (stick to Slate family)
 - Use functional colors for decorative purposes
 
-[Color application based on: persona-research-report.html showing older demographics (50-65 average) require high contrast and clear visual hierarchy. 60% of SMB tech purchases result in regret within 12-18 months - visual clarity reduces cognitive friction.]
+[Color application based on: persona-research-report.html showing target demographics (30-55 age range) value efficiency and clear communication. Time-constrained executives appreciate visual clarity that reduces cognitive friction.]
 
 ---
 
@@ -165,11 +165,11 @@ Premium visual quality that justifies $15-25K project pricing.
 
 The typography system must balance:
 - **Authority** - Commanding presence for headlines
-- **Readability** - Clear communication for older audiences
+- **Readability** - Clear communication for time-pressed executives
 - **Warmth** - Approachable tone that builds trust
 - **Professionalism** - Premium quality for pricing justification
 
-[Typography strategy based on: business-context.html showing target clients aged 50+ who value competence and trust; persona-research-report.html indicating staffing owners 52%+ are 55+, vet practice owners average 52, trades owners 42+]
+[Typography strategy based on: business-context.html showing target clients aged 30-55 who value competence, efficiency, and results; persona-research-report.html showing growth-stage owners across all top-scoring industries]
 
 ### 4.2 Font Recommendations
 
@@ -189,7 +189,7 @@ The typography system must balance:
 - Pull quotes and callouts
 - Data visualization labels
 
-[Font rationale based on: strategic-recommendations.html, Insight #2 stating "Your ROI-focused positioning" needs visual distinction. Serif typography signals established expertise vs. generic tech-startup sans-serif, differentiating from agencies that have burned prospects.]
+[Font rationale based on: strategic-recommendations.html, Insight #2 stating "Your ROI-focused positioning" needs visual distinction. Serif typography signals established expertise vs. generic tech-startup sans-serif, differentiating from agencies that fail to prove value.]
 
 #### Secondary Body Font: DM Sans (Sans-Serif)
 
@@ -255,16 +255,16 @@ The typography system must balance:
 - Technology in service of humans (not technology for its own sake)
 - Real outcomes and results (dashboards, metrics, growth)
 
-[Imagery direction based on: persona-research-report.html showing validated personas are "technology laggards" who "genuinely cannot modernize themselves." Imagery must show technology serving people, not intimidating them.]
+[Imagery direction based on: persona-research-report.html showing validated personas are growth-stage owners who are "too time-constrained to implement themselves." Imagery must show technology enabling results, not creating more work.]
 
 #### Style Guidelines
 
 | Attribute | Direction | Rationale |
 |-----------|-----------|-----------|
 | **Lighting** | Natural, warm, well-lit | Builds trust, reduces intimidation |
-| **Composition** | Clean, uncluttered, focused | Respects cognitive load of older demos |
+| **Composition** | Clean, uncluttered, focused | Respects time constraints of busy executives |
 | **Color Tone** | Warm whites, avoid clinical blue | Aligns with cream palette warmth |
-| **Subjects** | Diverse ages, 40-60 prominent | Mirrors target persona demographics |
+| **Subjects** | Diverse ages, 35-50 prominent | Mirrors target persona demographics |
 | **Environment** | Real workplaces, not studios | Authenticity over polish |
 | **Expression** | Confident, engaged, not stressed | Aspiration without anxiety |
 
@@ -357,7 +357,7 @@ The typography system must balance:
 - Friendly typography paired with sharp data viz
 - Human imagery alongside technical content
 
-[Principle based on: persona-research-report.html showing 40% agency churn rate among SMBs, 48% leave due to delivery issues. Visual warmth works against the cold, transactional experience that has burned prospects before.]
+[Principle based on: persona-research-report.html showing 40% agency churn rate among SMBs, 48% leave due to delivery issues. Visual warmth signals partnership and genuine commitment to results.]
 
 #### Principle 4: Premium Without Pretense
 
@@ -402,9 +402,9 @@ The logo must communicate:
 1. **Growth orientation** - ScaleUp is about trajectory and improvement
 2. **Professional expertise** - Established, credible, trustworthy
 3. **Precision and methodology** - ROI-focused, data-driven
-4. **Approachability** - Not intimidating to technology-laggard audiences
+4. **Approachability** - Accessible to busy growth-stage executives
 
-[Logo strategy based on: business-context.html defining the company as helping SMBs "achieve measurable growth" through "integrated offering of development, growth marketing, and process improvement"; persona-research-report.html showing target audiences fear AI/tech disruption but cannot modernize themselves]
+[Logo strategy based on: business-context.html defining the company as helping SMBs "achieve measurable growth" through "integrated offering of development, growth marketing, and process improvement"; persona-research-report.html showing target audiences are growth-focused but time-constrained]
 
 ### 7.2 Logo Concept Options
 
@@ -587,26 +587,26 @@ The logo must communicate:
 
 | Visual Decision | Research Basis | Source |
 |-----------------|---------------|--------|
-| Navy + Gold palette | Target personas are 50+ year old business owners who respond to established, premium color signals; Gold directly communicates financial value/ROI | persona-research-report.html, Section 04 (demographics across all top-tier industries); business-context.html (ROI positioning) |
-| Serif headline typography | Differentiates from generic tech-startup aesthetic; signals established expertise over youthful disruption; builds trust with burned SMBs | persona-research-report.html, showing 50% burned by agencies, 4% trust tech sales reps; strategic-recommendations.html on positioning |
-| Warm cream backgrounds | Counters clinical tech feel that intimidates technology-laggard personas; creates approachable environment for older demographics | persona-research-report.html, "technology laggard" hypothesis validated; demographics showing 55%+ over age 50 |
+| Navy + Gold palette | Target personas are 30-55 year old growth-stage owners who respond to professional, premium color signals; Gold directly communicates financial value/ROI | persona-research-report.html, Section 04 (demographics across all top-tier industries); business-context.html (ROI positioning) |
+| Serif headline typography | Differentiates from generic tech-startup aesthetic; signals established expertise over hype; builds credibility with ROI-focused buyers | persona-research-report.html, showing 50% want proof before committing, 4% trust tech sales reps; strategic-recommendations.html on positioning |
+| Warm cream backgrounds | Creates approachable, efficient environment for busy executives; avoids sterile tech aesthetic | persona-research-report.html, growth-stage owner profile validated; demographics showing 30-55 age range |
 | Data as decorative element | Reinforces ROI-focused differentiation (found in <5% of agencies); makes methodology feel tangible | persona-research-report.html, Section 01b (ROI validation showing rarity); business-context.html (value prop) |
-| Human-centric photography | Target personas fear being replaced by technology; imagery shows tech serving humans | persona-research-report.html, 90% of staffing agencies fear AI disruption; vet practices face corporate consolidation |
+| Human-centric photography | Target personas want technology that enables results; imagery shows execution and outcomes | persona-research-report.html, growth-stage owners seeing opportunity in digital capabilities |
 | Premium design quality | Supports $15K+ minimum project pricing; justifies 50% target margins | strategic-recommendations.html, pricing discipline; business-context.html, $100K revenue at high margins goal |
-| Clear hierarchy and structure | 70-88% digital transformation failure rate among targets; reduces cognitive friction | persona-research-report.html, tech laggard insights; 60% regret tech purchases in 12-18 months |
-| Generous whitespace | Older demographic needs; reduces overwhelm for non-technical audiences | persona-research-report.html, average owner ages across industries (52-65 range) |
+| Clear hierarchy and structure | Time-constrained executives value efficiency; reduces cognitive friction | persona-research-report.html, growth-stage owner insights; busy owners value clarity |
+| Generous whitespace | Respects time constraints; enables quick scanning for busy executives | persona-research-report.html, average owner ages across industries (30-55 range) |
 
 ### 9.2 Addressing Persona Pain Points Through Design
 
-**Pain Point:** "I've been burned by agencies before."
+**Pain Point:** "I need to see proof before I commit resources."
 
-**Visual Solution:** Trust signals throughout - data transparency, professional restraint, case study evidence, warm approachable aesthetic that doesn't oversell.
+**Visual Solution:** Trust signals throughout - data transparency, professional restraint, case study evidence, ROI prominently featured in visual design.
 
 ---
 
-**Pain Point:** "I don't understand technology and feel intimidated."
+**Pain Point:** "I'm too busy to manage another vendor relationship."
 
-**Visual Solution:** Human-centric imagery, clear information hierarchy, accessible typography, warm color palette that feels welcoming not clinical.
+**Visual Solution:** Clear information hierarchy, efficient layouts, accessible typography, visual design that respects their time and signals execution capability.
 
 ---
 

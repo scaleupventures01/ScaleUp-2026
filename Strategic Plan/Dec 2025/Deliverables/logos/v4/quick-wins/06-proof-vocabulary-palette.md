@@ -10,9 +10,9 @@
 
 ### The Vocabulary Challenge
 
-ScaleUp Ventures serves **technology laggard business owners aged 50-65** who have been burned by empty agency promises. These owners are:
+ScaleUp Ventures serves **growth-focused business owners aged 30-55** who need to see proof before committing. These owners are:
 
-- **Skeptical by experience** - ~50% report being burned by previous providers
+- **Skeptical by nature** - they're data-driven and want to see the ROI first
 - **Trust-driven** - 80% value trust over cost in purchasing decisions
 - **Evidence-oriented** - 97% say case studies are the most reliable form of proof
 - **Jargon-averse** - Only 4% trust tech sales representatives
@@ -247,7 +247,7 @@ These words work in progression - from decision to action to outcome:
 
 ## Words to Avoid
 
-These words trigger skepticism in burned business owners:
+These words trigger skepticism in proof-seeking business owners:
 
 | Avoid | Why | Use Instead |
 |-------|-----|-------------|
@@ -257,7 +257,7 @@ These words trigger skepticism in burned business owners:
 | "Best" | Unprovable superlative | Specific proof points |
 | "Amazing" / "Incredible" | Sales-y, hype language | Specific outcomes |
 | "Revolutionary" | Tech startup language, alienating | "Proven" or "Effective" |
-| "Cutting-edge" | Intimidating to tech laggards | "What works" |
+| "Cutting-edge" | Buzzword that invites skepticism | "What works" |
 | "Synergy" | Corporate jargon | "Integrated" or "Connected" |
 | "Solutions" | Vague, meaningless | Specific services |
 | "Leverage" | Business jargon | "Use" or specific action |
@@ -353,5 +353,5 @@ These phrases combine multiple categories into brand-defining language:
 **Document Information**
 **Sources:** Brand Voice Guidelines, Messaging Architecture, Creative Brief v4, Heron Logo Prompts
 **Alignment:** Core Promise - "We prove it before you buy"
-**Target Audience:** Technology laggard business owners aged 50-65
+**Target Audience:** Growth-focused business owners aged 30-55
 **Last Updated:** December 31, 2025

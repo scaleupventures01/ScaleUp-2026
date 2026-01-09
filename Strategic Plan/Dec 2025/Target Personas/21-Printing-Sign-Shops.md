@@ -19,7 +19,7 @@ The printing and sign shop industry represents a **STRONG FIT** for ScaleUp Vent
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 8/10 | US commercial printing: $127B (2024); Sign manufacturing: $16.7B; ~46,200 printing businesses, ~20,000 sign shops in US |
-| **Owner Demographics (older = higher)** | 9/10 | Average printer age: 48 years; 75% of printers aged 40+; 42% of sign shop owners aged 60+; 1-in-9 prioritizing exit/succession |
+| **Owner Demographics (growth-focused = higher)** | 9/10 | Target print and sign shop owners aged 30-55 focused on modernizing their operations. Growth-oriented operators seeking competitive advantages through technology and digital marketing. |
 | **Budget Availability** | 5/10 | Average revenue $560K-$667K; net margins 5-12%; spend 7-8% on marketing (~$40-50K); "spend very reluctantly on marketing" |
 | **Pain Intensity (disruption fear)** | 8/10 | Industry declining 1.5-2.5% annually; only 2% fully automated; 79% struggling to attract talent; "barbell" consolidation crushing mid-market |
 | **Competition Level (less = higher)** | 7/10 | Few agencies specialize in this niche; mostly generic software vendors (shopVOX, PrintSmith); Sign Shop Marketing Pros is notable exception |
@@ -260,7 +260,7 @@ The printing and sign shop industry represents a **STRONG FIT** for ScaleUp Vent
 - Capital-intensive business = budget scrutiny
 - Owner sole decision-maker but risk-averse
 - Trust-building required (industry peers valued)
-- Technology skepticism in older owners
+- Technology skepticism in business owners
 - Cash flow constraints delay commitments
 
 **Shortening Factors:**
@@ -284,7 +284,7 @@ The printing and sign shop industry represents a **STRONG FIT** for ScaleUp Vent
 - **Business Type**: Independent print shop or sign shop (non-franchise)
 - **Revenue**: $500K - $2M annually
 - **Employees**: 5-20
-- **Owner Age**: 50-65 years old
+- **Owner Age**: 30-55 years old
 - **Geography**: Suburban/metro areas with B2B customer base
 - **Current Tech**: Outdated website, minimal automation, limited digital marketing
 - **Mindset**: Aware of problems, overwhelmed by solutions, seeking trusted partner
@@ -352,7 +352,7 @@ The printing and sign shop industry represents a **STRONG FIT** for ScaleUp Vent
    - Relationship with trade associations
 
 4. **Direct Outreach**
-   - LinkedIn outreach to owners aged 50+
+   - LinkedIn outreach to owners aged 30-55
    - Direct mail to sign/print shops (ironic but effective)
    - Signs101.com forum participation
 

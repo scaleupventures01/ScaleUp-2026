@@ -3,7 +3,7 @@
 
 **Brand:** ScaleUp Ventures
 **Tagline:** "We Prove It Before You Buy"
-**Primary Audience:** 50-65+ technology-hesitant business owners who've been burned
+**Primary Audience:** 30-55+ technology-hesitant business owners who've been burned
 **Color Palette:** Navy #0F1729 | Gold #D4A853 | Muted Gold #B8956E | Cream #FAF8F5
 
 ---
@@ -365,7 +365,7 @@ This isn't "we help you grow." This is "we are the precise point around which yo
 
 ## Recommendation for Brand Alignment
 
-**For maximum resonance with 50-65+ skeptical business owners:**
+**For maximum resonance with 30-55+ skeptical business owners:**
 
 **Primary recommendation: THE KEYSTONE (#4)**
 Why: This audience built their businesses. They understand that success comes from finding the critical element, not from doing everything. The keystone metaphor validates their existing work while positioning ScaleUp as the essential missing piece. The architectural reference feels solid, timeless, trustworthy.

@@ -11,7 +11,7 @@
 
 **Verdict: STRONG FIT - Priority Target**
 
-Property management is an exceptionally strong fit for ScaleUp Ventures. The industry exhibits classic technology laggard characteristics: older ownership (avg age 47), heavy reliance on legacy systems (61% still use legacy tech), and intense operational pain from manual processes. The $131.6B market is fragmented across 326,000 companies, with 47% managing under 500 units - creating a massive SMB opportunity. The competitive landscape for dev/growth/AI services is remarkably thin, with only a handful of specialized agencies serving this space.
+Property management is an exceptionally strong fit for ScaleUp Ventures. The industry exhibits classic technology-cautious characteristics: business ownership (avg age 47), heavy reliance on legacy systems (61% still use legacy tech), and intense operational pain from manual processes. The $131.6B market is fragmented across 326,000 companies, with 47% managing under 500 units - creating a massive SMB opportunity. The competitive landscape for dev/growth/AI services is remarkably thin, with only a handful of specialized agencies serving this space.
 
 ---
 
@@ -20,7 +20,7 @@ Property management is an exceptionally strong fit for ScaleUp Ventures. The ind
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 9/10 | $131.6B industry (2024), 326,000 companies, $81.52B serviceable market. Property management services market alone worth $4.4B growing 6.6% CAGR. |
-| **Owner Demographics (older = higher)** | 8/10 | Average property manager age: 47 years. 71% are 40+ years old. 13% already over 65 (vs 7% industry avg). 25% of C-suite/senior leaders are 65+. Industry facing "retirement cliff" - 40% reaching retirement age in 10 years. |
+| **Owner Demographics (growth-focused = higher)** | 8/10 | Target property management owners aged 30-55 focused on scaling their portfolios. Growth-oriented operators seeking competitive advantages through technology modernization. |
 | **Budget Availability** | 7/10 | Marketing spend: 3-7% of revenue typical. SMBs spend $1,000-$10,000/month on digital marketing. Companies with 101-500 doors: median $1,250/month marketing. Technology investment increasing post-COVID. |
 | **Pain Intensity (disruption fear)** | 8/10 | 61% rely on legacy systems. PropTech disruption (Airbnb, etc.) creating existential threats. Rising costs eating margins. 88% error rate in manual spreadsheet entries. 55% say spreadsheets don't scale. Staffing crisis is #1 challenge. |
 | **Competition Level (less = higher)** | 8/10 | Only 4-5 specialized marketing agencies (Fourandhalf, Upkeep Media, Geekly Media, Goodjuju). No dominant dev/AI service providers. Most agencies focus on marketing only - gap in dev and AI automation services. |
@@ -392,7 +392,7 @@ Top markets by PM industry revenue:
 
 **Score: 63/80 - Strong Fit**
 
-This industry checks nearly every box for ScaleUp's technology laggard thesis. The combination of older owners, legacy technology dependence, manual process pain, and limited service competition creates an ideal environment for dev, growth, and AI/automation services.
+This industry checks nearly every box for ScaleUp's technology-cautious thesis. The combination of business owners, legacy technology dependence, manual process pain, and limited service competition creates an ideal environment for dev, growth, and AI/automation services.
 
 ---
 

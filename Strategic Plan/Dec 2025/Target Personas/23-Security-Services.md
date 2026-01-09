@@ -16,7 +16,7 @@ The security guard services industry presents a compelling opportunity for Scale
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | Market Size (TAM potential) | 9/10 | $36.6B-$53.3B US market (2024), ~66,220 security businesses, growing 3.4% annually |
-| Owner Demographics (older = higher) | 8/10 | 50%+ small business owners age 55+; heavy veteran/law enforcement backgrounds (45-65 age range typical); low tech comfort |
+| **Owner Demographics (growth-focused = higher)** | 8/10 | Target security company owners aged 30-55 focused on scaling their guard services. Growth-oriented operators seeking competitive advantages through technology and automation. |
 | Budget Availability | 5/10 | Thin margins (6-15% net profit); typical marketing spend $2,500-$5,000/month; cost-sensitive industry |
 | Pain Intensity (disruption fear) | 8/10 | AI/robots threatening $11/hr vs $15-35/hr guards; severe labor shortage; 70-95% digital transformation failure rate |
 | Competition Level (less = higher) | 7/10 | Few specialized agencies (Grow My Security, Ad Leaf, Abstrakt); mostly generalist marketing; limited AI/automation focus |
@@ -65,7 +65,7 @@ The security guard services industry presents a compelling opportunity for Scale
 
 ### Typical Owner Profile
 
-**Age**: 50-65 years old
+**Age**: 30-55 years old
 **Background**:
 - Retired law enforcement (40-50% of owners)
 - Military veterans (30-40% of owners)
@@ -313,7 +313,7 @@ The security guard services industry presents a compelling opportunity for Scale
 ### SAM (Serviceable Addressable Market)
 
 - Targeting businesses $500K - $5M revenue: ~15,000 businesses
-- Technology laggards (no modern website, limited marketing): 60%
+- Technology-cautiouss (no modern website, limited marketing): 60%
 - **SAM**: 9,000 businesses x $30,000 = $270M annually
 
 ### SOM (Serviceable Obtainable Market)

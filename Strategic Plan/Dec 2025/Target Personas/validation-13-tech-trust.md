@@ -2,11 +2,11 @@
 
 ## Research Overview
 
-**Research Focus**: Understanding SMB attitudes toward digital transformation and technology consulting, with emphasis on trust levels, past experiences, confidence builders, and how technology laggard industries differ.
+**Research Focus**: Understanding SMB attitudes toward digital transformation and technology consulting, with emphasis on trust levels, past experiences, confidence builders, and how technology-cautious industries differ.
 
 **Date**: December 31, 2025
 
-**Supporting**: ScaleUp Ventures' focus on technology laggard industries
+**Supporting**: ScaleUp Ventures' focus on technology-cautious industries
 
 ---
 
@@ -20,7 +20,7 @@
 
 3. **Peer Influence Dominates**: 91% of B2B purchasing decisions are influenced by word-of-mouth; vendor-produced content ranks low in trust.
 
-4. **Technology Laggard Industries Have Unique Patterns**: Construction, manufacturing, and healthcare show distinct resistance patterns driven by workforce demographics, legacy systems, and risk aversion.
+4. **Technology-Cautious Industries Have Unique Patterns**: Construction, manufacturing, and healthcare show distinct resistance patterns driven by workforce demographics, legacy systems, and risk aversion.
 
 5. **Psychology Matters**: 85% of executives believe fear often or always holds back innovation efforts in their organizations.
 
@@ -187,9 +187,9 @@
 
 ---
 
-## Section 4: Technology Laggard Industries - Trust Pattern Differences
+## Section 4: Technology-Cautious Industries - Trust Pattern Differences
 
-### Industries Identified as Technology Laggards
+### Industries Identified as Technology-Cautiouss
 
 **Most Behind on Digital Adoption**:
 1. Government/Public Sector
@@ -336,7 +336,7 @@
 
 ---
 
-## Section 6: Trust-Building Framework for Technology Laggard Industries
+## Section 6: Trust-Building Framework for Technology-Cautious Industries
 
 ### The Trust Equation for Laggard Sectors
 

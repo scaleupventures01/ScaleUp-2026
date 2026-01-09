@@ -29,7 +29,7 @@ ScaleUp Ventures operates with a structured message hierarchy designed to maximi
 |------|---------|-----------------|-------------------|
 | **Primary** | Proof First / Pre-engagement ROI Modeling | "We prove the ROI before you spend a dollar" | 3 approved variations |
 | **Secondary** | Integrated Services | "One partner for website, marketing, and automation" | 4 approved variations |
-| **Secondary** | Technology Laggard Specialization | "Built for business owners, not technologists" | 3 approved variations |
+| **Secondary** | Growth-Focused Specialization | "Built for business owners, not technologists" | 3 approved variations |
 | **Secondary** | Founder Stability | "Owner-led, accountable, we stay until you see results" | 2 approved variations |
 | **Tertiary** | Proof Points (statistics, case studies, guarantees) | Varies by context | Unlimited, source-verified |
 
@@ -51,7 +51,7 @@ The "Proof First" message can be expressed in these interchangeable forms:
 3. "Stop managing five vendors. Work with one team who handles everything."
 4. "Complete modernization from a single accountable partner"
 
-**Technology Laggard Specialization:**
+**Growth-Focused Specialization:**
 1. "Built for business owners, not technologists"
 2. "You don't need to understand technology. You just need results."
 3. "We translate tech into business impact"
@@ -218,7 +218,7 @@ Would 15 minutes next week work?
 - 5 posts: Primary message or ROI theme
 - 5 posts: Case studies/client results (client voice, not ours)
 - 5 posts: Industry insights/thought leadership
-- 3 posts: Secondary messages (integrated services, tech laggard specialization)
+- 3 posts: Secondary messages (integrated services, growth-focused specialization)
 - 2 posts: Community/culture content
 
 ---
@@ -255,14 +255,14 @@ Section 1: PRIMARY MESSAGE
 Section 2: Proof Point / Case Study
 Section 3: SECONDARY MESSAGE (Integrated Services)
 Section 4: Process Explanation
-Section 5: SECONDARY MESSAGE (Tech Laggard Specialization)
+Section 5: SECONDARY MESSAGE (Growth-Focused Specialization)
 ```
 
 **Incorrect Pattern:**
 ```
 Section 1: PRIMARY MESSAGE
 Section 2: SECONDARY MESSAGE (Integrated Services)
-Section 3: SECONDARY MESSAGE (Tech Laggard Specialization)  [TOO CLOSE]
+Section 3: SECONDARY MESSAGE (Growth-Focused Specialization)  [TOO CLOSE]
 Section 4: Proof Point
 ```
 
@@ -272,12 +272,12 @@ Different personas respond more strongly to different secondary messages. Priori
 
 | Persona | 1st Priority Secondary | 2nd Priority Secondary | 3rd Priority Secondary |
 |---------|----------------------|----------------------|----------------------|
-| Staffing Agency | Technology Laggard Spec. | Integrated Services | Founder Stability |
-| Veterinary Practice | Integrated Services | Technology Laggard Spec. | Founder Stability |
-| Pest Control | Integrated Services | Technology Laggard Spec. | Founder Stability |
-| Home Services/Trades | Technology Laggard Spec. | Founder Stability | Integrated Services |
-| Insurance Agency | Technology Laggard Spec. | Founder Stability | Integrated Services |
-| Professional Services | Integrated Services | Founder Stability | Technology Laggard Spec. |
+| Staffing Agency | Growth-Focused Spec. | Integrated Services | Founder Stability |
+| Veterinary Practice | Integrated Services | Growth-Focused Spec. | Founder Stability |
+| Pest Control | Integrated Services | Growth-Focused Spec. | Founder Stability |
+| Home Services/Trades | Growth-Focused Spec. | Founder Stability | Integrated Services |
+| Insurance Agency | Growth-Focused Spec. | Founder Stability | Integrated Services |
+| Professional Services | Integrated Services | Founder Stability | Growth-Focused Spec. |
 
 ### Secondary Message Frequency Limits
 
@@ -417,7 +417,7 @@ reliable proof. Here's one from a staffing agency like yours." [Universal]
 |                                                                   |
 |  "Built for business owners who want results,                     |
 |   not technology lessons."                                        |
-|   SECONDARY MESSAGE - TECHNOLOGY LAGGARD SPECIALIZATION           |
+|   SECONDARY MESSAGE - GROWTH-FOCUSED SPECIALIZATION           |
 |                                                                   |
 |  [Industry icons: Staffing | Veterinary | Trades | Insurance]    |
 +------------------------------------------------------------------+
@@ -687,7 +687,7 @@ Our entire messaging architecture follows the Rule of 3:
 We have exactly three secondary messages:
 
 1. Integrated Services
-2. Technology Laggard Specialization
+2. Growth-Focused Specialization
 3. Founder Stability
 
 **Application:** When listing "what makes us different" or "why ScaleUp," use all three in a grouped presentation:

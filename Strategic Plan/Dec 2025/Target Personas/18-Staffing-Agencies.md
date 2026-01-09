@@ -10,7 +10,7 @@
 
 **Verdict: STRONG FIT (67/80)**
 
-Small and regional staffing agencies represent a highly attractive target market for ScaleUp Ventures. This is a $189B industry with 26,000+ agencies, dominated by older owners (52%+ are 55+) who are facing existential AI disruption threats. The combination of technology lag, available budgets (7-10% of revenue for marketing), intense competitive pressure, and fear of obsolescence creates ideal conditions for selling modernization services.
+Small and regional staffing agencies represent a highly attractive target market for ScaleUp Ventures. This is a $189B industry with 26,000+ agencies, dominated by business owners (52%+ are 55+) who are facing existential AI disruption threats. The combination of technology lag, available budgets (7-10% of revenue for marketing), intense competitive pressure, and fear of obsolescence creates ideal conditions for selling modernization services.
 
 **Key Opportunity:** 61% of staffing firms now use AI (up from 48% in 2024), but smaller agencies are struggling to keep up. They have money, they have fear, and they need help.
 
@@ -21,7 +21,7 @@ Small and regional staffing agencies represent a highly attractive target market
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 9/10 | $189B US market, 26,000+ agencies. Small/regional segment (under $5M revenue) estimated at 15,000+ firms representing $30-40B. Massive, fragmented market. |
-| **Owner Demographics (older = higher)** | 9/10 | 52.3% of US business owners are 55+. Staffing industry skews even older due to relationship-based nature. Average small agency owner is 50-65, often founder-operators from pre-digital era. |
+| **Owner Demographics (growth-focused = higher)** | 9/10 | Target agency owners aged 30-55 who are scaling their operations. Growth-focused operators seeking competitive advantages through AI and automation to win more clients. |
 | **Budget Availability** | 8/10 | Industry standard: 7-10% of revenue for marketing. Average small agency ($1-4M revenue) = $70K-400K annual marketing budget. Gross margins of 21-25% provide room for services investment. |
 | **Pain Intensity (disruption fear)** | 9/10 | 90% reported negative economic impact in 2023. AI adoption jumped from 48% to 61% in one year. Articles titled "Adapt or Perish" dominate trade press. Existential fear is real and documented. |
 | **Competition Level (less = higher)** | 6/10 | Haley Marketing dominates niche (staffing-specific). Few dev/AI specialists target this vertical. Most agencies use generalist marketing firms or DIY. Bullhorn ecosystem creates some lock-in. |
@@ -57,28 +57,27 @@ Small and regional staffing agencies represent a highly attractive target market
 
 ## Owner Demographics
 
-### Age Profile (Critical Finding)
+### Target Demographics
 
-- **52.3%** of US business owners are age 55+
-- **29.5%** are 55-64 years old
-- **22.8%** are 65+ years old
-- Baby Boomers own **41%** of privately owned small businesses (12 million businesses)
-- **35%** of Baby Boomer businesses have operated 10+ years
-- "Silver Tsunami": 350,000 boomers sell businesses annually; $10 trillion in assets changing hands
+- Target agency owners aged **30-55** who are actively scaling their operations
+- Growth-focused operators seeking competitive advantages through AI and automation
+- Time-constrained business owners who need execution capacity, not hand-holding
+- Data-driven operators who want proof before committing to investments
+- Mix of founder-operators and second-generation owners modernizing businesses
 
-### Technology Comfort Indicators
+### Technology Adoption Status
 
-- **37%** of Baby Boomer owners use cash as primary financing (tech-averse signal)
-- Most small staffing agencies "grew up as traditional staffing firms and are now trying to figure out how to use online sources"
-- Owners report being "bogged down by back-office functions" rather than leveraging automation
-- Strong preference for relationships over technology in sales approach
+- Growth-focused operators recognize competitive advantage of AI and automation
+- Most small staffing agencies are time-constrained and need execution partners
+- Owners want to focus on relationships while automation handles back-office
+- Need partners who can implement technology, not just sell software
 
 ### Psychographic Profile
 
-- **Values:** Independence (32% started to "be their own boss"), relationships, stability
-- **Fears:** Obsolescence, AI replacement, losing to larger competitors, technology overwhelm
-- **Motivations:** Legacy preservation, competitive survival, reducing manual work
-- **48%** report being "very happy" with their business (emotional investment = willing to protect it)
+- **Values:** Independence (32% started to "be their own boss"), relationships, growth
+- **Challenges:** Time constraints, competing with AI-enabled competitors, scaling operations
+- **Motivations:** Competitive advantage, winning more clients, scaling faster
+- **48%** report being "very happy" with their business (emotional investment = willing to invest in growth)
 
 **Source:** [Oberlo](https://www.oberlo.com/statistics/average-age-of-small-business-owners), [US Census Bureau](https://www.census.gov/library/visualizations/2020/comm/business-owners-ages.html), [LendingTree 2024 Boomer Report](https://www.lendingtree.com/business/small/best-places-for-boomer-entrepreneurs/)
 
@@ -373,8 +372,8 @@ Small and regional staffing agencies represent a highly attractive target market
 Small/regional staffing agencies score **67/80** and represent an excellent target market for ScaleUp Ventures:
 
 **Why This Works:**
-1. Older owners with money but not tech skills
-2. Existential AI threat creating urgency
+1. Growth-focused owners aged 30-55 who are scaling
+2. Competitive advantage through AI creating urgency
 3. Client acquisition is top pain point (marketing fit)
 4. Clear congregation points for acquisition
 5. Owner-operators = short sales cycles

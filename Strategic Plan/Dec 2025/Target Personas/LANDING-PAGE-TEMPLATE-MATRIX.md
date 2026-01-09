@@ -43,7 +43,7 @@ After analyzing all 40 target personas, I recommend **8 base templates** that ca
 14. **Security Services** (Score: 58/80)
 
 ### Why These Share a Template (80%+ Overlap):
-- **Same buyer persona**: Aging owner-operators (avg 47-58 years), technology laggards
+- **Same buyer persona**: Aging owner-operators (avg 47-58 years), technology-cautiouss
 - **Same core pain**: Labor shortage, missed calls = lost revenue, operational inefficiency
 - **Same primary need**: Lead generation, 24/7 customer capture, operational automation
 - **Same decision process**: Single decision-maker, 30-90 day sales cycle

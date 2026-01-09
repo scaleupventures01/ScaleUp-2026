@@ -12,7 +12,7 @@
 ### Lessons from V3 Rejection
 - Geometric shapes (Keystone, Pivot, Benchmark) felt too abstract
 - Trapezoids and angular bars lacked emotional resonance
-- Target audience (50-65 skeptical business owners) may respond better to meaningful symbols with clear stories
+- Target audience (30-55 growth-focused business owners) may respond better to meaningful symbols with clear stories
 
 ### What Research Revealed
 - **Merrill Lynch's bull** became iconic because it tells a story
@@ -39,7 +39,7 @@ It's about **the end of doubt**.
 **Proof. Partnership. Progress.**
 
 ### Positioning Statement
-For **established business owners (50-65+)** who have been burned by technology consultants, **ScaleUp Ventures** is the **proof-first advisory firm** that **demonstrates results before asking for commitment**.
+For **growth-focused business owners (30-55)** who are too time-constrained to implement everything themselves, **ScaleUp Ventures** is the **proof-first advisory firm** that **demonstrates results before asking for commitment**.
 
 ### Brand Archetype Mix
 - **Primary:** The Sage (60%) - Wisdom, knowledge, trusted advisor
@@ -364,7 +364,7 @@ Style Options:
 1. NAVIGATOR WITH SEXTANT - Classic expertise
    - Figure using navigation tool, looking ahead
    - Tool represents methodology/proof
-   - Heritage feel appeals to 50-65 demographic
+   - Commanding feel appeals to 30-55 growth-focused demographic
 
 2. CAPTAIN AT HELM - Command presence
    - Figure at ship's wheel
@@ -544,7 +544,7 @@ COLORS:
 |------|----------|---------------|
 | **Squint Test** | At 16px favicon, is mark recognizable? | Distinct shape visible |
 | **Fax Test** | In pure B&W, does it work? | Reads clearly |
-| **Trust Test** | Would a skeptical 60-year-old think "these people are serious"? | Professional, substantial |
+| **Trust Test** | Would a data-driven 45-year-old think "these people are serious"? | Professional, substantial |
 | **Story Test** | Can you explain meaning in one sentence? | Clear, resonant meaning |
 | **White Test** | Does it look confident on pure white? | No lost edges, complete |
 

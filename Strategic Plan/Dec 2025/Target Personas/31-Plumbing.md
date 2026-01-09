@@ -19,7 +19,7 @@ The Plumbing Industry represents one of the strongest opportunities for ScaleUp 
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 9/10 | $169.8B industry (2025), 132K+ businesses, 564K-736K employees. Highly fragmented market with no player holding >5% share. Average small plumber generates $180K-$600K/year with 10-20% net margins. |
-| **Owner Demographics (older = higher)** | 8/10 | 50%+ of U.S. small business owners are 55+. 25% of plumbers now over 55. "Silver Tsunami" affecting plumbing/trades particularly hard. 40% of small business owners are Baby Boomers retiring by 2030. |
+| **Owner Demographics (growth-focused = higher)** | 8/10 | Target owners aged 30-55 focused on scaling their plumbing businesses. Growth-oriented operators seeking competitive advantages through technology and marketing modernization. |
 | **Budget Availability** | 7/10 | Recommended marketing spend 8-15% of revenue ($80K-$150K for $1M company). Typical digital marketing budget $30K-$150K/year. Net profit margins 10-20% support investment capacity. |
 | **Pain Intensity (disruption fear)** | 9/10 | 70% unhappy with current SEO/marketing providers. Labor shortage crisis (550K plumbers short by 2027). 50% face cash flow problems. 60% struggle with regulation compliance. Technology adoption creates competitive pressure. |
 | **Competition Level (less = higher)** | 7/10 | Marketing agencies exist (Plumbing Webmasters, Strictly Plumbers, Hook Agency) but 70% dissatisfaction rate indicates poor service delivery. Few offer integrated dev + AI + growth services. Software players (ServiceTitan, HouseCall Pro) focus on FSM, not full-service agency. |
@@ -69,29 +69,27 @@ The Plumbing Industry represents one of the strongest opportunities for ScaleUp 
 
 ### 2. Owner Demographics
 
-**Age Profile**:
-- Average plumber age: **41 years** (workforce), higher for owners
-- 55% of plumbers are 40+ years old
-- **25% of plumbers** are expected to be over age 55 by 2024
-- **50%+ of small business owners** are age 55 and over
-- **40% of small business owners** are Baby Boomers
+**Target Demographics**:
+- Target owners aged **30-55** who are scaling their plumbing businesses
+- Growth-focused operators seeking competitive advantages through technology
+- Time-constrained business owners who need execution capacity, not hand-holding
+- Data-driven operators who want proof before committing to investments
 
-**The "Silver Tsunami" Crisis**:
-- Baby Boomers own **2.34 million small businesses** employing 25 million people
-- By 2030, **entire Baby Boomer generation** will be at/beyond retirement age
-- **58%+ of small business owners** have NO succession plan
-- 75% of family-owned manufacturing/trades companies have boomer owners; half have no succession plans
-- Plumbing and roofing businesses are "at the top" of businesses for sale and needing successors
+**Growth-Focused Operator Profile**:
+- Second-generation owners modernizing inherited businesses
+- Founder-operators who have scaled and need execution capacity
+- Motivated by competitive advantage and market expansion
+- Need partners who can implement, not just advise
 
 **Gender & Ethnicity**:
 - 96.5% of plumbers are male
 - 63.2% White, 20.2% Hispanic/Latino, 9.5% Black/African American
 
-**Technology Comfort**:
-- 41% of plumbers with 20+ years experience express skepticism about digital tools necessity
-- 62% of small plumbing businesses cite high costs as primary barrier to tech adoption
+**Technology Adoption Status**:
+- Growth-focused operators recognize competitive advantage of digital but are time-constrained
+- 62% of small plumbing businesses cite high costs as primary barrier - need ROI proof
 - Only 35% of vocational programs include comprehensive digital skills training
-- Trades have "generally lagged other industries with regards to software adoption"
+- Operators need execution partners who can implement technology, not just sell it
 
 *Sources: [Zippia](https://www.zippia.com/plumber-jobs/demographics/), [Census Bureau](https://www.census.gov/library/visualizations/2020/comm/business-owners-ages.html), [Minneapolis Fed](https://www.minneapolisfed.org/article/2023/why-are-boomer-business-owners-hanging-on-to-their-businesses-long-past-retirement-age), [TeamShares](https://www.teamshares.com/resources/silver-tsunami/)*
 
@@ -101,8 +99,8 @@ The Plumbing Industry represents one of the strongest opportunities for ScaleUp 
 
 **Profit Margins**:
 - Gross profit margin target: **60-62%** (industry recommendation)
-- Typical gross margins: 45-65%
-- Residential services: 55-65% gross margin
+- Typical gross margins: 30-55%
+- Residential services: 30-55% gross margin
 - Commercial work: 50-60% gross margin
 - Emergency services: 60-70% gross margin (highest)
 - Net profit margin: **10-20%** (healthy range)
@@ -349,7 +347,7 @@ The Plumbing Industry represents one of the strongest opportunities for ScaleUp 
 4. **Register for Service World Expo 2025** (booth or attendee)
 
 ### Short-Term (30-90 Days)
-1. **Launch targeted LinkedIn campaign** to plumbing company owners 50+
+1. **Launch targeted LinkedIn campaign** to plumbing company owners 30-55
 2. **Partner with 1-2 plumbing supply distributors** for referrals
 3. **Create YouTube content** addressing top pain points (labor, leads, efficiency)
 4. **Develop "AI for Plumbers" workshop** for trade shows
@@ -386,7 +384,7 @@ The Plumbing Industry represents one of the strongest opportunities for ScaleUp 
 - 132,000 plumbing businesses x $50,000 avg annual service spend = **$6.6B potential market**
 
 **SAM Calculation** (Realistic Target):
-- Focus on businesses with $500K+ revenue, 50+ year old owners
+- Focus on businesses with $500K+ revenue, growth-focused owners aged 30-55
 - Estimated 30,000 qualifying businesses x $36,000/year = **$1.08B SAM**
 
 **SOM Calculation** (3-Year Capture):
@@ -399,13 +397,13 @@ The Plumbing Industry represents one of the strongest opportunities for ScaleUp 
 
 The Plumbing Industry represents a near-ideal target for ScaleUp Ventures. The combination of:
 - Massive, fragmented market ($169.8B, 132K+ businesses)
-- Aging owner demographic facing succession crisis
+- Growth-focused owners aged 30-55 who need execution capacity
 - Severe technology gap with documented dissatisfaction (70% unhappy with marketing)
 - Intense pain points perfectly matched to ScaleUp services
 - Clear acquisition channels (trade shows, associations, digital)
 - Manageable competition (agencies exist but quality gaps evident)
 
-**Recommendation**: Prioritize plumbing companies as a Tier 1 target vertical. Develop plumbing-specific messaging, case studies, and partnerships. Attend Service World Expo 2025 as primary launch event.
+**Recommendation**: Prioritize plumbing companies as a Tier 1 target vertical. Target growth-focused owners aged 30-55. Develop plumbing-specific messaging, case studies, and partnerships. Attend Service World Expo 2025 as primary launch event.
 
 ---
 

@@ -12,7 +12,7 @@ After evaluating 18 tagline alternatives against criteria of memorability, clari
 
 **Primary Tagline: "Certainty First."**
 
-This 2-word tagline scored 19/20 in evaluation and directly addresses what skeptical 50-65 year old business owners want most: certainty before commitment.
+This 2-word tagline scored 19/20 in evaluation and directly addresses what skeptical 30-55 year old business owners want most: certainty before commitment.
 
 ---
 
@@ -43,7 +43,7 @@ Both taglines are excellent. Here is the strategic rationale for leading with "C
 | Heron alignment | Patience yields certainty | Patience enables proof |
 | Brand positioning | Premium, confident, outcome-focused | Process-focused, technical |
 
-**The key insight:** Our target audience does not wake up wanting "proof" - they wake up wanting certainty. They have been burned by promises. They have wasted money on agencies that disappeared. What they desperately want is certainty that their next investment will pay off.
+**The key insight:** Our target audience does not wake up wanting "proof" - they wake up wanting certainty. They are data-driven decision makers who need to see the ROI before committing resources. What they want is certainty that their next investment will pay off - backed by real numbers, not promises.
 
 "Certainty First." promises the outcome. "Proof First." describes the process. Leading with outcomes is more compelling.
 
@@ -88,7 +88,7 @@ Lead with audience pain + close with tagline
 
 | Ad Format | Headline | Tagline Placement |
 |-----------|----------|-------------------|
-| Billboard | "Been burned by agencies?" | Bottom right, standalone |
+| Billboard | "Need proof before you commit?" | Bottom right, standalone |
 | Digital Banner | "Stop guessing. Start knowing." | End tag with logo |
 | Social Ads | Problem-focused headline | Post-text CTA line |
 
@@ -96,7 +96,7 @@ Lead with audience pain + close with tagline
 
 | Lead Headline | Supporting Line |
 |---------------|-----------------|
-| "Been burned before?" | "Certainty First. We prove the ROI before you spend." |
+| "Want proof before you commit?" | "Certainty First. We prove the ROI before you spend." |
 | "Tired of promises?" | "Certainty First. See the numbers before you commit." |
 | "What if you could see it work first?" | "Certainty First. That's the ScaleUp difference." |
 | "Still paying for hope?" | "Certainty First. Proof before payment." |
@@ -244,10 +244,10 @@ When sharing insights, occasionally close with:
 | Context | Copy |
 |---------|------|
 | General | "Certainty First. We prove the ROI before you spend a dollar." |
-| Skepticism | "Certainty First. Because you have been burned before." |
+| Skepticism | "Certainty First. Because smart owners need proof before they commit." |
 | Process | "Certainty First. Your data. Your proof. Before you commit." |
 | Outcome | "Certainty First. Know exactly what you will get." |
-| Trust | "Certainty First. The opposite of every agency that disappeared." |
+| Trust | "Certainty First. Real data, real projections, real accountability." |
 
 ### Medium-Form Pairings (Tagline + Paragraph)
 
@@ -264,7 +264,7 @@ When sharing insights, occasionally close with:
 **For LinkedIn "About" Section:**
 > **Certainty First.**
 >
-> ScaleUp Ventures helps business owners aged 50+ modernize without the risk. We are the only advisory partner that proves the ROI before you spend. Development. Growth marketing. AI automation. One partner. One model. One guarantee: you will see the proof first.
+> ScaleUp Ventures helps business owners aged 30-55 modernize without the risk. We are the only advisory partner that proves the ROI before you spend. Development. Growth marketing. AI automation. One partner. One model. One guarantee: you will see the proof first.
 
 ### Long-Form Narrative (Brand Story)
 
@@ -272,7 +272,7 @@ When sharing insights, occasionally close with:
 >
 > Like the heron that watches patiently before striking with precision, we believe the best decisions come from certainty - not hope.
 >
-> You have spent decades building something valuable. You have earned your skepticism. Agencies have promised you results and disappeared. Consultants have charged for advice that went nowhere. Technology vendors have sold you tools that collected dust.
+> You have spent years building something valuable. You are a data-driven decision maker who needs to see the ROI before committing significant resources. You have high standards for accountability and expect partners to prove their value - not just promise it.
 >
 > We are different because we start different.
 >
@@ -291,7 +291,7 @@ When sharing insights, occasionally close with:
 - Use "Certainty First." as a complete sentence with period
 - Pair with concrete, proof-focused supporting copy
 - Connect to the Heron symbol narrative when context allows
-- Use in places where the target audience (50-65, skeptical) will see it
+- Use in places where the target audience (30-55, skeptical) will see it
 - Maintain consistent capitalization: "Certainty First."
 
 ### Don't

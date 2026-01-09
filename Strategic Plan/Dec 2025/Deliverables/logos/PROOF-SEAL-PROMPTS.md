@@ -9,7 +9,7 @@
 ## Brand Context
 
 - **Company**: ScaleUp Ventures
-- **Target Audience**: 50-65+ technology-hesitant business owners who've been burned by agencies
+- **Target Audience**: 30-55+ technology-hesitant business owners who've been burned by agencies
 - **Tagline**: "We Prove It Before You Buy"
 - **Concept**: The Proof Seal - represents verification like a notary's embossed seal or engineer's stamp
 

@@ -2,7 +2,7 @@
 
 **Analysis Date:** December 30, 2025
 **Analyst:** ScaleUp Ventures Research
-**Purpose:** Evaluate viability as technology laggard target vertical
+**Purpose:** Evaluate viability as technology-cautious target vertical
 
 ---
 
@@ -11,7 +11,7 @@
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | Market Size (TAM potential) | 9/10 | $108.3B US market (2025), 90% locally-owned, 1M+ businesses |
-| Owner Demographics (older = higher) | 8/10 | 50% of small biz owners 55+, avg retirement age 72.6, many Baby Boomers |
+| Owner Demographics (growth-focused = higher) | 8/10 | Target company owners aged 30-55 focused on scaling their cleaning businesses. Growth-oriented operators seeking competitive advantages through technology and marketing. |
 | Budget Availability | 6/10 | 10-19% revenue on marketing typical, but thin 7% profit margins limit spend |
 | Pain Intensity (disruption fear) | 8/10 | 61% cite staffing as growth risk, 75-200% annual turnover, 70% need digital transformation |
 | Competition Level (less = higher) | 5/10 | 10+ specialized agencies exist (Cleaning in Motion, Method Clean Biz, Thrive) |

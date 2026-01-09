@@ -22,7 +22,7 @@ The towing and roadside assistance industry represents a **HIGHLY ATTRACTIVE** t
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM)** | 8/10 | $11.3B (IBISWorld 2025); ~40,000 businesses; avg revenue $250K-$500K per company |
-| **Owner Demographics (older = higher)** | 9/10 | Avg tow operator age 47; 72% are 40+; small business owners 50% are 55+; multigenerational family businesses common |
+| **Owner Demographics (growth-focused = higher)** | 9/10 | Target owners aged 30-55 focused on scaling their towing businesses. Growth-oriented operators seeking competitive advantages through technology and fleet management. |
 | **Budget Availability** | 6/10 | Net margins 10-20%; owner earnings $50K-$150K; avg 7 trucks per fleet; budget constrained but willing to invest in proven ROI |
 | **Pain Intensity** | 9/10 | Motor club pay is devastatingly low ($40 vs $250 market rate); 24/7 demands; missed calls = lost revenue; reputation management critical |
 | **Competition Level (less = higher)** | 7/10 | ~10 specialized marketing agencies exist but fragmented; no dominant player; most general agencies ignore this niche |

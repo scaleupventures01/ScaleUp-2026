@@ -27,7 +27,7 @@ The restaurant industry presents a **massive market** ($1.5 trillion in 2025) wi
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | Market Size (TAM) | **9/10** | $1.5T industry, 700K+ locations, 150K+ independent single-location restaurants |
-| Owner Demographics (older = higher) | **5/10** | Average age 39.1 years; 46% are 40+; NOT predominantly 50+ like target laggards |
+| Owner Demographics (growth-focused = higher) | **5/10** | Target restaurant owners aged 30-55 focused on growing their businesses. Growth-oriented operators seeking competitive advantages through technology. |
 | Budget Availability | **4/10** | 3-6% marketing budget typical; 5.5% profit margins; 38% restaurants unprofitable |
 | Pain Intensity | **8/10** | 76% believe tech gives competitive edge, but 23% admit lagging; marketing confidence at 27% |
 | Competition Level (less = higher) | **3/10** | Toast (130K locations), Clover (160K), SpotOn, Square, TouchBistro dominate |
@@ -114,7 +114,7 @@ Target: Independent restaurants with 1-10 locations, $500K-$5M revenue, seeking 
 - Education: 49% bachelor's degree, 6% master's
 - Diversity: Restaurant owners are MORE diverse than general business population
 
-**Key Insight**: Restaurant owners are younger and more diverse than the "technology laggard older owner" profile ScaleUp typically targets. This means:
+**Key Insight**: Restaurant owners are younger and more diverse than the "technology-cautious older owner" profile ScaleUp typically targets. This means:
 - Higher baseline tech comfort
 - Less reliance on external help
 - More likely to DIY with Toast/Square tools
@@ -465,7 +465,7 @@ For a restaurant doing $1M annually:
 
 The restaurant industry scores **46/80** and presents significant challenges:
 
-1. **Owner age mismatch**: At 39.1 years average, restaurant owners are younger and potentially more tech-savvy than ScaleUp's ideal "technology laggard" profile
+1. **Owner age mismatch**: At 39.1 years average, restaurant owners are younger and potentially more tech-savvy than ScaleUp's ideal "technology-cautious" profile
 2. **Heavy competition**: Toast, Square, SpotOn have massive war chests and expanding services
 3. **Financial fragility**: 38% unprofitable, 5% margins, high failure rates
 4. **Acquisition difficulty**: Low LinkedIn reach, fragmented channels
@@ -494,10 +494,10 @@ If entering this market despite concerns:
 
 ### Alternative Recommendation
 
-**Prioritize other verticals** that score higher on the technology laggard profile:
-- Funeral Homes (older owners, less competition)
-- Manufacturing SMB (older owners, higher budgets)
-- Auto Dealerships (older owners, significant budgets)
+**Prioritize other verticals** that score higher on the technology-cautious profile:
+- Funeral Homes (business owners, less competition)
+- Manufacturing SMB (business owners, higher budgets)
+- Auto Dealerships (business owners, significant budgets)
 - Medical Equipment Suppliers (higher margins)
 
 ---

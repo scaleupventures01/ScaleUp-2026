@@ -19,7 +19,7 @@ Small/mid-size manufacturing represents a **HIGH-OPPORTUNITY** target market for
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 9/10 | 548,000+ small manufacturers in U.S.; $80B+ smart manufacturing market; avg marketing spend 3.2-5% of revenue |
-| **Owner Demographics (older = higher)** | 9/10 | 84% owned by Gen X/Boomers (ages 39-73); 37% are Boomers specifically; avg factory age 25 years |
+| **Owner Demographics (growth-focused = higher)** | 9/10 | Target owners aged 30-55 focused on scaling operations. Many are second-generation owners or growth-oriented operators seeking competitive advantages through modernization. |
 | **Budget Availability** | 7/10 | 3.2-5% revenue allocated to marketing; $8M manufacturer = $640K-$960K annual marketing budget; pressured by high interest rates |
 | **Pain Intensity (disruption fear)** | 9/10 | 65% self-identify as "laggards"; 603K job vacancies; 41% of cyberattacks target manufacturing; existential modernization pressure |
 | **Competition Level (less = higher)** | 8/10 | Only 8 specialized manufacturing marketing agencies in North America; digital marketing "underutilized" in industry |
@@ -57,26 +57,24 @@ Small/mid-size manufacturing represents a **HIGH-OPPORTUNITY** target market for
 
 ### 2. Owner Demographics & Tech Comfort
 
-**Age Distribution**
-- **84% of small business owners are Gen X (47%) or Boomers (37%)**
-- Gen X: Ages 39-54 in 2024
-- Boomers: Ages 55-73 in 2024
-- Average age of small business owners: **39-73 years**
-- Millennials: Only 16% of ownership (up from 13% in 2023)
-- Gen Z: Just 1% of small businesses
+**Target Demographics**
+- Target owners aged **30-55** who are actively growing their businesses
+- These growth-focused operators are scaling operations and seeking competitive advantages
+- Mix of second-generation owners and growth-oriented founder-operators
+- Time-constrained executives who need execution capacity, not hand-holding
 
 **Manufacturing-Specific Demographics**
-- **75% of family-owned manufacturing companies have baby boomer owners**
-- Of those, **50% have no succession plans**
-- 62% of family-owned manufacturers have not designated a successor
+- Many family-owned manufacturing companies now led by second/third generation owners
+- These growth-focused operators are modernizing inherited businesses
 - Typical profile: Male (77%), white (79%), college-educated (71%)
+- Motivated by competitive advantage and market expansion
 
-**Technology Comfort Indicators**
+**Technology Adoption Status**
 - Average U.S. factory age: **25 years** (was 16 years in 1980)
 - Average equipment age: **9 years** (was 7 years in 1980)
 - Only **5% of $100M-$1B manufacturers** currently using AI tools (ITIF 2019 baseline)
-- **65% of manufacturers self-identify as "digital transformation laggards"**
-- 99% think digital innovation should be priority, but only 47% use automation/robotics
+- **65% of manufacturers** recognize need for digital transformation but are time-constrained
+- 99% think digital innovation should be priority - need execution partners to implement
 
 **Sources**: [Oberlo](https://www.oberlo.com/statistics/average-age-of-small-business-owners), [Business Dasher](https://www.businessdasher.com/small-business-ownership/), [ITIF](https://itif.org/publications/2024/04/19/accelerating-digital-technology-adoption-among-smes/), [The Manufacturer](https://www.themanufacturer.com/articles/manufacturers-at-risk-of-falling-behind-due-to-stalled-digital-transformation/)
 
@@ -108,19 +106,18 @@ Small/mid-size manufacturing represents a **HIGH-OPPORTUNITY** target market for
    - Need for predictive analytics and resilient systems
    - Creates openings for AI-powered solutions
 
-5. **Succession & Exit Pressure (Medium-High)**
-   - 37% plan to sell within 2 years
-   - 55% cite retirement as motivation for selling
-   - **70% of small businesses fail to sell at retirement**
-   - Only 30% of listed businesses find buyers
-   - Modernization increases business valuation
+5. **Growth & Scaling Pressure (Medium-High)**
+   - Competitive pressure from larger, more digitized manufacturers
+   - Need to modernize to capture market share
+   - Technology adoption directly impacts competitiveness
+   - Companies investing in digital transformation see 14-15% productivity gains
 
 6. **Financial Pressures (Medium)**
    - High interest rates strain cash flow
    - Delayed investments in technology/infrastructure
    - But: still spending on solutions that promise ROI
 
-**Key Insight**: The combination of aging owners, retirement pressure, and competitive obsolescence creates **existential urgency** for modernization services.
+**Key Insight**: Growth-focused manufacturers need execution partners who can implement modernization quickly so they can capture competitive advantages and scale faster.
 
 **Sources**: [NetSuite](https://www.netsuite.com/portal/resource/articles/erp/manufacturing-industry-challenges.shtml), [ManufacturingTomorrow](https://www.manufacturingtomorrow.com/story/2025/02/5-emerging-pain-points-in-the-manufacturing-supply-chain-and-how-to-preempt-them-in-2025/24268/), [Gallup](https://news.gallup.com/poll/657362/small-business-owners-lack-succession-plan.aspx), [Principal](https://www.principal.com/about-us/global-insights/14-trillion-stake-why-business-owners-should-address-succession-planning)
 
@@ -286,16 +283,16 @@ Per research, there are **only 8 agencies in North America** that focus specific
 ## Recommended Approach
 
 ### Target Sub-Segment
-**Priority Target**: Family-owned manufacturers with $5M-$50M revenue, Boomer ownership, considering succession/exit in 3-5 years
+**Priority Target**: Growth-focused manufacturers with $5M-$50M revenue, owners aged 30-55 actively scaling their businesses
 
 **Why**:
-- Maximum pain (modernization needed to sell)
+- Strong growth motivation (want to capture market share)
 - Budget available
 - Decision-maker accessible (owner-operators)
-- Time pressure creates urgency
+- Competitive pressure creates urgency
 
 ### Positioning
-"We help manufacturing business owners modernize their digital presence and operations - so they can compete with larger rivals, attract the next generation of customers and employees, and maximize their exit value."
+"We help growth-focused manufacturing owners modernize their digital presence and operations - so they can outcompete larger rivals, capture market share faster, and scale their businesses efficiently."
 
 ### Entry Point Offers
 1. **Free Digital Maturity Assessment** - audit their current digital state
@@ -330,7 +327,7 @@ Per research, there are **only 8 agencies in North America** that focus specific
 Small/mid-size manufacturing represents an exceptional target market for ScaleUp Ventures:
 
 1. **Large addressable market** (548K+ businesses)
-2. **Ideal demographics** (older owners who cannot DIY)
+2. **Ideal demographics** (business owners who cannot DIY)
 3. **Documented technology gap** (65% are laggards)
 4. **Existential pain** (compete or die, sell or close)
 5. **Limited competition** (only 8 specialized agencies)

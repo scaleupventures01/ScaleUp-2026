@@ -2,7 +2,7 @@
 
 **Document Purpose:** Professional founder bios establishing credibility and trust with our target audience
 **Brand Voice:** Watchful, Measured, Decisive
-**Target Audience:** Skeptical 50-65 year old business owners, $1M-$15M revenue
+**Target Audience:** Skeptical 30-55 year old business owners, $1M-$15M revenue
 **Last Updated:** December 31, 2025
 
 ---

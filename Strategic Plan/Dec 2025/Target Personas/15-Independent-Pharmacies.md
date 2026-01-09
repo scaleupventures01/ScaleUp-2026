@@ -10,7 +10,7 @@
 
 **Verdict**: STRONG POTENTIAL - Independent pharmacies represent a compelling target market for ScaleUp Ventures due to existential competitive pressures, technology gaps, and owner demographics that align with our services.
 
-**Key Finding**: An industry in crisis mode (30%+ considering closure) with older owners, minimal marketing spend, and desperate need for modernization - but tight margins require careful service packaging and pricing.
+**Key Finding**: An industry in crisis mode (30%+ considering closure) with business owners, minimal marketing spend, and desperate need for modernization - but tight margins require careful service packaging and pricing.
 
 ---
 
@@ -19,7 +19,7 @@
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 8/10 | $172.56B market, 18,984 locations; avg revenue $3.8M/location = ~$72B addressable; even 1% capture = $720M opportunity |
-| **Owner Demographics (older = higher)** | 7/10 | Average pharmacist age 41; 40%+ of small businesses owned by baby boomers; high "Peak 65" retirement wave; many multi-generational family businesses |
+| **Owner Demographics (growth-focused = higher)** | 7/10 | Target pharmacy owners aged 30-55 focused on competing effectively. Growth-oriented operators seeking differentiation against chain pharmacies. |
 | **Budget Availability** | 4/10 | Avg marketing spend only $5,000/year (0.13% of revenue); gross margins at historic low of 19.7%; significant financial stress but desperation may drive spending |
 | **Pain Intensity (disruption fear)** | 9/10 | 32% considering closure in 2024; 326+ pharmacies closed since Dec 2024 PBM reform failed; existential threat from chains & PBMs; 99% experienced reimbursement reductions |
 | **Competition Level (less = higher)** | 7/10 | Only 3-4 dedicated pharmacy marketing agencies (GRX Marketing, Pharm Fresh Media, Storey Marketing); fragmented software vendors; no dominant player serving dev/AI needs |
@@ -404,7 +404,7 @@ Independent pharmacies represent a **compelling but nuanced** opportunity for Sc
 
 **Strengths**:
 - High pain intensity creates urgency
-- Technology laggards with clear gaps
+- Technology-cautiouss with clear gaps
 - Owner demographics align (older, not tech-savvy)
 - Concentrated acquisition channels (NCPA)
 - Limited modern competition in dev/AI space

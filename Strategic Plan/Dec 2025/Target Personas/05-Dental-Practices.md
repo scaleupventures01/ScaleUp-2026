@@ -19,7 +19,7 @@ Dental practices represent a compelling target persona for ScaleUp Ventures. The
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 9/10 | $165B US dental services market (2024); 56% independent practices = ~$92B addressable; 200,000+ dentists with 72.5% as private practice owners |
-| **Owner Demographics (older = higher)** | 8/10 | 66% of dentist/owners are 40+; average retirement age 68.7 years; 34% are 55+; declining ownership among younger dentists creates aging owner base |
+| **Owner Demographics (growth-focused = higher)** | 8/10 | Target owners aged 30-55 focused on growing their practices. Growth-oriented practitioners seeking competitive advantages against DSO consolidation. |
 | **Budget Availability** | 7/10 | Average practice revenue $600K-$1.2M; recommended 5-10% marketing spend = $30K-$120K annually; 30-40% profit margins; practices with $1M revenue spend $60K-$100K/year on marketing |
 | **Pain Intensity (disruption fear)** | 9/10 | DSO consolidation threat (17.9% CAGR); 60%+ cite staffing as top challenge; 28% "not busy enough"; patient acquisition now "name of the game in 2024"; insurance reimbursement compression |
 | **Competition Level (less = higher)** | 6/10 | Many dental marketing agencies exist (KickStart, Wonderist, Gravity, etc.); however, most focus only on marketing - FEW offer integrated dev + growth + AI automation services |

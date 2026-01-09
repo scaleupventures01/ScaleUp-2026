@@ -15,7 +15,7 @@ The chiropractic industry presents a compelling opportunity for ScaleUp Ventures
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM)** | 8/10 | $19.5-21.9B industry, 67,000+ practices, substantial addressable market |
-| **Owner Demographics (older = higher)** | 7/10 | Average age 45-47 years; 67% are 40+; male-dominated (70%); only 8% can afford to retire at 65 |
+| **Owner Demographics (growth-focused = higher)** | 7/10 | Target practice owners aged 30-55 focused on growing their patient base. Growth-oriented chiropractors seeking competitive advantages and new patient acquisition. |
 | **Budget Availability** | 7/10 | Average practice revenue $295K-$412K; 33% net margins; 6-12% typically allocated to marketing; $500-$2,000/mo marketing spend common |
 | **Pain Intensity** | 8/10 | 72% of struggling practices need new patients ASAP; 60% spend under $250/mo on marketing; billing/scheduling/retention are major pain points |
 | **Competition Level (less = higher)** | 5/10 | Moderate competition - 10+ specialized agencies (ChiroCandy, CHIROBASIX, ChiroMatrix); but fragmented with no dominant player |
@@ -208,7 +208,7 @@ Cash practices command premium valuations (e.g., 3x SDE), while insurance-heavy 
 **Competitive Differentiation Opportunity**:
 - Agencies are marketing-focused; ScaleUp offers dev + marketing + AI/automation
 - Most agencies use templated solutions; ScaleUp can offer custom development
-- Few competitors address the "technology laggard" positioning specifically
+- Few competitors address the "technology-cautious" positioning specifically
 
 **Sources**: [INSIDEA Agency List](https://insidea.com/blog/marketing/chiropractors/digital-marketing-agencies-for-chiropractors/), [Amra & Elma Best Agencies](https://www.amraandelma.com/chiropractic-marketing-agencies/)
 
@@ -343,7 +343,7 @@ Cash practices command premium valuations (e.g., 3x SDE), while insurance-heavy 
 ### Secondary Target: "The Pre-Exit Owner"
 
 **Demographics**:
-- Age: 55-65+
+- Age: 30-55+
 - Any practice size
 - Looking to sell or transition in 3-7 years
 - Wants to maximize practice value

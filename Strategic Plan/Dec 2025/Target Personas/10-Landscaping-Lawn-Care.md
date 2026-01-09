@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-The landscaping and lawn care industry represents a **STRONG opportunity** for ScaleUp Ventures. This is a massive, highly fragmented market dominated by small operators with older ownership demographics, significant technology gaps, and acute pain points that align directly with our service offerings.
+The landscaping and lawn care industry represents a **STRONG opportunity** for ScaleUp Ventures. This is a massive, highly fragmented market dominated by small operators with business ownership demographics, significant technology gaps, and acute pain points that align directly with our service offerings.
 
 **Verdict**: PURSUE - High-priority target persona
 
@@ -19,7 +19,7 @@ The landscaping and lawn care industry represents a **STRONG opportunity** for S
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 9/10 | $153-176B US market, 641,000+ businesses, growing 3-7% annually |
-| **Owner Demographics (older = higher)** | 7/10 | Average owner age 40-41; 52% of all US employer-businesses owned by 55+; 10K boomers retire daily |
+| **Owner Demographics (growth-focused = higher)** | 7/10 | Target owners aged 30-55 focused on scaling their landscaping businesses. Growth-oriented operators seeking competitive advantages through technology and marketing. |
 | **Budget Availability** | 7/10 | 65% earn $1M+ revenue; recommended 5-10% marketing spend; avg Google Ads budget $567/mo (room to grow) |
 | **Pain Intensity (disruption fear)** | 8/10 | 51% cite staffing as #1 challenge; 70% fail within 18 months; labor shortage driving automation interest |
 | **Competition Level (less = higher)** | 6/10 | ~10 specialized marketing agencies exist; most charge $12K-100K/yr; few offer full-stack dev+AI |

@@ -2,7 +2,7 @@
 
 **Document Purpose:** Proof-forward email signature CTAs that drive website traffic
 **Brand Voice:** Watchful, Measured, Decisive
-**Target Audience:** Skeptical 50-65 year old business owners
+**Target Audience:** Skeptical 30-55 year old business owners
 **Last Updated:** December 31, 2025
 
 ---
@@ -12,7 +12,7 @@
 Email signatures are passive marketing assets that work with every message sent. For ScaleUp Ventures, they serve a specific function: plant the seed of our proof-first methodology with every email touchpoint.
 
 **Key Considerations for This Audience:**
-- Skeptical of marketing claims (50% have been burned by agencies)
+- Data-driven and want to see proof before committing
 - Respond to concrete outcomes, not promises
 - Value straightforward language over polish
 - Trust actions more than words
@@ -32,7 +32,7 @@ The CTA must be proof-forward without being salesy. It should invite curiosity, 
 - Directly states the core differentiator
 - Action-oriented ("see") rather than passive
 - Implies no-risk evaluation
-- Speaks to the burned business owner's primary fear
+- Speaks to the data-driven owner's need for certainty
 
 **Best For:** All outbound communication, especially cold or warm outreach
 
@@ -59,7 +59,7 @@ The CTA must be proof-forward without being salesy. It should invite curiosity, 
 > We prove it before you buy. | scaleupventures.co
 
 **Why It Works:**
-- Plain language that a 60-year-old business owner immediately understands
+- Plain language that a 45-year-old business owner immediately understands
 - First-person "we" establishes accountability
 - Differentiates from agencies that promise and disappear
 - Echoes the core brand promise verbatim

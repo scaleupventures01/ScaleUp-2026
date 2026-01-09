@@ -3,7 +3,7 @@
 ## Brand Context
 - **Company:** ScaleUp Ventures - B2B professional services/advisory firm
 - **Tagline:** "We Prove It Before You Buy"
-- **Target:** 50-65 year old skeptical business owners who've been burned by consultants
+- **Target:** 30-55 year old skeptical business owners who've been burned by consultants
 - **Colors:** Navy #0F1729, Gold #D4A853, Muted Gold #B8956E
 - **Background:** WHITE (#FFFFFF) - mandatory
 

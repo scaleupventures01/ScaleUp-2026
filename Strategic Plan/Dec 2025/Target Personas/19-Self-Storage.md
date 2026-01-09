@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-The self-storage industry represents a **strong opportunity** for ScaleUp Ventures. With 65-73% of facilities owned by independent "mom-and-pop" operators, a median owner age of ~50, and documented technology struggles, this industry fits the technology laggard profile. The $44B U.S. market faces intense REIT consolidation pressure, creating urgency for independents to modernize or sell. Key pain points align directly with ScaleUp's dev, growth marketing, and AI/automation services.
+The self-storage industry represents a **strong opportunity** for ScaleUp Ventures. With 65-73% of facilities owned by independent "mom-and-pop" operators, a median owner age of ~50, and documented technology struggles, this industry fits the technology-cautious profile. The $44B U.S. market faces intense REIT consolidation pressure, creating urgency for independents to modernize or sell. Key pain points align directly with ScaleUp's dev, growth marketing, and AI/automation services.
 
 ---
 
@@ -17,7 +17,7 @@ The self-storage industry represents a **strong opportunity** for ScaleUp Ventur
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 9/10 | $44.3B U.S. market (MiniCo 2024 Almanac); 40.2% controlled by small operators = ~$17.8B addressable; 52,000+ facilities nationwide |
-| **Owner Demographics (older = higher)** | 7/10 | Median age ~50 years; 2/3 of independents own single facility; many family-owned businesses; slower tech adoption documented |
+| **Owner Demographics (growth-focused = higher)** | 7/10 | Target facility owners aged 30-55 focused on competing against REITs. Growth-oriented operators seeking competitive advantages through technology and marketing. |
 | **Budget Availability** | 8/10 | 30-50% profit margins (highest in real estate); recommended 5-15% of revenue on marketing; facilities spending $500-$2,000/month on marketing; software market valued at $500M in U.S. |
 | **Pain Intensity (disruption fear)** | 9/10 | REITs own 45% of inventory (up from 17% in 2000); intense consolidation pressure; 38% cite cost as barrier to tech upgrades; "losers" in 2026 outlook are mom-and-pops |
 | **Competition Level (less = higher)** | 6/10 | Specialized agencies exist (Storage Group, SpareFoot, Storable) but fragmented; 25+ software vendors; most focus on large operators; underserved independent segment |

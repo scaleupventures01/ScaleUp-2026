@@ -19,7 +19,7 @@ The Construction/General Contractors industry represents a compelling opportunit
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 9/10 | $2.2T industry, 3.97M businesses, 814K with employees. Massive addressable market with fragmented ownership structure ideal for service providers. |
-| **Owner Demographics (older = higher)** | 6/10 | Average age 48.3 years (youngest of any industry). However, 50%+ of owners are 50-88 years old. Mixed - younger than expected but still significant older cohort. |
+| **Owner Demographics (growth-focused = higher)** | 6/10 | Average age 48.3 years. Target owners aged 30-55 who are actively scaling their businesses. Growth-focused operators seeking competitive advantages through technology adoption. |
 | **Budget Availability** | 7/10 | Average net margins 6-8%, gross margins 24%. Recommended marketing spend 7-10% of revenue. A $5M contractor should spend $350K-$500K on marketing. Real spend is only ~1-3% indicating untapped budget. |
 | **Pain Intensity (disruption fear)** | 8/10 | 70% have no technology roadmap. 42% cite cybersecurity as top concern. Labor shortages affecting 93% of firms. Rising costs and supply chain issues creating urgency for efficiency. |
 | **Competition Level (less = higher)** | 6/10 | Established agencies exist (Hook Agency, BuildWitt, WebFX, Blue Corona) but market is highly fragmented. Most agencies focus on lead gen/SEO, few offer dev + AI/automation. |
@@ -66,9 +66,9 @@ The Construction/General Contractors industry represents a compelling opportunit
 - Only 16% under age 35
 
 **Implications**:
-- Younger average than expected for a "tech laggard" industry
-- Still significant cohort of 50+ owners who struggle with technology
-- Focus targeting on owners 45+ for best fit with ScaleUp's value proposition
+- Target growth-focused owners aged 30-55 who are scaling their businesses
+- These operators recognize competitive advantage of digital but lack time to implement themselves
+- Focus targeting on time-constrained owners who need execution capacity
 
 **Technology Comfort**:
 - 70% of contractors have **no formal technology roadmap**
@@ -146,7 +146,7 @@ The Construction/General Contractors industry represents a compelling opportunit
 - **Recommended**: 7-10% of revenue for marketing
 - **Actual spend**: Only 1-3% of revenue (significant gap)
 - 54% spend $1,000-$10,000+/month on marketing
-- Digital marketing: 55-65% of marketing budget
+- Digital marketing: 30-55% of marketing budget
 - Social media: 15-19% of marketing budget
 
 **Budget Reality**:
@@ -266,7 +266,7 @@ The Construction/General Contractors industry represents a compelling opportunit
 **Primary Target**:
 - General contractors with **$2M-$20M annual revenue**
 - **5-50 employees**
-- Owner age **45-65**
+- Owner age **30-55**
 - Operating for **10+ years**
 - Experiencing growth but struggling to scale operations
 - Limited in-house technology capabilities

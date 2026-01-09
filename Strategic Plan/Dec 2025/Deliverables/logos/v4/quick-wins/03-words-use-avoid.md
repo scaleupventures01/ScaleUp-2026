@@ -9,7 +9,7 @@
 
 ## Why Language Matters
 
-ScaleUp Ventures serves skeptical business owners aged 50-65 who have been burned by consultants before. They can smell marketing speak from a mile away. Every word choice either builds or erodes trust.
+ScaleUp Ventures serves data-driven business owners aged 30-55 who need to see proof before committing. They can smell marketing speak from a mile away. Every word choice either builds or erodes trust.
 
 **Our Voice Attributes:**
 - **Watchful** - We observe carefully before acting
@@ -80,9 +80,9 @@ ScaleUp Ventures serves skeptical business owners aged 50-65 who have been burne
 
 | Avoid This | Why It Fails | Use Instead |
 |------------|--------------|-------------|
-| **Revolutionary** | Hyperbole that burned clients have heard before | Describe the specific improvement: "Cuts response time from 4 hours to 15 minutes" |
+| **Revolutionary** | Hyperbole that data-driven owners see through immediately | Describe the specific improvement: "Cuts response time from 4 hours to 15 minutes" |
 | **Game-changing** | Over-promises and triggers skepticism | "This will add $X to your monthly revenue" |
-| **Transform your business** | Vague transformation promises are what burned them before | "Add $50K in annual revenue through automated lead capture" |
+| **Transform your business** | Vague transformation promises don't satisfy owners who need to see the numbers | "Add $50K in annual revenue through automated lead capture" |
 | **Unlock your potential** | Self-help language that doesn't belong in B2B | "Generate 30% more leads from your existing traffic" |
 | **Skyrocket** | Exaggeration that responsible advisors don't use | Provide the actual projection with supporting data |
 
@@ -166,7 +166,7 @@ ScaleUp Ventures serves skeptical business owners aged 50-65 who have been burne
 **AFTER (On-Brand):**
 > "See your return before you invest. We build a custom ROI model using your actual numbers. You'll know exactly how you make your money back - before you spend a dollar."
 
-**Why It Works:** Immediate proof-based positioning. Plain language. Addresses the core fear of burned business owners.
+**Why It Works:** Immediate proof-based positioning. Plain language. Addresses the core need of data-driven business owners.
 
 ---
 
@@ -212,7 +212,7 @@ ScaleUp Ventures serves skeptical business owners aged 50-65 who have been burne
 
 Before publishing any content, ask:
 
-1. **Would a skeptical 60-year-old business owner roll their eyes?** If yes, rewrite.
+1. **Would a skeptical 45-year-old business owner roll their eyes?** If yes, rewrite.
 2. **Does it include a specific number, timeline, or verifiable claim?** If no, add one.
 3. **Could a competitor copy-paste this onto their website?** If yes, make it more specific.
 4. **Does it ask for trust or demonstrate evidence of trustworthiness?** Choose evidence.

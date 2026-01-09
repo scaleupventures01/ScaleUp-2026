@@ -10,14 +10,14 @@
 
 - **Tagline:** Proof First.
 - **Core Differentiator:** Pre-engagement ROI modeling
-- **Target Audience:** Business owners aged 50-65, $1M-$15M revenue, skeptical of agencies
+- **Target Audience:** Business owners aged 30-55, $1M-$15M revenue, skeptical of agencies
 - **Key Message:** "We show you how you'll make your money back before you spend a dollar."
 
 ---
 
 ## 1. Headline Options (120 characters max)
 
-LinkedIn headlines appear directly under your name and are critical for first impressions. Each option below is calibrated to resonate with skeptical business owners who have been burned by agencies.
+LinkedIn headlines appear directly under your name and are critical for first impressions. Each option below is calibrated to resonate with growth-focused business owners who want to see proof before committing.
 
 ### Option A: ROI-First Positioning
 ```
@@ -25,17 +25,17 @@ We prove ROI before you spend a dollar | Helping $1M-$15M businesses modernize w
 ```
 *Character count: 98*
 
-**Why it works:** Leads with the core differentiator. "Before you spend a dollar" is the signature phrase that resonates with burned business owners. "Without the gamble" addresses their fear.
+**Why it works:** Leads with the core differentiator. "Before you spend a dollar" is the signature phrase that resonates with data-driven business owners. "Without the gamble" addresses their need for certainty.
 
 ---
 
 ### Option B: Partner vs. Vendor Framing
 ```
-Growth Partner for Technology Laggard Businesses | Dev + Marketing + AI Under One Roof
+Growth Partner for Scaling Businesses | Dev + Marketing + AI Under One Roof
 ```
 *Character count: 88*
 
-**Why it works:** "Technology laggard" is an honest, non-condescending acknowledgment of the target market. "Under One Roof" addresses vendor fatigue.
+**Why it works:** "Growth-focused" speaks to their ambition while acknowledging they're too time-constrained to implement themselves. "Under One Roof" addresses vendor fatigue.
 
 ---
 
@@ -59,9 +59,9 @@ The About section should immediately address the target persona's pain point, th
 
 **Version:**
 
-> Half of the business owners I talk to have been burned by agencies before.
+> Most of the business owners I talk to want one thing: proof before they commit.
 >
-> They paid for a website that didn't generate leads. They invested in marketing that couldn't prove ROI. They trusted consultants who disappeared after the contract was signed.
+> They're too time-constrained to implement everything themselves. They need a partner who can execute - but they also need to see the ROI before investing.
 >
 > That's why we built ScaleUp Ventures differently. Before you invest a dollar, we build a model showing exactly how you'll make your money back. Real numbers. Your market. Your business.
 >
@@ -107,7 +107,7 @@ The About section should immediately address the target persona's pain point, th
 >
 > The website didn't generate leads. The marketing couldn't show results. The consultant talked in jargon and never delivered.
 >
-> That's why ScaleUp Ventures exists. We work with business owners who have been burned and are skeptical of anyone promising "transformation." We get it.
+> That's why ScaleUp Ventures exists. We work with business owners who want to see proof before committing - owners who are too busy running operations to gamble on promises. We get it.
 >
 > Our approach is simple: show you the numbers first. Before you sign anything, you'll see exactly what your investment will return. If it doesn't make sense, we'll say so.
 >
@@ -207,7 +207,7 @@ Development, Marketing, and AI for Business Owners Who Demand Proof.
 > - **AI & Automation:** Systems that save your team hours every week
 >
 > **Who we serve:**
-> Business owners aged 50+ running $1M-$15M companies in staffing, healthcare, trades, and professional services. Leaders who value accountability over promises.
+> Business owners aged 30-55 running $1M-$15M companies in staffing, healthcare, trades, and professional services. Leaders who value accountability over promises.
 >
 > **Our approach:**
 > Proof First. We prove value before you commit. Talk to our clients. You own everything we build.
@@ -229,7 +229,7 @@ For A/B testing or seasonal updates:
 | 2 | Development, Marketing, and AI for Business Owners Who Demand Proof. | 69 |
 | 3 | Stop Gambling on Technology. Start With the Numbers. | 52 |
 | 4 | One Partner. Complete Modernization. Proof Before You Pay. | 59 |
-| 5 | We Help Technology Laggards Catch Up - Without the Condescension. | 66 |
+| 5 | We Help Growth-Focused Owners Scale - With Proof Before Payment. | 63 |
 
 ---
 
@@ -241,7 +241,7 @@ Before publishing any LinkedIn content, verify:
 
 - [ ] Does it lead with outcomes, not capabilities?
 - [ ] Does it include specific numbers or proof points?
-- [ ] Would a 60-year-old business owner understand every word?
+- [ ] Would a 45-year-old business owner understand every word?
 - [ ] Does it acknowledge their skepticism honestly?
 - [ ] Is the CTA clear and low-pressure?
 
@@ -261,7 +261,7 @@ Before publishing any LinkedIn content, verify:
 | Word | Why |
 |------|-----|
 | Solutions | Vague, overused |
-| Cutting-edge | Intimidating to tech laggards |
+| Cutting-edge | Buzzword that invites skepticism |
 | Synergy | Corporate jargon |
 | Transform / Transformation | Abstract, overused |
 | Disrupt | Negative association for target |

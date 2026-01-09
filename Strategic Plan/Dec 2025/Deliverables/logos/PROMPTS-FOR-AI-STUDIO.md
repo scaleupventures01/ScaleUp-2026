@@ -150,7 +150,7 @@ COLOR EXECUTION:
 - Background: White
 
 MOOD:
-This is the logo that makes a 60-year-old business owner say "I've never seen anything quite like that - but I understand exactly what it means." Sophisticated disruption. Creative confidence. A firm that sees things differently and delivers measurably.
+This is the logo that makes a 45-year-old business owner say "I've never seen anything quite like that - but I understand exactly what it means." Sophisticated disruption. Creative confidence. A firm that sees things differently and delivers measurably.
 
 WHAT THIS MUST ACHIEVE:
 - Instantly memorable silhouette

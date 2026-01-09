@@ -15,7 +15,7 @@ Physical therapy clinics represent a compelling target market for ScaleUp Ventur
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM)** | 8/10 | $47-53B market size, 50,000+ clinics, highly fragmented with 71% independent |
-| **Owner Demographics (older = higher)** | 7/10 | Average PT age 41.2 years, 52% over 40; small business owners average 44-55+ years |
+| **Owner Demographics (growth-focused = higher)** | 7/10 | Target clinic owners aged 30-55 focused on scaling their practices. Growth-oriented practitioners seeking patient acquisition and operational efficiency. |
 | **Budget Availability** | 7/10 | Average clinic revenue $850K-$900K; 7-8% marketing budget recommended ($60K-$72K annually) |
 | **Pain Intensity** | 9/10 | Declining reimbursements (10%+ since 2016), 40% patient dropout, 80% burnout rate, technology struggles |
 | **Competition Level (less = higher)** | 5/10 | Crowded space: WebPT, Breakthrough, Practice Promotions, 10+ specialized PT marketing agencies |
@@ -90,7 +90,7 @@ Physical therapy clinics represent a compelling target market for ScaleUp Ventur
 - **Baby Boomer business owners**: 2.34 million in US
 - **Without succession plans**: Nearly 60%
 
-**Key Insight**: While the average PT is 41, clinic **owners** tend to be older and more experienced. Given that 52% of PTs are 40+, and business ownership skews older (64% of owners are 40+, 50%+ are 55+), the typical PT practice owner likely falls in the 45-60 age range - prime technology laggard territory.
+**Key Insight**: While the average PT is 41, clinic **owners** tend to be older and more experienced. Given that 52% of PTs are 40+, and business ownership skews older (64% of owners are 40+, 50%+ are 55+), the typical PT practice owner likely falls in the 45-60 age range - prime technology-cautious territory.
 
 **Sources**: [Zippia Demographics](https://www.zippia.com/physical-therapist-jobs/demographics/), [Cross River Therapy](https://www.crossrivertherapy.com/research/physical-therapy-statistics), [APTA Demographics Report](https://www.apta.org/apta-and-you/news-publications/reports/2025/demographics-profession), [Census Bureau](https://www.census.gov/library/visualizations/2020/comm/business-owners-ages.html)
 
@@ -392,7 +392,7 @@ Physical therapy clinics represent a compelling target market for ScaleUp Ventur
 2. Intense pain points create urgency
 3. Strong fit with all ScaleUp service lines
 4. Clear acquisition channels exist
-5. Owners demographically align with technology laggard profile
+5. Owners demographically align with technology-cautious profile
 
 **Weaknesses**:
 1. Competitive marketing agency landscape

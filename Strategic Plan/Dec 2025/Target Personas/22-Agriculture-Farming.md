@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-The agriculture/farming industry presents a **MIXED opportunity** for ScaleUp Ventures. While the sector has ideal demographics (older owners, technology laggards) and massive market size, several structural challenges limit acquisition ease and fit with ScaleUp's services. The industry is better suited for **B2B SaaS and AgTech products** than for marketing/dev services targeting individual farm operators.
+The agriculture/farming industry presents a **MIXED opportunity** for ScaleUp Ventures. While the sector has ideal demographics (business owners, technology-cautiouss) and massive market size, several structural challenges limit acquisition ease and fit with ScaleUp's services. The industry is better suited for **B2B SaaS and AgTech products** than for marketing/dev services targeting individual farm operators.
 
 **Verdict**: MODERATE FIT - Consider targeting **agribusiness suppliers and agricultural service providers** rather than farms directly.
 
@@ -19,7 +19,7 @@ The agriculture/farming industry presents a **MIXED opportunity** for ScaleUp Ve
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 9/10 | $623.9B gross farm income (2025); 1.88M farms; farm management software market alone is $2.8B growing to $5.1B by 2030 |
-| **Owner Demographics (older = higher)** | 9/10 | Average farmer age 58.1 years; 40%+ are 65+; 12% increase in 65+ farmers since 2017; beginning farmers average 47.1 years |
+| **Owner Demographics (growth-focused = higher)** | 9/10 | Target farm operators aged 30-55 focused on scaling their agribusiness operations. Growth-oriented farmers seeking competitive advantages through precision agriculture and technology adoption. |
 | **Budget Availability** | 5/10 | Small farms (86% of market) have <$350K GCFI; 48% have <$10K annual sales; marketing budgets are minimal; 60% plan to increase digital marketing spend but from very low base |
 | **Pain Intensity (disruption fear)** | 7/10 | High costs (52%), unclear ROI (40%), lack of awareness (72%), labor shortages cited as major pain points; fear of being left behind by tech-savvy competitors |
 | **Competition Level (less = higher)** | 4/10 | Crowded with specialized agencies (AdFarm, Rhea+Kaiser, Meyocks) and major tech players (Deere, Trimble, Climate LLC); high fragmentation |
@@ -247,7 +247,7 @@ Given the analysis, ScaleUp Ventures should consider targeting the **B2B compani
 
 | Segment | Why It Fits | ScaleUp Service Fit |
 |---------|-------------|---------------------|
-| **Ag Equipment Dealers** | Local businesses, older owners, need digital presence | Web dev, local SEO, lead gen |
+| **Ag Equipment Dealers** | Local businesses, business owners, need digital presence | Web dev, local SEO, lead gen |
 | **Seed/Fertilizer Distributors** | Regional B2B, outdated marketing | Growth marketing, CRM automation |
 | **Agricultural Lenders/Insurers** | Financial services, need modern UX | Web dev, AI automation |
 | **AgTech Startups** | Need dev/growth resources | Full suite fit |

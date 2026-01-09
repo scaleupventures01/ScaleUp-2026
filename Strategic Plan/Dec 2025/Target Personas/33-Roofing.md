@@ -15,7 +15,7 @@ The roofing industry represents a compelling opportunity for ScaleUp Ventures. W
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | Market Size (TAM) | 9/10 | $76.4B industry (2025), ~100,000 businesses, average revenue $1.3M per company |
-| Owner Demographics (older = higher) | 8/10 | Average owner age 47-51 years; 68% of contractors are 40+ years old |
+| Owner Demographics (growth-focused = higher) | 8/10 | Target owners aged 30-55 focused on scaling their roofing businesses. Growth-oriented contractors seeking competitive advantages through technology and marketing. |
 | Budget Availability | 7/10 | Companies spend 5-10% of revenue on marketing; $10K/month typical for $2.5M company; 20-40% gross margins |
 | Pain Intensity | 8/10 | Labor shortages, technology resistance, marketing agency frustration (67% unhappy), 72% fail within 5 years |
 | Competition Level (less = higher) | 5/10 | 20+ specialized roofing marketing agencies; however, fragmented and often underperforming |
@@ -43,7 +43,7 @@ The roofing industry represents a compelling opportunity for ScaleUp Ventures. W
 
 ---
 
-### 2. Owner Demographics (older = higher) - 8/10
+### 2. Owner Demographics (growth-focused = higher) - 8/10
 
 **Evidence:**
 - **Average Owner/Executive Age**: 47-51 years (Roofing Contractor State of Industry Report)

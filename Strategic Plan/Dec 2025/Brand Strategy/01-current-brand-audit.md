@@ -521,25 +521,26 @@ The current website brand is fundamentally misaligned with the company's actual 
 
 **Current State:** Generic targeting of "small and medium businesses."
 
-**Strategic Direction:** Specific focus on technology laggard business owners aged 45-65 who have been burned by agencies.
+**Strategic Direction:** Specific focus on growth-minded business owners aged 30-55 who are scaling aggressively but too time-constrained to implement themselves.
 
 | Audience Attribute | Current Site Signal | Validated Target |
 |-------------------|--------------------|--------------------|
-| Age | None (tech-forward aesthetic) | 45-65 years |
-| Tech comfort | Implies high (AI-first messaging) | Low-moderate (technology laggards) |
-| Agency experience | Not addressed | Burned before, skeptical |
+| Age | None (tech-forward aesthetic) | 30-55 years |
+| Tech comfort | Implies high (AI-first messaging) | Comfortable but time-poor |
+| Primary constraint | Not addressed | Bandwidth, not ability |
 | Investment capacity | "Affordable" | $20K+/year |
-| Decision style | Not signaled | Decisive, ROI-focused |
+| Decision style | Not signaled | Data-driven, wants proof fast |
+| Motivation | Not signaled | Growth & competitive advantage |
 
-**Impact:** The brand may attract wrong prospects (tech-savvy, budget-constrained) while repelling ideal clients (established owners, high budget, need trust).
+**Impact:** The brand may attract wrong prospects (tech-savvy DIYers, budget-constrained) while repelling ideal clients (growth-stage owners seeking competitive edge, high budget, need speed).
 
-**Recommendation:** Add explicit audience signals and empathy for "burned by agencies" experience. Adjust visual tone to be more warm/trustworthy, less cold/techy.
+**Recommendation:** Add explicit audience signals emphasizing growth ambition and time constraints. Position as the "implementation partner for leaders too busy to do it themselves" rather than a teaching/consulting approach.
 
 ### Gap 4: Missing Trust Architecture
 
 **Current State:** Single testimonial, no case studies, no client logos, no founder profile.
 
-**Strategic Direction:** Trust must be central given target audience has been burned by agencies.
+**Strategic Direction:** Trust must be central given target audience values proof and data before commitment.
 
 | Trust Signal | Current State | Needed |
 |-------------|---------------|--------|
@@ -549,9 +550,9 @@ The current website brand is fundamentally misaligned with the company's actual 
 | Team/Founder bio | 0 | Full profile with credentials |
 | "Talk to our clients" offer | No | Prominently featured |
 
-**Impact:** Skeptical prospects have no evidence to overcome past agency trauma.
+**Impact:** Data-driven prospects have no evidence to validate ROI claims before committing.
 
-**Recommendation:** Immediately gather testimonials from existing clients. Create case studies showing projected vs. actual ROI. Add founder profile and credentials.
+**Recommendation:** Immediately gather testimonials from existing clients. Create case studies showing projected vs. actual ROI. Add founder profile and credentials. Lead with proof to accelerate their decision process.
 
 ### Gap 5: Voice and Tone Misalignment
 
@@ -582,9 +583,9 @@ The current website brand is fundamentally misaligned with the company's actual 
 
 **Recommended:**
 > "See Your Return Before You Invest."
-> "ScaleUp Ventures helps established business owners modernize their operations - websites, marketing, and AI automation - with a clear ROI model before you spend a dollar. Burned by agencies before? You're exactly who we built this for."
+> "ScaleUp Ventures helps growth-focused business owners modernize their operations - websites, marketing, and AI automation - with a clear ROI model before you spend a dollar. Too busy to implement yourself? We prove ROI, then handle everything."
 
-**Rationale:** This immediately communicates the differentiator, addresses the core fear, and signals the target audience.
+**Rationale:** This immediately communicates the differentiator, addresses the core constraint (time, not ability), and signals competitive advantage to the growth-minded target audience.
 
 #### 2. Resolve Brand Identity
 
@@ -647,15 +648,15 @@ Each section should include:
 Add explicit messaging about ideal clients:
 
 > **Who We Work With:**
-> - Business owners who've built something real (not startups chasing funding)
-> - Companies investing $20K+ in growth (serious about outcomes)
-> - Leaders who want to understand the ROI, not just trust the tech
-> - Those who've been burned by agencies and need accountability this time
+> - Growth-stage business owners scaling aggressively (30-55, building wealth)
+> - Companies investing $20K+ in competitive advantage (serious about growth)
+> - Leaders who want proof of ROI before committing (data-driven decision makers)
+> - Executives too busy to implement themselves but know what needs to happen
 
 > **Who This Isn't For:**
 > - Companies seeking the cheapest option
-> - Businesses without budget for quality
-> - Those who want to micromanage hourly work
+> - DIYers who want to learn how to do it themselves
+> - Those without urgency to gain competitive advantage
 
 #### 7. Separate Ventures Content
 
@@ -745,14 +746,14 @@ Each with:
 #### 13. Paid Advertising Alignment
 
 Update Google Ads campaigns to reflect new positioning:
-- Headlines leading with ROI accountability
+- Headlines leading with ROI accountability and competitive advantage
 - Landing pages specific to each persona
-- Ad copy acknowledging burned SMB experience
+- Ad copy emphasizing speed, proof, and growth outcomes
 
 **Example Ad:**
-> Burned by Your Last Agency?
-> We show you the ROI model before you spend.
-> See exactly how your investment pays back - or we'll tell you not to make it.
+> Too Busy to Implement Growth Initiatives?
+> We prove the ROI, then handle everything.
+> See exactly how your investment accelerates growth - before you commit.
 > [Get Your ROI Model]
 
 ---
@@ -785,7 +786,7 @@ Update Google Ads campaigns to reflect new positioning:
 
 ### To This:
 
-**ScaleUp Ventures** - The ROI-accountable business modernization partner for established business owners who've been burned before. Full-service (development, growth, AI), outcome-focused, and the only agency that proves the value before asking for investment.
+**ScaleUp Ventures** - The ROI-accountable business modernization partner for growth-focused owners (30-55) who know what they need but are too busy to implement themselves. Full-service (development, growth, AI), proof-first, and the only agency that proves the value before asking for investment.
 
 ### The Single Most Important Change
 

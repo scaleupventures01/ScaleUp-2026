@@ -10,7 +10,7 @@
 
 **Verdict**: MODERATE CANDIDATE - Proceed with caution, niche positioning required
 
-The Durable Medical Equipment (DME) / Home Medical Equipment (HME) supplier industry presents a mixed opportunity for ScaleUp Ventures. While the industry exhibits classic "technology laggard" characteristics with older owners, complex regulatory burdens, and genuine digital transformation needs, tight profit margins, heavy compliance requirements, and significant Amazon disruption threats create challenging economics. Success requires specialized healthcare compliance knowledge and a highly targeted approach to the most profitable DME niches.
+The Durable Medical Equipment (DME) / Home Medical Equipment (HME) supplier industry presents a mixed opportunity for ScaleUp Ventures. While the industry exhibits classic "technology-cautious" characteristics with business owners, complex regulatory burdens, and genuine digital transformation needs, tight profit margins, heavy compliance requirements, and significant Amazon disruption threats create challenging economics. Success requires specialized healthcare compliance knowledge and a highly targeted approach to the most profitable DME niches.
 
 ---
 
@@ -19,7 +19,7 @@ The Durable Medical Equipment (DME) / Home Medical Equipment (HME) supplier indu
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 8/10 | $66-85B U.S. market (2024), 11,408 establishments, growing 5-6% annually. Solid mid-size TAM with 10,000+ potential clients. |
-| **Owner Demographics (older = higher)** | 7/10 | 55%+ of small business owners are 55+. Industry traditionally family-owned with succession challenges. Heavy reliance on fax machines and legacy processes indicates low tech comfort. |
+| **Owner Demographics (growth-focused = higher)** | 7/10 | Target DME/HME supplier owners aged 30-55 focused on growing their distribution business. Growth-oriented operators seeking competitive advantages through technology and automation. |
 | **Budget Availability** | 4/10 | Net profit margins 7-12% (efficient operators). Marketing spend only 1-2.4% of revenue. Small operators often have <$1M in assets. Tight margins from Medicare competitive bidding squeeze budgets. |
 | **Pain Intensity (disruption fear)** | 8/10 | Amazon healthcare entry creating existential fear. Medicare reimbursement cuts 50%+ in some categories. 70%+ of orders have documentation errors. Annual reaccreditation burden increasing. |
 | **Competition Level (less = higher)** | 7/10 | Few specialized agencies (DME Agency, WebMarkets Medical, StartDME). Most marketing agencies avoid healthcare due to compliance complexity. Low competition for tech-savvy partners. |

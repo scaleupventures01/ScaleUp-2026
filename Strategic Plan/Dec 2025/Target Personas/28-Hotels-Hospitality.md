@@ -19,7 +19,7 @@ The independent hotel and boutique lodging industry represents a **STRONG opport
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM)** | 8/10 | US boutique hotel market: $26.67B-$35.8B (2024). 5,664 boutique hotels in US. Independent hotels represent ~30% of US room inventory and 85%+ globally. Growth rate 6.5-8.7% annually. |
-| **Owner Demographics (older = higher)** | 8/10 | Average hospitality representative age: 47 years. 71% of hospitality representatives are 40+. 41% of small businesses owned by baby boomers. Over 50% of all US business owners are 55+. Hotel industry known for generational family ownership. |
+| **Owner Demographics (growth-focused = higher)** | 8/10 | Target hotel owners aged 30-55 focused on growing their properties. Growth-oriented operators seeking competitive advantages against OTAs and chain hotels. |
 | **Budget Availability** | 7/10 | Hotels allocate 8-15% of revenue to marketing (industry best practice). IT budgets: <3% of revenue. Average indie boutique hotel ADR: $194, RevPAR: $122.63. With ~50 rooms average, annual revenue $2-4M per property. Marketing spend potential: $160K-$600K per property. |
 | **Pain Intensity** | 9/10 | High OTA commission costs (15-25%), legacy system integration nightmares, $200K annual losses on manual processes (PWC), 40% manager concern about technology reskilling, cybersecurity fears (76% priority), inability to compete with chains on digital presence. |
 | **Competition Level (less = higher)** | 6/10 | Moderate competition. Major players: Sojern, HiJiffy, Asksuite, established agencies like O'Rourke, Travel Media Group. However, most focus on software/SaaS, not full-service dev + marketing + AI automation bundle. Fragmented vendor landscape creates confusion. |
@@ -294,7 +294,7 @@ For a 50-room indie boutique hotel with $2.5M annual revenue:
 ### Primary Persona: "Robert, the Overwhelmed Independent Hotelier"
 
 #### Demographics
-- **Age**: 52-65 years
+- **Age**: 30-55 years
 - **Location**: Secondary/tertiary US markets, coastal resort areas, historic districts
 - **Income**: $150K-$500K personal income (from property ownership)
 - **Education**: Varies - hospitality degree to self-taught

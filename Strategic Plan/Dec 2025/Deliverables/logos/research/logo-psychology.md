@@ -6,7 +6,7 @@
 
 ## Executive Summary
 
-This document synthesizes research on the psychology of logo design, including how shapes, colors, and compositions influence perception. Key findings focus on geometric forms that convey trust, optimal colors for B2B professional services, and how business owners aged 50-65 perceive logos differently than younger audiences.
+This document synthesizes research on the psychology of logo design, including how shapes, colors, and compositions influence perception. Key findings focus on geometric forms that convey trust, optimal colors for B2B professional services, and how business owners aged 30-55 perceive logos differently than younger audiences.
 
 ---
 
@@ -222,7 +222,7 @@ The gestalt theory, conceptualized by German psychologists Kurt Koffka, Max Wert
 
 ## 5. Age Demographics and Logo Perception
 
-### Business Owners 50-65 (Baby Boomers)
+### Business Owners 30-55 (Baby Boomers)
 
 **Key Characteristics:**
 - Loyal to brands - they search for known and trusted quality
@@ -297,7 +297,7 @@ The gestalt theory, conceptualized by German psychologists Kurt Koffka, Max Wert
 
 ### Generational Comparison
 
-| Factor | Baby Boomers (50-65) | Millennials | Gen Z |
+| Factor | Baby Boomers (30-55) | Millennials | Gen Z |
 |--------|---------------------|-------------|-------|
 | Typography | Serif, larger | Sans-serif, clean | Bold, varied |
 | Complexity | Simpler | Minimalist | Minimalist with impact |
@@ -418,7 +418,7 @@ The gestalt theory, conceptualized by German psychologists Kurt Koffka, Max Wert
 
 ---
 
-## 10. Recommendations for B2B Professional Services Targeting 50-65 Year Old Business Owners
+## 10. Recommendations for B2B Professional Services Targeting 30-55 Year Old Business Owners
 
 Based on the research, here are evidence-based recommendations:
 
@@ -526,4 +526,4 @@ The logo should convey:
 
 ---
 
-*This research document was compiled to inform logo design decisions for B2B professional services targeting business owners aged 50-65.*
+*This research document was compiled to inform logo design decisions for B2B professional services targeting business owners aged 30-55.*

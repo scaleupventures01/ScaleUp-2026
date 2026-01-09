@@ -21,7 +21,7 @@ The Tax Preparation and Bookkeeping Services industry represents a **HIGH-VALUE 
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM)** | 9/10 | $14.5B tax prep + $220.4B broader accounting/bookkeeping. 456,000+ businesses in US. |
-| **Owner Demographics (older = higher)** | 8/10 | Avg partner age 55+ (NYC); 25% of partners over 60; 47.2% Gen X, 39.6% Boomers |
+| **Owner Demographics (growth-focused = higher)** | 8/10 | Target firm owners aged 30-55 focused on scaling their practices. Growth-oriented professionals seeking competitive advantages through technology modernization. |
 | **Budget Availability** | 8/10 | Avg firm revenue $623K; profit margins 18-40%; marketing budgets 8-12% of revenue |
 | **Pain Intensity** | 9/10 | 43% lack tech skills; staffing shortage of 340,000; 78% lack cybersecurity plans |
 | **Competition Level (less = higher)** | 6/10 | Several specialized agencies exist (MITCO, Build Your Firm) but fragmented market |
@@ -52,7 +52,7 @@ The Tax Preparation and Bookkeeping Services industry represents a **HIGH-VALUE 
 
 ---
 
-### 2. Owner Demographics (Older = Higher) - Score: 8/10
+### 2. Owner Demographics (Growth-Focused = Higher) - Score: 8/10
 
 **Evidence:**
 

@@ -10,7 +10,7 @@
 
 **Verdict**: MODERATE CANDIDATE - Proceed with caution; niche but viable
 
-The Moving Companies industry represents a moderately attractive opportunity for ScaleUp Ventures. While the industry is clearly a technology laggard with older ownership demographics and real pain points around digital transformation, the market is smaller than other verticals, competitive landscape for service providers is already established, and profit margins can be thin. However, the fragmented nature of the industry (16,851 businesses), clear congregation points, and genuine technology adoption gaps create opportunities for a focused approach targeting mid-sized operators ($1M-$10M revenue).
+The Moving Companies industry represents a moderately attractive opportunity for ScaleUp Ventures. While the industry is clearly a technology-cautious with business ownership demographics and real pain points around digital transformation, the market is smaller than other verticals, competitive landscape for service providers is already established, and profit margins can be thin. However, the fragmented nature of the industry (16,851 businesses), clear congregation points, and genuine technology adoption gaps create opportunities for a focused approach targeting mid-sized operators ($1M-$10M revenue).
 
 ---
 
@@ -19,7 +19,7 @@ The Moving Companies industry represents a moderately attractive opportunity for
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 6/10 | $23.4B industry (2025) with 16,851 enterprises. Smaller than construction/manufacturing but still substantial. Low market concentration (top 4 = 32% market share) means fragmented SMB opportunity. Average revenue per business ~$1.05M. |
-| **Owner Demographics (older = higher)** | 7/10 | 50% of small business owners are 55+; 47.2% Gen X, 39.6% baby boomers. Moving industry composed of 50% businesses with <5 employees. 55% of boomers prefer in-person business over digital. Classic tech laggard profile. |
+| **Owner Demographics (growth-focused = higher)** | 7/10 | Target moving company owners aged 30-55 focused on scaling their operations. Growth-oriented operators seeking competitive advantages through technology and fleet optimization. |
 | **Budget Availability** | 6/10 | Recommended marketing spend 7-12% of revenue. Top movers spend $5K-$12K/mo on digital. Average profit margins 10-20% (variable). 2023 was difficult - only 40% met revenue goals. Budget exists but tighter than other industries. |
 | **Pain Intensity (disruption fear)** | 8/10 | 76% negatively impacted by market conditions in 2023. 66% struggle with recruitment. "Uber for moving" startups raising disruption concerns. 22% faster growth for tech-adopting competitors. Forbes lists industry as "ripe for disruption." |
 | **Competition Level (less = higher)** | 5/10 | Crowded agency landscape: 12+ specialized moving marketing agencies (Movers Development, Marketers for Movers, Blue Corona, etc.). Multiple CRM/software vendors (SmartMoving, Supermove, MoveitPro). More competitive than expected. |
@@ -244,7 +244,7 @@ The Moving Companies industry represents a moderately attractive opportunity for
 | EDC-MoveStar | Operations software | Not disclosed |
 
 **Competition Assessment**:
-- Market is **more competitive than expected** for a "technology laggard" industry
+- Market is **more competitive than expected** for a "technology-cautious" industry
 - Specialized agencies with 10+ years experience exist
 - Multiple software vendors targeting same pain points
 - Differentiation opportunity: Integrated dev + growth + AI offering (few do all three)

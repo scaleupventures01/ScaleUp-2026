@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-Independent and boutique real estate brokerages represent a **moderately attractive** opportunity for ScaleUp Ventures. This segment features older owners (avg. age 49-54), significant technology adoption gaps, and genuine disruption fears. However, the market is crowded with real estate-specific service providers, and brokerages have variable budgets depending on transaction volume.
+Independent and boutique real estate brokerages represent a **moderately attractive** opportunity for ScaleUp Ventures. This segment features business owners (avg. age 49-54), significant technology adoption gaps, and genuine disruption fears. However, the market is crowded with real estate-specific service providers, and brokerages have variable budgets depending on transaction volume.
 
 **Overall Score: 52/80 (65%) - MODERATE FIT**
 
@@ -21,7 +21,7 @@ The strongest case for this persona is the combination of aging owners who lack 
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 7/10 | $241B US brokerage market; 100K+ brokerages; 86% of transactions through small/mid-sized firms; independents = ~20% of top 1000 but vast majority of total count |
-| **Owner Demographics (older = higher)** | 8/10 | Avg broker age 49-54 years; 74% are 40+; "Peak 65" retirement wave in 2024; one-third lack foundational digital skills; leaders 60+ rate tech platforms 6.6/10 vs 10/10 for under-30s |
+| **Owner Demographics (growth-focused = higher)** | 8/10 | Target brokerage owners aged 30-55 focused on growing their market share. Growth-oriented brokers seeking competitive advantages against tech-enabled competitors. |
 | **Budget Availability** | 6/10 | Avg marketing spend $12,725-$14,200/year; 7-10% of GCI typical; 58% spend $1K-$10K/mo on digital; highly variable based on transaction volume and market conditions |
 | **Pain Intensity (disruption fear)** | 8/10 | NAR settlement upending commission structure; agent tech adoption #3 challenge (55% cite it); 40% of new agents quit year one; Zillow/Redfin/Compass competitive pressure; thin margins under pressure |
 | **Competition Level (less = higher)** | 4/10 | Crowded market: 13+ specialized RE marketing agencies; Rechat, TREM Group, Artifakt Digital, Luxury Presence all compete; plus CRM vendors (Cloze AI, Follow Up Boss, kvCORE) |
@@ -303,7 +303,7 @@ The industry is experiencing significant consolidation pressure:
 
 | Attribute | Profile |
 |-----------|---------|
-| Age | 50-65 years |
+| Age | 30-55 years |
 | Brokerage Size | 5-25 agents |
 | Annual GCI | $500K-$3M |
 | Technology Status | Legacy systems, minimal automation |

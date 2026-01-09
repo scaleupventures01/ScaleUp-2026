@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-The pest control industry represents a **strong opportunity** for ScaleUp Ventures. With $26.1 billion in U.S. revenue, high fragmentation (32,700+ companies), technology-resistant older owners facing consolidation pressure, and limited competition from specialized service providers, this industry aligns exceptionally well with ScaleUp's dev, growth marketing, and AI/automation services.
+The pest control industry represents a **strong opportunity** for ScaleUp Ventures. With $26.1 billion in U.S. revenue, high fragmentation (32,700+ companies), technology-resistant business owners facing consolidation pressure, and limited competition from specialized service providers, this industry aligns exceptionally well with ScaleUp's dev, growth marketing, and AI/automation services.
 
 **Verdict:** RECOMMENDED - High-priority target vertical
 
@@ -19,7 +19,7 @@ The pest control industry represents a **strong opportunity** for ScaleUp Ventur
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 9/10 | $26.1B industry (2025), growing at 5.7% CAGR. 32,720+ companies, 70% are small/mid-sized. Marketing spend = 5-15% of revenue = $1.3-3.9B addressable. |
-| **Owner Demographics (older = higher)** | 8/10 | Mean age of family business control is 60.2 years. 40%+ of workforce is 40+ years old. Many 2nd/3rd generation family businesses. Low tech comfort - "Post-its and handwritten notes" still common. |
+| **Owner Demographics (growth-focused = higher)** | 8/10 | Target owners aged 30-55 focused on scaling their operations. Many second/third generation family businesses with growth ambitions. Time-constrained operators who need execution capacity, not hand-holding. |
 | **Budget Availability** | 8/10 | Companies spend 5-15% of revenue on marketing. A $500K company = $25-75K marketing budget. Avg owner salary $79-120K indicates healthy margins. High PE interest confirms profitability. |
 | **Pain Intensity (disruption fear)** | 9/10 | Massive PE consolidation threat - 15+ PE firms actively acquiring. Fear of being "gobbled up" by big players. Digital marketing shift disrupting Yellow Pages-era owners. Unlicensed competition undercutting prices. |
 | **Competition Level (less = higher)** | 6/10 | 10+ specialized agencies exist (SWARM, Pesty Marketing, Rhino, etc.). However, most focus on marketing only - few offer dev + AI/automation. Opportunity in bundled services. |
@@ -58,23 +58,24 @@ The pest control industry represents a **strong opportunity** for ScaleUp Ventur
 
 ## Owner Demographics
 
-### Age Profile
-- **Mean age of family business control:** 60.2 years
-- **40+ years old:** 45% of pest control operator population
-- **Average worker age:** 40.4 years (male), 37.5 years (female)
+### Target Demographics
+- Target owners aged **30-55** who are scaling their pest control businesses
+- Growth-focused operators seeking competitive advantages through technology
+- Time-constrained business owners who need execution capacity, not hand-holding
+- Data-driven operators who want proof before committing to investments
 
 ### Business Structure
-- **Family-owned businesses:** Significant portion (exact % not available)
-- **Multi-generational:** Many 2nd, 3rd, 4th generation businesses
-- **78% of industry:** Privately held companies
-- **Retirement expectation:** 40.3% of family business owners expect to retire soon
-- **Succession planning:** Less than half have selected a successor
+- **Family-owned businesses:** Significant portion, many multi-generational
+- **Growth-oriented:** Second/third generation owners modernizing inherited businesses
+- **78% of industry:** Privately held companies with growth potential
+- **Motivated by:** Competitive advantage and market expansion
+- **Need:** Execution capacity to implement growth strategies
 
 ### Education & Technical Profile
 - **High school diploma:** 43% (most common)
 - **Bachelor's degree:** 41%
-- **Tech adoption:** Low - many still use "paper route sheets, manual scheduling, and phone tag"
-- **Digital comfort:** "Post-its and handwritten notes can't keep up"
+- **Tech adoption:** Growth-focused operators recognize competitive advantage of digital
+- **Time constraint:** Too busy running operations to implement technology themselves - need execution partners
 
 ### Gender
 - **Male:** 87-94%
@@ -270,30 +271,30 @@ Most competitors offer **marketing services only**. None provide:
 ## Ideal Customer Profile (ICP)
 
 ### Primary Target
-**"The Succession-Stressed Owner"**
+**"The Growth-Focused Operator"**
 
 - **Company size:** $500K - $5M revenue
-- **Age:** 50-65 years old
-- **Situation:** Thinking about exit/retirement in 3-7 years
-- **Pain:** Knows they need to modernize but doesn't know how
-- **Motivation:** Increase company value for sale or next generation
-- **Quote:** "The big companies are buying everyone up. I need to either compete or position myself to sell."
+- **Age:** 30-55 years old
+- **Situation:** Actively scaling, seeking competitive advantages
+- **Pain:** Too time-constrained to implement technology themselves
+- **Motivation:** Beat competition, capture market share, scale faster
+- **Quote:** "I know digital is important but I don't have time to figure it out. Show me the ROI and handle it for me."
 
 ### Secondary Target
-**"The Frustrated Traditionalist"**
+**"The Competitive Modernizer"**
 
 - **Company size:** $250K - $1M revenue
-- **Age:** 45-60 years old
-- **Situation:** Yellow Pages stopped working, tried random digital efforts
-- **Pain:** Losing leads to more visible competitors
-- **Motivation:** Stop the bleeding, get phone ringing again
-- **Quote:** "I'm great at pest control, terrible at this internet stuff."
+- **Age:** 30-50 years old
+- **Situation:** Wants to compete with larger players through technology
+- **Pain:** Needs execution capacity to implement growth strategies
+- **Motivation:** Capture competitive advantage through digital presence
+- **Quote:** "I'm great at pest control. I need a partner who's great at the digital side."
 
 ### Negative Personas (Avoid)
 - **Sub-$100K operators:** Not enough budget, too small to scale
 - **Already PE-owned:** Decision-making is corporate, not owner
 - **Tech-first startups:** Don't need our help, already modern
-- **Hostile to change:** Retiring in <2 years with no succession plan
+- **No growth orientation:** Not motivated by competitive advantage or scaling
 
 ---
 

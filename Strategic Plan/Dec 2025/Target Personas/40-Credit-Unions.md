@@ -13,7 +13,7 @@ Credit unions and community banks represent a compelling target market for techn
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | Market Size (TAM) | **9/10** | $2.31T in CU assets + community banking market; 4,400+ CUs, 4,500+ community banks; 355,000+ CU employees alone |
-| Owner Demographics (older = higher) | **9/10** | 29% of CU CEOs are 60+; 50% are 55+; Board members average 76.3 years old; Community bank CEO median age is 58 |
+| **Owner Demographics (growth-focused = higher)** | **9/10** | Target credit union and community bank leaders aged 30-55 focused on growing membership and digital services. Growth-oriented executives seeking competitive advantages through technology modernization. |
 | Budget Availability | **7/10** | IT spending 8-11% of revenue; median tech budget $1M; spending $780K per $1B assets; growing 3.5x from 2021-2023 |
 | Pain Intensity | **9/10** | 75% on legacy loan systems; stuck below 10% digital sales vs 30% for regional banks; 55% cite legacy as top barrier |
 | Competition Level (less = higher) | **5/10** | Crowded with specialized agencies (Pod, Anchour, YMC, PRIME) plus Big 3 core vendors (Fiserv, FIS, Jack Henry) |

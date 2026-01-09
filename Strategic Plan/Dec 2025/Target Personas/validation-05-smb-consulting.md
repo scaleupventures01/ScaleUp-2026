@@ -96,7 +96,7 @@ Despite industry discussion about performance-based fees, actual adoption is min
 **2. Strategic Essentials - Conditional 10:1 ROI**
 - Claims "development clients typically receive a 10 to 1 or greater ROI"
 - Guarantee is conditional: "We can only guarantee results if each participant applies what they have learned and follows the development process as presented"
-- Tracked over 50 years through Leadership Management International
+- Tracked 30-55 years through Leadership Management International
 
 **Source**: [Strategic Essentials - Achieve an ROI](https://strategicessentials.com/how-we-help/achieve-an-roi/)
 

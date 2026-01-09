@@ -8,14 +8,14 @@
 
 ## Executive Summary
 
-The Senior Care industry presents a **STRONG opportunity** for ScaleUp Ventures. This is a massive, fragmented market dominated by independent operators who are technology laggards facing existential pressure to modernize. The industry is characterized by older owners (50+ average), high marketing spend with poor ROI, and intense fear of losing market share to tech-enabled competitors.
+The Senior Care industry presents a **STRONG opportunity** for ScaleUp Ventures. This is a massive, fragmented market dominated by independent operators who are technology-cautiouss facing existential pressure to modernize. The industry is characterized by business owners (50+ average), high marketing spend with poor ROI, and intense fear of losing market share to tech-enabled competitors.
 
 ### Overall Scoring
 
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | Market Size (TAM potential) | **9/10** | $907B US market (2024), 507K+ home care providers, 32K assisted living facilities |
-| Owner Demographics (older = higher) | **8/10** | 52.3% of business owners 55+; healthcare/senior care skews older; many family-owned |
+| **Owner Demographics (growth-focused = higher)** | **8/10** | Target senior care operators aged 30-55 focused on scaling their facilities. Growth-oriented owners seeking competitive advantages through technology and marketing modernization. |
 | Budget Availability | **7/10** | $111M industry ad spend (2023); $431 avg cost per lead; 5-20% revenue on marketing |
 | Pain Intensity (disruption fear) | **9/10** | 63% cite limited tech resources; AI disruption fears; labor shortage crisis |
 | Competition Level (less = higher) | **6/10** | 10+ specialized agencies exist but most are large enterprise focused |
@@ -82,7 +82,7 @@ The Senior Care industry presents a **STRONG opportunity** for ScaleUp Ventures.
 
 ## Technology Adoption & Pain Points
 
-### Technology Laggard Status: CONFIRMED
+### Technology-Cautious Status: CONFIRMED
 
 | Indicator | Evidence |
 |-----------|----------|
@@ -286,7 +286,7 @@ For ScaleUp selling to senior care operators:
 | Risk | Mitigation |
 |------|------------|
 | Long sales cycle | Lead with free audit, build referral network |
-| Tech resistance from older owners | Focus on outcomes, not technology jargon |
+| Tech resistance from business owners | Focus on outcomes, not technology jargon |
 | Regulated industry (HIPAA) | Partner with compliance experts; avoid PHI |
 | Price sensitivity | Offer tiered packages; demonstrate ROI |
 | Competition from specialized agencies | Differentiate with full-stack + AI focus |
@@ -400,7 +400,7 @@ The Senior Care / Assisted Living / Home Care industry scores **60/80** on our e
 **Strengths:**
 - Massive, growing market ($907B+ TAM)
 - Highly fragmented (500K+ potential clients)
-- Confirmed technology laggards
+- Confirmed technology-cautiouss
 - Older owner demographic (50+ average)
 - High pain intensity (staff shortages, lead costs, tech confusion)
 - Perfect service fit (dev, marketing, AI all desperately needed)
@@ -412,7 +412,7 @@ The Senior Care / Assisted Living / Home Care industry scores **60/80** on our e
 - Trust-building required in healthcare
 - HIPAA considerations for any data handling
 
-**Bottom Line:** This is an underserved, high-pain market where ScaleUp's full-stack approach (dev + marketing + AI) provides clear differentiation from marketing-only agencies. The combination of technology laggard owners with existential competitive pressure creates ideal conditions for our services.
+**Bottom Line:** This is an underserved, high-pain market where ScaleUp's full-stack approach (dev + marketing + AI) provides clear differentiation from marketing-only agencies. The combination of technology-cautious owners with existential competitive pressure creates ideal conditions for our services.
 
 ---
 

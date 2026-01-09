@@ -25,7 +25,7 @@
 
 ScaleUp Ventures uses **active voice by default**. Active voice puts the actor first, makes claims direct, and communicates confidence. Passive voice obscures responsibility, sounds bureaucratic, and triggers skepticism in our target audience.
 
-Our skeptical 50-65 year old business owners have heard too many consultants hide behind passive language:
+Our skeptical 30-55 year old business owners have heard too many consultants hide behind passive language:
 - "Results were achieved..." (By whom?)
 - "Value was delivered..." (Who says?)
 - "Your business will be transformed..." (By magic?)
@@ -189,7 +189,7 @@ Pronoun choice shapes relationship dynamics. Using the wrong pronoun at the wron
 
 **Examples:**
 - "You deserve to see the ROI before you invest."
-- "You've been burned by consultants before."
+- "You want to see proof before committing."
 - "Your business is unique. Your proof-of-concept should be too."
 - "You decide when the timing is right."
 
@@ -281,7 +281,7 @@ Never exceed 25 words in a single sentence.
 - "Our process takes 30 days."
 
 **Question (Interrogative):** Opens dialogue, acknowledges skepticism.
-- "Been burned by consultants before?"
+- "Need to see proof before you commit?"
 - "What if you could see the ROI first?"
 
 **Command (Imperative):** Drives action.
@@ -500,7 +500,7 @@ Before publishing any content, ask:
 
 1. **Would a heron say this?** (Patient, watchful, precise - or rushed and noisy?)
 2. **Is this proven or promised?** (Does it make claims we can back up?)
-3. **Would a skeptical 60-year-old trust this?** (Or would they roll their eyes?)
+3. **Would a skeptical 45-year-old trust this?** (Or would they roll their eyes?)
 4. **Is the actor clear?** (Active voice - who is doing what?)
 5. **Is the reader addressed directly?** (Do we speak TO them, not AT them?)
 

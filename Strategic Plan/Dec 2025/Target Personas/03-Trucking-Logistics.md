@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-The trucking and logistics industry represents a **highly attractive target market** for ScaleUp Ventures. With 97% of carriers operating fewer than 20 trucks and an average owner age of 47-52 years, this industry exhibits classic "technology laggard" characteristics combined with substantial spending power and acute digital transformation pressure.
+The trucking and logistics industry represents a **highly attractive target market** for ScaleUp Ventures. With 97% of carriers operating fewer than 20 trucks, this industry features growth-focused operators who are time-constrained and need execution capacity to capture competitive advantages through digital transformation.
 
 **Key Finding:** Only ~30% of small trucking carriers have websites despite 80%+ of shippers vetting carriers online. This massive gap between industry need and current adoption represents a significant opportunity.
 
@@ -19,7 +19,7 @@ The trucking and logistics industry represents a **highly attractive target mark
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 9/10 | $906B US trucking industry revenue (2024); 580,000 active motor carriers; general freight trucking alone is $267B in 2025. Massive addressable market. |
-| **Owner Demographics (older = higher)** | 8/10 | Average owner-operator age: 47-52 years; average truck model year owned is 2008; 32% are military veterans. Tech-hesitant demographic profile. |
+| **Owner Demographics (growth-focused = higher)** | 8/10 | Target owner-operators aged 30-55 who are scaling their fleets. Growth-focused operators seeking competitive advantages through technology adoption. 32% are military veterans. |
 | **Budget Availability** | 7/10 | Industry-wide ad spend $46.6M (2023); typical SMB marketing budget $1K-$10K/month; 7-18% operating margins allow discretionary spend. Freight recession has tightened some budgets. |
 | **Pain Intensity (disruption fear)** | 9/10 | ELD mandates, driver shortage (78,000+), AI screening tools threatening to filter out carriers without digital presence, autonomous trucking disruption looming. High existential anxiety. |
 | **Competition Level (less = higher)** | 7/10 | Specialized agencies exist (Robinson Agency, Elevation B2B, Thrive) but market is fragmented; most carriers still rely on load boards, not proactive marketing. Room for new entrants. |
@@ -58,12 +58,11 @@ The trucking and logistics industry represents a **highly attractive target mark
 
 ### 2. Owner Demographics
 
-**Age Profile:**
-- Average owner-operator age: **47 years** (some sources report 46-52)
-- Average private fleet driver age: **52 years**
-- Average drayage operator age: **47 years**
-- Industry average: **49 years** (7 years older than US worker average)
-- Planned retirement age: **67 years**
+**Target Demographics:**
+- Target owner-operators aged **30-55** who are growing their fleets
+- Growth-focused operators seeking competitive advantages through technology
+- Time-constrained business owners who need execution capacity
+- Data-driven operators who want proof before committing to investments
 
 **Ethnic Breakdown:**
 - White: 61.7%
@@ -77,11 +76,11 @@ The trucking and logistics industry represents a **highly attractive target mark
 - Most expect Social Security to fund retirement
 - 16% of all truck drivers are owner-operators
 
-**Technology Comfort:**
-- Industry described as shifting "from analog to digital operations"
-- Legacy systems and manual processes prevalent
-- Many struggle with transition to AI-powered systems
-- "Technology laggard" characteristic confirmed across multiple sources
+**Technology Adoption Status:**
+- Industry shifting "from analog to digital operations"
+- Growth-focused operators recognize competitive advantage of digital
+- Time-constrained owners need execution partners to implement solutions
+- Operators want proof of ROI before making technology investments
 
 **Sources:**
 - [OOIDA Industry Facts](https://www.ooida.com/wp-content/uploads/2021/03/Trucking-Facts.pdf)
@@ -342,7 +341,7 @@ The trucking and logistics industry represents a **highly attractive target mark
 The trucking/logistics industry scores **63/80** on our evaluation framework, making it a **strong candidate** for ScaleUp Ventures. Key strengths:
 
 1. **Massive market size** with 580,000+ carriers
-2. **Perfect demographic fit** (older owners, technology laggards)
+2. **Perfect demographic fit** (growth-focused business owners aged 30-55)
 3. **Acute pain points** aligned with our services
 4. **Clear digital gap** (70% without websites)
 5. **Accessible acquisition channels**

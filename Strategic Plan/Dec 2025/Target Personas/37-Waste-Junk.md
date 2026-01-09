@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-The waste management, dumpster rental, and junk removal industry represents a **STRONG opportunity** for ScaleUp Ventures. This $50+ billion industry features classic technology laggard characteristics: older owners, manual operations, low digital adoption, and fragmented local competition. The combination of high profit margins ($376K average revenue per small business, 25% EBITDA margins) and clear technology pain points makes this an attractive target vertical.
+The waste management, dumpster rental, and junk removal industry represents a **STRONG opportunity** for ScaleUp Ventures. This $50+ billion industry features classic technology-cautious characteristics: business owners, manual operations, low digital adoption, and fragmented local competition. The combination of high profit margins ($376K average revenue per small business, 25% EBITDA margins) and clear technology pain points makes this an attractive target vertical.
 
 **Market Validation**: CONFIRMED - Extensive evidence of real businesses with documented pain points, active spending on solutions, and clear need for modernization services.
 
@@ -19,7 +19,7 @@ The waste management, dumpster rental, and junk removal industry represents a **
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM)** | 9/10 | $50B+ junk removal industry; $5.5-7.2B dumpster rental; 46,676 junk removal companies + 300+ dumpster rental firms; $86.1B broader waste collection services |
-| **Owner Demographics (older = higher)** | 8/10 | 55% of U.S. business owners are 55+; Baby Boomers own 41% of small businesses; Industry characterized by "one guy and his truck" sole proprietors with longtime owners facing succession challenges |
+| **Owner Demographics (growth-focused = higher)** | 8/10 | Target owners aged 30-55 focused on scaling their waste/junk removal businesses. Growth-oriented operators seeking competitive advantages through route optimization and marketing. |
 | **Budget Availability** | 8/10 | $376K avg annual revenue; 25% EBITDA margins; 10-15% net margins for small operators; Franchises averaging $1.45M revenue with $309K EBITDA; proven marketing spend on Google Ads/SEO |
 | **Pain Intensity** | 9/10 | Manual scheduling causing double-bookings; losing dumpsters; billing disputes; poor record-keeping; no online booking; customer communication gaps; inability to scale operations |
 | **Competition Level (less = higher)** | 6/10 | Several specialized agencies exist (Dirty Job Marketing, Dumpster Marketing, Junk Removal Marketing); Software players (Docket, DRS, Jobber); but still fragmented with many underserved operators |
@@ -117,7 +117,7 @@ The waste management, dumpster rental, and junk removal industry represents a **
 - Many owners approaching retirement with no succession plan
 - "The recession wiped out nearly a generation of people who either left the business or decided to leave when jobs were eliminated"
 - Older workers show 23% self-employment rate vs. 10% for 25-64 age group
-- Exit strategies becoming higher priority for older owners
+- Exit strategies becoming higher priority for business owners
 
 ---
 
@@ -388,7 +388,7 @@ The waste management, dumpster rental, and junk removal industry represents a **
 ### Why This Vertical Scores Well (63/80)
 
 1. **Large, fragmented market** - Tens of thousands of potential clients
-2. **Classic technology laggards** - Older owners, manual operations, low digital adoption
+2. **Classic technology-cautiouss** - Older owners, manual operations, low digital adoption
 3. **Clear, painful problems** - Lost dumpsters, double-bookings, no online presence
 4. **Strong budgets** - 25% EBITDA margins, proven marketing spend
 5. **Perfect service fit** - Every ScaleUp service maps to a real need

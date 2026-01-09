@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand & Content Alignment Report | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: rgba(15, 23, 41, 0.08);
+            --gold: #D4A853;
+            --gold-light: rgba(212, 168, 83, 0.15);
+            --cream: #FAF8F5;
+            --cream-dark: #F5F0E8;
+            --white: #FFFFFF;
+            --green: #22c55e;
+            --green-light: #dcfce7;
+            --amber: #f59e0b;
+            --amber-light: #fef3c7;
+            --red: #ef4444;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-500: #6c757d;
+            --gray-700: #495057;
+            --gray-900: #212529;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        /* Modern Header - Light with Navy accents */
+        .header {
+            background: var(--cream);
+            color: var(--navy);
+            padding: 80px 24px 60px;
+            text-align: center;
+            border-bottom: 1px solid var(--navy-light);
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: var(--gold-light);
+            color: var(--navy);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .header h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: clamp(48px, 6vw, 72px);
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--navy);
+            line-height: 1.1;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+        }
+
+        .header-subtitle {
+            font-size: 20px;
+            color: var(--gray-700);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .header-meta {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            font-size: 15px;
+            color: var(--gray-500);
+        }
+
+        .header-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 64px 24px;
+        }
+
+        /* Section Alternating Backgrounds */
+        .section-cream {
+            background: var(--cream);
+        }
+
+        .section-white {
+            background: var(--white);
+        }
+
+        /* Executive Summary - Clean Card */
+        .executive-summary {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 56px;
+            margin-bottom: 48px;
+            border: 1px solid var(--navy-light);
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.04);
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 36px;
+            color: var(--navy);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .section-title-bar {
+            width: 60px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 2px;
+            margin-bottom: 40px;
+        }
+
+        /* Stats Grid - Modern Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .stat-card {
+            background: var(--cream);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(15, 23, 41, 0.08);
+        }
+
+        .stat-card.aligned {
+            background: var(--green-light);
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+
+        .stat-card.needs-update {
+            background: var(--amber-light);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        .stat-card.total {
+            background: var(--white);
+            border: 2px solid var(--navy);
+        }
+
+        .stat-number {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-card.aligned .stat-number { color: var(--green); }
+        .stat-card.needs-update .stat-number { color: var(--amber); }
+        .stat-card.total .stat-number { color: var(--navy); }
+
+        .stat-label {
+            font-size: 15px;
+            color: var(--gray-700);
+            font-weight: 500;
+        }
+
+        .stat-percent {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-top: 4px;
+        }
+
+        /* Issues List - Clean */
+        .issues-section h3 {
+            font-size: 22px;
+            color: var(--navy);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .issues-list {
+            list-style: none;
+        }
+
+        .issues-list li {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .issues-list li:last-child {
+            border-bottom: none;
+        }
+
+        .issue-number {
+            background: var(--gold);
+            color: var(--navy);
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .issue-text {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .issue-text strong {
+            color: var(--navy);
+        }
+
+        /* Phase Sections - Light Approach */
+        .phase-section {
+            background: var(--white);
+            border-radius: 20px;
+            margin-bottom: 24px;
+            overflow: hidden;
+            border: 1px solid var(--navy-light);
+            transition: all 0.3s ease;
+        }
+
+        .phase-section:hover {
+            border-color: var(--gold);
+            box-shadow: 0 8px 30px rgba(212, 168, 83, 0.1);
+        }
+
+        .phase-header {
+            background: var(--cream);
+            color: var(--navy);
+            padding: 28px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .phase-header:hover {
+            background: var(--cream-dark);
+        }
+
+        .phase-header h3 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        .phase-stats {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .phase-stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .phase-stat-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .phase-stat-dot.green { background: var(--green); }
+        .phase-stat-dot.amber { background: var(--amber); }
+
+        .toggle-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: var(--white);
+            border: 1px solid var(--navy-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background: var(--gold-light);
+            border-color: var(--gold);
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s ease;
+            color: var(--navy);
+        }
+
+        .toggle-icon.active {
+            transform: rotate(180deg);
+        }
+
+        .phase-content {
+            padding: 40px;
+            display: none;
+            border-top: 1px solid var(--navy-light);
+        }
+
+        .phase-content.active {
+            display: block;
+        }
+
+        /* Document Cards - Clean Modern */
+        .document-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .document-card {
+            background: var(--cream);
+            border-radius: 14px;
+            padding: 24px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .document-card:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.06);
+        }
+
+        .document-card a.document-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .document-card a.document-link:hover .document-title {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        .document-card .open-icon {
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            margin-left: 8px;
+            color: var(--gold);
+        }
+
+        .document-card:hover .open-icon {
+            opacity: 1;
+        }
+
+        .document-card.aligned {
+            border-left: 4px solid var(--green);
+            background: linear-gradient(90deg, var(--green-light) 0%, var(--cream) 100%);
+        }
+
+        .document-card.needs-update {
+            border-left: 4px solid var(--amber);
+            background: linear-gradient(90deg, var(--amber-light) 0%, var(--cream) 100%);
+        }
+
+        .document-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .document-title {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 17px;
+        }
+
+        .document-status {
+            font-size: 12px;
+            padding: 5px 12px;
+            border-radius: 100px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .document-status.aligned {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .document-status.needs-update {
+            background: var(--amber);
+            color: var(--white);
+        }
+
+        .document-path {
+            font-size: 13px;
+            color: var(--gray-500);
+            margin-bottom: 12px;
+            font-family: 'SF Mono', Monaco, monospace;
+        }
+
+        .document-issues {
+            font-size: 15px;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        .document-issues ul {
+            margin-top: 8px;
+            margin-left: 20px;
+        }
+
+        .document-issues li {
+            margin-bottom: 6px;
+        }
+
+        /* Data Tables - Clean */
+        .table-section {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 56px;
+            margin-bottom: 24px;
+            border: 1px solid var(--navy-light);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
+
+        .data-table th {
+            background: var(--cream);
+            color: var(--navy);
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid var(--navy-light);
+        }
+
+        .data-table th:first-child {
+            border-radius: 12px 0 0 0;
+        }
+
+        .data-table th:last-child {
+            border-radius: 0 12px 0 0;
+        }
+
+        .data-table td {
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--gray-200);
+            vertical-align: top;
+        }
+
+        .data-table tr:hover td {
+            background: var(--cream);
+        }
+
+        .impact-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .impact-badge.high {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .impact-badge.medium {
+            background: var(--amber-light);
+            color: #92400e;
+        }
+
+        .impact-badge.low {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        /* Final Summary - Gold Accent */
+        .final-summary {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 56px;
+            margin-bottom: 24px;
+            border: 2px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-summary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--navy) 100%);
+        }
+
+        .final-summary .section-title {
+            color: var(--navy);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .summary-card {
+            background: var(--cream);
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .summary-card h4 {
+            color: var(--navy);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .summary-card ul {
+            list-style: none;
+        }
+
+        .summary-card li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--navy-light);
+            display: flex;
+            justify-content: space-between;
+            font-size: 15px;
+        }
+
+        .summary-card li:last-child {
+            border-bottom: none;
+        }
+
+        .summary-card li span:last-child {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Progress Bar - Modern */
+        .progress-container {
+            margin-top: 40px;
+            background: var(--cream);
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .progress-bar {
+            height: 32px;
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            border: 1px solid var(--navy-light);
+        }
+
+        .progress-aligned {
+            background: var(--green);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .progress-needs-update {
+            background: var(--amber);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        /* Appendix - Quote Cards */
+        .quote-header {
+            display: grid;
+            grid-template-columns: 1.5fr 1.5fr 1.5fr;
+            gap: 16px;
+            background: var(--navy);
+            color: var(--white);
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .quote-card {
+            display: grid;
+            grid-template-columns: 1.5fr 1.5fr 1.5fr;
+            gap: 16px;
+            background: var(--cream);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 8px;
+            align-items: center;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .quote-card:hover {
+            background: var(--white);
+            border-color: var(--gold);
+        }
+
+        .quote-doc {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .quote-current {
+            font-size: 14px;
+            color: var(--red);
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        .quote-should-be {
+            font-size: 14px;
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        /* Footer - Light */
+        .footer {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--gray-500);
+            font-size: 15px;
+            border-top: 1px solid var(--navy-light);
+            background: var(--white);
+        }
+
+        .footer-logo {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 24px;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 48px 20px 40px;
+            }
+
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .header-meta {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .phase-header {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+
+            .phase-stats {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .quote-header,
+            .quote-card {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .executive-summary,
+            .table-section,
+            .final-summary,
+            .phase-content {
+                padding: 28px 20px;
+            }
+
+            .container {
+                padding: 32px 16px;
+            }
+        }
+
+        /* Fade in animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .executive-summary,
+        .phase-section,
+        .table-section,
+        .final-summary {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header - Light Modern -->
+    <header class="header">
+        <div class="header-badge">Brand Alignment Audit</div>
+        <h1>Content <span>Alignment</span> Report</h1>
+        <p class="header-subtitle">Comparing all brand documents against the BRAND-REFRESH-MANIFESTO.md standard</p>
+        <div class="header-meta">
+            <span>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2z"/>
+                </svg>
+                January 9, 2026
+            </span>
+            <span>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+                </svg>
+                65 Documents Reviewed
+            </span>
+            <span>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                </svg>
+                Target: 30-55 year olds
+            </span>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Executive Summary -->
+        <section class="executive-summary">
+            <h2 class="section-title">Executive Summary</h2>
+            <div class="section-title-bar"></div>
+
+            <div class="stats-grid">
+                <div class="stat-card total">
+                    <div class="stat-number">65</div>
+                    <div class="stat-label">Total Documents</div>
+                    <div class="stat-percent">Reviewed</div>
+                </div>
+                <div class="stat-card aligned">
+                    <div class="stat-number">65</div>
+                    <div class="stat-label">Aligned</div>
+                    <div class="stat-percent">100%</div>
+                </div>
+                <div class="stat-card aligned">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Need Updates</div>
+                    <div class="stat-percent">0%</div>
+                </div>
+            </div>
+
+            <div class="issues-section">
+                <h3>Completion Summary</h3>
+                <ol class="issues-list">
+                    <li>
+                        <span class="issue-number" style="background: var(--green);">✓</span>
+                        <span class="issue-text"><strong style="color: var(--green);">✓ Phase 1 Complete</strong> — All 8 Core Brand Strategy documents have been aligned to the 30-55 growth-focused audience</span>
+                    </li>
+                    <li>
+                        <span class="issue-number" style="background: var(--green);">✓</span>
+                        <span class="issue-text"><strong style="color: var(--green);">✓ Phase 2 Complete</strong> — All 10 Quick Wins & Messaging documents have been transformed from "seeking certainty" to "proof-first" framing</span>
+                    </li>
+                    <li>
+                        <span class="issue-number" style="background: var(--green);">✓</span>
+                        <span class="issue-text"><strong style="color: var(--green);">✓ Phase 3 Complete</strong> — All 7 Strategic Documents transformed to 30-55 growth-focused framing with "time-constrained" positioning</span>
+                    </li>
+                    <li>
+                        <span class="issue-number" style="background: var(--green);">✓</span>
+                        <span class="issue-text"><strong style="color: var(--green);">✓ Phase 4 Complete</strong> — All 40 Industry Persona files transformed from "older = higher" to "growth-focused = higher" scoring criteria</span>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Phase 1: Core Brand Strategy -->
+        <section class="phase-section">
+            <div class="phase-header" onclick="togglePhase('phase1')">
+                <h3>Phase 1: Core Brand Strategy <span style="color: var(--green); font-size: 16px; font-family: 'DM Sans', sans-serif;">✓ COMPLETE</span></h3>
+                <div class="phase-stats">
+                    <div class="phase-stat">
+                        <span class="phase-stat-dot green"></span>
+                        <span>8 Aligned</span>
+                    </div>
+                    <div class="phase-stat">
+                        <span class="phase-stat-dot green"></span>
+                        <span>0 Need Updates</span>
+                    </div>
+                    <div class="toggle-btn">
+                        <svg class="toggle-icon" id="phase1-icon" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="phase-content" id="phase1">
+                <div class="document-grid">
+                    <a href="../Strategic Plan/Dec 2025/Brand Strategy/01-current-brand-audit.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">01. Current Brand Audit <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-path">Brand Strategy/01-current-brand-audit.md</div>
+                        <div class="document-issues">
+                            Updated to 30-55 demographic with growth-focused positioning.
+                        </div>
+                    </a>
+
+                    <a href="../Strategic Plan/Dec 2025/Brand Strategy/02-business-strategic-synthesis.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">02. Business Strategic Synthesis <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-path">Brand Strategy/02-business-strategic-synthesis.md</div>
+                        <div class="document-issues">
+                            Focuses on business model. No age-specific references needed.
+                        </div>
+                    </a>
+
+                    <a href="../Strategic Plan/Dec 2025/Brand Strategy/03-persona-audience-insights.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">03. Persona Audience Insights <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-path">Brand Strategy/03-persona-audience-insights.md</div>
+                        <div class="document-issues">
+                            Updated to 30-55 age references with growth-focused framing.
+                        </div>
+                    </a>
+
+                    <a href="../Strategic Plan/Dec 2025/Brand Strategy/04-competitive-positioning.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">04. Competitive Positioning <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-path">Brand Strategy/04-competitive-positioning.md</div>
+                        <div class="document-issues">
+                            Updated target market to 30-55 growth-focused owners.
+                        </div>
+                    </a>
+
+                    <a href="../Strategic Plan/Dec 2025/Brand Strategy/05-brand-positioning-framework.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">05. Brand Positioning Framework <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-path">Brand Strategy/05-brand-positioning-framework.md</div>
+                        <div class="document-issues">
+                            Updated to "growth-focused business owners aged 30-55".
+                        </div>
+                    </a>
+
+                    <a href="../Strategic Plan/Dec 2025/Brand Strategy/06-messaging-architecture.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">06. Messaging Architecture <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-path">Brand Strategy/06-messaging-architecture.md</div>
+                        <div class="document-issues">
+                            Updated elevator pitch and persona references to 30-55.
+                        </div>
+                    </a>
+
+                    <a href="../Strategic Plan/Dec 2025/Brand Strategy/07-brand-voice-guidelines.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">07. Brand Voice Guidelines <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-path">Brand Strategy/07-brand-voice-guidelines.md</div>
+                        <div class="document-issues">
+                            Updated to "45-year-old business owner" test phrase.
+                        </div>
+                    </a>
+
+                    <a href="../Strategic Plan/Dec 2025/Brand Strategy/08-visual-identity-direction.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">08. Visual Identity Direction <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-path">Brand Strategy/08-visual-identity-direction.md</div>
+                        <div class="document-issues">
+                            Updated photography direction to "35-50 prominent".
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 2: Quick Wins -->
+        <section class="phase-section">
+            <div class="phase-header" onclick="togglePhase('phase2')">
+                <h3>Phase 2: Quick Wins & Messaging <span style="color: var(--green); font-size: 16px; font-family: 'DM Sans', sans-serif;">✓ COMPLETE</span></h3>
+                <div class="phase-stats">
+                    <div class="phase-stat">
+                        <span class="phase-stat-dot green"></span>
+                        <span>10 Aligned</span>
+                    </div>
+                    <div class="phase-stat">
+                        <span class="phase-stat-dot green"></span>
+                        <span>0 Need Updates</span>
+                    </div>
+                    <div class="toggle-btn">
+                        <svg class="toggle-icon" id="phase2-icon" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="phase-content" id="phase2">
+                <div class="document-grid">
+                    <a href="../Strategic Plan/Dec 2025/Deliverables/logos/v4/quick-wins/01-tagline-recommendation.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">01. Tagline Recommendation <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">Updated to "30-55 skeptical business owners who need proof"</div>
+                    </a>
+                    <a href="../Strategic Plan/Dec 2025/Deliverables/logos/v4/quick-wins/02-metaphor-hierarchy.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">02. Metaphor Hierarchy <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">Updated audience to "30-55 data-driven owners who need proof"</div>
+                    </a>
+                    <a href="../Strategic Plan/Dec 2025/Deliverables/logos/v4/quick-wins/03-words-use-avoid.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">03. Words Use Avoid <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">Transformed "burned" framing to "proof-seeking" framing</div>
+                    </a>
+                    <a href="../Strategic Plan/Dec 2025/Deliverables/logos/v4/quick-wins/04-voice-pronoun-guidelines.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">04. Voice Pronoun Guidelines <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">Updated to "want proof before committing" language</div>
+                    </a>
+                    <a href="../Strategic Plan/Dec 2025/Deliverables/logos/v4/quick-wins/05-heron-narrative-bridge.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">05. Heron Narrative Bridge <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">Updated to "need proof first" framing</div>
+                    </a>
+                    <a href="../Strategic Plan/Dec 2025/Deliverables/logos/v4/quick-wins/06-proof-vocabulary-palette.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">06. Proof Vocabulary Palette <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">Updated to "growth-focused 30-55 proof-seeking owners"</div>
+                    </a>
+                    <a href="../Strategic Plan/Dec 2025/Deliverables/logos/v4/quick-wins/07-email-signature-ctas.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">07. Email Signature CTAs <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">Updated to "data-driven owner's need for certainty"</div>
+                    </a>
+                    <a href="../Strategic Plan/Dec 2025/Deliverables/logos/v4/quick-wins/08-linkedin-cta-messaging.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">08. LinkedIn CTA Messaging <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">Complete rewrite with "proof before committing" positioning</div>
+                    </a>
+                    <a href="../Strategic Plan/Dec 2025/Deliverables/logos/v4/quick-wins/09-message-repetition-guidelines.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">09. Message Repetition Guidelines <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">Updated to "Growth-Focused Specialization" language</div>
+                    </a>
+                    <a href="../Strategic Plan/Dec 2025/Deliverables/logos/v4/quick-wins/10-anti-positioning-statements.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">10. Anti-Positioning Statements <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">Complete transformation from "Burned Before" to "Proof-First" messaging</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 3: Strategic Documents -->
+        <section class="phase-section">
+            <div class="phase-header" onclick="togglePhase('phase3')">
+                <h3>Phase 3: Strategic Documents <span style="color: var(--green); font-size: 16px; font-family: 'DM Sans', sans-serif;">✓ COMPLETE</span></h3>
+                <div class="phase-stats">
+                    <div class="phase-stat">
+                        <span class="phase-stat-dot green"></span>
+                        <span>7 Aligned</span>
+                    </div>
+                    <div class="phase-stat">
+                        <span class="phase-stat-dot green"></span>
+                        <span>0 Need Updates</span>
+                    </div>
+                    <div class="toggle-btn">
+                        <svg class="toggle-icon" id="phase3-icon" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="phase-content" id="phase3">
+                <div class="document-grid">
+                    <a href="../Strategic Plan/Dec 2025/Deliverables/brand-strategy-synthesis.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">Brand Strategy Synthesis <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">No demographic age references. Strategic focus.</div>
+                    </a>
+                    <a href="../Strategic Plan/Dec 2025/Deliverables/brand-positioning-framework.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">Brand Positioning Framework <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">Updated to "growth-focused business owners aged 30-55" with "too time-constrained to implement" framing</div>
+                    </a>
+                    <a href="../Strategic Plan/Dec 2025/Deliverables/persona-insights-brand-strategy.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">Persona Insights Brand Strategy <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">Complete rewrite: 30-55 age, growth/scale motivation, "time-constrained" positioning</div>
+                    </a>
+                    <a href="../Strategic Plan/Dec 2025/Working Documents/strategic-recommendations.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">Strategic Recommendations <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">Business strategy focus, no age targeting</div>
+                    </a>
+                    <a href="../Strategic Plan/Dec 2025/Working Documents/business-context.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">Business Context <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">Investment capacity focus, not age</div>
+                    </a>
+                    <a href="../Strategic Plan/Dec 2025/Deliverables/logos/v4/creative-brief-v4.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">Creative Brief v4 <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">Updated to "30-55 growth-focused", "data-driven 45-year-old" test</div>
+                    </a>
+                    <a href="../Strategic Plan/Dec 2025/Deliverables/logos/v4/brand-audit-workspace.md" target="_blank" class="document-card aligned">
+                        <div class="document-header">
+                            <span class="document-title">Brand Audit Workspace <span class="open-icon">↗</span></span>
+                            <span class="document-status aligned">Aligned</span>
+                        </div>
+                        <div class="document-issues">Updated to "30-55 growth-focused" throughout, "data-driven decision makers" framing</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 4: Industry Personas -->
+        <section class="phase-section">
+            <div class="phase-header" onclick="togglePhase('phase4')">
+                <h3>Phase 4: Industry Personas <span style="color: var(--green); font-size: 16px; font-family: 'DM Sans', sans-serif;">✓ COMPLETE</span></h3>
+                <div class="phase-stats">
+                    <div class="phase-stat">
+                        <span class="phase-stat-dot green"></span>
+                        <span>40 Aligned</span>
+                    </div>
+                    <div class="phase-stat">
+                        <span class="phase-stat-dot green"></span>
+                        <span>0 Need Updates</span>
+                    </div>
+                    <div class="toggle-btn">
+                        <svg class="toggle-icon" id="phase4-icon" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="phase-content" id="phase4">
+                <div style="background: var(--green-light); border: 1px solid var(--green); border-radius: 12px; padding: 20px; margin-bottom: 28px;">
+                    <strong style="color: var(--green);">✓ Complete:</strong> All 40 industry persona files have been updated from "older = higher" to "growth-focused = higher" scoring criteria with 30-55 age range targeting.
+                </div>
+
+                <h4 style="margin-bottom: 16px; color: var(--navy); font-size: 18px;">Updates Applied to All 40 Files:</h4>
+                <ul style="margin-bottom: 28px; margin-left: 24px; color: var(--gray-700);">
+                    <li style="margin-bottom: 8px;"><strong>Owner Demographics</strong> — Changed from "older = higher" to "growth-focused = higher" scoring</li>
+                    <li style="margin-bottom: 8px;"><strong>Age Range</strong> — Updated to "30-55" growth-focused owners</li>
+                    <li style="margin-bottom: 8px;"><strong>Positioning</strong> — "Time-constrained" instead of "technology laggard"</li>
+                    <li><strong>Motivation</strong> — "Competitive advantage" instead of "fear of being left behind"</li>
+                </ul>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;">
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/01-Construction-General-Contractors.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">01-Construction <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/02-Manufacturing-SMB.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">02-Manufacturing <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/03-Trucking-Logistics.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">03-Trucking <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/04-Auto-Dealerships.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">04-Auto Dealerships <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/05-Dental-Practices.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">05-Dental <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/06-Veterinary-Practices.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">06-Veterinary <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/07-Funeral-Homes.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">07-Funeral Homes <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/08-Real-Estate-Brokerages.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">08-Real Estate <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/09-Property-Management.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">09-Property Mgmt <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/10-Landscaping-Lawn-Care.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">10-Landscaping <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/11-Pest-Control.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">11-Pest Control <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/12-Senior-Care.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">12-Senior Care <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/13-Auto-Repair.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">13-Auto Repair <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/14-Childcare-Daycare.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">14-Childcare <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/15-Independent-Pharmacies.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">15-Pharmacies <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/16-Optometry-Eye-Care.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">16-Optometry <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/17-Commercial-Cleaning.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">17-Cleaning <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/18-Staffing-Agencies.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">18-Staffing <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/19-Self-Storage.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">19-Self Storage <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/20-Moving-Companies.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">20-Moving <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/21-Printing-Sign-Shops.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">21-Printing <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/22-Agriculture-Farming.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">22-Agriculture <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/23-Security-Services.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">23-Security <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/24-Fitness-Gyms.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">24-Fitness <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/25-Medical-Equipment.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">25-Medical Equip <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/26-Healthcare-Clinics.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">26-Healthcare <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/27-Restaurants-Food.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">27-Restaurants <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/28-Hotels-Hospitality.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">28-Hotels <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/29-Physical-Therapy.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">29-Physical Therapy <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/30-Chiropractic.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">30-Chiropractic <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/31-Plumbing.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">31-Plumbing <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/32-Electrical.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">32-Electrical <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/33-Roofing.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">33-Roofing <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/34-Pool-Service.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">34-Pool Service <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/35-HVAC.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">35-HVAC <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/36-Tax-Bookkeeping.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">36-Tax/Bookkeeping <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/37-Waste-Junk.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">37-Waste/Junk <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/38-Home-Health.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">38-Home Health <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/39-Towing.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">39-Towing <span class="open-icon">↗</span></span></a>
+                    <a href="../Strategic Plan/Dec 2025/Target Personas/40-Credit-Unions.md" target="_blank" class="document-card aligned" style="padding: 14px; text-decoration: none;"><span class="document-title" style="font-size: 14px;">40-Credit Unions <span class="open-icon">↗</span></span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Decisions Needed -->
+        <section class="table-section">
+            <h2 class="section-title">Decisions Needed</h2>
+            <div class="section-title-bar"></div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Decision</th>
+                        <th>Document(s)</th>
+                        <th>Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Archive 01-current-brand-audit.md as historical, or update?</td>
+                        <td>01</td>
+                        <td><span class="impact-badge low">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Keep "technology laggard" but decouple from age?</td>
+                        <td>03-07 + 40 personas</td>
+                        <td><span class="impact-badge high">High</span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Photography: "35-50 prominent" or keep older mix?</td>
+                        <td>08</td>
+                        <td><span class="impact-badge medium">Medium</span></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Update validation files (01-13) as well?</td>
+                        <td>13 files</td>
+                        <td><span class="impact-badge medium">Medium</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Proposed Changes -->
+        <section class="table-section">
+            <h2 class="section-title">Proposed Changes</h2>
+            <div class="section-title-bar"></div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Change</th>
+                        <th>Document(s)</th>
+                        <th>Effort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Replace "30-55" with "30-55" in all demographic references</td>
+                        <td>All 59 docs</td>
+                        <td><span class="impact-badge high">High</span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Update positioning statement age reference</td>
+                        <td>05</td>
+                        <td><span class="impact-badge low">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Revise elevator pitch age reference</td>
+                        <td>06</td>
+                        <td><span class="impact-badge low">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Change "60-year-old" to "45-year-old" test</td>
+                        <td>07, 24, 25</td>
+                        <td><span class="impact-badge low">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Update photography direction to "35-50 prominent"</td>
+                        <td>08</td>
+                        <td><span class="impact-badge low">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Batch update all 40 industry persona files</td>
+                        <td>All personas</td>
+                        <td><span class="impact-badge high">High</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Final Summary -->
+        <section class="final-summary">
+            <h2 class="section-title">Final Summary</h2>
+            <div class="section-title-bar"></div>
+
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h4>By Category</h4>
+                    <ul>
+                        <li><span>Core Brand Strategy</span><span style="color: var(--green); font-weight: 700;">8 of 8 ✓</span></li>
+                        <li><span>Quick Wins</span><span style="color: var(--green); font-weight: 700;">10 of 10 ✓</span></li>
+                        <li><span>Strategic Documents</span><span style="color: var(--green); font-weight: 700;">7 of 7 ✓</span></li>
+                        <li><span>Industry Personas</span><span style="color: var(--green); font-weight: 700;">40 of 40 ✓</span></li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <h4>Completion Status</h4>
+                    <ul>
+                        <li><span style="color: var(--green);">All Documents Aligned</span><span style="color: var(--green); font-weight: 700;">65 of 65 ✓</span></li>
+                        <li><span>Remaining Work</span><span style="color: var(--green); font-weight: 700;">None</span></li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <h4>Completed Phases</h4>
+                    <ul>
+                        <li style="color: var(--green);">✓ Phase 1: Core Brand Strategy</li>
+                        <li style="color: var(--green);">✓ Phase 2: Quick Wins & Messaging</li>
+                        <li style="color: var(--green);">✓ Phase 3: Strategic Documents</li>
+                        <li style="color: var(--green);">✓ Phase 4: Industry Personas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Alignment Progress</span>
+                    <span style="color: var(--green); font-weight: 700;">65 of 65 documents (100%) ✓</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-aligned" style="width: 100%;">100% COMPLETE</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Appendix -->
+        <section class="table-section">
+            <h2 class="section-title">Transformation Summary</h2>
+            <div class="section-title-bar"></div>
+
+            <div class="quote-header">
+                <span>Phase</span>
+                <span>Old Framing (Removed)</span>
+                <span>New Framing (Applied)</span>
+            </div>
+
+            <div class="quote-card" style="background: var(--green-light); border-left: 3px solid var(--green);">
+                <span class="quote-doc" style="color: var(--green);">✓ Phases 1-3 Complete (25 docs)</span>
+                <span class="quote-current">"30-55", "seeking certainty", "exit planning"</span>
+                <span class="quote-should-be">"30-55", "proof-first", "growth planning"</span>
+            </div>
+
+            <div class="quote-card" style="background: var(--green-light); border-left: 3px solid var(--green);">
+                <span class="quote-doc" style="color: var(--green);">✓ Phase 4 Complete (40 docs)</span>
+                <span class="quote-current">"older = higher", "tech laggard", "55+"</span>
+                <span class="quote-should-be">"growth-focused = higher", "30-55", "time-constrained"</span>
+            </div>
+
+            <div class="quote-card" style="background: var(--green-light); border-left: 3px solid var(--green);">
+                <span class="quote-doc" style="color: var(--green); font-weight: 700;">✓ ALL 65 DOCUMENTS ALIGNED</span>
+                <span class="quote-current" style="text-decoration: none; color: var(--gray-500);">Brand transformation complete</span>
+                <span class="quote-should-be" style="font-weight: 700;">January 9, 2026</span>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-logo">ScaleUp Ventures</div>
+        <p>Brand Content Alignment Report — <strong style="color: var(--green);">All 65 Documents Aligned ✓</strong></p>
+        <p style="margin-top: 8px; opacity: 0.7;">Completed January 9, 2026</p>
+    </footer>
+
+    <script>
+        function togglePhase(phaseId) {
+            const content = document.getElementById(phaseId);
+            const icon = document.getElementById(phaseId + '-icon');
+
+            content.classList.toggle('active');
+            icon.classList.toggle('active');
+        }
+
+        // Open Phase 1 by default
+        document.addEventListener('DOMContentLoaded', function() {
+            togglePhase('phase1');
+        });
+    </script>
+</body>
+</html>

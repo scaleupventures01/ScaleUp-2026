@@ -9,7 +9,7 @@
 
 ## Executive Summary
 
-The electrical contracting industry represents a **HIGH-POTENTIAL target market** for ScaleUp Ventures. With an average owner age of 58.6 years, a $237-312 billion market size, and documented technology adoption resistance, this industry exhibits the exact "technology laggard" profile ScaleUp seeks. The combination of aging ownership, succession planning crises, and growing digital marketing necessity creates significant opportunity for dev, growth marketing, and AI/automation services.
+The electrical contracting industry represents a **HIGH-POTENTIAL target market** for ScaleUp Ventures. With an average owner age of 58.6 years, a $237-312 billion market size, and documented technology adoption resistance, this industry exhibits the exact "technology-cautious" profile ScaleUp seeks. The combination of aging ownership, succession planning crises, and growing digital marketing necessity creates significant opportunity for dev, growth marketing, and AI/automation services.
 
 ---
 
@@ -18,7 +18,7 @@ The electrical contracting industry represents a **HIGH-POTENTIAL target market*
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM)** | 9/10 | $237.59B-$312.2B industry with 245,300-252,000 businesses. One of the largest trade contractor segments. Growing at 2.5% CAGR with significant upside from EV infrastructure and clean energy. |
-| **Owner Demographics (older = higher)** | 10/10 | Average owner age 58.6 years. 69% over age 55. 32% over age 65. Only 3% are 18-34. Average 33.2 years industry experience. 72% are owners/top management. |
+| **Owner Demographics (growth-focused = higher)** | 10/10 | Target owners aged 30-55 focused on scaling their electrical businesses. Growth-oriented contractors seeking competitive advantages through technology and marketing modernization. |
 | **Budget Availability** | 7/10 | Recommended marketing spend 10-15% of revenue. 56% of firms achieve $1M+ annual revenue. Average owner salary $60K-$150K. Net margins 2-20% depending on size. Monthly profits $5K-$50K. |
 | **Pain Intensity** | 9/10 | Acute labor shortage (5:2 retirement ratio), 14% workforce shrinkage by 2030, succession crisis (43% expect leadership transfer in 5 years), technology adoption gaps, supply chain issues, digital marketing necessity. |
 | **Competition Level (less = higher)** | 5/10 | Moderate competition. ServiceTitan, Housecall Pro, Jobber dominate FSM software. 10+ specialized marketing agencies target electricians. However, most focus on software/ads, not comprehensive dev + AI + growth services. |
@@ -227,7 +227,7 @@ The electrical contracting industry represents a **HIGH-POTENTIAL target market*
 - Few offer **comprehensive dev + AI + growth marketing** bundle
 - Limited **AI/automation specifically for electrical contractors**
 - Agencies mostly sell services, not strategic transformation
-- No dominant player serving older owners with succession concerns
+- No dominant player serving business owners with succession concerns
 
 **Sources**: [ServiceTitan Comparisons](https://www.servicetitan.com/comparison/servicetitan-vs-housecall-pro), [Hook Agency](https://hookagency.com/blog/best-electrician-marketing-agencies/), [Comrade Web](https://comradeweb.com/blog/best-electrician-marketing-agencies/)
 
@@ -341,7 +341,7 @@ The electrical contracting industry represents a **HIGH-POTENTIAL target market*
 ### Ideal Customer Profile (ICP) for ScaleUp
 - **Company size**: 5-25 employees
 - **Annual revenue**: $500K-$5M
-- **Owner age**: 50-65 years
+- **Owner age**: 30-55 years
 - **Current digital presence**: Weak or nonexistent
 - **Pain points**: Struggling to compete online, facing succession planning, labor shortage
 - **Geography**: Urban/suburban markets with competition
@@ -385,7 +385,7 @@ The electrical contracting industry represents a **HIGH-POTENTIAL target market*
 
 The electrical contractor industry scores **63/80**, placing it in the top tier of ScaleUp Ventures target markets. Key advantages:
 
-1. **Perfect demographic fit**: Average owner age 58.6 years aligns exactly with "technology laggard" thesis
+1. **Perfect demographic fit**: Average owner age 58.6 years aligns exactly with "technology-cautious" thesis
 2. **Massive market size**: $237B+ industry with 245K+ businesses
 3. **Acute pain points**: Labor shortage, succession crisis, digital necessity
 4. **Clear service fit**: Dev, marketing, and AI/automation all highly relevant

@@ -92,6 +92,6 @@ Save as: `heron-03-strike-pose.png`
 
 - **Company**: ScaleUp Ventures - B2B advisory firm
 - **Tagline**: "We Prove It Before You Buy"
-- **Target Audience**: 50-65 year old business owners, skeptical of consultants
+- **Target Audience**: 30-55 year old business owners, skeptical of consultants
 - **Symbol Meaning**: The heron watches patiently, then strikes with precision - "patience before precision"
 - **Brand Colors**: Navy #0F1729, Gold #D4A853, White #FFFFFF

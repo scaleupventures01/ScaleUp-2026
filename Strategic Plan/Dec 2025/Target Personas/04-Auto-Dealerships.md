@@ -19,7 +19,7 @@ Independent auto dealerships represent a **moderately attractive** target market
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 9/10 | ~149,000 used car dealers in US; $147.4B industry revenue (2025); average dealer spends $529K/year on advertising |
-| **Owner Demographics (older = higher)** | 6/10 | 49% of dealers are 40+ years old; family-run "mom and pop" shops common; succession planning concerns driving exits |
+| **Owner Demographics (growth-focused = higher)** | 6/10 | Target dealership owners aged 30-55 focused on growing their businesses. Growth-oriented operators seeking competitive advantages against online competitors. |
 | **Budget Availability** | 8/10 | 6-7% of gross profit on advertising; average $44K/month ad spend (franchises); smaller independents $5K-20K/month; 65-72% going to digital |
 | **Pain Intensity (disruption fear)** | 7/10 | Carvana/CarMax fear real but cooling; Vroom bankruptcy provides relief; Q3 2024 sentiment at 37 (second-lowest ever); 40% of leads never get proper response |
 | **Competition Level (less = higher)** | 4/10 | Highly competitive: CDK, Reynolds, Dealer.com, Arbor Advertising, Dealer Authority, DealerSmart, 20+ specialized agencies |

@@ -6,7 +6,7 @@
 **Analysis Date**: December 30, 2025
 **Recommendation**: **STRONG FIT** - High-priority target for ScaleUp Ventures
 
-Home health agencies represent an exceptionally strong target persona for ScaleUp Ventures. This $100+ billion industry is highly fragmented (nearly 500,000 providers, no company holds >5% market share), technology-laggard, and dominated by older owners facing a "Silver Tsunami" of retirement. The industry has severe pain points around staffing, scheduling, billing, and marketing that align perfectly with ScaleUp's dev, growth marketing, and AI/automation services.
+Home health agencies represent an exceptionally strong target persona for ScaleUp Ventures. This $100+ billion industry is highly fragmented (nearly 500,000 providers, no company holds >5% market share), technology-laggard, and dominated by business owners facing a "Silver Tsunami" of retirement. The industry has severe pain points around staffing, scheduling, billing, and marketing that align perfectly with ScaleUp's dev, growth marketing, and AI/automation services.
 
 ---
 
@@ -15,7 +15,7 @@ Home health agencies represent an exceptionally strong target persona for ScaleU
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM)** | 9/10 | U.S. market: $100.95B (2024), growing to $176.3B by 2032 at 7.4% CAGR. ~488,000 agencies in U.S. Even capturing 0.1% = $100M+ opportunity |
-| **Owner Demographics (older = higher)** | 9/10 | 52.3% of all U.S. business owners are 55+. Healthcare services skew even older. Many "encore entrepreneurs" in this space. Silver Tsunami of retirements by 2030 |
+| **Owner Demographics (growth-focused = higher)** | 9/10 | Target agency owners aged 30-55 focused on growing their businesses. Growth-oriented operators seeking competitive advantages through technology and patient acquisition. |
 | **Budget Availability** | 6/10 | Avg agency: $1.5M revenue (Medicare). Margins 9.7-11.4%. Marketing spend only 1.1-2% of revenue currently, but could increase to 5-10% with proper ROI demonstration |
 | **Pain Intensity** | 9/10 | Severe: 69% say caregiver shortages "Very/Extremely Painful." 76% turnover rate. Scheduling is #1 challenge for 51%. 73% of digital health implementations fail. Billing/compliance nightmares |
 | **Competition Level (less = higher)** | 7/10 | Specialized home care marketing agencies exist (10-15 notable players) but highly fragmented. Few offer comprehensive dev + marketing + AI. Most focus on just marketing |
@@ -496,7 +496,7 @@ Home health agencies represent an exceptionally strong target persona for ScaleU
 
 1. **Massive, Growing Market**: $100B+ U.S. market growing 7.4% annually
 2. **Highly Fragmented**: 488K+ agencies, no dominant players, many small independents
-3. **Technology Laggard**: Paper-based processes, outdated websites, minimal automation
+3. **Technology-Cautious**: Paper-based processes, outdated websites, minimal automation
 4. **Older Owners**: 52%+ of owners are 55+, approaching retirement, need help
 5. **Severe Pain Points**: Staffing crisis, scheduling chaos, billing nightmares
 6. **Perfect Service Fit**: Need exactly what ScaleUp offers (dev, marketing, AI)

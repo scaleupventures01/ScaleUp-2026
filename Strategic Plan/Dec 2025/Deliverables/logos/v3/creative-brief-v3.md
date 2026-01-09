@@ -13,7 +13,7 @@ This brief incorporates findings from comprehensive research across:
 - Top agency methodologies (Pentagram, Wolff Olins, Landor, Interbrand)
 - AI prompt engineering best practices for logo generation
 - B2B professional services logo patterns (MBB + Big Four analysis)
-- Logo psychology for 50-65 year old audiences
+- Logo psychology for 30-55 year old audiences
 - Visual alignment and rejection prevention frameworks
 - Brand strategy to visual translation methodologies
 
@@ -36,7 +36,7 @@ It's about **the end of doubt**.
 **Proof. Partnership. Progress.**
 
 ### Positioning Statement
-For **established business owners (50-65+)** who have been burned by technology consultants, **ScaleUp Ventures** is the **proof-first advisory firm** that **demonstrates results before asking for commitment**, unlike traditional consultants who sell promises without evidence.
+For **established business owners (30-55+)** who have been burned by technology consultants, **ScaleUp Ventures** is the **proof-first advisory firm** that **demonstrates results before asking for commitment**, unlike traditional consultants who sell promises without evidence.
 
 ### Value Proposition
 "We Prove It Before You Buy" - delivering working demonstrations, pilot programs, and tangible evidence before any significant investment.
@@ -55,7 +55,7 @@ For **established business owners (50-65+)** who have been burned by technology 
 ## Section 2: Target Audience Psychology
 
 ### Demographic Profile
-- Age: 50-65+ years old
+- Age: 30-55+ years old
 - Status: Established business owners
 - Net worth: $2M-$20M
 - Experience: 20-40 years in business
@@ -106,7 +106,7 @@ For **established business owners (50-65+)** who have been burned by technology 
 | **Spacing** | Open tracking | Premium feel |
 | **Case** | Title case ("ScaleUp Ventures") | Professional, accessible |
 
-**Research Insight:** 50-65 year olds show stronger positive response to serif fonts (tradition, trust) but will accept refined sans-serif if it signals "modern expertise" rather than "startup energy."
+**Research Insight:** 30-55 year olds show stronger positive response to serif fonts (tradition, trust) but will accept refined sans-serif if it signals "modern expertise" rather than "startup energy."
 
 ### Shape Psychology
 
@@ -324,7 +324,7 @@ Negative: no 3D effects, no gradients, no shadows, no text, no busy background
 |------|----------|---------------|
 | **Squint Test** | At 16px favicon, is mark recognizable? | Distinct shape visible |
 | **Fax Test** | In pure B&W, does it work? | Reads clearly |
-| **Trust Test** | Would a skeptical 60-year-old think "these people are serious"? | Professional, substantial |
+| **Trust Test** | Would a skeptical 45-year-old think "these people are serious"? | Professional, substantial |
 | **Story Test** | Can you explain meaning in one sentence? | Clear, non-abstract |
 | **White Test** | Does it look confident on pure white? | No lost edges, complete |
 

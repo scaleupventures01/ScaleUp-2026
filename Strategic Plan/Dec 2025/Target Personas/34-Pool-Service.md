@@ -19,7 +19,7 @@ The pool service and maintenance industry represents a **highly attractive targe
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM)** | 8/10 | $8.8B US market (2025), growing to $10.33B by 2029; 78,817 businesses nationwide with 4.4% YoY growth |
-| **Owner Demographics (older = higher)** | 7/10 | Average worker age 40-48 years; 75% of pool cleaners are 40+; industry mirrors HVAC/plumbing where avg owner is 52+; low young entrants |
+| **Owner Demographics (growth-focused = higher)** | 7/10 | Target owners aged 30-55 focused on scaling their pool service businesses. Growth-oriented operators seeking competitive advantages through route optimization and technology. |
 | **Budget Availability** | 7/10 | Avg owner income $80K-$100K/year; 15-50% profit margins; 3-person teams generate $400K-$600K revenue; SBA recommends 7-8% marketing spend |
 | **Pain Intensity** | 9/10 | Rising costs #1 challenge; mountains of admin work; poor scheduling/routing; outdated software; only 35% invest in marketing; 43% seeking operational efficiencies |
 | **Competition Level (less = higher)** | 6/10 | 8-10 specialized pool marketing agencies exist (PoolMarketing.com, SwimSEO, etc.); most focus on SEO/PPC; limited AI/automation specialists |

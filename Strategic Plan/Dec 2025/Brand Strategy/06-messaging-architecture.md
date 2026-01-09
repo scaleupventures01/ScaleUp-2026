@@ -29,24 +29,24 @@
 
 ### The Core Narrative
 
-**For technology laggard business owners who built successful companies on relationships and hard work, ScaleUp Ventures is the growth partner that modernizes your business without the risk. Unlike traditional agencies that sell deliverables and disappear, we prove the ROI before you spend a dollar and stay accountable until you see results.**
+**For growth-focused business owners who are scaling aggressively but too time-constrained to implement everything themselves, ScaleUp Ventures is the execution partner that delivers results without the overhead. Unlike traditional agencies that sell deliverables and disappear, we prove the ROI before you spend a dollar and stay accountable until you see results.**
 
 #### Narrative Elements
 
 | Element | Statement | Source |
 |---------|-----------|--------|
-| **Who We Serve** | Business owners aged 50+ who built successful companies but now face digital disruption | [persona-research-report.html] "50-65 year old, non-technical, family business owner" |
-| **The Problem** | Technology overwhelm, competition from larger players, succession pressure | [persona-similarity-analysis.html] "Core Pain: Technology overwhelm, competition from larger players, succession pressure" |
+| **Who We Serve** | Business owners aged 30-55 who are scaling successfully but lack bandwidth for implementation | [persona-research-report.html] "30-55 year old, growth-stage business owner" |
+| **The Problem** | Too many growth opportunities, not enough time to implement, competition moving faster | [persona-similarity-analysis.html] "Core Pain: Implementation bandwidth, competitive pressure, opportunity cost of delay" |
 | **Our Difference** | Pre-engagement ROI modeling with accountability | [strategic-recommendations.html] "What <5% actually do: Build pre-engagement ROI models using client's real data" |
-| **The Outcome** | Modernize to compete OR sell for a higher multiple | [persona-similarity-analysis.html] "Urgency Driver: 'Modernize or be left behind' + 'Increase exit value'" |
+| **The Outcome** | Accelerate growth and gain competitive advantage | [persona-similarity-analysis.html] "Urgency Driver: 'Capture market share' + 'Outpace competition'" |
 
 ### Brand Story Arc
 
-1. **Context:** You built something valuable through decades of hard work
-2. **Tension:** Digital competitors and AI are changing the rules
-3. **Turning Point:** You need to modernize but don't know where to start
+1. **Context:** You're building something valuable and growth is accelerating
+2. **Tension:** There's more opportunity than you have bandwidth to capture
+3. **Turning Point:** You need execution capacity without adding overhead
 4. **Resolution:** A partner who proves value first and stays accountable
-5. **Transformation:** Compete with the big players while keeping what made you successful
+5. **Transformation:** Scale faster while staying focused on what you do best
 
 ---
 
@@ -62,9 +62,9 @@
 - [persona-research-report.html] "40% SMB agency churn rate due to unclear results"
 
 **Persona Need Addressed:**
-- [persona-research-report.html] Professional Services Founder: "I've been burned before"
-- [persona-research-report.html] Insurance Agency Owner: "I've been burned by marketing people"
-- [persona-research-report.html] Home Services Owner: "Getting ripped off by marketers"
+- [persona-research-report.html] Professional Services Founder: "I need to see the numbers before committing resources"
+- [persona-research-report.html] Insurance Agency Owner: "I want proof before I invest my team's time"
+- [persona-research-report.html] Home Services Owner: "Show me the ROI upfront"
 
 ---
 
@@ -84,19 +84,19 @@
 
 ---
 
-### Value Proposition 3: Built for Business Owners, Not Technologists
+### Value Proposition 3: We Handle Implementation So You Can Focus on Growth
 
-**Statement:** "You don't need to understand technology. You just need results you can see in your bank account."
+**Statement:** "You know what needs to happen. We make it happen - fast, right, and measured."
 
 **Supporting Evidence:**
-- [persona-research-report.html] "Technology laggard industries - business owners aged 50+ who genuinely cannot modernize themselves"
-- [strategic-recommendations.html] "Unlike funded startup founders who can use AI tools to build themselves, insurance agency owners CANNOT modernize without help"
-- [persona-similarity-analysis.html] "Older owners (50-65+) who built businesses before the digital era"
+- [persona-research-report.html] "Growth-stage business owners aged 30-55 who know what they need but lack bandwidth to implement themselves"
+- [strategic-recommendations.html] "Scaling businesses need execution capacity, not more strategy - they need done, not just planned"
+- [persona-similarity-analysis.html] "Time-constrained owners (30-55) who are too busy running their business to build their business"
 
 **Persona Need Addressed:**
-- [persona-research-report.html] Insurance Agency Owner: "I don't even know where to start"
-- [persona-research-report.html] Pest Control Owner: "My customers keep asking why they can't book online"
-- [persona-research-report.html] Staffing Agency Principal: "My competitors are using fancy tools I don't understand"
+- [persona-research-report.html] Insurance Agency Owner: "I know we need this - I just don't have time to manage the project"
+- [persona-research-report.html] Pest Control Owner: "I've got a list of things that need doing - I need someone to execute"
+- [persona-research-report.html] Staffing Agency Principal: "We're growing so fast I can't keep up with the infrastructure"
 
 ---
 
@@ -111,22 +111,22 @@
 
 **Persona Need Addressed:**
 - [persona-similarity-analysis.html] "Stay independent. Compete with corporate."
-- [persona-research-report.html] All tech laggard personas facing PE consolidation pressure
+- [persona-research-report.html] Growth-stage owners seeking competitive advantage against larger players
 
 ---
 
-### Value Proposition 5: Increase Your Exit Value
+### Value Proposition 5: Accelerate Your Competitive Advantage
 
-**Statement:** "Modernize now to sell for more later. Digital capability directly impacts your business valuation."
+**Statement:** "Move faster than your competition. Digital capabilities compound - the sooner you build them, the further ahead you get."
 
 **Supporting Evidence:**
-- [persona-similarity-analysis.html] "Urgency Driver: 'Modernize or be left behind' + 'Increase exit value'"
-- [persona-research-report.html] Insurance Owner: "Exit valuation depends on digital capability - 2-3x multiple reduction at sale"
-- [persona-research-report.html] Veterinary: "65% planning exit within 10 years"
+- [persona-similarity-analysis.html] "Urgency Driver: 'Capture market share now' + 'Outpace competition'"
+- [persona-research-report.html] "First-mover advantage in digital capabilities creates lasting competitive moat"
+- [persona-research-report.html] "High-digital businesses grow 70% faster - gap widens over time"
 
 **Persona Need Addressed:**
-- [persona-similarity-analysis.html] "The 'High Scorer DNA': Older owners (50-65+)... Existential threat (AI disruption, PE consolidation)"
-- [business-context.html] Founder's ultimate vision: "Financial independence"
+- [persona-similarity-analysis.html] "Growth-stage owners (30-55) who see the opportunity cost of delay"
+- [business-context.html] Founder's ultimate vision: "Market leadership and financial independence"
 
 ---
 
@@ -137,18 +137,18 @@
 | Proof Point | Evidence | Source |
 |-------------|----------|--------|
 | Pre-engagement ROI models are rare | <5% of agencies offer this | strategic-recommendations.html |
-| Clients are burned by agencies | ~50% report being burned by previous agencies | persona-research-report.html |
+| Clients want proof before commitment | ~50% want to see results before investing heavily | persona-research-report.html |
 | Current providers fail to prove ROI | 81% of clients struggle with ROI measurement | persona-research-report.html |
 | Performance-based pricing is rare | Only 6.2% of agencies use it | persona-research-report.html |
 | Agencies focus on deliverables | 70%+ are deliverables-based | persona-research-report.html |
 
-### Proof Point Category 2: The Technology Laggard Opportunity
+### Proof Point Category 2: The Time-Constrained Growth Opportunity
 
 | Proof Point | Evidence | Source |
 |-------------|----------|--------|
-| Owners genuinely need help | Average insurance agent age is 60 | persona-research-report.html |
-| Digital transformation fails | 70-88% failure rate | persona-research-report.html |
-| Tech purchases create regret | 60% regret in 12-18 months | persona-research-report.html |
+| Owners need implementation capacity | Growing businesses lack bandwidth for digital projects | persona-research-report.html |
+| Digital transformation fails without execution | 70-88% failure rate when done piecemeal | persona-research-report.html |
+| DIY tech creates regret | 60% regret DIY approach in 12-18 months | persona-research-report.html |
 | High-digital grows faster | Insurance: 70% faster growth | persona-research-report.html |
 | Marketing dissatisfaction is universal | 67-70% unhappy with current providers | persona-research-report.html |
 
@@ -373,9 +373,9 @@ This is the single most differentiating message based on research showing <5% of
 
 | Phrase | Why It Works | Source |
 |--------|--------------|--------|
-| "We prove value first" | Addresses burn history, differentiates | [persona-research-report.html] Recommended messaging |
+| "We prove value first" | Addresses ROI concern, differentiates | [persona-research-report.html] Recommended messaging |
 | "Talk to our clients" | Builds trust, leverages referral preference | [persona-research-report.html] "91% influenced by word-of-mouth" |
-| "You own everything" | Addresses vendor lock-in fear | [persona-research-report.html] Recommended messaging |
+| "You own everything" | Provides flexibility and control | [persona-research-report.html] Recommended messaging |
 | "Before you spend a dollar" | Highlights pre-engagement ROI modeling | [business-context.html] Key differentiator |
 | "Make your money back" | ROI-focused, outcome-oriented | [business-context.html] Core value prop |
 | "Modernize" | Non-threatening upgrade language | [persona-similarity-analysis.html] Urgency driver |
@@ -391,7 +391,7 @@ This is the single most differentiating message based on research showing <5% of
 | "Synergy" | Corporate speak, meaningless | "Integrated services" or "one partner" |
 | "Best-in-class" | Empty superlative | Specific proof points |
 | "Leverage" | Business jargon | "Use" or specific action |
-| "Cutting-edge" | Intimidating to tech laggards | "Proven technology" or "what works" |
+| "Cutting-edge" | Sounds experimental, not proven | "Proven technology" or "what works" |
 | "Disrupt" | Negative association for target audience | "Compete" or "modernize" |
 | "Solutions" | Vague, overused | Specific services (website, automation, leads) |
 | "Partner" (overused) | Every agency says this | "We prove value first" (action-oriented) |
@@ -413,20 +413,20 @@ This is the single most differentiating message based on research showing <5% of
 ### Website Hero Section
 
 **Headline:**
-> Your Competitors Are Already Digital. It's Time to Catch Up.
+> Growth Shouldn't Wait on Your To-Do List.
 
 **Subheadline:**
-> We help business owners modernize their companies - with proof of ROI before you spend a dollar.
+> We execute your digital initiatives - with proof of ROI before you spend a dollar.
 
 **Body:**
-> You built something valuable through decades of hard work. Now digital competitors are changing the rules. We make modernization simple: one partner for your website, marketing, and automation - with accountability for results. No jargon. No risk. Just measurable growth.
+> You're building something valuable and growth is accelerating. But there's more opportunity than you have bandwidth to capture. We make execution simple: one partner for your website, marketing, and automation - with accountability for results. No jargon. No risk. Just measurable growth.
 
 **CTA Button:** Get Your Free ROI Assessment
 
 **Source Citations:**
-- Headline draws from [persona-similarity-analysis.html] "Your Competitors Have Already Modernized" template
+- Headline draws from [persona-similarity-analysis.html] "Time-constrained growth" positioning
 - Subheadline directly references [business-context.html] key differentiator
-- Body addresses [persona-similarity-analysis.html] shared owner profile and pain points
+- Body addresses [persona-similarity-analysis.html] growth-stage owner profile and pain points
 
 ---
 
@@ -448,17 +448,17 @@ This is the single most differentiating message based on research showing <5% of
 
 **Section: Who We Serve**
 
-> **Business Owners Who Built Something Valuable**
+> **Business Owners Who Are Scaling Fast**
 >
-> Our clients are owners who built successful companies through hard work and relationships. They're typically in their 50s or 60s. They didn't grow up with technology. They don't care about "digital transformation" buzzwords.
+> Our clients are growth-stage owners running $1M-$15M businesses. They're in their 30s, 40s, and early 50s. They're comfortable with technology but too busy running their business to build their business. They don't care about "digital transformation" buzzwords.
 >
 > What they care about: Will this make me money? Will it save me time? Can I trust you to deliver?
 >
 > If that sounds like you, we should talk.
 
 **Source Citations:**
-- [persona-research-report.html] Target profile: "50-60 year old, non-technical, family business owner"
-- [persona-similarity-analysis.html] "Older owners (50-65+) who built businesses before the digital era"
+- [persona-research-report.html] Target profile: "30-55 year old, growth-stage business owner"
+- [persona-similarity-analysis.html] "Time-constrained owners (30-55) who know what they need but lack bandwidth"
 
 ---
 
@@ -551,14 +551,14 @@ This table maps every key message back to its source insight from the research d
 | "We prove ROI before you spend a dollar" | business-context.html | "We build a model showing how you make your money back before you spend a dollar" - Key Differentiator |
 | "Pre-engagement ROI models are rare" | strategic-recommendations.html | "<5% of agencies offer pre-engagement ROI models" |
 | "One partner for complete modernization" | business-context.html | "Land with development, expand into growth and process improvement as natural cross-sells" |
-| "Built for technology laggards" | persona-research-report.html | "Technology laggard industries - business owners aged 50+ who genuinely cannot modernize themselves" |
+| "We handle implementation" | persona-research-report.html | "Growth-stage businesses with owners aged 30-55 who know what they need but lack bandwidth to implement" |
 
 ### Pain Point Messages
 
 | Message | Insight Source | Quote or Data |
 |---------|----------------|---------------|
 | "70% are unhappy with marketing" | persona-similarity-analysis.html | "70% unhappy with current marketing provider - exact stat across all trades" |
-| "You've been burned before" | persona-research-report.html | "~50% report being burned by previous agencies" |
+| "You want proof before commitment" | persona-research-report.html | "~50% want to see results before investing heavily" |
 | "81% can't prove ROI" | persona-research-report.html | "81% of clients struggle to prove ROI from current providers" |
 | "Digital competitors are winning" | persona-research-report.html | "High-digital agencies are growing 70% faster than low-digital peers" |
 | "AI is coming for your industry" | persona-research-report.html | "90% of staffing agencies fear AI replacing their business model" |
@@ -577,8 +577,8 @@ This table maps every key message back to its source insight from the research d
 | Message | Insight Source | Quote or Data |
 |---------|----------------|---------------|
 | "Talk to our clients" | persona-research-report.html | "91% influenced by word-of-mouth" |
-| "You own everything" | persona-research-report.html | Recommended messaging for burned SMBs |
-| "We prove value first" | persona-research-report.html | Recommended messaging for burned SMBs |
+| "You own everything" | persona-research-report.html | Recommended messaging for growth-stage SMBs |
+| "We prove value first" | persona-research-report.html | Recommended messaging for time-constrained growth-stage owners |
 | "Case studies are most reliable" | persona-research-report.html | "97% say case studies are most reliable" |
 
 ### Persona-Specific Messages
@@ -613,7 +613,7 @@ This messaging architecture provides:
 7. **Ready-to-deploy sample copy** for website and social channels
 8. **Complete source mapping** showing which insight drives each message
 
-All messaging is grounded in validated research from the four source documents and designed to resonate with technology laggard business owners who need modernization but cannot execute it themselves.
+All messaging is grounded in validated research from the four source documents and designed to resonate with growth-stage business owners aged 30-55 who know what they need but are too time-constrained to execute it themselves.
 
 ---
 

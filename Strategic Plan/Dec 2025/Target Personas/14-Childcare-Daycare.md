@@ -23,7 +23,7 @@ The childcare/daycare industry presents a **mixed opportunity** for ScaleUp Vent
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 9/10 | $72.8B industry, 92,550+ licensed centers, ~190,000 total facilities including home-based |
-| **Owner Demographics (older = higher)** | 5/10 | Avg age 37-40 years (younger than target); 41% are 40+; 95.6% female; 32% have bachelor's degree |
+| **Owner Demographics (growth-focused = higher)** | 5/10 | Target childcare center owners aged 30-55 focused on expanding enrollment and service offerings. Growth-oriented operators seeking competitive advantages through technology and marketing. |
 | **Budget Availability** | 5/10 | Recommended 7-8% of revenue on marketing ($15K-$30K/yr); but 5-10% profit margins limit spend |
 | **Pain Intensity (disruption fear)** | 7/10 | 91% face staffing shortages; 58% under-enrolled; 60% lack websites; major admin burden |
 | **Competition Level (less = higher)** | 4/10 | 10+ specialized agencies (Grow Your Center, No Joke Childcare, ChildCareClicks, etc.); saturated |
@@ -74,7 +74,7 @@ Assuming 0.5% market penetration in Year 1:
 - **Average age**: 37-40 years old
 - **40+ years old**: 41% of daycare owner population
 - **Under 40**: 59% of population
-- **Assessment**: Younger than ideal for "technology laggard" thesis, but 40+ segment still substantial
+- **Assessment**: Younger than ideal for "technology-cautious" thesis, but 40+ segment still substantial
 
 ### Gender Distribution
 - **Female**: 95.6% of daycare owners

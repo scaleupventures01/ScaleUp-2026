@@ -11,7 +11,7 @@ Healthcare clinics and urgent care centers represent a rapidly growing segment o
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM)** | 9/10 | $34.34B US market (2024), 14,245 urgent care centers, projected $55B by 2030 at 8.6% CAGR |
-| **Owner Demographics (older = higher)** | 7/10 | Average physician age 54.4 years (2025); 50% physician-owned centers; aging workforce trend |
+| **Owner Demographics (growth-focused = higher)** | 7/10 | Target clinic owners aged 30-55 focused on growing their patient volumes. Growth-oriented practitioners seeking competitive advantages and operational efficiency. |
 | **Budget Availability** | 7/10 | $713K avg annual revenue per clinic; 3-5% IT spend; 10-15% marketing recommended but 62% spend only 1-5% |
 | **Pain Intensity** | 8/10 | Severe EHR frustration, workflow disruption, staffing shortages, flat reimbursements, 15% margins squeezed |
 | **Competition Level (less = higher)** | 4/10 | Crowded market: 35+ specialized healthcare marketing agencies; Tebra, Cardinal, PatientGain dominate |

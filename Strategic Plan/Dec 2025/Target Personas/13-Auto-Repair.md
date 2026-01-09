@@ -17,7 +17,7 @@ The auto repair industry represents a **strong opportunity** for ScaleUp Venture
 | Criteria | Score | Evidence |
 |----------|-------|----------|
 | **Market Size (TAM potential)** | 9/10 | $183-199B US market (2024-2025); 165,000-299,000 establishments; avg revenue $276K/shop |
-| **Owner Demographics (older = higher)** | 8/10 | 47% Gen X + 40% Baby Boomer small business owners; avg mechanic age 40+; massive "silver tsunami" retirement wave with 58% having no succession plan |
+| **Owner Demographics (growth-focused = higher)** | 8/10 | Target shop owners aged 30-55 focused on growing their repair businesses. Growth-oriented operators seeking competitive advantages through technology modernization. |
 | **Budget Availability** | 7/10 | SBA recommends 7-8% of revenue on marketing (~$20K/year for avg shop); shops spending 3-10% on marketing; avg shop revenue $276K with 10-20% net margins |
 | **Pain Intensity (disruption fear)** | 9/10 | 97% of mechanics not EV-qualified; 23% increase in technician shortage concerns; 40% revenue fluctuation monthly; competition from dealerships intensifying |
 | **Competition Level (less = higher)** | 6/10 | ~10+ specialized marketing agencies (Autoshop Solutions, LIFT, Shop Marketing Pros); shop management software crowded (Mitchell, ALLDATA, Tekmetric, Shopmonkey); AI/automation services less served |
@@ -46,7 +46,7 @@ The auto repair industry represents a **strong opportunity** for ScaleUp Venture
 - **Nonemployer/Sole Proprietors**: 67.6% of operators
 - **Small shops (1-3 bays)**: Majority of independents
 - **Medium shops (4-7 bays)**: Growing segment
-- **Large/Franchise**: Growing market share as older owners retire
+- **Large/Franchise**: Growing market share as business owners retire
 
 ### TAM Calculation for ScaleUp Services
 
@@ -79,7 +79,7 @@ The auto repair industry represents a **strong opportunity** for ScaleUp Venture
 
 ### Technology Comfort Assessment
 
-**Low to Moderate** - This industry is a classic technology laggard:
+**Low to Moderate** - This industry is a classic technology-cautious:
 - Many still use paper-based systems
 - Resistance to cloud-based tools
 - "90% of our industry has done nothing to prepare" for EV transition
@@ -161,7 +161,7 @@ The auto repair industry represents a **strong opportunity** for ScaleUp Venture
 |--------|-------|
 | Net Profit Margin | 10-20% (avg 10%) |
 | Gross Profit Margin | 50-60% |
-| Labor Margin | 50-65% |
+| Labor Margin | 30-55% |
 | Parts Margin | 20-30% |
 | Median Owner Income | $75,000/year |
 
