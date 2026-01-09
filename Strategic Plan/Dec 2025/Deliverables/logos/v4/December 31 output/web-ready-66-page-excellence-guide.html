@@ -1,0 +1,2848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures | Page Excellence Guide - Phase 3 Website Build</title>
+    <style>
+        :root {
+            /* RECOMMENDED COLOR SYSTEM */
+            --primary-dark: #0F1729;      /* Deep navy - trust, professionalism */
+            --accent-gold: #D4A853;        /* Warm gold - success, premium feel */
+            --certainty-blue: #2563EB;     /* Trust, data, mathematical precision */
+            --proof-green: #10B981;        /* Success states, guarantees */
+            --cream-bg: #FAF8F5;           /* Warm background - NOT generic white */
+            --text-primary: #1a1a2e;
+            --text-secondary: #64748b;
+            --border-subtle: #e2e8f0;
+            --warning-orange: #f59e0b;
+            --error-red: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream-bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Header Styling */
+        header {
+            background: var(--primary-dark);
+            color: white;
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        header .badge {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-top: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation */
+        .toc {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            margin: 40px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .toc h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            color: var(--primary-dark);
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: var(--cream-bg);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .toc-item:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .toc-item .number {
+            width: 36px;
+            height: 36px;
+            background: var(--primary-dark);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 16px;
+            font-size: 0.9rem;
+        }
+
+        /* Section Styling */
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin: 32px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid var(--cream-bg);
+        }
+
+        .section-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 20px;
+        }
+
+        .section h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.75rem;
+            color: var(--primary-dark);
+        }
+
+        .section h3 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin: 32px 0 16px 0;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .section h3:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        /* Recommendation Cards */
+        .rec-card {
+            background: var(--cream-bg);
+            border-radius: 8px;
+            padding: 24px;
+            margin: 16px 0;
+            border-left: 4px solid var(--certainty-blue);
+        }
+
+        .rec-card.critical {
+            border-left-color: var(--error-red);
+            background: #fef2f2;
+        }
+
+        .rec-card.success {
+            border-left-color: var(--proof-green);
+            background: #f0fdf4;
+        }
+
+        .rec-card.warning {
+            border-left-color: var(--warning-orange);
+            background: #fffbeb;
+        }
+
+        .rec-card h4 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rec-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .rec-card ul {
+            margin: 12px 0 0 20px;
+            color: var(--text-secondary);
+        }
+
+        .rec-card li {
+            margin: 8px 0;
+        }
+
+        /* Code Blocks */
+        .code-block {
+            background: var(--primary-dark);
+            color: #e2e8f0;
+            padding: 24px;
+            border-radius: 8px;
+            margin: 16px 0;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Monaco', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .code-block .comment {
+            color: #6b7280;
+        }
+
+        .code-block .tag {
+            color: #f472b6;
+        }
+
+        .code-block .attr {
+            color: #a5b4fc;
+        }
+
+        .code-block .string {
+            color: #86efac;
+        }
+
+        .code-block .keyword {
+            color: #c084fc;
+        }
+
+        /* Comparison Tables */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .comparison-table th {
+            background: var(--primary-dark);
+            color: white;
+            font-weight: 600;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--cream-bg);
+        }
+
+        .bad {
+            color: var(--error-red);
+        }
+
+        .good {
+            color: var(--proof-green);
+        }
+
+        /* Visual Examples */
+        .visual-example {
+            border: 2px dashed var(--border-subtle);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 24px 0;
+            text-align: center;
+            background: white;
+        }
+
+        .visual-example h5 {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        /* CTA Examples */
+        .cta-example {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            margin: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .cta-primary {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-dark);
+        }
+
+        .cta-tertiary {
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            margin: 16px 0;
+        }
+
+        .checklist li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .checklist li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: var(--certainty-blue);
+            font-size: 1.1rem;
+        }
+
+        /* Quick Reference Box */
+        .quick-ref {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1e293b 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 32px;
+            margin: 32px 0;
+        }
+
+        .quick-ref h3 {
+            color: var(--accent-gold);
+            border: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .quick-ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .quick-ref-item h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+        }
+
+        .quick-ref-item p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.75rem;
+            }
+
+            .section {
+                padding: 24px;
+            }
+
+            .code-block {
+                font-size: 0.75rem;
+                padding: 16px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <h1>Page Excellence Guide</h1>
+    <p class="subtitle">How to make ScaleUp Ventures' Phase 3 Website Build top-tier, impactful, and high-converting</p>
+    <span class="badge">CERTAINTY FIRST.</span>
+</header>
+
+<div class="container">
+
+    <!-- TABLE OF CONTENTS -->
+    <nav class="toc">
+        <h2>What's Inside</h2>
+        <div class="toc-grid">
+            <a href="#foundations" class="toc-item">
+                <span class="number">1</span>
+                <span>Design Foundations & Color System</span>
+            </a>
+            <a href="#homepage" class="toc-item">
+                <span class="number">2</span>
+                <span>Homepage Recommendations</span>
+            </a>
+            <a href="#services" class="toc-item">
+                <span class="number">3</span>
+                <span>Services Pages</span>
+            </a>
+            <a href="#about" class="toc-item">
+                <span class="number">4</span>
+                <span>About Page</span>
+            </a>
+            <a href="#contact" class="toc-item">
+                <span class="number">5</span>
+                <span>Contact Page</span>
+            </a>
+            <a href="#faq" class="toc-item">
+                <span class="number">6</span>
+                <span>FAQ Page</span>
+            </a>
+            <a href="#logos" class="toc-item">
+                <span class="number">7</span>
+                <span>Client Logos Collection</span>
+            </a>
+            <a href="#ctas" class="toc-item">
+                <span class="number">8</span>
+                <span>CTA Strategy & Examples</span>
+            </a>
+            <a href="#ux" class="toc-item">
+                <span class="number">9</span>
+                <span>UI/UX Best Practices</span>
+            </a>
+            <a href="#checklist" class="toc-item">
+                <span class="number">10</span>
+                <span>Launch Checklist</span>
+            </a>
+            <a href="#responsive" class="toc-item">
+                <span class="number">11</span>
+                <span>Desktop vs Mobile Layouts</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: DESIGN FOUNDATIONS -->
+    <section class="section" id="foundations">
+        <div class="section-header">
+            <span class="section-number">1</span>
+            <h2>Design Foundations & Color System</h2>
+        </div>
+
+        <h3>Why This Matters</h3>
+        <p>ScaleUp Ventures' website must immediately communicate <strong>certainty</strong>, <strong>professionalism</strong>, and <strong>trustworthiness</strong>. The design should feel like a patient observer - watchful, measured, decisive. NOT generic, NOT flashy, NOT typical agency aesthetic.</p>
+
+        <div class="rec-card critical">
+            <h4>CRITICAL: Avoid Generic AI Aesthetics</h4>
+            <ul>
+                <li>NO gradient meshes or aurora backgrounds</li>
+                <li>NO generic blue/purple tech color schemes</li>
+                <li>NO stock photos of people pointing at screens</li>
+                <li>NO "innovative, cutting-edge, revolutionary" language</li>
+                <li>NO complex animations that distract from content</li>
+            </ul>
+        </div>
+
+        <h3>Recommended Color System</h3>
+        <div class="code-block">
+<span class="comment">/* COLOR SYSTEM - Use these exact values */</span>
+:root {
+    <span class="comment">/* Primary */</span>
+    --primary-dark: <span class="string">#0F1729</span>;     <span class="comment">/* Deep navy - trust, professionalism */</span>
+    --accent-gold: <span class="string">#D4A853</span>;      <span class="comment">/* Warm gold - success, premium */</span>
+    --cream-bg: <span class="string">#FAF8F5</span>;        <span class="comment">/* Warm background - NOT generic white */</span>
+
+    <span class="comment">/* Functional */</span>
+    --certainty-blue: <span class="string">#2563EB</span>;  <span class="comment">/* Data, mathematical precision */</span>
+    --proof-green: <span class="string">#10B981</span>;     <span class="comment">/* Success states, guarantees */</span>
+    --warning-orange: <span class="string">#F59E0B</span>;  <span class="comment">/* Cautions */</span>
+    --error-red: <span class="string">#EF4444</span>;       <span class="comment">/* Errors */</span>
+
+    <span class="comment">/* Text */</span>
+    --text-primary: <span class="string">#1a1a2e</span>;    <span class="comment">/* Headlines, body */</span>
+    --text-secondary: <span class="string">#64748b</span>;  <span class="comment">/* Supporting copy */</span>
+}
+        </div>
+
+        <h3>Typography Hierarchy</h3>
+        <div class="rec-card">
+            <h4>Font Pairing (Distinctive, Not Generic)</h4>
+            <ul>
+                <li><strong>Headlines:</strong> Crimson Pro (serif) - Confident, authoritative, NOT typical tech sans-serif</li>
+                <li><strong>Body:</strong> DM Sans - Clean, readable, professional</li>
+                <li><strong>Accent/Data:</strong> Fira Code or mono font for numbers and stats</li>
+            </ul>
+        </div>
+
+        <div class="code-block">
+<span class="comment">/* TYPOGRAPHY SCALE */</span>
+--font-display: <span class="string">3.5rem</span>;    <span class="comment">/* 56px - Hero headlines only */</span>
+--font-h1: <span class="string">2.5rem</span>;        <span class="comment">/* 40px - Page titles */</span>
+--font-h2: <span class="string">1.75rem</span>;       <span class="comment">/* 28px - Section headers */</span>
+--font-h3: <span class="string">1.25rem</span>;       <span class="comment">/* 20px - Card titles */</span>
+--font-body: <span class="string">1rem</span>;        <span class="comment">/* 16px - Body copy */</span>
+--font-small: <span class="string">0.875rem</span>;   <span class="comment">/* 14px - Captions, metadata */</span>
+
+<span class="comment">/* Line heights */</span>
+--leading-tight: <span class="string">1.2</span>;      <span class="comment">/* Headlines */</span>
+--leading-normal: <span class="string">1.7</span>;     <span class="comment">/* Body copy */</span>
+        </div>
+
+        <h3>Visual Identity: The Patient Observer</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Attribute</th>
+                <th class="bad">Avoid</th>
+                <th class="good">Use Instead</th>
+            </tr>
+            <tr>
+                <td>Animations</td>
+                <td class="bad">Fast, flashy, bouncing</td>
+                <td class="good">Slow, measured, purposeful</td>
+            </tr>
+            <tr>
+                <td>Colors</td>
+                <td class="bad">Bright gradients, neon accents</td>
+                <td class="good">Deep navy, warm gold, cream</td>
+            </tr>
+            <tr>
+                <td>Imagery</td>
+                <td class="bad">Stock photos, generic tech imagery</td>
+                <td class="good">Data visualizations, real results, screenshots</td>
+            </tr>
+            <tr>
+                <td>Spacing</td>
+                <td class="bad">Cramped, busy layouts</td>
+                <td class="good">Generous whitespace, breathing room</td>
+            </tr>
+            <tr>
+                <td>Typography</td>
+                <td class="bad">All sans-serif, generic</td>
+                <td class="good">Serif headlines, distinctive hierarchy</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- SECTION 2: HOMEPAGE -->
+    <section class="section" id="homepage">
+        <div class="section-header">
+            <span class="section-number">2</span>
+            <h2>Homepage Recommendations</h2>
+        </div>
+
+        <h3>Hero Section - Above the Fold</h3>
+
+        <div class="rec-card critical">
+            <h4>CRITICAL: First 3 Seconds</h4>
+            <p>Visitors decide in 3 seconds. The hero must immediately communicate:</p>
+            <ul>
+                <li><strong>WHO you help:</strong> B2B service businesses</li>
+                <li><strong>WHAT you solve:</strong> Uncertainty about marketing spend</li>
+                <li><strong>WHY you're different:</strong> Guaranteed results or money back</li>
+            </ul>
+        </div>
+
+        <div class="code-block">
+<span class="comment">&lt;!-- RECOMMENDED HERO STRUCTURE --&gt;</span>
+&lt;<span class="tag">section</span> <span class="attr">class</span>=<span class="string">"hero"</span>&gt;
+    <span class="comment">&lt;!-- Badge: Creates instant credibility --&gt;</span>
+    &lt;<span class="tag">span</span> <span class="attr">class</span>=<span class="string">"certainty-badge"</span>&gt;Certainty First.&lt;/<span class="tag">span</span>&gt;
+
+    <span class="comment">&lt;!-- Primary Headline: Problem-focused, NOT feature-focused --&gt;</span>
+    &lt;<span class="tag">h1</span>&gt;Know Before You Spend&lt;/<span class="tag">h1</span>&gt;
+
+    <span class="comment">&lt;!-- Subheadline: The guarantee (key differentiator) --&gt;</span>
+    &lt;<span class="tag">p</span> <span class="attr">class</span>=<span class="string">"subhead"</span>&gt;
+        We project your ROI before you commit a dollar.
+        Then we guarantee the leads—or you don't pay.
+    &lt;/<span class="tag">p</span>&gt;
+
+    <span class="comment">&lt;!-- CTA Pair: Low commitment primary, secondary for skeptics --&gt;</span>
+    &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"cta-group"</span>&gt;
+        &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="string">"#calculator"</span> <span class="attr">class</span>=<span class="string">"cta-primary"</span>&gt;See the Math&lt;/<span class="tag">a</span>&gt;
+        &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="string">"#how-it-works"</span> <span class="attr">class</span>=<span class="string">"cta-secondary"</span>&gt;How the Guarantee Works&lt;/<span class="tag">a</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+
+    <span class="comment">&lt;!-- Trust Signal: Immediately below CTAs --&gt;</span>
+    &lt;<span class="tag">p</span> <span class="attr">class</span>=<span class="string">"trust-note"</span>&gt;No commitment. No credit card. Just numbers.&lt;/<span class="tag">p</span>&gt;
+&lt;/<span class="tag">section</span>&gt;
+        </div>
+
+        <div class="visual-example">
+            <h5>Hero CTA Example</h5>
+            <button class="cta-example cta-primary">See the Math</button>
+            <button class="cta-example cta-secondary">How the Guarantee Works</button>
+        </div>
+
+        <h3>Recognition Section - "You've Been Burned Before"</h3>
+        <div class="rec-card">
+            <h4>Emotional Trigger: Recognition</h4>
+            <p>Immediately after the hero, acknowledge the visitor's past pain. This builds trust by showing you understand their situation.</p>
+        </div>
+
+        <div class="code-block">
+<span class="comment">&lt;!-- PROBLEM RECOGNITION SECTION --&gt;</span>
+&lt;<span class="tag">section</span> <span class="attr">class</span>=<span class="string">"problem-section"</span>&gt;
+    &lt;<span class="tag">h2</span>&gt;Sound Familiar?&lt;/<span class="tag">h2</span>&gt;
+
+    &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"pain-points"</span>&gt;
+        <span class="comment">&lt;!-- Use serif quotes for authority --&gt;</span>
+        &lt;<span class="tag">blockquote</span>&gt;"We spent $50K on a website that doesn't convert."&lt;/<span class="tag">blockquote</span>&gt;
+        &lt;<span class="tag">blockquote</span>&gt;"The agency promised leads. We got impressions."&lt;/<span class="tag">blockquote</span>&gt;
+        &lt;<span class="tag">blockquote</span>&gt;"Six months in, I still can't tell if it's working."&lt;/<span class="tag">blockquote</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+
+    <span class="comment">&lt;!-- Validation statement --&gt;</span>
+    &lt;<span class="tag">p</span> <span class="attr">class</span>=<span class="string">"validation"</span>&gt;
+        Your skepticism isn't a problem—it's proof you've been paying attention.
+    &lt;/<span class="tag">p</span>&gt;
+&lt;/<span class="tag">section</span>&gt;
+        </div>
+
+        <h3>Services Preview Section</h3>
+        <div class="rec-card warning">
+            <h4>IMPORTANT: Correct Service Names</h4>
+            <p>Use the EXACT service names from the brand bible:</p>
+            <ul>
+                <li><strong>Web Application Development</strong> - NOT "Business Development" or "Web Design"</li>
+                <li><strong>Growth Marketing</strong> - with "Guaranteed Leads" badge</li>
+                <li><strong>AI Agent Development</strong> - NOT "AI Automation"</li>
+            </ul>
+        </div>
+
+        <div class="code-block">
+<span class="comment">&lt;!-- SERVICE CARDS - Lead with outcomes, not features --&gt;</span>
+&lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"service-card"</span>&gt;
+    &lt;<span class="tag">span</span> <span class="attr">class</span>=<span class="string">"price-badge"</span>&gt;From $1,500/mo&lt;/<span class="tag">span</span>&gt;
+    &lt;<span class="tag">h3</span>&gt;Growth Marketing&lt;/<span class="tag">h3</span>&gt;
+
+    <span class="comment">&lt;!-- The guarantee should be UNMISSABLE --&gt;</span>
+    &lt;<span class="tag">p</span> <span class="attr">class</span>=<span class="string">"guarantee-callout"</span>&gt;
+        Guaranteed Leads or Your Money Back
+    &lt;/<span class="tag">p</span>&gt;
+
+    <span class="comment">&lt;!-- Outcome, not process --&gt;</span>
+    &lt;<span class="tag">p</span>&gt;Stop guessing. Start knowing exactly what your marketing spend will return.&lt;/<span class="tag">p</span>&gt;
+
+    &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="string">"/services/growth-marketing"</span> <span class="attr">class</span>=<span class="string">"cta-tertiary"</span>&gt;See How It Works&lt;/<span class="tag">a</span>&gt;
+&lt;/<span class="tag">div</span>&gt;
+        </div>
+
+        <h3>Social Proof Section</h3>
+        <div class="rec-card">
+            <h4>Featured Case Study: "The No-Build Decision"</h4>
+            <p>This is your strongest proof point. Lead with integrity over revenue.</p>
+            <ul>
+                <li>We told a client NOT to build</li>
+                <li>Saved them $150K</li>
+                <li>Demonstrates: "We're not here to sell you—we're here to tell you the truth"</li>
+            </ul>
+        </div>
+
+        <h3>Homepage Section Order (Recommended)</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>#</th>
+                <th>Section</th>
+                <th>Purpose</th>
+                <th>CTA Stage</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Hero</td>
+                <td>Capture attention, communicate value prop</td>
+                <td>Stage 1: "See the Math"</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Problem Recognition</td>
+                <td>Build emotional connection</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Solution Introduction</td>
+                <td>Introduce guarantee, Two-Track model</td>
+                <td>Stage 2: "Get Your Estimate"</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Services Preview</td>
+                <td>Show what's available</td>
+                <td>Links to service pages</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Social Proof</td>
+                <td>Build trust with real results</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>How It Works</td>
+                <td>Explain the 5-step process</td>
+                <td>Stage 2: "Get Your Estimate"</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Final CTA</td>
+                <td>Convert interested visitors</td>
+                <td>Stage 3: "Book a Strategy Call"</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- SECTION 3: SERVICES PAGES -->
+    <section class="section" id="services">
+        <div class="section-header">
+            <span class="section-number">3</span>
+            <h2>Services Pages Recommendations</h2>
+        </div>
+
+        <div class="rec-card critical">
+            <h4>CRITICAL: Use Identical Architecture Across All 3 Services</h4>
+            <p>Each service page should follow the same structure for consistency:</p>
+            <ol>
+                <li>Hero (outcome-focused headline + guarantee)</li>
+                <li>Promise (what they'll get)</li>
+                <li>Process (how it works)</li>
+                <li>Deliverables (what's included)</li>
+                <li>Pricing (transparent, specific)</li>
+                <li>Proof (relevant case study)</li>
+                <li>CTA (stage-appropriate)</li>
+            </ol>
+        </div>
+
+        <h3>Growth Marketing ($1,500/mo)</h3>
+        <div class="rec-card success">
+            <h4>Key Differentiator to Highlight</h4>
+            <ul>
+                <li><strong>Lead guarantee</strong> should be the HERO of this page</li>
+                <li>Include visual diagram: "How the Guarantee Works"</li>
+                <li>Show Three-Scenario ROI Model (Conservative, Realistic, Optimistic)</li>
+            </ul>
+        </div>
+
+        <h3>Web Application Development ($10K+)</h3>
+        <div class="rec-card success">
+            <h4>Key Differentiator to Highlight</h4>
+            <ul>
+                <li>Feature "The No-Build Decision" case study prominently</li>
+                <li>Emphasize: "We recommend NOT building when the numbers don't work"</li>
+                <li>Show ROI projection methodology</li>
+            </ul>
+        </div>
+
+        <h3>AI Agent Development ($5,000+)</h3>
+        <div class="rec-card success">
+            <h4>Key Differentiator to Highlight</h4>
+            <ul>
+                <li>Lead with compounding value: "20-25 hours saved monthly, growing 10-20% each month"</li>
+                <li>Show time-to-value calculation</li>
+                <li>Include real examples of automation workflows</li>
+            </ul>
+        </div>
+
+        <h3>Service Page Hero Template</h3>
+        <div class="code-block">
+<span class="comment">&lt;!-- SERVICE PAGE HERO TEMPLATE --&gt;</span>
+&lt;<span class="tag">section</span> <span class="attr">class</span>=<span class="string">"service-hero"</span>&gt;
+    <span class="comment">&lt;!-- Price badge - transparency builds trust --&gt;</span>
+    &lt;<span class="tag">span</span> <span class="attr">class</span>=<span class="string">"price-badge"</span>&gt;From $1,500/month&lt;/<span class="tag">span</span>&gt;
+
+    <span class="comment">&lt;!-- Outcome headline, NOT feature headline --&gt;</span>
+    &lt;<span class="tag">h1</span>&gt;Leads You Can Count. Guaranteed.&lt;/<span class="tag">h1</span>&gt;
+
+    <span class="comment">&lt;!-- The guarantee callout - make it unmissable --&gt;</span>
+    &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"guarantee-box"</span>&gt;
+        &lt;<span class="tag">p</span>&gt;We guarantee a minimum number of qualified leads each month.&lt;/<span class="tag">p</span>&gt;
+        &lt;<span class="tag">p</span>&gt;&lt;<span class="tag">strong</span>&gt;Miss the target? You don't pay our fee.&lt;/<span class="tag">strong</span>&gt;&lt;/<span class="tag">p</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+
+    <span class="comment">&lt;!-- CTA pair --&gt;</span>
+    &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"cta-group"</span>&gt;
+        &lt;<span class="tag">a</span> <span class="attr">class</span>=<span class="string">"cta-primary"</span>&gt;See Your Projected ROI&lt;/<span class="tag">a</span>&gt;
+        &lt;<span class="tag">a</span> <span class="attr">class</span>=<span class="string">"cta-secondary"</span>&gt;How the Guarantee Works&lt;/<span class="tag">a</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+&lt;/<span class="tag">section</span>&gt;
+        </div>
+    </section>
+
+    <!-- SECTION 4: ABOUT PAGE -->
+    <section class="section" id="about">
+        <div class="section-header">
+            <span class="section-number">4</span>
+            <h2>About Page Recommendations</h2>
+        </div>
+
+        <h3>Narrative Structure</h3>
+        <div class="rec-card">
+            <h4>Story Arc: Problem → Insight → Mission</h4>
+            <ul>
+                <li><strong>Problem:</strong> "We were business owners who got burned by agencies promising results they couldn't deliver."</li>
+                <li><strong>Insight:</strong> "We realized the industry was broken—pay first, hope later."</li>
+                <li><strong>Mission:</strong> "We built ScaleUp Ventures on a simple idea: prove it before you buy it."</li>
+            </ul>
+        </div>
+
+        <h3>Founder Positioning</h3>
+        <div class="rec-card">
+            <h4>Calvin Should Be 60% of Fold 1</h4>
+            <p>Founder-forward positioning builds trust. Include:</p>
+            <ul>
+                <li>Professional photo (not stock)</li>
+                <li>Direct quote about why ScaleUp exists</li>
+                <li>Credentials that establish credibility</li>
+                <li>Personal story element (relatable, not boastful)</li>
+            </ul>
+        </div>
+
+        <h3>Values Section</h3>
+        <div class="rec-card warning">
+            <h4>IMPORTANT: Tie Values to Behaviors</h4>
+            <p>Generic values are forgettable. Each value should have a PROOF POINT.</p>
+        </div>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Value</th>
+                <th class="bad">Generic (Avoid)</th>
+                <th class="good">Specific (Use)</th>
+            </tr>
+            <tr>
+                <td>Integrity</td>
+                <td class="bad">"We value honesty and transparency"</td>
+                <td class="good">"We told a client not to build. Saved them $150K. That's integrity."</td>
+            </tr>
+            <tr>
+                <td>Excellence</td>
+                <td class="bad">"We strive for excellence in everything"</td>
+                <td class="good">"Every projection includes three scenarios: Conservative, Realistic, Optimistic. You see them all."</td>
+            </tr>
+            <tr>
+                <td>Partnership</td>
+                <td class="bad">"We're partners, not vendors"</td>
+                <td class="good">"If we miss our lead guarantee, you don't pay our fee. Our success is tied to yours."</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- SECTION 5: CONTACT PAGE -->
+    <section class="section" id="contact">
+        <div class="section-header">
+            <span class="section-number">5</span>
+            <h2>Contact Page Recommendations</h2>
+        </div>
+
+        <h3>Frame as Advisory, Not Transactional</h3>
+        <div class="rec-card">
+            <h4>Headline Approach</h4>
+            <p>The contact page is for visitors ready to engage. Use Stage 3-4 CTAs and advisory framing.</p>
+        </div>
+
+        <div class="code-block">
+<span class="comment">&lt;!-- CONTACT PAGE HERO --&gt;</span>
+&lt;<span class="tag">section</span> <span class="attr">class</span>=<span class="string">"contact-hero"</span>&gt;
+    <span class="comment">&lt;!-- Advisory framing, not sales --&gt;</span>
+    &lt;<span class="tag">h1</span>&gt;See Your Numbers First&lt;/<span class="tag">h1</span>&gt;
+
+    &lt;<span class="tag">p</span> <span class="attr">class</span>=<span class="string">"subhead"</span>&gt;
+        This isn't a sales call. It's a reality check.
+        We'll show you the projected ROI—then you decide.
+    &lt;/<span class="tag">p</span>&gt;
+
+    <span class="comment">&lt;!-- Set expectations --&gt;</span>
+    &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"what-to-expect"</span>&gt;
+        &lt;<span class="tag">h3</span>&gt;What to Expect:&lt;/<span class="tag">h3</span>&gt;
+        &lt;<span class="tag">ul</span>&gt;
+            &lt;<span class="tag">li</span>&gt;15-minute call (we respect your time)&lt;/<span class="tag">li</span>&gt;
+            &lt;<span class="tag">li</span>&gt;We'll ask about your current situation&lt;/<span class="tag">li</span>&gt;
+            &lt;<span class="tag">li</span>&gt;You'll get a preliminary ROI projection&lt;/<span class="tag">li</span>&gt;
+            &lt;<span class="tag">li</span>&gt;No pressure. No follow-up spam.&lt;/<span class="tag">li</span>&gt;
+        &lt;/<span class="tag">ul</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+&lt;/<span class="tag">section</span>&gt;
+        </div>
+
+        <h3>Form Best Practices</h3>
+        <div class="rec-card">
+            <h4>Progressive Disclosure</h4>
+            <ul>
+                <li><strong>Step 1:</strong> Name, Email, Company (required)</li>
+                <li><strong>Step 2:</strong> What service are you interested in? (dropdown)</li>
+                <li><strong>Step 3:</strong> Brief description of your situation (optional textarea)</li>
+            </ul>
+            <p>Multi-step forms have 25-30% higher completion rates than single long forms.</p>
+        </div>
+
+        <div class="rec-card success">
+            <h4>Primary Action: Calendly Embed</h4>
+            <p>Make booking a call the PRIMARY action. Form is secondary for those who prefer email.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 6: FAQ PAGE -->
+    <section class="section" id="faq">
+        <div class="section-header">
+            <span class="section-number">6</span>
+            <h2>FAQ Page Recommendations</h2>
+        </div>
+
+        <h3>Organize by Buyer Journey</h3>
+        <div class="rec-card">
+            <h4>Category Structure</h4>
+            <ol>
+                <li><strong>About ScaleUp</strong> - Who we are, how we're different</li>
+                <li><strong>Our Approach</strong> - Two-Track model, guarantee details</li>
+                <li><strong>Services</strong> - Specific questions about each offering</li>
+                <li><strong>Process</strong> - How engagements work</li>
+                <li><strong>Results</strong> - What to expect, case studies</li>
+            </ol>
+        </div>
+
+        <h3>Critical FAQs to Include (Objection Handling)</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Objection</th>
+                <th>FAQ Question</th>
+            </tr>
+            <tr>
+                <td>"The guarantee sounds too good to be true"</td>
+                <td>"How does the lead guarantee actually work?"</td>
+            </tr>
+            <tr>
+                <td>"I've been burned by agencies before"</td>
+                <td>"How is ScaleUp different from other agencies?"</td>
+            </tr>
+            <tr>
+                <td>"What's the catch?"</td>
+                <td>"What do I pay if you miss the lead target?"</td>
+            </tr>
+            <tr>
+                <td>"How do I know projections are realistic?"</td>
+                <td>"How do you calculate ROI projections?"</td>
+            </tr>
+            <tr>
+                <td>"What if I decide not to proceed?"</td>
+                <td>"What happens after the Proof Test?"</td>
+            </tr>
+        </table>
+
+        <h3>Answer Format</h3>
+        <div class="rec-card">
+            <h4>Every Answer Should Include a Proof Point</h4>
+            <p>Don't just answer—prove it with specifics.</p>
+        </div>
+
+        <div class="code-block">
+<span class="comment">&lt;!-- FAQ ANSWER TEMPLATE --&gt;</span>
+&lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"faq-answer"</span>&gt;
+    <span class="comment">&lt;!-- Direct answer first --&gt;</span>
+    &lt;<span class="tag">p</span>&gt;
+        If we miss your guaranteed lead target, you don't pay our monthly fee.
+        Period. You only pay the ad spend.
+    &lt;/<span class="tag">p</span>&gt;
+
+    <span class="comment">&lt;!-- Proof point --&gt;</span>
+    &lt;<span class="tag">p</span> <span class="attr">class</span>=<span class="string">"proof-point"</span>&gt;
+        &lt;<span class="tag">strong</span>&gt;Why we can offer this:&lt;/<span class="tag">strong</span>&gt; We don't take on clients
+        where the numbers don't work. That's why we do the Proof Test first—
+        to make sure we're both confident in the projection.
+    &lt;/<span class="tag">p</span>&gt;
+&lt;/<span class="tag">div</span>&gt;
+        </div>
+    </section>
+
+    <!-- SECTION 7: CLIENT LOGOS -->
+    <section class="section" id="logos">
+        <div class="section-header">
+            <span class="section-number">7</span>
+            <h2>Client Logos Collection</h2>
+        </div>
+
+        <h3>Display Guidelines</h3>
+        <div class="rec-card">
+            <h4>Technical Specifications</h4>
+            <ul>
+                <li><strong>Height:</strong> 60px (normalized)</li>
+                <li><strong>Max width:</strong> 180px</li>
+                <li><strong>Color:</strong> Grayscale by default, full color on hover</li>
+                <li><strong>Spacing:</strong> Minimum 48px between logos</li>
+                <li><strong>Format:</strong> SVG preferred for crisp rendering</li>
+            </ul>
+        </div>
+
+        <h3>Placement Strategy</h3>
+        <div class="rec-card">
+            <h4>Contextual Placement with Supporting Copy</h4>
+            <p>Don't just show a logo grid. Add context that reinforces your value prop.</p>
+        </div>
+
+        <div class="code-block">
+<span class="comment">&lt;!-- LOGO SECTION WITH CONTEXT --&gt;</span>
+&lt;<span class="tag">section</span> <span class="attr">class</span>=<span class="string">"client-logos"</span>&gt;
+    <span class="comment">&lt;!-- Context headline --&gt;</span>
+    &lt;<span class="tag">h2</span>&gt;Trusted by Teams Who Demand Results&lt;/<span class="tag">h2</span>&gt;
+
+    <span class="comment">&lt;!-- Supporting proof point --&gt;</span>
+    &lt;<span class="tag">p</span> <span class="attr">class</span>=<span class="string">"logo-context"</span>&gt;
+        From SEC-regulated trading platforms to local service businesses,
+        we've helped companies see their numbers before spending a dollar.
+    &lt;/<span class="tag">p</span>&gt;
+
+    <span class="comment">&lt;!-- Logo grid with hover states --&gt;</span>
+    &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"logo-grid"</span>&gt;
+        <span class="comment">&lt;!-- Logos here --&gt;</span>
+    &lt;/<span class="tag">div</span>&gt;
+
+    <span class="comment">&lt;!-- Optional: Industry tags --&gt;</span>
+    &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"industry-tags"</span>&gt;
+        &lt;<span class="tag">span</span>&gt;Financial Services&lt;/<span class="tag">span</span>&gt;
+        &lt;<span class="tag">span</span>&gt;Professional Services&lt;/<span class="tag">span</span>&gt;
+        &lt;<span class="tag">span</span>&gt;Healthcare&lt;/<span class="tag">span</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+&lt;/<span class="tag">section</span>&gt;
+        </div>
+
+        <div class="rec-card warning">
+            <h4>If You Don't Have Many Logos Yet</h4>
+            <p>Use outcome-focused proof instead:</p>
+            <ul>
+                <li>"$150K+ saved through honest recommendations"</li>
+                <li>"3 clients who chose NOT to build (and thanked us for it)"</li>
+                <li>"100% of Proof Tests completed with clear recommendations"</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SECTION 8: CTA STRATEGY -->
+    <section class="section" id="ctas">
+        <div class="section-header">
+            <span class="section-number">8</span>
+            <h2>CTA Strategy & Examples</h2>
+        </div>
+
+        <h3>The 4-Stage Commitment Ladder</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Stage</th>
+                <th>Visitor State</th>
+                <th>CTA Text</th>
+                <th>Commitment Level</th>
+            </tr>
+            <tr>
+                <td><strong>1. Awareness</strong></td>
+                <td>Just landed, curious</td>
+                <td>"See the Math"</td>
+                <td>Zero commitment</td>
+            </tr>
+            <tr>
+                <td><strong>2. Interest</strong></td>
+                <td>Engaged, wants more info</td>
+                <td>"Get Your Estimate"</td>
+                <td>Email only</td>
+            </tr>
+            <tr>
+                <td><strong>3. Consideration</strong></td>
+                <td>Serious, evaluating</td>
+                <td>"Book a Strategy Call"</td>
+                <td>15-min call</td>
+            </tr>
+            <tr>
+                <td><strong>4. Decision</strong></td>
+                <td>Ready to commit</td>
+                <td>"Start Your Proof Test"</td>
+                <td>Paid engagement ($1K-$15K)</td>
+            </tr>
+        </table>
+
+        <h3>CTA Placement by Page</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Page</th>
+                <th>Primary CTA</th>
+                <th>Secondary CTA</th>
+            </tr>
+            <tr>
+                <td>Homepage Hero</td>
+                <td>Stage 1: "See the Math"</td>
+                <td>"How the Guarantee Works"</td>
+            </tr>
+            <tr>
+                <td>Homepage Mid-page</td>
+                <td>Stage 2: "Get Your Estimate"</td>
+                <td>Service page links</td>
+            </tr>
+            <tr>
+                <td>Homepage Footer</td>
+                <td>Stage 3: "Book a Strategy Call"</td>
+                <td>Stage 2: "Get Your Estimate"</td>
+            </tr>
+            <tr>
+                <td>Service Pages</td>
+                <td>Stage 2: "See Your Projected ROI"</td>
+                <td>Stage 3: "Book a Call"</td>
+            </tr>
+            <tr>
+                <td>About Page</td>
+                <td>Stage 2: "Get Your Estimate"</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>Contact Page</td>
+                <td>Stage 3: "Book a Strategy Call"</td>
+                <td>Stage 4: "Start Your Proof Test"</td>
+            </tr>
+            <tr>
+                <td>FAQ Page</td>
+                <td>Stage 3: "Book a Strategy Call"</td>
+                <td>Contact form link</td>
+            </tr>
+        </table>
+
+        <h3>Visual CTA Examples</h3>
+        <div class="visual-example">
+            <h5>Stage 1 - Awareness (Lowest Commitment)</h5>
+            <button class="cta-example cta-primary">See the Math</button>
+            <p style="margin-top: 12px; color: var(--text-secondary); font-size: 0.9rem;">No commitment. No credit card. Just numbers.</p>
+        </div>
+
+        <div class="visual-example">
+            <h5>Stage 2 - Interest</h5>
+            <button class="cta-example cta-secondary">Get Your Estimate</button>
+        </div>
+
+        <div class="visual-example">
+            <h5>Stage 3 - Consideration</h5>
+            <button class="cta-example cta-tertiary">Book a Strategy Call</button>
+            <p style="margin-top: 12px; color: var(--text-secondary); font-size: 0.9rem;">15 minutes. No pressure. See your numbers first.</p>
+        </div>
+
+        <div class="visual-example">
+            <h5>Stage 4 - Decision</h5>
+            <button class="cta-example cta-primary" style="background: var(--proof-green); color: white;">Start Your Proof Test</button>
+        </div>
+
+        <div class="rec-card critical">
+            <h4>NEVER Use These CTAs</h4>
+            <ul>
+                <li class="bad">"Get Started" - Too vague</li>
+                <li class="bad">"Contact Us" - Too generic</li>
+                <li class="bad">"Learn More" - Doesn't indicate value</li>
+                <li class="bad">"Schedule a Demo" - Wrong framing (you don't demo, you consult)</li>
+                <li class="bad">"Free Consultation" - Devalues the call</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SECTION 9: UI/UX BEST PRACTICES -->
+    <section class="section" id="ux">
+        <div class="section-header">
+            <span class="section-number">9</span>
+            <h2>UI/UX Best Practices</h2>
+        </div>
+
+        <h3>Visual Hierarchy</h3>
+        <div class="rec-card">
+            <h4>F-Pattern Reading for Homepage</h4>
+            <ul>
+                <li><strong>Top bar:</strong> "Certainty First." badge + navigation</li>
+                <li><strong>First horizontal:</strong> Hero headline + CTA</li>
+                <li><strong>Left scan:</strong> Section headers down the page</li>
+                <li><strong>Second horizontal:</strong> Social proof / results</li>
+            </ul>
+        </div>
+
+        <h3>Mobile Responsiveness</h3>
+        <div class="rec-card">
+            <h4>Critical Specifications</h4>
+            <ul>
+                <li><strong>Min touch target:</strong> 48px × 48px</li>
+                <li><strong>Primary breakpoint:</strong> 768px</li>
+                <li><strong>Mobile-first development:</strong> Start at 375px</li>
+                <li><strong>Font scaling:</strong> 16px minimum body text</li>
+            </ul>
+        </div>
+
+        <h3>Accessibility (WCAG 2.1 AA)</h3>
+        <div class="rec-card">
+            <h4>Non-Negotiable Requirements</h4>
+            <ul>
+                <li><strong>Color contrast:</strong> 4.5:1 minimum for body text</li>
+                <li><strong>Focus states:</strong> Visible keyboard focus on all interactive elements</li>
+                <li><strong>Alt text:</strong> Descriptive alt text on all images</li>
+                <li><strong>Form labels:</strong> Every input must have an associated label</li>
+                <li><strong>Skip links:</strong> "Skip to main content" link for keyboard users</li>
+            </ul>
+        </div>
+
+        <h3>Performance Targets</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Metric</th>
+                <th>Target</th>
+                <th>Why It Matters</th>
+            </tr>
+            <tr>
+                <td>Largest Contentful Paint (LCP)</td>
+                <td>&lt; 2.5s</td>
+                <td>User perceives page as fast</td>
+            </tr>
+            <tr>
+                <td>First Input Delay (FID)</td>
+                <td>&lt; 100ms</td>
+                <td>Interactions feel responsive</td>
+            </tr>
+            <tr>
+                <td>Cumulative Layout Shift (CLS)</td>
+                <td>&lt; 0.1</td>
+                <td>Page doesn't jump around</td>
+            </tr>
+            <tr>
+                <td>Time to Interactive (TTI)</td>
+                <td>&lt; 3.8s</td>
+                <td>Page is usable quickly</td>
+            </tr>
+        </table>
+
+        <h3>Trust Signals Placement</h3>
+        <div class="rec-card">
+            <h4>Social Proof Hierarchy</h4>
+            <ol>
+                <li><strong>Above fold:</strong> Key metric or guarantee badge</li>
+                <li><strong>After hero:</strong> Client logos (if available)</li>
+                <li><strong>Mid-page:</strong> Featured testimonial with specific results</li>
+                <li><strong>Near CTAs:</strong> "No commitment. No credit card."</li>
+                <li><strong>Footer:</strong> Certifications, security badges (if applicable)</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- SECTION 10: LAUNCH CHECKLIST -->
+    <section class="section" id="checklist">
+        <div class="section-header">
+            <span class="section-number">10</span>
+            <h2>Launch Checklist</h2>
+        </div>
+
+        <h3>Content Checklist</h3>
+        <ul class="checklist">
+            <li>All service names match brand bible (Web Application Development, Growth Marketing, AI Agent Development)</li>
+            <li>"Certainty First." badge appears on every page</li>
+            <li>"Know Before You Spend" positioning is clear in hero</li>
+            <li>Lead guarantee is prominently featured on Growth Marketing page</li>
+            <li>"The No-Build Decision" case study is included</li>
+            <li>All CTAs follow the 4-stage commitment ladder</li>
+            <li>Pricing is transparent (not hidden)</li>
+            <li>Voice is Confident, Direct, Warm (not arrogant, blunt, casual)</li>
+        </ul>
+
+        <h3>Design Checklist</h3>
+        <ul class="checklist">
+            <li>Color palette uses deep navy, warm gold, cream (not generic blue/purple)</li>
+            <li>Serif font (Crimson Pro) used for headlines</li>
+            <li>Generous whitespace throughout</li>
+            <li>No stock photos of people pointing at screens</li>
+            <li>No gradient meshes or aurora backgrounds</li>
+            <li>Animations are slow, measured, purposeful</li>
+            <li>Logo appears correctly in header and footer</li>
+        </ul>
+
+        <h3>UX Checklist</h3>
+        <ul class="checklist">
+            <li>All forms have visible labels</li>
+            <li>Touch targets are minimum 48px</li>
+            <li>Color contrast passes WCAG AA (4.5:1)</li>
+            <li>Focus states are visible on all interactive elements</li>
+            <li>Page loads in under 2.5 seconds (LCP)</li>
+            <li>Mobile layout tested at 375px width</li>
+            <li>All images have alt text</li>
+        </ul>
+
+        <h3>Conversion Checklist</h3>
+        <ul class="checklist">
+            <li>Primary CTA is visible above the fold on every page</li>
+            <li>CTA text is specific (not "Learn More" or "Get Started")</li>
+            <li>Trust signals appear near CTAs</li>
+            <li>Calendly is embedded on Contact page</li>
+            <li>Form uses progressive disclosure (multi-step)</li>
+            <li>FAQ addresses top objections</li>
+            <li>Exit intent considered for high-value pages</li>
+        </ul>
+    </section>
+
+    <!-- SECTION 11: DESKTOP VS MOBILE -->
+    <section class="section" id="responsive">
+        <div class="section-header">
+            <span class="section-number">11</span>
+            <h2>Desktop vs Mobile Layouts</h2>
+        </div>
+
+        <p>Each page requires specific adaptations for mobile. Below are detailed breakdowns showing what changes between desktop (1024px+) and mobile (375px-767px).</p>
+
+        <h3>Breakpoint Strategy</h3>
+        <div class="code-block">
+<span class="comment">/* BREAKPOINT SYSTEM */</span>
+<span class="keyword">@media</span> (max-width: <span class="string">767px</span>)  { <span class="comment">/* Mobile */</span> }
+<span class="keyword">@media</span> (min-width: <span class="string">768px</span>)  { <span class="comment">/* Tablet */</span> }
+<span class="keyword">@media</span> (min-width: <span class="string">1024px</span>) { <span class="comment">/* Desktop */</span> }
+<span class="keyword">@media</span> (min-width: <span class="string">1280px</span>) { <span class="comment">/* Large Desktop */</span> }
+
+<span class="comment">/* Mobile-first approach: base styles are mobile, add complexity for larger screens */</span>
+        </div>
+
+        <!-- HOMEPAGE RESPONSIVE -->
+        <h3>Homepage: Desktop vs Mobile</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Element</th>
+                <th>Desktop (1024px+)</th>
+                <th>Mobile (375px-767px)</th>
+            </tr>
+            <tr>
+                <td><strong>Navigation</strong></td>
+                <td>Full horizontal nav with all links visible</td>
+                <td>Hamburger menu with slide-out drawer</td>
+            </tr>
+            <tr>
+                <td><strong>Hero Headline</strong></td>
+                <td>56px (3.5rem) display font</td>
+                <td>32px (2rem) - still impactful but fits screen</td>
+            </tr>
+            <tr>
+                <td><strong>Hero CTAs</strong></td>
+                <td>Side-by-side buttons with 16px gap</td>
+                <td>Stacked vertically, full-width buttons</td>
+            </tr>
+            <tr>
+                <td><strong>Service Cards</strong></td>
+                <td>3-column grid</td>
+                <td>Single column, stacked vertically</td>
+            </tr>
+            <tr>
+                <td><strong>Pain Point Quotes</strong></td>
+                <td>3-column layout</td>
+                <td>Horizontal swipe carousel OR stacked</td>
+            </tr>
+            <tr>
+                <td><strong>Social Proof Stats</strong></td>
+                <td>Horizontal row of 3-4 metrics</td>
+                <td>2x2 grid OR vertical stack</td>
+            </tr>
+            <tr>
+                <td><strong>Footer CTA Section</strong></td>
+                <td>Two-column: text left, CTA right</td>
+                <td>Single column, text above CTA</td>
+            </tr>
+        </table>
+
+        <div class="rec-card">
+            <h4>Homepage Mobile Code Example</h4>
+        </div>
+        <div class="code-block">
+<span class="comment">&lt;!-- HERO SECTION - RESPONSIVE --&gt;</span>
+&lt;<span class="tag">section</span> <span class="attr">class</span>=<span class="string">"hero"</span>&gt;
+    &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"hero-content"</span>&gt;
+        <span class="comment">&lt;!-- Badge stays same size on both --&gt;</span>
+        &lt;<span class="tag">span</span> <span class="attr">class</span>=<span class="string">"certainty-badge"</span>&gt;Certainty First.&lt;/<span class="tag">span</span>&gt;
+
+        <span class="comment">&lt;!-- H1: 56px desktop → 32px mobile --&gt;</span>
+        &lt;<span class="tag">h1</span>&gt;Know Before You Spend&lt;/<span class="tag">h1</span>&gt;
+
+        &lt;<span class="tag">p</span> <span class="attr">class</span>=<span class="string">"subhead"</span>&gt;...&lt;/<span class="tag">p</span>&gt;
+
+        <span class="comment">&lt;!-- CTAs: side-by-side desktop → stacked mobile --&gt;</span>
+        &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"cta-group"</span>&gt;
+            &lt;<span class="tag">a</span> <span class="attr">class</span>=<span class="string">"cta-primary"</span>&gt;See the Math&lt;/<span class="tag">a</span>&gt;
+            &lt;<span class="tag">a</span> <span class="attr">class</span>=<span class="string">"cta-secondary"</span>&gt;How the Guarantee Works&lt;/<span class="tag">a</span>&gt;
+        &lt;/<span class="tag">div</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+&lt;/<span class="tag">section</span>&gt;
+
+&lt;<span class="tag">style</span>&gt;
+<span class="comment">/* Mobile-first base */</span>
+.hero h1 {
+    font-size: <span class="string">2rem</span>;     <span class="comment">/* 32px mobile */</span>
+    line-height: <span class="string">1.2</span>;
+}
+.cta-group {
+    display: <span class="string">flex</span>;
+    flex-direction: <span class="string">column</span>;
+    gap: <span class="string">12px</span>;
+}
+.cta-group a {
+    width: <span class="string">100%</span>;
+    text-align: <span class="string">center</span>;
+    padding: <span class="string">16px 24px</span>;  <span class="comment">/* Larger touch target */</span>
+}
+
+<span class="comment">/* Desktop */</span>
+<span class="keyword">@media</span> (min-width: <span class="string">768px</span>) {
+    .hero h1 {
+        font-size: <span class="string">3.5rem</span>; <span class="comment">/* 56px desktop */</span>
+    }
+    .cta-group {
+        flex-direction: <span class="string">row</span>;
+        gap: <span class="string">16px</span>;
+    }
+    .cta-group a {
+        width: <span class="string">auto</span>;
+    }
+}
+&lt;/<span class="tag">style</span>&gt;
+        </div>
+
+        <!-- SERVICES PAGES RESPONSIVE -->
+        <h3>Services Pages: Desktop vs Mobile</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Element</th>
+                <th>Desktop (1024px+)</th>
+                <th>Mobile (375px-767px)</th>
+            </tr>
+            <tr>
+                <td><strong>Hero Layout</strong></td>
+                <td>Two-column: content left, visual/badge right</td>
+                <td>Single column, badge above headline</td>
+            </tr>
+            <tr>
+                <td><strong>Price Badge</strong></td>
+                <td>Positioned top-right of hero</td>
+                <td>Full-width bar at top of section</td>
+            </tr>
+            <tr>
+                <td><strong>Guarantee Box</strong></td>
+                <td>Inline card with icon</td>
+                <td>Full-width highlighted block</td>
+            </tr>
+            <tr>
+                <td><strong>Process Steps</strong></td>
+                <td>Horizontal timeline with icons</td>
+                <td>Vertical numbered list</td>
+            </tr>
+            <tr>
+                <td><strong>Deliverables List</strong></td>
+                <td>2-column checklist</td>
+                <td>Single column checklist</td>
+            </tr>
+            <tr>
+                <td><strong>Pricing Table</strong></td>
+                <td>Side-by-side tier comparison</td>
+                <td>Stacked cards with toggle/tabs</td>
+            </tr>
+            <tr>
+                <td><strong>Case Study</strong></td>
+                <td>Two-column: image left, content right</td>
+                <td>Image top, content below</td>
+            </tr>
+        </table>
+
+        <div class="rec-card warning">
+            <h4>IMPORTANT: Mobile Pricing Display</h4>
+            <p>On mobile, avoid horizontal scrolling tables. Use:</p>
+            <ul>
+                <li><strong>Option A:</strong> Stacked cards (one tier per card)</li>
+                <li><strong>Option B:</strong> Tab interface to switch between tiers</li>
+                <li><strong>Option C:</strong> Accordion with tier as header</li>
+            </ul>
+        </div>
+
+        <!-- ABOUT PAGE RESPONSIVE -->
+        <h3>About Page: Desktop vs Mobile</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Element</th>
+                <th>Desktop (1024px+)</th>
+                <th>Mobile (375px-767px)</th>
+            </tr>
+            <tr>
+                <td><strong>Hero</strong></td>
+                <td>Two-column: founder photo left, story right</td>
+                <td>Photo top (60% width), story below</td>
+            </tr>
+            <tr>
+                <td><strong>Founder Photo</strong></td>
+                <td>Large, 50% of hero width</td>
+                <td>Centered, max-width 280px</td>
+            </tr>
+            <tr>
+                <td><strong>Values Grid</strong></td>
+                <td>3-column cards</td>
+                <td>Single column, stacked</td>
+            </tr>
+            <tr>
+                <td><strong>Team Section</strong></td>
+                <td>Grid of team member cards (3-4 per row)</td>
+                <td>2 per row OR horizontal scroll</td>
+            </tr>
+            <tr>
+                <td><strong>Timeline</strong></td>
+                <td>Horizontal with alternating content</td>
+                <td>Vertical with left-aligned markers</td>
+            </tr>
+        </table>
+
+        <div class="rec-card">
+            <h4>Mobile Founder Section Layout</h4>
+        </div>
+        <div class="code-block">
+<span class="comment">&lt;!-- ABOUT HERO - RESPONSIVE --&gt;</span>
+&lt;<span class="tag">section</span> <span class="attr">class</span>=<span class="string">"about-hero"</span>&gt;
+    &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"founder-intro"</span>&gt;
+        &lt;<span class="tag">img</span> <span class="attr">src</span>=<span class="string">"calvin.jpg"</span> <span class="attr">alt</span>=<span class="string">"Calvin Williams Jr, Founder"</span> /&gt;
+        &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"founder-content"</span>&gt;
+            &lt;<span class="tag">h1</span>&gt;Built by Business Owners Who Got Burned&lt;/<span class="tag">h1</span>&gt;
+            &lt;<span class="tag">blockquote</span>&gt;"I spent $80K on marketing before..."&lt;/<span class="tag">blockquote</span>&gt;
+        &lt;/<span class="tag">div</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+&lt;/<span class="tag">section</span>&gt;
+
+&lt;<span class="tag">style</span>&gt;
+<span class="comment">/* Mobile-first */</span>
+.founder-intro {
+    display: <span class="string">flex</span>;
+    flex-direction: <span class="string">column</span>;
+    align-items: <span class="string">center</span>;
+    text-align: <span class="string">center</span>;
+}
+.founder-intro img {
+    width: <span class="string">200px</span>;
+    height: <span class="string">200px</span>;
+    border-radius: <span class="string">50%</span>;
+    object-fit: <span class="string">cover</span>;
+    margin-bottom: <span class="string">24px</span>;
+}
+
+<span class="comment">/* Desktop */</span>
+<span class="keyword">@media</span> (min-width: <span class="string">768px</span>) {
+    .founder-intro {
+        flex-direction: <span class="string">row</span>;
+        text-align: <span class="string">left</span>;
+        gap: <span class="string">48px</span>;
+    }
+    .founder-intro img {
+        width: <span class="string">300px</span>;
+        height: <span class="string">400px</span>;
+        border-radius: <span class="string">8px</span>;
+        margin-bottom: <span class="string">0</span>;
+    }
+}
+&lt;/<span class="tag">style</span>&gt;
+        </div>
+
+        <!-- CONTACT PAGE RESPONSIVE -->
+        <h3>Contact Page: Desktop vs Mobile</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Element</th>
+                <th>Desktop (1024px+)</th>
+                <th>Mobile (375px-767px)</th>
+            </tr>
+            <tr>
+                <td><strong>Layout</strong></td>
+                <td>Two-column: info left, form/Calendly right</td>
+                <td>Single column, info above form</td>
+            </tr>
+            <tr>
+                <td><strong>Calendly Embed</strong></td>
+                <td>Inline embed (500px+ height)</td>
+                <td>Popup button OR link to Calendly page</td>
+            </tr>
+            <tr>
+                <td><strong>Form Fields</strong></td>
+                <td>Name fields side-by-side</td>
+                <td>All fields full-width, stacked</td>
+            </tr>
+            <tr>
+                <td><strong>Submit Button</strong></td>
+                <td>Right-aligned or centered</td>
+                <td>Full-width, sticky at bottom (optional)</td>
+            </tr>
+            <tr>
+                <td><strong>"What to Expect"</strong></td>
+                <td>Sidebar card next to form</td>
+                <td>Collapsed accordion OR above form</td>
+            </tr>
+        </table>
+
+        <div class="rec-card critical">
+            <h4>CRITICAL: Mobile Calendly Handling</h4>
+            <p>Inline Calendly embeds are problematic on mobile. Options:</p>
+            <ul>
+                <li><strong>Best:</strong> Use Calendly popup widget (button trigger)</li>
+                <li><strong>Alternative:</strong> Direct link to Calendly URL</li>
+                <li><strong>Avoid:</strong> Inline embed under 400px width</li>
+            </ul>
+        </div>
+
+        <div class="code-block">
+<span class="comment">&lt;!-- CONTACT FORM - RESPONSIVE --&gt;</span>
+&lt;<span class="tag">section</span> <span class="attr">class</span>=<span class="string">"contact-section"</span>&gt;
+    &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"contact-grid"</span>&gt;
+        <span class="comment">&lt;!-- Info column --&gt;</span>
+        &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"contact-info"</span>&gt;
+            &lt;<span class="tag">h2</span>&gt;See Your Numbers First&lt;/<span class="tag">h2</span>&gt;
+            &lt;<span class="tag">p</span>&gt;This isn't a sales call...&lt;/<span class="tag">p</span>&gt;
+            &lt;<span class="tag">ul</span> <span class="attr">class</span>=<span class="string">"expect-list"</span>&gt;...&lt;/<span class="tag">ul</span>&gt;
+        &lt;/<span class="tag">div</span>&gt;
+
+        <span class="comment">&lt;!-- Form/Calendly column --&gt;</span>
+        &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"contact-action"</span>&gt;
+            <span class="comment">&lt;!-- Desktop: inline Calendly --&gt;</span>
+            &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"calendly-desktop"</span>&gt;
+                &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"calendly-inline-widget"</span> ...&gt;&lt;/<span class="tag">div</span>&gt;
+            &lt;/<span class="tag">div</span>&gt;
+
+            <span class="comment">&lt;!-- Mobile: popup button --&gt;</span>
+            &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"calendly-mobile"</span>&gt;
+                &lt;<span class="tag">button</span> <span class="attr">onclick</span>=<span class="string">"Calendly.initPopupWidget(...)"</span>&gt;
+                    Book a Strategy Call
+                &lt;/<span class="tag">button</span>&gt;
+            &lt;/<span class="tag">div</span>&gt;
+        &lt;/<span class="tag">div</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+&lt;/<span class="tag">section</span>&gt;
+
+&lt;<span class="tag">style</span>&gt;
+<span class="comment">/* Mobile */</span>
+.contact-grid {
+    display: <span class="string">flex</span>;
+    flex-direction: <span class="string">column</span>;
+    gap: <span class="string">32px</span>;
+}
+.calendly-desktop { display: <span class="string">none</span>; }
+.calendly-mobile { display: <span class="string">block</span>; }
+.calendly-mobile button {
+    width: <span class="string">100%</span>;
+    padding: <span class="string">18px</span>;
+    font-size: <span class="string">1.1rem</span>;
+}
+
+<span class="comment">/* Desktop */</span>
+<span class="keyword">@media</span> (min-width: <span class="string">768px</span>) {
+    .contact-grid {
+        flex-direction: <span class="string">row</span>;
+        gap: <span class="string">64px</span>;
+    }
+    .contact-info { flex: <span class="string">1</span>; }
+    .contact-action { flex: <span class="string">1</span>; }
+    .calendly-desktop { display: <span class="string">block</span>; }
+    .calendly-mobile { display: <span class="string">none</span>; }
+}
+&lt;/<span class="tag">style</span>&gt;
+        </div>
+
+        <!-- FAQ PAGE RESPONSIVE -->
+        <h3>FAQ Page: Desktop vs Mobile</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Element</th>
+                <th>Desktop (1024px+)</th>
+                <th>Mobile (375px-767px)</th>
+            </tr>
+            <tr>
+                <td><strong>Layout</strong></td>
+                <td>Category sidebar + FAQ content</td>
+                <td>Category tabs/dropdown + FAQ accordion</td>
+            </tr>
+            <tr>
+                <td><strong>Category Nav</strong></td>
+                <td>Sticky sidebar (left)</td>
+                <td>Horizontal scrolling pills OR dropdown</td>
+            </tr>
+            <tr>
+                <td><strong>FAQ Items</strong></td>
+                <td>Accordion with hover states</td>
+                <td>Accordion with larger touch targets</td>
+            </tr>
+            <tr>
+                <td><strong>Search</strong></td>
+                <td>Full-width search bar at top</td>
+                <td>Collapsible search (icon expands to bar)</td>
+            </tr>
+            <tr>
+                <td><strong>CTA Section</strong></td>
+                <td>Inline after last FAQ</td>
+                <td>Sticky bottom bar on scroll</td>
+            </tr>
+        </table>
+
+        <div class="rec-card">
+            <h4>Mobile FAQ Accordion Specs</h4>
+            <ul>
+                <li><strong>Question tap area:</strong> Full width, 56px minimum height</li>
+                <li><strong>Expand icon:</strong> 24px, right-aligned</li>
+                <li><strong>Answer padding:</strong> 16px on all sides</li>
+                <li><strong>Animation:</strong> 200ms ease-out expand</li>
+            </ul>
+        </div>
+
+        <!-- CLIENT LOGOS RESPONSIVE -->
+        <h3>Client Logos: Desktop vs Mobile</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Element</th>
+                <th>Desktop (1024px+)</th>
+                <th>Mobile (375px-767px)</th>
+            </tr>
+            <tr>
+                <td><strong>Logo Grid</strong></td>
+                <td>4-6 logos per row</td>
+                <td>2-3 logos per row OR horizontal scroll</td>
+            </tr>
+            <tr>
+                <td><strong>Logo Size</strong></td>
+                <td>60px height, 180px max-width</td>
+                <td>40px height, 120px max-width</td>
+            </tr>
+            <tr>
+                <td><strong>Hover Effect</strong></td>
+                <td>Grayscale → color on hover</td>
+                <td>Always show color (no hover on touch)</td>
+            </tr>
+            <tr>
+                <td><strong>Carousel</strong></td>
+                <td>Optional infinite scroll</td>
+                <td>Swipeable carousel with dots</td>
+            </tr>
+        </table>
+
+        <div class="rec-card warning">
+            <h4>IMPORTANT: Touch Devices Don't Have Hover</h4>
+            <p>On mobile:</p>
+            <ul>
+                <li>Show logos in full color (not grayscale)</li>
+                <li>Remove hover-dependent interactions</li>
+                <li>Use tap to reveal case study snippet (if applicable)</li>
+            </ul>
+        </div>
+
+        <!-- NAVIGATION RESPONSIVE -->
+        <h3>Global Navigation: Desktop vs Mobile</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Element</th>
+                <th>Desktop (1024px+)</th>
+                <th>Mobile (375px-767px)</th>
+            </tr>
+            <tr>
+                <td><strong>Header Height</strong></td>
+                <td>80px</td>
+                <td>64px</td>
+            </tr>
+            <tr>
+                <td><strong>Logo</strong></td>
+                <td>Full logo (icon + wordmark)</td>
+                <td>Icon only OR shortened wordmark</td>
+            </tr>
+            <tr>
+                <td><strong>Nav Links</strong></td>
+                <td>Horizontal inline</td>
+                <td>Hidden in hamburger menu</td>
+            </tr>
+            <tr>
+                <td><strong>CTA Button</strong></td>
+                <td>"Book a Call" in header</td>
+                <td>In hamburger menu OR sticky bottom bar</td>
+            </tr>
+            <tr>
+                <td><strong>Mobile Menu</strong></td>
+                <td>N/A</td>
+                <td>Full-screen overlay with large tap targets</td>
+            </tr>
+        </table>
+
+        <div class="rec-card success">
+            <h4>Mobile Nav Best Practices</h4>
+            <ul>
+                <li><strong>Hamburger icon:</strong> 48px × 48px tap target</li>
+                <li><strong>Menu items:</strong> 56px height, full-width</li>
+                <li><strong>Close button:</strong> Top-right, 48px × 48px</li>
+                <li><strong>Background:</strong> Solid color (not transparent)</li>
+                <li><strong>CTA in menu:</strong> Prominently styled at bottom</li>
+            </ul>
+        </div>
+
+        <div class="code-block">
+<span class="comment">&lt;!-- MOBILE NAVIGATION --&gt;</span>
+&lt;<span class="tag">header</span> <span class="attr">class</span>=<span class="string">"site-header"</span>&gt;
+    &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"header-inner"</span>&gt;
+        &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="string">"/"</span> <span class="attr">class</span>=<span class="string">"logo"</span>&gt;
+            &lt;<span class="tag">img</span> <span class="attr">src</span>=<span class="string">"logo.svg"</span> <span class="attr">alt</span>=<span class="string">"ScaleUp Ventures"</span> /&gt;
+        &lt;/<span class="tag">a</span>&gt;
+
+        <span class="comment">&lt;!-- Desktop nav --&gt;</span>
+        &lt;<span class="tag">nav</span> <span class="attr">class</span>=<span class="string">"desktop-nav"</span>&gt;
+            &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="string">"/services"</span>&gt;Services&lt;/<span class="tag">a</span>&gt;
+            &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="string">"/about"</span>&gt;About&lt;/<span class="tag">a</span>&gt;
+            &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="string">"/faq"</span>&gt;FAQ&lt;/<span class="tag">a</span>&gt;
+            &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="string">"/contact"</span> <span class="attr">class</span>=<span class="string">"cta-nav"</span>&gt;Book a Call&lt;/<span class="tag">a</span>&gt;
+        &lt;/<span class="tag">nav</span>&gt;
+
+        <span class="comment">&lt;!-- Mobile hamburger --&gt;</span>
+        &lt;<span class="tag">button</span> <span class="attr">class</span>=<span class="string">"hamburger"</span> <span class="attr">aria-label</span>=<span class="string">"Open menu"</span>&gt;
+            &lt;<span class="tag">span</span>&gt;&lt;/<span class="tag">span</span>&gt;
+            &lt;<span class="tag">span</span>&gt;&lt;/<span class="tag">span</span>&gt;
+            &lt;<span class="tag">span</span>&gt;&lt;/<span class="tag">span</span>&gt;
+        &lt;/<span class="tag">button</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+&lt;/<span class="tag">header</span>&gt;
+
+<span class="comment">&lt;!-- Mobile menu overlay --&gt;</span>
+&lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"mobile-menu"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;
+    &lt;<span class="tag">button</span> <span class="attr">class</span>=<span class="string">"close-menu"</span> <span class="attr">aria-label</span>=<span class="string">"Close menu"</span>&gt;✕&lt;/<span class="tag">button</span>&gt;
+    &lt;<span class="tag">nav</span>&gt;
+        &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="string">"/services"</span>&gt;Services&lt;/<span class="tag">a</span>&gt;
+        &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="string">"/about"</span>&gt;About&lt;/<span class="tag">a</span>&gt;
+        &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="string">"/faq"</span>&gt;FAQ&lt;/<span class="tag">a</span>&gt;
+        &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="string">"/contact"</span>&gt;Contact&lt;/<span class="tag">a</span>&gt;
+    &lt;/<span class="tag">nav</span>&gt;
+    &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="string">"/contact"</span> <span class="attr">class</span>=<span class="string">"cta-primary mobile-cta"</span>&gt;Book a Strategy Call&lt;/<span class="tag">a</span>&gt;
+&lt;/<span class="tag">div</span>&gt;
+
+&lt;<span class="tag">style</span>&gt;
+<span class="comment">/* Mobile-first */</span>
+.desktop-nav { display: <span class="string">none</span>; }
+.hamburger {
+    display: <span class="string">flex</span>;
+    width: <span class="string">48px</span>;
+    height: <span class="string">48px</span>;
+    padding: <span class="string">12px</span>;
+}
+.mobile-menu {
+    position: <span class="string">fixed</span>;
+    inset: <span class="string">0</span>;
+    background: <span class="string">var(--primary-dark)</span>;
+    transform: <span class="string">translateX(100%)</span>;
+    transition: <span class="string">transform 0.3s ease</span>;
+}
+.mobile-menu.open {
+    transform: <span class="string">translateX(0)</span>;
+}
+.mobile-menu nav a {
+    display: <span class="string">block</span>;
+    padding: <span class="string">20px 24px</span>;
+    font-size: <span class="string">1.25rem</span>;
+    border-bottom: <span class="string">1px solid rgba(255,255,255,0.1)</span>;
+}
+
+<span class="comment">/* Desktop */</span>
+<span class="keyword">@media</span> (min-width: <span class="string">768px</span>) {
+    .desktop-nav { display: <span class="string">flex</span>; gap: <span class="string">32px</span>; }
+    .hamburger { display: <span class="string">none</span>; }
+    .mobile-menu { display: <span class="string">none</span>; }
+}
+&lt;/<span class="tag">style</span>&gt;
+        </div>
+
+        <!-- CTA RESPONSIVE -->
+        <h3>CTAs: Desktop vs Mobile</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Element</th>
+                <th>Desktop (1024px+)</th>
+                <th>Mobile (375px-767px)</th>
+            </tr>
+            <tr>
+                <td><strong>Button Width</strong></td>
+                <td>Auto (content-based)</td>
+                <td>Full-width (100%)</td>
+            </tr>
+            <tr>
+                <td><strong>Button Padding</strong></td>
+                <td>14px 28px</td>
+                <td>16px 24px (taller for touch)</td>
+            </tr>
+            <tr>
+                <td><strong>Button Pairs</strong></td>
+                <td>Side-by-side</td>
+                <td>Stacked vertically</td>
+            </tr>
+            <tr>
+                <td><strong>Sticky CTA</strong></td>
+                <td>Not needed</td>
+                <td>Optional sticky bottom bar on long pages</td>
+            </tr>
+            <tr>
+                <td><strong>Font Size</strong></td>
+                <td>1rem (16px)</td>
+                <td>1rem minimum (never smaller)</td>
+            </tr>
+        </table>
+
+        <div class="rec-card success">
+            <h4>Mobile Sticky CTA Pattern</h4>
+            <p>For high-intent pages (Contact, Services), consider a sticky bottom CTA that appears after scrolling past the hero.</p>
+        </div>
+
+        <div class="code-block">
+<span class="comment">&lt;!-- STICKY MOBILE CTA --&gt;</span>
+&lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"sticky-cta"</span>&gt;
+    &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="string">"/contact"</span> <span class="attr">class</span>=<span class="string">"cta-primary"</span>&gt;Book a Strategy Call&lt;/<span class="tag">a</span>&gt;
+&lt;/<span class="tag">div</span>&gt;
+
+&lt;<span class="tag">style</span>&gt;
+.sticky-cta {
+    display: <span class="string">none</span>; <span class="comment">/* Hidden by default */</span>
+}
+
+<span class="keyword">@media</span> (max-width: <span class="string">767px</span>) {
+    .sticky-cta {
+        position: <span class="string">fixed</span>;
+        bottom: <span class="string">0</span>;
+        left: <span class="string">0</span>;
+        right: <span class="string">0</span>;
+        padding: <span class="string">12px 16px</span>;
+        background: <span class="string">white</span>;
+        box-shadow: <span class="string">0 -2px 10px rgba(0,0,0,0.1)</span>;
+        z-index: <span class="string">100</span>;
+        transform: <span class="string">translateY(100%)</span>;
+        transition: <span class="string">transform 0.3s ease</span>;
+    }
+    .sticky-cta.visible {
+        display: <span class="string">block</span>;
+        transform: <span class="string">translateY(0)</span>;
+    }
+    .sticky-cta .cta-primary {
+        width: <span class="string">100%</span>;
+        display: <span class="string">block</span>;
+        text-align: <span class="string">center</span>;
+    }
+}
+&lt;/<span class="tag">style</span>&gt;
+
+&lt;<span class="tag">script</span>&gt;
+<span class="comment">// Show sticky CTA after scrolling past hero</span>
+const stickyCta = document.querySelector('.sticky-cta');
+const hero = document.querySelector('.hero');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        stickyCta.classList.toggle('visible', !entry.isIntersecting);
+    });
+}, { threshold: 0 });
+observer.observe(hero);
+&lt;/<span class="tag">script</span>&gt;
+        </div>
+
+        <!-- TYPOGRAPHY RESPONSIVE -->
+        <h3>Typography Scale: Desktop vs Mobile</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Element</th>
+                <th>Desktop</th>
+                <th>Mobile</th>
+            </tr>
+            <tr>
+                <td><strong>Display (Hero H1)</strong></td>
+                <td>56px (3.5rem)</td>
+                <td>32px (2rem)</td>
+            </tr>
+            <tr>
+                <td><strong>H1 (Page Title)</strong></td>
+                <td>40px (2.5rem)</td>
+                <td>28px (1.75rem)</td>
+            </tr>
+            <tr>
+                <td><strong>H2 (Section Header)</strong></td>
+                <td>28px (1.75rem)</td>
+                <td>24px (1.5rem)</td>
+            </tr>
+            <tr>
+                <td><strong>H3 (Card Title)</strong></td>
+                <td>20px (1.25rem)</td>
+                <td>18px (1.125rem)</td>
+            </tr>
+            <tr>
+                <td><strong>Body</strong></td>
+                <td>16px (1rem)</td>
+                <td>16px (1rem) - NEVER smaller</td>
+            </tr>
+            <tr>
+                <td><strong>Small/Caption</strong></td>
+                <td>14px (0.875rem)</td>
+                <td>14px (0.875rem)</td>
+            </tr>
+        </table>
+
+        <div class="rec-card critical">
+            <h4>CRITICAL: Never Go Below 16px for Body Text on Mobile</h4>
+            <p>iOS Safari will zoom into form fields if font-size is below 16px. Keep all interactive elements at 16px minimum to prevent unexpected zoom behavior.</p>
+        </div>
+
+        <div class="code-block">
+<span class="comment">/* RESPONSIVE TYPOGRAPHY */</span>
+:root {
+    <span class="comment">/* Mobile-first values */</span>
+    --font-display: <span class="string">2rem</span>;
+    --font-h1: <span class="string">1.75rem</span>;
+    --font-h2: <span class="string">1.5rem</span>;
+    --font-h3: <span class="string">1.125rem</span>;
+    --font-body: <span class="string">1rem</span>;
+}
+
+<span class="keyword">@media</span> (min-width: <span class="string">768px</span>) {
+    :root {
+        --font-display: <span class="string">3.5rem</span>;
+        --font-h1: <span class="string">2.5rem</span>;
+        --font-h2: <span class="string">1.75rem</span>;
+        --font-h3: <span class="string">1.25rem</span>;
+    }
+}
+
+h1 { font-size: <span class="string">var(--font-h1)</span>; }
+h2 { font-size: <span class="string">var(--font-h2)</span>; }
+h3 { font-size: <span class="string">var(--font-h3)</span>; }
+body { font-size: <span class="string">var(--font-body)</span>; }
+        </div>
+
+        <!-- TEXT LENGTH & CONTENT PLANNING -->
+        <h3>Content Length Strategy: Desktop vs Mobile</h3>
+
+        <div class="rec-card critical">
+            <h4>CRITICAL: Why Text Length Matters for Conversion</h4>
+            <p>Too much text = visitors bounce. Too little = not enough information to convert. The goal is <strong>scannable content that builds confidence quickly</strong>.</p>
+            <ul>
+                <li><strong>Desktop:</strong> Users read more, tolerate longer content</li>
+                <li><strong>Mobile:</strong> Users scan, need bite-sized content, thumb-scrolling</li>
+            </ul>
+        </div>
+
+        <!-- HOW IT ACTUALLY WORKS -->
+        <h3>How It Works: The 3-Tier Content Approach</h3>
+
+        <div class="rec-card success">
+            <h4>You Are NOT Writing Two Complete Websites</h4>
+            <p>You write <strong>one primary version</strong> (desktop), then create <strong>5-10 mobile variants</strong> for key sections only. CSS handles everything else.</p>
+        </div>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Tier</th>
+                <th>What It Is</th>
+                <th>% of Content</th>
+                <th>How It Works</th>
+            </tr>
+            <tr>
+                <td><strong>Tier 1</strong></td>
+                <td>Same content, different layout</td>
+                <td>80%</td>
+                <td>CSS handles it (grid, flexbox, font sizes)</td>
+            </tr>
+            <tr>
+                <td><strong>Tier 2</strong></td>
+                <td>Two written versions</td>
+                <td>15%</td>
+                <td>Desktop-only / Mobile-only classes</td>
+            </tr>
+            <tr>
+                <td><strong>Tier 3</strong></td>
+                <td>Progressive disclosure</td>
+                <td>5%</td>
+                <td>"Read more" expanders on mobile</td>
+            </tr>
+        </table>
+
+        <h3>Tier 1: Same Content, Responsive Layout (80%)</h3>
+        <div class="rec-card">
+            <h4>Most Content Stays the SAME Words</h4>
+            <p>You write it once. CSS changes how it displays on different screen sizes.</p>
+        </div>
+
+        <div class="code-block">
+<span class="comment">/* TIER 1: Same content, different layout */</span>
+<span class="comment">/* Mobile-first base */</span>
+.service-cards {
+    display: <span class="string">grid</span>;
+    grid-template-columns: <span class="string">1fr</span>;  <span class="comment">/* Mobile: stacked */</span>
+    gap: <span class="string">24px</span>;
+}
+
+<span class="comment">/* Desktop: 3 columns */</span>
+<span class="keyword">@media</span> (min-width: <span class="string">768px</span>) {
+    .service-cards {
+        grid-template-columns: <span class="string">repeat(3, 1fr)</span>;
+    }
+}
+
+<span class="comment">/* NO CONTENT CHANGES - just layout */</span>
+        </div>
+
+        <p><strong>Use Tier 1 for:</strong> Body paragraphs, FAQ answers, case studies, testimonials, values section, team bios, process steps, deliverables lists, pricing details, footer content.</p>
+
+        <h3>Tier 2: Two Written Versions (15%)</h3>
+        <div class="rec-card warning">
+            <h4>ONLY for High-Impact Areas Above the Fold</h4>
+            <p>Write a shorter mobile version ONLY where word count directly impacts conversion - primarily hero sections and service card previews.</p>
+        </div>
+
+        <div class="code-block">
+<span class="comment">&lt;!-- TIER 2: Two written versions --&gt;</span>
+
+<span class="comment">&lt;!-- Desktop version (19 words) --&gt;</span>
+&lt;<span class="tag">p</span> <span class="attr">class</span>=<span class="string">"desktop-only"</span>&gt;
+    We project your ROI before you commit a dollar, using our
+    Three-Scenario Model. Then we guarantee the leads—or you don't pay.
+&lt;/<span class="tag">p</span>&gt;
+
+<span class="comment">&lt;!-- Mobile version (10 words) --&gt;</span>
+&lt;<span class="tag">p</span> <span class="attr">class</span>=<span class="string">"mobile-only"</span>&gt;
+    See your ROI first. Guaranteed leads—or you don't pay.
+&lt;/<span class="tag">p</span>&gt;
+        </div>
+
+        <div class="code-block">
+<span class="comment">/* CSS for content variants */</span>
+<span class="comment">/* Mobile-first: show mobile version */</span>
+.desktop-only { display: <span class="string">none</span>; }
+.mobile-only { display: <span class="string">block</span>; }
+
+<span class="comment">/* Desktop: swap versions */</span>
+<span class="keyword">@media</span> (min-width: <span class="string">768px</span>) {
+    .desktop-only { display: <span class="string">block</span>; }
+    .mobile-only { display: <span class="string">none</span>; }
+}
+        </div>
+
+        <p><strong>Use Tier 2 for:</strong> Hero subheadlines, service card descriptions, key selling points in first viewport only.</p>
+
+        <h3>Tier 3: Progressive Disclosure (5%)</h3>
+        <div class="rec-card">
+            <h4>Details Hidden Until Tapped on Mobile</h4>
+            <p>Content exists but is collapsed on mobile. Users tap to expand. Desktop shows everything.</p>
+        </div>
+
+        <div class="code-block">
+<span class="comment">&lt;!-- TIER 3: Progressive disclosure --&gt;</span>
+&lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"expandable-section"</span>&gt;
+    <span class="comment">&lt;!-- Always visible --&gt;</span>
+    &lt;<span class="tag">p</span>&gt;We guarantee a minimum number of qualified leads each month.&lt;/<span class="tag">p</span>&gt;
+
+    <span class="comment">&lt;!-- Hidden on mobile until expanded --&gt;</span>
+    &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"expandable-content"</span>&gt;
+        &lt;<span class="tag">p</span>&gt;Our guarantee is based on the Three-Scenario ROI Model
+           that accounts for conservative, realistic, and optimistic
+           outcomes. We only take on clients where the numbers work,
+           which is why we can offer this guarantee confidently.&lt;/<span class="tag">p</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+
+    <span class="comment">&lt;!-- Mobile-only expand button --&gt;</span>
+    &lt;<span class="tag">button</span> <span class="attr">class</span>=<span class="string">"expand-btn"</span>&gt;How does this work?&lt;/<span class="tag">button</span>&gt;
+&lt;/<span class="tag">div</span>&gt;
+        </div>
+
+        <div class="code-block">
+<span class="comment">/* CSS for progressive disclosure */</span>
+<span class="comment">/* Mobile: hide content, show button */</span>
+.expandable-content { display: <span class="string">none</span>; }
+.expand-btn { display: <span class="string">block</span>; }
+
+.expandable-content.expanded { display: <span class="string">block</span>; }
+
+<span class="comment">/* Desktop: show content, hide button */</span>
+<span class="keyword">@media</span> (min-width: <span class="string">768px</span>) {
+    .expandable-content { display: <span class="string">block</span>; }
+    .expand-btn { display: <span class="string">none</span>; }
+}
+        </div>
+
+        <div class="code-block">
+<span class="comment">// JavaScript for expand functionality</span>
+document.querySelectorAll('.expand-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const content = btn.previousElementSibling;
+        content.classList.toggle('expanded');
+        btn.textContent = content.classList.contains('expanded')
+            ? 'Show less'
+            : 'How does this work?';
+    });
+});
+        </div>
+
+        <p><strong>Use Tier 3 for:</strong> Detailed explanations, methodology descriptions, extended case study details, "how it works" deep dives.</p>
+
+        <h3>ScaleUp Ventures: What Needs Mobile Variants</h3>
+
+        <div class="rec-card critical">
+            <h4>Exact Sections Requiring Two Written Versions</h4>
+            <p>This is the complete list. Everything else uses Tier 1 (same content, responsive layout).</p>
+        </div>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Page</th>
+                <th>Section</th>
+                <th>Tier</th>
+                <th>Action Required</th>
+            </tr>
+            <tr>
+                <td><strong>Homepage</strong></td>
+                <td>Hero subheadline</td>
+                <td>Tier 2</td>
+                <td>Write mobile version (10-15 words)</td>
+            </tr>
+            <tr>
+                <td><strong>Homepage</strong></td>
+                <td>Hero trust line</td>
+                <td>Tier 2</td>
+                <td>Write mobile version (4-6 words)</td>
+            </tr>
+            <tr>
+                <td><strong>Homepage</strong></td>
+                <td>Service card descriptions (×3)</td>
+                <td>Tier 2</td>
+                <td>Write mobile versions (8-12 words each)</td>
+            </tr>
+            <tr>
+                <td><strong>Homepage</strong></td>
+                <td>How It Works section</td>
+                <td>Tier 3</td>
+                <td>Add "Read more" expanders</td>
+            </tr>
+            <tr>
+                <td><strong>Services</strong></td>
+                <td>Hero subheadline (×3 pages)</td>
+                <td>Tier 2</td>
+                <td>Write mobile versions</td>
+            </tr>
+            <tr>
+                <td><strong>Services</strong></td>
+                <td>Process step details</td>
+                <td>Tier 3</td>
+                <td>Collapsible on mobile</td>
+            </tr>
+            <tr>
+                <td><strong>About</strong></td>
+                <td>All sections</td>
+                <td>Tier 1</td>
+                <td>No rewriting - CSS only</td>
+            </tr>
+            <tr>
+                <td><strong>Contact</strong></td>
+                <td>All sections</td>
+                <td>Tier 1</td>
+                <td>No rewriting - already short</td>
+            </tr>
+            <tr>
+                <td><strong>FAQ</strong></td>
+                <td>All sections</td>
+                <td>Tier 1</td>
+                <td>No rewriting - accordion hides length</td>
+            </tr>
+            <tr>
+                <td><strong>Client Logos</strong></td>
+                <td>All sections</td>
+                <td>Tier 1</td>
+                <td>No rewriting - layout only</td>
+            </tr>
+        </table>
+
+        <h3>Content Writing Workflow</h3>
+
+        <div class="rec-card success">
+            <h4>Step-by-Step Process</h4>
+            <ol>
+                <li><strong>Write desktop content first</strong> - Full detail, complete sentences</li>
+                <li><strong>Mark Tier 2 sections</strong> - Identify hero + service cards needing mobile variants</li>
+                <li><strong>Write mobile variants</strong> - Shorter versions for marked sections only</li>
+                <li><strong>Mark Tier 3 sections</strong> - Identify detailed content for progressive disclosure</li>
+                <li><strong>Add CSS classes</strong> - Apply .desktop-only, .mobile-only, .expandable-content</li>
+                <li><strong>Test on real device</strong> - Check word count feels right on actual phone</li>
+            </ol>
+        </div>
+
+        <h3>Total Content Pieces to Write</h3>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Content Type</th>
+                <th>Count</th>
+            </tr>
+            <tr>
+                <td>Desktop content (primary)</td>
+                <td>1 complete version per page</td>
+            </tr>
+            <tr>
+                <td>Mobile variants (Tier 2)</td>
+                <td>~8-10 short rewrites total</td>
+            </tr>
+            <tr>
+                <td>Progressive disclosure markers</td>
+                <td>~5-8 sections to mark as expandable</td>
+            </tr>
+            <tr>
+                <td><strong>Total extra writing</strong></td>
+                <td><strong>~150-200 words of mobile variants</strong></td>
+            </tr>
+        </table>
+
+        <div class="rec-card">
+            <h4>Summary</h4>
+            <p>You're writing <strong>one website</strong> with <strong>~10 short mobile variants</strong> for key conversion points. That's it. CSS handles the other 95% of responsive behavior.</p>
+        </div>
+
+        <h3>Optimal Line Length (Characters Per Line)</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Device</th>
+                <th>Optimal Range</th>
+                <th>Max Width CSS</th>
+            </tr>
+            <tr>
+                <td><strong>Desktop</strong></td>
+                <td>60-75 characters</td>
+                <td>max-width: 680px for body text</td>
+            </tr>
+            <tr>
+                <td><strong>Mobile</strong></td>
+                <td>35-50 characters</td>
+                <td>Natural (screen width minus padding)</td>
+            </tr>
+        </table>
+
+        <div class="rec-card">
+            <h4>Why Line Length Matters</h4>
+            <p>Lines that are too long cause eye fatigue and readers lose their place. Lines that are too short break reading rhythm. On desktop, constrain paragraph width even if the screen is wide.</p>
+        </div>
+
+        <div class="code-block">
+<span class="comment">/* CONSTRAIN LINE LENGTH FOR READABILITY */</span>
+.content-section p,
+.content-section li {
+    max-width: <span class="string">680px</span>;  <span class="comment">/* ~65-75 characters */</span>
+}
+
+<span class="comment">/* Headlines can be wider */</span>
+.content-section h1,
+.content-section h2 {
+    max-width: <span class="string">800px</span>;
+}
+
+<span class="comment">/* Center content blocks on wide screens */</span>
+<span class="keyword">@media</span> (min-width: <span class="string">1024px</span>) {
+    .content-section {
+        max-width: <span class="string">800px</span>;
+        margin: <span class="string">0 auto</span>;
+    }
+}
+        </div>
+
+        <h3>Text Length by Element: Desktop vs Mobile</h3>
+        <table class="comparison-table">
+            <tr>
+                <th>Element</th>
+                <th>Desktop</th>
+                <th>Mobile</th>
+                <th>Goal</th>
+            </tr>
+            <tr>
+                <td><strong>Hero Headline</strong></td>
+                <td>5-8 words</td>
+                <td>3-6 words</td>
+                <td>Instant clarity</td>
+            </tr>
+            <tr>
+                <td><strong>Hero Subheadline</strong></td>
+                <td>15-25 words (1-2 sentences)</td>
+                <td>10-18 words (1 sentence)</td>
+                <td>Expand on promise</td>
+            </tr>
+            <tr>
+                <td><strong>Section Headlines</strong></td>
+                <td>4-8 words</td>
+                <td>3-6 words</td>
+                <td>Scannable anchors</td>
+            </tr>
+            <tr>
+                <td><strong>Body Paragraphs</strong></td>
+                <td>3-4 sentences (50-80 words)</td>
+                <td>2-3 sentences (30-50 words)</td>
+                <td>Digestible chunks</td>
+            </tr>
+            <tr>
+                <td><strong>Bullet Points</strong></td>
+                <td>8-15 words each</td>
+                <td>5-12 words each</td>
+                <td>Quick scanning</td>
+            </tr>
+            <tr>
+                <td><strong>CTA Button Text</strong></td>
+                <td>2-5 words</td>
+                <td>2-4 words</td>
+                <td>Clear action</td>
+            </tr>
+            <tr>
+                <td><strong>Trust Statements</strong></td>
+                <td>8-12 words</td>
+                <td>6-10 words</td>
+                <td>Quick reassurance</td>
+            </tr>
+        </table>
+
+        <h3>Content Length by Page</h3>
+
+        <div class="rec-card">
+            <h4>Homepage Content Budget</h4>
+            <table class="comparison-table">
+                <tr>
+                    <th>Section</th>
+                    <th>Desktop Word Count</th>
+                    <th>Mobile Adjustment</th>
+                </tr>
+                <tr>
+                    <td>Hero (above fold)</td>
+                    <td>40-60 words total</td>
+                    <td>30-45 words (shorter subhead)</td>
+                </tr>
+                <tr>
+                    <td>Problem Recognition</td>
+                    <td>60-100 words</td>
+                    <td>Same (quotes stay impactful)</td>
+                </tr>
+                <tr>
+                    <td>Solution/How It Works</td>
+                    <td>100-150 words</td>
+                    <td>80-120 words</td>
+                </tr>
+                <tr>
+                    <td>Services Preview (each card)</td>
+                    <td>30-50 words</td>
+                    <td>25-40 words</td>
+                </tr>
+                <tr>
+                    <td>Social Proof</td>
+                    <td>50-80 words</td>
+                    <td>Same (testimonials stay full)</td>
+                </tr>
+                <tr>
+                    <td>Final CTA Section</td>
+                    <td>30-50 words</td>
+                    <td>20-35 words</td>
+                </tr>
+                <tr>
+                    <td><strong>TOTAL</strong></td>
+                    <td><strong>400-600 words</strong></td>
+                    <td><strong>350-500 words</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="rec-card">
+            <h4>Services Page Content Budget (Per Service)</h4>
+            <table class="comparison-table">
+                <tr>
+                    <th>Section</th>
+                    <th>Desktop Word Count</th>
+                    <th>Mobile Adjustment</th>
+                </tr>
+                <tr>
+                    <td>Hero + Guarantee</td>
+                    <td>60-80 words</td>
+                    <td>50-70 words</td>
+                </tr>
+                <tr>
+                    <td>Promise/Outcomes</td>
+                    <td>80-120 words</td>
+                    <td>60-100 words</td>
+                </tr>
+                <tr>
+                    <td>Process (5 steps)</td>
+                    <td>100-150 words (20-30 per step)</td>
+                    <td>75-120 words (15-25 per step)</td>
+                </tr>
+                <tr>
+                    <td>Deliverables List</td>
+                    <td>50-80 words</td>
+                    <td>Same (bullet format)</td>
+                </tr>
+                <tr>
+                    <td>Pricing Section</td>
+                    <td>40-60 words</td>
+                    <td>Same</td>
+                </tr>
+                <tr>
+                    <td>Case Study</td>
+                    <td>100-150 words</td>
+                    <td>80-120 words</td>
+                </tr>
+                <tr>
+                    <td><strong>TOTAL</strong></td>
+                    <td><strong>500-750 words</strong></td>
+                    <td><strong>400-600 words</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="rec-card">
+            <h4>About Page Content Budget</h4>
+            <table class="comparison-table">
+                <tr>
+                    <th>Section</th>
+                    <th>Desktop Word Count</th>
+                    <th>Mobile Adjustment</th>
+                </tr>
+                <tr>
+                    <td>Founder Story</td>
+                    <td>150-200 words</td>
+                    <td>120-160 words</td>
+                </tr>
+                <tr>
+                    <td>Mission/Why We Exist</td>
+                    <td>60-100 words</td>
+                    <td>50-80 words</td>
+                </tr>
+                <tr>
+                    <td>Values (3 values)</td>
+                    <td>90-150 words (30-50 each)</td>
+                    <td>75-120 words (25-40 each)</td>
+                </tr>
+                <tr>
+                    <td>Team Bios (if included)</td>
+                    <td>40-60 words each</td>
+                    <td>30-50 words each</td>
+                </tr>
+                <tr>
+                    <td><strong>TOTAL</strong></td>
+                    <td><strong>400-600 words</strong></td>
+                    <td><strong>350-500 words</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="rec-card">
+            <h4>Contact Page Content Budget</h4>
+            <table class="comparison-table">
+                <tr>
+                    <th>Section</th>
+                    <th>Desktop Word Count</th>
+                    <th>Mobile Adjustment</th>
+                </tr>
+                <tr>
+                    <td>Headline + Subhead</td>
+                    <td>25-40 words</td>
+                    <td>20-30 words</td>
+                </tr>
+                <tr>
+                    <td>"What to Expect" List</td>
+                    <td>40-60 words</td>
+                    <td>Same (bullet format)</td>
+                </tr>
+                <tr>
+                    <td>Form Labels/Helper Text</td>
+                    <td>20-30 words</td>
+                    <td>Same</td>
+                </tr>
+                <tr>
+                    <td><strong>TOTAL</strong></td>
+                    <td><strong>100-150 words</strong></td>
+                    <td><strong>80-120 words</strong></td>
+                </tr>
+            </table>
+            <p style="margin-top: 12px;"><strong>Note:</strong> Contact pages should be SHORT. The goal is action, not reading.</p>
+        </div>
+
+        <div class="rec-card">
+            <h4>FAQ Page Content Budget</h4>
+            <table class="comparison-table">
+                <tr>
+                    <th>Element</th>
+                    <th>Desktop</th>
+                    <th>Mobile</th>
+                </tr>
+                <tr>
+                    <td>Question Text</td>
+                    <td>8-15 words</td>
+                    <td>Same (clarity matters)</td>
+                </tr>
+                <tr>
+                    <td>Answer Length</td>
+                    <td>50-100 words</td>
+                    <td>40-80 words</td>
+                </tr>
+                <tr>
+                    <td>Number of FAQs</td>
+                    <td>12-20 questions</td>
+                    <td>Same (accordion hides length)</td>
+                </tr>
+                <tr>
+                    <td><strong>TOTAL</strong></td>
+                    <td><strong>800-1500 words</strong></td>
+                    <td><strong>700-1200 words</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>Mobile Content Truncation Strategy</h3>
+
+        <div class="rec-card warning">
+            <h4>IMPORTANT: Don't Just Hide Content on Mobile</h4>
+            <p>Instead of hiding paragraphs, <strong>rewrite for mobile</strong>. Two approaches:</p>
+        </div>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Approach</th>
+                <th>When to Use</th>
+                <th>Implementation</th>
+            </tr>
+            <tr>
+                <td><strong>Progressive Disclosure</strong></td>
+                <td>Details that support but aren't essential</td>
+                <td>"Read more" expanders, accordions</td>
+            </tr>
+            <tr>
+                <td><strong>Content Variants</strong></td>
+                <td>Core messaging that needs to be shorter</td>
+                <td>Show different text via CSS/JS</td>
+            </tr>
+            <tr>
+                <td><strong>Prioritized Stacking</strong></td>
+                <td>Multi-column content</td>
+                <td>Reorder for mobile importance</td>
+            </tr>
+        </table>
+
+        <div class="code-block">
+<span class="comment">&lt;!-- APPROACH 1: PROGRESSIVE DISCLOSURE --&gt;</span>
+&lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"expandable-content"</span>&gt;
+    &lt;<span class="tag">p</span>&gt;We guarantee a minimum number of qualified leads each month.&lt;/<span class="tag">p</span>&gt;
+
+    <span class="comment">&lt;!-- Hidden on mobile by default --&gt;</span>
+    &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="string">"expanded-details"</span>&gt;
+        &lt;<span class="tag">p</span>&gt;Our guarantee is based on the Three-Scenario ROI Model...&lt;/<span class="tag">p</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+
+    &lt;<span class="tag">button</span> <span class="attr">class</span>=<span class="string">"read-more-btn"</span>&gt;How does this work?&lt;/<span class="tag">button</span>&gt;
+&lt;/<span class="tag">div</span>&gt;
+
+&lt;<span class="tag">style</span>&gt;
+<span class="comment">/* Mobile: hide details, show button */</span>
+.expanded-details { display: <span class="string">none</span>; }
+.read-more-btn { display: <span class="string">block</span>; }
+
+<span class="comment">/* Desktop: show details, hide button */</span>
+<span class="keyword">@media</span> (min-width: <span class="string">768px</span>) {
+    .expanded-details { display: <span class="string">block</span>; }
+    .read-more-btn { display: <span class="string">none</span>; }
+}
+&lt;/<span class="tag">style</span>&gt;
+        </div>
+
+        <div class="code-block">
+<span class="comment">&lt;!-- APPROACH 2: CONTENT VARIANTS --&gt;</span>
+&lt;<span class="tag">p</span> <span class="attr">class</span>=<span class="string">"desktop-only"</span>&gt;
+    We project your ROI before you commit a dollar, using our
+    Three-Scenario Model that shows conservative, realistic, and
+    optimistic outcomes. Then we guarantee the leads—or you don't pay.
+&lt;/<span class="tag">p</span>&gt;
+
+&lt;<span class="tag">p</span> <span class="attr">class</span>=<span class="string">"mobile-only"</span>&gt;
+    We show you the ROI first. Then guarantee the leads—or you don't pay.
+&lt;/<span class="tag">p</span>&gt;
+
+&lt;<span class="tag">style</span>&gt;
+<span class="comment">/* Mobile-first */</span>
+.desktop-only { display: <span class="string">none</span>; }
+.mobile-only { display: <span class="string">block</span>; }
+
+<span class="keyword">@media</span> (min-width: <span class="string">768px</span>) {
+    .desktop-only { display: <span class="string">block</span>; }
+    .mobile-only { display: <span class="string">none</span>; }
+}
+&lt;/<span class="tag">style</span>&gt;
+        </div>
+
+        <h3>Paragraph Structure: Desktop vs Mobile</h3>
+
+        <div class="rec-card">
+            <h4>Desktop Paragraph Rules</h4>
+            <ul>
+                <li><strong>Length:</strong> 3-4 sentences max per paragraph</li>
+                <li><strong>Width:</strong> Constrain to 680px max</li>
+                <li><strong>Spacing:</strong> 1.5em margin between paragraphs</li>
+                <li><strong>Lead with key point:</strong> First sentence = main idea</li>
+            </ul>
+        </div>
+
+        <div class="rec-card">
+            <h4>Mobile Paragraph Rules</h4>
+            <ul>
+                <li><strong>Length:</strong> 2-3 sentences max per paragraph</li>
+                <li><strong>Width:</strong> Full width minus 32px padding (16px each side)</li>
+                <li><strong>Spacing:</strong> 1.25em margin between paragraphs</li>
+                <li><strong>Break up walls of text:</strong> Use bullets, bold key phrases</li>
+            </ul>
+        </div>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Desktop (Good)</th>
+                <th>Mobile (Good)</th>
+            </tr>
+            <tr>
+                <td>
+                    "We project your ROI before you commit a dollar, using our Three-Scenario Model that accounts for conservative, realistic, and optimistic outcomes. This means you see the numbers before making any decision. Then we guarantee the leads—if we miss the target, you don't pay our fee."
+                </td>
+                <td>
+                    "We show you the ROI before you spend.<br><br>
+                    <strong>Three scenarios:</strong> Conservative, Realistic, Optimistic.<br><br>
+                    <strong>The guarantee:</strong> Miss the target? You don't pay."
+                </td>
+            </tr>
+        </table>
+
+        <h3>ScaleUp Ventures: Specific Content Examples</h3>
+
+        <div class="rec-card success">
+            <h4>Hero Section - Both Versions</h4>
+        </div>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Element</th>
+                <th>Desktop Version</th>
+                <th>Mobile Version</th>
+            </tr>
+            <tr>
+                <td><strong>Headline</strong></td>
+                <td>"Know Before You Spend" (4 words)</td>
+                <td>"Know Before You Spend" (same)</td>
+            </tr>
+            <tr>
+                <td><strong>Subheadline</strong></td>
+                <td>"We project your ROI before you commit a dollar. Then we guarantee the leads—or you don't pay." (19 words)</td>
+                <td>"See your ROI first. Guaranteed leads—or you don't pay." (10 words)</td>
+            </tr>
+            <tr>
+                <td><strong>Trust line</strong></td>
+                <td>"No commitment. No credit card. Just numbers." (7 words)</td>
+                <td>"No commitment. Just numbers." (4 words)</td>
+            </tr>
+        </table>
+
+        <div class="rec-card success">
+            <h4>Service Card - Both Versions</h4>
+        </div>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Element</th>
+                <th>Desktop Version</th>
+                <th>Mobile Version</th>
+            </tr>
+            <tr>
+                <td><strong>Title</strong></td>
+                <td>"Growth Marketing" (2 words)</td>
+                <td>"Growth Marketing" (same)</td>
+            </tr>
+            <tr>
+                <td><strong>Guarantee</strong></td>
+                <td>"Guaranteed Leads or Your Money Back" (6 words)</td>
+                <td>"Leads Guaranteed" (2 words)</td>
+            </tr>
+            <tr>
+                <td><strong>Description</strong></td>
+                <td>"Stop guessing what your marketing spend will return. We project the ROI, then guarantee a minimum number of qualified leads each month." (23 words)</td>
+                <td>"Know exactly what you'll get. We guarantee the leads." (9 words)</td>
+            </tr>
+        </table>
+
+        <h3>Content Planning Checklist</h3>
+        <ul class="checklist">
+            <li>Write desktop content first (full detail)</li>
+            <li>Create mobile variants for key sections (hero, service cards)</li>
+            <li>Identify content for progressive disclosure (expandable sections)</li>
+            <li>Set max-width: 680px on body paragraphs</li>
+            <li>Test readability: each paragraph should convey ONE idea</li>
+            <li>Count words per section against budget</li>
+            <li>Review on actual mobile device (not just browser resize)</li>
+            <li>Check that CTAs are visible without scrolling on mobile hero</li>
+        </ul>
+
+    </section>
+
+    <!-- QUICK REFERENCE -->
+    <div class="quick-ref">
+        <h3>Quick Reference</h3>
+        <div class="quick-ref-grid">
+            <div class="quick-ref-item">
+                <h4>Positioning</h4>
+                <p>"Certainty First." + "Know Before You Spend"</p>
+            </div>
+            <div class="quick-ref-item">
+                <h4>Differentiator</h4>
+                <p>"Guaranteed Leads or Your Money Back"</p>
+            </div>
+            <div class="quick-ref-item">
+                <h4>Voice</h4>
+                <p>The Patient Observer - Watchful, Measured, Decisive</p>
+            </div>
+            <div class="quick-ref-item">
+                <h4>Primary CTA</h4>
+                <p>"See the Math" (Stage 1)</p>
+            </div>
+            <div class="quick-ref-item">
+                <h4>Featured Proof</h4>
+                <p>The No-Build Decision ($150K saved)</p>
+            </div>
+            <div class="quick-ref-item">
+                <h4>Colors</h4>
+                <p>Navy #0F1729 | Gold #D4A853 | Cream #FAF8F5</p>
+            </div>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 40px 0; color: var(--text-secondary);">
+        <p>ScaleUp Ventures | Page Excellence Guide | Phase 3 Website Build</p>
+        <p style="font-size: 0.85rem; margin-top: 8px;">Generated: January 2026</p>
+    </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures - About Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* Color System */
+        :root {
+            --deep-water: #0A0F1C;
+            --surface: #111827;
+            --gold: #C9A227;
+            --certainty-blue: #2563EB;
+            --proof-green: #10B981;
+            --warning: #F59E0B;
+            --text: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border: #1F2937;
+        }
+
+        /* General Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--deep-water);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        /* Geometric Grid Background */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H40V40H0V0Z' fill='%23111827'/%3E%3Cpath d='M0 0L40 40' stroke='%231F2937' stroke-width='1' stroke-linecap='square'/%3E%3C/svg%3E");
+        }
+
+        /* Cursor */
+        .cursor-dot {
+            width: 10px;
+            height: 10px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .cursor-ring {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            pointer-events: none;
+            transition: all 0.2s ease-out;
+        }
+
+        /* Sticky Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(17, 24, 39, 0.8); /* var(--surface) with transparency */
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Magnetic Buttons */
+        .magnetic-button {
+            position: relative;
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--certainty-blue);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            overflow: hidden;
+        }
+
+        .magnetic-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 100px; /* Adjust for sticky nav */
+        }
+
+        #hero h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+        }
+
+        #hero p {
+            font-size: 1.2em;
+            max-width: 700px;
+        }
+
+        /* Origin Story */
+        #origin-story {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        #origin-story p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: var(--gold);
+        }
+
+        /* Heron Philosophy */
+        #heron-philosophy {
+            background-color: var(--surface);
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        #heron-philosophy svg {
+            width: 200px;
+            height: auto;
+            margin-bottom: 40px;
+        }
+
+        .philosophy-principle {
+            margin-bottom: 40px;
+        }
+
+        .philosophy-principle h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        /* Values Grid */
+        #values-grid {
+            padding: 100px 0;
+        }
+
+        #values-grid h2 {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .values-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            background-color: var(--surface);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .value-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        .value-card p {
+            font-size: 1em;
+        }
+
+        /* Team Section */
+        #team-section {
+            background-color: var(--surface);
+            padding: 100px 0;
+        }
+
+        #team-section h2 {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background-color: var(--deep-water);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .team-card h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .team-card p {
+            font-size: 0.9em;
+        }
+
+        /* Company Timeline */
+        #company-timeline {
+            padding: 100px 0;
+        }
+
+        #company-timeline h2 {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background-color: var(--border);
+            transform: translateX(-50%);
+        }
+
+        .timeline-event {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-event:nth-child(odd) {
+            padding-right: 50%;
+            text-align: right;
+        }
+
+        .timeline-event:nth-child(even) {
+            padding-left: 50%;
+        }
+
+        .timeline-event-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .timeline-event-content {
+            background-color: var(--surface);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-event-content h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .timeline-event-content p {
+            font-size: 0.9em;
+        }
+
+        /* Mission Statement */
+        #mission-statement {
+            background-color: var(--surface);
+            padding: 150px 0;
+            text-align: center;
+        }
+
+        #mission-statement p {
+            font-size: 3em;
+            font-weight: 500;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        /* CTA Section */
+        #cta-section {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        #cta-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        /* Heron Silhouette */
+        #heron-silhouette {
+          position: fixed;
+          bottom: 0;
+          right: 0;
+          width: 200px;
+          height: auto;
+          z-index: -1;
+        }
+
+        #heron-silhouette img {
+          width: 100%;
+          height: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 3em;
+            }
+
+            #hero p {
+                font-size: 1.1em;
+            }
+
+            .values-container {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-event:nth-child(odd) {
+                padding-right: 0;
+                text-align: left;
+            }
+
+            .timeline-event:nth-child(even) {
+                padding-left: 0;
+            }
+
+            .timeline-line {
+                left: 10%;
+            }
+
+            .timeline-event:nth-child(odd) .timeline-event-circle,
+            .timeline-event:nth-child(even) .timeline-event-circle {
+                left: 10%;
+            }
+
+            .timeline-event:nth-child(odd) .timeline-event-content,
+            .timeline-event:nth-child(even) .timeline-event-content {
+                margin-left: 30px;
+            }
+
+            #mission-statement p {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-background"></div>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <nav>
+        <div><a href="#" style="font-weight:800; font-size: 1.5em; color: var(--gold);">ScaleUp Ventures</a></div>
+        <ul>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Results</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero">
+        <h1>We Built This for People Like Us</h1>
+        <p>Founders who got burned. Operators who demanded better.</p>
+    </section>
+
+    <section id="origin-story">
+        <h2>Our Story</h2>
+        <p>
+          We started <span class="highlight">ScaleUp Ventures</span> after watching good businesses fail because bad agencies made empty promises. We were those business owners once—spending money on 'leads' that never converted, reports that meant nothing, and strategies that went nowhere.
+          <br><br>
+          So we built something different. A system where you only pay for results. Where data replaces gut feelings. Where patience and precision beat spray-and-pray tactics.
+          <br><br>
+          Like the heron—we watch, we analyze, we wait for the right moment. Then we strike with certainty.
+        </p>
+    </section>
+
+    <section id="heron-philosophy">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+            <path fill="#C9A227" d="M178.8,50.1c0,2.7-2.2,4.9-4.9,4.9H26.1c-2.7,0-4.9-2.2-4.9-4.9V42c0-2.7,2.2-4.9,4.9-4.9h147.7c2.7,0,4.9,2.2,4.9,4.9 V50.1z"/>
+            <path fill="#C9A227" d="M144.8,149.9c0,2.7-2.2,4.9-4.9,4.9H59.1c-2.7,0-4.9-2.2-4.9-4.9v-8.1c0-2.7,2.2-4.9,4.9-4.9h80.8c2.7,0,4.9,2.2,4.9,4.9 V149.9z"/>
+            <path fill="#C9A227" d="M173.9,100c0,2.7-2.2,4.9-4.9,4.9H31c-2.7,0-4.9-2.2-4.9-4.9v-8.1c0-2.7,2.2-4.9,4.9-4.9h138c2.7,0,4.9,2.2,4.9,4.9 V100z"/>
+        </svg>
+        <div class="philosophy-principle">
+            <h3>Patience over panic</h3>
+            <p>We take time to understand before acting.</p>
+        </div>
+        <div class="philosophy-principle">
+            <h3>Precision over volume</h3>
+            <p>Quality leads beat quantity every time.</p>
+        </div>
+        <div class="philosophy-principle">
+            <h3>Proof over promises</h3>
+            <p>We show results before asking for trust.</p>
+        </div>
+    </section>
+
+    <section id="values-grid">
+        <h2>Principles of Certainty</h2>
+        <div class="values-container">
+            <div class="value-card">
+                <h3>Data-Driven Decisions</h3>
+                <p>We rely on facts, not feelings, to guide our strategies and optimize for success.</p>
+            </div>
+            <div class="value-card">
+                <h3>Radical Transparency</h3>
+                <p>We believe in open communication and honest reporting, every step of the way.</p>
+            </div>
+            <div class="value-card">
+                <h3>Results First, Always</h3>
+                <p>Our focus is on delivering tangible, measurable results that drive your business forward.</p>
+            </div>
+            <div class="value-card">
+                <h3>Client Success = Our Success</h3>
+                <p>We are deeply invested in your growth and dedicated to helping you achieve your goals.</p>
+            </div>
+            <div class="value-card">
+                <h3>Continuous Optimization</h3>
+                <p>We constantly refine our approach, learning from data and adapting to the ever-changing market.</p>
+            </div>
+            <div class="value-card">
+                <h3>Skin in the Game</h3>
+                <p>We are confident in our ability to deliver, and we back it up with our guarantee.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="team-section">
+        <h2>The Minds Behind the Method</h2>
+        <div class="team-container">
+            <div class="team-card">
+                <img src="https://via.placeholder.com/100" alt="Team Member">
+                <h3>John Doe</h3>
+                <p>CEO</p>
+                <p>A seasoned entrepreneur with a passion for data-driven growth.</p>
+            </div>
+            <div class="team-card">
+                <img src="https://via.placeholder.com/100" alt="Team Member">
+                <h3>Jane Smith</h3>
+                <p>Head of Marketing</p>
+                <p>A marketing expert with a track record of delivering exceptional results.</p>
+            </div>
+            <div class="team-card">
+                <img src="https://via.placeholder.com/100" alt="Team Member">
+                <h3>Peter Jones</h3>
+                <p>Lead Analyst</p>
+                <p>A data whiz with a knack for uncovering hidden insights.</p>
+            </div>
+            <div class="team-card">
+                <img src="https://via.placeholder.com/100" alt="Team Member">
+                <h3>Alice Brown</h3>
+                <p>Client Success Manager</p>
+                <p>Dedicated to ensuring our clients achieve their goals and maximize their ROI.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="company-timeline">
+        <h2>Our Journey</h2>
+        <div class="timeline">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-event">
+                <div class="timeline-event-circle"></div>
+                <div class="timeline-event-content">
+                    <h3>2020: Founded with a mission</h3>
+                    <p>ScaleUp Ventures was born out of a desire to bring certainty to B2B lead generation.</p>
+                </div>
+            </div>
+
+            <div class="timeline-event">
+                <div class="timeline-event-circle"></div>
+                <div class="timeline-event-content">
+                    <h3>2021: First 100 clients served</h3>
+                    <p>We quickly gained traction and helped our first 100 clients achieve significant growth.</p>
+                </div>
+            </div>
+
+            <div class="timeline-event">
+                <div class="timeline-event-circle"></div>
+                <div class="timeline-event-content">
+                    <h3>2022: Launched guarantee program</h3>
+                    <p>We solidified our commitment to results by launching our Guaranteed Leads or Your Money Back program.</p>
+                </div>
+            </div>
+
+            <div class="timeline-event">
+                <div class="timeline-event-circle"></div>
+                <div class="timeline-event-content">
+                    <h3>2023: 10,000+ leads delivered</h3>
+                    <p>We surpassed a major milestone, delivering over 10,000 qualified leads to our clients.</p>
+                </div>
+            </div>
+
+            <div class="timeline-event">
+                <div class="timeline-event-circle"></div>
+                <div class="timeline-event-content">
+                    <h3>2024: Expanded service offerings</h3>
+                    <p>We expanded our service offerings to provide a more comprehensive solution for B2B growth.</p>
+                </div>
+            </div>
+
+            <div class="timeline-event">
+                <div class="timeline-event-circle"></div>
+                <div class="timeline-event-content">
+                    <h3>2025: Industry recognition</h3>
+                    <p>Our innovative approach and proven results have earned us industry recognition and awards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mission-statement">
+        <p>Our mission is simple: eliminate the guesswork from growth.</p>
+    </section>
+
+    <section id="cta-section">
+        <h2>Ready to experience the difference?</h2>
+        <a href="#" class="magnetic-button">Start Your Proof Test</a>
+        <a href="#" class="magnetic-button" style="background-color: var(--proof-green);">See Our Results</a>
+    </section>
+
+    <div id="heron-silhouette">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAmKADAAQAAAABAAAAmgAAAABcWzQAAAAZdEVYdFNvZnR3YXJlAE1pY3Jvc29mdCBQaW50dXJlIE1hbmFnZXI5rCrPAAAACXBIWXMAAA9tAAAPTQEdXo+5AAAAgnRFWHRTb3VyY2UgaHR0cHM6Ly93d3cuZnJlZXBuZy5jb20vNjE1OTczNzQvaGVyb24tc2lsb3VldHRlLWluLWhpZ2gtcmVzb2x1dGlvbi5odG1s7xI8AAAH3UlEQVR4Xu2di5NjV33Hv69XlC3x9m5kO7Y3G5JkG5IkmzH5w+E2L7Jg+51x0v6Lsh2T01zkkjP5Y/43YyI2Z9Yc7qU1fS25E6N2q/7H+mQpD/e1j9Q7/w+r5869y76v7vuf/7/lJ6p6Vq9Qc8q0V2Qj5R2yH1J2Qc8l0T0wQf5J0Qe8lEf0zYkEf1LEjE1Q0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0QkKGSEhQ0Qk

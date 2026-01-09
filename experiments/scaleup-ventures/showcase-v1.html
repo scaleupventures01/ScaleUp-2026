@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures - Certainty First.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --deep-water: #0A0F1C;
+            --surface: #111827;
+            --gold: #C9A227;
+            --certainty-blue: #2563EB;
+            --proof-green: #10B981;
+            --warning: #F59E0B;
+            --text: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border: #1F2937;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--deep-water);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Custom Cursor */
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            z-index: 1001;
+        }
+
+        .cursor-ring {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease;
+            z-index: 1000;
+        }
+
+        .cursor-ring.hover {
+            width: 60px;
+            height: 60px;
+        }
+
+        /* Geometric Grid Background */
+        .geometric-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background-image: radial-gradient(circle, var(--gold) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.2;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 15px;
+        }
+
+        /* Hero Section */
+        #hero {
+            display: flex;
+            height: 80vh;
+            align-items: center;
+            padding: 0 50px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #hero::before {
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 0;
+          bottom: 0;
+          width: 1px;
+          background-color: var(--gold);
+          opacity: 0.7;
+          animation: pulseLine 2s infinite alternate;
+        }
+
+        @keyframes pulseLine {
+          0% { opacity: 0.3; }
+          100% { opacity: 1; }
+        }
+
+        .hero-split {
+            width: 50%;
+            padding: 50px;
+        }
+
+        .hero-split.uncertainty {
+            filter: grayscale(100%) blur(5px);
+        }
+
+        .hero-split.uncertainty p {
+            opacity: 0.5;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            animation: driftText 5s infinite alternate;
+        }
+
+        @keyframes driftText {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(10px); }
+        }
+
+        .hero-split.certainty h1 {
+            font-size: 4em;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            font-weight: 800;
+        }
+
+        .hero-split.certainty h1 span {
+            color: var(--gold);
+        }
+
+        .hero-split.certainty p {
+            font-size: 1.3em;
+            color: var(--text-muted);
+        }
+
+        /* Stats Section */
+        #stats {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .stat h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .stat p {
+            font-size: 1.2em;
+            color: var(--text-muted);
+        }
+
+        /* Services Section */
+        #services {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .service-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            width: 300px;
+            background-color: var(--surface);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card-spotlight {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.2) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .service-card:hover .service-card-spotlight {
+            opacity: 1;
+        }
+
+
+        .service-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* Proof Section */
+        #proof {
+            padding: 80px 0;
+            background-color: var(--surface);
+            text-align: center;
+        }
+
+        #proof h2 {
+          font-size: 3em;
+          letter-spacing: -0.03em;
+          font-weight: 800;
+        }
+
+
+        /* Testimonial Section */
+        #testimonial {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .testimonial-card {
+            width: 70%;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: var(--surface);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-card blockquote {
+            font-size: 1.5em;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card p.metrics {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2em;
+            color: var(--proof-green);
+        }
+
+        /* FAQ Section */
+        #faq {
+            padding: 80px 0;
+            background-color: var(--surface);
+            text-align: center;
+        }
+
+        #faq h2 {
+          font-size: 3em;
+          letter-spacing: -0.03em;
+          font-weight: 800;
+        }
+
+        .faq-accordion {
+            width: 70%;
+            margin: 40px auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: height 0.3s ease;
+        }
+
+        .faq-item.open {
+            /* Height adjusted dynamically by JS */
+        }
+
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.open::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-muted);
+        }
+
+        /* Client Logos Marquee */
+        #clients {
+            padding: 50px 0;
+            text-align: center;
+            background-color: var(--deep-water);
+            overflow: hidden;
+            position: relative; /* for pausing the marquee */
+        }
+
+        #clients:hover .marquee-content {
+          animation-play-state: paused;
+        }
+
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .client-logo {
+            display: inline-block;
+            width: 150px;
+            height: 75px;
+            margin: 0 30px;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .client-logo:hover {
+            filter: none;
+        }
+
+        /* CTA Section */
+        #cta {
+            padding: 80px 0;
+            background-color: var(--surface);
+            text-align: center;
+        }
+
+        #cta h2 {
+          font-size: 3em;
+          letter-spacing: -0.03em;
+          font-weight: 800;
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px;
+            text-align: center;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Button Styles */
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: transparent;
+            color: var(--text);
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--gold);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .button:hover::before {
+            opacity: 0.2;
+        }
+
+        .magnetic-wrap {
+            position: relative;
+            display: inline-block;
+        }
+
+        .magnetic-wrap .button {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #hero {
+                flex-direction: column;
+                height: auto;
+            }
+
+            #hero::before {
+              display: none;
+            }
+
+            .hero-split {
+                width: 100%;
+                padding: 30px;
+            }
+
+            .hero-split.certainty h1 {
+                font-size: 3em;
+            }
+
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .testimonial-card {
+                width: 90%;
+            }
+
+            .faq-accordion {
+                width: 90%;
+            }
+
+            .client-logo {
+                width: 120px;
+                height: 60px;
+                margin: 0 15px;
+            }
+
+            nav {
+              flex-direction: column;
+              align-items: flex-start;
+            }
+
+            nav a {
+              margin: 5px 0;
+            }
+        }
+
+        /* Heron Styles */
+        #heron-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            z-index: 99;
+            pointer-events: none;
+        }
+
+        #heron {
+            width: 100%;
+            height: 100%;
+        }
+
+        .cls-1 {
+            fill: var(--gold);
+        }
+
+        .eye {
+          fill: var(--deep-water);
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring"></div>
+    </div>
+
+    <!-- Geometric Grid Background -->
+    <div class="geometric-grid"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div><a href="#">ScaleUp Ventures</a></div>
+        <div>
+            <a href="#hero">Hero</a>
+            <a href="#stats">Stats</a>
+            <a href="#services">Services</a>
+            <a href="#proof">Proof</a>
+            <a href="#faq">FAQ</a>
+            <a href="#clients">Clients</a>
+            <a href="#cta">CTA</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-split uncertainty">
+            <p>Wasted budget</p>
+            <p>Empty promises</p>
+            <p>No results</p>
+            <p>False hope</p>
+            <p>Missed deadlines</p>
+            <p>Broken trust</p>
+            <p>Vague reporting</p>
+            <p>Hidden fees</p>
+        </div>
+        <div class="hero-split certainty">
+            <h1 class="character-reveal">Certainty <span>First.</span></h1>
+            <p class="character-reveal">Know before you spend.</p>
+            <div class="magnetic-wrap">
+                <a href="#cta" class="button">Get Guaranteed Leads</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats">
+        <h2>Proven Results</h2>
+        <div class="stats-container">
+            <div class="stat">
+                <h2 class="counter" data-target="15000">0+</h2>
+                <p>Leads Generated</p>
+            </div>
+            <div class="stat">
+                <h2 class="counter" data-target="5000000">$0+</h2>
+                <p>ROI Delivered</p>
+            </div>
+            <div class="stat">
+                <h2 class="counter" data-target="500">0+</h2>
+                <p>Happy Clients</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Guaranteed Services</h2>
+        <div class="service-cards">
+            <div class="service-card" data-tilt>
+                <div class="service-card-spotlight"></div>
+                <h3>Tier 1: Foundation</h3>
+                <p>Essential lead generation for startups.</p>
+                <p>Price: $1,500/month</p>
+                <ul>
+                    <li>Targeted outreach</li>
+                    <li>Basic reporting</li>
+                    <li>Money-back guarantee</li>
+                </ul>
+                <div class="magnetic-wrap">
+                    <a href="#" class="button">Get Started</a>
+                </div>
+            </div>
+            <div class="service-card" data-tilt>
+                <div class="service-card-spotlight"></div>
+                <h3>Tier 2: Growth</h3>
+                <p>Scale your lead generation efforts.</p>
+                <p>Price: $3,000/month</p>
+                <ul>
+                    <li>Advanced targeting</li>
+                    <li>Detailed analytics</li>
+                    <li>Dedicated account manager</li>
+                    <li>Money-back guarantee</li>
+                </ul>
+                <div class="magnetic-wrap">
+                    <a href="#" class="button">Upgrade</a>
+                </div>
+            </div>
+            <div class="service-card" data-tilt>
+                <div class="service-card-spotlight"></div>
+                <h3>Tier 3: Enterprise</h3>
+                <p>Custom lead generation solutions.</p>
+                <p>Price: Custom Pricing</p>
+                <ul>
+                    <li>Tailored strategy</li>
+                    <li>Personalized support</li>
+                    <li>Priority service</li>
+                    <li>Money-back guarantee</li>
+                </ul>
+                <div class="magnetic-wrap">
+                    <a href="#" class="button">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof Section -->
+    <section id="proof">
+        <h2>Why Customers Trust Us</h2>
+        <p>We provide guaranteed leads or your money back. No risks, only results.</p>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section id="testimonial">
+        <div class="testimonial-card">
+            <blockquote>"ScaleUp Ventures transformed our business. We went from struggling to find leads to consistently exceeding our sales targets."</blockquote>
+            <p class="metrics">Before: 5 leads/month | After: 50+ leads/month</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-accordion">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is your guarantee?</span>
+                </div>
+                <div class="faq-answer">
+                    We guarantee a specific number of qualified leads. If we don't meet that number, you get your money back.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How does your pricing work?</span>
+                </div>
+                <div class="faq-answer">
+                    Our pricing is transparent and based on the tier you select. There are no hidden fees or long-term contracts.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What types of businesses do you serve?</span>
+                </div>
+                <div class="faq-answer">
+                    We primarily work with B2B service businesses, but we can tailor our services to fit other industries as well.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos Marquee -->
+    <section id="clients">
+        <h2>Trusted By Industry Leaders</h2>
+        <div class="marquee">
+            <div class="marquee-content">
+                <span class="client-logo" style="background-image: url('https://via.placeholder.com/150x75.png?text=Logo1')"></span>
+                <span class="client-logo" style="background-image: url('https://via.placeholder.com/150x75.png?text=Logo2')"></span>
+                <span class="client-logo" style="background-image: url('https://via.placeholder.com/150x75.png?text=Logo3')"></span>
+                <span class="client-logo" style="background-image: url('https://via.placeholder.com/150x75.png?text=Logo4')"></span>
+                <span class="client-logo" style="background-image: url('https://via.placeholder.com/150x75.png?text=Logo5')"></span>
+                <span class="client-logo" style="background-image: url('https://via.placeholder.com/150x75.png?text=Logo6')"></span>
+                <span class="client-logo" style="background-image: url('https://via.placeholder.com/150x75.png?text=Logo1')"></span>
+                <span class="client-logo" style="background-image: url('https://via.placeholder.com/150x75.png?text=Logo2')"></span>
+                <span class="client-logo" style="background-image: url('https://via.placeholder.com/150x75.png?text=Logo3')"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta">
+        <h2>Ready to Get Certainty?</h2>
+        <div class="magnetic-wrap">
+            <a href="#" class="button">Get Your Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 ScaleUp Ventures. All rights reserved.
+    </footer>
+
+    <!-- Heron SVG -->
+    <div id="heron-container">
+      <svg id="heron" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="cls-1" d="M30.94,75.53C30.94,75.53,32.23,84.11,32.23,85.72s3.35,5.42,5.58,5.42c2.23,0,5.58-5.42,5.58-5.42s1.29-10.19,1.29-10.19H30.94Z"/>
+        <path class="cls-1" d="M47.97,75.53c0,0,1.29,8.58,1.29,10.19s3.35,5.42,5.58,5.42c2.23,0,5.58-5.42,5.58-5.42s1.29-1.61,1.29-10.19H47.97Z"/>
+        <path class="cls-1" d="M63.97,75.53H65.26c0,0,.64,6.51,.64,8.12s2.8,7.06,5.03,7.06,4.4,0,4.4,0V75.53H63.97Z"/>
+        <path class="cls-1" d="M77.58,75.53h1.29c0,0,2.8,5.42,5.03,5.42s2.23,1.61,2.23,1.61V75.53H77.58Z"/>
+        <path class="cls-1" d="M58.94,71.53c0,0,.64,4.85,.64,6.46s2.23,3.77,4.45,3.77,5.58-2.15,5.58-2.15V71.53H58.94Z"/>
+        <path class="cls-1" d="M39.35,71.53H40.64c0,0,.64,5.99,.64,7.6s2.23,2.15,4.45,2.15,6.11-4.31,6.11-4.31V71.53H39.35Z"/>
+        <path class="cls-1" d="M72.59,71.53H73.88c0,0,1.72,3.77,3.95,3.77s2.23,0,2.23,0V71.53H72.59Z"/>
+        <path class="cls-1" d="M30.94,71.53h1.29c0,0,2.23,3.77,4.45,3.77s2.23,1.61,2.23,1.61V71.53H30.94Z"/>
+        <path class="cls-1" d="M83.89,71.53h1.29c0,0,2.23,3.77,4.45,3.77s2.23,0,2.23,0V71.53H83.89Z"/>
+        <path class="cls-1" d="M13.94,71.53H30.94V75.53H13.94Z"/>
+        <path class="cls-1" d="M13.94,75.53H16.18c0,0,1.72,5.42,3.95,5.42s2.23,0,2.23,0V75.53H13.94Z"/>
+        <path class="cls-1" d="M13.94,68.53H32.23V71.53H13.94Z"/>
+        <path class="cls-1" d="M13.94,68.53H16.18c0,0,1.72,2.69,3.95,2.69s2.23,0,2.23,0V68.53H13.94Z"/>
+        <path class="cls-1" d="M3.34,68.53H32.23V71.53H3.34Z"/>
+        <path class="cls-1" d="M3.34,68.53H5.58c0,0,1.72,2.69,3.95,2.69s2.23,0,2.23,0V68.53H3.34Z"/>
+        <path class="cls-1" d="M3.34,54.93H33.52V68.53H3.34Z"/>
+        <path class="cls-1" d="M3.34,54.93H5.58c0,0,1.72,11.58,3.95,11.58s2.23,2.04,2.23,2.04V54.93H3.34Z"/>
+        <path class="cls-1" d="M3.34,31.73H87.09V54.93H3.34Z"/>
+        <path class="cls-1" d="M6.19,31.73H8.43c0,0,1.72,20.25,3.95,20.25s2.23,2.97,2.23,2.97V31.73H6.19Z"/>
+        <path class="cls-1" d="M41.25,1.64H42.54c0,0,1.72,11.47,3.95,11.47s2.23,3.19,2.23,3.19V1.64H41.25Z"/>
+        <path class="cls-1" d="M3.34,1.64H42.54V31.73H3.34Z"/>
+        <path class="cls-1" d="M3.34,1.64H5.58c0,0,1.72,24.9,3.95,24.9s2.23,5.18,2.23,5.18V1.64H3.34Z"/>
+        <path class="cls-1" d="M93.51,31.73H96.86c0,0-2.86,23.16-5.08,23.16-2.23,0-3.35-4.85-3.35-4.85V31.73h5.08Z"/>
+        <path class="cls-1" d="M93.51,1.64h3.35c0,0-2.86,23.16-5.08,23.16-2.23,0-3.35,4.85-3.35,4.85V1.64h5.08Z"/>
+        <path class="cls-1" d="M87.09,1.64h3.35c0,0-1.11,26.33-3.34,26.33-2.23,0-2.23,3.77-2.23,3.77V1.64h5.08Z"/>
+        <path class="cls-1" d="M87.09,1.64H90.44c0,0,1.72,11.47,3.95,11.47s2.23,3.19,2.23,3.19V1.64H87.09Z"/>
+        <path class="cls-1" d="M87.09,31.73h3.35c0,0,-1.11,26.33-3.34,26.33-2.23,0-2.23,3.77-2.23,3.77V31.73h5.08Z"/>
+        <path class="cls-1" d="M46.9,1.64H87.09V31.73H46.9Z"/>
+        <path class="cls-1" d="M46.9,1.64H49.13c0,0,1.72,26.33,3.95,26.33s2.23,3.77,2.23,3.77V1.64H46.9Z"/>
+        <path class="cls-1" d="M46.9,31.73H87.09V54.93H46.9Z"/>
+        <path class="cls-1" d="M46.9,31.73H49.13c0,0,1.72,20.25,3.95,20.25s2.23,2.97,2.23,2.97V31.73H46.9Z"/>
+        <path id="left-eye" class="eye" d="M55 8"/>
+        <path id="right-eye" class="eye" d="M60 8"/>
+      </svg>
+    </div>
+
+    <script>
+        console.log("Looking under the hood? We respect that. We

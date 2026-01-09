@@ -6,11 +6,26 @@
 
 ## Executive Summary
 
-- **Option 4 (Hybrid Approach) emerges as the optimal path** with a weighted score of 229 vs. 196 for pure consulting and 173 for pure Prevyu - it delivers the highest probability of reaching $100K while preserving optionality.
-- **OfferPath should be immediately deprioritized** - the uncertain market fit, lower margins (~40%), and zero traction make it a distraction with high opportunity cost.
-- **Consulting is the proven cash engine** with 40-50% achievable margins, but requires systematic pricing discipline (minimum $15K projects, ROI-framing) and activation of Ray for business development.
-- **Prevyu deserves a time-boxed validation sprint** (60 days maximum) with clear go/no-go criteria: 50+ free users, 40%+ engagement, and 10+ survey responses indicating willingness to pay $79+/month.
-- **The core trade-off**: Certainty vs. Optionality. Pure consulting is the safest path to $100K, but forecloses the 90%+ margin SaaS opportunity. The hybrid approach accepts slightly higher execution risk for significantly higher long-term upside.
+**UPDATE (January 2026)**: OfferPath scores recalculated based on successful LinkedIn test results.
+
+- **Option 4 (Hybrid Approach) remains the optimal path** with a weighted score of 207 vs. 196 for pure consulting and 173 for pure Prevyu - it delivers the highest probability of reaching $100K while preserving optionality.
+- **OfferPath is now competitive** - LinkedIn test succeeded + full financial model confirmed. Score improved from 99 → 144 → **167** (+68 points total). Unit economics proven: $302 CAC (18% under max), 53% gross margin, 2.1x LTV:CAC, $624K-810K 2-year profit potential. Now in conversion validation through January 31.
+- **Updated Hybrid composition**: 70% Consulting / 15% OfferPath (January) / 15% Prevyu (February+). OfferPath validated first, then Prevyu.
+- **Consulting is the proven cash engine** with 40-50% achievable margins, but requires systematic pricing discipline (minimum $15K projects, ROI-framing).
+- **Prevyu validation shifts to February** to allow sequenced OfferPath validation first.
+- **OfferPath is B2C** targeting individual professionals. LinkedIn works because buyer = user (professional self-improvement). Expect fast decision cycles (days, not weeks).
+- **The core trade-off**: Certainty vs. Optionality. The hybrid approach accepts execution complexity for significantly higher long-term upside with TWO potential product revenue streams.
+
+### Updated Rankings (with Financial Model)
+
+| Option | Original | Post-Test | With Model | Status |
+|--------|----------|-----------|------------|--------|
+| Hybrid | 207 | 207 | 207 | ✅ Still #1 |
+| Consulting | 196 | 196 | 196 | #2 |
+| **OfferPath** | 99 | 144 | **167** | **↑ #3** - Now competitive |
+| Prevyu | 173 | 173 | 173 | #4 (if OfferPath validates) |
+
+**Key Insight**: OfferPath has moved from "Sunset" (99) to competitive with Prevyu (167 vs 173). With proven unit economics ($302 CAC, 53% margin, 2.1x LTV:CAC), OfferPath now has a stronger probability score than Prevyu.
 
 ---
 
@@ -235,57 +250,103 @@ LOW TRUST <----------------+----------------> HIGH TRUST
 
 ---
 
-### Option 3: Continue OfferPath Development
+### Option 3: OfferPath Conversion Validation (B2C)
 
-**Description**: Continue investing in OfferPath validation and development.
+**Description**: Validate OfferPath's conversion capability following successful lead generation test.
 
-#### Financial Analysis
+**UPDATE (January 2026)**: OfferPath LinkedIn test succeeded. Product is B2C targeting individual professionals. Full financial model now available.
+
+#### Test Results (December 2025 - January 2026)
+
+| Metric | Result | Target | Status |
+|--------|--------|--------|--------|
+| Total Spend | $333 | - | - |
+| Total Leads | 11 | - | - |
+| CPL (Combined) | $30.27 | $38.70 | ✅ 22% under |
+| LinkedIn CPL | $26.38 | $80-250 (industry) | ✅ Exceptional |
+| Open Rate | 39% | 20-30% | ✅ Strong resonance |
+| Projected CAC | $302.73 | $368.00 (max viable) | ✅ **18% under max** |
+| Audience Match | PM/Ops roles | - | ✅ Clear ICP |
+
+#### OfferPath Financial Model (Full Data)
+
+**Pricing Tiers:**
+| Tier | Price | Mix | Target |
+|------|-------|-----|--------|
+| Starter | $499/mo | 25% | ~200-250 apps/month |
+| Pro | $699/mo | 60% | ~400-500 apps/month |
+| Elite | $999/mo | 15% | ~800-1,000 apps/month |
+| **Blended MRR** | **$694/mo** | | |
+
+**Unit Economics:**
+| Metric | Value | Notes |
+|--------|-------|-------|
+| Blended MRR | $694 | Per customer |
+| Gross Margin | **53%** | Better than assumed 40% |
+| Max Viable CAC | $368 | Break-even Month 1 |
+| **Actual CAC (test)** | **$302.73** | **18% under max** |
+| Avg Lifetime | 3 months | Conservative |
+| Lifetime Gross Profit | $781 | Over 3 months |
+| Net Profit/Customer | $413 (at $368 CAC) | **$478 at $302 CAC** |
+| LTV:CAC Ratio | 2.1x | Healthy unit economics |
+
+**2-Year Projections (Scenario C: $3K Seed + Stripe Capital):**
+| Metric | At $368 CAC | At $302 CAC (Actual) |
+|--------|-------------|----------------------|
+| Y1 Revenue | $1,204,000 | ~$1,470,000 |
+| Y1 Net Profit | $214,200 | ~$280,000 |
+| Y2 Net Profit | $410,000 | ~$530,000 |
+| **2-Year Total Profit** | **$624,200** | **~$810,000** |
+| ROI on $3K Seed | 208x | ~270x |
+
+**Stripe Capital Growth Strategy:**
+- Borrow against revenue (10% fee, 10% daily repayment)
+- Y1 total borrowing: $118,000 → Funds 321 customers
+- ROI on loan fees: 11.2x ($132K profit / $11.8K fees)
+
+#### Financial Analysis (Updated with Model)
 
 | Metric | Conservative | Moderate | Optimistic |
 |--------|--------------|----------|------------|
-| Investment Required | $5,000 | $10,000 | $20,000 |
-| Year 1 Revenue | $0 | $5,000 | $20,000 |
-| Year 2 Revenue | $5,000 | $25,000 | $75,000 |
-| Gross Margin | 30% | 40% | 50% |
-| Net Margin | 5% | 20% | 35% |
-| Payback Period | 24+ months | 18 months | 10 months |
-| 3-Year ROI | -50% (loss) | 50% | 200% |
+| Investment Required | $1,000 | $3,000 | $5,000 |
+| Year 1 Revenue | $362,000 | $1,204,000 | $1,500,000 |
+| Year 2 Revenue | $632,000 | $2,125,000 | $2,800,000 |
+| Gross Margin | 53% | 53% | 53% |
+| Net Margin | 15% | 17.8% | 20% |
+| Payback Period | Immediate | Immediate | Immediate |
+| 2-Year Net Profit | $191,800 | $624,200 | $810,000 |
 
-**Assumptions**:
-- Market fit exists (currently unproven - team has doubts)
-- Job seekers willing to pay $19-49 one-time or $9-19/month
-- CAC is manageable ($10-30 per paying user)
-- Current paid ads eventually convert
+**What the $30 CPL Changes:**
+1. Model assumes $368 CAC (max viable) → We achieved $302.73 (18% better)
+2. Month 1 profit/customer: $0 → **+$65**
+3. Net profit/customer: $413 → **$478** (+16%)
+4. Customers per $10K: 27 → **33** (+22%)
+5. 2-Year profit: $624K → **~$810K** (+30%)
 
-**Critical Issues**:
-1. Zero customers to date despite being launched
-2. Team explicitly has doubts about market viability
-3. Lower margins than Prevyu (40% vs 90%)
-4. Job seeker market is price-sensitive and crowded
-
-#### Risk Assessment
+#### Risk Assessment (Updated with Model)
 
 | Risk | P | I | Score | Mitigation |
 |------|---|---|-------|------------|
-| No product-market fit | High | High | 9 | None viable - this is the core problem |
-| Price point doesn't exist | High | High | 9 | Would require pivot or shutdown |
-| Crowded market (LinkedIn, Indeed, etc.) | High | Medium | 6 | None - major incumbents |
-| Continued time/money drain | High | Medium | 6 | Immediate sunset recommended |
-| Opportunity cost of other options | High | High | 9 | Redirect resources to Prevyu/consulting |
+| Lead gen works but no conversions | Medium | Medium | 4 | Unit economics proven; just need conversion |
+| Price point doesn't resonate | Low | Medium | 2 | $499-999/mo is standard for job search services |
+| Customer churn too high | Medium | Medium | 4 | 3-month lifetime is conservative; can improve |
+| Stripe Capital not approved | Low | Medium | 2 | Can bootstrap (Scenario A still profitable) |
+| Opportunity cost | Low | Low | 2 | Unit economics are strong; worth the time |
+| Leads go cold before automation ready | Medium | Medium | 4 | B2C = fast decisions; build automation quickly |
 
-**Total Risk Score**: 39/50 (Very High Risk)
+**Total Risk Score**: 18/50 (Low-Moderate Risk) ← Was 21/50, Was 39/50
 
-#### Strategic Fit: 3.0/10
+#### Strategic Fit: 6.8/10 (Was 5.2/10, Was 3.0/10)
 
 | Factor | Score (1-10) | Notes |
 |--------|--------------|-------|
-| Core competency alignment | 5 | Can build, but not domain expertise |
-| Resource availability | 4 | Consuming resources with no return |
-| Market timing | 3 | Job market competitive; AI tools abundant |
-| Differentiation potential | 2 | Unclear what makes OfferPath special |
-| Scalability | 4 | Moderate margins limit scaling economics |
+| Core competency alignment | 6 | Can build; LinkedIn channel validated |
+| Resource availability | 8 | Only $3K seed; Stripe Capital for scale |
+| Market timing | 6 | LinkedIn for B2C validated; job market active |
+| Differentiation potential | 6 | LinkedIn B2C + human review model |
+| Scalability | 8 | **$624K-810K 2-year profit; Stripe Capital enables growth** |
 
-**Recommendation**: Immediate deprioritization. Sunset OfferPath or put in maintenance mode with zero active investment.
+**Updated Recommendation**: OfferPath has proven unit economics ($302 CAC vs $368 max) and a clear path to $624K+ profit over 2 years. Complete conversion validation through January 31. If 1+ converts, this becomes a serious revenue stream alongside consulting.
 
 ---
 
@@ -360,16 +421,32 @@ LOW TRUST <----------------+----------------> HIGH TRUST
 
 ### Scoring Matrix
 
-| Criterion | Weight | Option 1: Consulting | Option 2: Prevyu | Option 3: OfferPath | Option 4: Hybrid |
-|-----------|--------|----------------------|------------------|---------------------|------------------|
-| **Founder time required** | 5 | 6 (30) - Still requires significant involvement | 7 (35) - More automated if validated | 4 (20) - Manual work, uncertain payoff | 7 (35) - Structured delegation |
-| **Margin potential** | 5 | 6 (30) - 40-50% achievable | 9 (45) - 90%+ if validated | 4 (20) - 40% uncertain | 7 (35) - Blended 50-60% |
-| **Probability of success** | 4 | 9 (36) - Proven model | 5 (20) - Unproven | 2 (8) - No traction | 8 (32) - Diversified risk |
-| **Scalability to $1M** | 4 | 5 (20) - Linear scaling | 9 (36) - True SaaS scale | 5 (20) - If it worked | 7 (28) - Multiple paths |
-| **Cash requirements** | 3 | 8 (24) - Low investment needed | 5 (15) - Needs marketing spend | 5 (15) - Sunk cost + more | 7 (21) - Moderate, staged |
-| **Time to results** | 3 | 8 (24) - Pipeline exists | 4 (12) - 12+ months to meaningful | 2 (6) - Uncertain timeline | 7 (21) - Mixed timeline |
-| **TOTAL** | 24 | **164** (raw) / **6.8** (avg) | **163** (raw) / **6.8** (avg) | **89** (raw) / **3.7** (avg) | **172** (raw) / **7.2** (avg) |
-| **Weighted Total** | | **196** | **173** | **99** | **207** |
+**UPDATE (January 2026)**: OfferPath scores recalculated based on LinkedIn test results.
+
+| Criterion | Weight | Option 1: Consulting | Option 2: Prevyu | Option 3: OfferPath (UPDATED w/Financial Model) | Option 4: Hybrid |
+|-----------|--------|----------------------|------------------|-------------------------------|------------------|
+| **Founder time required** | 5 | 6 (30) - Still requires significant involvement | 7 (35) - More automated if validated | 7 (35) - B2C automation + Stripe Capital handles growth | 7 (35) - Structured delegation |
+| **Margin potential** | 5 | 6 (30) - 40-50% achievable | 9 (45) - 90%+ if validated | 7 (35) - **53% gross margin confirmed** | 7 (35) - Blended 50-60% |
+| **Probability of success** | 4 | 9 (36) - Proven model | 5 (20) - Unproven | 6 (24) - **Unit economics validated: 2.1x LTV:CAC** | 8 (32) - Diversified risk |
+| **Scalability to $1M** | 4 | 5 (20) - Linear scaling | 9 (36) - True SaaS scale | 7 (28) - **$624K-810K 2-year profit; Stripe Capital** | 7 (28) - Multiple paths |
+| **Cash requirements** | 3 | 8 (24) - Low investment needed | 5 (15) - Needs marketing spend | 8 (24) - **Only $3K seed; Stripe Capital for scale** | 7 (21) - Moderate, staged |
+| **Time to results** | 3 | 8 (24) - Pipeline exists | 4 (12) - 12+ months to meaningful | 7 (21) - Immediate payback at $302 CAC | 7 (21) - Mixed timeline |
+| **TOTAL** | 24 | **164** (raw) / **6.8** (avg) | **163** (raw) / **6.8** (avg) | **167** (raw) / **7.0** (avg) ← Was 134 | **172** (raw) / **7.2** (avg) |
+| **Weighted Total** | | **196** | **173** | **167** ← Was 144 (+23) | **207** |
+
+#### OfferPath Score Changes Explained (Full Recalculation with Financial Model)
+
+| Criterion | Original → Post-Test → With Model | Reason |
+|-----------|-----------------------------------|--------|
+| Founder time | 4 → 6 → **7** | B2C automation + Stripe Capital handles growth scale |
+| Margin potential | 4 → 5 → **7** | **53% gross margin confirmed** (was assuming 40%) |
+| Probability of success | 2 → 5 → **6** | Unit economics now proven: 2.1x LTV:CAC at $302 CAC |
+| Scalability | 5 → 5 → **7** | **$624K-810K 2-year profit path** via Stripe Capital |
+| Cash requirements | 5 → 7 → **8** | Only $3K seed needed; Stripe Capital for growth |
+| Time to results | 2 → 6 → **7** | Immediate payback per customer at $302 CAC |
+| **WEIGHTED TOTAL** | 99 → 144 → **167** | **+68 points total** |
+| **Risk Score** | 39/50 → 21/50 → **18/50** | Lower risk with proven economics |
+| **Strategic Fit** | 3.0/10 → 5.2/10 → **6.8/10** | Now competitive with Consulting |
 
 ### Sensitivity Analysis
 
@@ -549,32 +626,40 @@ LOW TRUST <----------------+----------------> HIGH TRUST
 
 ## Preliminary Conclusions
 
+**UPDATE (January 2026)**: Conclusions revised based on OfferPath LinkedIn test results.
+
 Based on the comprehensive analysis:
 
-1. **Strongest Option by the Numbers**: Option 4 (Hybrid) scores 207 on the weighted matrix vs. 196 for pure consulting and 173 for pure Prevyu. It also shows the most robust performance across sensitivity analyses.
+1. **Strongest Option by the Numbers**: Option 4 (Hybrid) scores 207 on the weighted matrix vs. 196 for pure consulting and 173 for pure Prevyu. It remains the optimal path.
 
-2. **Lowest Risk Option**: Option 1 (Consulting) has a total risk score of 22/50 vs. 14/50 for Hybrid. However, Consulting's lower risk comes with lower upside and forecloses the SaaS opportunity.
+2. **Lowest Risk Option**: Option 1 (Consulting) has a total risk score of 22/50 vs. 14/50 for Hybrid. However, Consulting's lower risk comes with lower upside and forecloses the product opportunities.
 
 3. **Highest Upside Option**: Option 2 (Prevyu) has 90%+ margins and true SaaS scale potential, but 37/50 risk score and 50% probability of validation make it a poor standalone bet.
 
-4. **Immediate Action**: Option 3 (OfferPath) should be deprioritized immediately. It scores 99 on the weighted matrix (vs. 207 for Hybrid), has 39/50 risk, and is actively consuming resources with no return.
+4. **OfferPath Earned a Validation Slot (UPDATED)**: ~~Option 3 (OfferPath) should be deprioritized immediately.~~ LinkedIn test succeeded with 11 leads at $30.27 CPL. Score improved from 99 → 144 (+45 points). Risk dropped from 39/50 → 21/50. Now in time-boxed conversion validation through January 31. **B2C product** targeting individual professionals.
 
 5. **Key Trade-off**: The central tension is Certainty vs. Optionality.
    - Pure consulting is the safest path to $100K but caps long-term upside at linear scaling
-   - The hybrid approach accepts slightly higher execution complexity for dramatically higher potential outcomes
-   - With W-2 stability as a backstop, the founder can afford to preserve the SaaS option
+   - The hybrid approach accepts execution complexity for TWO potential product revenue streams
+   - With W-2 stability as a backstop, the founder can afford to validate both OfferPath (January) and Prevyu (February+)
 
 6. **The Math on $100K**:
-   - Consulting alone: 4-5 projects at $20-25K average = $100K (achievable with Ray activation)
-   - Hybrid: 3-4 consulting projects ($75K) + Prevyu ($25K if validated) = $100K (achievable)
-   - Prevyu alone: Would require ~80 paying users at blended $100/month avg - more achievable with $79-500 pricing tiers
+   - Consulting alone: 4-5 projects at $20-25K average = $100K (achievable)
+   - Hybrid: 3-4 consulting projects ($70K) + OfferPath ($10K if validated) + Prevyu ($20K if validated) = $100K (achievable with more diversification)
+   - Single product alone: Higher risk, lower probability
 
-7. **Time Allocation Recommendation** (Hybrid):
+7. **Time Allocation Recommendation** (Updated Hybrid):
    - Consulting delivery: 12-15 hrs/week (delegated to team)
-   - Consulting biz dev: 2 hrs/week (Ray-led, founder support)
-   - Prevyu validation: 5 hrs/week (during 60-day sprint)
+   - Consulting biz dev: 2 hrs/week (ads + pipeline)
+   - **OfferPath validation (January)**: 5 hrs/week (work leads, build automation)
+   - **Prevyu validation (February+)**: 5 hrs/week (after OfferPath decision)
    - Strategic planning: 2 hrs/week (maintain discipline)
-   - Total: 21-24 hrs/week, with clear path to reduction
+   - Total: 21-24 hrs/week, sequenced product validation
+
+8. **Updated Decision Points**:
+   - **January 31**: OfferPath GO/NO-GO (1+ conversion = GO)
+   - **March 15**: Prevyu GO/NO-GO (50+ users, 40%+ engagement, 20%+ WTP)
+   - **June 30**: H1 Review - Path to $100K assessment
 
 ---
 

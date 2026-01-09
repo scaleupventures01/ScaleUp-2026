@@ -30,9 +30,40 @@ You have zero proactive business development today - 100% referrals. The solutio
 
 The day trading market is massive (10M+ active traders in the US), and your "pre-trade discipline" positioning is genuinely novel. But you've never tested willingness to pay. The good news: you can definitively answer whether Prevyu is viable with a focused 60-day sprint and $2-3K in ad spend. If 50+ free users show 40%+ engagement and 20%+ express willingness to pay $79+/month, you have a real SaaS business. If not, you walk away with clear conscience and redirect all energy to consulting.
 
-### Insight 4: OfferPath Gets One Final Test
+### Insight 4: OfferPath Has Proven Unit Economics - Now Validating Conversion
 
-Zero customers despite being launched and running ads. Team has doubts about market viability. Lower margins (40% vs. 90% for Prevyu). The analysis scored it 99 vs. 207 for the hybrid approach. **However**, you're running one final $200 LinkedIn ad test starting tomorrow (7-day experiment). This is the right approach - a small, time-boxed test with clear kill criteria. If LinkedIn ads fail like the previous Facebook and other LinkedIn attempts, OfferPath is dead. Decision deadline: January 6, 2026.
+**UPDATE (January 2026)**: The LinkedIn test succeeded AND full financial model is now confirmed:
+
+**Test Results ($333 spend)**:
+- **11 leads generated** at $30.27 CPL (22% under $38.70 target)
+- **LinkedIn CPL of $26.38** vs. typical B2C social CPL of $15-50 (competitive)
+- **39% open rate** showing strong audience resonance with Project Management/Operations roles
+- **Actual CAC of $302.73** vs. $368 max viable (18% under)
+
+**Financial Model (Full Data)**:
+- **$694/mo blended MRR** ($499 Starter / $699 Pro / $999 Elite)
+- **53% gross margin** (better than assumed 40%)
+- **2.1x LTV:CAC ratio** at $302 CAC
+- **$624K-$810K 2-year profit potential** (Stripe Capital growth model)
+- **Score: 99 → 167** (+68 points with full model)
+
+**Note**: OfferPath is a **B2C product** targeting individual professionals (not companies). While LinkedIn is typically a B2B channel, the strong performance with PM/Ops individuals suggests LinkedIn can work for professional-focused B2C products where the buyer IS the user.
+
+OfferPath has moved from "Sunset" to "Validation Phase." The lead generation hypothesis is validated. Now we must validate the conversion hypothesis: Can we turn leads into paying customers?
+
+**B2C Validation Considerations**:
+- Faster decision cycles expected (individuals, not committees)
+- Higher volume needed for statistical significance
+- Conversion should happen within days, not weeks
+- Churn risk is higher than B2B - early engagement critical
+
+**January Validation Plan**:
+- Week 1-2: Work existing 11 leads + build sales/onboarding automation
+- Week 3: Launch additional $200 LinkedIn spend with automation in place
+- Week 4: Track new leads through automated funnel
+- **Decision Point (Jan 31)**: If 1+ leads convert to paying customers AND CPL holds with automation, OfferPath is validated. If 0 conversions, OfferPath is sunset.
+
+**Sequence Change**: OfferPath validation runs January; Prevyu validation shifts to February start.
 
 ### Insight 5: Your W-2 is a Strategic Asset, Not a Limitation
 
@@ -95,21 +126,18 @@ If you choose this path after Prevyu validation fails, the implementation roadma
 
 ### What I Recommend Against
 
-**Avoid: Continuing Any Investment in OfferPath**
+**Avoid: Abandoning OfferPath Before Conversion Validation Completes**
 
-**Why**: The analysis is unambiguous. OfferPath scored 99 vs. 207 for Hybrid - less than half. It has:
-- Zero customers despite being launched
-- Zero revenue
-- Team doubts about market viability
-- Lower margins (40% vs. 90% for Prevyu)
-- Crowded market with giant incumbents
-- High opportunity cost (every hour spent here is stolen from consulting or Prevyu)
+**UPDATE (January 2026)**: The original recommendation to sunset OfferPath has been revised based on strong LinkedIn test results. OfferPath is now in a time-boxed validation phase through January 31.
 
-The risk score is 39/50 (Very High), and the strategic fit score is 3.0/10. There is no scenario in the analysis where OfferPath is the right choice.
+**Current Status**:
+- ✅ Lead generation hypothesis: VALIDATED ($30.27 CPL vs $38.70 target)
+- ⏳ Conversion hypothesis: IN PROGRESS (need 1 of 11 to convert)
+- ⏳ Automation scalability: IN PROGRESS (testing if results hold with automation)
 
-**My Strong Recommendation**: Sunset OfferPath today. Stop ads immediately. Put the product in maintenance mode (keep it live in case someone stumbles across it, but invest zero active effort). If it somehow generates organic customers, revisit. But do not spend another dollar or hour trying to make it work.
+**What This Means**: Do NOT sunset OfferPath until January 31 decision point. Work the leads, build the automation, run the second $200 spend. Make the kill/continue decision based on conversion data, not the old analysis.
 
-I know this is hard - you built it, you launched it, you've invested in it. But the sunk cost fallacy is one of the biggest killers of small businesses. The best founders know when to kill their darlings. Kill this one.
+**However**: If January 31 arrives and 0 leads have converted, sunset immediately. The original analysis about opportunity cost remains valid - every hour on a product that can't convert is stolen from consulting and Prevyu.
 
 **Also Avoid: Indefinite Experimentation Without Decision Points**
 
@@ -123,51 +151,71 @@ The recommendation below includes hard decision checkpoints. Respect them. If Pr
 
 ### Phase 1: Foundation (January 2026)
 
-**Objective**: Set the foundation for disciplined execution - launch consulting ads, establish pricing discipline, launch Prevyu validation sprint, and sunset OfferPath.
+**Objective**: Validate OfferPath conversion, establish consulting pricing discipline, and prepare Prevyu for February launch.
+
+**UPDATE (January 2026)**: Phase 1 now prioritizes OfferPath conversion validation based on strong LinkedIn test results. Prevyu validation shifts to Phase 2 (February).
 
 | Week | Action Item | Owner | Deliverable | Resources Needed |
 |------|-------------|-------|-------------|------------------|
-| 1 (Jan 1-7) | Kill OfferPath: Stop ads, communicate decision to team | Founder | Ads paused, team notified | 1 hour |
+| 1 (Jan 1-7) | Work existing 11 OfferPath leads: personalized outreach to convert | Founder | Lead follow-up initiated | 3 hours |
+| 1 | Begin building OfferPath onboarding/activation automation (B2C focus) | Founder/Roe | Automation design documented | 4 hours |
 | 1 | Document consulting pricing framework: $15K minimum, ideal $20-25K, ROI model required | Founder | Pricing framework document | 2 hours |
-| 1 | Brief Roe on consulting ad campaign: ICP, messaging, budget | Founder + Roe | Ad campaign plan ready | 2 hours |
-| 2 (Jan 8-14) | Build consulting ad creative and landing page | Founder + Roe | Ads and landing page ready to launch | 4 hours |
-| 2 | Define Prevyu validation criteria and sprint plan | Founder | Validation sprint document | 2 hours |
-| 2 | Brief Roe on Prevyu ad campaign: audiences, budget, creative | Founder + Roe | Ad campaign ready to launch | 2 hours |
-| 3 (Jan 15-21) | Launch consulting paid ads: $100-150/week budget | Roe | Ads live, tracking in place | $100-150/week |
-| 3 | Launch Prevyu free cohort ads: $500/week budget | Roe | Ads live, tracking in place | $500 |
+| 2 (Jan 8-14) | Continue lead conversion + complete automation build | Founder/Roe | Automation ready to deploy | 5 hours |
+| 2 | Brief Roe on consulting ad campaign: ICP, messaging, budget | Founder + Roe | Ad campaign plan ready | 2 hours |
+| 2 | Define Prevyu validation criteria and sprint plan (for Feb launch) | Founder | Validation sprint document | 2 hours |
+| 3 (Jan 15-21) | Launch $200 LinkedIn spend with automation in place | Roe | Ads live, automation active | $200 |
+| 3 | Launch consulting paid ads: $100-150/week budget | Roe | Ads live, tracking in place | $100-150/week |
 | 3 | Establish weekly strategic review: Friday 2pm, 1 hour | Founder | Calendar blocked, agenda set | 1 hour/week ongoing |
-| 4 (Jan 22-31) | First ad performance review | Founder + Roe | Ad metrics, leads generated, adjustments | 1 hour |
-| 4 | Prevyu Week 2 check: ad performance, sign-up rate | Founder + Roe | Performance dashboard | 1 hour |
+| 4 (Jan 22-31) | Track OfferPath leads through automated funnel (expect fast B2C decisions) | Founder + Roe | Conversion data collected | 2 hours |
+| 4 | **OFFERPATH DECISION POINT (Jan 31)** | Founder | GO/NO-GO documented | 2 hours |
 | 4 | Continue $38K contract delivery | Founder + Patrick/Aaron | On-track delivery | Per contract |
 
+**B2C Note**: OfferPath targets individual professionals, not companies. Expect faster conversion cycles (days, not weeks). If leads haven't converted within 7-10 days of first contact, they're likely cold. Focus automation on activation and first-value delivery, not long nurture sequences.
+
 **Phase 1 Success Criteria**:
-- OfferPath ads stopped, no further investment
-- Consulting ads live with 50+ leads generated
-- Prevyu ads live with 15+ free sign-ups
+- OfferPath: 1+ leads converted to paying customer OR clear NO-GO signal
+- OfferPath: CPL remains ≤$38.70 with automation in place
+- Consulting ads live and generating leads
+- Prevyu validation plan ready for February launch
 - Pricing framework documented and agreed
 - Weekly strategic review rhythm established
 
-**Investment This Phase**: $2,500
-- Prevyu ads: $2,000
-- Tools/materials: $500
+**Investment This Phase**: $700
+- OfferPath LinkedIn ads: $200 (from remaining $500 allocation)
+- Consulting ads: $400-500
+- Tools/materials: included
+
+**OfferPath January 31 Decision Criteria**:
+
+| Signal | GO | NO-GO |
+|--------|-----|-------|
+| Lead conversions | 1+ of 11+ leads converted | 0 conversions |
+| CPL with automation | ≤$38.70 | >$50 (significant degradation) |
+| Sales cycle clarity | Clear path to close | Leads going cold/unresponsive |
+
+**If GO**: OfferPath continues into Phase 2 alongside Prevyu with increased investment
+**If NO-GO**: Sunset OfferPath immediately, redirect all product focus to Prevyu
 
 ---
 
 ### Phase 2: Build (February - March 2026)
 
-**Objective**: Execute the core strategy - paid ads generate pipeline, Prevyu completes validation, consulting projects close and deliver at target margins.
+**Objective**: Execute Prevyu validation sprint, scale OfferPath if validated, close consulting deals at target margins.
+
+**UPDATE (January 2026)**: Phase 2 now begins Prevyu validation (shifted from January) and continues OfferPath if it passed January validation.
 
 | Month | Action Item | Owner | Deliverable | Resources Needed |
 |-------|-------------|-------|-------------|------------------|
-| Feb Week 1-2 | Prevyu validation: reach 50 free users target | Founder + Roe | 50+ free users signed up | Ad spend continuation |
-| Feb Week 2 | Ad pipeline check: should have 2-4 qualified opportunities | Founder + Roe | Qualified opportunity list | Weekly review |
+| Feb Week 1-2 | **Launch Prevyu validation sprint**: ads live, 50 free users target | Founder + Roe | 50+ free users signed up | $500/week ad spend |
+| Feb Week 1-2 | If OfferPath GO: Scale LinkedIn spend, continue automation | Founder + Roe | Increased pipeline | $300-500/week |
+| Feb Week 2 | Consulting ad pipeline check: 2-4 qualified opportunities | Founder + Roe | Qualified opportunity list | Weekly review |
 | Feb Week 3-4 | Prevyu engagement tracking: measure weekly active usage | Founder | Engagement dashboard, 40%+ WAU target | 2 hours/week |
 | Feb Week 4 | First consulting proposal from ad pipeline | Founder | Proposal sent, $20K+ value | Founder: 3 hours |
 | March 1-15 | Prevyu willingness-to-pay survey: send to engaged free users | Founder | Survey results, 20%+ WTP target | 2 hours |
-| March 1-15 | Close first ad-sourced deal | Founder | Signed contract, $15K+ | Founder: 5 hours |
+| March 1-15 | Close first ad-sourced consulting deal | Founder | Signed contract, $15K+ | Founder: 5 hours |
 | March 15 | **PREVYU GO/NO-GO DECISION** | Founder | Decision documented, resources reallocated | 2 hours |
-| March 16-31 | If GO: Convert willing users to paid beta ($39/mo) | Founder | 5+ paying beta users | 5 hours/week |
-| March 16-31 | If NO-GO: Sunset Prevyu, reallocate time to consulting | Founder | Prevyu in maintenance mode | 1 hour |
+| March 16-31 | If Prevyu GO: Convert willing users to paid beta ($39/mo) | Founder | 5+ paying beta users | 5 hours/week |
+| March 16-31 | If Prevyu NO-GO: Sunset Prevyu, focus on OfferPath (if validated) or consulting-only | Founder | Clear product focus | 1 hour |
 | March | Continue consulting delivery, target 50%+ margins | Team | Margin tracking, on-budget delivery | Per project |
 
 **Key Decision Point: March 15 - Prevyu Go/No-Go**
@@ -255,7 +303,8 @@ This is the most important decision of Q1. Apply these criteria rigorously:
 
 | Checkpoint | Date | Question to Answer | Decision Criteria |
 |------------|------|-------------------|-------------------|
-| 30-Day Review | Jan 31, 2026 | Is consulting ads working? Is Prevyu getting traction? | Ray: 40+ contacts, 5+ conversations. Prevyu: 15+ sign-ups. |
+| **OfferPath Go/No-Go** | **Jan 31, 2026** | **Did OfferPath leads convert? Does automation work?** | **1+ conversion AND CPL ≤$38.70 with automation = GO** |
+| 30-Day Review | Jan 31, 2026 | Is consulting ads working? Is OfferPath validated? | Consulting: leads generated. OfferPath: conversion data. |
 | Prevyu Go/No-Go | March 15, 2026 | Should we continue investing in Prevyu? | 3/4 GO signals met (see criteria above) |
 | 90-Day Review | March 31, 2026 | Are we on track for $100K? | $50K+ revenue YTD or clear path to $100K |
 | Q2 Review | June 30, 2026 | What's working? What needs adjustment for H2? | $60K+ revenue, 45%+ margins, clear H2 plan |
@@ -425,34 +474,37 @@ This is the most important decision of Q1. Apply these criteria rigorously:
 
 ## Getting Started: Your Next 5 Steps
 
-The most important thing is to START. Here are your immediate next steps:
+**UPDATE (January 2026)**: Steps revised based on OfferPath LinkedIn test success.
 
-1. **Today (December 30)**:
-   - Stop OfferPath ads (log into ad platform, pause all campaigns)
-   - Send message to Roe and anyone else: "We're sunsetting OfferPath. No more active investment."
-   - This single action eliminates your biggest resource drain and clears mental space
+1. **This Week (January 1-7)**:
+   - Work the 11 OfferPath leads: personalized outreach to each
+   - Begin building OfferPath sales automation (email sequences, CRM workflow)
+   - Document your consulting pricing framework: $15K minimum, $20-25K ideal
+   - Deliverable: Lead follow-up initiated + automation design started
 
-2. **This Week (by January 3)**:
-   - Document your pricing framework: $15K minimum, $20-25K ideal, ROI model required
-   - Write it down. Put it somewhere you'll see it before every proposal.
-   - Deliverable: 1-page pricing discipline document
+2. **Week 2 (January 8-14)**:
+   - Continue lead follow-up, track responses and engagement
+   - Complete automation build with Roe
+   - Brief Roe on consulting ad campaign: ICP, messaging, budget
+   - Deliverable: Automation ready to deploy + consulting ads planned
 
-3. **Next Week (January 6-10)**:
-   - Brief Ray on activation: Share the ICP, messaging framework, and target expectations
-   - Have a 60-minute call to align on approach and set weekly check-in time
-   - Deliverable: Ray has what he needs to start building target list
+3. **Week 3 (January 15-21)**:
+   - Launch $200 LinkedIn spend with automation in place
+   - Launch consulting paid ads: $100-150/week budget
+   - Establish weekly strategic review: Friday 2pm, 1 hour
+   - Deliverable: Both OfferPath and consulting ads live
 
-4. **End of January**:
-   - Prevyu validation sprint launched (ads live, landing page ready, tracking in place)
-   - Ray has made first 40 outreach contacts
-   - Weekly strategic review rhythm established (Friday afternoon, 1-2 hours)
-   - Deliverable: Both tracks in motion with measurable activity
+4. **Week 4 (January 22-31)**:
+   - Track OfferPath leads through automated funnel
+   - Monitor new leads from $200 spend - is CPL holding?
+   - Prepare Prevyu validation plan for February launch
+   - Deliverable: Conversion data collected, Prevyu ready to launch
 
-5. **First Major Check-in (January 31)**:
-   - Review ad pipeline: 40+ contacts, 5+ conversations, any qualified opportunities?
-   - Review Prevyu: 15+ sign-ups? Ad performance acceptable?
-   - Make any necessary adjustments to approach
-   - Deliverable: 30-day retrospective with documented learnings
+5. **January 31 Decision Point**:
+   - **OfferPath GO/NO-GO**: Did 1+ leads convert? Is CPL ≤$38.70 with automation?
+   - If GO: OfferPath continues into February alongside Prevyu
+   - If NO-GO: Sunset OfferPath, all product focus shifts to Prevyu
+   - Deliverable: Clear decision documented, February plan locked
 
 ---
 
@@ -608,35 +660,47 @@ The criteria are quantitative, not qualitative. That's intentional.
 
 If the numbers say persist, persist. If the numbers say something's broken, fix the specific thing that's broken. Don't make emotional decisions based on how hard you're working or how much you want it to succeed. The numbers are the scoreboard.
 
-### "Should I really kill OfferPath completely?"
+### "Should I continue investing in OfferPath?"
 
-Yes.
+**UPDATE (January 2026)**: Yes - but only through January 31.
 
-But if you can't bring yourself to do it:
-- Minimum: Stop all ads TODAY. Zero ad spend going forward.
-- Minimum: Zero founder hours on OfferPath
-- Acceptable: Leave it live in case someone finds it organically
-- Acceptable: If 10+ people sign up organically in 2026, revisit the analysis
+The LinkedIn test results ($30.27 CPL, 39% open rate, 22% under CAC target) earned OfferPath a conversion validation phase. This is the right approach: follow the data, not the original analysis.
 
-This is not a "let's revisit in Q2" situation. The analysis is clear. The data is clear. Make the decision and move on. Your mental energy is finite - stop spending it on something that isn't working.
+**Important Context**: OfferPath is a **B2C product** targeting individual professionals. This means:
+- Faster expected conversion (days, not weeks)
+- Individual decision-maker (no committee approval)
+- LinkedIn works because buyer = user (professional self-improvement)
+- Higher churn risk post-conversion - activation is critical
+
+**What to do now**:
+- Work the 11 leads through conversion process (expect fast decisions)
+- Build onboarding/activation automation (not long nurture sequences)
+- Spend remaining $200 on LinkedIn with automation in place
+- Make GO/NO-GO decision on January 31 based on conversion data
+
+**If 0 of 11+ leads convert by January 31**: The original analysis was correct - OfferPath has lead generation capability but no conversion capability. Sunset immediately.
+
+**If 1+ converts**: OfferPath is validated. Continue scaling alongside Prevyu in February.
 
 ---
 
 ## Final Thoughts
 
+**UPDATE (January 2026)**: The OfferPath test results demonstrate exactly the kind of discipline this plan requires - following data over assumptions.
+
 You're in a better position than you probably feel right now.
 
 You've built a business that has generated $50K in revenue. You have satisfied clients who keep coming back. You have a team of capable people ready to help you grow. You have a W-2 that gives you the luxury of taking smart risks. And you have a clear vision of where you want to go - financial independence, quitting the day job, retiring your wife, being present for your kids.
 
-The gap between where you are and where you want to be isn't about working harder or having better ideas. It's about discipline. Pricing discipline. Strategic discipline. The discipline to kill OfferPath instead of letting it linger. The discipline to force a go/no-go decision on Prevyu at Day 60 instead of endlessly experimenting. The discipline to actually launch consulting ads instead of continuing to hope referrals will be enough.
+The gap between where you are and where you want to be isn't about working harder or having better ideas. It's about discipline. Pricing discipline. Strategic discipline. The discipline to run time-boxed tests with clear decision criteria. The discipline to force a go/no-go decision on Prevyu at Day 60 instead of endlessly experimenting. The discipline to follow the data - even when it contradicts your original analysis (as it did with OfferPath).
 
 The hybrid strategy I'm recommending isn't complicated. It doesn't require brilliant insights or lucky breaks. It requires doing the basics consistently: systematic business development, pricing that respects your value, time-boxed experiments with clear decision criteria, and the courage to make decisions based on data rather than emotion.
 
-$100K in 2026 is absolutely achievable. The math works. You need 4-5 consulting projects at $20K average, or some combination of consulting plus early Prevyu revenue. Ray can generate that pipeline. Your team can deliver at 50% margins. The only question is whether you'll maintain the discipline to execute.
+$100K in 2026 is absolutely achievable. The math works. You need 4-5 consulting projects at $20K average, or some combination of consulting plus OfferPath and/or Prevyu product revenue. Your team can deliver at 50% margins. The only question is whether you'll maintain the discipline to execute.
 
 I believe you will.
 
-Stop ads on OfferPath today. Brief Ray this week. Launch the Prevyu sprint by end of January. And when you hit $100K - and you will - remember that it wasn't luck. It was discipline.
+Work those 11 OfferPath leads this week. Build the automation. Make the January 31 decision based on conversion data. Launch Prevyu in February. And when you hit $100K - and you will - remember that it wasn't luck. It was discipline.
 
 Now go.
 
@@ -646,32 +710,37 @@ Now go.
 
 The strategic analysis (strategic-analysis.md) provides the quantitative foundation for these recommendations:
 
-**Weighted Decision Matrix Results**:
+**Weighted Decision Matrix Results (Updated with Financial Model)**:
 - Option 4 (Hybrid): 207 points - HIGHEST
 - Option 1 (Consulting): 196 points
+- **Option 3 (OfferPath): 167 points** - ↑ From 99 (+68 points with model)
 - Option 2 (Prevyu alone): 173 points
-- Option 3 (OfferPath): 99 points - LOWEST
 
-**Risk Scores**:
+**Risk Scores (Updated)**:
 - Option 4 (Hybrid): 14/50 (Low-Moderate)
+- **Option 3 (OfferPath): 18/50 (Low-Moderate)** ↓ From 39/50
 - Option 1 (Consulting): 22/50 (Moderate)
 - Option 2 (Prevyu alone): 37/50 (High)
-- Option 3 (OfferPath): 39/50 (Very High)
 
-**Strategic Fit Scores**:
+**Strategic Fit Scores (Updated)**:
 - Option 4 (Hybrid): 8.0/10
 - Option 1 (Consulting): 7.2/10
+- **Option 3 (OfferPath): 6.8/10** ↑ From 3.0/10
 - Option 2 (Prevyu alone): 6.5/10
-- Option 3 (OfferPath): 3.0/10
 
 **Sensitivity Analysis**: Option 4 remained the top choice across all weighting scenarios tested (increased weight on probability, scalability, and margins).
 
 **Financial Projections (Moderate Scenario)**:
 - Consulting alone: $100K achievable with 4-5 projects
-- Hybrid: $95-100K ($85K consulting + $10-15K Prevyu)
+- Hybrid: $95-100K ($85K consulting + $10-15K OfferPath/Prevyu)
+- **OfferPath (if validated): $624K-$810K 2-year profit potential**
+  - $694/mo blended MRR, 53% gross margin
+  - $302 CAC (18% under $368 max viable)
+  - 2.1x LTV:CAC ratio, immediate payback
+  - Stripe Capital enables scaling without cash constraints
 - Prevyu alone: Would require 200+ paying users in Year 1 - highly aggressive
 
-**Key Finding**: The hybrid approach maximizes optionality while maintaining a high-probability path to the $100K goal. It accepts slightly higher execution complexity in exchange for preserving the SaaS moonshot opportunity.
+**Key Finding**: The hybrid approach maximizes optionality while maintaining a high-probability path to the $100K goal. OfferPath's proven unit economics ($302 CAC, 53% margin, $624K+ 2-year potential) make it a compelling validation target alongside Prevyu.
 
 ---
 

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proof Point Replacement Recommendations | ScaleUp Ventures</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e8e8e8;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #d4a853;
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.15) 0%, rgba(212, 168, 83, 0.05) 100%);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 40px;
+        }
+
+        .summary-box h2 {
+            color: #d4a853;
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .summary-item {
+            background: rgba(255,255,255,0.05);
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .summary-label {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
+
+        .summary-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #d4a853;
+        }
+
+        .file-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            margin-bottom: 32px;
+            overflow: hidden;
+        }
+
+        .file-header {
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.2) 0%, rgba(212, 168, 83, 0.1) 100%);
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .file-number {
+            font-size: 0.85rem;
+            color: #d4a853;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .file-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .file-context {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 8px;
+        }
+
+        .file-body {
+            padding: 24px;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .comparison-box {
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .comparison-box.negative {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.15) 0%, rgba(220, 53, 69, 0.05) 100%);
+            border: 1px solid rgba(220, 53, 69, 0.3);
+        }
+
+        .comparison-box.positive {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.15) 0%, rgba(40, 167, 69, 0.05) 100%);
+            border: 1px solid rgba(40, 167, 69, 0.3);
+        }
+
+        .comparison-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .comparison-box.negative .comparison-label {
+            color: #dc3545;
+        }
+
+        .comparison-box.positive .comparison-label {
+            color: #28a745;
+        }
+
+        .comparison-content {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .comparison-content strong {
+            color: #fff;
+        }
+
+        .recommendation-section {
+            background: rgba(212, 168, 83, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 16px;
+        }
+
+        .recommendation-title {
+            font-size: 0.85rem;
+            color: #d4a853;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .proof-option {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .proof-option:last-child {
+            margin-bottom: 0;
+        }
+
+        .proof-option-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .proof-option-name {
+            font-weight: 700;
+            color: #d4a853;
+        }
+
+        .proof-option-fit {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .proof-option-fit.best {
+            background: #28a745;
+            color: #fff;
+        }
+
+        .proof-option-fit.good {
+            background: rgba(40, 167, 69, 0.3);
+            color: #28a745;
+        }
+
+        .proof-option-fit.alt {
+            background: rgba(255,255,255,0.1);
+            color: #aaa;
+        }
+
+        .proof-option-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+
+        .proof-option-why {
+            font-size: 0.85rem;
+            color: #d4a853;
+            font-style: italic;
+        }
+
+        .sample-copy {
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+            font-family: 'Georgia', serif;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            border-left: 3px solid #d4a853;
+        }
+
+        .sample-copy-label {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #d4a853;
+            margin-bottom: 8px;
+        }
+
+        .action-needed {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(212, 168, 83, 0.2);
+            color: #d4a853;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 16px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        .positive-proofs-legend {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 40px;
+        }
+
+        .positive-proofs-legend h2 {
+            color: #d4a853;
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+
+        .proof-legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .proof-legend-item {
+            background: rgba(40, 167, 69, 0.1);
+            border: 1px solid rgba(40, 167, 69, 0.2);
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .proof-legend-name {
+            font-weight: 700;
+            color: #28a745;
+            margin-bottom: 8px;
+        }
+
+        .proof-legend-proves {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Proof Point Replacement Recommendations</h1>
+            <p class="subtitle">Replace negative "No-Build Decision" proof with positive proof points that demonstrate capability, not just integrity.</p>
+        </header>
+
+        <!-- Summary -->
+        <div class="summary-box">
+            <h2>Files to Update</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="summary-label">Files Identified</div>
+                    <div class="summary-value">4</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Total Occurrences</div>
+                    <div class="summary-value">8</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Priority</div>
+                    <div class="summary-value">HIGH</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Impact</div>
+                    <div class="summary-value">Sales</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Positive Proofs Legend -->
+        <div class="positive-proofs-legend">
+            <h2>Available Positive Proof Points</h2>
+            <div class="proof-legend-grid">
+                <div class="proof-legend-item">
+                    <div class="proof-legend-name">SEC/NFA Financial Trading Platform</div>
+                    <div class="proof-legend-proves">Proves: Complex builds, regulatory compliance, full-stack capability, trust</div>
+                </div>
+                <div class="proof-legend-item">
+                    <div class="proof-legend-name">AI Agents for Consulting Firm</div>
+                    <div class="proof-legend-proves">Proves: 20-25 hrs/month saved, measurable ROI, operational efficiency</div>
+                </div>
+                <div class="proof-legend-item">
+                    <div class="proof-legend-name">Lead Guarantee Delivery</div>
+                    <div class="proof-legend-proves">Proves: We stand behind results, marketing credibility, skin in the game</div>
+                </div>
+                <div class="proof-legend-item">
+                    <div class="proof-legend-name">HR Automation Tool</div>
+                    <div class="proof-legend-proves">Proves: B2B SaaS delivery, workflow automation, product development</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- File 1: Homepage -->
+        <div class="file-card">
+            <div class="file-header">
+                <div class="file-number">#03</div>
+                <div class="file-name">Homepage</div>
+                <div class="file-context">web-ready-03-homepage.html | 2 occurrences | Primary conversion page</div>
+            </div>
+            <div class="file-body">
+                <div class="comparison-row">
+                    <div class="comparison-box negative">
+                        <div class="comparison-label">
+                            <span>CURRENT (Negative)</span>
+                        </div>
+                        <div class="comparison-content">
+                            <strong>"The No-Build Decision"</strong><br>
+                            Client came with $150K+ budget. We told them NOT to build. Saved $150K+.<br><br>
+                            <em>Problem: Shows what we advised AGAINST, not what we can DO.</em>
+                        </div>
+                    </div>
+                    <div class="comparison-box positive">
+                        <div class="comparison-label">
+                            <span>RECOMMENDED (Positive)</span>
+                        </div>
+                        <div class="comparison-content">
+                            <strong>SEC/NFA Compliant Trading Platform</strong><br>
+                            Built from idea to full regulatory compliance. Complete product + go-to-market.<br><br>
+                            <em>Benefit: Shows we can deliver complex, mission-critical applications.</em>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommendation-section">
+                    <div class="recommendation-title">Recommended Proof Points for Homepage</div>
+
+                    <div class="proof-option">
+                        <div class="proof-option-header">
+                            <span class="proof-option-name">SEC/NFA Financial Trading Platform</span>
+                            <span class="proof-option-fit best">BEST FIT</span>
+                        </div>
+                        <div class="proof-option-desc">Regulatory compliance = highest trust signal. Shows we handle complex, high-stakes projects.</div>
+                        <div class="proof-option-why">Why: Homepage visitors need to trust you can deliver. SEC/NFA compliance is undeniable proof.</div>
+                    </div>
+
+                    <div class="proof-option">
+                        <div class="proof-option-header">
+                            <span class="proof-option-name">Lead Guarantee Delivery</span>
+                            <span class="proof-option-fit good">GOOD FIT</span>
+                        </div>
+                        <div class="proof-option-desc">Ties directly to Growth Marketing service with money-back guarantee.</div>
+                        <div class="proof-option-why">Why: Reinforces the key differentiator already on the page.</div>
+                    </div>
+                </div>
+
+                <div class="sample-copy">
+                    <div class="sample-copy-label">Sample Replacement Copy</div>
+                    <strong>From idea to SEC/NFA compliance.</strong> We took a client from concept to a fully compliant financial trading platform - the highest regulatory bar in the industry. Complete product build plus go-to-market execution.
+                </div>
+
+                <div class="action-needed">Update 2 locations in homepage</div>
+            </div>
+        </div>
+
+        <!-- File 2: Sales Deck -->
+        <div class="file-card">
+            <div class="file-header">
+                <div class="file-number">#15</div>
+                <div class="file-name">Sales Deck</div>
+                <div class="file-context">web-ready-15-sales-deck.html | 3 occurrences | Key sales tool</div>
+            </div>
+            <div class="file-body">
+                <div class="comparison-row">
+                    <div class="comparison-box negative">
+                        <div class="comparison-label">
+                            <span>CURRENT (Negative)</span>
+                        </div>
+                        <div class="comparison-content">
+                            <strong>Slide 11: "The No-Build Decision"</strong><br>
+                            $150K+ saved by not building. Result: avoided spend.<br><br>
+                            <em>Problem: In a sales deck, you need to show what you BUILD, not what you prevent.</em>
+                        </div>
+                    </div>
+                    <div class="comparison-box positive">
+                        <div class="comparison-label">
+                            <span>RECOMMENDED (Positive)</span>
+                        </div>
+                        <div class="comparison-content">
+                            <strong>Slide 11: "The Complete Build"</strong><br>
+                            SEC/NFA compliant platform. Full go-to-market. Idea to customers.<br><br>
+                            <em>Benefit: Shows end-to-end delivery capability.</em>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommendation-section">
+                    <div class="recommendation-title">Recommended Proof Points for Sales Deck</div>
+
+                    <div class="proof-option">
+                        <div class="proof-option-header">
+                            <span class="proof-option-name">SEC/NFA Financial Trading Platform</span>
+                            <span class="proof-option-fit best">BEST FIT</span>
+                        </div>
+                        <div class="proof-option-desc">Perfect for Slide 11 "Proof Point 1" - replaces No-Build with actual build.</div>
+                        <div class="proof-option-why">Why: Sales conversations need capability proof. This is your strongest "we built it" story.</div>
+                    </div>
+
+                    <div class="proof-option">
+                        <div class="proof-option-header">
+                            <span class="proof-option-name">AI Agents for Consulting Firm</span>
+                            <span class="proof-option-fit good">GOOD FIT</span>
+                        </div>
+                        <div class="proof-option-desc">20-25 hours/month saved. Measurable, ongoing ROI that compounds.</div>
+                        <div class="proof-option-why">Why: Great for a second proof slide if needed - shows operational impact.</div>
+                    </div>
+
+                    <div class="proof-option">
+                        <div class="proof-option-header">
+                            <span class="proof-option-name">Lead Guarantee Example</span>
+                            <span class="proof-option-fit alt">ALTERNATE</span>
+                        </div>
+                        <div class="proof-option-desc">If prospect is interested in Growth Marketing, lead with guarantee proof.</div>
+                        <div class="proof-option-why">Why: Match the proof to the service they're evaluating.</div>
+                    </div>
+                </div>
+
+                <div class="sample-copy">
+                    <div class="sample-copy-label">Sample Slide 11 Replacement</div>
+                    <strong>The Complete Build</strong><br><br>
+                    Client came to us with an idea for a financial trading platform. Not a simple app - one requiring SEC/NFA compliance.<br><br>
+                    <strong>What we delivered:</strong><br>
+                    - Full SEC/NFA-compliant application<br>
+                    - Persona research & targeting strategy<br>
+                    - Ad management & lead generation<br>
+                    - Complete go-to-market execution<br><br>
+                    <strong>Result:</strong> From concept to compliance to customers.
+                </div>
+
+                <div class="action-needed">Update Slide 11 + 2 other references</div>
+            </div>
+        </div>
+
+        <!-- File 3: Proposal Copy -->
+        <div class="file-card">
+            <div class="file-header">
+                <div class="file-number">#14</div>
+                <div class="file-name">Proposal Copy</div>
+                <div class="file-context">web-ready-14-proposal-copy.html | 2 occurrences | Closing tool</div>
+            </div>
+            <div class="file-body">
+                <div class="comparison-row">
+                    <div class="comparison-box negative">
+                        <div class="comparison-label">
+                            <span>CURRENT (Negative)</span>
+                        </div>
+                        <div class="comparison-content">
+                            <strong>"Selected Engagement: No-Build Decision"</strong><br>
+                            Our $5,000 discovery revealed they shouldn't build.<br><br>
+                            <em>Problem: In a proposal, you're asking them to BUILD with you. Wrong proof.</em>
+                        </div>
+                    </div>
+                    <div class="comparison-box positive">
+                        <div class="comparison-label">
+                            <span>RECOMMENDED (Positive)</span>
+                        </div>
+                        <div class="comparison-content">
+                            <strong>"Selected Engagement: Financial Trading Platform"</strong><br>
+                            Full build from concept to SEC/NFA compliance.<br><br>
+                            <em>Benefit: Shows you deliver what they're about to buy.</em>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommendation-section">
+                    <div class="recommendation-title">Recommended Proof Points for Proposals</div>
+
+                    <div class="proof-option">
+                        <div class="proof-option-header">
+                            <span class="proof-option-name">Match Proof to Proposal Service</span>
+                            <span class="proof-option-fit best">BEST PRACTICE</span>
+                        </div>
+                        <div class="proof-option-desc">
+                            <strong>If proposing Web App:</strong> SEC/NFA Trading Platform or HR Automation Tool<br>
+                            <strong>If proposing Growth Marketing:</strong> Lead Guarantee delivery example<br>
+                            <strong>If proposing AI Agents:</strong> Consulting Firm 20-25 hrs/month saved
+                        </div>
+                        <div class="proof-option-why">Why: The proof should mirror what they're buying.</div>
+                    </div>
+
+                    <div class="proof-option">
+                        <div class="proof-option-header">
+                            <span class="proof-option-name">SEC/NFA Financial Trading Platform</span>
+                            <span class="proof-option-fit good">DEFAULT</span>
+                        </div>
+                        <div class="proof-option-desc">Best default for development proposals - shows full capability.</div>
+                        <div class="proof-option-why">Why: Regulatory compliance = trust. Complex delivery = capability.</div>
+                    </div>
+                </div>
+
+                <div class="sample-copy">
+                    <div class="sample-copy-label">Sample Proposal Proof Section</div>
+                    <strong>Selected Engagement: Financial Trading Platform</strong><br><br>
+                    <strong>Challenge:</strong> Client needed a financial trading application meeting SEC/NFA regulatory requirements - the highest compliance bar in the industry.<br><br>
+                    <strong>Approach:</strong> Full product development plus complete go-to-market: persona research, targeting strategy, ad management, and lead generation.<br><br>
+                    <strong>Results:</strong> Delivered a fully compliant application with active user acquisition. From concept to compliance to customers.
+                </div>
+
+                <div class="action-needed">Update 2 proof sections</div>
+            </div>
+        </div>
+
+        <!-- File 4: Company One-Pager -->
+        <div class="file-card">
+            <div class="file-header">
+                <div class="file-number">#17</div>
+                <div class="file-name">Company One-Pager</div>
+                <div class="file-context">web-ready-17-company-onepager.html | 1 occurrence | Leave-behind collateral</div>
+            </div>
+            <div class="file-body">
+                <div class="comparison-row">
+                    <div class="comparison-box negative">
+                        <div class="comparison-label">
+                            <span>CURRENT (Negative)</span>
+                        </div>
+                        <div class="comparison-content">
+                            <strong>"Proof: No-Build Decision"</strong><br>
+                            $150K+ saved by recommending not to build.<br><br>
+                            <em>Problem: One-pager should show what you DO, not what you advise against.</em>
+                        </div>
+                    </div>
+                    <div class="comparison-box positive">
+                        <div class="comparison-label">
+                            <span>RECOMMENDED (Positive)</span>
+                        </div>
+                        <div class="comparison-content">
+                            <strong>"Proof: SEC/NFA Compliant Platform"</strong><br>
+                            Built from idea to regulatory compliance.<br><br>
+                            <em>Benefit: One-pager readers need quick capability proof.</em>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommendation-section">
+                    <div class="recommendation-title">Recommended Proof Points for One-Pager</div>
+
+                    <div class="proof-option">
+                        <div class="proof-option-header">
+                            <span class="proof-option-name">SEC/NFA Financial Trading Platform</span>
+                            <span class="proof-option-fit best">BEST FIT</span>
+                        </div>
+                        <div class="proof-option-desc">Short, powerful, undeniable. "SEC/NFA compliant" = instant credibility.</div>
+                        <div class="proof-option-why">Why: One-pagers need punchy proof. Regulatory compliance is scannable and impressive.</div>
+                    </div>
+
+                    <div class="proof-option">
+                        <div class="proof-option-header">
+                            <span class="proof-option-name">AI Agents: 20-25 hrs/month</span>
+                            <span class="proof-option-fit good">GOOD FIT</span>
+                        </div>
+                        <div class="proof-option-desc">Quantifiable time savings that anyone can understand.</div>
+                        <div class="proof-option-why">Why: Numbers are scannable. "20-25 hours saved" registers instantly.</div>
+                    </div>
+                </div>
+
+                <div class="sample-copy">
+                    <div class="sample-copy-label">Sample One-Pager Proof</div>
+                    <strong>SEC/NFA Compliant Trading Platform</strong><br>
+                    Idea to regulatory compliance. Full product + go-to-market.
+                </div>
+
+                <div class="action-needed">Update 1 proof section</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>ScaleUp Ventures | Proof Point Replacement Recommendations</p>
+            <p style="margin-top: 8px;">Generated January 2026 | Review and approve before implementing</p>
+        </footer>
+    </div>
+</body>
+</html>

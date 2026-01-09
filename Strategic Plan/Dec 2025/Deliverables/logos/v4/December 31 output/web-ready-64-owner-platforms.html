@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures | Owner Platforms - Facebook, Instagram & TikTok</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --navy-dark: #0a101d;
+            --gold: #D4A853;
+            --gold-light: #e4c078;
+            --gold-dark: #b8923f;
+            --white: #ffffff;
+            --gray-100: #f7f8fa;
+            --gray-200: #e8ebf0;
+            --gray-300: #d1d5de;
+            --gray-600: #6b7280;
+            --facebook: #1877f2;
+            --instagram: #E4405F;
+            --tiktok: #000000;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--gray-100);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Crimson Pro', serif;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .platform-badges {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .platform-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-size: 0.9rem;
+        }
+
+        .platform-badge.fb { border: 2px solid #1877f2; }
+        .platform-badge.ig { border: 2px solid #E4405F; }
+        .platform-badge.tt { border: 2px solid #fff; }
+
+        /* Navigation */
+        .nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 16px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .nav-inner {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .nav a:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 24px 32px;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .section-header.facebook { background: linear-gradient(135deg, #1877f2 0%, #0d5fc7 100%); }
+        .section-header.instagram { background: linear-gradient(135deg, #E4405F 0%, #833AB4 50%, #F77737 100%); }
+        .section-header.tiktok { background: linear-gradient(135deg, #000 0%, #25F4EE 50%, #FE2C55 100%); }
+
+        .section-number {
+            background: var(--gold);
+            color: var(--navy);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .section-content {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+            padding: 32px;
+        }
+
+        /* Template Cards */
+        .template-card {
+            background: var(--gray-100);
+            border: 2px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 24px;
+            transition: all 0.2s;
+        }
+
+        .template-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 4px 12px rgba(212, 168, 83, 0.15);
+        }
+
+        .template-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .template-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+
+        .template-label.fb { background: #1877f2; color: white; }
+        .template-label.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
+        .template-label.tt { background: #000; color: white; }
+        .template-label.reels { background: linear-gradient(45deg, #405DE6, #833AB4); color: white; }
+        .template-label.stories { background: linear-gradient(45deg, #F77737, #FCAF45); color: white; }
+
+        .template-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .template-purpose {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        /* Template Content Box */
+        .template-box {
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Georgia', serif;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            white-space: pre-wrap;
+        }
+
+        .template-box .blank {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            color: var(--navy);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: 1px dashed var(--gold-dark);
+        }
+
+        .template-box .hook {
+            background: #ffe5e5;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: 1px dashed #dc3545;
+        }
+
+        /* Tips Box */
+        .tips-box {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d4e8ed 100%);
+            border-left: 4px solid var(--navy);
+            padding: 16px 20px;
+            margin-top: 16px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .tips-box strong {
+            color: var(--navy);
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .tips-box ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+
+        .tips-box li {
+            margin-bottom: 4px;
+        }
+
+        /* Proof Point Guide */
+        .proof-guide {
+            background: linear-gradient(135deg, #fef9e7 0%, #fff3cd 100%);
+            border-left: 4px solid var(--gold);
+            padding: 20px;
+            margin-bottom: 24px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .proof-guide h4 {
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .proof-guide ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .proof-guide li {
+            margin-bottom: 8px;
+        }
+
+        /* Calendar Table */
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .calendar-table th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .calendar-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 0.9rem;
+        }
+
+        .calendar-table tr:nth-child(even) {
+            background: var(--gray-100);
+        }
+
+        .calendar-table tr:hover {
+            background: #fef9e7;
+        }
+
+        /* Video Script Card */
+        .video-script {
+            background: #1a1a1a;
+            color: #fff;
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .video-script .duration {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .video-script h4 {
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .video-script .script-section {
+            margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 2px solid var(--gold);
+        }
+
+        .video-script .script-section .time {
+            color: var(--gold);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .video-script .script-section p {
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Copy Button */
+        .copy-btn {
+            background: var(--navy);
+            color: var(--white);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .copy-btn.copied {
+            background: #22c55e;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+        .footer-brand {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand span {
+            color: var(--gold);
+        }
+
+        .footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .nav-inner {
+                gap: 12px;
+            }
+
+            .nav a {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+
+            .platform-badges {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav, .copy-btn {
+                display: none;
+            }
+
+            .section {
+                break-inside: avoid;
+            }
+
+            .template-card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;">
+    <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">Back to Index</a>
+    <span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span>
+    <div style="display:flex;gap:12px;">
+        <a href="web-ready-61-social-templates.html" style="color:#fff;text-decoration:none;font-size:13px;">LinkedIn Templates</a>
+        <a href="web-ready-12-linkedin-posts.html" style="color:#fff;text-decoration:none;font-size:13px;">LinkedIn Posts</a>
+        <a href="web-ready-63-brand-bible.html" style="color:#fff;text-decoration:none;font-size:13px;">Brand Bible</a>
+    </div>
+</nav>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>Owner <span>Platforms</span></h1>
+        <p>Facebook, Instagram & TikTok templates for reaching business owners where they actually scroll</p>
+        <div class="platform-badges">
+            <span class="platform-badge fb">Facebook</span>
+            <span class="platform-badge ig">Instagram</span>
+            <span class="platform-badge tt">TikTok</span>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#strategy">Platform Strategy</a>
+            <a href="#facebook">Facebook Templates</a>
+            <a href="#instagram">Instagram Templates</a>
+            <a href="#tiktok">TikTok Scripts</a>
+            <a href="#calendar">Content Calendar</a>
+            <a href="#repurpose">Repurposing Guide</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Platform Strategy -->
+        <section class="section" id="strategy">
+            <div class="section-header">
+                <div class="section-number">0</div>
+                <h2 class="section-title">Why Owner Platforms Matter</h2>
+            </div>
+            <div class="section-content">
+                <p style="font-size: 1.1rem; margin-bottom: 24px;">Business owners don't live on LinkedIn. They scroll Facebook during lunch, Instagram in the evening, and TikTok when they can't sleep. <strong>Meet them where they are.</strong></p>
+
+                <div class="proof-guide">
+                    <h4>Proof Points for Owner Platforms:</h4>
+                    <ul>
+                        <li><strong>Lead Guarantee ($25-$33 CPL):</strong> Owners care about ROI and risk. "Guaranteed leads or your money back" resonates.</li>
+                        <li><strong>AI Agents (20-25 hrs/month saved):</strong> Time is their scarcest resource. Automation stories hit home.</li>
+                        <li><strong>SEC/NFA Platform:</strong> Use sparingly - shows capability but less relatable to SMB owners.</li>
+                        <li><strong>No-Build Decision:</strong> Perfect for storytelling - owners have been burned by vendors before.</li>
+                    </ul>
+                </div>
+
+                <h3 style="margin: 24px 0 16px;">Platform Comparison</h3>
+                <table class="calendar-table">
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>Best For</th>
+                            <th>Content Style</th>
+                            <th>Posting Frequency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Facebook</strong></td>
+                            <td>Longer stories, testimonials, community</td>
+                            <td>Conversational, personal, story-driven</td>
+                            <td>1x daily</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Instagram Feed</strong></td>
+                            <td>Visual proof, before/after, quotes</td>
+                            <td>Polished, aspirational, branded</td>
+                            <td>4-5x weekly</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Instagram Stories</strong></td>
+                            <td>Behind-the-scenes, polls, quick tips</td>
+                            <td>Raw, authentic, interactive</td>
+                            <td>3-5x daily</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Instagram Reels</strong></td>
+                            <td>Quick tips, trending hooks, personality</td>
+                            <td>Fast-paced, hook-driven, entertaining</td>
+                            <td>3-4x weekly</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TikTok</strong></td>
+                            <td>Myth-busting, hot takes, relatable moments</td>
+                            <td>Authentic, unpolished, trend-aware</td>
+                            <td>1-2x daily</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="tips-box">
+                    <strong>Key Difference from LinkedIn:</strong>
+                    <ul>
+                        <li>LinkedIn = Professional credibility, thought leadership, B2B networking</li>
+                        <li>Owner Platforms = Human connection, relatable stories, "they get me" moments</li>
+                        <li>Same proof points, different packaging - lead with emotion, back with facts</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Facebook Templates -->
+        <section class="section" id="facebook">
+            <div class="section-header facebook">
+                <div class="section-number">1</div>
+                <h2 class="section-title">Facebook Templates (6 Formats)</h2>
+            </div>
+            <div class="section-content">
+
+                <!-- FB Template 1: Story Post -->
+                <div class="template-card">
+                    <span class="template-label fb">Facebook</span>
+                    <h3 class="template-name">The Client Story</h3>
+                    <p class="template-purpose">Tell a real client story in a conversational way. Facebook rewards longer, engaging content.</p>
+
+                    <div class="template-box">Let me tell you about <span class="blank">[Client description - "a staffing agency owner" / "a contractor in Phoenix"]</span>.
+
+They came to us <span class="blank">[timeframe]</span> ago with a problem:
+
+<span class="blank">[Their situation in plain language - "They were spending $5K/month on marketing and had no idea if it was working"]</span>
+
+Sound familiar?
+
+Here's what we did:
+
+<span class="blank">[Step 1 - what you actually did]</span>
+<span class="blank">[Step 2 - the key insight or change]</span>
+<span class="blank">[Step 3 - the result]</span>
+
+The result? <span class="blank">[Specific outcome - "$25-$33 per lead instead of $150+" / "20 hours back every month"]</span>
+
+The best part? <span class="blank">[What made it special - "We guaranteed the leads or they didn't pay our fee"]</span>
+
+If you're a business owner dealing with <span class="blank">[their problem]</span>, drop a comment or DM me. Happy to share what worked.
+
+---
+
+<strong>EXAMPLE (Lead Guarantee):</strong>
+
+Let me tell you about a pest control company owner in Florida.
+
+They came to us 4 months ago with a problem:
+
+They'd been burned by three different marketing agencies. Thousands of dollars spent. Fancy reports. But the phone wasn't ringing with new customers.
+
+Sound familiar?
+
+Here's what we did:
+
+First, we told them EXACTLY how many leads they'd get before they spent a dollar. Not estimates. Guarantees.
+
+Then we built their campaign with one rule: if we don't hit the number, they don't pay our fee.
+
+The result? $25-$33 per lead. Phone ringing. New customers every week.
+
+The best part? They finally trust their marketing because there's actual accountability.
+
+If you're a business owner who's been burned by agencies before, drop a comment or DM me. Happy to share what worked.</div>
+
+                    <div class="tips-box">
+                        <strong>Why This Works on Facebook:</strong>
+                        <ul>
+                            <li>Story format keeps people reading (algorithm loves time-on-post)</li>
+                            <li>"Sound familiar?" creates personal connection</li>
+                            <li>Specific numbers build credibility without being salesy</li>
+                            <li>Soft CTA (comment/DM) feels helpful, not pushy</li>
+                        </ul>
+                    </div>
+                    <button class="copy-btn" onclick="copyTemplate(this)">Copy Template</button>
+                </div>
+
+                <!-- FB Template 2: Before/After -->
+                <div class="template-card">
+                    <span class="template-label fb">Facebook</span>
+                    <h3 class="template-name">Before vs. After</h3>
+                    <p class="template-purpose">Show transformation in a relatable way. Great for visual or text-based contrasts.</p>
+
+                    <div class="template-box">BEFORE working with us:
+- <span class="blank">[Pain point 1 - "Spending hours on manual follow-ups"]</span>
+- <span class="blank">[Pain point 2 - "No idea which marketing was working"]</span>
+- <span class="blank">[Pain point 3 - "Stressed about where next month's customers would come from"]</span>
+
+AFTER:
+- <span class="blank">[Result 1 - "AI handles the repetitive stuff (20+ hours saved monthly)"]</span>
+- <span class="blank">[Result 2 - "Know exactly what each lead costs ($25-$33)"]</span>
+- <span class="blank">[Result 3 - "Pipeline is predictable because the leads are guaranteed"]</span>
+
+The difference? <span class="blank">[Key insight - "We figured out their numbers BEFORE spending money, not after"]</span>
+
+This is what "Certainty First" actually looks like.
+
+---
+
+<strong>EXAMPLE (AI Agents):</strong>
+
+BEFORE working with us:
+- Team spending 25+ hours/month on status updates and reports
+- Meetings to discuss what happened in other meetings
+- Smart people doing work a computer should handle
+
+AFTER:
+- AI agents handle the repetitive delegation work
+- Team saves 20-25 hours per month (and growing)
+- People focus on work that actually needs a human brain
+
+The difference? We built AI that handles what your team shouldn't have to.
+
+This is what "Certainty First" actually looks like.</div>
+
+                    <button class="copy-btn" onclick="copyTemplate(this)">Copy Template</button>
+                </div>
+
+                <!-- FB Template 3: The Hot Take -->
+                <div class="template-card">
+                    <span class="template-label fb">Facebook</span>
+                    <h3 class="template-name">The Hot Take</h3>
+                    <p class="template-purpose">Share a contrarian opinion that sparks discussion. Drives comments and shares.</p>
+
+                    <div class="template-box">Unpopular opinion:
+
+<span class="blank">[Your contrarian statement - "Most business owners don't need custom software"]</span>
+
+I know, I know. I'm a consultant who builds things for a living.
+
+But here's what I've learned:
+
+<span class="blank">[Supporting point 1]</span>
+
+<span class="blank">[Supporting point 2]</span>
+
+<span class="blank">[Supporting point 3]</span>
+
+We've actually <span class="blank">[example of practicing what you preach - "talked clients OUT of $150K+ projects because off-the-shelf solved 80% of their problem"]</span>.
+
+Does that mean we make less money sometimes? Yes.
+
+Does it mean our clients trust us? Also yes.
+
+Agree or disagree? I want to hear it.
+
+---
+
+<strong>EXAMPLE (No-Build Decision):</strong>
+
+Unpopular opinion:
+
+Most consultants want to sell you the biggest project possible.
+
+I know, I know. I'm a consultant who builds things for a living.
+
+But here's what I've learned:
+
+The best solution is sometimes the one you don't build.
+
+We had a client ready to spend $150K+ on custom software. 12-18 month commitment. Budget approved.
+
+We did a $5,000 discovery phase instead. Found that 80% of what they needed already existed. Saved them $150K and a year of their life.
+
+Did we make less money? Yes.
+
+Do they send us referrals now? Also yes.
+
+Agree or disagree? I want to hear it.</div>
+
+                    <button class="copy-btn" onclick="copyTemplate(this)">Copy Template</button>
+                </div>
+
+                <!-- FB Template 4: The Question -->
+                <div class="template-card">
+                    <span class="template-label fb">Facebook</span>
+                    <h3 class="template-name">The Question Post</h3>
+                    <p class="template-purpose">Drive engagement by asking something business owners actually think about.</p>
+
+                    <div class="template-box">Honest question for business owners:
+
+<span class="blank">[Your question - "What's the one task you wish you could delete from your week?"]</span>
+
+I'm asking because <span class="blank">[why you're curious - "we're always looking for patterns in what drains owners' time"]</span>.
+
+For most of our clients, it's been <span class="blank">[common answer - "the follow-up work - chasing updates, writing reports, tracking who did what"]</span>.
+
+That's why we started building <span class="blank">[what you did about it - "AI agents that handle the repetitive delegation work"]</span>.
+
+But I'm curious what YOUR answer is.
+
+Drop it in the comments. No sales pitch - just genuinely want to know.
+
+---
+
+<strong>EXAMPLE:</strong>
+
+Honest question for business owners:
+
+Have you ever been burned by a marketing agency?
+
+I'm asking because almost every client we talk to has a story. Money spent. Reports delivered. But the phone didn't ring.
+
+For most of our clients, the issue was the same: no accountability. Agencies got paid whether results happened or not.
+
+That's why we started guaranteeing leads. Hit the number or don't pay our fee.
+
+But I'm curious about YOUR story.
+
+Drop it in the comments. No sales pitch - just genuinely want to know what happened.</div>
+
+                    <button class="copy-btn" onclick="copyTemplate(this)">Copy Template</button>
+                </div>
+
+                <!-- FB Template 5: Behind the Scenes -->
+                <div class="template-card">
+                    <span class="template-label fb">Facebook</span>
+                    <h3 class="template-name">Behind the Scenes</h3>
+                    <p class="template-purpose">Show the human side of your work. Builds trust through transparency.</p>
+
+                    <div class="template-box">Behind the scenes of what we actually do:
+
+<span class="blank">[Photo or description of real work moment]</span>
+
+<span class="blank">[Context - what's happening in the photo/moment]</span>
+
+This is <span class="blank">[what this represents - "the part of consulting nobody posts about"]</span>.
+
+<span class="blank">[Honest reflection - what you were thinking, what was hard, what mattered]</span>
+
+<span class="blank">[Connection to why you do this work]</span>
+
+It's not always glamorous. But moments like this are why we do what we do.
+
+---
+
+<strong>EXAMPLE:</strong>
+
+Behind the scenes of what we actually do:
+
+[Photo of whiteboard with client strategy]
+
+This is from a discovery session with a staffing agency last week.
+
+We spent 3 hours mapping out their lead flow, costs, and what "success" would actually look like for their business.
+
+Most consultants would've just sent a proposal. But we don't start work until we can show the client their numbers - projected spend, projected leads, and what happens if we miss.
+
+It's not always glamorous. But moments like this - where things get clear - are why we do what we do.</div>
+
+                    <button class="copy-btn" onclick="copyTemplate(this)">Copy Template</button>
+                </div>
+
+                <!-- FB Template 6: The Win -->
+                <div class="template-card">
+                    <span class="template-label fb">Facebook</span>
+                    <h3 class="template-name">The Win Celebration</h3>
+                    <p class="template-purpose">Celebrate client wins (with permission). Social proof that feels genuine.</p>
+
+                    <div class="template-box">Quick win to share:
+
+<span class="blank">[Client description]</span> just <span class="blank">[achievement - "hit their lead goal for the third month in a row"]</span>.
+
+Why this matters:
+
+<span class="blank">[Context on why this is significant for them]</span>
+
+What made the difference:
+
+<span class="blank">[1-2 sentences on what actually worked]</span>
+
+Proud of this one. Not because of what WE did - but because <span class="blank">[what it means for the client]</span>.
+
+More of this in 2026.
+
+---
+
+<strong>EXAMPLE:</strong>
+
+Quick win to share:
+
+A veterinary practice in Texas just booked their best month ever from leads we generated.
+
+Why this matters:
+
+When they started with us, they were skeptical. Another agency? Another promise? They'd heard it before.
+
+What made the difference:
+
+We showed them the math before we started. Guaranteed a specific number of leads. Hit the target every month.
+
+Proud of this one. Not because of what WE did - but because they finally have marketing they can trust.
+
+More of this in 2026.</div>
+
+                    <button class="copy-btn" onclick="copyTemplate(this)">Copy Template</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 2: Instagram Templates -->
+        <section class="section" id="instagram">
+            <div class="section-header instagram">
+                <div class="section-number">2</div>
+                <h2 class="section-title">Instagram Templates (Feed + Stories + Reels)</h2>
+            </div>
+            <div class="section-content">
+
+                <h3 style="margin-bottom: 20px;">Instagram Feed Posts</h3>
+
+                <!-- IG Template 1: Quote Card -->
+                <div class="template-card">
+                    <span class="template-label ig">Feed Post</span>
+                    <h3 class="template-name">Quote Card</h3>
+                    <p class="template-purpose">Shareable wisdom that represents your philosophy. Pair with branded graphic.</p>
+
+                    <div class="template-box"><strong>IMAGE TEXT (for graphic):</strong>
+"<span class="blank">[Quote - "We'd rather earn $5,000 telling the truth than $150,000 building something that won't work."]</span>"
+
+<strong>CAPTION:</strong>
+This is what "Certainty First" means.
+
+<span class="blank">[1-2 sentences expanding on the quote]</span>
+
+<span class="blank">[What this looks like in practice]</span>
+
+Save this if it resonates.
+
+#BusinessOwner #SmallBusiness #ConsultingLife #CertaintyFirst
+
+---
+
+<strong>EXAMPLE:</strong>
+
+IMAGE TEXT:
+"Guaranteed leads or your money back. That's it. That's the offer."
+
+CAPTION:
+This is what "Certainty First" means.
+
+We don't do "best efforts." We don't hide behind vanity metrics.
+
+We tell you exactly how many leads you'll get. If we miss, you don't pay our fee.
+
+Save this if it resonates.
+
+#BusinessOwner #SmallBusiness #MarketingThatWorks #CertaintyFirst</div>
+
+                    <button class="copy-btn" onclick="copyTemplate(this)">Copy Template</button>
+                </div>
+
+                <!-- IG Template 2: Carousel -->
+                <div class="template-card">
+                    <span class="template-label ig">Carousel</span>
+                    <h3 class="template-name">Educational Carousel</h3>
+                    <p class="template-purpose">Swipeable content that teaches something valuable. High save rate.</p>
+
+                    <div class="template-box"><strong>SLIDE 1 (Cover):</strong>
+<span class="blank">[Number]</span> Signs Your <span class="blank">[Marketing/Software/Process]</span> Isn't Working
+(ScaleUp Ventures logo)
+
+<strong>SLIDE 2:</strong>
+Sign #1: <span class="blank">[First sign - "You can't tell where your leads come from"]</span>
+
+<strong>SLIDE 3:</strong>
+Sign #2: <span class="blank">[Second sign - "Your agency sends reports but can't explain them"]</span>
+
+<strong>SLIDE 4:</strong>
+Sign #3: <span class="blank">[Third sign - "You're spending more but not growing"]</span>
+
+<strong>SLIDE 5:</strong>
+Sign #4: <span class="blank">[Fourth sign - "No one will guarantee results"]</span>
+
+<strong>SLIDE 6:</strong>
+Sign #5: <span class="blank">[Fifth sign - "You dread looking at your marketing spend"]</span>
+
+<strong>SLIDE 7 (CTA):</strong>
+Sound familiar?
+We guarantee leads or you don't pay our fee.
+DM "LEADS" to learn more.
+
+<strong>CAPTION:</strong>
+How many of these hit home?
+
+We've talked to hundreds of business owners who've experienced all 5.
+
+The fix isn't spending more. It's spending with certainty.
+
+Save this. Share with a business owner who needs to see it.
+
+#MarketingTips #BusinessOwner #SmallBusinessTips #LeadGeneration</div>
+
+                    <button class="copy-btn" onclick="copyTemplate(this)">Copy Template</button>
+                </div>
+
+                <!-- IG Template 3: Before/After Visual -->
+                <div class="template-card">
+                    <span class="template-label ig">Feed Post</span>
+                    <h3 class="template-name">Before/After Split</h3>
+                    <p class="template-purpose">Visual transformation. Works great as single image or carousel.</p>
+
+                    <div class="template-box"><strong>IMAGE:</strong>
+Split image or side-by-side:
+LEFT: "Before" (chaotic, stressed, question marks)
+RIGHT: "After" (organized, clear, checkmarks)
+
+<strong>CAPTION:</strong>
+Left: <span class="blank">[Before state - "Spending $5K/month, no idea if it's working"]</span>
+Right: <span class="blank">[After state - "Every lead tracked, every dollar accounted for"]</span>
+
+The difference? <span class="blank">[What changed - "We figured out the numbers BEFORE spending"]</span>
+
+This is what we do for <span class="blank">[who you help - "business owners tired of guessing"]</span>.
+
+DM "CLARITY" if you want the same.
+
+#BusinessTransformation #MarketingROI #SmallBusinessOwner</div>
+
+                    <button class="copy-btn" onclick="copyTemplate(this)">Copy Template</button>
+                </div>
+
+                <h3 style="margin: 32px 0 20px;">Instagram Stories Templates</h3>
+
+                <!-- IG Stories Template 1 -->
+                <div class="template-card">
+                    <span class="template-label stories">Stories</span>
+                    <h3 class="template-name">Quick Tip Story Sequence</h3>
+                    <p class="template-purpose">3-5 story sequence that delivers one actionable tip.</p>
+
+                    <div class="template-box"><strong>STORY 1:</strong>
+Text: "Quick tip for business owners"
+Background: Navy/Gold branded
+
+<strong>STORY 2:</strong>
+Text: "<span class="blank">[The tip - "Before you hire any marketing agency, ask this ONE question"]</span>"
+
+<strong>STORY 3:</strong>
+Text: "<span class="blank">[The question - "Will you guarantee a specific number of leads?"]</span>"
+Add: Poll sticker "Have you asked this? Yes / No"
+
+<strong>STORY 4:</strong>
+Text: "<span class="blank">[Why it matters - "If they won't put their fee on the line, why should you put your budget on the line?"]</span>"
+
+<strong>STORY 5:</strong>
+Text: "We guarantee leads. Miss the target = don't pay our fee."
+Add: Link sticker or "DM for details"
+
+---
+
+<strong>EXAMPLE (AI Agents):</strong>
+
+STORY 1: "Quick tip for business owners"
+
+STORY 2: "If your team spends 20+ hours/month on status updates and reports..."
+
+STORY 3: "That's work AI should be doing, not your people."
+Poll: "Does this sound like your team? Yes / Unfortunately"
+
+STORY 4: "We build AI agents that handle the repetitive stuff. Team members save 20-25 hours/month."
+
+STORY 5: "DM 'TIME' if you want to learn more."</div>
+
+                    <button class="copy-btn" onclick="copyTemplate(this)">Copy Template</button>
+                </div>
+
+                <!-- IG Stories Template 2 -->
+                <div class="template-card">
+                    <span class="template-label stories">Stories</span>
+                    <h3 class="template-name">This or That Poll</h3>
+                    <p class="template-purpose">Interactive content that drives engagement and reveals audience preferences.</p>
+
+                    <div class="template-box"><strong>STORY 1:</strong>
+Text: "Business owner edition: This or That?"
+Background: Branded
+
+<strong>STORY 2:</strong>
+Poll: "<span class="blank">[Option A]</span> vs <span class="blank">[Option B]</span>"
+Example: "Spend $5K hoping for leads" vs "Know exactly how many leads you'll get"
+
+<strong>STORY 3:</strong>
+Poll: "<span class="blank">[Option A]</span> vs <span class="blank">[Option B]</span>"
+Example: "Pay agency whether it works or not" vs "Pay only if they hit the target"
+
+<strong>STORY 4:</strong>
+Text: "If you picked the second option both times..."
+"That's exactly how we work."
+Add: DM prompt or link</div>
+
+                    <button class="copy-btn" onclick="copyTemplate(this)">Copy Template</button>
+                </div>
+
+                <h3 style="margin: 32px 0 20px;">Instagram Reels Scripts</h3>
+
+                <!-- IG Reels Template 1 -->
+                <div class="template-card">
+                    <span class="template-label reels">Reels</span>
+                    <h3 class="template-name">The "Wait What?" Reel</h3>
+                    <p class="template-purpose">Pattern interrupt that stops the scroll. Contrarian take delivered fast.</p>
+
+                    <div class="video-script">
+                        <span class="duration">15-30 seconds</span>
+                        <h4>Script Structure:</h4>
+                        <div class="script-section">
+                            <span class="time">0-3 sec (HOOK)</span>
+                            <p>"I told a client NOT to build their software..."</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">3-15 sec (STORY)</span>
+                            <p>"They came to us with $150K ready to spend. 18-month project. We did a $5K discovery phase instead. Turns out? 80% of what they needed already existed."</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">15-25 sec (LESSON)</span>
+                            <p>"We saved them $150K and a year of their life. Yes, we made less money. But guess who sends us referrals now?"</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">25-30 sec (CTA)</span>
+                            <p>"That's what 'Certainty First' means. Follow for more."</p>
+                        </div>
+                    </div>
+
+                    <div class="tips-box">
+                        <strong>Filming Tips:</strong>
+                        <ul>
+                            <li>Talking head, eye contact, good lighting</li>
+                            <li>Hook text on screen for first 3 seconds</li>
+                            <li>Add captions (most watch without sound)</li>
+                            <li>End with clear CTA (follow/DM/link in bio)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- IG Reels Template 2 -->
+                <div class="template-card">
+                    <span class="template-label reels">Reels</span>
+                    <h3 class="template-name">The "Red Flag" Reel</h3>
+                    <p class="template-purpose">Call out bad practices in your industry. Positions you as the trustworthy alternative.</p>
+
+                    <div class="video-script">
+                        <span class="duration">20-40 seconds</span>
+                        <h4>Script Structure:</h4>
+                        <div class="script-section">
+                            <span class="time">0-3 sec (HOOK)</span>
+                            <p>"Red flags your marketing agency won't tell you..." (text on screen)</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">3-10 sec (FLAG 1)</span>
+                            <p>"They can't tell you exactly how many leads you'll get"</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">10-17 sec (FLAG 2)</span>
+                            <p>"They get paid the same whether your campaign works or not"</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">17-25 sec (FLAG 3)</span>
+                            <p>"They send reports full of metrics but can't explain your cost per lead"</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">25-35 sec (FLIP)</span>
+                            <p>"We do it different. Guaranteed leads. Miss the target, don't pay our fee. That's it."</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">35-40 sec (CTA)</span>
+                            <p>"Follow for more no-BS marketing advice."</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 3: TikTok Scripts -->
+        <section class="section" id="tiktok">
+            <div class="section-header tiktok">
+                <div class="section-number">3</div>
+                <h2 class="section-title">TikTok Scripts (Short-Form Video)</h2>
+            </div>
+            <div class="section-content">
+
+                <div class="proof-guide">
+                    <h4>TikTok Best Practices:</h4>
+                    <ul>
+                        <li><strong>Hook in 1-2 seconds:</strong> If you don't grab them immediately, they scroll</li>
+                        <li><strong>Authentic > Polished:</strong> TikTok rewards real over produced</li>
+                        <li><strong>Trending sounds:</strong> Use them when relevant (but don't force it)</li>
+                        <li><strong>Story format:</strong> Beginning, middle, end - even in 30 seconds</li>
+                        <li><strong>Text on screen:</strong> Most watch without sound</li>
+                    </ul>
+                </div>
+
+                <!-- TikTok Template 1 -->
+                <div class="template-card">
+                    <span class="template-label tt">TikTok</span>
+                    <h3 class="template-name">The Story Time</h3>
+                    <p class="template-purpose">Tell a real client story in under 60 seconds. Authenticity wins on TikTok.</p>
+
+                    <div class="video-script">
+                        <span class="duration">30-60 seconds</span>
+                        <h4>Script:</h4>
+                        <div class="script-section">
+                            <span class="time">HOOK (on screen text)</span>
+                            <p>"This business owner was about to waste $150,000..."</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">0-5 sec</span>
+                            <p>"So this business owner comes to us ready to spend $150K on custom software..."</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">5-15 sec</span>
+                            <p>"They had the budget. They had the timeline. They were READY. But something felt off to us."</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">15-30 sec</span>
+                            <p>"We did a $5K discovery phase first. Turns out? 80% of what they needed already existed in off-the-shelf tools. They didn't need custom software at all."</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">30-45 sec</span>
+                            <p>"We saved them $150,000 and 18 months of their life. Did we make less money? Yeah. Do they trust us now? Absolutely."</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">45-60 sec</span>
+                            <p>"That's the difference between a consultant who wants your money and one who wants your success. Follow for more."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TikTok Template 2 -->
+                <div class="template-card">
+                    <span class="template-label tt">TikTok</span>
+                    <h3 class="template-name">The POV</h3>
+                    <p class="template-purpose">Put the viewer in a relatable situation. Great for business owner pain points.</p>
+
+                    <div class="video-script">
+                        <span class="duration">15-30 seconds</span>
+                        <h4>Script:</h4>
+                        <div class="script-section">
+                            <span class="time">HOOK (on screen)</span>
+                            <p>"POV: You're a business owner who just got burned by another marketing agency"</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">0-5 sec</span>
+                            <p>(Act frustrated, looking at phone/computer)</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">5-10 sec</span>
+                            <p>"Another month. Another invoice. Still no idea if any of this is working."</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">10-20 sec</span>
+                            <p>"What if I told you there's an agency that guarantees leads? Like actually guarantees them. Miss the number? Don't pay the fee."</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">20-30 sec</span>
+                            <p>"That's us. Follow for more or DM 'LEADS'."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TikTok Template 3 -->
+                <div class="template-card">
+                    <span class="template-label tt">TikTok</span>
+                    <h3 class="template-name">The Hot Take</h3>
+                    <p class="template-purpose">Controversial opinion that sparks debate. Great for reach and engagement.</p>
+
+                    <div class="video-script">
+                        <span class="duration">15-30 seconds</span>
+                        <h4>Script:</h4>
+                        <div class="script-section">
+                            <span class="time">HOOK (on screen)</span>
+                            <p>"Controversial opinion: Most consultants are scamming you"</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">0-5 sec</span>
+                            <p>"Hot take: Most consultants don't actually want what's best for you."</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">5-15 sec</span>
+                            <p>"They want the biggest project possible. They get paid the same whether it works or not. There's zero accountability."</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">15-25 sec</span>
+                            <p>"We do it different. We've told clients NOT to build. We guarantee results or you don't pay. That's accountability."</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">25-30 sec</span>
+                            <p>"Agree or disagree? Comment below."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TikTok Template 4 -->
+                <div class="template-card">
+                    <span class="template-label tt">TikTok</span>
+                    <h3 class="template-name">The Quick Tip</h3>
+                    <p class="template-purpose">One valuable tip in under 30 seconds. Easy to make, high value.</p>
+
+                    <div class="video-script">
+                        <span class="duration">15-20 seconds</span>
+                        <h4>Script:</h4>
+                        <div class="script-section">
+                            <span class="time">HOOK (on screen)</span>
+                            <p>"Business owners: Ask your agency THIS question"</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">0-5 sec</span>
+                            <p>"One question that will tell you if your marketing agency is legit:"</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">5-12 sec</span>
+                            <p>"Will you guarantee a specific number of leads?"</p>
+                        </div>
+                        <div class="script-section">
+                            <span class="time">12-20 sec</span>
+                            <p>"If they say no, ask why you should risk your money if they won't risk their fee. Follow for more."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TikTok Template 5 -->
+                <div class="template-card">
+                    <span class="template-label tt">TikTok</span>
+                    <h3 class="template-name">The "Things That Just Make Sense"</h3>
+                    <p class="template-purpose">Use trending format to share your philosophy. Trend-jack with substance.</p>
+
+                    <div class="video-script">
+                        <span class="duration">15-30 seconds</span>
+                        <h4>Script (with trending sound):</h4>
+                        <div class="script-section">
+                            <span class="time">On screen text sequence:</span>
+                            <p>"Things that just make sense:
+
+- Knowing your cost per lead BEFORE you spend
+
+- Only paying agencies that hit their targets
+
+- Building AI to do the work humans shouldn't
+
+- Telling clients NOT to build when it's the right call
+
+We call it 'Certainty First.'
+Follow for more."</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 4: Content Calendar -->
+        <section class="section" id="calendar">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2 class="section-title">Weekly Content Calendar</h2>
+            </div>
+            <div class="section-content">
+
+                <h3 style="margin-bottom: 20px;">Weekly Posting Schedule</h3>
+
+                <table class="calendar-table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Facebook</th>
+                            <th>Instagram Feed</th>
+                            <th>IG Stories</th>
+                            <th>TikTok</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Monday</strong></td>
+                            <td>Story Post</td>
+                            <td>Quote Card</td>
+                            <td>Quick Tip (3-5 slides)</td>
+                            <td>Hot Take</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tuesday</strong></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Poll / This or That</td>
+                            <td>Story Time</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wednesday</strong></td>
+                            <td>Hot Take / Question</td>
+                            <td>Carousel</td>
+                            <td>Behind the Scenes</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Thursday</strong></td>
+                            <td>-</td>
+                            <td>Reel</td>
+                            <td>Client Win Tease</td>
+                            <td>POV / Quick Tip</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Friday</strong></td>
+                            <td>Win Celebration</td>
+                            <td>Before/After</td>
+                            <td>Weekend Question</td>
+                            <td>Trend-jack</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Saturday</strong></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Casual / Personal</td>
+                            <td>Story Time</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sunday</strong></td>
+                            <td>Behind the Scenes</td>
+                            <td>-</td>
+                            <td>Week Preview</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 style="margin: 32px 0 20px;">Best Posting Times (EST)</h3>
+
+                <table class="calendar-table">
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>Best Times</th>
+                            <th>Why</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Facebook</strong></td>
+                            <td>9-10 AM, 1-2 PM</td>
+                            <td>Morning commute, lunch break scrolling</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Instagram Feed</strong></td>
+                            <td>11 AM - 1 PM, 7-9 PM</td>
+                            <td>Midday break, evening relaxation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IG Stories</strong></td>
+                            <td>8-9 AM, 12 PM, 8-9 PM</td>
+                            <td>Morning, lunch, evening check-ins</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TikTok</strong></td>
+                            <td>7-9 PM, 10 PM - 12 AM</td>
+                            <td>Evening entertainment, late-night scrolling</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="tips-box" style="margin-top: 24px;">
+                    <strong>Batch Content Creation:</strong>
+                    <ul>
+                        <li>Film all TikTok/Reels in one 2-hour session (change shirts for variety)</li>
+                        <li>Write all Facebook posts in one sitting, schedule for the week</li>
+                        <li>Create Instagram graphics in batches (use Canva templates)</li>
+                        <li>Record Stories in real-time for authenticity (don't over-plan)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Repurposing Guide -->
+        <section class="section" id="repurpose">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2 class="section-title">Content Repurposing Guide</h2>
+            </div>
+            <div class="section-content">
+
+                <p style="margin-bottom: 24px;">Create once, publish everywhere. Here's how one piece of content becomes 5+.</p>
+
+                <div class="template-card">
+                    <span class="template-label" style="background: var(--gold); color: var(--navy);">Framework</span>
+                    <h3 class="template-name">One Story, Five Platforms</h3>
+
+                    <div class="template-box"><strong>START WITH:</strong> One client story (e.g., No-Build Decision, Lead Guarantee result)
+
+<strong>LINKEDIN (Long-form):</strong>
+Full story with business context, lessons learned, professional framing
+(Use templates from #61 Social Media Templates)
+
+<strong>FACEBOOK (Conversational):</strong>
+Same story, casual tone, "Let me tell you about..." format
+(Use Template 1: The Client Story)
+
+<strong>INSTAGRAM CAROUSEL:</strong>
+Story broken into 6-8 slides with key takeaways
+(Use Carousel template)
+
+<strong>INSTAGRAM REEL / TIKTOK:</strong>
+30-second version with hook, story, lesson
+(Use "Wait What?" or Story Time scripts)
+
+<strong>INSTAGRAM STORIES:</strong>
+3-5 story sequence teasing the full story
+"New post about a client who almost wasted $150K..."
+
+---
+
+<strong>EXAMPLE FLOW:</strong>
+
+1. Write LinkedIn post about No-Build Decision (10 min)
+2. Adapt to Facebook conversational format (5 min)
+3. Pull quotes for Instagram graphic (5 min)
+4. Outline carousel from key points (10 min)
+5. Film 30-sec TikTok version (15 min)
+6. Post Stories teasing content (5 min)
+
+Total: ~50 min for 6 pieces of content</div>
+                </div>
+
+                <div class="tips-box">
+                    <strong>Repurposing Rules:</strong>
+                    <ul>
+                        <li><strong>LinkedIn first:</strong> Write the full version, then simplify for other platforms</li>
+                        <li><strong>Tone shifts:</strong> LinkedIn = professional, FB = conversational, TikTok = raw/authentic</li>
+                        <li><strong>Same proof, different packaging:</strong> The story stays the same, the delivery changes</li>
+                        <li><strong>Link between platforms:</strong> "Full breakdown on LinkedIn" / "More on TikTok"</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">Scale<span>Up</span> Ventures</div>
+        <p>Owner Platforms: Facebook, Instagram & TikTok Templates</p>
+        <p style="margin-top: 8px; font-size: 0.8rem;">Created January 2026 | Certainty First.</p>
+    </footer>
+
+    <footer style="background:#0F1729;padding:24px;text-align:center;font-family:'DM Sans',sans-serif;margin-top:40px;">
+        <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">Back to Content Index</a>
+        <p style="color:#fff;margin-top:12px;font-size:14px;">ScaleUp Ventures | Certainty First.</p>
+    </footer>
+
+    <!-- JavaScript for Copy Functionality -->
+    <script>
+        function copyTemplate(button) {
+            const card = button.closest('.template-card');
+            const box = card.querySelector('.template-box');
+            if (box) {
+                const text = box.innerText;
+                navigator.clipboard.writeText(text).then(() => {
+                    const originalText = button.textContent;
+                    button.textContent = 'Copied!';
+                    button.classList.add('copied');
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.classList.remove('copied');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy:', err);
+                });
+            }
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('.nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

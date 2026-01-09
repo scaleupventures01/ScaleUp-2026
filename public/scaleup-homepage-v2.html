@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures | Certainty First</title>
+    <meta name="description" content="We show you the numbers before you spend a dime. ROI projections and guaranteed results.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           1. CORE VARIABLES & RESET
+           ========================================= */
+        :root {
+            /* Palette */
+            --color-navy: #0F1729;
+            --color-navy-light: #1A2642;
+            --color-navy-dark: #080C16;
+            --color-gold: #D4A853;
+            --color-gold-light: #E5C37E;
+            --color-gold-dim: #947230;
+            --color-cream: #FAF8F5;
+            --color-cream-dim: #D1CEC8;
+            
+            /* Typography */
+            --font-head: 'Crimson Pro', serif;
+            --font-body: 'DM Sans', sans-serif;
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 8rem;
+            
+            /* UI Elements */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-glow: 0 0 20px rgba(212, 168, 83, 0.15);
+            --border-thin: 1px solid rgba(250, 248, 245, 0.1);
+            --border-gold: 1px solid rgba(212, 168, 83, 0.3);
+            
+            /* Transitions */
+            --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+            --transition-fast: 0.2s var(--ease-out);
+            --transition-med: 0.4s var(--ease-out);
+            --transition-slow: 0.8s var(--ease-out);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--color-navy);
+            color: var(--color-cream);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: var(--color-gold);
+            color: var(--color-navy);
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-navy-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-gold-dim);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-gold);
+        }
+
+        /* =========================================
+           2. TYPOGRAPHY
+           ========================================= */
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-head);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--color-cream);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--spacing-md);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--color-gold);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-cream-dim);
+            font-size: 1.05rem;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            color: var(--color-gold);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            display: inline-block;
+        }
+
+        .text-center { text-align: center; }
+        .text-gold { color: var(--color-gold); }
+
+        /* =========================================
+           3. LAYOUT UTILITIES
+           ========================================= */
+        .container {
+            width: 90%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        .section-padding {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .grid {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+        @media (min-width: 1024px) {
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+            .grid-4 { grid-template-columns: repeat(4, 1fr); }
+            .col-span-2 { grid-column: span 2; }
+        }
+
+        /* =========================================
+           4. COMPONENTS
+           ========================================= */
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--color-gold);
+            color: var(--color-navy);
+            border: 1px solid var(--color-gold);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-gold-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-cream);
+            border: 1px solid var(--color-cream);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-gold);
+            color: var(--color-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(26, 38, 66, 0.4);
+            backdrop-filter: blur(10px);
+            border: var(--border-thin);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-med);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            border-color: var(--color-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(212,168,83,0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity var(--transition-med);
+        }
+
+        .card:hover::before { opacity: 1; }
+
+        /* Trust Badges */
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .trust-badge svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* =========================================
+           5. HEADER & NAV
+           ========================================= */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background var(--transition-med), padding var(--transition-med);
+            padding: 1.5rem 0;
+        }
+
+        .main-header.scrolled {
+            background: rgba(15, 23, 41, 0.95);
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-cream);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--color-gold);
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2L2 22h20L12 2zm0 4l6.5 13h-13L12 6z'/%3E") no-repeat center; 
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2L2 22h20L12 2zm0 4l6.5 13h-13L12 6z'/%3E") no-repeat center;
+            background-color: var(--color-gold);
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .nav-links a {
+            color: var(--color-cream);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-gold);
+        }
+
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--color-cream);
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links { display: flex; align-items: center; }
+            .mobile-menu-btn { display: none; }
+        }
+
+        /* =========================================
+           6. SECTIONS
+           ========================================= */
+        
+        /* Hero */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .tagline-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.1);
+            border: 1px solid var(--color-gold);
+            color: var(--color-gold);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+
+        .hero-trust {
+            margin-top: var(--spacing-md);
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .hero-trust span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .hero-trust span::before {
+            content: '✓';
+            color: var(--color-gold);
+        }
+
+        /* Problem Section */
+        #problem {
+            background-color: var(--color-navy-dark);
+            position: relative;
+        }
+
+        .pain-point-list {
+            margin-top: var(--spacing-md);
+        }
+
+        .pain-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: var(--radius-md);
+            border-left: 3px solid #ff4d4d;
+        }
+        
+        .pain-point svg {
+            min-width: 24px;
+            color: #ff4d4d;
+        }
+
+        .transition-statement {
+            font-size: 1.25rem;
+            font-family: var(--font-head);
+            font-style: italic;
+            border-top: 1px solid var(--color-navy-light);
+            padding-top: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        /* Solution Section */
+        #solution .card-highlight {
+            border: 1px solid var(--color-gold);
+            box-shadow: 0 0 30px rgba(212, 168, 83, 0.1);
+        }
+
+        .card-number {
+            font-size: 3rem;
+            font-family: var(--font-head);
+            color: rgba(255,255,255,0.05);
+            position: absolute;
+            top: 0;
+            right: 1rem;
+            line-height: 1;
+        }
+
+        /* How It Works */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0; left: 20px;
+            width: 2px;
+            background: var(--color-navy-light);
+        }
+
+        .step {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .step-marker {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 42px;
+            height: 42px;
+            background: var(--color-navy);
+            border: 2px solid var(--color-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--color-gold);
+            z-index: 2;
+        }
+
+        /* Industries */
+        .industry-card {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: var(--color-navy-light);
+            border-radius: var(--radius-md);
+            transition: transform var(--transition-fast);
+        }
+
+        .industry-card:hover {
+            transform: translateY(-5px);
+            background: #1f2d4d;
+        }
+
+        .industry-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto var(--spacing-sm);
+            fill: var(--color-gold);
+        }
+
+        /* Work Section */
+        .work-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .work-item {
+            display: grid;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: var(--radius-lg);
+            background: linear-gradient(180deg, rgba(15,23,41,0) 0%, rgba(15,23,41,0.5) 100%);
+        }
+
+        @media(min-width: 900px) {
+            .work-item {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+            .work-content.reversed {
+                order: -1;
+            }
+        }
+
+        .work-visual {
+            height: 300px;
+            background: var(--color-navy-light);
+            border-radius: var(--radius-md);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-navy-light);
+        }
+
+        .pattern-financial {
+            background: repeating-linear-gradient(45deg, #1a2642, #1a2642 10px, #0f1729 10px, #0f1729 20px);
+            width: 100%; height: 100%;
+        }
+        .pattern-startup {
+            background: radial-gradient(circle at 50% 50%, var(--color-navy-light), var(--color-navy-dark));
+            width: 100%; height: 100%;
+        }
+
+        /* CTA Section */
+        #cta {
+            background: radial-gradient(circle at top center, #1f2d4d 0%, var(--color-navy) 70%);
+            text-align: center;
+        }
+
+        .cta-box {
+            background: rgba(212, 168, 83, 0.05);
+            border: 1px solid var(--color-gold);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg) var(--spacing-md);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--color-navy-light);
+            background: var(--color-navy-dark);
+            padding: var(--spacing-lg) 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-logo {
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            color: var(--color-cream);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-links a {
+            display: block;
+            color: var(--color-cream-dim);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-gold);
+        }
+
+        .copyright {
+            text-align: center;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 2rem;
+        }
+
+        /* =========================================
+           7. ANIMATIONS
+           ========================================= */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding-top: 100px; padding-bottom: 50px; }
+            .hero-btns { flex-direction: column; width: 100%; }
+            .btn { width: 100%; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <header class="main-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"></div>
+                ScaleUp Ventures
+            </a>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+            <nav class="nav-links">
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="case-studies.html">Case Studies</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="#cta" class="btn btn-primary" style="margin-left: 2rem; padding: 0.5rem 1.5rem;">See Your ROI</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <canvas id="hero-canvas" class="hero-canvas"></canvas>
+        <div class="container hero-content">
+            <div class="tagline-badge reveal-on-scroll">Certainty First.</div>
+            <h1 class="reveal-on-scroll">We Show You the Numbers Before You Spend a Dime.</h1>
+            <p class="reveal-on-scroll" style="font-size: 1.25rem; max-width: 700px; margin-bottom: 2rem;">
+                Tired of consultants who promise the world and deliver excuses? We prove it before you buy - and if we can't, we'll tell you. Two tracks: guaranteed lead numbers or three-scenario ROI projections. You see exactly what to expect. Then you decide.
+            </p>
+            <div class="hero-btns reveal-on-scroll">
+                <a href="#cta" class="btn btn-primary">See Your ROI Projection Free</a>
+                <a href="#process" class="btn btn-secondary">How It Works</a>
+            </div>
+            <div class="hero-trust reveal-on-scroll">
+                <span>No upfront fees</span>
+                <span>ROI projection in 48 hours</span>
+                <span>No obligation to proceed</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section id="problem" class="section-padding">
+        <div class="container">
+            <div class="grid grid-2">
+                <div class="reveal-on-scroll">
+                    <span class="eyebrow">The Real Problem</span>
+                    <h2>You Have Every Right to Be Skeptical.</h2>
+                    <p>Your skepticism is not the problem. It is the proof you have been paying attention. We do not ask you to trust us. We ask you to verify.</p>
+                </div>
+                <div class="pain-point-list reveal-on-scroll">
+                    <div class="pain-point">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        <p style="margin:0; color: #fff;">You paid an agency $15,000 for a website that brought in exactly zero qualified leads</p>
+                    </div>
+                    <div class="pain-point">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        <p style="margin:0; color: #fff;">A consultant talked you into 'digital transformation' and left you with dashboards nobody uses</p>
+                    </div>
+                    <div class="pain-point">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        <p style="margin:0; color: #fff;">Marketing vendors showed you 'impressions' and 'engagement' while revenue stayed flat</p>
+                    </div>
+                    <div class="pain-point">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        <p style="margin:0; color: #fff;">Every pitch deck promised hockey-stick growth, but your bank account tells a different story</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTION SECTION -->
+    <section id="solution" class="section-padding">
+        <div class="container">
+            <div class="text-center reveal-on-scroll" style="max-width: 800px; margin: 0 auto var(--spacing-lg);">
+                <span class="eyebrow">The ScaleUp Difference</span>
+                <h2>Proof Before Payment. Always.</h2>
+                <p>We prove it before you buy - and if we can't, we'll tell you. Our Two-Track model gives you certainty: Ad Campaigns get guaranteed lead numbers (fee refunded if missed), while App & Development Projects get three-scenario ROI projections showing return in cash OR company/asset value. If we can't show a high-probability positive outcome, we recommend not proceeding.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <article class="card card-highlight tilt-card reveal-on-scroll">
+                    <span class="card-number">01</span>
+                    <h3>Two-Track ROI Model</h3>
+                    <p><strong>Track 1 - Ad Campaigns:</strong> We quantify projected ad spend AND projected leads BEFORE starting to ensure the expected results will meet your needs. Guaranteed lead numbers with our fee refunded if we miss targets (not ad spend).</p>
+                    <p style="margin-top: 1rem;"><strong>Track 2 - App & Development:</strong> Three-scenario projections (high/mid/low) showing return in cash OR company/asset value. Real numbers. Your numbers. Not industry averages.</p>
+                </article>
+
+                <article class="card tilt-card reveal-on-scroll">
+                    <span class="card-number">02</span>
+                    <h3>Risk-Free Decision</h3>
+                    <p>The ROI projection costs you nothing. If we can't show a high-probability positive outcome, we recommend not proceeding. And when we do proceed, we deliver - like taking a client from concept to a fully SEC/NFA-compliant trading application, the highest regulatory bar in financial software. No obligation. No pressure. No games.</p>
+                </article>
+
+                <article class="card tilt-card reveal-on-scroll">
+                    <span class="card-number">03</span>
+                    <h3>Measured Execution</h3>
+                    <p>We deliver in 90-day phases with clear milestones. You see results before you commit to the next phase. If we miss a target, we fix it at our expense. Your growth, measured and verified.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="process" class="section-padding" style="background: var(--color-navy-dark);">
+        <div class="container">
+            <div class="reveal-on-scroll">
+                <span class="eyebrow">How It Works</span>
+                <h2>Three Steps. Full Transparency.</h2>
+                <p style="max-width: 600px;">No discovery calls that turn into sales pitches. No proposals full of buzzwords. Just a straightforward process designed for business owners who value their time.</p>
+            </div>
+            
+            <div class="timeline" style="margin-top: var(--spacing-lg);">
+                <div class="step reveal-on-scroll">
+                    <div class="step-marker">1</div>
+                    <h3>15-Minute Reality Check</h3>
+                    <p>A brief call where we listen to your situation, ask direct questions about your goals, and determine if our approach fits your business. If not, we will tell you and recommend alternatives.</p>
+                </div>
+
+                <div class="step reveal-on-scroll">
+                    <div class="step-marker">2</div>
+                    <h3>48-Hour ROI Projection</h3>
+                    <p>We analyze your data and build your Two-Track projection: Ad Campaigns get quantified projections of ad spend AND leads BEFORE starting, with guaranteed lead numbers; App & Development Projects get three-scenario (high/mid/low) projections. If we can't show a high-probability positive outcome, we'll tell you not to proceed. The projection is yours to keep either way.</p>
+                </div>
+
+                <div class="step reveal-on-scroll">
+                    <div class="step-marker">3</div>
+                    <h3>Decision on Your Terms</h3>
+                    <p>If the numbers work, we start. If they do not, you walk away with valuable insights. No follow-up calls. No pressure emails. We respect that you know your business better than we do.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INDUSTRIES SECTION -->
+    <section id="industries" class="section-padding">
+        <div class="container">
+            <div class="text-center reveal-on-scroll" style="margin-bottom: var(--spacing-lg);">
+                <span class="eyebrow">Industries We Serve</span>
+                <h2>Built for Businesses Like Yours</h2>
+                <p>We specialize in service-based businesses where relationships matter and quick-fix solutions fail. Our clients are operators who built something real and want to grow it right.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="industry-card reveal-on-scroll">
+                    <svg class="industry-icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <h3 style="font-size: 1.25rem;">Staffing</h3>
+                    <p>Recruit better. Place faster. Reduce turnover.</p>
+                </div>
+                <div class="industry-card reveal-on-scroll">
+                    <svg class="industry-icon" viewBox="0 0 24 24"><path d="M12 2l3 5h6l-3 5 3 5h-6l-3 5-3-5H3l3-5-3-5h6z"></path></svg>
+                    <h3 style="font-size: 1.25rem;">Veterinary</h3>
+                    <p>Fill appointments. Build loyalty. Grow revenue.</p>
+                </div>
+                <div class="industry-card reveal-on-scroll">
+                    <svg class="industry-icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                    <h3 style="font-size: 1.25rem;">Trades</h3>
+                    <p>Win bids. Manage crews. Scale operations.</p>
+                </div>
+                <div class="industry-card reveal-on-scroll">
+                    <svg class="industry-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <h3 style="font-size: 1.25rem;">Insurance</h3>
+                    <p>Generate leads. Close policies. Retain clients.</p>
+                </div>
+                <div class="industry-card reveal-on-scroll">
+                    <svg class="industry-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                    <h3 style="font-size: 1.25rem;">Pest Control</h3>
+                    <p>Book jobs. Route smart. Grow territory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENT WORK -->
+    <section id="work" class="section-padding" style="background: var(--color-navy-dark);">
+        <div class="container">
+            <div class="reveal-on-scroll" style="margin-bottom: var(--spacing-lg);">
+                <span class="eyebrow">Real Client Work</span>
+                <h2>What We Actually Do</h2>
+                <p>Our clients include startups seeking funding, businesses evaluating major technology investments, and enterprises modernizing operations. Here is a sample of the work we do.</p>
+            </div>
+
+            <div class="work-grid">
+                <div class="work-item reveal-on-scroll">
+                    <div class="work-visual">
+                        <div class="pattern-financial"></div>
+                        <div style="position:absolute; font-family:var(--font-head); font-size:4rem; color:var(--color-gold); opacity:0.2;">SEC/NFA</div>
+                    </div>
+                    <div class="work-content">
+                        <h3>SEC/NFA Financial Trading Platform</h3>
+                        <div class="tagline-badge">Full Build + Compliance</div>
+                        <p>We took a client from concept to a fully SEC/NFA-compliant trading application - the highest regulatory bar in financial software. Complete product build plus go-to-market. The full engagement included regulatory compliance architecture, secure trading infrastructure, persona research, targeting strategy, ad management, and lead generation. From initial idea to live, compliant platform with customers. This is what 'Certainty First' looks like when the numbers work: we prove it, then we build it, then we take it to market.</p>
+                    </div>
+                </div>
+
+                <div class="work-item reveal-on-scroll">
+                    <div class="work-content reversed">
+                        <h3>End-to-End Launch Support</h3>
+                        <div class="tagline-badge">Startup Support</div>
+                        <p>For early-stage founders, we provide market validation, business and financial model validation, app development, fundraising plans, and investor/advisor introductions. We help startups move from idea to fundable product with the strategic foundation they need to scale.</p>
+                    </div>
+                    <div class="work-visual">
+                         <div class="pattern-startup"></div>
+                         <div style="position:absolute; font-family:var(--font-head); font-size:4rem; color:var(--color-gold); opacity:0.2;">LAUNCH</div>
+                    </div>
+                </div>
+
+                <div class="work-item reveal-on-scroll">
+                    <div class="work-visual">
+                        <div class="pattern-financial"></div>
+                        <div style="position:absolute; font-family:var(--font-head); font-size:4rem; color:var(--color-gold); opacity:0.2;">GTM</div>
+                    </div>
+                    <div class="work-content">
+                        <h3>Financial Trading Platform</h3>
+                        <div class="tagline-badge">Full Go-to-Market</div>
+                        <p>We took a client from initial idea to SEC/NFA compliant trading application, then drove it to market. The full engagement included product build, persona research, targeting strategy, ad management, and lead generation. A complete end-to-end go-to-market execution navigating complex regulatory requirements.</p>
+                    </div>
+                </div>
+
+                <div class="work-item reveal-on-scroll">
+                    <div class="work-content reversed">
+                        <h3>HR Automation Tool</h3>
+                        <div class="tagline-badge">Market Validation</div>
+                        <p>We delivered a complete HR automation platform from concept to market validation. The full engagement included product build, persona research, targeting strategy, ad management, and lead generation. We achieved $25-$33 lead costs, enabling validation of market demand, customer fit, and profitable customer acquisition economics.</p>
+                    </div>
+                    <div class="work-visual">
+                         <div class="pattern-startup"></div>
+                         <div style="position:absolute; font-family:var(--font-head); font-size:4rem; color:var(--color-gold); opacity:0.2;">AUTO</div>
+                    </div>
+                </div>
+
+                 <div class="work-item reveal-on-scroll">
+                    <div class="work-visual">
+                        <div class="pattern-financial"></div>
+                        <div style="position:absolute; font-family:var(--font-head); font-size:4rem; color:var(--color-gold); opacity:0.2;">AI</div>
+                    </div>
+                    <div class="work-content">
+                        <h3>AI Agents for Solutions Consulting</h3>
+                        <div class="tagline-badge">AI Automation</div>
+                        <p>We built AI automation agents for a solutions consulting firm using industry best practices. Team members now save 20-25 hours per month—and that number grows 10-20% each month as additional processes flow into the automated workflow. The agents handle routine tasks while the team focuses on higher-value activities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO WE SERVE -->
+    <section id="clients" class="section-padding">
+        <div class="container">
+            <div class="text-center reveal-on-scroll" style="margin-bottom: var(--spacing-lg);">
+                <span class="eyebrow">Who We Serve</span>
+                <h2>The Clients We Work With</h2>
+                <p>We work best with business owners who have been burned before and want certainty before they spend. If you value honesty over hype, we should talk.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <article class="card reveal-on-scroll">
+                    <div style="margin-bottom:1rem; color:var(--color-gold);">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                    </div>
+                    <h3>Startups Seeking Funding</h3>
+                    <p>Founders who need architecture, prototypes, business model validation, and investor introductions. We help you get from idea to investable product.</p>
+                </article>
+                <article class="card reveal-on-scroll">
+                    <div style="margin-bottom:1rem; color:var(--color-gold);">
+                        <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <h3>Businesses Evaluating Technology</h3>
+                    <p>Companies considering major technology investments who want an honest assessment before committing capital. We deliver complex builds like SEC/NFA-compliant trading platforms.</p>
+                </article>
+                <article class="card reveal-on-scroll">
+                    <div style="margin-bottom:1rem; color:var(--color-gold);">
+                        <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    </div>
+                    <h3>Enterprises Modernizing Operations</h3>
+                    <p>Established businesses ready to leverage AI and modern infrastructure to scale without adding headcount. We build systems that work.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section id="cta" class="section-padding">
+        <div class="container">
+            <div class="cta-box reveal-on-scroll">
+                <span class="eyebrow">Ready to Know Before You Spend?</span>
+                <h2 style="font-size: 2.5rem; margin: 1rem 0;">Your ROI Projection. Free. No Strings.</h2>
+                <p style="margin-bottom: 2rem;">Fifteen minutes on the phone. Forty-eight hours to build your Two-Track projection. Ad Campaigns get quantified projections of ad spend AND leads BEFORE starting, with guaranteed lead numbers (fee refunded if missed). App & Development Projects get three-scenario projections (high/mid/low) showing return in cash OR company value. We prove it before you buy - and if we can't, we'll tell you.</p>
+                <a href="contact.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1.2rem 2.5rem;">See Your ROI Projection Before You Decide</a>
+                
+                <div class="hero-trust" style="justify-content: center; margin-top: 2rem;">
+                    <span>Your data stays confidential</span>
+                    <span>No follow-up pressure</span>
+                    <span>Projection is yours to keep</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="footer-logo">ScaleUp Ventures</a>
+                    <p style="font-size: 0.9rem; opacity: 0.7;">
+                        Certainty First.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div style="color:var(--color-gold); font-weight:700; margin-bottom:1rem;">Menu</div>
+                    <a href="services.html">Services</a>
+                    <a href="about.html">About</a>
+                    <a href="case-studies.html">Case Studies</a>
+                </div>
+                <div class="footer-links">
+                    <div style="color:var(--color-gold); font-weight:700; margin-bottom:1rem;">Support</div>
+                    <a href="contact.html">Contact</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 ScaleUp Ventures. Certainty First.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        let particles = [];
+        const particleCount = window.innerWidth < 768 ? 40 : 80;
+        const connectionDistance = 150;
+        
+        let mouse = { x: null, y: null };
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+        
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2;
+                this.color = '#D4A853';
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                if(mouse.x != null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 100) {
+                        const forceDirectionX = dx / distance;
+                        const forceDirectionY = dy / distance;
+                        const force = (100 - distance) / 100;
+                        const directionX = forceDirectionX * force * 0.5;
+                        const directionY = forceDirectionY * force * 0.5;
+                        this.vx -= directionX;
+                        this.vy -= directionY;
+                    }
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, width, height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                for (let j = i; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = 'rgba(212, 168, 83, ' + (1 - distance/connectionDistance) + ')';
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        const tiltCards = document.querySelectorAll('.tilt-card');
+
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -5;
+                const rotateY = ((x - centerX) / centerX) * 5;
+
+                card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale(1.02)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+
+        const header = document.querySelector('.main-header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileBtn.addEventListener('click', () => {
+            const isFlex = navLinks.style.display === 'flex';
+            navLinks.style.display = isFlex ? 'none' : 'flex';
+            if(!isFlex) {
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = '#0F1729';
+                navLinks.style.padding = '2rem';
+                navLinks.style.borderBottom = '1px solid #D4A853';
+            }
+        });
+    </script>
+</body>
+</html>

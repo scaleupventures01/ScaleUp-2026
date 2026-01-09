@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideas Backlog - ScaleUp Ventures</title>
+    <style>
+        :root {
+            --navy: #1e3a5f;
+            --cream: #faf8f5;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --slate: #64748b;
+            --info: #3b82f6;
+            --purple: #8b5cf6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .subtitle { color: var(--slate); margin-bottom: 2rem; }
+
+        .formula-box {
+            background: var(--navy);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            font-family: monospace;
+        }
+        .formula-box h3 { margin-bottom: 0.5rem; color: #fbbf24; }
+        .formula { font-size: 1.1rem; }
+
+        .constraint-box {
+            background: #fef3c7;
+            border: 2px solid var(--warning);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .constraint-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .constraint-item strong {
+            color: #92400e;
+        }
+
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .summary-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .summary-card .number { font-size: 1.75rem; font-weight: 700; }
+        .summary-card .label { color: var(--slate); font-size: 0.8rem; }
+
+        .active { color: var(--success); }
+        .validating { color: var(--warning); }
+        .queued { color: var(--info); }
+        .backlog { color: var(--slate); }
+        .parked { color: var(--danger); }
+
+        .idea-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--navy);
+        }
+
+        .idea-card.rank-1 { border-left-color: #fbbf24; }
+        .idea-card.rank-2 { border-left-color: #a3a3a3; }
+        .idea-card.rank-3 { border-left-color: #cd7f32; }
+
+        .idea-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .idea-rank {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1;
+            margin-right: 1rem;
+        }
+
+        .idea-rank.rank-1 { color: #fbbf24; }
+        .idea-rank.rank-2 { color: #a3a3a3; }
+        .idea-rank.rank-3 { color: #cd7f32; }
+
+        .idea-title-section { flex: 1; }
+        .idea-title { font-size: 1.25rem; font-weight: 600; }
+
+        .idea-score {
+            background: var(--navy);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 0.25rem;
+        }
+
+        .badge-active { background: #dcfce7; color: var(--success); }
+        .badge-validating { background: #fef3c7; color: #92400e; }
+        .badge-queued { background: #dbeafe; color: var(--info); }
+        .badge-backlog { background: #f1f5f9; color: var(--slate); }
+        .badge-parked { background: #fee2e2; color: var(--danger); }
+
+        .idea-meta {
+            display: flex;
+            gap: 1rem;
+            color: var(--slate);
+            font-size: 0.875rem;
+            margin: 0.75rem 0;
+            flex-wrap: wrap;
+        }
+
+        .idea-description { color: var(--slate); margin-bottom: 0.75rem; }
+
+        .why-ranked {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 1px solid #7dd3fc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .why-ranked h4 {
+            color: #0369a1;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .why-ranked p {
+            color: #0c4a6e;
+            font-size: 0.9rem;
+        }
+
+        .score-breakdown {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .score-item {
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .score-item .score-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .score-item .score-label {
+            font-size: 0.75rem;
+            color: var(--slate);
+        }
+
+        .financial-breakdown {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .financial-breakdown h4 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .financial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+        }
+
+        .financial-item {
+            text-align: center;
+        }
+
+        .financial-item .value {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .financial-item .label {
+            font-size: 0.7rem;
+            color: var(--slate);
+        }
+
+        .info-gaps {
+            background: #fef3c7;
+            border-left: 4px solid var(--warning);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1rem;
+        }
+
+        .info-gaps h4 { color: #92400e; margin-bottom: 0.5rem; font-size: 0.875rem; }
+        .info-gaps ul { margin-left: 1.25rem; color: #78350f; font-size: 0.85rem; }
+
+        .guardrails {
+            background: #dcfce7;
+            border-left: 4px solid var(--success);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1rem;
+        }
+
+        .guardrails h4 { color: #166534; margin-bottom: 0.5rem; font-size: 0.875rem; }
+        .guardrails ul { margin-left: 1.25rem; color: #14532d; font-size: 0.85rem; }
+
+        .next-step {
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .next-step strong { color: var(--navy); }
+
+        .kill-trigger {
+            background: #fee2e2;
+            border-left: 4px solid var(--danger);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1rem;
+        }
+
+        .kill-trigger h4 { color: #991b1b; margin-bottom: 0.5rem; font-size: 0.875rem; }
+        .kill-trigger p { color: #7f1d1d; font-size: 0.9rem; }
+
+        .founder-priority {
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            border: 2px solid var(--purple);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .founder-priority h2 {
+            color: var(--purple);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .founder-priority p {
+            color: #6b21a8;
+            margin-bottom: 1rem;
+        }
+
+        .founder-priority-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .founder-priority-table th,
+        .founder-priority-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e9d5ff;
+        }
+
+        .founder-priority-table th {
+            background: var(--purple);
+            color: white;
+        }
+
+        .founder-priority-table tr:hover {
+            background: #faf5ff;
+        }
+
+        .priority-tag {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .tag-freedom { background: #dbeafe; color: #1e40af; }
+        .tag-cash { background: #dcfce7; color: #166534; }
+        .tag-team { background: #fef3c7; color: #92400e; }
+        .tag-validation { background: #fee2e2; color: #991b1b; }
+        .tag-synergy { background: #f3e8ff; color: #6b21a8; }
+
+        .footer {
+            text-align: center;
+            color: var(--slate);
+            font-size: 0.875rem;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ideas Backlog</h1>
+        <p class="subtitle">ScaleUp Ventures | Ranked by Priority Score | January 8, 2026</p>
+
+        <!-- Constraint Box -->
+        <div class="constraint-box">
+            <div class="constraint-item">
+                <strong>Founder Hours:</strong> 5-10 hrs/week for non-ScaleUp projects
+            </div>
+            <div class="constraint-item">
+                <strong>Focus:</strong> ScaleUp (cash) + Prevyu (freedom)
+            </div>
+            <div class="constraint-item">
+                <strong>Recently Killed:</strong> OfferPath (Jan 8, 2026)
+            </div>
+        </div>
+
+        <!-- Formula Box -->
+        <div class="formula-box">
+            <h3>Priority Score Formula</h3>
+            <div class="formula">
+                Priority = (Impact × 0.4) + ((10 - Effort) × 0.3) + (Financial Viability × 0.3)
+            </div>
+            <p style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.8;">
+                Financial Viability = Avg(Time to Break-even, Probable Revenue, Revenue Confidence)
+            </p>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="summary-cards">
+            <div class="summary-card">
+                <div class="number">10</div>
+                <div class="label">Total Ideas</div>
+            </div>
+            <div class="summary-card">
+                <div class="number active">2</div>
+                <div class="label">Active</div>
+            </div>
+            <div class="summary-card">
+                <div class="number queued">1</div>
+                <div class="label">Queued</div>
+            </div>
+            <div class="summary-card">
+                <div class="number backlog">7</div>
+                <div class="label">Backlog</div>
+            </div>
+            <div class="summary-card">
+                <a href="killed-ideas.html" style="text-decoration: none;">
+                    <div class="number parked">1</div>
+                    <div class="label">Killed &rarr;</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- #1 ScaleUp Consulting -->
+        <div class="idea-card rank-1">
+            <div class="idea-header">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="idea-rank rank-1">#1</div>
+                    <div class="idea-title-section">
+                        <div class="idea-title">ScaleUp Consulting</div>
+                        <span class="status-badge badge-active">Active</span>
+                    </div>
+                </div>
+                <div class="idea-score">8.6</div>
+            </div>
+            <div class="idea-meta">
+                <span>Owner: Founder + Team</span>
+                <span>Category: Service</span>
+            </div>
+            <p class="idea-description">Core consulting business providing AI/automation services to SMBs at $15K+ minimum projects with 50%+ margins.</p>
+
+            <div class="why-ranked">
+                <h4>Why #1?</h4>
+                <p><strong>Highest financial certainty + already running.</strong> Already profitable with proven revenue, $10K+/month with no ceiling in sight. Impact is 9 because it funds everything else. Effort is only 3 because the team is in place. This is the cash engine that makes all other bets possible.</p>
+            </div>
+
+            <div class="score-breakdown">
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--success);">9</div>
+                    <div class="score-label">Impact</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--success);">7</div>
+                    <div class="score-label">Effort (inv)</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--success);">9.7</div>
+                    <div class="score-label">Financial</div>
+                </div>
+            </div>
+            <div class="financial-breakdown">
+                <h4>Financial Viability Breakdown</h4>
+                <div class="financial-grid">
+                    <div class="financial-item">
+                        <div class="value">10/10</div>
+                        <div class="label">Break-even: Already profitable</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value">9/10</div>
+                        <div class="label">Probable Revenue: $10K+/mo</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value">10/10</div>
+                        <div class="label">Confidence: Proven</div>
+                    </div>
+                </div>
+            </div>
+            <div class="next-step">
+                <strong>Next Milestone:</strong> Ro sets up consulting ads → leads → close at $15K+
+            </div>
+        </div>
+
+        <!-- #2 Trading / Prevyu -->
+        <div class="idea-card rank-2">
+            <div class="idea-header">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="idea-rank rank-2">#2</div>
+                    <div class="idea-title-section">
+                        <div class="idea-title">Trading / Prevyu</div>
+                        <span class="status-badge badge-active">Active</span>
+                    </div>
+                </div>
+                <div class="idea-score">7.3</div>
+            </div>
+            <div class="idea-meta">
+                <span>Owner: Founder</span>
+                <span>Category: Product</span>
+            </div>
+            <p class="idea-description">Personal trading skill development + Prevyu trading journal/tool building. Path to financial freedom.</p>
+
+            <div class="why-ranked">
+                <h4>Why #2?</h4>
+                <p><strong>Instant break-even changes everything.</strong> No upfront costs—only $0.03/trade API costs. Would make money before running ads. Price range $20-100/month with $5-10K/month potential. Impact is 9 (freedom goal). The only reason it's not #1 is confidence: reasonable assumptions but no hard data yet. Once validated, this could tie or beat ScaleUp.</p>
+            </div>
+
+            <div class="score-breakdown">
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--success);">9</div>
+                    <div class="score-label">Impact</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--warning);">5</div>
+                    <div class="score-label">Effort (inv)</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--success);">7.3</div>
+                    <div class="score-label">Financial</div>
+                </div>
+            </div>
+            <div class="financial-breakdown">
+                <h4>Financial Viability Breakdown</h4>
+                <div class="financial-grid">
+                    <div class="financial-item">
+                        <div class="value" style="color: var(--success);">10/10</div>
+                        <div class="label">Break-even: First month</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value">7/10</div>
+                        <div class="label">Probable Revenue: $5-10K/mo</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value" style="color: var(--warning);">5/10</div>
+                        <div class="label">Confidence: Reasonable (no hard data)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="next-step">
+                <strong>Next Milestone:</strong> Q1 2026 - 60-day validation sprint
+            </div>
+        </div>
+
+        <!-- #3 Digital Marketing App -->
+        <div class="idea-card rank-3">
+            <div class="idea-header">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="idea-rank rank-3">#3</div>
+                    <div class="idea-title-section">
+                        <div class="idea-title">Digital Marketing App</div>
+                        <span class="status-badge badge-queued">Queued</span>
+                    </div>
+                </div>
+                <div class="idea-score">7.1</div>
+            </div>
+            <div class="idea-meta">
+                <span>Owner: Ro (team)</span>
+                <span>Category: Product</span>
+            </div>
+            <p class="idea-description">Productize the digital marketing work already being done manually for ScaleUp clients. SaaS or done-for-you model.</p>
+
+            <div class="why-ranked">
+                <h4>Why #3?</h4>
+                <p><strong>Best "team runs it" option.</strong> No founder time required—Ro operates it. The work is already being done manually, so productizing is a 1-2 month MVP. Similar models exist with proven economics. 3-6 month break-even with $5-10K/month potential. High impact (8) because it feeds the consulting pipeline.</p>
+            </div>
+
+            <div class="score-breakdown">
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--success);">8</div>
+                    <div class="score-label">Impact</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--success);">6</div>
+                    <div class="score-label">Effort (inv)</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--success);">7.0</div>
+                    <div class="score-label">Financial</div>
+                </div>
+            </div>
+            <div class="financial-breakdown">
+                <h4>Financial Viability Breakdown</h4>
+                <div class="financial-grid">
+                    <div class="financial-item">
+                        <div class="value">7/10</div>
+                        <div class="label">Break-even: 3-6 months</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value">7/10</div>
+                        <div class="label">Probable Revenue: $5-10K/mo</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value">7/10</div>
+                        <div class="label">Confidence: Similar examples</div>
+                    </div>
+                </div>
+            </div>
+            <div class="next-step">
+                <strong>Next Milestone:</strong> Q1-Q2 2026 - after ScaleUp funnel is humming
+            </div>
+        </div>
+
+        <!-- #4 Freeman Capital -->
+        <div class="idea-card">
+            <div class="idea-header">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="idea-rank">#4</div>
+                    <div class="idea-title-section">
+                        <div class="idea-title">Freeman Capital</div>
+                        <span class="status-badge badge-backlog">Backlog</span>
+                    </div>
+                </div>
+                <div class="idea-score">6.5</div>
+            </div>
+            <div class="idea-meta">
+                <span>Owner: Founder + Contractor</span>
+                <span>Category: Software Tool</span>
+            </div>
+            <p class="idea-description">Investment software tool leveraging your existing trading/investing expertise. Education and coaching potential. Some synergy with Prevyu (related audiences).</p>
+
+            <div class="why-ranked">
+                <h4>Why #5?</h4>
+                <p><strong>Leverages existing expertise, quick to launch.</strong> You already have the knowledge—just need to package it into a software tool. Could start in 1-2 months. $5-10K/month potential. Related to Prevyu (some audience overlap) but different focus. Impact is 6 because it helps others invest, but doesn't directly serve your freedom goal like Prevyu does.</p>
+            </div>
+
+            <div class="score-breakdown">
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--warning);">6</div>
+                    <div class="score-label">Impact</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--success);">7</div>
+                    <div class="score-label">Effort (inv)</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--success);">6.7</div>
+                    <div class="score-label">Financial</div>
+                </div>
+            </div>
+            <div class="financial-breakdown">
+                <h4>Financial Viability Breakdown</h4>
+                <div class="financial-grid">
+                    <div class="financial-item">
+                        <div class="value">7/10</div>
+                        <div class="label">Break-even: 3-6 months</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value">7/10</div>
+                        <div class="label">Probable Revenue: $5-10K/mo</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value">6/10</div>
+                        <div class="label">Confidence: Leverages expertise</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guardrails">
+                <h4>Synergy with Prevyu</h4>
+                <ul>
+                    <li>Related audiences (traders/investors)</li>
+                    <li>Could cross-promote between products</li>
+                    <li>Different focus: Freeman = investing tools, Prevyu = trading journal</li>
+                </ul>
+            </div>
+
+            <div class="next-step">
+                <strong>Next Milestone:</strong> After Prevyu validation—could run in parallel or sequence
+            </div>
+        </div>
+
+        <!-- #5 Family App -->
+        <div class="idea-card">
+            <div class="idea-header">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="idea-rank">#5</div>
+                    <div class="idea-title-section">
+                        <div class="idea-title">Family App</div>
+                        <span class="status-badge badge-backlog">Backlog</span>
+                    </div>
+                </div>
+                <div class="idea-score">5.8</div>
+            </div>
+            <div class="idea-meta">
+                <span>Owner: Founder</span>
+                <span>Category: Consumer Product</span>
+            </div>
+            <p class="idea-description">Family activity planner that knows family members' interests, finds activities within budget/location (including while traveling), and plans them. Revenue via ads, sponsorships, and subscriptions.</p>
+
+            <div class="why-ranked">
+                <h4>Why #6?</h4>
+                <p><strong>Real product idea, but speculative revenue.</strong> Solves a genuine problem (family activity discovery and planning). 1-2 month MVP is achievable. However, revenue confidence is low—you haven't researched comparable apps or validated the model. Impact is 6 because it has commercial potential but isn't aligned with your core freedom goal.</p>
+            </div>
+
+            <div class="score-breakdown">
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--warning);">6</div>
+                    <div class="score-label">Impact</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--success);">7</div>
+                    <div class="score-label">Effort (inv)</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--warning);">4.3</div>
+                    <div class="score-label">Financial</div>
+                </div>
+            </div>
+            <div class="financial-breakdown">
+                <h4>Financial Viability Breakdown</h4>
+                <div class="financial-grid">
+                    <div class="financial-item">
+                        <div class="value">5/10</div>
+                        <div class="label">Break-even: 6-12 months</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value">5/10</div>
+                        <div class="label">Probable Revenue: $1-5K/mo</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value" style="color: var(--danger);">3/10</div>
+                        <div class="label">Confidence: Speculative</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-gaps">
+                <h4>Information Gaps</h4>
+                <ul>
+                    <li>No competitor research done</li>
+                    <li>Revenue model untested</li>
+                    <li>Just an idea—no prototype yet</li>
+                </ul>
+            </div>
+
+            <div class="next-step">
+                <strong>Next Milestone:</strong> Personal use first, validate with family, then consider commercial potential
+            </div>
+        </div>
+
+        <!-- #6 Copycat + 1 Business -->
+        <div class="idea-card">
+            <div class="idea-header">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="idea-rank">#6</div>
+                    <div class="idea-title-section">
+                        <div class="idea-title">Copycat + 1 Business (Shutdown Arbitrage)</div>
+                        <span class="status-badge badge-backlog">Backlog</span>
+                    </div>
+                </div>
+                <div class="idea-score">5.5</div>
+            </div>
+            <div class="idea-meta">
+                <span>Owner: Founder</span>
+                <span>Category: Venture / Meta-Strategy</span>
+            </div>
+            <p class="idea-description">"Fast follower" strategy: Monitor VC-backed businesses shutting down, acquire learnings/tech/talent, relaunch improved version. Or study existing businesses, identify weaknesses, build better version.</p>
+
+            <div class="why-ranked">
+                <h4>Why #6?</h4>
+                <p><strong>Interesting model, but too many unknowns and no urgency.</strong> Strong founder credentials (VC experience, Techstars, DD background) and real market validation (364 shutdowns in 2024, +56%). But each relaunch = new business to operate. Competes for founder attention against ScaleUp and Prevyu. Park until core priorities stabilize AND a compelling opportunity appears.</p>
+            </div>
+
+            <div class="score-breakdown">
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--warning);">6</div>
+                    <div class="score-label">Viability</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--warning);">5</div>
+                    <div class="score-label">Strategic Fit</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--warning);">5.5</div>
+                    <div class="score-label">Overall</div>
+                </div>
+            </div>
+
+            <div class="guardrails">
+                <h4>Founder Qualifications</h4>
+                <ul>
+                    <li>Raised VC before</li>
+                    <li>Techstars alumnus</li>
+                    <li>Multiple businesses (failures and successes)</li>
+                    <li>Due diligence experience on businesses</li>
+                </ul>
+            </div>
+
+            <div class="info-gaps">
+                <h4>Top Risks</h4>
+                <ul>
+                    <li>Finding the right opportunity (needle in haystack) - HIGH</li>
+                    <li>Execution complexity (each relaunch = new business) - HIGH</li>
+                    <li>Competition from acqui-hirers/PE with more capital - MEDIUM</li>
+                </ul>
+            </div>
+
+            <div class="kill-trigger">
+                <h4>Trigger to Activate</h4>
+                <p>Core priorities (ScaleUp, Prevyu) stabilized <strong>AND</strong> high-quality shutdown opportunity identified. Effort is small to test (research phase), but Medium-Large per actual relaunch.</p>
+            </div>
+
+            <div class="next-step">
+                <strong>Next Milestone:</strong> Q3 2026+ - opportunistic if compelling shutdown appears
+            </div>
+        </div>
+
+        <!-- #7 3D Printer Business -->
+        <div class="idea-card">
+            <div class="idea-header">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="idea-rank">#7</div>
+                    <div class="idea-title-section">
+                        <div class="idea-title">3D Printer Business</div>
+                        <span class="status-badge badge-backlog">Backlog</span>
+                    </div>
+                </div>
+                <div class="idea-score">5.0</div>
+            </div>
+            <div class="idea-meta">
+                <span>Owner: Founder + Son</span>
+                <span>Category: Product / Side Hustle</span>
+            </div>
+            <p class="idea-description">Father/son side hustle creating and selling 3D printed products on Etsy, Amazon, and TikTok Shop. Already own Bambu P1S Combo. Son (10) has 3 years of printing experience.</p>
+
+            <div class="why-ranked">
+                <h4>Why #7?</h4>
+                <p><strong>Family bonding is the real value.</strong> Low revenue ceiling (<$500/month target) limits business impact, but teaching son entrepreneurship and spending time together is priceless. Already have equipment, under $100 startup cost, and son is actually more experienced than founder. It's a fill-in project to pursue opportunistically.</p>
+            </div>
+
+            <div class="score-breakdown">
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--warning);">4</div>
+                    <div class="score-label">Impact</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--success);">7</div>
+                    <div class="score-label">Effort (inv)</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--warning);">4.3</div>
+                    <div class="score-label">Financial</div>
+                </div>
+            </div>
+            <div class="financial-breakdown">
+                <h4>Financial Viability Breakdown</h4>
+                <div class="financial-grid">
+                    <div class="financial-item">
+                        <div class="value" style="color: var(--success);">8/10</div>
+                        <div class="label">Break-even: <$100 startup</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value" style="color: var(--danger);">2/10</div>
+                        <div class="label">Probable Revenue: <$500/mo</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value" style="color: var(--danger);">3/10</div>
+                        <div class="label">Confidence: Unknown</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guardrails">
+                <h4>Unique Value</h4>
+                <ul>
+                    <li>Son has 3 years printing experience (more than founder!)</li>
+                    <li>Family bonding + teaching entrepreneurship</li>
+                    <li>Already experimenting with prints</li>
+                    <li>Multiple channels: Etsy, Amazon, TikTok Shop</li>
+                </ul>
+            </div>
+
+            <div class="next-step">
+                <strong>Next Milestone:</strong> Continue experimenting, find what sells, list first products when ready
+            </div>
+        </div>
+
+        <!-- #8 AI Influencer -->
+        <div class="idea-card">
+            <div class="idea-header">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="idea-rank">#8</div>
+                    <div class="idea-title-section">
+                        <div class="idea-title">AI Influencer (Curvy Black Woman)</div>
+                        <span class="status-badge badge-backlog">Backlog</span>
+                    </div>
+                </div>
+                <div class="idea-score">4.7</div>
+            </div>
+            <div class="idea-meta">
+                <span>Owner: Founder + Upwork</span>
+                <span>Category: Content/Creator Economy</span>
+            </div>
+            <p class="idea-description">AI-generated influencer featuring a realistic, relatable curvy Black woman with authentic hobbies (fitness, 3D printing). Monetized through views/ad revenue and affiliate.</p>
+
+            <div class="why-ranked">
+                <h4>Why #8?</h4>
+                <p><strong>Interesting opportunity, but too many unknowns.</strong> Financial viability is only 3.7 because break-even timeline is a guess (12-18 months), probable revenue is modest ($1-5K/month), and confidence is speculative. The idea has clear differentiation (representation gap) and defined ethical guardrails, but without research on tools, costs, and realistic timelines, it can't score higher.</p>
+            </div>
+
+            <div class="score-breakdown">
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--warning);">6</div>
+                    <div class="score-label">Impact</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--danger);">4</div>
+                    <div class="score-label">Effort (inv)</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--danger);">3.7</div>
+                    <div class="score-label">Financial</div>
+                </div>
+            </div>
+            <div class="financial-breakdown">
+                <h4>Financial Viability Breakdown</h4>
+                <div class="financial-grid">
+                    <div class="financial-item">
+                        <div class="value" style="color: var(--danger);">3/10</div>
+                        <div class="label">Break-even: 12-18 months</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value" style="color: var(--warning);">5/10</div>
+                        <div class="label">Probable Revenue: $1-5K/mo</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value" style="color: var(--danger);">3/10</div>
+                        <div class="label">Confidence: Speculative</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-gaps">
+                <h4>Information Gaps Hurting Score</h4>
+                <ul>
+                    <li>Platform selection not validated with data</li>
+                    <li>AI imagery tools, costs, learning curve unknown</li>
+                    <li>No revenue projections calculated</li>
+                    <li>Break-even timeline is a guess</li>
+                </ul>
+            </div>
+
+            <div class="guardrails">
+                <h4>Ethical & Monetization Guardrails (Defined)</h4>
+                <ul>
+                    <li>Transparent AI disclosure</li>
+                    <li>Free content primary (ad-revenue model)</li>
+                    <li>If subscriptions: $3-5/month max</li>
+                    <li>No tipping/donations</li>
+                    <li>Product promotion/affiliate only</li>
+                </ul>
+            </div>
+
+            <div class="next-step">
+                <strong>Next Step:</strong> 2-4 hour research sprint on AI tools, competitor analysis, and revenue projections
+            </div>
+        </div>
+
+        <!-- #9 Vending Machines -->
+        <div class="idea-card">
+            <div class="idea-header">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="idea-rank">#9</div>
+                    <div class="idea-title-section">
+                        <div class="idea-title">Vending Machines</div>
+                        <span class="status-badge badge-backlog">Backlog</span>
+                    </div>
+                </div>
+                <div class="idea-score">4.2</div>
+            </div>
+            <div class="idea-meta">
+                <span>Owner: Founder + Hire Out</span>
+                <span>Category: Passive Income</span>
+            </div>
+            <p class="idea-description">Purchase 1-5 vending machines as a passive income side hustle. Hire out restocking/operations to keep time commitment minimal (1-2 hrs/week).</p>
+
+            <div class="why-ranked">
+                <h4>Why #9?</h4>
+                <p><strong>Low effort, but low ceiling.</strong> Proven model with low capital requirements. But targeting under $500/month revenue limits impact. It's a "fill-in" opportunity—do it when bandwidth permits and a good location appears. Not strategic, just supplemental.</p>
+            </div>
+
+            <div class="score-breakdown">
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--danger);">3</div>
+                    <div class="score-label">Impact</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--success);">6</div>
+                    <div class="score-label">Effort (inv)</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--warning);">4.0</div>
+                    <div class="score-label">Financial</div>
+                </div>
+            </div>
+            <div class="financial-breakdown">
+                <h4>Financial Viability Breakdown</h4>
+                <div class="financial-grid">
+                    <div class="financial-item">
+                        <div class="value">5/10</div>
+                        <div class="label">Break-even: 6-12 months/machine</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value" style="color: var(--danger);">2/10</div>
+                        <div class="label">Probable Revenue: Under $500/mo</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value">5/10</div>
+                        <div class="label">Confidence: Proven model</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-gaps">
+                <h4>Key Risks</h4>
+                <ul>
+                    <li>Location acquisition - finding high-traffic spots is hard</li>
+                    <li>Low margin per machine at small scale</li>
+                    <li>Competition for good locations</li>
+                </ul>
+            </div>
+
+            <div class="next-step">
+                <strong>Next Milestone:</strong> Opportunistic - when right deal/location appears
+            </div>
+        </div>
+
+        <!-- #10 Real Estate Investing -->
+        <div class="idea-card">
+            <div class="idea-header">
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="idea-rank">#10</div>
+                    <div class="idea-title-section">
+                        <div class="idea-title">Real Estate Investing</div>
+                        <span class="status-badge badge-backlog">Backlog (Capital)</span>
+                    </div>
+                </div>
+                <div class="idea-score">4.1</div>
+            </div>
+            <div class="idea-meta">
+                <span>Owner: Founder + Property Manager</span>
+                <span>Category: Passive Income / Wealth Building</span>
+            </div>
+            <p class="idea-description">Single-family or small multi-family (2-4 unit) rental property investing. Focus on appreciation over cash flow. Hire property management to keep hands-off.</p>
+
+            <div class="why-ranked">
+                <h4>Why #10?</h4>
+                <p><strong>Capital constraint is the blocker.</strong> Under $50K available significantly limits options. Good for long-term wealth building and diversification, but not actionable until capital increases or creative financing is found. Interest in appreciation over cash flow means break-even is slow. Revisit when capital situation improves.</p>
+            </div>
+
+            <div class="score-breakdown">
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--warning);">5</div>
+                    <div class="score-label">Impact</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--danger);">3</div>
+                    <div class="score-label">Effort (inv)</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" style="color: var(--danger);">3.7</div>
+                    <div class="score-label">Financial</div>
+                </div>
+            </div>
+            <div class="financial-breakdown">
+                <h4>Financial Viability Breakdown</h4>
+                <div class="financial-grid">
+                    <div class="financial-item">
+                        <div class="value" style="color: var(--danger);">3/10</div>
+                        <div class="label">Break-even: 12-18+ months (appreciation)</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value" style="color: var(--danger);">3/10</div>
+                        <div class="label">Probable Revenue: Not cash flow focused</div>
+                    </div>
+                    <div class="financial-item">
+                        <div class="value">5/10</div>
+                        <div class="label">Confidence: Medium research</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kill-trigger">
+                <h4>Key Blocker: Capital (<$50K)</h4>
+                <p><strong>Why it's ranked last:</strong> Under $50K limits options significantly. Would need creative financing (house hacking, partnerships) or wait until capital increases to >$100K. This is a long-term wealth play, not a near-term opportunity.</p>
+            </div>
+
+            <div class="guardrails">
+                <h4>Why It's Still Attractive</h4>
+                <ul>
+                    <li>Diversification from tech/consulting income</li>
+                    <li>Long-term wealth building</li>
+                    <li>Potential market opportunity if rates drop</li>
+                    <li>Hire property management = truly passive</li>
+                </ul>
+            </div>
+
+            <div class="next-step">
+                <strong>Next Milestone:</strong> Revisit when capital >$100K or creative financing opportunity appears
+            </div>
+        </div>
+
+        <!-- Founder Priority View -->
+        <div class="founder-priority">
+            <h2>Founder Priority View</h2>
+            <p>The formula ranks by financial optimization. But you're not just optimizing for money—you're optimizing for <strong>freedom</strong>. Here's how the ranking shifts when founder strategic intent is weighted:</p>
+
+            <table class="founder-priority-table">
+                <thead>
+                    <tr>
+                        <th>Priority</th>
+                        <th>Idea</th>
+                        <th>Score</th>
+                        <th>Why This Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>#1</strong></td>
+                        <td>ScaleUp Consulting</td>
+                        <td>8.6</td>
+                        <td><span class="priority-tag tag-cash">Cash Engine</span> Funds everything. Non-negotiable.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>#1</strong></td>
+                        <td>Trading / Prevyu</td>
+                        <td>7.3</td>
+                        <td><span class="priority-tag tag-freedom">Freedom Path</span> Uses YOUR hours. Personal freedom goal. Co-priority with ScaleUp.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>#2</strong></td>
+                        <td>Digital Marketing App</td>
+                        <td>7.1</td>
+                        <td><span class="priority-tag tag-team">Team Runs It</span> Ecosystem play, no founder time. Start after ScaleUp funnel is humming.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>#3</strong></td>
+                        <td>Freeman Capital</td>
+                        <td>6.5</td>
+                        <td><span class="priority-tag tag-synergy">Prevyu Synergy</span> Leverages expertise, related audience. After Prevyu validation.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Backlog</strong></td>
+                        <td>Family App</td>
+                        <td>5.8</td>
+                        <td>Personal use first. Commercial potential TBD.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Backlog</strong></td>
+                        <td>Copycat + 1 Business</td>
+                        <td>5.5</td>
+                        <td><span class="priority-tag tag-validation">Needs Opportunity</span> Wait for core priorities + compelling shutdown.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fill-in</strong></td>
+                        <td>3D Printer Business</td>
+                        <td>5.0</td>
+                        <td><span class="priority-tag tag-team">Father/Son</span> Family bonding priority. Low ceiling but priceless time together.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Backlog</strong></td>
+                        <td>AI Influencer</td>
+                        <td>4.7</td>
+                        <td>Research needed first. Revisit Q2 2026.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fill-in</strong></td>
+                        <td>Vending Machines</td>
+                        <td>4.2</td>
+                        <td>Opportunistic. When good location appears.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Blocked</strong></td>
+                        <td>Real Estate Investing</td>
+                        <td>4.1</td>
+                        <td>Capital constraint (<$50K). Revisit when >$100K.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 1.5rem; padding: 1rem; background: white; border-radius: 8px;">
+                <strong>Key Insight:</strong> ScaleUp and Prevyu are <strong>co-#1 priorities</strong> because they serve different purposes:
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li><strong>ScaleUp</strong> = Cash engine (team hours) → Funds everything</li>
+                    <li><strong>Prevyu</strong> = Freedom path (your 5-10 hrs/week) → Long-term independence</li>
+                </ul>
+                <p style="margin-top: 0.75rem;">They don't compete for the same resources. Run them in parallel.</p>
+            </div>
+
+            <div style="margin-top: 1rem; padding: 0.75rem; background: #fee2e2; border-radius: 8px; text-align: center;">
+                <a href="killed-ideas.html" style="color: #991b1b; font-weight: 600; text-decoration: none;">View Killed Ideas (1) &rarr;</a>
+                <span style="color: #7f1d1d; font-size: 0.85rem; margin-left: 0.5rem;">OfferPath killed Jan 8, 2026</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Formula: Priority = (Impact × 0.4) + ((10 - Effort) × 0.3) + (Financial Viability × 0.3)</p>
+            <p>Source: Strategic Recommendations HTML (Section 11) | Updated January 8, 2026</p>
+        </div>
+    </div>
+</body>
+</html>

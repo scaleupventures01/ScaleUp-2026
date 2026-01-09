@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScaleUp Ventures - Guaranteed Lead Generation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <style>
+    /* Color System */
+    :root {
+      --deep-water: #0A0F1C;
+      --surface: #111827;
+      --gold: #C9A227;
+      --certainty-blue: #2563EB;
+      --proof-green: #10B981;
+      --warning: #F59E0B;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border: #1F2937;
+    }
+
+    /* General Styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--deep-water);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    /* Cursor Styles */
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--gold);
+      border-radius: 50%;
+      position: fixed;
+      z-index: 10000;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+    }
+
+    .cursor-ring {
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      position: fixed;
+      z-index: 9999;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: all 0.2s ease-out;
+    }
+
+    /* Geometric Grid */
+    .grid-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20z' fill='%231F2937'/%3E%3C/svg%3E");
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: rgba(17, 24, 39, 0.9); /* --surface with transparency */
+      backdrop-filter: blur(10px);
+      padding: 15px 20px;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    /* Magnetic Button */
+    .magnetic-button {
+      position: relative;
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: var(--certainty-blue);
+      color: var(--text);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .magnetic-button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Hero Section */
+    #hero {
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    #hero h1 {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+    }
+
+    #hero p {
+      font-size: 1.2em;
+    }
+
+    /* Service Tier Cards */
+    .service-tier-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    .service-tier {
+      background-color: var(--surface);
+      border-radius: 12px;
+      padding: 30px;
+      width: 300px;
+      margin: 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-tier:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .service-tier h3 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    .service-tier .price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.2em;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .service-tier ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .service-tier li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-tier li::before {
+        content: '✓';
+        color: var(--proof-green);
+        margin-right: 8px;
+        opacity: 0;
+        animation: drawIn 0.5s ease forwards;
+        transform-origin: left center;
+        transform: scaleX(0);
+    }
+
+      @keyframes drawIn {
+          to {
+              opacity: 1;
+              transform: scaleX(1);
+          }
+      }
+
+
+    .service-tier .guarantee {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: var(--proof-green);
+      color: var(--text);
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.8em;
+      box-shadow: 0 0 5px var(--proof-green);
+    }
+
+    .guarantee.pulsing {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 5px var(--proof-green);
+      }
+      50% {
+        box-shadow: 0 0 15px var(--proof-green);
+      }
+      100% {
+        box-shadow: 0 0 5px var(--proof-green);
+      }
+    }
+
+    /* Feature Comparison Matrix */
+    #feature-comparison {
+      margin-bottom: 60px;
+    }
+
+    #feature-comparison h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow-x: auto;
+      display: block;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .comparison-table th {
+      background-color: var(--surface);
+      font-weight: 500;
+    }
+
+    .comparison-table tr:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .checkmark {
+      color: var(--proof-green);
+      font-size: 1.2em;
+      opacity: 0;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Interactive ROI Calculator */
+    #roi-calculator {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    #roi-calculator h2 {
+      margin-bottom: 30px;
+    }
+
+    .calculator-input {
+      margin-bottom: 20px;
+    }
+
+    .calculator-input label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text-muted);
+    }
+
+    .calculator-input input[type="range"] {
+      width: 300px;
+    }
+
+    .calculator-output {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2em;
+      color: var(--gold);
+      margin-top: 20px;
+    }
+
+    /* Process Timeline */
+    #process-timeline {
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    #process-timeline h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 50px auto;
+    }
+
+    .timeline-line {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background-color: var(--border);
+      z-index: 1;
+    }
+
+    .timeline-line-fill {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 0;
+      background-color: var(--certainty-blue);
+      z-index: 2;
+      transition: height 1s ease;
+    }
+
+    .timeline-step {
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .timeline-step-circle {
+      width: 30px;
+      height: 30px;
+      background-color: var(--surface);
+      border: 2px solid var(--certainty-blue);
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .timeline-step-content {
+      width: 40%;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: var(--surface);
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .timeline-step-content.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-step-content:nth-child(odd) {
+      left: 60%;
+    }
+
+    .timeline-step-content:nth-child(even) {
+      right: 60%;
+    }
+
+    /* Guarantee Section */
+    #guarantee {
+      background-color: var(--surface);
+      padding: 50px;
+      text-align: center;
+      margin-bottom: 60px;
+      border-radius: 12px;
+    }
+
+    #guarantee h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .shield-icon {
+      font-size: 3em;
+      color: var(--proof-green);
+      text-shadow: 0 0 10px var(--proof-green);
+    }
+
+    /* Case Study Highlights */
+    #case-studies {
+      margin-bottom: 60px;
+    }
+
+    #case-studies h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .case-study {
+      background-color: var(--surface);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 20px;
+    }
+
+    .case-study h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    /* Final CTA */
+    #final-cta {
+      text-align: center;
+      padding: 50px 0;
+    }
+
+    #final-cta h2 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
+
+    /* Heron Silhouette */
+    #heron {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 100px;
+      height: auto;
+      z-index: 10;
+      pointer-events: none;
+      background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23C9A227"%3E%3Cpath d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71L12 2z"/%3E%3C/svg%3E'); /* Replace with actual heron SVG */
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dual Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Geometric Grid Background -->
+  <div class="grid-background"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div><a href="#">ScaleUp Ventures</a></div>
+    <div>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="container">
+    <h1>Your Path to Guaranteed Growth</h1>
+    <p>Choose certainty. Choose results you can measure.</p>
+  </section>
+
+  <!-- Service Tier Cards -->
+  <section id="service-tiers" class="container">
+    <div class="service-tier-container">
+
+      <div class="service-tier">
+        <h3>Proof Test</h3>
+        <div class="price">$1,500</div>
+        <p>Perfect for: Skeptical businesses wanting to test the waters</p>
+        <ul>
+          <li>Market analysis and opportunity mapping</li>
+          <li>2-week lead generation pilot</li>
+          <li>ROI projection with real data</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <button class="magnetic-button">Test Us Risk-Free</button>
+      </div>
+
+      <div class="service-tier">
+        <h3>Growth Engine</h3>
+        <div class="price">$5,000<span style="font-size:0.6em">/month</span></div>
+        <p>Perfect for: Businesses ready to scale consistently</p>
+        <ul>
+          <li>Full lead generation system setup</li>
+          <li>Multi-channel campaign management</li>
+          <li>Weekly optimization and reporting</li>
+          <li>Lead qualification and scoring</li>
+          <li>CRM integration</li>
+        </ul>
+        <div class="guarantee pulsing">25 qualified leads or money back</div>
+        <button class="magnetic-button">Start Scaling</button>
+      </div>
+
+      <div class="service-tier">
+        <h3>Revenue Partner</h3>
+        <div class="price">$10,000+<span style="font-size:0.6em">/month</span></div>
+        <p>Perfect for: Businesses wanting a true growth partner</p>
+        <ul>
+          <li>Everything in Growth Engine</li>
+          <li>Dedicated strategy team</li>
+          <li>Custom AI-powered lead scoring</li>
+          <li>Sales enablement training</li>
+          <li>Revenue share alignment option</li>
+        </ul>
+        <div class="guarantee pulsing">50+ qualified leads guaranteed</div>
+        <button class="magnetic-button">Partner With Us</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Feature Comparison Matrix -->
+  <section id="feature-comparison" class="container">
+    <h2>Feature Comparison</h2>
+    <div class="comparison-table-container">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Proof Test</th>
+            <th>Growth Engine</th>
+            <th>Revenue Partner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Market Analysis</td>
+            <td><span class="checkmark">✓</span></td>
+            <td><span class="checkmark">✓</span></td>
+            <td><span class="checkmark">✓</span></td>
+          </tr>
+          <tr>
+            <td>Lead Generation Pilot</td>
+            <td><span class="checkmark">✓</span></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Full Lead Generation System</td>
+            <td></td>
+            <td><span class="checkmark">✓</span></td>
+            <td><span class="checkmark">✓</span></td>
+          </tr>
+          <tr>
+            <td>Multi-Channel Campaign Management</td>
+            <td></td>
+            <td><span class="checkmark">✓</span></td>
+            <td><span class="checkmark">✓</span></td>
+          </tr>
+          <tr>
+            <td>Weekly Optimization and Reporting</td>
+            <td></td>
+            <td><span class="checkmark">✓</span></td>
+            <td><span class="checkmark">✓</span></td>
+          </tr>
+          <tr>
+            <td>Lead Qualification & Scoring</td>
+            <td></td>
+            <td><span class="checkmark">✓</span></td>
+            <td><span class="checkmark">✓</span></td>
+          </tr>
+           <tr>
+            <td>CRM Integration</td>
+            <td></td>
+            <td><span class="checkmark">✓</span></td>
+            <td><span class="checkmark">✓</span></td>
+          </tr>
+          <tr>
+            <td>Dedicated Strategy Team</td>
+            <td></td>
+            <td></td>
+            <td><span class="checkmark">✓</span></td>
+          </tr>
+          <tr>
+            <td>Custom AI-Powered Lead Scoring</td>
+            <td></td>
+            <td></td>
+            <td><span class="checkmark">✓</span></td>
+          </tr>
+           <tr>
+            <td>Sales Enablement Training</td>
+            <td></td>
+            <td></td>
+            <td><span class="checkmark">✓</span></td>
+          </tr>
+           <tr>
+            <td>Revenue Share Option</td>
+            <td></td>
+            <td></td>
+            <td><span class="checkmark">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Interactive ROI Calculator -->
+  <section id="roi-calculator" class="container">
+    <h2>See Your Growth</h2>
+    <div class="calculator-input">
+      <label for="current-leads">Current Monthly Leads:</label>
+      <input type="range" id="current-leads" min="0" max="100" value="10">
+      <span id="current-leads-value">10</span>
+    </div>
+    <div class="calculator-input">
+      <label for="average-deal-size">Average Deal Size ($):</label>
+      <input type="range" id="average-deal-size" min="1000" max="20000" value="5000">
+      <span id="average-deal-size-value">5000</span>
+    </div>
+    <div class="calculator-input">
+      <label for="close-rate">Close Rate (%):</label>
+      <input type="range" id="close-rate" min="1" max="50" value="10">
+      <span id="close-rate-value">10</span>
+    </div>
+    <div class="calculator-output">
+      Potential ROI: <span id="roi-value">$0</span>
+    </div>
+  </section>
+
+  <!-- Process Timeline -->
+  <section id="process-timeline" class="container">
+    <h2>Our Process</h2>
+    <div class="timeline">
+      <div class="timeline-line"></div>
+      <div class="timeline-line-fill"></div>
+
+      <div class="timeline-step">
+        <div class="timeline-step-circle">1</div>
+        <div class="timeline-step-content">
+          <h3>Discovery & Planning</h3>
+          <p>We start by understanding your business, target market, and goals to develop a tailored lead generation strategy.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-step-circle">2</div>
+        <div class="timeline-step-content">
+          <h3>System Setup</h3>
+          <p>We set up your lead generation system, including tracking, automation, and CRM integration.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-step-circle">3</div>
+        <div class="timeline-step-content">
+          <h3>Campaign Launch</h3>
+          <p>We launch your multi-channel campaigns, targeting your ideal customers.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-step-circle">4</div>
+        <div class="timeline-step-content">
+          <h3>Optimization & Reporting</h3>
+          <p>We continuously optimize your campaigns based on data and provide weekly performance reports.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-step-circle">5</div>
+        <div class="timeline-step-content">
+          <h3>Scale & Grow</h3>
+          <p>We scale your lead generation efforts to drive consistent growth for your business.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Guarantee Section -->
+  <section id="guarantee" class="container">
+    <span class="shield-icon">🛡️</span>
+    <h2>Guaranteed Leads or Your Money Back</h2>
+    <p>If we don't deliver the leads we promise, you don't pay. Period.</p>
+    <p>We are confident in our ability to deliver results, which is why we offer a money-back guarantee.</p>
+  </section>
+
+  <!-- Case Study Highlights -->
+  <section id="case-studies" class="container">
+    <h2>Case Study Highlights</h2>
+
+    <div class="case-study">
+      <h3>Software Company</h3>
+      <p>Increased qualified leads by 150% in 3 months.</p>
+      <p>Industry: Software</p>
+    </div>
+
+    <div class="case-study">
+      <h3>Marketing Agency</h3>
+      <p>Generated 50+ qualified leads per month consistently.</p>
+      <p>Industry: Marketing</p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section id="final-cta" class="container">
+    <h2>Ready to Stop Guessing?</h2>
+    <button class="magnetic-button">Book a Call</button>
+    <button class="magnetic-button">Download Pricing PDF</button>
+  </section>
+
+  <!-- Heron Silhouette -->
+  <div id="heron"></div>
+
+  <script>
+    // Dual Cursor
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorRing = document.querySelector('.cursor-ring');
+
+    document.addEventListener('mousemove', (e) => {
+      cursorDot.style.left = e.clientX + 'px';
+      cursorDot.style.top = e.clientY + 'px';
+      cursorRing.style.left = e.clientX + 'px';
+      cursorRing.style.top = e.clientY + 'px';
+    });
+
+    // ROI Calculator
+    const currentLeadsInput = document.getElementById('current-leads');
+    const averageDealSizeInput = document.getElementById('average-deal-size');
+    const closeRateInput = document.getElementById('close-rate');
+    const roiValue = document.getElementById('roi-value');
+
+    const currentLeadsValue = document.getElementById('current-leads-value');
+    const averageDealSizeValue = document.getElementById('average-deal-size-value');
+    const closeRateValue = document.getElementById('close-rate-value');
+
+    function calculateROI() {
+      const currentLeads = parseInt(currentLeadsInput.value);
+      const averageDealSize = parseInt(averageDealSizeInput.value);
+      const closeRate = parseInt(closeRateInput.value);
+
+      currentLeadsValue.textContent = currentLeads;
+      averageDealSizeValue.textContent = averageDealSize;
+      closeRateValue.textContent = closeRate;
+
+      const potentialRevenue = currentLeads * (closeRate / 100) * averageDealSize;
+      roiValue.textContent = '$' + potentialRevenue.toLocaleString();
+    }
+
+    currentLeadsInput.addEventListener('input', calculateROI);
+    averageDealSizeInput.addEventListener('input', calculateROI);
+    closeRateInput.addEventListener('input', calculateROI);
+
+    calculateROI(); // Initial calculation
+
+    // Process Timeline
+    const timelineLineFill = document.querySelector('.timeline-line-fill');
+    const timelineSteps = document.querySelectorAll('.timeline-step-content');
+
+    function updateTimeline() {
+      const timelineHeight = document.querySelector('.timeline').offsetHeight;
+      const windowHeight = window.innerHeight;
+      const timelineTop = document.querySelector('.timeline').offsetTop;
+
+      const scrollPosition = window.scrollY;
+      const fillHeight = Math.min(timelineHeight, Math.max(0, scrollPosition + windowHeight - timelineTop));
+
+      timelineLineFill.style.height = fillHeight + 'px';
+
+      timelineSteps.forEach((step) => {
+        const stepTop = step.offsetTop + document.querySelector('.timeline').offsetTop;
+        if (scrollPosition + windowHeight >= stepTop) {
+          step.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateTimeline);
+    updateTimeline(); // Initial update
+
+    // Feature Comparison Matrix - Animate Checkmarks on Scroll
+    const checkmarks = document.querySelectorAll('.checkmark');
+
+    function animateCheckmarks() {
+      checkmarks.forEach(checkmark => {
+        if (isElementInViewport(checkmark)) {
+          checkmark.classList.add('animate');
+        }
+      });
+    }
+
+    function isElementInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+    window.addEventListener('scroll', animateCheckmarks);
+    animateCheckmarks(); // Initial animation
+
+    // Heron Mouse Tracking
+
+    const heron = document.getElementById('heron');
+
+    document.addEventListener('mousemove', (e) => {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 3 Website UI/UX Recommendations | ScaleUp Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --gold: #D4A853;
+            --gold-light: #E8C77B;
+            --cream: #FAF8F5;
+            --gray: #6B7280;
+            --white: #FFFFFF;
+            --green: #22c55e;
+            --blue: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.85;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        .page-section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .page-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--cream);
+        }
+
+        .page-number {
+            width: 56px;
+            height: 56px;
+            background: var(--navy);
+            color: var(--gold);
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            flex-shrink: 0;
+        }
+
+        .page-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .rec-category {
+            margin-bottom: 32px;
+        }
+
+        .rec-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .rec-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .rec-item {
+            background: var(--cream);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .rec-item strong {
+            display: block;
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .rec-item p {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .priority-high {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
+
+        .cta-ladder {
+            background: var(--navy);
+            border-radius: 12px;
+            padding: 28px;
+            margin-top: 24px;
+        }
+
+        .cta-ladder h4 {
+            color: var(--gold);
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .ladder-steps {
+            display: grid;
+            gap: 12px;
+        }
+
+        .ladder-step {
+            background: var(--navy-light);
+            border-radius: 8px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .step-num {
+            width: 28px;
+            height: 28px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-label {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .step-cta {
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .wireframe-box {
+            background: var(--cream);
+            border: 2px dashed var(--gray);
+            border-radius: 10px;
+            padding: 24px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .wireframe-box h5 {
+            color: var(--navy);
+            font-size: 14px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .wireframe-box p {
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+        .checklist {
+            background: #dcfce7;
+            border: 1px solid var(--green);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .checklist h5 {
+            color: var(--green);
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .checklist ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .checklist li {
+            color: var(--navy);
+            font-size: 13px;
+            padding: 6px 0 6px 24px;
+            position: relative;
+        }
+
+        .checklist li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .page-section {
+                padding: 24px;
+            }
+
+            .page-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav style="background:#0F1729;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;position:sticky;top:0;z-index:1000;">
+  <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;">← Back to Index</a>
+  <span style="color:#fff;font-size:14px;">ScaleUp Ventures Content Library</span>
+</nav>
+
+<header class="header">
+    <div class="header-badge">Phase 3 Website Build</div>
+    <h1>UI/UX Recommendations</h1>
+    <p>Strategic UX guidance for high-converting, trust-building website pages. Optimized for B2B service business buyers who value proof over promises.</p>
+</header>
+
+<main class="main">
+
+<!-- HOMEPAGE -->
+<section class="page-section">
+    <div class="page-header">
+        <div class="page-number">1</div>
+        <h2 class="page-title">Homepage</h2>
+    </div>
+
+    <div class="rec-category">
+        <h3 class="category-title">Hero Section Architecture</h3>
+        <div class="rec-grid">
+            <div class="rec-item">
+                <strong>F-Pattern Visual Hierarchy <span class="priority-high">Critical</span></strong>
+                <p>Position headline top-left, value proposition below, primary CTA middle-left, trust signals bottom-left. Users scan F-pattern on web pages - place conversion elements along this natural eye path.</p>
+            </div>
+            <div class="rec-item">
+                <strong>Headline: Problem + Promise (60 characters max)</strong>
+                <p>"We Show You the Numbers Before You Spend a Dime" - leads with certainty positioning. Avoid generic "Transform Your Business" headlines that trigger skepticism.</p>
+            </div>
+            <div class="rec-item">
+                <strong>Subheadline: Proof Statement (120 characters)</strong>
+                <p>Immediately reference Two-Track model and lead guarantees. Example: "Ad campaigns with guaranteed lead numbers or app projects with 3-scenario ROI projections. We prove it before you buy."</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="rec-category">
+        <h3 class="category-title">Trust Signal Placement</h3>
+        <div class="rec-grid">
+            <div class="rec-item">
+                <strong>Above Fold: Micro-Commitments</strong>
+                <p>Three trust bullets immediately below CTA: "No upfront fees" / "ROI projection in 48 hours" / "No obligation to proceed". Reduces perceived risk before scroll.</p>
+            </div>
+            <div class="rec-item">
+                <strong>Social Proof Ladder (Scroll Depth 20-40%)</strong>
+                <p>Client logos first (visual credibility), then specific results ("$25-$33 CPL for HR tool validation"), then testimonials (emotional proof). Order matters: visual → quantitative → emotional.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-ladder">
+        <h4>4-Stage CTA Ladder Implementation</h4>
+        <div class="ladder-steps">
+            <div class="ladder-step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <div class="step-label">Awareness (0-20% scroll)</div>
+                    <div class="step-cta">"See the Math" - Link to ROI calculator or case study math</div>
+                </div>
+            </div>
+            <div class="ladder-step">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <div class="step-label">Interest (20-50% scroll)</div>
+                    <div class="step-cta">"Get Your Estimate" - Email-only form, low friction</div>
+                </div>
+            </div>
+            <div class="ladder-step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <div class="step-label">Consideration (50-80% scroll)</div>
+                    <div class="step-cta">"Book a 15-Min Strategy Call" - Calendly integration</div>
+                </div>
+            </div>
+            <div class="ladder-step">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <div class="step-label">Decision (80-100% scroll)</div>
+                    <div class="step-cta">"Start Your Proof Test" - Final conversion point</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="checklist">
+        <h5>Mobile Responsiveness Checklist</h5>
+        <ul>
+            <li>Hero headline remains 32px minimum on mobile (legibility)</li>
+            <li>CTA buttons minimum 48x48px touch targets (Apple HIG standard)</li>
+            <li>Trust signals stack vertically, maintain 16px spacing</li>
+            <li>Sticky CTA bar appears at 50% scroll on mobile (accessibility)</li>
+        </ul>
+    </div>
+</section>
+
+<!-- SERVICES PAGES -->
+<section class="page-section">
+    <div class="page-header">
+        <div class="page-number">2</div>
+        <h2 class="page-title">Services Pages</h2>
+    </div>
+
+    <div class="rec-category">
+        <h3 class="category-title">Information Architecture</h3>
+        <div class="rec-grid">
+            <div class="rec-item">
+                <strong>Lead with Outcome, Not Process <span class="priority-high">Critical</span></strong>
+                <p>Web App Development headline: "Custom Web Applications That Generate Measurable ROI" not "Full-Stack Development Services". Buyers care about business outcomes first.</p>
+            </div>
+            <div class="rec-item">
+                <strong>Pricing Transparency (Fold 1)</strong>
+                <p>Display starting prices immediately: "Web Apps from $10K" / "Growth Marketing $1,500/mo" / "AI Agents from $5K". Reduces qualification friction by 40% (Baymard Institute).</p>
+            </div>
+            <div class="rec-item">
+                <strong>Case Study Proximity</strong>
+                <p>Position relevant case study within 2 scrolls of service description. Example: After Web App description, show Financial Trading Platform case (SEC/NFA compliance proof). Context-specific proof converts better than generic testimonials.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="rec-category">
+        <h3 class="category-title">Conversion Rate Optimization</h3>
+        <div class="rec-grid">
+            <div class="rec-item">
+                <strong>Multi-Step Form Design</strong>
+                <p>Break "Get Your Estimate" into 3 steps: (1) Service needed, (2) Timeline/budget, (3) Contact info. Shows 25-30% higher completion vs. single long forms. Progress bar mandatory.</p>
+            </div>
+            <div class="rec-item">
+                <strong>Exit Intent Offer</strong>
+                <p>Trigger at scroll-up or tab-close: "Before You Go: Download Our ROI Framework [PDF]". Email capture for nurture sequence. 10-15% of abandoning visitors convert to leads.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="wireframe-box">
+        <h5>Services Page Template Structure</h5>
+        <p><strong>Section 1:</strong> Outcome headline + starting price<br>
+        <strong>Section 2:</strong> 3-benefit grid (What you get)<br>
+        <strong>Section 3:</strong> Process overview (How it works)<br>
+        <strong>Section 4:</strong> Relevant case study embed<br>
+        <strong>Section 5:</strong> ROI calculator or estimator tool<br>
+        <strong>Section 6:</strong> FAQ accordion (objection handling)<br>
+        <strong>Section 7:</strong> Final CTA with guarantee statement</p>
+    </div>
+</section>
+
+<!-- ABOUT PAGE -->
+<section class="page-section">
+    <div class="page-header">
+        <div class="page-number">3</div>
+        <h2 class="page-title">About Page</h2>
+    </div>
+
+    <div class="rec-category">
+        <h3 class="category-title">Narrative Structure</h3>
+        <div class="rec-grid">
+            <div class="rec-item">
+                <strong>Origin Story: Problem → Insight → Mission</strong>
+                <p>Open with founder frustration with dishonest vendors (relatability), discovery of proof-first model (differentiation), commitment to "Certainty First" (mission). Story arc builds emotional connection.</p>
+            </div>
+            <div class="rec-item">
+                <strong>Values as Proof Points</strong>
+                <p>Instead of generic values ("Integrity, Excellence"), tie to specific behaviors: "We recommend NOT proceeding if ROI projections don't show high-probability positive outcome." Makes values tangible.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="rec-category">
+        <h3 class="category-title">Team Profile Design</h3>
+        <div class="rec-grid">
+            <div class="rec-item">
+                <strong>Founder-Forward Positioning</strong>
+                <p>Calvin profile takes 60% of fold 1. Include: (1) Professional headshot, (2) LinkedIn link, (3) Specific expertise (SEC/NFA compliance builds), (4) Personal note ("Father of 3, building businesses that prove value first").</p>
+            </div>
+            <div class="rec-item">
+                <strong>Team Credibility Markers</strong>
+                <p>For Patrick, Aaron, Roe: Show project involvement, not generic bios. "Patrick led Financial Trading Platform backend architecture" beats "10 years experience in development."</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="checklist">
+        <h5>About Page Must-Haves</h5>
+        <ul>
+            <li>Company founding year and evolution timeline</li>
+            <li>Mission statement in founder's voice (first person)</li>
+            <li>Client types served (Startups, Established Businesses, Enterprises)</li>
+            <li>Geographic location (builds local trust if relevant)</li>
+            <li>Contact preference: "Talk to Calvin" CTA not generic "Contact Us"</li>
+        </ul>
+    </div>
+</section>
+
+<!-- CONTACT PAGE -->
+<section class="page-section">
+    <div class="page-header">
+        <div class="page-number">4</div>
+        <h2 class="page-title">Contact Page</h2>
+    </div>
+
+    <div class="rec-category">
+        <h3 class="category-title">Form Optimization</h3>
+        <div class="rec-grid">
+            <div class="rec-item">
+                <strong>Progressive Disclosure Form <span class="priority-high">Critical</span></strong>
+                <p>Step 1: "What brings you here?" (radio buttons: Web App / Marketing / AI Agent / Other). Step 2: Contextual questions based on selection. Step 3: Contact info. Conditional logic reduces form length anxiety.</p>
+            </div>
+            <div class="rec-item">
+                <strong>Field Validation: Real-Time, Inline</strong>
+                <p>Email validation on blur (as user tabs away), not on submit. Show green checkmark when valid. Error states in red with specific fix instruction: "Email missing @" not "Invalid email."</p>
+            </div>
+            <div class="rec-item">
+                <strong>Submit Button Microcopy</strong>
+                <p>"Send My Request" beats "Submit". Action-oriented, personal language. Button disabled state shows "Sending..." with spinner during processing.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="rec-category">
+        <h3 class="category-title">Alternative Contact Paths</h3>
+        <div class="rec-grid">
+            <div class="rec-item">
+                <strong>Calendly Embed (Primary Path)</strong>
+                <p>Show Calvin's calendar availability above form. "See available times and book directly" with embedded Calendly. 30% of users prefer self-scheduling over form submission.</p>
+            </div>
+            <div class="rec-item">
+                <strong>Office Information Display</strong>
+                <p>If physical location: Address with Google Maps embed, business hours, phone number with "Call now" mobile-tap link. If remote: Timezone indicator + "We serve clients nationwide."</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="wireframe-box">
+        <h5>Contact Page Layout (2-Column Desktop)</h5>
+        <p><strong>Left Column (60%):</strong> Form with progressive disclosure<br>
+        <strong>Right Column (40%):</strong> Calendly embed, office info card, response time expectation ("We respond within 24 hours"), alternative contact methods (email, LinkedIn)</p>
+    </div>
+</section>
+
+<!-- FAQ PAGE -->
+<section class="page-section">
+    <div class="page-header">
+        <div class="page-number">5</div>
+        <h2 class="page-title">FAQ Page</h2>
+    </div>
+
+    <div class="rec-category">
+        <h3 class="category-title">Content Organization</h3>
+        <div class="rec-grid">
+            <div class="rec-item">
+                <strong>Category-Based Accordion Structure</strong>
+                <p>Group by buyer journey stage: (1) Getting Started, (2) Services & Pricing, (3) Process & Timeline, (4) Guarantees & Proof, (5) Working Together. Reduces cognitive load vs. alphabetical lists.</p>
+            </div>
+            <div class="rec-item">
+                <strong>Anchor Link Navigation</strong>
+                <p>Sticky sidebar (desktop) or dropdown (mobile) lets users jump to category. FAQ pages average 8+ scrolls - navigation is accessibility requirement.</p>
+            </div>
+            <div class="rec-item">
+                <strong>Search Functionality (If 20+ FAQs)</strong>
+                <p>Client-side JavaScript search with instant filtering. Placeholder: "Search for answers..." Auto-expands matching accordion items.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="rec-category">
+        <h3 class="category-title">Answer Optimization</h3>
+        <div class="rec-grid">
+            <div class="rec-item">
+                <strong>Proof-Forward Answers</strong>
+                <p>Q: "How do you guarantee results?" A: Reference specific case metrics: "For ad campaigns, we guarantee lead numbers - like our HR Automation Tool campaign that delivered $25-$33 CPL with fee refunded if targets missed."</p>
+            </div>
+            <div class="rec-item">
+                <strong>Link to Deep Content</strong>
+                <p>Embed internal links: "See our full process here" (links to methodology page), "Read the case study" (links to relevant case). Extends time on site, builds SEO link equity.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="checklist">
+        <h5>Top 10 FAQs to Include (Objection Handling)</h5>
+        <ul>
+            <li>What makes you different from other agencies/consultancies?</li>
+            <li>How much do your services cost?</li>
+            <li>What is your Two-Track ROI model?</li>
+            <li>Do you offer guarantees? What happens if you miss targets?</li>
+            <li>How long does a typical project take?</li>
+            <li>Who owns the code/intellectual property?</li>
+            <li>Can you show me examples of your work?</li>
+            <li>Do you work with businesses in my industry?</li>
+            <li>What if I'm not sure what I need?</li>
+            <li>How do we get started?</li>
+        </ul>
+    </div>
+</section>
+
+<!-- CLIENT LOGOS -->
+<section class="page-section">
+    <div class="page-header">
+        <div class="page-number">6</div>
+        <h2 class="page-title">Client Logos Collection</h2>
+    </div>
+
+    <div class="rec-category">
+        <h3 class="category-title">Display Architecture</h3>
+        <div class="rec-grid">
+            <div class="rec-item">
+                <strong>Animated Scroll Carousel (Homepage)</strong>
+                <p>Infinite horizontal scroll with 12-15 logos. Grayscale default, color on hover. Movement attracts eye without being distracting. Pause on hover for accessibility.</p>
+            </div>
+            <div class="rec-item">
+                <strong>Static Grid (Dedicated Page)</strong>
+                <p>6-column grid on desktop, 3-column tablet, 2-column mobile. Each logo links to case study if available, otherwise links to industry landing page.</p>
+            </div>
+            <div class="rec-item">
+                <strong>Logo Sizing Standards</strong>
+                <p>All logos normalized to same visual weight: Max height 60px, max width 180px. Maintain aspect ratio. White/light logos on navy background, dark logos on cream background.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="rec-category">
+        <h3 class="category-title">Usage Guidelines</h3>
+        <div class="rec-grid">
+            <div class="rec-item">
+                <strong>Permission Documentation</strong>
+                <p>Only display logos with written client permission. Document approval in CRM/project folder. Legal protection against unauthorized use claims.</p>
+            </div>
+            <div class="rec-item">
+                <strong>Context Labels</strong>
+                <p>Add subtle industry tags: "Veterinary" / "Staffing" / "SaaS". Helps visitors identify relevant proof. 12px gray text below logo.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- UNIVERSAL PRINCIPLES -->
+<section class="page-section" style="background: var(--navy); color: var(--white);">
+    <div class="page-header" style="border-bottom-color: var(--navy-light);">
+        <div class="page-number" style="background: var(--gold); color: var(--navy);">★</div>
+        <h2 class="page-title" style="color: var(--white);">Universal UX Principles</h2>
+    </div>
+
+    <div class="rec-category">
+        <h3 class="category-title" style="color: var(--gold);">Accessibility Standards (WCAG 2.1 AA Minimum)</h3>
+        <div class="rec-grid">
+            <div class="rec-item" style="background: var(--navy-light); border-left-color: var(--gold);">
+                <strong style="color: var(--gold);">Color Contrast Ratios</strong>
+                <p style="color: rgba(255,255,255,0.85);">Navy (#0F1729) on Cream (#FAF8F5): 12.5:1 (AAA). Gold (#D4A853) on Navy: 4.8:1 (AA Large). All text meets minimum 4.5:1 for normal text, 3:1 for large text (18px+).</p>
+            </div>
+            <div class="rec-item" style="background: var(--navy-light); border-left-color: var(--gold);">
+                <strong style="color: var(--gold);">Keyboard Navigation</strong>
+                <p style="color: rgba(255,255,255,0.85);">All CTAs, forms, and navigation accessible via Tab key. Focus states visible with 2px gold outline. Skip-to-content link for screen reader users.</p>
+            </div>
+            <div class="rec-item" style="background: var(--navy-light); border-left-color: var(--gold);">
+                <strong style="color: var(--gold);">Screen Reader Optimization</strong>
+                <p style="color: rgba(255,255,255,0.85);">Semantic HTML5 (header, nav, main, article, footer). ARIA labels on all form fields. Alt text on all images describes content, not "image of..."</p>
+            </div>
+            <div class="rec-item" style="background: var(--navy-light); border-left-color: var(--gold);">
+                <strong style="color: var(--gold);">Motion Sensitivity</strong>
+                <p style="color: rgba(255,255,255,0.85);">Respect prefers-reduced-motion media query. Disable carousel auto-scroll, parallax effects, and animations for users who request reduced motion.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="rec-category" style="margin-top: 32px;">
+        <h3 class="category-title" style="color: var(--gold);">Performance Budgets</h3>
+        <div class="rec-grid">
+            <div class="rec-item" style="background: var(--navy-light); border-left-color: var(--gold);">
+                <strong style="color: var(--gold);">Page Load Speed Targets</strong>
+                <p style="color: rgba(255,255,255,0.85);">First Contentful Paint (FCP): <1.8s. Largest Contentful Paint (LCP): <2.5s. Time to Interactive (TTI): <3.8s. Measured on 4G mobile connection.</p>
+            </div>
+            <div class="rec-item" style="background: var(--navy-light); border-left-color: var(--gold);">
+                <strong style="color: var(--gold);">Asset Optimization</strong>
+                <p style="color: rgba(255,255,255,0.85);">Images: WebP format with JPEG fallback, lazy loading below fold. Fonts: Preload Crimson Pro + DM Sans, subset to used characters. CSS/JS: Minify and compress, defer non-critical scripts.</p>
+            </div>
+            <div class="rec-item" style="background: var(--navy-light); border-left-color: var(--gold);">
+                <strong style="color: var(--gold);">Mobile-First Development</strong>
+                <p style="color: rgba(255,255,255,0.85);">Design for 375px (iPhone SE) breakpoint first. Progressive enhancement for tablet (768px) and desktop (1024px+). 60%+ of B2B traffic is mobile during research phase.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="rec-category" style="margin-top: 32px;">
+        <h3 class="category-title" style="color: var(--gold);">Conversion Psychology Tactics</h3>
+        <div class="rec-grid">
+            <div class="rec-item" style="background: var(--navy-light); border-left-color: var(--gold);">
+                <strong style="color: var(--gold);">Social Proof Hierarchy</strong>
+                <p style="color: rgba(255,255,255,0.85);">Most credible to least: Specific case study metrics > Named testimonials with title/company > Client logo > Generic review count. Always use highest available.</p>
+            </div>
+            <div class="rec-item" style="background: var(--navy-light); border-left-color: var(--gold);">
+                <strong style="color: var(--gold);">Scarcity Without False Urgency</strong>
+                <p style="color: rgba(255,255,255,0.85);">Honest capacity communication: "We take 3-4 new clients per quarter" builds authentic scarcity. Avoid fake countdown timers or "Only 2 spots left" unless true.</p>
+            </div>
+            <div class="rec-item" style="background: var(--navy-light); border-left-color: var(--gold);">
+                <strong style="color: var(--gold);">Reciprocity Triggers</strong>
+                <p style="color: rgba(255,255,255,0.85);">Give value before asking for contact info: Free ROI calculator, downloadable framework, or 48-hour assessment. Increases form completion by 20-35%.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTING & ITERATION -->
+<section class="page-section">
+    <div class="page-header">
+        <div class="page-number">7</div>
+        <h2 class="page-title">Testing & Iteration Roadmap</h2>
+    </div>
+
+    <div class="rec-category">
+        <h3 class="category-title">Phase 1: Launch (Weeks 1-2)</h3>
+        <div class="rec-grid">
+            <div class="rec-item">
+                <strong>Baseline Metrics Collection</strong>
+                <p>Install Google Analytics 4, Hotjar (heatmaps + session recordings), Microsoft Clarity (free alternative). Track: Bounce rate, avg. session duration, scroll depth, CTA click rates, form starts vs. completions.</p>
+            </div>
+            <div class="rec-item">
+                <strong>User Testing (5-8 Sessions)</strong>
+                <p>Recruit 5 target buyers (early-stage founders), conduct moderated usability tests via Zoom. Task: "Find pricing for web app development." Identify friction points before optimization.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="rec-category">
+        <h3 class="category-title">Phase 2: Optimize (Weeks 3-8)</h3>
+        <div class="rec-grid">
+            <div class="rec-item">
+                <strong>A/B Test Priority Queue</strong>
+                <p>(1) Homepage hero CTA copy, (2) Service page pricing display, (3) Contact form length (full vs. progressive), (4) About page founder story length. Run 2-week tests with 95% confidence threshold.</p>
+            </div>
+            <div class="rec-item">
+                <strong>Heatmap Analysis</strong>
+                <p>Review Hotjar heatmaps weekly. Look for: Rage clicks (broken elements), dead zones (content ignored), scroll depth drop-off points. Fix top 3 friction points per page.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="rec-category">
+        <h3 class="category-title">Phase 3: Scale (Ongoing)</h3>
+        <div class="rec-grid">
+            <div class="rec-item">
+                <strong>Conversion Funnel Monitoring</strong>
+                <p>Weekly dashboard review: Homepage visits → Service page views → Contact form starts → Form completions → Qualified leads. Identify biggest drop-off stage and prioritize fix.</p>
+            </div>
+            <div class="rec-item">
+                <strong>Quarterly UX Audit</strong>
+                <p>Every 90 days: Run Lighthouse performance audit, check broken links, review accessibility with WAVE tool, update case studies/testimonials, refresh outdated content.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer style="background:#0F1729;padding:32px 24px;text-align:center;color:#fff;font-family:'DM Sans',sans-serif;">
+    <p style="margin-bottom:12px;"><strong style="color:#D4A853;">ScaleUp Ventures</strong> Phase 3 Website Build: UI/UX Recommendations</p>
+    <p style="font-size:14px;opacity:0.7;">Version 1.0 | January 2026</p>
+    <a href="master-index.html" style="color:#D4A853;text-decoration:none;font-weight:600;margin-top:20px;display:inline-block;">← Back to Content Index</a>
+</footer>
+
+</body>
+</html>

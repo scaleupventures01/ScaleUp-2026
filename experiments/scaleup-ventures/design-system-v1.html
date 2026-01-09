@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures - Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables */
+        :root {
+            --color-deep-water: #0A0F1C;
+            --color-surface: #111827;
+            --color-gold: #C9A227;
+            --color-certainty: #2563EB;
+            --color-proof: #10B981;
+            --color-warning: #F59E0B;
+            --color-text: #F8FAFC;
+            --color-text-muted: #94A3B8;
+            --color-border: #1F2937;
+
+            --font-family-headline: 'Inter', sans-serif;
+            --font-family-body: 'Inter', sans-serif;
+            --font-family-data: 'JetBrains Mono', monospace;
+
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 4rem;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: var(--font-family-body);
+            background-color: var(--color-deep-water);
+            color: var(--color-text);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            line-height: 1.6;
+            font-size: 1rem;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            cursor: none; /* Hide default cursor */
+        }
+
+        /* Scrollbar Styling (Chrome, Edge, Safari) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--color-surface);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--color-gold);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #b28f23;
+        }
+
+        /* Scrollbar Styling (Firefox) */
+        /* Firefox uses different properties, so we can't style the same way */
+        /* Consider a polyfill for cross-browser consistency */
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-family-headline);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.2;
+        }
+
+        a {
+            color: var(--color-certainty);
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+
+        a:hover {
+            color: var(--color-gold);
+        }
+
+        button {
+            background-color: var(--color-surface);
+            color: var(--color-text);
+            border: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
+
+        button:hover {
+            background-color: var(--color-gold);
+            color: var(--color-deep-water);
+        }
+
+        section {
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        /* Design System Styles */
+        .design-system-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .color-swatch {
+            padding: var(--spacing-md);
+            border-radius: 4px;
+            text-align: center;
+            color: var(--color-text);
+            font-weight: bold;
+        }
+
+        .typography-example {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .typography-example h1 { font-size: 3rem; }
+        .typography-example h2 { font-size: 2.5rem; }
+        .typography-example h3 { font-size: 2rem; }
+        .typography-example p { font-size: 1rem; }
+        .typography-example .data { font-family: var(--font-family-data); }
+
+        /* Global Elements Styles */
+        #cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        #cursor .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--color-gold);
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            z-index: 1001;
+        }
+
+        #cursor .cursor-ring {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--color-gold);
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            transition: width 0.15s ease-out, height 0.15s ease-out;
+            z-index: 1000;
+        }
+
+        .interactive-element:hover + #cursor .cursor-ring { /* + is for adjacent sibling selector */
+            width: 60px;
+            height: 60px;
+        }
+
+        #geometric-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2; /* Behind content */
+            opacity: 0.2;
+            pointer-events: none; /* Allow clicks to pass through */
+        }
+
+        #geometric-grid svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        #noise-texture {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Behind grid */
+            pointer-events: none;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(17, 24, 39, 0.7); /* Glassmorphism */
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            padding: var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            display: block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 4px;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        nav a:hover {
+            background-color: rgba(201, 162, 39, 0.1); /* Subtle hover effect */
+        }
+
+        #heron-silhouette {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            opacity: 0.5;
+            z-index: 998;
+            transition: transform 0.3s ease-out;
+        }
+
+        #heron-silhouette:hover {
+            transform: scale(1.2) rotate(10deg); /* Subtle animation */
+        }
+
+        /* HOMEPAGE STYLES */
+        #homepage-hero {
+            display: flex;
+            min-height: 60vh;
+        }
+
+        #homepage-hero .hero-left {
+            flex: 1;
+            padding: var(--spacing-xl);
+            opacity: 0.5;
+            filter: blur(5px);
+        }
+
+        #homepage-hero .hero-right {
+            flex: 1;
+            padding: var(--spacing-xl);
+        }
+
+        .animated-counter {
+            font-family: var(--font-family-data);
+            font-size: 2rem;
+            color: var(--color-gold);
+        }
+
+        .certainty-first {
+            font-size: 4rem;
+            font-family: var(--font-family-headline);
+        }
+
+        /* Service Card Styles */
+        .service-card {
+            background-color: var(--color-surface);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+        }
+
+        /* Proof Timeline */
+        .proof-timeline {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: var(--spacing-md); /* Space for scrollbar */
+        }
+
+        .timeline-item {
+            display: inline-block;
+            background-color: var(--color-surface);
+            padding: var(--spacing-md);
+            border-radius: 8px;
+            margin-right: var(--spacing-md);
+            min-width: 300px;
+            vertical-align: top;
+        }
+
+        .testimonial-carousel {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: var(--spacing-md);
+        }
+
+        /* CTA Section Styles */
+        .cta-section {
+            text-align: center;
+        }
+
+        .magnetic-button {
+            position: relative;
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: 8px;
+            background-color: var(--color-certainty);
+            color: var(--color-text);
+            border: none;
+            cursor: pointer;
+            overflow: hidden; /* Hide overflow for the border draw effect */
+            transition: transform 0.2s ease-out;
+        }
+
+        .magnetic-button:hover {
+            transform: scale(1.05);
+        }
+
+        .magnetic-button::before { /* This creates the border draw effect */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--color-gold);
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            pointer-events: none; /* Ensure it doesn't block clicks */
+        }
+
+        .magnetic-button:hover::before {
+            opacity: 1;
+        }
+
+        /* SERVICES PAGE STYLES */
+        .pricing-card {
+            background-color: var(--color-surface);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-card.unlocked {
+            /* Styling for when the card is "unlocked" */
+        }
+
+        .feature-comparison-matrix {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .feature-comparison-matrix th, .feature-comparison-matrix td {
+            padding: var(--spacing-sm);
+            text-align: left;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .feature-comparison-matrix th {
+            font-weight: bold;
+        }
+
+        .roi-calculator {
+            /* Styling for the ROI calculator */
+        }
+
+        .guarantee-badge {
+            background-color: var(--color-proof);
+            color: var(--color-deep-water);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 4px;
+            display: inline-block;
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            100% {
+                box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+            }
+        }
+
+        .process-timeline {
+            position: relative;
+            padding: var(--spacing-md);
+        }
+
+        .timeline-step {
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--color-gold);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-step::after { /* Vertical Line */
+            content: '';
+            position: absolute;
+            left: -16px;
+            top: 20px;
+            bottom: -10px; /* Extend line slightly past last step */
+            width: 2px;
+            background-color: var(--color-border);
+            z-index: 0;
+        }
+
+        .timeline-step:last-child::after {
+            display: none; /* Hide line after the last step */
+        }
+
+        .case-study-snippet {
+            background-color: var(--color-surface);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .case-study-snippet.expanded {
+            /* Styling for expanded state */
+        }
+
+        /* ABOUT PAGE STYLES */
+        .founder-story {
+            /* Styling for the founder story section */
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .value-item {
+            text-align: center;
+        }
+
+        .team-card {
+            background-color: var(--color-surface);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .company-timeline {
+            /* Styling for the company timeline */
+        }
+
+        /* CONTACT PAGE STYLES */
+        .contact-form {
+            /* Styling for the contact form */
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            border: 1px solid var(--color-border);
+            background-color: transparent;
+            color: var(--color-text);
+            border-radius: 4px;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--color-gold);
+        }
+
+        .calendar-widget-placeholder {
+            /* Placeholder for the calendar widget */
+            background-color: var(--color-surface);
+            padding: var(--spacing-md);
+            border-radius: 8px;
+        }
+
+        .trust-indicators {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .trust-badge {
+            /* Styling for the trust badges */
+        }
+
+        .faq-preview {
+            /* Styling for the FAQ preview */
+        }
+
+        /* FAQ PAGE STYLES */
+        .faq-search {
+            /* Styling for the search bar */
+        }
+
+        .faq-categories {
+            /* Styling for the category tabs */
+        }
+
+        .faq-accordion {
+            /* Styling for the accordion items */
+        }
+
+        .faq-accordion-item {
+            background-color: var(--color-surface);
+            margin-bottom: var(--spacing-sm);
+            border-radius: 4px;
+            overflow: hidden; /* Ensure smooth animation */
+        }
+
+        .faq-accordion-header {
+            padding: var(--spacing-md);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-accordion-content {
+            padding: 0 var(--spacing-md) var(--spacing-md);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out; /* Smooth animation */
+        }
+
+        .faq-accordion-item.active .faq-accordion-content {
+            max-height: 500px; /* A large enough value to accommodate most content */
+        }
+
+        .related-questions {
+            /* Styling for the related questions */
+        }
+
+        /* CLIENT LOGOS PAGE STYLES */
+        .logo-grid {
+            /* Styling for the logo grid */
+            display: flex;
+            overflow: hidden;
+        }
+
+        .logo-track {
+            display: flex;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); } /* Adjust as needed */
+        }
+
+        .logo-item {
+            /* Styling for individual logo items */
+            padding: var(--spacing-md);
+            filter: grayscale(100%);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .logo-item:hover {
+            filter: grayscale(0);
+        }
+
+        .industry-filters {
+            /* Styling for the industry filters */
+        }
+
+        /* Interactive Demos Styles */
+        .demo-container {
+            /* Styling for the demo sections */
+            background-color: var(--color-surface);
+            padding: var(--spacing-md);
+            border-radius: 8px;
+            margin-bottom: var(--spacing-lg);
+        }
+        /* Helper Classes */
+        .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        }
+        /* Utilities */
+        .mt-1 { margin-top: var(--spacing-sm);}
+        .mt-2 { margin-top: var(--spacing-md);}
+        .mt-3 { margin-top: var(--spacing-lg);}
+
+        .mb-1 { margin-bottom: var(--spacing-sm);}
+        .mb-2 { margin-bottom: var(--spacing-md);}
+        .mb-3 { margin-bottom: var(--spacing-lg);}
+
+        .text-center { text-align: center;}
+        .text-muted { color: var(--color-text-muted);}
+
+    </style>
+</head>
+<body>
+
+    <!-- Cursor -->
+    <div id="cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring"></div>
+    </div>
+
+    <!-- Geometric Grid Background -->
+    <div id="geometric-grid">
+      <svg width="100%" height="100%">
+        <defs>
+          <pattern id="grid-pattern" width="50" height="50" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="50" x2="50" y2="50" stroke="#1F2937" stroke-width="1" />
+            <line x1="50" y1="0" x2="50" y2="50" stroke="#1F2937" stroke-width="1" />
+            <circle cx="50" cy="50" r="2" fill="#C9A227" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+      </svg>
+    </div>
+
+    <!-- Noise Texture Overlay -->
+    <svg id="noise-texture">
+        <filter id="noiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0, 0 0 0 0 0, 0 0 0 0 0, 0 0 0 0.04 0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+    </svg>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">ScaleUp Ventures</div>
+        <ul>
+            <li><a href="#homepage">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#clients">Clients</a></li>
+        </ul>
+    </nav>
+
+    <!-- Heron Silhouette -->
+    <img id="heron-silhouette" src="data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.5 37.5H37.5V41.6667H12.5V37.5ZM4.16667 12.5H45.8333L41.6667 25L33.3333 8.33333H16.6667L8.33333 25L4.16667 12.5Z' fill='%23C9A227'/%3E%3C/svg%3E" alt="Heron Silhouette">
+
+    <!-- Design System Overview -->
+    <section id="design-system">
+        <div class="container">
+            <h1>Design System</h1>
+            <p>Visual overview of the ScaleUp Ventures design language.</p>
+
+            <h2>Color Palette</h2>
+            <div class="color-palette">
+                <div class="color-swatch" style="background-color: var(--color-deep-water);">Deep Water<br>#0A0F1C</div>
+                <div class="color-swatch" style="background-color: var(--color-surface);">Surface Dark<br>#111827</div>
+                <div class="color-swatch" style="background-color: var(--color-gold);">Precision Gold<br>#C9A227</div>
+                <div class="color-swatch" style="background-color: var(--color-certainty);">Certainty Blue<br>#2563EB</div>
+                <div class="color-swatch" style="background-color: var(--color-proof);">Proof Green<br>#10B981</div>
+                <div class="color-swatch" style="background-color: var(--color-warning);">Warning Amber<br>#F59E0B</div>
+                <div class="color-swatch" style="background-color: var(--color-text);">Text Primary<br>#F8FAFC</div>
+                <div class="color-swatch" style="background-color: var(--color-text-muted);">Text Secondary<br>#94A3B8</div>
+                <div class="color-swatch" style="background-color: var(--color-border);">Border Subtle<br>#1F2937</div>
+            </div>
+
+            <h2>Typography</h2>
+            <div class="typography-example">
+                <h1>Headline (Inter 800)</h1>
+                <h2>Headline (Inter 800)</h2>
+                <h3>Headline (Inter 800)</h3>
+                <p>Body Text (Inter 400-500) - The quick brown fox jumps over the lazy dog.</p>
+                <p class="data">Data/Numbers (JetBrains Mono) - 1234567890</p>
+            </div>
+
+            <h2>Spacing</h2>
+            <p>Demonstration of spacing variables.</p>
+            <div style="margin-bottom: var(--spacing-sm);">Small Spacing</div>
+            <div style="margin-bottom: var(--spacing-md);">Medium Spacing</div>
+            <div style="margin-bottom: var(--spacing-lg);">Large Spacing</div>
+            <div style="margin-bottom: var(--spacing-xl);">Extra Large Spacing</div>
+
+        </div>
+    </section>
+
+    <!-- Global Components -->
+    <section id="global-components">
+      <div class="container">
+        <h2>Global Components</h2>
+        <p>Reusable elements present on all pages.</p>
+
+        <h3>Navigation</h3>
+        <p>See the sticky navigation at the top of the page.</p>
+
+        <h3>Magnetic Button Demo</h3>
+        <p>Hover the button to see the magnetic effect and border draw animation.</p>
+        <button class="magnetic-button interactive-element">Call To Action</button>
+        <p>Magnetic buttons are a core interaction pattern. Every CTA on the site will use this.</p>
+      </div>
+    </section>
+
+    <!-- Homepage Sections -->
+    <section id="homepage">
+      <div class="container">
+        <h2>Homepage</h2>
+        <p>Key sections of the homepage.</p>
+
+        <h3>Hero Section</h3>
+        <div id="homepage-hero">
+          <div class="hero-left">
+            <p>Uncertainty... scattered data, vague promises. Agencies that don't deliver.</p>
+            <p>Disconnected metrics. Wasted ad spend.</p>
+          </div>
+          <div class="hero-right">
+            <h1 class="certainty-first">Certainty First.</h1>
+            <p>Guaranteed leads or your money back. Know before you spend.</p>
+            <button class="magnetic-button interactive-element">Get Guaranteed Leads</button>
+          </div>
+        </div>
+
+        <h3>Animated Counter Stats</h3>
+        <p>Impressive metrics that increase trust.</p>
+        <div class="stats">
+          <p>Leads Generated: <span class="animated-counter" data-target="15000">0</span></p>
+          <p>ROI Delivered: <span class="animated-counter" data-target="5000000">$0</span></p>
+          <p>Clients Served: <span class="animated-counter" data-target="500">0</span></p>
+        </div>
+
+        <h3>Service Cards</h3>
+        <p>Brief overview of our service offerings.</p>
+        <div class="service-card interactive-element">
+          <h3>Lead Generation</h3>
+          <p>Generate high-quality leads for your business.</p>
+        </div>
+        <div class="service-card interactive-element">
+          <h3>Marketing Automation</h3>
+          <p>Automate your marketing efforts to save time and resources.</p>
+        </div>
+        <div class="service-card interactive-element">
+          <h3>Sales Enablement</h3>
+          <p>Equip your sales team with the tools they need to close more deals.</p>
+        </div>
+
+        <h3>Proof Timeline</h3>
+        <p>Interactive timeline showcasing our journey from uncertainty to guaranteed results.</p>
+        <div class="proof-timeline">
+          <div class="timeline-item">
+            <h4>Initial Consultation</h4>
+            <p>We understand your business goals and challenges.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Data Analysis</h4>
+            <p>We analyze your market and identify the best lead generation strategies.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Campaign Launch</h4>
+            <p>We launch your lead generation campaign and start generating leads.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Results Delivered</h4>
+            <p>You receive guaranteed leads and see a positive ROI.</p>
+          </div>
+        </div>
+
+        <h3>Testimonial Carousel</h3>
+        <p>Real testimonials from satisfied clients.</p>
+        <div class="testimonial-carousel">
+          <div class="testimonial-track">
+            <div class="testimonial-slide">
+              <p>Before: "We were struggling to generate leads." After: "ScaleUp Ventures delivered a 3x increase in leads."</p>
+              <p>- Client Name</p>
+            </div>
+            <div class="testimonial-slide">
+              <p>Before: "Our ROI was low." After: "ScaleUp Ventures improved our ROI by 50%."</p>
+              <p>- Client Name</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>CTA Section</h3>
+        <p>Final call to action to encourage visitors to take the next step.</p>
+        <div class="cta-section">
+          <button class="magnetic-button interactive-element">Get a Free Consultation</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Page Sections -->
+    <section id="services">
+      <div class="container">
+        <h2>Services</h2>
+        <p>Detailed overview of our service tiers and offerings.</p>
+
+        <h3>Pricing Cards</h3>
+        <div class="pricing-card interactive-element">
+          <h4>Tier 1: $1.5K</h4>
+          <p>Basic lead generation services.</p>
+        </div>
+        <div class="pricing-card interactive-element">
+          <h4>Tier 2: $5K</h4>
+          <p>Advanced lead generation and marketing automation.</p>
+        </div>
+        <div class="pricing-card interactive-element">
+          <h4>Tier 3: $10K+</h4>
+          <p>Customized lead generation and sales enablement solutions.</p>
+        </div>
+
+        <h3>Feature Comparison Matrix</h3>
+        <table class="feature-comparison-matrix">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Tier 1</th>
+              <th>Tier 2</th>
+              <th>Tier 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lead Generation</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>Marketing Automation</td>
+              <td></td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>Sales Enablement</td>
+              <td></td>
+              <td></td>
+              <td>✓</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>ROI Calculator</h3>
+        <p>Interactive calculator to estimate potential return on investment.</p>
+        <div class="roi-calculator">
+          <p>Coming soon...</p>
+        </div>
+
+        <h3>Guarantee Badge</h3>
+        <p>Prominent display of our guarantee.</p>
+        <div class="guarantee-badge">Guaranteed Leads or Your Money Back</div>
+
+        <h3>Process Timeline</h3>
+        <p>Step-by-step timeline outlining our process.</p>
+        <div class="process-timeline">
+          <div class="timeline-step">
+            <h4>Step 1: Consultation</h4>
+            <p>We understand your needs.</p>
+          </div>
+          <div class="timeline-step">
+            <h4>Step 2: Analysis</h4>
+            <p>We analyze your market.</p>
+          </div>
+          <div class="timeline-step">
+            <h4>Step 3: Campaign</h4>
+            <p>We launch your campaign.</p>
+          </div>
+          <div class="timeline-step">
+            <h4>Step 4: Results</h4>
+            <p>You see results.</p>
+          </div>
+        </div>
+
+        <h3>Case Study Snippets</h3>
+        <p>Short snippets of successful case studies.</p>
+        <div class="case-study-snippet">
+          <h4>Client X</h4>
+          <p>Increased leads by 3x.</p>
+        </div>
+        <div class="case-study-snippet">
+          <h4>Client Y</h4>
+          <

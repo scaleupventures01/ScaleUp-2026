@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Implementation Recommendations | ScaleUp Ventures</title>
+    <meta name="description" content="Comprehensive frontend implementation guide for ScaleUp Ventures website - distinctive, high-converting, avoiding generic AI aesthetics.">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F1729;
+            --navy-light: #1a2744;
+            --navy-lighter: #253050;
+            --gold: #D4A853;
+            --gold-light: #E8C77B;
+            --gold-dark: #B8913E;
+            --cream: #FAF8F5;
+            --white: #FFFFFF;
+            --gray-100: #F7F7F7;
+            --gray-200: #E5E5E5;
+            --gray-400: #9CA3AF;
+            --gray-600: #6B7280;
+            --gray-700: #404040;
+            --success: #059669;
+            --error: #DC2626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* Navigation */
+        .doc-nav {
+            background: var(--navy);
+            padding: 16px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .doc-nav a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .doc-nav span {
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        /* Hero */
+        .doc-hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .doc-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .doc-hero h1 span {
+            color: var(--gold);
+        }
+
+        .doc-hero p {
+            font-size: 20px;
+            color: var(--gray-400);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.15);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 20px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        /* Main Content */
+        .doc-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        /* Section Styling */
+        .doc-section {
+            margin-bottom: 80px;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .section-number {
+            display: inline-block;
+            background: var(--navy);
+            color: var(--gold);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            font-family: 'Crimson Pro', serif;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 48px;
+            text-align: center;
+            margin-right: 16px;
+            vertical-align: middle;
+        }
+
+        .section-header h2 {
+            display: inline-block;
+            font-size: 36px;
+            color: var(--navy);
+            vertical-align: middle;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 32px;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 4px 20px rgba(15, 23, 41, 0.08);
+        }
+
+        .card h3 {
+            font-size: 22px;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .card h4 {
+            font-size: 18px;
+            color: var(--navy);
+            margin-bottom: 12px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Code Blocks */
+        .code-block {
+            background: var(--navy);
+            border-radius: 8px;
+            padding: 24px;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+
+        .code-block code {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+            color: var(--gray-200);
+            line-height: 1.6;
+            white-space: pre;
+        }
+
+        .code-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* Color Swatches */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .color-swatch {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+
+        .color-preview {
+            height: 80px;
+        }
+
+        .color-info {
+            padding: 16px;
+            background: var(--white);
+        }
+
+        .color-info h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .color-info code {
+            font-size: 12px;
+            color: var(--gray-600);
+        }
+
+        /* Tables */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+        }
+
+        .spec-table th,
+        .spec-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .spec-table th {
+            background: var(--navy);
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .spec-table td {
+            background: var(--white);
+            font-size: 15px;
+        }
+
+        .spec-table tr:hover td {
+            background: var(--gray-100);
+        }
+
+        /* Lists */
+        .feature-list {
+            list-style: none;
+            margin: 24px 0;
+        }
+
+        .feature-list li {
+            padding: 12px 0 12px 32px;
+            position: relative;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .feature-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 18px;
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Do/Don't Boxes */
+        .do-dont-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        @media (max-width: 768px) {
+            .do-dont-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .do-box, .dont-box {
+            padding: 24px;
+            border-radius: 8px;
+        }
+
+        .do-box {
+            background: rgba(5, 150, 105, 0.08);
+            border: 2px solid rgba(5, 150, 105, 0.3);
+        }
+
+        .dont-box {
+            background: rgba(220, 38, 38, 0.08);
+            border: 2px solid rgba(220, 38, 38, 0.3);
+        }
+
+        .do-box h4 {
+            color: var(--success);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .dont-box h4 {
+            color: var(--error);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .do-box ul, .dont-box ul {
+            list-style: none;
+        }
+
+        .do-box li, .dont-box li {
+            padding: 8px 0;
+            font-size: 15px;
+            color: var(--gray-700);
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            margin: 32px 0;
+            border-left: 4px solid var(--gold);
+        }
+
+        .highlight-box h4 {
+            color: var(--gold);
+            margin-bottom: 16px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .highlight-box p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 0;
+        }
+
+        /* Typography Samples */
+        .type-sample {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 8px;
+            margin: 16px 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .type-sample-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .type-sample-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-600);
+            font-weight: 600;
+        }
+
+        .type-sample-specs {
+            font-size: 12px;
+            color: var(--gray-400);
+        }
+
+        /* Component Preview */
+        .component-preview {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 40px;
+            margin: 24px 0;
+            border: 1px solid var(--gray-200);
+        }
+
+        .preview-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-600);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Animation Examples */
+        .animation-demo {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin: 24px 0;
+        }
+
+        .animation-card {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 200px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .animation-card h5 {
+            font-size: 14px;
+            color: var(--navy);
+            margin-top: 16px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .animation-card code {
+            font-size: 11px;
+            color: var(--gray-600);
+        }
+
+        /* Button Samples */
+        .btn-primary-sample {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary-sample:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary-sample {
+            display: inline-block;
+            background: transparent;
+            color: var(--navy);
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border: 2px solid var(--navy);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-secondary-sample:hover {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .btn-tertiary-sample {
+            display: inline-block;
+            background: transparent;
+            color: var(--gold-dark);
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-tertiary-sample:hover {
+            color: var(--navy);
+        }
+
+        /* Footer */
+        .doc-footer {
+            background: var(--navy);
+            padding: 48px 40px;
+            text-align: center;
+        }
+
+        .doc-footer a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .doc-footer p {
+            color: var(--white);
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .doc-hero {
+                padding: 60px 24px;
+            }
+
+            .doc-hero h1 {
+                font-size: 32px;
+            }
+
+            .doc-content {
+                padding: 40px 24px;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="doc-nav">
+        <a href="master-index.html">Back to Content Index</a>
+        <span>ScaleUp Ventures | Frontend Implementation Guide</span>
+    </nav>
+
+    <!-- Hero -->
+    <header class="doc-hero">
+        <div class="doc-badge">Implementation Recommendations</div>
+        <h1>Frontend Implementation Guide for <span>ScaleUp Ventures</span></h1>
+        <p>Comprehensive recommendations for building distinctive, high-converting website pages that embody "Certainty First" and avoid generic AI aesthetics.</p>
+    </header>
+
+    <main class="doc-content">
+
+        <!-- Section 1: Color System -->
+        <section class="doc-section" id="color-system">
+            <div class="section-header">
+                <span class="section-number">1</span>
+                <h2>Color System Recommendations</h2>
+            </div>
+
+            <p>The ScaleUp Ventures color palette communicates trust, sophistication, and measured confidence. Navy conveys authority and reliability; gold signals premium value and earned success. Cream provides warmth that softens the professional tones.</p>
+
+            <h3>Primary Palette</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #0F1729;"></div>
+                    <div class="color-info">
+                        <h4>Navy (Primary)</h4>
+                        <code>#0F1729</code>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #1a2744;"></div>
+                    <div class="color-info">
+                        <h4>Navy Light</h4>
+                        <code>#1a2744</code>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #D4A853;"></div>
+                    <div class="color-info">
+                        <h4>Gold (Accent)</h4>
+                        <code>#D4A853</code>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #E8C77B;"></div>
+                    <div class="color-info">
+                        <h4>Gold Light</h4>
+                        <code>#E8C77B</code>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #FAF8F5;"></div>
+                    <div class="color-info">
+                        <h4>Cream (Background)</h4>
+                        <code>#FAF8F5</code>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #FFFFFF;"></div>
+                    <div class="color-info">
+                        <h4>White (Cards)</h4>
+                        <code>#FFFFFF</code>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Semantic Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #6B7280;"></div>
+                    <div class="color-info">
+                        <h4>Text Secondary</h4>
+                        <code>#6B7280</code>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #9CA3AF;"></div>
+                    <div class="color-info">
+                        <h4>Text Muted</h4>
+                        <code>#9CA3AF</code>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #059669;"></div>
+                    <div class="color-info">
+                        <h4>Success/Positive</h4>
+                        <code>#059669</code>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #DC2626;"></div>
+                    <div class="color-info">
+                        <h4>Error/Warning</h4>
+                        <code>#DC2626</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Color Usage Philosophy</h4>
+                <p>Use navy as the dominant authority color. Gold appears sparingly as the accent of earned value - never for decoration, always for emphasis. The cream background provides breathing room and distinguishes ScaleUp from stark white tech-startup aesthetics. Avoid purple/blue AI gradients that signal generic technology positioning.</p>
+            </div>
+
+            <div class="code-block">
+                <span class="code-label">CSS Variables Implementation</span>
+                <code>:root {
+  /* Primary Palette */
+  --navy: #0F1729;
+  --navy-light: #1a2744;
+  --navy-lighter: #253050;
+  --gold: #D4A853;
+  --gold-light: #E8C77B;
+  --gold-dark: #B8913E;
+  --gold-muted: rgba(212, 168, 83, 0.15);
+  --cream: #FAF8F5;
+  --white: #FFFFFF;
+
+  /* Text Colors */
+  --text-primary: #0F1729;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+  --text-on-dark: #FFFFFF;
+  --text-on-dark-muted: rgba(255, 255, 255, 0.7);
+
+  /* Semantic Colors */
+  --success: #059669;
+  --error: #DC2626;
+  --warning: #D97706;
+}</code>
+            </div>
+        </section>
+
+        <!-- Section 2: Typography Hierarchy -->
+        <section class="doc-section" id="typography">
+            <div class="section-header">
+                <span class="section-number">2</span>
+                <h2>Typography Hierarchy</h2>
+            </div>
+
+            <p>Typography establishes "The Patient Observer" voice visually. Crimson Pro (serif) conveys authority and timelessness for headlines. DM Sans provides modern clarity for body text. This pairing avoids the Inter/Roboto defaults that signal generic AI output.</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Headline Font: Crimson Pro</h4>
+                    <p>Weights: 400, 500, 600, 700</p>
+                    <p>Use for: H1-H4, display text, blockquotes, key statistics</p>
+                    <p>Character: Authoritative yet warm, distinguishes from tech-startup sans-serif defaults</p>
+                </div>
+                <div class="card">
+                    <h4>Body Font: DM Sans</h4>
+                    <p>Weights: 400, 500, 600, 700</p>
+                    <p>Use for: Body text, buttons, navigation, labels, forms</p>
+                    <p>Character: Modern, highly legible, professional without being cold</p>
+                </div>
+            </div>
+
+            <h3>Type Scale</h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Font Family</th>
+                        <th>Size</th>
+                        <th>Weight</th>
+                        <th>Line Height</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hero H1</td>
+                        <td>Crimson Pro</td>
+                        <td>56px / clamp(36px, 5vw, 56px)</td>
+                        <td>600</td>
+                        <td>1.15</td>
+                    </tr>
+                    <tr>
+                        <td>Section H2</td>
+                        <td>Crimson Pro</td>
+                        <td>44px / clamp(32px, 4vw, 44px)</td>
+                        <td>600</td>
+                        <td>1.2</td>
+                    </tr>
+                    <tr>
+                        <td>Card H3</td>
+                        <td>Crimson Pro</td>
+                        <td>26px</td>
+                        <td>600</td>
+                        <td>1.3</td>
+                    </tr>
+                    <tr>
+                        <td>Subhead H4</td>
+                        <td>DM Sans</td>
+                        <td>20px</td>
+                        <td>600</td>
+                        <td>1.4</td>
+                    </tr>
+                    <tr>
+                        <td>Hero Subline</td>
+                        <td>DM Sans</td>
+                        <td>22px</td>
+                        <td>400</td>
+                        <td>1.7</td>
+                    </tr>
+                    <tr>
+                        <td>Body Large</td>
+                        <td>DM Sans</td>
+                        <td>18px</td>
+                        <td>400</td>
+                        <td>1.8</td>
+                    </tr>
+                    <tr>
+                        <td>Body Standard</td>
+                        <td>DM Sans</td>
+                        <td>16-17px</td>
+                        <td>400</td>
+                        <td>1.7</td>
+                    </tr>
+                    <tr>
+                        <td>Button</td>
+                        <td>DM Sans</td>
+                        <td>16px</td>
+                        <td>600</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Nav Link</td>
+                        <td>DM Sans</td>
+                        <td>14-15px</td>
+                        <td>500</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Eyebrow/Label</td>
+                        <td>DM Sans</td>
+                        <td>12-13px</td>
+                        <td>600</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="type-sample">
+                <div class="type-sample-header">
+                    <span class="type-sample-label">Hero Headline Sample</span>
+                    <span class="type-sample-specs">Crimson Pro 56px/600</span>
+                </div>
+                <h1 style="font-family: 'Crimson Pro', serif; font-size: 48px; font-weight: 600; line-height: 1.15; color: #0F1729;">We Show You the Numbers <span style="color: #D4A853;">Before</span> You Spend a Dime.</h1>
+            </div>
+
+            <div class="type-sample">
+                <div class="type-sample-header">
+                    <span class="type-sample-label">Section Headline Sample</span>
+                    <span class="type-sample-specs">Crimson Pro 44px/600</span>
+                </div>
+                <h2 style="font-family: 'Crimson Pro', serif; font-size: 36px; font-weight: 600; line-height: 1.2; color: #0F1729;">You Have Every Right to Be Skeptical.</h2>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Typography Distinctiveness</h4>
+                <p>The Crimson Pro serif creates immediate visual differentiation from typical SaaS and agency sites that default to geometric sans-serifs. It signals "established wisdom" rather than "disruptive startup." Combined with DM Sans for readability, this pairing conveys "trusted advisor who also understands modern business."</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Component Architecture -->
+        <section class="doc-section" id="components">
+            <div class="section-header">
+                <span class="section-number">3</span>
+                <h2>Component Architecture Suggestions</h2>
+            </div>
+
+            <p>Build a modular component library that enforces brand consistency while enabling rapid page assembly. The architecture should separate concerns: layout containers, content blocks, interactive elements, and data display.</p>
+
+            <h3>Recommended Component Structure</h3>
+            <div class="code-block">
+                <span class="code-label">Next.js App Router Structure</span>
+                <code>app/
+├── (marketing)/
+│   ├── page.tsx                    # Homepage
+│   ├── about/page.tsx              # About
+│   ├── services/
+│   │   ├── page.tsx                # Services overview
+│   │   ├── web-development/page.tsx
+│   │   ├── growth-marketing/page.tsx
+│   │   └── ai-automation/page.tsx
+│   ├── contact/page.tsx            # Contact
+│   └── faq/page.tsx                # FAQ
+├── components/
+│   ├── layout/
+│   │   ├── Navigation.tsx
+│   │   ├── Footer.tsx
+│   │   ├── PageHeader.tsx
+│   │   └── Section.tsx
+│   ├── blocks/
+│   │   ├── Hero.tsx
+│   │   ├── ProblemStatement.tsx
+│   │   ├── SolutionCards.tsx
+│   │   ├── ProcessSteps.tsx
+│   │   ├── ServiceCard.tsx
+│   │   ├── CTASection.tsx
+│   │   ├── FAQAccordion.tsx
+│   │   └── TrustSignals.tsx
+│   ├── ui/
+│   │   ├── Button.tsx
+│   │   ├── Card.tsx
+│   │   ├── Badge.tsx
+│   │   ├── Input.tsx
+│   │   ├── Select.tsx
+│   │   └── Textarea.tsx
+│   └── patterns/
+│       ├── PricingBox.tsx
+│       ├── GuaranteeBanner.tsx
+│       ├── StatCard.tsx
+│       └── ClientLogos.tsx
+└── lib/
+    ├── constants.ts
+    └── utils.ts</code>
+            </div>
+
+            <h3>Core Component Patterns</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Section Container</h4>
+                    <p>Wraps all page sections with consistent padding, max-width, and background handling. Supports variants: default (cream), white, navy, gradient.</p>
+                    <div class="code-block">
+                        <code>interface SectionProps {
+  variant: 'default' | 'white' | 'navy' | 'gradient';
+  padding: 'sm' | 'md' | 'lg';
+  children: React.ReactNode;
+}</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>Service Card</h4>
+                    <p>Displays individual services with icon, title, tagline, description, and CTA. Consistent hover behavior across all instances.</p>
+                    <div class="code-block">
+                        <code>interface ServiceCardProps {
+  icon: React.ReactNode;
+  title: string;
+  tagline: string;
+  description: string;
+  href: string;
+  price?: string;
+}</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>Process Steps</h4>
+                    <p>Displays numbered workflow with connecting line visual. Steps have number, title, and description. Supports 3-5 steps.</p>
+                    <div class="code-block">
+                        <code>interface ProcessStep {
+  number: number;
+  title: string;
+  description: string;
+}
+
+interface ProcessStepsProps {
+  steps: ProcessStep[];
+  variant: 'horizontal' | 'vertical';
+}</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>CTA Block</h4>
+                    <p>Standardized call-to-action with headline, subtext, primary button, and optional secondary action. Enforces CTA hierarchy.</p>
+                    <div class="code-block">
+                        <code>interface CTABlockProps {
+  headline: string;
+  subtext: string;
+  primaryCTA: {
+    label: string;
+    href: string;
+  };
+  secondaryCTA?: {
+    label: string;
+    href: string;
+  };
+  trustSignals?: string[];
+}</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Component Philosophy</h4>
+                <p>Each component should enforce brand constraints automatically. Buttons only accept approved variants. Colors come from CSS variables, never hardcoded. Typography uses semantic tokens (heading-1, body-large) rather than raw sizes. This prevents "drift" as the site grows.</p>
+            </div>
+        </section>
+
+        <!-- Section 4: Hero Section Concepts -->
+        <section class="doc-section" id="hero">
+            <div class="section-header">
+                <span class="section-number">4</span>
+                <h2>Hero Section Concepts</h2>
+            </div>
+
+            <p>The hero establishes immediate differentiation. Avoid generic "Welcome to [Company]" or abstract imagery. Lead with the core value proposition and a concrete, low-commitment CTA.</p>
+
+            <h3>Homepage Hero Structure</h3>
+            <div class="component-preview">
+                <span class="preview-label">Hero Layout Pattern</span>
+                <div style="background: linear-gradient(135deg, #0F1729 0%, #1a2744 100%); padding: 80px 40px; color: white; border-radius: 8px;">
+                    <div style="max-width: 800px;">
+                        <div style="display: inline-block; background: rgba(212, 168, 83, 0.15); border: 1px solid #D4A853; color: #D4A853; padding: 8px 20px; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;">Certainty First.</div>
+                        <h1 style="font-family: 'Crimson Pro', serif; font-size: 42px; font-weight: 600; line-height: 1.15; margin-bottom: 20px;">We Show You the Numbers <span style="color: #D4A853;">Before</span> You Spend a Dime.</h1>
+                        <p style="font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 32px; line-height: 1.7;">Tired of consultants who promise the world and deliver excuses? We prove it before you buy - and if we can't, we'll tell you.</p>
+                        <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+                            <a href="#" class="btn-primary-sample">See the Math</a>
+                            <a href="#" class="btn-tertiary-sample" style="color: white;">How It Works &rarr;</a>
+                        </div>
+                        <div style="display: flex; gap: 32px; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap;">
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.7);">&#10003; No upfront fees</span>
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.7);">&#10003; ROI projection in 48 hours</span>
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.7);">&#10003; No obligation to proceed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Hero Variations by Page</h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Page</th>
+                        <th>Headline Pattern</th>
+                        <th>Primary CTA</th>
+                        <th>Trust Signal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Homepage</td>
+                        <td>Lead with outcome: "We Show You the Numbers Before You Spend"</td>
+                        <td>"See the Math" (lowest commitment)</td>
+                        <td>No upfront fees, 48-hour delivery, no obligation</td>
+                    </tr>
+                    <tr>
+                        <td>Services</td>
+                        <td>Value proposition: "Three Ways to Grow With Certainty"</td>
+                        <td>"Get Your Assessment"</td>
+                        <td>Two-Track ROI model badge</td>
+                    </tr>
+                    <tr>
+                        <td>About</td>
+                        <td>Positioning: "Sometimes the Right Answer Is 'Do Not Build'"</td>
+                        <td>"Schedule a Conversation"</td>
+                        <td>$4M venture-backed exit credential</td>
+                    </tr>
+                    <tr>
+                        <td>Contact</td>
+                        <td>Direct invitation: "Let's Connect"</td>
+                        <td>Form submission</td>
+                        <td>"We respond personally within 24 hours"</td>
+                    </tr>
+                    <tr>
+                        <td>FAQ</td>
+                        <td>Empathy: "Straight Answers to Real Questions"</td>
+                        <td>"Still Have Questions? Talk to Us"</td>
+                        <td>Quick navigation to categories</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="do-dont-grid">
+                <div class="do-box">
+                    <h4>Do</h4>
+                    <ul>
+                        <li>Lead with the client's desired outcome, not your service</li>
+                        <li>Use specific numbers: "$150K saved" not "significant savings"</li>
+                        <li>Include trust signals directly below CTA</li>
+                        <li>Keep hero height to 90vh max on desktop</li>
+                        <li>Ensure CTA is visible without scrolling on mobile</li>
+                    </ul>
+                </div>
+                <div class="dont-box">
+                    <h4>Don't</h4>
+                    <ul>
+                        <li>Use stock photos of handshakes or laptops</li>
+                        <li>Default to "Learn More" or "Get Started" CTAs</li>
+                        <li>Include auto-playing video backgrounds</li>
+                        <li>Use animated text carousels for headlines</li>
+                        <li>Place more than one primary CTA in the hero</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Service Card Designs -->
+        <section class="doc-section" id="service-cards">
+            <div class="section-header">
+                <span class="section-number">5</span>
+                <h2>Service Card Designs</h2>
+            </div>
+
+            <p>Service cards must immediately communicate value and establish credibility. Avoid generic iconography. Each card should answer: What is it? Why does it matter? How much does it cost? What's the next step?</p>
+
+            <h3>Service Card Anatomy</h3>
+            <div class="component-preview">
+                <span class="preview-label">Service Card Pattern</span>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                    <div style="background: white; padding: 40px; border-radius: 4px; border: 1px solid rgba(15, 23, 41, 0.06); transition: all 0.2s;">
+                        <div style="width: 48px; height: 48px; background: rgba(212, 168, 83, 0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                            <span style="font-size: 24px; color: #D4A853;">&#9671;</span>
+                        </div>
+                        <h3 style="font-family: 'Crimson Pro', serif; font-size: 26px; font-weight: 600; margin-bottom: 8px; color: #0F1729;">Web Application Development</h3>
+                        <p style="color: #B8913E; font-size: 14px; font-weight: 600; margin-bottom: 16px;">Starting at $10,000</p>
+                        <p style="font-size: 16px; color: #6B7280; line-height: 1.75; margin-bottom: 24px;">Full-stack development with ROI modeling before you invest. Three-scenario projections (high/mid/low) showing return in cash or company value.</p>
+                        <a href="#" style="color: #D4A853; font-weight: 600; text-decoration: none;">See Sample ROI Model &rarr;</a>
+                    </div>
+                    <div style="background: white; padding: 40px; border-radius: 4px; border: 1px solid rgba(15, 23, 41, 0.06); transition: all 0.2s;">
+                        <div style="width: 48px; height: 48px; background: rgba(212, 168, 83, 0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                            <span style="font-size: 24px; color: #D4A853;">&#9650;</span>
+                        </div>
+                        <h3 style="font-family: 'Crimson Pro', serif; font-size: 26px; font-weight: 600; margin-bottom: 8px; color: #0F1729;">Growth Marketing</h3>
+                        <p style="color: #B8913E; font-size: 14px; font-weight: 600; margin-bottom: 16px;">Starting at $1,500/month</p>
+                        <p style="font-size: 16px; color: #6B7280; line-height: 1.75; margin-bottom: 24px;">Guaranteed lead numbers with fee refunded if missed. We quantify projected ad spend AND leads BEFORE starting to ensure results meet your needs.</p>
+                        <a href="#" style="color: #D4A853; font-weight: 600; text-decoration: none;">Get Your Marketing Audit &rarr;</a>
+                    </div>
+                    <div style="background: white; padding: 40px; border-radius: 4px; border: 1px solid rgba(15, 23, 41, 0.06); transition: all 0.2s;">
+                        <div style="width: 48px; height: 48px; background: rgba(212, 168, 83, 0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                            <span style="font-size: 24px; color: #D4A853;">&#9672;</span>
+                        </div>
+                        <h3 style="font-family: 'Crimson Pro', serif; font-size: 26px; font-weight: 600; margin-bottom: 8px; color: #0F1729;">AI Agent Development</h3>
+                        <p style="color: #B8913E; font-size: 14px; font-weight: 600; margin-bottom: 16px;">Starting at $5,000</p>
+                        <p style="font-size: 16px; color: #6B7280; line-height: 1.75; margin-bottom: 24px;">AI automation agents that save 20-25+ hours monthly. Three-scenario ROI projections before you commit. If we can't show positive outcome, we tell you.</p>
+                        <a href="#" style="color: #D4A853; font-weight: 600; text-decoration: none;">See Process Assessment &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Service Card Specifications</h3>
+            <ul class="feature-list">
+                <li><strong>Icon Container:</strong> 48x48px with gold-muted background (rgba(212, 168, 83, 0.12)), no border-radius for sharp modern feel</li>
+                <li><strong>Headline:</strong> Crimson Pro 26px/600, navy color, 8px margin-bottom</li>
+                <li><strong>Price Badge:</strong> DM Sans 14px/600, gold-dark color, positioned between headline and description</li>
+                <li><strong>Description:</strong> DM Sans 16px/400, gray-600, line-height 1.75, max 3 sentences</li>
+                <li><strong>CTA Link:</strong> DM Sans 16px/600, gold color, with right arrow, hover state underlines</li>
+                <li><strong>Hover State:</strong> translateY(-4px), box-shadow 0 12px 40px rgba(15, 23, 41, 0.08)</li>
+                <li><strong>Card Padding:</strong> 40px on all sides, 4px border-radius, 1px border in gray-100</li>
+            </ul>
+        </section>
+
+        <!-- Section 6: Social Proof Display -->
+        <section class="doc-section" id="social-proof">
+            <div class="section-header">
+                <span class="section-number">6</span>
+                <h2>Social Proof Display Patterns</h2>
+            </div>
+
+            <p>ScaleUp Ventures is early-stage with confidential client work. Social proof strategy must be honest about this while still building trust through concrete outcomes and the No-Build Decision story.</p>
+
+            <h3>Social Proof Hierarchy</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Tier 1: Outcome Stories</h4>
+                    <p>Lead with specific, anonymized results:</p>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                        <li>"$150K+ saved by recommending NOT to build"</li>
+                        <li>"20-25 hours/month saved with AI agents"</li>
+                        <li>"$25-$33 lead costs validated market fit"</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Tier 2: Methodology Proof</h4>
+                    <p>Demonstrate the Two-Track ROI model as proof of approach:</p>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                        <li>Sample ROI model screenshots</li>
+                        <li>Guarantee language (fee refunded if missed)</li>
+                        <li>The No-Build Decision as featured case</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Tier 3: Credential Signals</h4>
+                    <p>Background credibility without false client claims:</p>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                        <li>"Exit from $4M venture-backed startup"</li>
+                        <li>"Backed by Google, Northwestern Mutual"</li>
+                        <li>"Work directly with principals"</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Tier 4: Confidentiality Positioning</h4>
+                    <p>Turn limitation into trust signal:</p>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                        <li>"Client work is confidential - your business deserves the same protection"</li>
+                        <li>"Happy to discuss details in private conversation"</li>
+                        <li>100% Confidential Work as a badge</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Trust Signal Placement</h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>Signal Type</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hero (below CTA)</td>
+                        <td>Inline trust points: "No upfront fees" + "48-hour delivery" + "No obligation"</td>
+                        <td>Reduce friction at moment of action consideration</td>
+                    </tr>
+                    <tr>
+                        <td>After Problem Section</td>
+                        <td>The No-Build Decision featured story</td>
+                        <td>Prove "Certainty First" isn't marketing speak</td>
+                    </tr>
+                    <tr>
+                        <td>Service Cards</td>
+                        <td>Guarantee badge (e.g., "Fee refunded if targets missed")</td>
+                        <td>Reduce perceived risk at service evaluation</td>
+                    </tr>
+                    <tr>
+                        <td>Before Final CTA</td>
+                        <td>Stats bar: "$150K+ saved | 2 Full Product Launches | 100% Confidential"</td>
+                        <td>Final credibility reinforcement before conversion</td>
+                    </tr>
+                    <tr>
+                        <td>Footer</td>
+                        <td>Tagline: "Certainty First." + credentials</td>
+                        <td>Consistent brand reinforcement</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>Honesty as Differentiation</h4>
+                <p>Rather than hiding early-stage status, position it as a feature: "You work directly with principals, not junior associates." "We're selective because we're committed to real results." "We'd rather tell you not to build than take money for work that won't help you." This honesty IS the trust signal for the burned-SMB target audience.</p>
+            </div>
+        </section>
+
+        <!-- Section 7: Animation & Micro-interactions -->
+        <section class="doc-section" id="animations">
+            <div class="section-header">
+                <span class="section-number">7</span>
+                <h2>Animation & Micro-interaction Ideas</h2>
+            </div>
+
+            <p>Animations should reinforce "The Patient Observer" voice: measured, purposeful, never frantic. Avoid the fade-in-up-on-scroll pattern that signals generic template sites. Use animation for function, not decoration.</p>
+
+            <h3>Animation Philosophy</h3>
+            <div class="do-dont-grid">
+                <div class="do-box">
+                    <h4>Purposeful Animation</h4>
+                    <ul>
+                        <li>Hover states that provide feedback</li>
+                        <li>Page transitions that maintain context</li>
+                        <li>Loading states that indicate progress</li>
+                        <li>Form validation feedback</li>
+                        <li>Accordion/accordion smooth expansion</li>
+                    </ul>
+                </div>
+                <div class="dont-box">
+                    <h4>Avoid</h4>
+                    <ul>
+                        <li>Every element fading up on scroll</li>
+                        <li>Parallax hero backgrounds</li>
+                        <li>Animated counters for statistics</li>
+                        <li>Bouncing CTAs or pulsing badges</li>
+                        <li>Animated gradients or moving backgrounds</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Recommended Interactions</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Card Hover</h4>
+                    <p>Subtle lift with enhanced shadow:</p>
+                    <div class="code-block">
+                        <code>transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+&:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(15, 23, 41, 0.08);
+}</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>Button Hover</h4>
+                    <p>Color shift with minimal lift:</p>
+                    <div class="code-block">
+                        <code>transition: all 0.2s ease;
+
+&:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>Link Hover</h4>
+                    <p>Underline reveal from left:</p>
+                    <div class="code-block">
+                        <code>position: relative;
+
+&::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.2s ease;
+}
+
+&:hover::after {
+  width: 100%;
+}</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>FAQ Accordion</h4>
+                    <p>Smooth height expansion:</p>
+                    <div class="code-block">
+                        <code>.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 1000px;
+}</code>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Page-Level Transitions</h3>
+            <ul class="feature-list">
+                <li><strong>Initial Page Load:</strong> Hero content fades in at 0.3s with slight upward movement (the ONE place this is acceptable). Stagger child elements 50ms apart.</li>
+                <li><strong>Section Entry:</strong> Consider using opacity changes only, no movement. Trigger at 20% visibility, not edge of viewport.</li>
+                <li><strong>Navigation:</strong> Next.js loading indicator in gold color for page transitions. No full-page fade effects.</li>
+                <li><strong>Form States:</strong> Input focus ring animates in. Success state slides in confirmation. Error state shakes input gently (1 cycle only).</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>The Heron Principle</h4>
+                <p>Like the heron that stands motionless before striking, your interface should be still and confident. Movement happens when there's a purpose: user interaction feedback, state changes, drawing attention to important updates. Motion for motion's sake suggests nervousness and undermines the "measured, decisive" brand voice.</p>
+            </div>
+        </section>
+
+        <!-- Section 8: Form Design -->
+        <section class="doc-section" id="forms">
+            <div class="section-header">
+                <span class="section-number">8</span>
+                <h2>Form Design Recommendations</h2>
+            </div>
+
+            <p>Forms are critical conversion points for ScaleUp Ventures. The contact form must feel trustworthy, respect the visitor's time, and reduce perceived commitment. Design should communicate "we value your information" rather than "we just need to capture your data."</p>
+
+            <h3>Contact Form Structure</h3>
+            <div class="component-preview">
+                <span class="preview-label">Contact Form Pattern</span>
+                <div style="background: #1a2744; padding: 48px; border-radius: 12px; max-width: 600px;">
+                    <h3 style="font-family: 'Crimson Pro', serif; font-size: 24px; color: white; margin-bottom: 8px;">Start a Conversation</h3>
+                    <p style="color: #9CA3AF; margin-bottom: 32px; font-size: 15px;">Tell us about your business. We'll respond personally within 24 hours.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                        <div>
+                            <label style="display: block; font-size: 14px; color: #E5E5E5; margin-bottom: 8px;">Full Name <span style="color: #D4A853;">*</span></label>
+                            <input type="text" placeholder="John Smith" style="width: 100%; background: #0F1729; border: 1px solid #253050; border-radius: 8px; padding: 14px 16px; color: white; font-size: 16px;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 14px; color: #E5E5E5; margin-bottom: 8px;">Company Name <span style="color: #D4A853;">*</span></label>
+                            <input type="text" placeholder="Acme Corp" style="width: 100%; background: #0F1729; border: 1px solid #253050; border-radius: 8px; padding: 14px 16px; color: white; font-size: 16px;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 14px; color: #E5E5E5; margin-bottom: 8px;">Work Email <span style="color: #D4A853;">*</span></label>
+                            <input type="email" placeholder="john@acmecorp.com" style="width: 100%; background: #0F1729; border: 1px solid #253050; border-radius: 8px; padding: 14px 16px; color: white; font-size: 16px;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 14px; color: #E5E5E5; margin-bottom: 8px;">Phone Number</label>
+                            <input type="tel" placeholder="(555) 123-4567" style="width: 100%; background: #0F1729; border: 1px solid #253050; border-radius: 8px; padding: 14px 16px; color: white; font-size: 16px;">
+                        </div>
+                        <div style="grid-column: 1 / -1;">
+                            <label style="display: block; font-size: 14px; color: #E5E5E5; margin-bottom: 8px;">What's your biggest challenge? <span style="color: #D4A853;">*</span></label>
+                            <textarea placeholder="Tell us about your situation..." style="width: 100%; background: #0F1729; border: 1px solid #253050; border-radius: 8px; padding: 14px 16px; color: white; font-size: 16px; min-height: 120px; resize: vertical;"></textarea>
+                        </div>
+                        <div style="grid-column: 1 / -1;">
+                            <button style="width: 100%; background: #D4A853; color: #0F1729; border: none; padding: 18px 32px; font-size: 16px; font-weight: 600; border-radius: 8px; cursor: pointer;">Send Message &rarr;</button>
+                        </div>
+                        <div style="grid-column: 1 / -1; display: flex; align-items: center; gap: 8px;">
+                            <span style="color: #D4A853;">&#128274;</span>
+                            <span style="color: #6B7280; font-size: 14px;">Your information is confidential and will never be shared.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Form Input Specifications</h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Background</td>
+                        <td>#0F1729 (navy)</td>
+                    </tr>
+                    <tr>
+                        <td>Border</td>
+                        <td>1px solid #253050 (navy-lighter)</td>
+                    </tr>
+                    <tr>
+                        <td>Border Radius</td>
+                        <td>8px</td>
+                    </tr>
+                    <tr>
+                        <td>Padding</td>
+                        <td>14px 16px</td>
+                    </tr>
+                    <tr>
+                        <td>Font Size</td>
+                        <td>16px (prevents iOS zoom)</td>
+                    </tr>
+                    <tr>
+                        <td>Focus State</td>
+                        <td>border-color: #D4A853; box-shadow: 0 0 0 3px rgba(212, 168, 83, 0.1)</td>
+                    </tr>
+                    <tr>
+                        <td>Error State</td>
+                        <td>border-color: #DC2626; + error message below</td>
+                    </tr>
+                    <tr>
+                        <td>Placeholder Color</td>
+                        <td>#6B7280 (gray-600)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Form Best Practices</h3>
+            <ul class="feature-list">
+                <li><strong>Minimum Fields:</strong> Only require what's essential. Name, email, and challenge description. Phone is optional.</li>
+                <li><strong>Smart Defaults:</strong> Pre-select most common interest option if using dropdown. Avoid "Select an option" as default.</li>
+                <li><strong>Inline Validation:</strong> Validate on blur, not on each keystroke. Show success state with checkmark for valid fields.</li>
+                <li><strong>Submit Button:</strong> Full-width on mobile, text describes action ("Send Message" not "Submit")</li>
+                <li><strong>Privacy Assurance:</strong> Place confidentiality statement immediately below submit button</li>
+                <li><strong>Success State:</strong> Replace form with confirmation message, include next step expectation ("We'll respond within 24 hours")</li>
+            </ul>
+        </section>
+
+        <!-- Section 9: Responsive Breakpoint Strategy -->
+        <section class="doc-section" id="responsive">
+            <div class="section-header">
+                <span class="section-number">9</span>
+                <h2>Responsive Breakpoint Strategy</h2>
+            </div>
+
+            <p>Mobile-first approach with breakpoints that serve actual layout needs, not arbitrary device widths. The ScaleUp audience (50-65 year old business owners) often views on iPad or desktop; mobile must work but isn't the primary viewport.</p>
+
+            <h3>Breakpoint System</h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Breakpoint</th>
+                        <th>Min Width</th>
+                        <th>Use Case</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mobile (Base)</td>
+                        <td>0px</td>
+                        <td>Single column, stacked layouts, hamburger menu</td>
+                    </tr>
+                    <tr>
+                        <td>Tablet</td>
+                        <td>768px</td>
+                        <td>Two-column grids, side-by-side cards, expanded nav</td>
+                    </tr>
+                    <tr>
+                        <td>Desktop</td>
+                        <td>1024px</td>
+                        <td>Three-column grids, full navigation, sidebar layouts</td>
+                    </tr>
+                    <tr>
+                        <td>Wide</td>
+                        <td>1280px</td>
+                        <td>Max-width containers, optimal line lengths</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="code-block">
+                <span class="code-label">Tailwind Config Breakpoints</span>
+                <code>// tailwind.config.js
+module.exports = {
+  theme: {
+    screens: {
+      'sm': '640px',    // Small mobile landscape
+      'md': '768px',    // Tablet portrait
+      'lg': '1024px',   // Desktop / Tablet landscape
+      'xl': '1280px',   // Wide desktop
+      '2xl': '1536px',  // Ultra-wide (rarely needed)
+    },
+  },
+}</code>
+            </div>
+
+            <h3>Layout Behavior by Breakpoint</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Navigation</h4>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                        <li><strong>Mobile:</strong> Sticky, logo + hamburger, slide-out menu</li>
+                        <li><strong>Tablet:</strong> Sticky, logo + condensed links + CTA</li>
+                        <li><strong>Desktop:</strong> Sticky, full nav with hover states</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Hero Section</h4>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                        <li><strong>Mobile:</strong> 60px padding, stacked CTAs, font-size clamp</li>
+                        <li><strong>Tablet:</strong> 80px padding, inline CTAs</li>
+                        <li><strong>Desktop:</strong> 120px padding, max-width 800px content</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Card Grids</h4>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                        <li><strong>Mobile:</strong> Single column, full-width</li>
+                        <li><strong>Tablet:</strong> Two columns, 24px gap</li>
+                        <li><strong>Desktop:</strong> Three columns, 32px gap</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Forms</h4>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                        <li><strong>Mobile:</strong> Single column, full-width inputs</li>
+                        <li><strong>Tablet+:</strong> Two-column grid for short fields</li>
+                        <li><strong>All:</strong> Min 44px touch targets, 16px font-size</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Mobile Requirements</h3>
+            <ul class="feature-list">
+                <li><strong>Touch Targets:</strong> Minimum 44x44px for all tappable elements. Use padding, not just the content size.</li>
+                <li><strong>Font Minimum:</strong> 16px body text to prevent iOS auto-zoom on input focus.</li>
+                <li><strong>CTA Visibility:</strong> Primary CTA must be visible without scrolling on first load (above the fold).</li>
+                <li><strong>No Hover-Only:</strong> Any hover state must have equivalent tap state. Dropdown menus need tap-to-open.</li>
+                <li><strong>Thumb Zones:</strong> Important actions (submit, CTA) should be reachable by thumb in one-handed use (bottom 2/3 of screen).</li>
+            </ul>
+        </section>
+
+        <!-- Section 10: CTA Hierarchy Implementation -->
+        <section class="doc-section" id="cta-hierarchy">
+            <div class="section-header">
+                <span class="section-number">10</span>
+                <h2>CTA Hierarchy Implementation</h2>
+            </div>
+
+            <p>The CTA hierarchy reflects the buyer's journey: from curiosity ("See the Math") to evaluation ("Get Your Estimate") to consideration ("Book a Strategy Call") to commitment ("Start Your Proof Test"). Never reverse this sequence or present high-commitment CTAs too early.</p>
+
+            <h3>CTA Sequence</h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>CTA Text</th>
+                        <th>Commitment Level</th>
+                        <th>Placement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Primary (Lowest)</td>
+                        <td>"See the Math"</td>
+                        <td>Zero commitment - just viewing information</td>
+                        <td>Hero, above-fold sections</td>
+                    </tr>
+                    <tr>
+                        <td>Secondary</td>
+                        <td>"Get Your Estimate"</td>
+                        <td>Low commitment - receiving personalized info</td>
+                        <td>Service pages, after problem/solution</td>
+                    </tr>
+                    <tr>
+                        <td>Tertiary</td>
+                        <td>"Book a Strategy Call"</td>
+                        <td>Medium commitment - time investment</td>
+                        <td>About page, after case studies</td>
+                    </tr>
+                    <tr>
+                        <td>Final</td>
+                        <td>"Start Your Proof Test"</td>
+                        <td>Highest commitment - beginning engagement</td>
+                        <td>End of conversion pages, post-qualification</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Button Visual Hierarchy</h3>
+            <div class="component-preview">
+                <span class="preview-label">Button Variants</span>
+                <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: center;">
+                    <div style="text-align: center;">
+                        <a href="#" class="btn-primary-sample">See the Math</a>
+                        <p style="font-size: 12px; color: #6B7280; margin-top: 12px;">Primary CTA</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <a href="#" class="btn-secondary-sample">Get Your Estimate</a>
+                        <p style="font-size: 12px; color: #6B7280; margin-top: 12px;">Secondary CTA</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <a href="#" class="btn-tertiary-sample">How It Works &rarr;</a>
+                        <p style="font-size: 12px; color: #6B7280; margin-top: 12px;">Tertiary/Link CTA</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Page-Specific CTA Strategy</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Homepage</h4>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                        <li><strong>Hero:</strong> "See the Math" (primary) + "How It Works" (tertiary)</li>
+                        <li><strong>Mid-page:</strong> "Get Your Estimate" after solution section</li>
+                        <li><strong>Final CTA:</strong> "See Your ROI Projection Free"</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Services Pages</h4>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                        <li><strong>Per Service:</strong> "Get Your [Service] Assessment"</li>
+                        <li><strong>Pricing Section:</strong> "See Sample ROI Model"</li>
+                        <li><strong>Bottom CTA:</strong> "Book a Strategy Call"</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>About Page</h4>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                        <li><strong>After Story:</strong> "Schedule a Conversation"</li>
+                        <li><strong>After Work Section:</strong> "See How We Work"</li>
+                        <li><strong>Final CTA:</strong> "Start a Conversation"</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Contact Page</h4>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                        <li><strong>Form Submit:</strong> "Send Message"</li>
+                        <li><strong>No secondary CTAs:</strong> Focus entirely on form completion</li>
+                        <li><strong>Post-submit:</strong> Confirmation with next step expectation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>One Primary CTA Per Viewport</h4>
+                <p>Never show more than one gold primary button in the same viewport. Multiple primary CTAs create decision paralysis and reduce conversion. If you need multiple options, make one primary (gold fill) and others secondary (outline) or tertiary (text link). The eye should always know where to go next.</p>
+            </div>
+        </section>
+
+        <!-- Section 11: Page-Specific Recommendations -->
+        <section class="doc-section" id="pages">
+            <div class="section-header">
+                <span class="section-number">11</span>
+                <h2>Page-Specific Recommendations</h2>
+            </div>
+
+            <h3>Homepage</h3>
+            <div class="card">
+                <h4>Section Flow</h4>
+                <ol style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                    <li><strong>Hero:</strong> Value prop headline + "See the Math" CTA + trust signals</li>
+                    <li><strong>Problem:</strong> "You Have Every Right to Be Skeptical" - validate their past agency burns</li>
+                    <li><strong>Solution:</strong> Two-Track ROI Model explanation with guarantee callouts</li>
+                    <li><strong>Process:</strong> Three-step process (15-min call, 48-hour ROI, decision on your terms)</li>
+                    <li><strong>Industries:</strong> Five industry cards showing vertical expertise</li>
+                    <li><strong>Work:</strong> Featured client stories (No-Build Decision, Product Launches)</li>
+                    <li><strong>Who We Serve:</strong> Three client types (Startups, Businesses Evaluating Tech, Enterprises Modernizing)</li>
+                    <li><strong>Final CTA:</strong> "Your ROI Projection. Free. No Strings."</li>
+                </ol>
+            </div>
+
+            <h3>Services Page</h3>
+            <div class="card">
+                <h4>Structure</h4>
+                <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                    <li><strong>Overview Hero:</strong> "Three Ways to Grow With Certainty" + Two-Track model summary</li>
+                    <li><strong>Sticky Service Nav:</strong> Quick jump links to each service section</li>
+                    <li><strong>Per Service Section:</strong> Number badge + headline + tagline + two-column layout (deliverables left, process + pricing right)</li>
+                    <li><strong>Guarantee Banner:</strong> Service-specific guarantee callout (fee refund for marketing, projections for development)</li>
+                    <li><strong>Service CTA:</strong> Assessment request specific to service type</li>
+                </ul>
+            </div>
+
+            <h3>About Page</h3>
+            <div class="card">
+                <h4>Narrative Arc</h4>
+                <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                    <li><strong>Hero:</strong> "Sometimes the Right Answer Is 'Do Not Build'" - positions honesty as core value</li>
+                    <li><strong>Story:</strong> Why we started - the pattern of burned business owners</li>
+                    <li><strong>Heron Section:</strong> Philosophy with visual symbol + Patience/Precision/Proof principles</li>
+                    <li><strong>Team:</strong> Founders with credential focus (venture exit, Google/Northwestern backing)</li>
+                    <li><strong>Real Work:</strong> Grid of actual engagements with outcome stats</li>
+                    <li><strong>Values:</strong> Four value cards (Honesty Over Revenue, Clarity Over Complexity, etc.)</li>
+                    <li><strong>CTA:</strong> Conversation invitation, not hard sell</li>
+                </ul>
+            </div>
+
+            <h3>Contact Page</h3>
+            <div class="card">
+                <h4>Conversion Focus</h4>
+                <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                    <li><strong>Hero:</strong> Simple "Let's Connect" with team intro (post-exit credentials)</li>
+                    <li><strong>Two-Column Layout:</strong> Form (primary) + sidebar with process explanation and direct contact</li>
+                    <li><strong>Sidebar Cards:</strong> What Happens Next (3 steps), Connect Directly (email/LinkedIn), About Team</li>
+                    <li><strong>FAQ Section:</strong> Answer common pre-contact questions to reduce friction</li>
+                    <li><strong>Trust Signal:</strong> "We respond personally within 24 hours" - sets expectation</li>
+                </ul>
+            </div>
+
+            <h3>FAQ Page</h3>
+            <div class="card">
+                <h4>Organization</h4>
+                <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                    <li><strong>Quick Nav:</strong> Sticky category jumps (About, Approach, Services, Process, Results)</li>
+                    <li><strong>Accordion Pattern:</strong> Single-expand (one open at a time) with smooth animation</li>
+                    <li><strong>Category Headers:</strong> Numbered sections with gold underline</li>
+                    <li><strong>Answer Format:</strong> Direct answer first, then supporting detail, then proof points</li>
+                    <li><strong>Final CTA:</strong> "Still Have Questions?" leads to contact form</li>
+                </ul>
+            </div>
+
+            <h3>Client Logos / Portfolio Page</h3>
+            <div class="card">
+                <h4>Early-Stage Strategy</h4>
+                <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                    <li><strong>Position Honestly:</strong> "Building Our Portfolio" headline acknowledges early-stage</li>
+                    <li><strong>Lead with Impact:</strong> Anonymized outcome stats as primary proof</li>
+                    <li><strong>Featured Stories:</strong> No-Build Decision, Product Launches, AI Agents with specific numbers</li>
+                    <li><strong>Confidentiality as Feature:</strong> "Client work is confidential - your business deserves the same"</li>
+                    <li><strong>Credential Bridge:</strong> "$4M venture-backed exit" + "Google/Northwestern backing" as trust anchor</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 12: What Makes This Distinctive -->
+        <section class="doc-section" id="distinctiveness">
+            <div class="section-header">
+                <span class="section-number">12</span>
+                <h2>What Makes This Distinctive</h2>
+            </div>
+
+            <p>These recommendations are designed to differentiate ScaleUp Ventures from both generic agency sites and AI-generated templates. Here's what sets the approach apart:</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Against Generic Agency Sites</h4>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                        <li>Serif headlines (Crimson Pro) vs. universal sans-serif</li>
+                        <li>Cream backgrounds vs. stark white</li>
+                        <li>Specific CTAs ("See the Math") vs. "Learn More"</li>
+                        <li>Transparent pricing on pages vs. "Contact for Quote"</li>
+                        <li>Guarantee language prominently displayed</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Against AI-Generated Templates</h4>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                        <li>No purple/blue gradients (AI aesthetic signal)</li>
+                        <li>No "Powered by AI" visual language</li>
+                        <li>Restrained animation (not everything fading up)</li>
+                        <li>Heron symbolism unique to brand</li>
+                        <li>Specific proof points (e.g., "$150K saved") vs. generic claims</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Against SaaS Startup Sites</h4>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                        <li>Navy/gold vs. tech-purple/blue palette</li>
+                        <li>Measured voice vs. "disruptive" language</li>
+                        <li>Business outcomes vs. feature lists</li>
+                        <li>Trust-building vs. urgency tactics</li>
+                        <li>No countdown timers or "limited availability"</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Against Consulting Firm Sites</h4>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: #6B7280;">
+                        <li>Warmth (cream, gold) vs. corporate blue</li>
+                        <li>Direct language vs. corporate jargon</li>
+                        <li>Specific pricing vs. opaque engagements</li>
+                        <li>Featured honesty ("No-Build Decision") vs. only successes</li>
+                        <li>Founder-forward vs. institutional anonymity</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>The Core Differentiation</h4>
+                <p>ScaleUp Ventures' website should feel like talking to a trusted advisor who happens to have a website, not a marketing funnel designed to capture leads. The Patient Observer voice means confidence without pushiness, expertise without condescension, and honesty even when it costs business. Every design decision should ask: "Does this build trust with a burned 55-year-old business owner?" If the answer is no, reconsider.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="doc-footer">
+        <a href="master-index.html">Back to Content Index</a>
+        <p>ScaleUp Ventures | Certainty First.</p>
+        <p style="color: #6B7280; font-size: 12px; margin-top: 16px;">Frontend Implementation Recommendations v1.0 | January 2026</p>
+    </footer>
+
+</body>
+</html>

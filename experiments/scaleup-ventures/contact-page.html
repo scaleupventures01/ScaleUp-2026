@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleUp Ventures - Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-water: #0A0F1C;
+            --surface: #111827;
+            --gold: #C9A227;
+            --certainty-blue: #2563EB;
+            --proof-green: #10B981;
+            --warning: #F59E0B;
+            --text: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border: #1F2937;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--deep-water);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Geometric Grid Background (CSS-only) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 21px), repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 21px);
+            z-index: -1;
+        }
+
+        /* Dual Cursor */
+        .cursor-dot, .cursor-ring {
+            position: fixed;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 10000;
+            pointer-events: none;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--gold);
+        }
+
+        .cursor-ring {
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--gold);
+            transition: width 0.2s ease, height 0.2s ease, border-width 0.2s ease;
+        }
+
+        /* Hover Effect for Cursor */
+        a:hover ~ .cursor-ring,
+        button:hover ~ .cursor-ring,
+        input[type="submit"]:hover ~ .cursor-ring{
+            width: 40px;
+            height: 40px;
+            border-width: 3px;
+        }
+
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(17, 24, 39, 0.8); /* Use surface color with opacity */
+            backdrop-filter: blur(10px); /* Glassmorphism effect */
+            padding: 1rem 2rem;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Magnetic Buttons */
+        .magnetic-button {
+            position: relative;
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--certainty-blue);
+            color: var(--text);
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .magnetic-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            padding: 4rem 2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            background-color: var(--surface);
+            color: var(--text);
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--gold);
+        }
+
+        label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: var(--text-muted);
+            pointer-events: none;
+            transition: all 0.2s ease;
+        }
+
+        .form-control:focus + label,
+        .form-control:not(:placeholder-shown) + label {
+            top: 0.25rem;
+            left: 0.75rem;
+            font-size: 0.75rem;
+            background-color: var(--surface);
+            padding: 0 0.25rem;
+            color: var(--gold);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        select.form-control {
+            appearance: none; /* Remove default arrow */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem top 50%;
+            background-size: 1rem 1rem;
+        }
+
+        .submit-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--proof-green);
+            color: var(--text);
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .submit-button:hover {
+            background-color: var(--gold);
+        }
+
+        .success-message {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--proof-green);
+            display: none; /* Hidden by default */
+        }
+        .success-message.active{
+            display: block;
+        }
+
+        /* Calendar Widget Placeholder */
+        .calendar-placeholder {
+            padding: 4rem 2rem;
+            text-align: center;
+            border: 1px dashed var(--border);
+            border-radius: 0.375rem;
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+
+        .calendar-placeholder h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-placeholder p {
+            color: var(--text-muted);
+        }
+
+        /* Trust Indicators */
+        .trust-indicators {
+            display: flex;
+            justify-content: space-around;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trust-indicator {
+            text-align: center;
+            color: var(--text-muted);
+            opacity: 0; /* Initially hidden */
+            transform: translateY(20px); /* Start from below */
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .trust-indicator.animate{
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .trust-indicator i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* FAQ Preview */
+        .faq-preview {
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-preview h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .accordion {
+            margin-bottom: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.375rem;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            padding: 1rem;
+            background-color: var(--surface);
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: var(--border);
+        }
+
+        .accordion-content {
+            padding: 1rem;
+            display: none;
+            color: var(--text-muted);
+        }
+        .accordion.active .accordion-content{
+            display: block;
+        }
+        .accordion.active .accordion-header{
+            background-color: var(--border);
+        }
+
+        .faq-preview a {
+            display: block;
+            text-align: center;
+            color: var(--certainty-blue);
+            text-decoration: none;
+            margin-top: 2rem;
+        }
+
+        /* Direct Contact Options */
+        .direct-contact {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info a:hover {
+            color: var(--gold);
+        }
+
+        .copy-icon {
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+        }
+
+        .copy-icon:hover {
+            color: var(--gold);
+        }
+
+        .copied-tooltip {
+            position: absolute;
+            background-color: var(--surface);
+            color: var(--text);
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            top: -3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            display: none;
+        }
+
+        /* Alternative Contact Methods */
+        .alternative-contact {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .alternative-contact h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .alternative-contact a {
+            display: block;
+            margin-bottom: 0.75rem;
+            color: var(--certainty-blue);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .alternative-contact a:hover {
+            color: var(--gold);
+        }
+        /* Heron Silhouette */
+        .heron {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 200px;
+            height: auto;
+            z-index: 10;
+        }
+
+        .heron img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+            transform-origin: bottom right;
+        }
+
+        /* Active state */
+        .form-group input:focus + label,
+        .form-group input:valid + label,
+        .form-group textarea:focus + label,
+        .form-group textarea:valid + label,
+        .form-group select:focus + label,
+        .form-group select:valid + label{
+            top: 0.25rem;
+            left: 0.75rem;
+            font-size: 0.75rem;
+            background-color: var(--surface);
+            padding: 0 0.25rem;
+            color: var(--gold);
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+    <!-- Dual Cursors -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div>
+            <a href="#">ScaleUp Ventures</a>
+        </div>
+        <div>
+            <a href="#">Services</a>
+            <a href="#">Case Studies</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Let's Talk Certainty</h1>
+        <p>No pressure. No pitch. Just a conversation about what's possible.</p>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form">
+        <form id="contactForm">
+            <div class="form-group">
+                <input type="text" id="fullName" name="fullName" class="form-control" placeholder=" " required>
+                <label for="fullName">Full Name</label>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" name="email" class="form-control" placeholder=" " required>
+                <label for="email">Email</label>
+            </div>
+            <div class="form-group">
+                <input type="text" id="companyName" name="companyName" class="form-control" placeholder=" ">
+                <label for="companyName">Company Name</label>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" placeholder=" ">
+                <label for="phoneNumber">Phone Number</label>
+            </div>
+            <div class="form-group">
+                <select id="monthlyBudget" name="monthlyBudget" class="form-control" >
+                    <option value="" disabled selected hidden></option>
+                    <option value="<$5K">&lt;$5K</option>
+                    <option value="$5K-$15K">$5K-$15K</option>
+                    <option value="$15K-$50K">$15K-$50K</option>
+                    <option value="$50K+">$50K+</option>
+                </select>
+                <label for="monthlyBudget">Monthly Marketing Budget</label>
+            </div>
+            <div class="form-group">
+                <textarea id="currentChallenge" name="currentChallenge" class="form-control" placeholder="What's your biggest lead generation challenge right now?"></textarea>
+                <label for="currentChallenge">Current Challenge</label>
+            </div>
+            <div class="form-group">
+                <select id="howDidYouHear" name="howDidYouHear" class="form-control">
+                    <option value="" disabled selected hidden></option>
+                    <option value="Google">Google</option>
+                    <option value="LinkedIn">LinkedIn</option>
+                    <option value="Referral">Referral</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label for="howDidYouHear">How Did You Hear About Us</label>
+            </div>
+            <button type="submit" class="submit-button magnetic-button">Submit</button>
+        </form>
+        <div class="success-message" id="successMessage">
+            <i class="fa fa-check-circle fa-3x"></i>
+            <p>Thank you! We'll be in touch soon.</p>
+        </div>
+    </section>
+
+    <!-- Calendar Widget Placeholder -->
+    <section class="calendar-placeholder">
+        <h2>Schedule a 15-Minute Discovery Call</h2>
+        <p>Calendly integration - Pick a time that works for you</p>
+        <div>
+            <!-- Mock Time Slots -->
+            <p>Available times:</p>
+            <p>Monday: 10:00 AM, 2:00 PM</p>
+            <p>Tuesday: 11:00 AM, 3:00 PM</p>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust-indicators">
+        <div class="trust-indicator">
+            <i class="fa fa-clock"></i>
+            <p>We respond within 2 hours</p>
+        </div>
+        <div class="trust-indicator">
+            <i class="fa fa-handshake"></i>
+            <p>No commitment required</p>
+        </div>
+        <div class="trust-indicator">
+            <i class="fa fa-lock"></i>
+            <p>Your information stays private</p>
+        </div>
+    </section>
+
+    <!-- FAQ Preview -->
+    <section class="faq-preview">
+        <h2>Questions We Hear Most</h2>
+        <div class="accordion">
+            <div class="accordion-header">
+                What if I've been burned by agencies before?
+                <i class="fa fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+                We understand your hesitation. Our "Certainty First" guarantee ensures you only pay for results. We work transparently, providing clear data and consistent communication, so you're never in the dark.
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion-header">
+                How does the guarantee actually work?
+                <i class="fa fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+                If we don't deliver the agreed-upon number of qualified leads within the specified timeframe, you get a full refund. No questions asked. We're that confident in our ability to generate results.
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion-header">
+                How quickly can I see results?
+                <i class="fa fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+                While timelines vary based on your industry and target market, most of our clients start seeing qualified leads within the first 30-60 days. We prioritize speed and efficiency without compromising quality.
+            </div>
+        </div>
+        <a href="#">More Questions?</a>
+    </section>
+
+    <!-- Direct Contact Options -->
+    <section class="direct-contact">
+        <h2>Contact Us Directly</h2>
+        <div class="contact-info">
+            <a href="mailto:hello@scaleupventures.com">
+                hello@scaleupventures.com
+                <i class="fa fa-clipboard copy-icon" data-copy="hello@scaleupventures.com"></i>
+                <span class="copied-tooltip">Copied!</span>
+            </a>
+        </div>
+        <div class="contact-info">
+            <a href="tel:5551234567">
+                (555) 123-4567
+                <i class="fa fa-clipboard copy-icon" data-copy="(555) 123-4567"></i>
+                <span class="copied-tooltip">Copied!</span>
+            </a>
+        </div>
+        <!-- Placeholder Address -->
+        <!-- <div class="contact-info">
+             123 Main Street, Anytown, CA 12345
+        </div> -->
+    </section>
+
+    <!-- Alternative Contact Methods -->
+    <section class="alternative-contact">
+        <h2>Not ready for a call?</h2>
+        <a href="#">Download our capabilities deck</a>
+        <a href="#">See case studies first</a>
+        <a href="#">Subscribe to insights (email capture)</a>
+    </section>
+
+    <!-- Heron Silhouette -->
+    <div class="heron">
+        <img id="heronImage" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 512'%3E%3Cpath fill='%23C9A227' d='M224 480c-8.188 0-16.38-3.125-22.62-9.375l-96-96c-12.5-12.5-12.5-32.75 0-45.25l128-128c12.5-12.5 32.75-12.5 45.25 0l96 96c12.5 12.5 12.5 32.75 0 45.25l-128 128C240.4 476.9 232.2 480 224 480zM32 448c-17.67 0-32-14.33-32-32V96c0-17.67 14.33-32 32-32s32 14.33 32 32V416C64 433.7 49.67 448 32 448z'%3E%3C/path%3E%3C/svg%3E" alt="Heron">
+    </div>
+
+    <script>
+        // Dual Cursor
+        const cursorDot = document.querySelector(".cursor-dot");
+        const cursorRing = document.querySelector(".cursor-ring");
+
+        document.addEventListener("mousemove", (e) => {
+            cursorDot.style.left = e.pageX + "px";
+            cursorDot.style.top = e.pageY + "px";
+
+            cursorRing.style.left = e.pageX + "px";
+            cursorRing.style.top = e.pageY + "px";
+        });
+
+
+        // Form Validation and Submission
+        const contactForm = document.getElementById("contactForm");
+        const successMessage = document.getElementById("successMessage");
+
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Basic client-side validation (expand as needed)
+            const fullName = document.getElementById("fullName").value;
+            const email = document.getElementById("email").value;
+
+            if (!fullName || !email) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+
+            // Simulate successful submission
+            setTimeout(() => {
+                contactForm.reset();
+                successMessage.classList.add("active");
+
+                // Hide success message after a delay
+                setTimeout(() => {
+                    successMessage.classList.remove("active");
+                }, 3000);
+            }, 500); // Simulate processing time
+        });
+
+        // Trust Indicators Animation
+        const trustIndicators = document.querySelectorAll(".trust-indicator");
+
+        function animateTrustIndicators() {
+            trustIndicators.forEach((indicator, index) => {
+                setTimeout(() => {
+                    indicator.classList.add("animate");
+                }, index * 200); // Stagger the animations
+            });
+        }
+
+        // Trigger animation on page load (you can adjust the trigger)
+        window.addEventListener("load", animateTrustIndicators);
+
+
+        // FAQ Accordion
+        const accordions = document.querySelectorAll(".accordion");
+
+        accordions.forEach(accordion => {
+            const header = accordion.querySelector(".accordion-header");
+
+            header.addEventListener("click", () => {
+                // Close other accordions
+                accordions.forEach(otherAccordion => {
+                    if (otherAccordion !== accordion && otherAccordion.classList.contains("active")) {
+                        otherAccordion.classList.remove("active");
+                    }
+                });
+
+                accordion.classList.toggle("active");
+            });
+        });
+
+        // Copy to Clipboard Functionality
+        const copyIcons = document.querySelectorAll(".copy-icon");
+
+        copyIcons.forEach(icon => {
+            icon.addEventListener("click", (e) => {
+                const textToCopy = icon.getAttribute("data-copy");
+                navigator.clipboard.writeText(textToCopy)
+                    .then(() => {
+                        // Show tooltip
+                        const tooltip = icon.nextElementSibling;
+                        tooltip.style.display = "block";
+
+                        // Hide tooltip after a delay
+                        setTimeout(() => {
+                            tooltip.style.display = "none";
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error("Could not copy text: ", err);
+                        alert("Failed to copy text. Please try again.");
+                    });
+            });
+        });
+
+        // Heron Eye Tracking
+        const heronImage = document.getElementById('heronImage');
+
+        document.addEventListener('mousemove', (e) => {
+            const rect = heronImage.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            const angle = Math.atan2(y, x); // Angle in radians
+            const degrees = angle * 180 / Math.PI;
+
+            heronImage.style.transform = `rotate(${degrees}deg)`;
+
+        });
+
+        //Form Label behavior
+
+        const formGroups = document.querySelectorAll('.form-group');
+
+        formGroups.forEach(formGroup => {
+            const input = formGroup.querySelector('.form-control');
+            const label = formGroup.querySelector('label');
+
+            input.addEventListener('focus', () => {
+                label.classList.add('active');
+            });
+
+            input.addEventListener('blur', () => {
+                if (input.value === '') {
+                    label.classList.remove('active');
+                }
+            });
+        });
+
+
+    </script>
+
+    </body>
+</html>
